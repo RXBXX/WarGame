@@ -5,16 +5,30 @@ namespace WarGame
 {
     public class Entrance:MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private void Awake()
         {
-            UIManager.Instance.OpenPanel("Main", "MainPanel");
+            DontDestroyOnLoad(this);
+            Game.Instance.Init();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
         {
+            Game.Instance.Start();
+        }
 
+        private void Update()
+        {
+            Game.Instance.Update();
+        }
+
+        private void LateUpdate()
+        {
+            Game.Instance.LateUpdate();
+        }
+
+        private void OnDestroy()
+        {
+            Game.Instance.Dispose();
         }
     }
 }

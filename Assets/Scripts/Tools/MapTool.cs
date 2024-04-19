@@ -2,11 +2,15 @@ using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
+using UnityEditor;
 
 namespace WarGame
 {
     public class MapTool : Singeton<MapTool>
     {
+        //地图编辑场景路径
+        private const string MapPath = "Assets/Scenes/MapEditorScene.unity";
+
         //六边形内径
         private float _insideDiameter = 1.0f;
 
@@ -17,15 +21,15 @@ namespace WarGame
         private const float _height = 0.23F;
 
 
-        public float InsideDiameter
-        {
-            get { return _insideDiameter; }
-        }
+        //public float _insideDiameter
+        //{
+        //    get { return _insideDiameter; }
+        //}
 
-        public float Radian
-        {
-            get { return _radian; }
-        }
+        //public float _radian
+        //{
+        //    get { return _radian; }
+        //}
 
         /// <summary>
         /// 从世界坐标转换成地图格子坐标
@@ -34,17 +38,17 @@ namespace WarGame
         {
             var hexMapX = 0.0f;
             var hexMapZ = 0.0f;
-            if (pos.x - pos.z * Mathf.Tan(Radian) < 0)
-                hexMapX = (int)((pos.x - pos.z * Mathf.Tan(Radian) - InsideDiameter / 2.0f) / InsideDiameter);
+            if (pos.x - pos.z * Mathf.Tan(_radian) < 0)
+                hexMapX = (int)((pos.x - pos.z * Mathf.Tan(_radian) - _insideDiameter / 2.0f) / _insideDiameter);
             else
-                hexMapX = (int)((pos.x - pos.z * Mathf.Tan(Radian) + InsideDiameter / 2.0f) / InsideDiameter);
+                hexMapX = (int)((pos.x - pos.z * Mathf.Tan(_radian) + _insideDiameter / 2.0f) / _insideDiameter);
 
-            if (pos.z / Mathf.Cos(Radian) < 0)
-                hexMapZ = (int)((pos.z / Mathf.Cos(Radian) - InsideDiameter / 2.0f) / InsideDiameter);
+            if (pos.z / Mathf.Cos(_radian) < 0)
+                hexMapZ = (int)((pos.z / Mathf.Cos(_radian) - _insideDiameter / 2.0f) / _insideDiameter);
             else
-                hexMapZ = (int)((pos.z / Mathf.Cos(Radian) + InsideDiameter / 2.0f) / InsideDiameter);
+                hexMapZ = (int)((pos.z / Mathf.Cos(_radian) + _insideDiameter / 2.0f) / _insideDiameter);
 
-            var hexMapY = (int)(pos.y / _height);
+            var hexMapY = (int)((pos.y + 0.01F) / _height);
 
             return new Vector3(hexMapX, hexMapY, hexMapZ);
         }
@@ -56,38 +60,34 @@ namespace WarGame
         /// <returns></returns>
         public Vector3 FromCellPosToWorldPos(Vector3 pos)
         {
-            var hexPosZ = pos.z * InsideDiameter * Mathf.Cos(Radian);
-            var hexPosX = pos.x * InsideDiameter + hexPosZ * Mathf.Tan(Radian);
+            var hexPosZ = pos.z * _insideDiameter * Mathf.Cos(_radian);
+            var hexPosX = pos.x * _insideDiameter + hexPosZ * Mathf.Tan(_radian);
             var hexPosY = pos.y * _height;
 
             return new Vector3(hexPosX, hexPosY, hexPosZ);
         }
 
-        public void CreateMap(string dir, GameObject root)
+
+        /// <summary>
+        /// 创建地图
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="root"></param>
+        public Dictionary<string, HexagonCell> CreateMap(string dir, GameObject root)
         {
             var jsonStr = File.ReadAllText(dir);
-
-            HexagonCell[] hexagons = WarGame.Tool.Instance.FromJson<HexagonCell[]>(jsonStr);
-            Dictionary<Enum.HexagonType, GameObject> prefabDic = new Dictionary<Enum.HexagonType, GameObject>();
-
+            HexagonCell[] hexagons = Tool.Instance.FromJson<HexagonCell[]>(jsonStr);
+            Dictionary<string, HexagonCell> hexagonDic = new Dictionary<string, HexagonCell>();
             for (int i = 0; i < hexagons.Length; i++)
             {
                 var hexagon = hexagons[i];
-                string assetPath = "";
-                GameObject prefab = null;
-                if (!prefabDic.TryGetValue(hexagon.config.type, out prefab))
-                {
-                    assetPath = MapTool.Instance.GetHexagonPrefab(hexagon.config.type);
-                    prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-                    prefabDic[hexagon.config.type] = prefab;
-                }
-
-                var obj = GameObject.Instantiate(prefab);
-                obj.transform.position = MapTool.Instance.FromCellPosToWorldPos(hexagon.position);
+                var obj = hexagon.CreateGameObject();
                 obj.transform.SetParent(root.transform);
-            }
-        }
 
+                hexagonDic[GetHexagonKey(hexagon.position)] = hexagon;
+            }
+            return hexagonDic;
+        }
 
         /// <summary>
         /// 是否开启地图编辑模式
@@ -121,6 +121,146 @@ namespace WarGame
                     break;
             }
             return assetPath;
+        }
+
+        /// <summary>
+        /// 打开地图编辑专用的场景
+        /// </summary>
+        public void OpenEditorMapScene()
+        {
+            if (Application.isPlaying)
+                return;
+
+            EditorSceneManager.OpenScene(MapPath);
+        }
+
+        /// <summary>
+        /// 导出地图的接口
+        /// </summary>
+        public void SaveEditorMap()
+        {
+            if (!IsActiveMapEditor())
+                return;
+
+            var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
+
+            var rootObj = GameObject.Find("Root");
+            var hexagonCount = rootObj.transform.childCount;
+            HexagonCell[] hexagons = new HexagonCell[hexagonCount];
+
+            for (int i = 0; i < hexagonCount; i++)
+            {
+                var hexagonTra = rootObj.transform.GetChild(i);
+                var data = hexagonTra.GetComponent<HexagonCellData>();
+                var hexagonCell = new HexagonCell(i, data.config);
+                hexagonCell.position = MapTool.Instance.FromWorldPosToCellPos(hexagonTra.position);
+                hexagons[i] = hexagonCell;
+            }
+
+            var jsonStr = WarGame.Tool.Instance.ToJson(hexagons);
+            try { File.WriteAllText(dir, jsonStr); }
+            catch (IOException exception)
+            {
+                Debug.Log(exception);
+            };
+        }
+
+        /// <summary>
+        /// 打开地图的接口
+        /// </summary>
+        public void OpenEditorMap()
+        {
+            if (!IsActiveMapEditor())
+                return;
+
+            ClearEditorMapScene();
+
+            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
+            var jsonStr = File.ReadAllText(dir);
+
+            var rootObj = GameObject.Find("Root");
+            HexagonCell[] hexagons = WarGame.Tool.Instance.FromJson<HexagonCell[]>(jsonStr);
+
+            for (int i = 0; i < hexagons.Length; i++)
+            {
+                var hexagon = hexagons[i];
+                var obj = hexagon.CreateGameObject();
+                obj.transform.SetParent(rootObj.transform);
+            }
+        }
+
+        /// <summary>
+        /// 快速生成地图
+        /// </summary>
+        public void QuickGenerageEditorMap(int xNum, int yNum, int zNum, Dictionary<Enum.HexagonType, int> weightList)
+        {
+            if (!IsActiveMapEditor())
+                return;
+
+            ClearEditorMapScene();
+
+            var rootObj = GameObject.Find("Root");
+
+            Dictionary<int, Enum.HexagonType> castDic = new Dictionary<int, Enum.HexagonType>();
+            int weightBase = 0;
+            foreach (var pair in weightList)
+            {
+                weightBase += pair.Value;
+                castDic[weightBase] = pair.Key;
+            }
+
+            for (int i = 0; i < xNum; i++)
+            {
+                for (int j = 0; j < zNum; j++)
+                {
+                    for (int q = 0; q < yNum; q++)
+                    {
+                        var rd = Random.Range(0, weightBase);
+                        var minKey = weightBase;
+                        Enum.HexagonType type = Enum.HexagonType.BeachShore;
+                        foreach (var pair in castDic)
+                        {
+                            if (rd < pair.Key && pair.Key < minKey)
+                            {
+                                minKey = pair.Key;
+                                type = pair.Value;
+                            }
+                        }
+
+                        string assetPath = MapTool.Instance.GetHexagonPrefab(type);
+                        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+                        var obj = GameObject.Instantiate(prefab);
+                        obj.transform.position = MapTool.Instance.FromCellPosToWorldPos(new Vector3(i, q, j));
+                        obj.transform.SetParent(rootObj.transform);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 清空场景
+        /// </summary>
+        public void ClearEditorMapScene()
+        {
+            if (!IsActiveMapEditor())
+                return;
+
+            var rootObj = GameObject.Find("Root");
+            var hexagonCount = rootObj.transform.childCount;
+
+            for (int i = hexagonCount - 1; i >= 0; i--)
+            {
+                GameObject.DestroyImmediate(rootObj.transform.GetChild(i).gameObject);
+            }
+        }
+
+        /// <summary>
+        /// 获取地块在构建的地图数据中的key
+        /// </summary>
+        /// <returns></returns>
+        public string GetHexagonKey(Vector3 pos)
+        {
+            return pos.x + "_" + pos.y + "_" + pos.z;
         }
     }
 }

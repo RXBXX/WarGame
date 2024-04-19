@@ -7,4 +7,6 @@ using System;
 public struct HexagonCellConfig
 {
     public Enum.HexagonType type;
+
+    public bool isReachable;
 }

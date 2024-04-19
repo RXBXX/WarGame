@@ -23,6 +23,7 @@ public class Enum
     {
         PanelLayer = 0,
         PopLayer = 1,
-        AlertLayer = 2
+        AlertLayer = 2,
+        HUDLayer = 3,
     }
 }

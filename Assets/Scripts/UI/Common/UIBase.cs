@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FairyGUI;
 using System;
+using UnityEngine;
 
 namespace WarGame.UI
 {
@@ -11,6 +12,9 @@ namespace WarGame.UI
         protected GComponent _gCom;
         private Dictionary<int, UIBase> childDic = new Dictionary<int, UIBase>();
 
+        public GComponent GCom {
+            get { return _gCom; }
+        }
         public UIBase(GComponent gCom, string name)
         {
             this._gCom = gCom;
@@ -22,7 +26,7 @@ namespace WarGame.UI
                 var childGCom = gCom.GetChildAt(i);
                 if (null == childGCom.packageItem)
                     continue;
-                var type = Type.GetType(childGCom.name);
+                var type = Type.GetType(childGCom.name);  //需要验证这是组件packageItem的名称还是当前名称
                 if (null == type)
                     continue;
                 UIBase child = (UIBase)Activator.CreateInstance(type, new[] { childGCom, (object)childGCom.name });
@@ -35,7 +39,7 @@ namespace WarGame.UI
             parent.container.AddChild(_gCom.displayObject);
         }
 
-        public void RomoveParent()
+        public void RemoveParent()
         {
             _gCom.displayObject.RemoveFromParent();
         }
@@ -45,13 +49,23 @@ namespace WarGame.UI
             _gCom.visible = visible;
         }
 
-        public void Dispose()
+
+        public void SetPosition(Vector2 pos)
         {
+            _gCom.position = pos;
+        }
+
+        public virtual void Dispose(bool isPanel = false)
+        {
+            Debug.Log("UIBase.Dispose");
             foreach (var pair in childDic)
             {
                 childDic[pair.Key].Dispose();
             }
             childDic.Clear();
+
+            if (isPanel)
+                _gCom.Dispose();
 
             _gCom = null;
             name = null;

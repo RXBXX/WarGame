@@ -52,8 +52,7 @@ namespace WarGame.UI
         {
             SceneManager.sceneLoaded -= SceneLoaded;
 
-            Debug.Log(GameObject.Find("Root").name);
-            MapTool.Instance.CreateMap(mapDir, GameObject.Find("Root"));
+            MapManager.Instance.CreateMap(mapDir);
         }
     }
 }

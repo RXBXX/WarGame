@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="200,50" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <graph id="n0_nr69" name="n0" xy="0,0" size="200,50" touchable="false" type="rect" lineSize="0" fillColor="#ff333333">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n3_nr69" name="n3" xy="100,25" pivot="0.5,0.5" anchor="true" size="68,44" fontSize="32" color="#cccccc" text="寻路"/>
+  </displayList>
+  <Button/>
+</component>

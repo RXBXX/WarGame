@@ -16,4 +16,14 @@ public class Singeton<T> where T : new()
             return _instance;
         }
     }
+
+    public virtual bool Init()
+    {
+        return true;
+    }
+
+    public virtual bool Dispose()
+    {
+        return true;
+    }
 }
