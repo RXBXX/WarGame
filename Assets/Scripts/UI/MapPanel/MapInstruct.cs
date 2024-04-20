@@ -3,37 +3,32 @@ using UnityEngine;
 
 namespace WarGame.UI
 {
-    public class MapInstruct : UIBase
+    public class MapInstruct : HUD
     {
-        private EventCallback0 _navationDele, _closeDele;
-
         public MapInstruct(GComponent gCom, string name) : base(gCom, name)
         {
             Debug.Log("Contruct MapInstance");
-            _gCom.GetChild("navigationBtn").onClick.Add(Execute);
+            _gCom.GetChild("moveBtn").onClick.Add(Move);
+            _gCom.GetChild("cancelBtn").onClick.Add(Cancel);
         }
 
-        public void SetDelegate(EventCallback0 func, EventCallback0 closeFunc)
-        {
-            this._navationDele = func;
-            this._closeDele = closeFunc;
-        }
 
-        public void Execute()
+        public void Move()
         {
             Debug.Log("Instruct:Execute");
-            this._navationDele();
+            EventDispatcher.Instance.Dispatch("MapInstruct_Move_Event");
+        }
+
+        public void Cancel()
+        {
+            Debug.Log("Instruct:Execute");
+            EventDispatcher.Instance.Dispatch("MapInstruct_Cancel_Event");
         }
 
         public override void Dispose(bool isPanel = false)
         {
             Debug.Log("MapInstruct.Dispose");
             base.Dispose();
-
-            if (null != _closeDele)
-            {
-                _closeDele();
-            }
         }
     }
 }

@@ -13,6 +13,72 @@ namespace WarGame.UI
         private Dictionary<Enum.UILayer, GComponent> _uiLayerDic = new Dictionary<Enum.UILayer, GComponent>();
         private Dictionary<Enum.UILayer, List<UIBase>> _panelDic = new Dictionary<Enum.UILayer, List<UIBase>>();
 
+        public override bool Init()
+        {
+            base.Init();
+
+            var layerList = new List<Enum.UILayer>();
+            foreach (var v in typeof(Enum.UILayer).GetEnumValues())
+            {
+                layerList.Add((Enum.UILayer)v);
+            }
+
+            //选择排序把ui层级顺序排好
+            int minIndex;
+            Enum.UILayer temp;
+            for (int i = 0; i < layerList.Count; i++)
+            {
+                minIndex = i;
+                for (int j = i + 1; j < layerList.Count; j++)
+                {
+                    if (layerList[j] < layerList[minIndex])
+                        minIndex = j;
+                }
+                if (minIndex != i)
+                {
+                    temp = layerList[minIndex];
+                    layerList[minIndex] = layerList[i];
+                    layerList[i] = temp;
+                }
+            }
+
+            for (int i = 0; i < layerList.Count; i++)
+            {
+                GComponent layerGCom = new GComponent();
+                layerGCom.displayObject.gameObject.name = layerList[i].ToString();
+                GRoot._inst.container.AddChild(layerGCom.displayObject);
+                _uiLayerDic[layerList[i]] = layerGCom;
+
+                //初始化指定层的层级管理
+                _panelDic[layerList[i]] = new List<UIBase>();
+            }
+
+            return true;
+        }
+
+        public override bool Dispose()
+        {
+            base.Dispose();
+
+            foreach (var pair in _uiLayerDic)
+            {
+                pair.Value.Dispose();
+            }
+            _uiLayerDic.Clear();
+
+            foreach (var pair in _panelDic)
+            {
+                foreach (var pair1 in pair.Value)
+                {
+                    pair1.Dispose();
+                }
+                pair.Value.Clear();
+            }
+            _panelDic.Clear();
+
+            return true;
+    }
+
         /// <summary>
         /// 获取ui层根节点
         /// </summary>
@@ -20,19 +86,44 @@ namespace WarGame.UI
         /// <returns></returns>
         private GComponent GetUILayer(Enum.UILayer layerIndex)
         {
-            GComponent layer = null;
-            if (!_uiLayerDic.TryGetValue(layerIndex, out layer))
-            {
-                layer = new GComponent();
-                layer.displayObject.gameObject.name = layerIndex.ToString();
-                GRoot._inst.container.AddChild(layer.displayObject);
-                _uiLayerDic[layerIndex] = layer;
+            return _uiLayerDic[layerIndex];
+        }
 
-                //初始化指定层的层级管理
-                _panelDic[layerIndex] = new List<UIBase>();
+        public UIBase CreateUI(string packageName, string compName)
+        {
+            UIPackage.AddPackage("UI/" + packageName);
+
+            Type classType = Type.GetType("WarGame.UI." + compName);
+            if (null == classType)
+            {
+                UnityEngine.Debug.LogError("没有找到脚本：" + classType);
+                return null;
             }
 
-            return layer;
+            var comp = (GComponent)UIPackage.CreateObject(packageName, compName);
+            if (null == comp)
+            {
+                UnityEngine.Debug.LogError("创建失败：" + classType);
+                return null;
+            }
+
+            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName });
+
+            var layer = GetUILayer(ui.UILayer);
+            if (null == comp)
+            {
+                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+                return null;
+            }
+
+            ui.SetParent(layer);
+            return ui;
+        }
+
+        public void DestroyUI(UIBase ui, bool isPanel)
+        {
+            ui.RemoveParent();
+            ui.Dispose(isPanel);
         }
 
         /// <summary>
@@ -43,46 +134,33 @@ namespace WarGame.UI
         /// <param name=指定层级></param>
         public UIBase OpenPanel(string packageName, string panelName)
         {
-            UIPackage.AddPackage("UI/" + packageName);
+            //UIPackage.AddPackage("UI/" + packageName);
 
-            Type classType = Type.GetType("WarGame.UI." + panelName);
-            if (null == classType)
-            {
-                UnityEngine.Debug.LogError("没有找到脚本：" + classType);
-                return null;
-            }
-
-            var ui = (GComponent)UIPackage.CreateObject(packageName, panelName);
-            if (null == ui)
-            {
-                UnityEngine.Debug.LogError("创建失败：" + classType);
-                return null;
-            }
-
-            var panel = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)panelName });
-
-            var layer = GetUILayer(panel.UILayer);
-            if (null == ui)
-            {
-                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
-                return null;
-            }
-
-            //ui.position = position;
-            //if (scale.x != 0 && scale.y != 0)
-            //    ui.scale = scale;
-            //ui.rotationX = rotation.x;
-            //ui.rotationY = rotation.y;
-            //ui.rotation = rotation.z;
-
-            //if (this.container.hitArea != null)
+            //Type classType = Type.GetType("WarGame.UI." + panelName);
+            //if (null == classType)
             //{
-            //    UpdateHitArea();
-            //    ui.onSizeChanged.Add(UpdateHitArea);
-            //    ui.onPositionChanged.Add(UpdateHitArea);
+            //    UnityEngine.Debug.LogError("没有找到脚本：" + classType);
+            //    return null;
             //}
-            panel.SetParent(layer);
-            //layer.container.AddChild(ui.displayObject);
+
+            //var ui = (GComponent)UIPackage.CreateObject(packageName, panelName);
+            //if (null == ui)
+            //{
+            //    UnityEngine.Debug.LogError("创建失败：" + classType);
+            //    return null;
+            //}
+
+            //var panel = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)panelName });
+
+            //var layer = GetUILayer(panel.UILayer);
+            //if (null == ui)
+            //{
+            //    UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+            //    return null;
+            //}
+
+            //panel.SetParent(layer);
+            var panel = CreateUI(packageName, panelName);
 
             if (panel.UILayer == Enum.UILayer.PanelLayer)
             {
@@ -115,63 +193,62 @@ namespace WarGame.UI
                 return;
 
             _panelDic[panel.UILayer].Remove(panel);
-            panel.RemoveParent();
-            panel.Dispose(true);
 
-            //UIPackage.
+            //如果是PanelLayer需要回复上次入栈的界面
+            if (panel.UILayer == Enum.UILayer.PanelLayer)
+            {
+                var lastIndex = _panelDic[panel.UILayer].Count - 1;
+                if (lastIndex >= 0)
+                    _panelDic[panel.UILayer][lastIndex].SetVisible(true);
+            }
+
+            //panel.RemoveParent();
+            //panel.Dispose(true);
+            DestroyUI(panel, true);
         }
 
         //打开UI组件
-        public UIBase OpenComponent(string packageName, string compName, string customName, Enum.UILayer layerIndex = Enum.UILayer.HUDLayer)
+        public UIBase OpenComponent(string packageName, string compName, string customName, bool touchEmptyClose = false, Enum.UILayer layerIndex = Enum.UILayer.HUDLayer)
         {
-            UIPackage.AddPackage("UI/" + packageName); //卸载逻辑还没写
+            //UIPackage.AddPackage("UI/" + packageName); //卸载逻辑还没写
 
-            Type classType = Type.GetType("WarGame.UI." + compName);
-            if (null == classType)
-            {
-                UnityEngine.Debug.LogError("没有找到脚本：" + classType);
-                return null;
-            }
-
-            var ui = (GComponent)UIPackage.CreateObject(packageName, compName);
-            if (null == ui)
-            {
-                UnityEngine.Debug.LogError("创建失败：" + classType);
-                return null;
-            }
-
-            var comp = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)compName });
-
-            var layer = GetUILayer(layerIndex);
-            if (null == ui)
-            {
-                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
-                return null;
-            }
-
-            //ui.position = position;
-            //if (scale.x != 0 && scale.y != 0)
-            //    ui.scale = scale;
-            //ui.rotationX = rotation.x;
-            //ui.rotationY = rotation.y;
-            //ui.rotation = rotation.z;
-
-            //if (this.container.hitArea != null)
+            //Type classType = Type.GetType("WarGame.UI." + compName);
+            //if (null == classType)
             //{
-            //    UpdateHitArea();
-            //    ui.onSizeChanged.Add(UpdateHitArea);
-            //    ui.onPositionChanged.Add(UpdateHitArea);
+            //    UnityEngine.Debug.LogError("没有找到脚本：" + classType);
+            //    return null;
             //}
-            comp.SetParent(layer);
+
+            //var ui = (GComponent)UIPackage.CreateObject(packageName, compName);
+            //if (null == ui)
+            //{
+            //    UnityEngine.Debug.LogError("创建失败：" + classType);
+            //    return null;
+            //}
+
+            //var comp = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)compName });
+
+            //var layer = GetUILayer(layerIndex);
+            //if (null == ui)
+            //{
+            //    UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+            //    return null;
+            //}
+
+            //comp.SetParent(layer);
+            var comp = CreateUI(packageName, compName);
             comp.name = customName;
-            //layer.container.AddChild(ui.displayObject);
 
             _panelDic[comp.UILayer].Add(comp);
 
             //触摸空白处关闭组件
-            EventCallback1 callback = null;
-            callback = (EventContext context) => { TouchEmptyClose(comp.GCom, customName, ()=> { Debug.Log("Remove TouchEmptyClose"); Stage.inst.onTouchBegin.Remove(callback); }); };
-            Stage.inst.onTouchBegin.Add(callback);
+
+            if (touchEmptyClose)
+            {
+                EventCallback1 callback = null;
+                callback = (EventContext context) => { TouchEmptyClose(comp.GCom, customName, () => { Debug.Log("Remove TouchEmptyClose"); Stage.inst.onTouchBegin.Remove(callback); }); };
+                Stage.inst.onTouchBegin.Add(callback);
+            }
 
             return comp;
         }
@@ -195,10 +272,8 @@ namespace WarGame.UI
                 return;
 
             _panelDic[panel.UILayer].Remove(panel);
-            panel.RemoveParent();
-            panel.Dispose(true);
 
-            //UIPackage.
+            DestroyUI(panel, true);
         }
 
         //触摸空白区域关闭组件

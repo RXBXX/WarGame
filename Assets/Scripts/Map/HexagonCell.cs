@@ -56,14 +56,6 @@ namespace WarGame
                   };
         }
 
-        public void SetSelected(bool isSelected)
-        {
-            if (isSelected)
-                gameObject.GetComponent<Renderer>().material.color = Color.red;
-            else
-                gameObject.GetComponent<Renderer>().material.color = Color.white;
-        }
-
         /// <summary>
         /// ÊÇ·ñ¿É´ï
         /// </summary>
@@ -82,12 +74,39 @@ namespace WarGame
             return 1;
         }
 
+        public void Marking(Enum.MarkType type)
+        {
+            switch (type)
+            {
+                case Enum.MarkType.Selected:
+                    gameObject.GetComponent<Renderer>().material.color = Color.blue;
+                    break;
+                case Enum.MarkType.Walkable:
+                    gameObject.GetComponent<Renderer>().material.color = Color.green;
+                    break;
+                case Enum.MarkType.Attachable:
+                    gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                    break;
+                case Enum.MarkType.Target:
+                    gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    break;
+                default:
+                    gameObject.GetComponent<Renderer>().material.color = Color.white;
+                    break;
+            }
+        }
+
         public void Dispose()
         {
             if (null != _tween)
             {
                 _tween.Kill();
                 _tween = null;
+            }
+            if (null != gameObject)
+            {
+                GameObject.Destroy(gameObject);
+                gameObject = null;
             }
         }
     }

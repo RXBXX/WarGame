@@ -30,6 +30,8 @@ namespace WarGame.UI
             }
 
             _gList.numItems = _maps.Count;
+
+            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MapBG";
         }
 
         private void ItemRenderer(int index, GObject item)
@@ -53,6 +55,7 @@ namespace WarGame.UI
             SceneManager.sceneLoaded -= SceneLoaded;
 
             MapManager.Instance.CreateMap(mapDir);
+            UIManager.Instance.OpenPanel("Fight", "FightPanel");
         }
     }
 }

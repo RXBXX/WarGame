@@ -9,7 +9,7 @@ namespace WarGame
     {
         private GameObject _hero;
         private int _moveIndex = 0;
-        private List<string> _paths = new List<string>();
+        private List<Vector3> _points = new List<Vector3>();
         private Tween _tween;
 
         public override bool Init()
@@ -23,7 +23,7 @@ namespace WarGame
             _hero = obj;
         }
 
-        public void Move(List<string> paths)
+        public void Move(List<Vector3> points)
         {
             if (null != _tween)
             {
@@ -31,8 +31,8 @@ namespace WarGame
                 _tween = null;
             }
 
-            _moveIndex = paths.Count - 1 ;
-            _paths = paths;
+            _moveIndex = points.Count - 1 ;
+            _points = points;
             Next();
         }
 
@@ -40,15 +40,7 @@ namespace WarGame
         {
             if (_moveIndex < 0)
                 return;
-            var key = _paths[_moveIndex];
-            if (null == key)
-                return;
-            if (!MapManager.Instance.ContainHexagon(key))
-                return;
-            var hexagon = MapManager.Instance.GetHexagon(key);
-            if (null == hexagon)
-                return;
-            _tween = _hero.transform.DOMove(MapTool.Instance.FromCellPosToWorldPos(hexagon.position + new Vector3(0, 0.53F, 0)), 0.5f);
+            _tween = _hero.transform.DOMove(_points[_moveIndex], 0.5f);
             _tween.onComplete = () =>
             {
                 _tween.Kill();

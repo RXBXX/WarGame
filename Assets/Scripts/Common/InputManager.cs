@@ -36,8 +36,7 @@ namespace WarGame
                     if (hitInfo.collider.tag == Enum.Tag.Hexagon.ToString() && hitInfo.collider == _downCollider)
                     {
                         var hexagonPos = MapTool.Instance.FromWorldPosToCellPos(hitInfo.collider.transform.position);
-                        var hexagonKey = MapTool.Instance.GetHexagonKey(hexagonPos);
-                        MapManager.Instance.SelectHexagon(hexagonKey);
+                        MapManager.Instance.SelectHexagon(hexagonPos);
                     }
                 }
                 _downCollider = null;
@@ -46,6 +45,9 @@ namespace WarGame
 
         public void LateUpdate()
         {
+            if (null != Stage.inst.touchTarget)
+                return;
+
             //镜头前后移动
             float scrollValue = Input.GetAxis("Mouse ScrollWheel") * _moveSpeed;
             Camera.main.transform.position += Camera.main.transform.forward * scrollValue;

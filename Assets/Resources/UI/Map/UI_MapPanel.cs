@@ -7,6 +7,7 @@ namespace Map
 {
     public partial class UI_MapPanel : GComponent
     {
+        public GLoader m_bg;
         public GList m_mapList;
         public const string URL = "ui://p7jlxbp3rquy2";
 
@@ -19,7 +20,8 @@ namespace Map
         {
             base.ConstructFromXML(xml);
 
-            m_mapList = (GList)GetChildAt(0);
+            m_bg = (GLoader)GetChildAt(0);
+            m_mapList = (GList)GetChildAt(1);
         }
     }
 }

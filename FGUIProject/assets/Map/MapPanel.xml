@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
+    <loader id="n2_nr69" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1900,900" fill="scale">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
     <list id="n0_rquy" name="mapList" xy="667,375" pivot="0.5,0.5" anchor="true" size="500,590" overflow="scroll" lineGap="10" defaultItem="ui://p7jlxbp3rquy0">
       <relation target="" sidePair="center-center,middle-middle"/>
       <item/>

@@ -21,9 +21,19 @@ public class Enum
     //UI层级
     public enum UILayer
     {
-        PanelLayer = 0,
-        PopLayer = 1,
-        AlertLayer = 2,
-        HUDLayer = 3,
+        HUDLayer = 0,
+        PanelLayer = 1,
+        PopLayer = 2,
+        AlertLayer = 3,
+    }
+
+    //地块标记类型
+    public enum MarkType
+    { 
+        None = 0,
+        Selected = 1, //被选中
+        Walkable = 2, //可抵达
+        Attachable = 3, //可攻击
+        Target = 4, //攻击目标
     }
 }
