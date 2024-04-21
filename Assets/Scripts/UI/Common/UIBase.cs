@@ -55,7 +55,7 @@ namespace WarGame.UI
             _gCom.position = pos;
         }
 
-        public virtual void Dispose(bool isPanel = false)
+        public virtual void Dispose(bool disposeGCom = false)
         {
             Debug.Log("UIBase.Dispose");
             foreach (var pair in childDic)
@@ -64,7 +64,7 @@ namespace WarGame.UI
             }
             childDic.Clear();
 
-            if (isPanel)
+            if (disposeGCom)
                 _gCom.Dispose();
 
             _gCom = null;

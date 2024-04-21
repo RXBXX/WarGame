@@ -78,7 +78,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
-    <Compile Include="Assets\Scripts\UI\MapPanel\MapInstruct.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
@@ -273,7 +273,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParseOptions.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextField.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RegularPolygonMesh.cs" />
-    <Compile Include="Assets\Scripts\Common\HeroManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\LoopList\LoopListMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearAnimation.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\Window3.cs" />
@@ -291,15 +290,25 @@
     <Compile Include="Assets\Scripts\Common\EventDispatcher.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
+    <Compile Include="Assets\Scripts\Common\RoleManager.cs" />
+    <Compile Include="Assets\Scripts\Common\Role.cs" />
+    <Compile Include="Assets\Scripts\Common\Hero.cs" />
+    <Compile Include="Assets\Scripts\Common\Enemy.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
+    <Compile Include="Assets\Scripts\Common\SceneMgr.cs" />
+    <Compile Include="Assets\Scripts\Common\RoleData.cs" />
+    <Compile Include="Assets\Scripts\Common\LineMgr.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
      <None Include="Assets\FairyGUI\Examples\Resources\Role\Materials\Role-Diffuse.shader" />
+     <None Include="Assets\Shaders\LineShader.shader" />
      <None Include="Assets\Shaders\ToonShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
+     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
      <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
     <Reference Include="UnityEngine">

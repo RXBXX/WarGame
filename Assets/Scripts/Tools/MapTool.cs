@@ -34,7 +34,7 @@ namespace WarGame
         /// <summary>
         /// 从世界坐标转换成地图格子坐标
         /// </summary>
-        public Vector3 FromWorldPosToCellPos(Vector3 pos)
+        public Vector3 GetCoorFromPos(Vector3 pos)
         {
             var hexMapX = 0.0f;
             var hexMapZ = 0.0f;
@@ -56,13 +56,13 @@ namespace WarGame
         /// <summary>
         /// 从地图格子左边转换成世界坐标
         /// </summary>
-        /// <param name="pos"></param>
+        /// <param name="coor"></param>
         /// <returns></returns>
-        public Vector3 FromCellPosToWorldPos(Vector3 pos)
+        public Vector3 GetPosFromCoor(Vector3 coor)
         {
-            var hexPosZ = pos.z * _insideDiameter * Mathf.Cos(_radian);
-            var hexPosX = pos.x * _insideDiameter + hexPosZ * Mathf.Tan(_radian);
-            var hexPosY = pos.y * _height;
+            var hexPosZ = coor.z * _insideDiameter * Mathf.Cos(_radian);
+            var hexPosX = coor.x * _insideDiameter + hexPosZ * Mathf.Tan(_radian);
+            var hexPosY = coor.y * _height;
 
             return new Vector3(hexPosX, hexPosY, hexPosZ);
         }
@@ -81,10 +81,10 @@ namespace WarGame
             for (int i = 0; i < hexagons.Length; i++)
             {
                 var hexagon = hexagons[i];
-                var obj = hexagon.CreateGameObject();
-                obj.transform.SetParent(root.transform);
+                hexagon.CreateGameObject();
+                hexagon.SetParent(root.transform);
 
-                hexagonDic[GetHexagonKey(hexagon.position)] = hexagon;
+                hexagonDic[GetHexagonKey(hexagon.coordinate)] = hexagon;
             }
             return hexagonDic;
         }
@@ -152,8 +152,9 @@ namespace WarGame
             {
                 var hexagonTra = rootObj.transform.GetChild(i);
                 var data = hexagonTra.GetComponent<HexagonCellData>();
-                var hexagonCell = new HexagonCell(i, data.config);
-                hexagonCell.position = MapTool.Instance.FromWorldPosToCellPos(hexagonTra.position);
+                var coor = GetCoorFromPos(hexagonTra.position);
+                var hexagonCell = new HexagonCell(GetHexagonKey(coor), data.config);
+                hexagonCell.coordinate = coor;
                 hexagons[i] = hexagonCell;
             }
 
@@ -183,9 +184,7 @@ namespace WarGame
 
             for (int i = 0; i < hexagons.Length; i++)
             {
-                var hexagon = hexagons[i];
-                var obj = hexagon.CreateGameObject();
-                obj.transform.SetParent(rootObj.transform);
+                hexagons[i].SetParent(rootObj.transform);
             }
         }
 
@@ -230,7 +229,7 @@ namespace WarGame
                         string assetPath = MapTool.Instance.GetHexagonPrefab(type);
                         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
                         var obj = GameObject.Instantiate(prefab);
-                        obj.transform.position = MapTool.Instance.FromCellPosToWorldPos(new Vector3(i, q, j));
+                        obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
                         obj.transform.SetParent(rootObj.transform);
                     }
                 }

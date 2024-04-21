@@ -40,10 +40,11 @@ namespace WarGame
             customAxes[2] = Vector3.up;
         }
 
+        //当在场景中选中对象且Inspector面板显示时，会调用这个接口
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-
+            Debug.Log("MapTool.Instance.IsActiveMapEditor()");
             if (!MapTool.Instance.IsActiveMapEditor())
                 return;
 
@@ -70,6 +71,16 @@ namespace WarGame
 
                 EditorGUI.indentLevel--;
             }
+        }
+
+        //当在场景中选中对象时，会调用这个接口
+        private void OnSceneGUI()
+        {
+            if (!MapTool.Instance.IsActiveMapEditor())
+                return;
+
+            if (!customAxesEnabled)
+                return;
 
             // 隐藏编辑视图下默认的操作轴
             // 获取当前Scene视图中的工具
@@ -87,15 +98,6 @@ namespace WarGame
             {
                 Tools.current = UnityEditor.Tool.None;
             }
-        }
-
-        private void OnSceneGUI()
-        {
-            if (!MapTool.Instance.IsActiveMapEditor())
-                return;
-
-            if (!customAxesEnabled)
-                return;
 
             Transform transform = (Transform)target;
             for (int i = 0; i < customAxes.Length; i++)
@@ -144,8 +146,8 @@ namespace WarGame
                             float delta = HandleUtility.CalcLineTranslation(mousePos, guiEvent.mousePosition, oldPos, tempMoveVector);
                             Vector3 newPos = tempMoveVector * delta + tempPos;
 
-                            var hexMapPos = MapTool.Instance.FromWorldPosToCellPos(newPos);
-                            newPos = MapTool.Instance.FromCellPosToWorldPos(hexMapPos);
+                            var hexMapPos = MapTool.Instance.GetCoorFromPos(newPos);
+                            newPos = MapTool.Instance.GetPosFromCoor(hexMapPos);
 
                             var posDirty = false;
                             if (0 == dragingAxis && newPos.x != oldPos.x)

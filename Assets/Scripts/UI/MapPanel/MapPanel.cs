@@ -54,8 +54,7 @@ namespace WarGame.UI
         {
             SceneManager.sceneLoaded -= SceneLoaded;
 
-            MapManager.Instance.CreateMap(mapDir);
-            UIManager.Instance.OpenPanel("Fight", "FightPanel");
+            SceneMgr.Instance.Create(mapDir);
         }
     }
 }

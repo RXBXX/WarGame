@@ -16,13 +16,15 @@ namespace WarGame
 
             base.Init();
 
+            DebugManager.Instance.Init();
+            EventDispatcher.Instance.Init();
+            InputManager.Instance.Init();
+            HUDManager.Instance.Init();
             MapManager.Instance.Init();
             MapTool.Instance.Init();
             UIManager.Instance.Init();
-            InputManager.Instance.Init();
-            DebugManager.Instance.Init();
-            EventDispatcher.Instance.Init();
-            HUDManager.Instance.Init();
+            RoleManager.Instance.Init();
+            SceneMgr.Instance.Init();
 
             DOTween.Init(true, true);
 
@@ -43,6 +45,7 @@ namespace WarGame
         {
             InputManager.Instance.Update();
             HUDManager.Instance.Update();
+            RoleManager.Instance.Update();
         }
 
         public void LateUpdate()
@@ -54,13 +57,15 @@ namespace WarGame
         {
             base.Dispose();
 
+            SceneMgr.Instance.Dispose();
             MapManager.Instance.Dispose();
             MapTool.Instance.Dispose();
             UIManager.Instance.Dispose();
-            InputManager.Instance.Dispose();
-            DebugManager.Instance.Dispose();
-            EventDispatcher.Instance.Dispose();
+            RoleManager.Instance.Dispose();
             HUDManager.Instance.Dispose();
+            InputManager.Instance.Dispose();
+            EventDispatcher.Instance.Dispose();
+            DebugManager.Instance.Dispose();
             return true;
         }
     }

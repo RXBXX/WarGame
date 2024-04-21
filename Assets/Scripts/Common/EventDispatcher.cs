@@ -9,7 +9,7 @@ namespace WarGame
 
     public class EventDispatcher : Singeton<EventDispatcher>
     {
-        private Dictionary<string, List<WGEventCallback>> _eventDic = new Dictionary<string, List<WGEventCallback>>();
+        private Dictionary<Enum.EventType, List<WGEventCallback>> _eventDic = new Dictionary<Enum.EventType, List<WGEventCallback>>();
 
         public override bool Init()
         {
@@ -29,7 +29,7 @@ namespace WarGame
             return true;
         }
 
-        public void AddListener(string eventName, WGEventCallback callback)
+        public void AddListener(Enum.EventType eventName, WGEventCallback callback)
         { 
             if(!_eventDic.ContainsKey(eventName))
             {
@@ -38,7 +38,7 @@ namespace WarGame
             _eventDic[eventName].Add(callback);
         }
 
-        public void RemoveListener(string eventName, WGEventCallback callback)
+        public void RemoveListener(Enum.EventType eventName, WGEventCallback callback)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;
@@ -53,7 +53,7 @@ namespace WarGame
             }
         }
 
-        public void Dispatch(string eventName)
+        public void Dispatch(Enum.EventType eventName)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;

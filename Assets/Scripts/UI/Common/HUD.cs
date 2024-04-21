@@ -32,9 +32,9 @@ namespace WarGame.UI
             _gCom.position = pos;
         }
 
-        public override void Dispose(bool isPanel = false)
+        public override void Dispose(bool disposeGComp = false)
         {
-            base.Dispose(isPanel);
+            base.Dispose(disposeGComp);
             _gameObject = null;
         }
     }

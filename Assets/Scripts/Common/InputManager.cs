@@ -13,7 +13,7 @@ namespace WarGame
         // Update is called once per frame
         public void Update()
         {
-            if ( null != Stage.inst.touchTarget)
+            if (null != Stage.inst.touchTarget)
                 return;
             if (Input.GetMouseButtonDown(0))
             {
@@ -21,10 +21,7 @@ namespace WarGame
                 RaycastHit hitInfo;
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-                    if (hitInfo.collider.tag == Enum.Tag.Hexagon.ToString())
-                    {
-                        _downCollider = hitInfo.collider;
-                    }
+                    _downCollider = hitInfo.collider;
                 }
             }
             else if (Input.GetMouseButtonUp(0))
@@ -33,13 +30,21 @@ namespace WarGame
                 RaycastHit hitInfo;
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-                    if (hitInfo.collider.tag == Enum.Tag.Hexagon.ToString() && hitInfo.collider == _downCollider)
+                    if (hitInfo.collider == _downCollider)
                     {
-                        var hexagonPos = MapTool.Instance.FromWorldPosToCellPos(hitInfo.collider.transform.position);
-                        MapManager.Instance.SelectHexagon(hexagonPos);
+                        SceneMgr.Instance.Hit(hitInfo.collider.gameObject);
                     }
                 }
                 _downCollider = null;
+            }
+            else
+            {
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hitInfo;
+                if (Physics.Raycast(ray, out hitInfo))
+                {
+                    SceneMgr.Instance.Touch(hitInfo.collider.gameObject);
+                }
             }
         }
 

@@ -15,12 +15,11 @@ namespace WarGame.UI
 
         public void Update()
         {
-            for (int i = _hudList.Count - 1; i >= 0; i++)
+            for (int i = _hudList.Count - 1; i >= 0; i--)
             {
-                if (null != _hudList[i])
-                {
-                    _hudList[i].Update();
-                }
+                if (i >= _hudList.Count)
+                    continue;
+                _hudList[i].Update();
             }
         }
 
@@ -36,25 +35,26 @@ namespace WarGame.UI
         {
             for (int i = _hudList.Count - 1; i >= 0; i++)
             {
-                if (null != _hudList[i] && _hudList[i].name == customName)
+                if (i >= _hudList.Count)
+                    continue;
+                if (_hudList[i].name == customName)
                 {
+                    _hudList[i].Dispose(true);
                     _hudList.RemoveAt(i);
                     break;
                 }
             }
-            _hudList.Clear();
         }
 
         public override bool Dispose()
         {
             base.Dispose();
 
-            for (int i = _hudList.Count - 1; i >= 0; i++)
+            for (int i = _hudList.Count - 1; i >= 0; i--)
             {
-                if (null != _hudList[i])
-                {
-                    _hudList[i].Dispose();
-                }
+                if (i > _hudList.Count)
+                    continue;
+                _hudList[i].Dispose();
             }
             _hudList.Clear();
 

@@ -8,35 +8,42 @@ namespace WarGame
     [Serializable]
     public class HexagonCell
     {
-        public int id;
+        public string ID;
 
-        public Vector3 position;
+        public Vector3 coordinate;
 
         public HexagonCellConfig config;
 
-        public GameObject gameObject;
+        private GameObject _gameObject;
 
         private Tween _tween;
 
-        public HexagonCell(int id, HexagonCellConfig config)
+        public GameObject GameObject
         {
-            this.id = id;
+            get { return _gameObject; }
+        }
+
+        public HexagonCell(string id, HexagonCellConfig config)
+        {
+            this.ID = id;
             this.config = config;
         }
 
-        public GameObject CreateGameObject()
+        public void CreateGameObject()
         {
+            DebugManager.Instance.Log("HexagonCell.OnCreate");
             string assetPath = MapTool.Instance.GetHexagonPrefab(config.type);
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-            gameObject = GameObject.Instantiate(prefab);
-            gameObject.transform.position = MapTool.Instance.FromCellPosToWorldPos(position);
-            return gameObject;
+            _gameObject = GameObject.Instantiate(prefab);
+            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coordinate);
+
+            _gameObject.GetComponent<HexagonCellData>().ID = this.ID;
         }
 
         public void OnClick()
         {
-            var worldPos = MapTool.Instance.FromCellPosToWorldPos(position);
-            Debug.Log(position);
+            var worldPos = MapTool.Instance.GetPosFromCoor(coordinate);
+            Debug.Log(coordinate);
             Debug.Log(worldPos);
             if (null != _tween)
             {
@@ -44,10 +51,10 @@ namespace WarGame
                 _tween = null;
             }
 
-            _tween = gameObject.transform.DOMoveY(worldPos.y - 0.1F, 0.1F);
+            _tween = _gameObject.transform.DOMoveY(worldPos.y - 0.1F, 0.1F);
             _tween.onComplete = () =>
                   {
-                      _tween = gameObject.transform.DOMoveY(worldPos.y, 0.1F);
+                      _tween = _gameObject.transform.DOMoveY(worldPos.y, 0.1F);
                       _tween.onComplete = () =>
                       {
                           _tween.Kill();
@@ -79,21 +86,26 @@ namespace WarGame
             switch (type)
             {
                 case Enum.MarkType.Selected:
-                    gameObject.GetComponent<Renderer>().material.color = Color.blue;
+                    _gameObject.GetComponent<Renderer>().material.color = Color.blue;
                     break;
                 case Enum.MarkType.Walkable:
-                    gameObject.GetComponent<Renderer>().material.color = Color.green;
+                    _gameObject.GetComponent<Renderer>().material.color = Color.green;
                     break;
                 case Enum.MarkType.Attachable:
-                    gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                    _gameObject.GetComponent<Renderer>().material.color = Color.yellow;
                     break;
                 case Enum.MarkType.Target:
-                    gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    _gameObject.GetComponent<Renderer>().material.color = Color.red;
                     break;
                 default:
-                    gameObject.GetComponent<Renderer>().material.color = Color.white;
+                    _gameObject.GetComponent<Renderer>().material.color = Color.white;
                     break;
             }
+        }
+
+        public void SetParent(Transform transform)
+        {
+            _gameObject.transform.SetParent(transform);
         }
 
         public void Dispose()
@@ -103,10 +115,10 @@ namespace WarGame
                 _tween.Kill();
                 _tween = null;
             }
-            if (null != gameObject)
+            if (null != _gameObject)
             {
-                GameObject.Destroy(gameObject);
-                gameObject = null;
+                GameObject.Destroy(_gameObject);
+                _gameObject = null;
             }
         }
     }

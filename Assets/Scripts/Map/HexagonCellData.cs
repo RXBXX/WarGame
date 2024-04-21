@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class HexagonCellData : MonoBehaviour
 {
+    public string ID = null;
     public HexagonCellConfig config;
 }
