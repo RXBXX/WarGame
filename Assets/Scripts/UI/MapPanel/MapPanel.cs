@@ -12,7 +12,7 @@ namespace WarGame.UI
         private GList _gList = null;
         private string mapDir = null;
 
-        public MapPanel(GComponent gCom, string name) : base(gCom, name)
+        public MapPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             _gList = (GList)_gCom.GetChild("mapList");
             _gList.itemRenderer = ItemRenderer;

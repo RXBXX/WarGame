@@ -32,17 +32,26 @@ namespace WarGame
 
         protected Animator _animator;
 
-        protected string _hudKey;
+        protected string _hpHUDKey;
 
         protected float _speed = 5.0f;
 
         public string hexagonID;
+
+        protected List<string> _numberHUDList = new List<string>(); 
 
         public int ID
         {
             set { }
             get { return _id; }
         }
+
+        public RoleAttribute Attribute
+        {
+            get { return _attribute; }
+        }
+
+
 
         public Role(int id, RoleAttribute attribute, string assetPath, string hexagonID)
         {
@@ -54,7 +63,7 @@ namespace WarGame
             OnCreate(assetPath, bornPoint);//加载方式，同步方式，后面都要改
         }
 
-        protected virtual void OnCreate(string assetPath, Vector3 bornPoint)   
+        protected virtual void OnCreate(string assetPath, Vector3 bornPoint)
         {
             GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
@@ -63,8 +72,8 @@ namespace WarGame
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleData>().ID = this._id;
 
-            _hudKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hudKey, _gameObject.transform.Find("hudPoint").gameObject);
+            _hpHUDKey = _id + "_HP";
+            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject);
         }
 
         private void UpdateHexagonID(string id)
@@ -90,6 +99,7 @@ namespace WarGame
                 {
                     _lerpStep = 0;
                     _pathIndex++;
+                    UpdateHexagonID(_path[_pathIndex]);
                     if (_pathIndex >= _path.Count - 1)
                     {
                         _path = null;
@@ -103,19 +113,28 @@ namespace WarGame
 
         public virtual void Move(List<string> hexagons)
         {
-            this._path = hexagons;
+            var count = hexagons.Count;
+            if (count <= 0 || hexagons[count - 1] == hexagonID)
+                return;
 
+            this._path = hexagons;
             _animator.Play("Move");
         }
 
         public virtual void Attack()
         {
-        
+            _animator.Play("Attack");
+        }
+
+        public virtual void Attacked(float hurt)
+        {
+            _animator.Play("Attacked");
+            UpdateHP(_attribute.hp - hurt);
         }
 
         public virtual void Dead()
         {
-        
+            _animator.Play("Die");
         }
 
         public virtual void Idle()
@@ -123,13 +142,34 @@ namespace WarGame
             _animator.Play("Idle");
         }
 
+        public virtual void UpdateHP(float hp)
+        {
+            var hurt = _attribute.hp - hp;
+            _attribute.hp = hp;
+            HUDRole hud = (HUDRole)HUDManager.Instance.GetHUD(_hpHUDKey);
+            hud.UpdateHP(hp);
+
+            var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
+            var numberHUD = (HUDNumber)HUDManager.Instance.AddHUD("HUD", "HUDNumber", numberID, _gameObject.transform.Find("hudPoint").gameObject);
+            _numberHUDList.Add(numberID);
+            numberHUD.Show(hurt, ()=> {
+                HUDManager.Instance.RemoveHUD(numberID);
+                _numberHUDList.Remove(numberID);
+            });
+        }
+
         public virtual void Dispose()
         {
-            if (null != _hudKey)
+            if (null != _hpHUDKey)
             {
-                HUDManager.Instance.RemoveHUD(_hudKey);
-                _hudKey = null;
+                HUDManager.Instance.RemoveHUD(_hpHUDKey);
+                _hpHUDKey = null;
             }
+            for (int i = _numberHUDList.Count - 1; i >= 0; i--)
+            {
+                HUDManager.Instance.RemoveHUD(_numberHUDList[i]);
+            }
+            _numberHUDList.Clear();
         }
     }
 }

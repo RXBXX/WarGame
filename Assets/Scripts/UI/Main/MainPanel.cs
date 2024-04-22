@@ -4,7 +4,7 @@ namespace WarGame.UI
 {
     public class MainPanel : UIBase
     {
-        public MainPanel(GComponent gCom, string name) : base(gCom, name)
+        public MainPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             _gCom.GetChild("mainBtn").onClick.Add(OnClickMainBtn);
             ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MainBG";

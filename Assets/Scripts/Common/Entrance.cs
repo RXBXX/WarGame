@@ -28,7 +28,7 @@ namespace WarGame
             Game.Instance.LateUpdate();
         }
 
-        private void OnDestroy()
+        private void OnApplicationQuit()
         {
             Game.Instance.Dispose();
         }

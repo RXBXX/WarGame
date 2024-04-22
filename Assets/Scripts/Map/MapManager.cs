@@ -98,17 +98,13 @@ namespace WarGame
         /// </summary>
         public void MarkingPath(string initiatorID, string targetID, float moveDis)
         {
-            var cells = FindingPath(initiatorID, targetID);
-
             ClearMarkedPath();
 
-            var cost = 0.0f;
-            for (int i = 0; i < cells.Count; i++)
-            {
-                cost += GetHexagon(cells[i].ID).GetCost();
-            }
+            var cells = FindingPath(initiatorID, targetID);
+            if (cells.Count <= 0)
+                return;
 
-            if (cost > moveDis)
+            if (cells[cells.Count - 1].g > moveDis)
                 return;
 
             //标记路径
@@ -116,8 +112,6 @@ namespace WarGame
             for (int i = 0; i < cells.Count; i++)
             {
                 points.Add(MapTool.Instance.GetPosFromCoor(cells[i].pos) + new Vector3(0, 0.23F, 0));
-                //_markedPath.Add(cells[i].ID);
-                //GetHexagon(cells[i].ID).Marking(cells[i].type);
             }
             LineMgr.Instance.SetLine(points);
 
@@ -183,34 +177,28 @@ namespace WarGame
             if (!hexagon.IsReachable() || closeDic.ContainsKey(key))
                 return null;
 
+            var cost = 0.0f;
+            if (null != parent)
+                cost = hexagon.GetCost() + parent.g;
+
             Cell cell = null;
             if (cellPos == endPos)
             {
-                var cost = hexagon.GetCost();
-                if (null != parent)
-                    cost += parent.g;
                 cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
                 cell.type = Enum.MarkType.Selected;
                 openDic.Add(key, cell);
             }
             else if (openDic.TryGetValue(key, out cell))
             {
-                float parentG = 0;
-                if (null != parent)
-                    parentG = parent.g;
-
-                if (cell.g > hexagon.GetCost() + parentG)
+                if (cell.g > cost)
                 {
-                    cell.g = hexagon.GetCost() + parentG;
+                    cell.g = cost;
                     cell.parent = parent;
                 }
             }
             else
             {
-                float parentG = 0;
-                if (null != parent)
-                    parentG = parent.g;
-                cell = new Cell(hexagon.GetCost() + parentG, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
+                cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
                 cell.type = Enum.MarkType.Selected;
                 openDic.Add(key, cell);
             }
@@ -319,12 +307,13 @@ namespace WarGame
                 return null;
 
             //每个地块的通过代价不一样，这个问题需要考虑
-            float parentG = 0;
+            float cost = 0;
             if (null != parent)
-                parentG = parent.g;
-            Cell cell = new Cell(hexagon.GetCost() + parentG, 0, cellPos, parent, hexagon.ID);
+            {
+                cost = parent.g + hexagon.GetCost();
+            }
+            Cell cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
 
-            DebugManager.Instance.Log("MapManager.HandleCell2 2222" + cell.g + "_" + (moveDis + attackDis));
             if (cell.g > (moveDis + attackDis))
                 return null;
             else if (cell.g > moveDis)

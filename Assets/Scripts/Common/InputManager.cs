@@ -32,7 +32,7 @@ namespace WarGame
                 {
                     if (hitInfo.collider == _downCollider)
                     {
-                        SceneMgr.Instance.Hit(hitInfo.collider.gameObject);
+                        SceneMgr.Instance.Click(hitInfo.collider.gameObject);
                     }
                 }
                 _downCollider = null;

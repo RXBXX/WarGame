@@ -58,14 +58,14 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\CustomTransformEditor.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Editor\BuildAssetBundles.cs" />
-    <Compile Include="Assets\FairyGUI\Editor\UIContentScalerEditor.cs" />
-    <Compile Include="Assets\FairyGUI\Editor\DisplayObjectEditor.cs" />
-    <Compile Include="Assets\Editor\BuildMap.cs" />
     <Compile Include="Assets\FairyGUI\Editor\EditorToolSet.cs" />
     <Compile Include="Assets\FairyGUI\Editor\StageCameraEditor.cs" />
     <Compile Include="Assets\Editor\DraggableObjectEditor.cs" />
-    <Compile Include="Assets\FairyGUI\Editor\UIConfigEditor.cs" />
     <Compile Include="Assets\Editor\CustomMoveTool.cs" />
+    <Compile Include="Assets\FairyGUI\Editor\UIContentScalerEditor.cs" />
+    <Compile Include="Assets\FairyGUI\Editor\DisplayObjectEditor.cs" />
+    <Compile Include="Assets\Editor\BuildMap.cs" />
+    <Compile Include="Assets\FairyGUI\Editor\UIConfigEditor.cs" />
     <Compile Include="Assets\FairyGUI\Editor\UIPanelEditor.cs" />
     <Compile Include="Assets\FairyGUI\Editor\UIPainterEditor.cs" />
     <Compile Include="Assets\FairyGUI\Editor\PackagesWindow.cs" />

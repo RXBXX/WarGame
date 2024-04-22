@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WarGame.UI;
 
 namespace WarGame
 {
@@ -106,44 +107,6 @@ namespace WarGame
             hero.Move(hexagons);
         }
 
-        /// <summary>
-        /// 判断当前地块是否有英雄
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool HaveHeroByHexagonID(string id)
-        {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _heroList.Count)
-                    continue;
-                if (_heroList[i].hexagonID == id)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// 判断当前地块是否有敌人
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool HaveEnemyByHexagonID(string id)
-        {
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _enemyList.Count)
-                    continue;
-                if (_enemyList[i].hexagonID == id)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
 
         /// <summary>
         /// 获取指定英雄所在的地块id
@@ -200,6 +163,36 @@ namespace WarGame
                 _enemyList[i].Dispose();
             }
             _enemyList.Clear();
+        }
+
+        public Hero GetHero(int id)
+        {
+            for (int i = _heroList.Count - 1; i >= 0; i--)
+            {
+                if (_heroList[i].ID == id)
+                    return _heroList[i];
+            }
+            return null;
+        }
+
+        public Enemy GetEnemy(int id)
+        {
+            for (int i = _enemyList.Count - 1; i >= 0; i--)
+            {
+                if (_enemyList[i].ID == id)
+                    return _enemyList[i];
+            }
+            return null;
+        }
+
+        public void Attack(int initiatorID, int targetID)
+        {
+            var initiator = GetHero(initiatorID);
+            var target = GetEnemy(targetID);
+
+            var hurt = initiator.Attribute.attack - target.Attribute.defense;
+            initiator.Attack();
+            target.Attacked(hurt);
         }
     }
 }

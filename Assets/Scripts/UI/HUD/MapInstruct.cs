@@ -4,24 +4,29 @@ namespace WarGame.UI
 {
     public class HUDInstruct : HUD
     {
-        public HUDInstruct(GComponent gCom, string name) : base(gCom, name)
+        public HUDInstruct(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            _gCom.GetChild("moveBtn").onClick.Add(Move);
-            _gCom.GetChild("cancelBtn").onClick.Add(Cancel);
+            var idleBtn = _gCom.GetChild("idleBtn");
+            var attackBtn = _gCom.GetChild("attackBtn");
+            var cancelBtn = _gCom.GetChild("cancelBtn");
+
+            idleBtn.onClick.Add(Idle);
+            cancelBtn.onClick.Add(Cancel);
+            attackBtn.onClick.Add(Attack);
         }
 
 
-        public void Move()
+        private void Idle()
         {
-            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Move_Event);
+            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Idle_Event);
         }
 
-        public void Cancel()
+        private void Cancel()
         {
             EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Cancel_Event);
         }
 
-        public void Attack()
+        private void Attack()
         {
             EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Attack_Event);
         }

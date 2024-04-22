@@ -89,7 +89,7 @@ namespace WarGame.UI
             return _uiLayerDic[layerIndex];
         }
 
-        public UIBase CreateUI(string packageName, string compName)
+        public UIBase CreateUI(string packageName, string compName, object[] args = null)
         {
             UIPackage.AddPackage("UI/" + packageName);
 
@@ -107,7 +107,7 @@ namespace WarGame.UI
                 return null;
             }
 
-            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName });
+            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName, args});
 
             var layer = GetUILayer(ui.UILayer);
             if (null == comp)

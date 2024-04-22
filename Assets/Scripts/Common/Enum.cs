@@ -52,7 +52,7 @@ public class Enum
 
     public enum EventType
     {
-        HUDInstruct_Move_Event = 0,
+        HUDInstruct_Idle_Event = 0,
         HUDInstruct_Attack_Event = 1,
         HUDInstruct_Cancel_Event = 2,
         HUDInstruct_Check_Event = 3,

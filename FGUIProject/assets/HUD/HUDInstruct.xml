@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="100,160" pivot="0,1" anchor="true">
-  <controller name="type" pages="0,,1,,2," selected="2"/>
   <displayList>
     <graph id="n0_nr69" name="n0" xy="0,0" size="100,110" alpha="0.3" type="rect" lineSize="0" fillColor="#ff999999"/>
-    <component id="n1_nr69" name="moveBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,10">
-      <gearDisplay controller="type" pages="0"/>
+    <component id="n1_nr69" name="idleBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,10">
+      <Button title="待机"/>
     </component>
     <component id="n2_kugj" name="cancelBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,110">
       <Button title="取消"/>
     </component>
-    <component id="n3_kugj" name="fightBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,10">
-      <gearDisplay controller="type" pages="2"/>
+    <component id="n3_kugj" name="attackBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,60">
       <Button title="攻击"/>
-    </component>
-    <component id="n4_kugj" name="checkBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,60">
-      <gearDisplay controller="type" pages="1,2"/>
-      <Button title="查看"/>
     </component>
   </displayList>
 </component>

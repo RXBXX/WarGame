@@ -8,7 +8,12 @@ namespace WarGame.UI
     public class HUD:UIBase
     {
         private GameObject _gameObject;
-        public HUD(GComponent gCom, string name) : base(gCom, name)
+        //public HUD(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
+        //{
+        //    UILayer = Enum.UILayer.HUDLayer;
+        //}
+
+        public HUD(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             UILayer = Enum.UILayer.HUDLayer;
         }

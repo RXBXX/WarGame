@@ -15,7 +15,7 @@ namespace WarGame.UI
         public GComponent GCom {
             get { return _gCom; }
         }
-        public UIBase(GComponent gCom, string name)
+        public UIBase(GComponent gCom, string name, object[] args = null)
         {
             this._gCom = gCom;
             this.name = name;
