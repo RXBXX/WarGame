@@ -22,6 +22,14 @@ public class Singeton<T> where T : new()
         return true;
     }
 
+    public virtual void Update()
+    {
+    }
+
+    public virtual void LateUpdate()
+    {
+    }
+
     public virtual bool Dispose()
     {
         return true;

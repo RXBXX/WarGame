@@ -44,7 +44,6 @@ namespace WarGame
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            Debug.Log("MapTool.Instance.IsActiveMapEditor()");
             if (!MapTool.Instance.IsActiveMapEditor())
                 return;
 

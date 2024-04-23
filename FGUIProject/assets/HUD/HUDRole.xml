@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="100,10" pivot="0.5,1" anchor="true">
+<component size="160,20" pivot="0.5,1" anchor="true">
   <displayList>
-    <component id="n0_kugj" name="hp" src="kugj0" fileName="HUDHP.xml" xy="0,0">
+    <component id="n0_kugj" name="hp" src="kugj0" fileName="HUDHP.xml" xy="0,0" size="160,20">
       <ProgressBar value="50" max="100"/>
     </component>
     <list id="n2_kugj" name="buffList" xy="0,-12" size="100,10" layout="row" overflow="scroll" colGap="2" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
@@ -13,5 +13,6 @@
       <item/>
       <item/>
     </list>
+    <text id="n3_p3n5" name="id" xy="105,-19" size="25,24" fontSize="16" text="ID:"/>
   </displayList>
 </component>

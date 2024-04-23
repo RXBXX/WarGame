@@ -13,7 +13,7 @@ namespace WarGame.UI
             return true;
         }
 
-        public void Update()
+        public override void Update()
         {
             for (int i = _hudList.Count - 1; i >= 0; i--)
             {
@@ -23,9 +23,9 @@ namespace WarGame.UI
             }
         }
 
-        public HUD AddHUD(string packageName, string compName, string customName, GameObject go)
+        public HUD AddHUD(string packageName, string compName, string customName, GameObject go, object[] args = null)
         {
-            var ui = (HUD)UIManager.Instance.CreateUI(packageName, compName);
+            var ui = (HUD)UIManager.Instance.CreateUI(packageName, compName, args);
             ui.name = customName;
             ui.SetOwner(go);
             _hudList.Add(ui);
@@ -35,7 +35,7 @@ namespace WarGame.UI
 
         public void RemoveHUD(string customName)
         {
-            for (int i = _hudList.Count - 1; i >= 0; i++)
+            for (int i = _hudList.Count - 1; i >= 0; i--)
             {
                 if (i >= _hudList.Count)
                     continue;
@@ -50,7 +50,7 @@ namespace WarGame.UI
 
         public HUD GetHUD(string hudKey)
         {
-            for (int i = _hudList.Count - 1; i >= 0; i++)
+            for (int i = _hudList.Count - 1; i >= 0; i--)
             {
                 if (i >= _hudList.Count)
                     continue;

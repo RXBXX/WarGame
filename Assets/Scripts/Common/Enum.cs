@@ -58,5 +58,6 @@ public class Enum
         HUDInstruct_Check_Event = 3,
         HUDInstruct_Select_Event = 4,
         Hero_MoveEnd_Event = 5,
+        Fight_Event = 6,
     }
 }

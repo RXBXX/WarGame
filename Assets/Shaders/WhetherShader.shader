@@ -1,11 +1,10 @@
-Shader "Custom/NewSurfaceShader"
+Shader "Custom/WhetherShader"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
+        _Texture1("Texture 1", 2D) = "white" {}
+        _Texture2("Texture 2", 2D) = "white" {}
+        _Blend("Blend", Range(0,1)) = 0.0
     }
     SubShader
     {
@@ -19,16 +18,15 @@ Shader "Custom/NewSurfaceShader"
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
-        sampler2D _MainTex;
+        sampler2D _Texture1;
+        sampler2D _Texture2;
 
         struct Input
         {
-            float2 uv_MainTex;
+            float2 uv_Texture1;
         };
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
+        half _Blend;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -40,11 +38,9 @@ Shader "Custom/NewSurfaceShader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 c = lerp(tex2D(_Texture1, IN.uv_Texture1), tex2D(_Texture2, IN.uv_Texture1), _Blend);
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }
         ENDCG

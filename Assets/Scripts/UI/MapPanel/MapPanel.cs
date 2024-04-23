@@ -3,6 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace WarGame.UI
 {
@@ -54,7 +55,7 @@ namespace WarGame.UI
         {
             SceneManager.sceneLoaded -= SceneLoaded;
 
-            SceneMgr.Instance.Create(mapDir);
+            SceneMgr.Instance.CreateScene(mapDir);
         }
     }
 }

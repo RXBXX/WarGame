@@ -14,7 +14,9 @@ namespace WarGame
 
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Line.prefab");
             _lineRenderer = GameObject.Instantiate(prefab).GetComponent<LineRenderer>();
-            _lineRenderer.transform.rotation = Quaternion.Euler(90, 0, 0);
+            _lineRenderer.transform.rotation = Quaternion.Euler(91, 0, 0);
+            GameObject.DontDestroyOnLoad(_lineRenderer.gameObject);
+            ClearLine();
 
             return true;
         }
@@ -26,6 +28,11 @@ namespace WarGame
             {
                 _lineRenderer.SetPosition(i, points[i]);
             }
+        }
+
+        public void ClearLine()
+        {
+            _lineRenderer.positionCount = 0;
         }
 
         public override bool Dispose()

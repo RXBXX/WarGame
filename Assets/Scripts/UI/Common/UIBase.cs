@@ -57,7 +57,6 @@ namespace WarGame.UI
 
         public virtual void Dispose(bool disposeGCom = false)
         {
-            Debug.Log("UIBase.Dispose");
             foreach (var pair in childDic)
             {
                 childDic[pair.Key].Dispose();

@@ -1480,6 +1480,7 @@ GameObject:
   - component: {fileID: 5082574569444486177}
   - component: {fileID: -4375329141482989021}
   - component: {fileID: 2644442316412117731}
+  - component: {fileID: 603786612483465621}
   m_Layer: 0
   m_Name: MaleCharacterPolyart
   m_TagString: Untagged
@@ -1552,6 +1553,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7345129, y: 1.4778305, z: 0.47394237}
   m_Center: {x: -0.019665673, y: 0.74039084, z: -0.0024581999}
+--- !u!114 &603786612483465621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352958571798197664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5691243874327788079
 GameObject:
   m_ObjectHideFlags: 0

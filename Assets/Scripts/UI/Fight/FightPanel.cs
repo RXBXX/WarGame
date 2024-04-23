@@ -7,7 +7,7 @@ namespace WarGame.UI
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             _gCom.GetChild("closeBtn").onClick.Add(()=> {
-                SceneMgr.Instance.Destroy();
+                SceneMgr.Instance.DestroyScene();
             });
         }
     }

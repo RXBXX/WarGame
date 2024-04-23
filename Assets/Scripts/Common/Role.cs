@@ -38,7 +38,9 @@ namespace WarGame
 
         public string hexagonID;
 
-        protected List<string> _numberHUDList = new List<string>(); 
+        protected List<string> _numberHUDList = new List<string>();
+
+        private Vector3 _offset = new Vector3(0.0f, 0.2f, 0.0f);
 
         public int ID
         {
@@ -59,7 +61,7 @@ namespace WarGame
             this._attribute = attribute;
             this.hexagonID = hexagonID;
 
-            var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coordinate);
+            var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coordinate) + _offset;
             OnCreate(assetPath, bornPoint);//加载方式，同步方式，后面都要改
         }
 
@@ -70,10 +72,10 @@ namespace WarGame
             _gameObject.transform.position = bornPoint;
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
-            _gameObject.GetComponent<RoleData>().ID = this._id;
+            _gameObject.GetComponent<RoleData>().ID = _id;
 
             _hpHUDKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject);
+            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject, new object[]{ _id});
         }
 
         private void UpdateHexagonID(string id)
@@ -90,8 +92,8 @@ namespace WarGame
 
                 var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
                 var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
-                var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate);
-                var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate);
+                var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _offset;
+                var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _offset;
 
                 _gameObject.transform.position = Vector3.Lerp(startPos, endPos, _lerpStep);
 
@@ -108,6 +110,10 @@ namespace WarGame
                         Idle();
                     }
                 }
+            }
+            if (_attribute.hp <= 0)
+            {
+                Dead();
             }
         }
 
@@ -158,6 +164,16 @@ namespace WarGame
             });
         }
 
+        public virtual float GetMoveDis()
+        {
+            return 5;
+        }
+
+        public virtual float GetAttackDis()
+        {
+            return 1;
+        }
+
         public virtual void Dispose()
         {
             if (null != _hpHUDKey)
@@ -170,6 +186,9 @@ namespace WarGame
                 HUDManager.Instance.RemoveHUD(_numberHUDList[i]);
             }
             _numberHUDList.Clear();
+
+            GameObject.Destroy(_gameObject);
+            _gameObject = null;
         }
     }
 }

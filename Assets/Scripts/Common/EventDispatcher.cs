@@ -30,8 +30,8 @@ namespace WarGame
         }
 
         public void AddListener(Enum.EventType eventName, WGEventCallback callback)
-        { 
-            if(!_eventDic.ContainsKey(eventName))
+        {
+            if (!_eventDic.ContainsKey(eventName))
             {
                 _eventDic.Add(eventName, new List<WGEventCallback>());
             }
@@ -53,17 +53,16 @@ namespace WarGame
             }
         }
 
-        public void Dispatch(Enum.EventType eventName)
+        public void Dispatch(Enum.EventType eventName, object[] args = null)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;
 
             for (int i = _eventDic[eventName].Count - 1; i >= 0; i--)
             {
-                if (null != _eventDic[eventName][i])
-                {
-                    _eventDic[eventName][i]();
-                }
+                if (i >= _eventDic[eventName].Count)
+                    break;
+                _eventDic[eventName][i](args);
             }
         }
     }

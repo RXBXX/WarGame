@@ -9,14 +9,16 @@ namespace WarGame
     {
         private List<Hero> _heroList = new List<Hero>();
         private List<Enemy> _enemyList = new List<Enemy>();
+        private int _initiator = 0, _target = 0;
 
         public override bool Init()
         {
             base.Init();
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             return true;
         }
 
-        public void Update()
+        public override void Update()
         {
             for (int i = _heroList.Count - 1; i >= 0; i--)
             {
@@ -48,6 +50,7 @@ namespace WarGame
             }
             _enemyList.Clear();
 
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             return true;
         }
 
@@ -102,6 +105,7 @@ namespace WarGame
                 if (null != _heroList[i] && id == _heroList[i].ID)
                 {
                     hero = _heroList[i];
+                    break;
                 }
             }
             hero.Move(hexagons);
@@ -146,6 +150,44 @@ namespace WarGame
             return null;
         }
 
+        /// <summary>
+        /// 获取指定地块的敌人
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int GetEnemyIDByHexagonID(string id)
+        {
+            for (int i = _enemyList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _enemyList.Count)
+                    continue;
+                if (_enemyList[i].hexagonID == id)
+                {
+                    return _enemyList[i].ID;
+                }
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// 获取指定地块的英雄
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int GetHeroIDByHexagonID(string id)
+        {
+            for (int i = _heroList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _heroList.Count)
+                    continue;
+                if (_heroList[i].hexagonID == id)
+                {
+                    return _heroList[i].ID;
+                }
+            }
+            return 0;
+        }
+
         public void Clear()
         {
             for (int i = _heroList.Count - 1; i >= 0; i--)
@@ -187,12 +229,51 @@ namespace WarGame
 
         public void Attack(int initiatorID, int targetID)
         {
-            var initiator = GetHero(initiatorID);
-            var target = GetEnemy(targetID);
+            _initiator = initiatorID;
+            _target = targetID;
 
-            var hurt = initiator.Attribute.attack - target.Attribute.defense;
+            var initiator = GetHero(initiatorID);
             initiator.Attack();
-            target.Attacked(hurt);
+        }
+
+        private void HandleFightEvents(params object[] args)
+        {
+            if (null == args)
+                return;
+            if (args.Length <= 0)
+                return;
+
+            var arg = (string)args[0];
+            switch (arg)
+            {
+                case "Attack":
+                    if(_initiator == (int)args[1] && _target > 0)
+                    {
+                        var initiator = GetHero(_initiator);
+                        var target = GetEnemy(_target);
+
+                        var hurt = initiator.Attribute.attack - target.Attribute.defense;
+                        target.Attacked(hurt);
+
+                        _initiator = 0;
+                        _target = 0;
+                    }
+                    break;
+                case "Dead":
+                    var hero = GetHero((int)args[1]);
+                    if (null != hero)
+                    {
+                        _heroList.Remove(hero);
+                        hero.Dispose();
+                    }    
+                    var enemy = GetEnemy((int)args[1]);
+                    if (null != enemy)
+                    {
+                        _enemyList.Remove(enemy);
+                        enemy.Dispose();
+                    }
+                    break;
+            }
         }
     }
 }

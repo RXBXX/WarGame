@@ -91,7 +91,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\GoWrapper.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Emoji\EmojiMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\InputTextField.cs" />
-    <Compile Include="Assets\Scripts\Common\ThreeDimCamManager.cs" />
+    <Compile Include="Assets\Scripts\Common\CameraMgr.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\BookPage.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\MeshColliderHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\PullToRefreshMain.cs" />
@@ -204,6 +204,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\BaseFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NGraphics.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDNumber.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Margin.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearColor.cs" />
@@ -298,7 +299,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\HUD\HUDNumber.cs" />
+    <Compile Include="Assets\Scripts\Common\RoleEvents.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -309,7 +310,8 @@
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
-     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
+     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
+     <None Include="Assets\Shaders\WhetherShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
      <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
     <Reference Include="UnityEngine">

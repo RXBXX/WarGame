@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 2211126460430936001}
   - component: {fileID: 1204525536283657893}
   - component: {fileID: 1163574778862277871}
+  - component: {fileID: 5353701087446019133}
   m_Layer: 0
   m_Name: FemaleCharacterPolyart
   m_TagString: Untagged
@@ -394,6 +395,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6044166, y: 1.5007384, z: 0.59940934}
   m_Center: {x: 0.012518406, y: 0.7461003, z: 0.030044332}
+--- !u!114 &5353701087446019133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328023254706044480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647417302430462415
 GameObject:
   m_ObjectHideFlags: 0
