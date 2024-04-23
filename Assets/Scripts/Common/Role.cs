@@ -42,6 +42,10 @@ namespace WarGame
 
         private Vector3 _offset = new Vector3(0.0f, 0.2f, 0.0f);
 
+        private bool _locked = false;
+
+        private string _lockHUDKey = null;
+
         public int ID
         {
             set { }
@@ -146,6 +150,28 @@ namespace WarGame
         public virtual void Idle()
         {
             _animator.Play("Idle");
+        }
+
+        public virtual void Lock()
+        {
+            if (_locked)
+                return;
+            _locked = true;
+            _lockHUDKey = "HUD_Lock_" + _id;
+            HUDManager.Instance.AddHUD("HUD", "HUDLock", _lockHUDKey, _gameObject.transform.Find("hudPoint").gameObject);
+        }
+
+        public virtual void Unlock()
+        {
+            if (!_locked)
+                return;
+            _locked = false;
+            HUDManager.Instance.RemoveHUD(_lockHUDKey);
+        }
+
+        public virtual bool IsLocked()
+        {
+            return _locked;
         }
 
         public virtual void UpdateHP(float hp)

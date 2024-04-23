@@ -11,7 +11,6 @@ namespace WarGame.UI
     {
         private List<string> _maps = new List<string>();
         private GList _gList = null;
-        private string mapDir = null;
 
         public MapPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -44,18 +43,8 @@ namespace WarGame.UI
         private void OnClickItem(EventContext context)
         {
             var index = _gList.GetChildIndex((GObject)context.data);
-            mapDir = _maps[index];
-
-            UIManager.Instance.ClosePanel(this.name);
-            SceneManager.LoadSceneAsync("MapScene");
-            SceneManager.sceneLoaded += SceneLoaded;
-        }
-
-        private void SceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            SceneManager.sceneLoaded -= SceneLoaded;
-
-            SceneMgr.Instance.CreateScene(mapDir);
+            UIManager.Instance.ClosePanel(name);
+            SceneMgr.Instance.OpenScene(_maps[index]);
         }
     }
 }

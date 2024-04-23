@@ -211,6 +211,8 @@ namespace WarGame
         {
             for (int i = _heroList.Count - 1; i >= 0; i--)
             {
+                if (i >= _heroList.Count)
+                    continue;
                 if (_heroList[i].ID == id)
                     return _heroList[i];
             }
@@ -236,6 +238,38 @@ namespace WarGame
             initiator.Attack();
         }
 
+        public bool IsAllLocked()
+        {
+            for (int i = _heroList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _heroList.Count)
+                    continue;
+                if (!_heroList[i].IsLocked())
+                    return false;
+            }
+            return true;
+        }
+
+        public void UnlockAll()
+        {
+            for (int i = _heroList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _heroList.Count)
+                    continue;
+                _heroList[i].Unlock();
+            }
+        }
+
+        public void LockAll()
+        {
+            for (int i = _heroList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _heroList.Count)
+                    continue;
+                _heroList[i].Lock();
+            }
+        }
+
         private void HandleFightEvents(params object[] args)
         {
             if (null == args)
@@ -255,8 +289,15 @@ namespace WarGame
                         var hurt = initiator.Attribute.attack - target.Attribute.defense;
                         target.Attacked(hurt);
 
-                        _initiator = 0;
                         _target = 0;
+                    }
+                    break;
+                case "Attack_End":
+                    if (_initiator == (int)args[1])
+                    {
+                        var initiator = GetHero(_initiator);
+                        initiator.Lock();
+                        _initiator = 0;
                     }
                     break;
                 case "Dead":

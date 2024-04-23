@@ -66,6 +66,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 1
+        functionName: PlayEvent
+        data: Attack_End
+        objectReferenceParameter: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

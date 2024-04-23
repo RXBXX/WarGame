@@ -300,6 +300,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
     <Compile Include="Assets\Scripts\Common\RoleEvents.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />

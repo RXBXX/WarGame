@@ -9,9 +9,12 @@ namespace WarGame
     public class SceneMgr : Singeton<SceneMgr>
     {
         private int _initiator; //当前选中的英雄
-        private string _start; //英雄移动的起点
+        private string _origin; //英雄移动的起点
         private Enum.InstructType _curInstruct = Enum.InstructType.None;
         private bool _locked = false;
+        private int _roundIndex = 0;
+        private string _curMap = null;
+        private bool _isStarted = false;
 
         public override bool Init()
         {
@@ -35,6 +38,20 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_MoveEnd_Event, MoveEnd);
 
             return true;
+        }
+
+        public override void Update()
+        {
+            if (!_isStarted)
+                return;
+
+            if (RoleManager.Instance.IsAllLocked())
+            {
+                _roundIndex += 1;
+                RoleManager.Instance.UnlockAll();
+                Debug.Log(_roundIndex);
+                EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_Round_Event, new object[] { _roundIndex });
+            }
         }
 
         public void Touch(GameObject obj)
@@ -105,18 +122,20 @@ namespace WarGame
             }
             if (heroID > 0)
             {
+                var hero = RoleManager.Instance.GetHero(heroID);
+                if (hero.IsLocked())
+                    return;
+
                 string hexagonID = RoleManager.Instance.GetHexagonIDByHeroID(heroID);
                 MapManager.Instance.ClearMarkedRegion();
                 if (_initiator > 0 && heroID == _initiator)
                 {
-                    var hero = RoleManager.Instance.GetHero(_initiator);
                     MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), true);
                     OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
                 }
                 else
                 {
                     _initiator = heroID;
-                    var hero = RoleManager.Instance.GetHero(_initiator);
                     MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), true);
                 }
             }
@@ -197,7 +216,7 @@ namespace WarGame
                 return;
 
             _locked = true;
-            _start = start;
+            _origin = start;
             MapManager.Instance.ClearMarkedPath();
             MapManager.Instance.ClearMarkedRegion();
             RoleManager.Instance.MoveHero(_initiator, hexagons);
@@ -208,12 +227,12 @@ namespace WarGame
         /// </summary>
         private void ReverseMove()
         {
-            if (null == _start)
+            if (null == _origin)
                 return;
 
             _locked = true;
             var start = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
-            var path = MapManager.Instance.FindingPathForStr(start, _start);
+            var path = MapManager.Instance.FindingPathForStr(start, _origin);
             RoleManager.Instance.MoveHero(_initiator, path);
         }
 
@@ -239,6 +258,8 @@ namespace WarGame
             RoleManager.Instance.Attack(_initiator, enemyID);
             _initiator = 0;
             _curInstruct = Enum.InstructType.None;
+
+
         }
 
         private void Idle(params object[] args)
@@ -249,8 +270,11 @@ namespace WarGame
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
+            var hero = RoleManager.Instance.GetHero(_initiator);
+            hero.Lock();
+
             _initiator = 0;
-            _start = null;
+            _origin = null;
             _locked = false;
         }
 
@@ -264,7 +288,7 @@ namespace WarGame
             MapManager.Instance.ClearMarkedRegion();
 
             _initiator = 0;
-            _start = null;
+            _origin = null;
         }
 
         private void Attack(params object[] args)
@@ -272,7 +296,7 @@ namespace WarGame
             CloseInstruct();
 
             _curInstruct = Enum.InstructType.Attack;
-            _start = null;
+            _origin = null;
         }
 
         public void Check(params object[] args)
@@ -312,6 +336,20 @@ namespace WarGame
             RoleManager.Instance.CreateEnemy(12, attr, "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab", bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
+            _isStarted = true;
+        }
+
+        public void OpenScene(string mapDir)
+        {
+            _curMap = mapDir;
+            SceneManager.LoadSceneAsync("MapScene");
+            SceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void SceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            SceneManager.sceneLoaded -= SceneLoaded;
+            CreateScene(_curMap);
         }
 
         public void DestroyScene()
@@ -325,7 +363,6 @@ namespace WarGame
             {
                 UIManager.Instance.OpenPanel("Map", "MapPanel");
             };
-            LineMgr.Instance.Dispose();
         }
     }
 }
