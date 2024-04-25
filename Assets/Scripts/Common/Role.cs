@@ -18,7 +18,7 @@ namespace WarGame
 
     public class Role
     {
-        private int _id;
+        protected int _id;
 
         private RoleAttribute _attribute;
 
@@ -42,9 +42,11 @@ namespace WarGame
 
         private Vector3 _offset = new Vector3(0.0f, 0.2f, 0.0f);
 
-        private bool _locked = false;
+        protected Enum.RoleState _state;
 
-        private string _lockHUDKey = null;
+        private Quaternion _rotation;
+
+        protected Enum.RoleType _type = Enum.RoleType.None;
 
         public int ID
         {
@@ -57,7 +59,15 @@ namespace WarGame
             get { return _attribute; }
         }
 
+        public Enum.RoleState State
+        {
+            get { return _state; }
+        }
 
+        public Enum.RoleType Type
+        {
+            get { return _type; }
+        }
 
         public Role(int id, RoleAttribute attribute, string assetPath, string hexagonID)
         {
@@ -71,15 +81,21 @@ namespace WarGame
 
         protected virtual void OnCreate(string assetPath, Vector3 bornPoint)
         {
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+            GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.position = bornPoint;
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleData>().ID = _id;
+            _rotation = _gameObject.transform.rotation;
 
+            CreateHUD();
+        }
+
+        protected virtual void CreateHUD()
+        {
             _hpHUDKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject, new object[]{ _id});
+            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject, new object[] { _id });
         }
 
         private void UpdateHexagonID(string id)
@@ -90,34 +106,49 @@ namespace WarGame
 
         public virtual void Update()
         {
-            if (null != _gameObject && null != _path && _path.Count > 0)
+            if (_state != Enum.RoleState.Attacking)
+                return;
+
+            UpdatePosition();
+
+        }
+
+        public virtual bool IsDead()
+        {
+            return _attribute.hp <= 0;
+        }
+
+        public virtual void UpdatePosition()
+        {
+            if (null == _gameObject)
+                return;
+            if (null == _path || _path.Count <= 0)
+                return;
+
+            _lerpStep += (Time.deltaTime * _speed);
+
+            var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
+            var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _offset;
+
+            //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
+            var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
+            _gameObject.transform.rotation = Quaternion.Lerp(_rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
+            _gameObject.transform.position = newPos;
+
+            if (_lerpStep >= 1)
             {
-                _lerpStep += (Time.deltaTime * _speed);
-
-                var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
-                var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
-                var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _offset;
-                var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _offset;
-
-                _gameObject.transform.position = Vector3.Lerp(startPos, endPos, _lerpStep);
-
-                if (_lerpStep >= 1)
+                _lerpStep = 0;
+                _pathIndex++;
+                _rotation = _gameObject.transform.rotation;
+                UpdateHexagonID(_path[_pathIndex]);
+                if (_pathIndex >= _path.Count - 1)
                 {
-                    _lerpStep = 0;
-                    _pathIndex++;
-                    UpdateHexagonID(_path[_pathIndex]);
-                    if (_pathIndex >= _path.Count - 1)
-                    {
-                        _path = null;
-                        _pathIndex = 0;
-                        EventDispatcher.Instance.Dispatch(Enum.EventType.Hero_MoveEnd_Event);
-                        Idle();
-                    }
+                    _path = null;
+                    _pathIndex = 0;
+                    MoveEnd();
                 }
-            }
-            if (_attribute.hp <= 0)
-            {
-                Dead();
             }
         }
 
@@ -129,6 +160,12 @@ namespace WarGame
 
             this._path = hexagons;
             _animator.Play("Move");
+        }
+
+        public virtual void MoveEnd()
+        {
+            Idle();
+            EventDispatcher.Instance.Dispatch(Enum.EventType.Role_MoveEnd_Event);
         }
 
         public virtual void Attack()
@@ -152,26 +189,24 @@ namespace WarGame
             _animator.Play("Idle");
         }
 
-        public virtual void Lock()
+        public virtual void Jump()
         {
-            if (_locked)
-                return;
-            _locked = true;
-            _lockHUDKey = "HUD_Lock_" + _id;
-            HUDManager.Instance.AddHUD("HUD", "HUDLock", _lockHUDKey, _gameObject.transform.Find("hudPoint").gameObject);
+            _animator.Play("Jump");
         }
 
-        public virtual void Unlock()
+        public virtual void NextState()
         {
-            if (!_locked)
-                return;
-            _locked = false;
-            HUDManager.Instance.RemoveHUD(_lockHUDKey);
+            if (_state + 1 > Enum.RoleState.AttackOver)
+                _state = Enum.RoleState.Waiting;
+            else
+                _state += 1;
+
+            OnStateChanged();
         }
 
-        public virtual bool IsLocked()
+        public virtual void OnStateChanged()
         {
-            return _locked;
+
         }
 
         public virtual void UpdateHP(float hp)
@@ -184,20 +219,26 @@ namespace WarGame
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
             var numberHUD = (HUDNumber)HUDManager.Instance.AddHUD("HUD", "HUDNumber", numberID, _gameObject.transform.Find("hudPoint").gameObject);
             _numberHUDList.Add(numberID);
-            numberHUD.Show(hurt, ()=> {
+            numberHUD.Show(hurt, () =>
+            {
                 HUDManager.Instance.RemoveHUD(numberID);
                 _numberHUDList.Remove(numberID);
             });
+
+            if (_attribute.hp <= 0)
+            {
+                Dead();
+            }
         }
 
         public virtual float GetMoveDis()
         {
-            return 5;
+            return _attribute.moveDis;
         }
 
         public virtual float GetAttackDis()
         {
-            return 1;
+            return _attribute.attackDis;
         }
 
         public virtual void Dispose()

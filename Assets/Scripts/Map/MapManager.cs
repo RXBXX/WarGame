@@ -73,24 +73,14 @@ namespace WarGame
         /// <summary>
         /// 标记可抵达地块
         /// </summary>
-        public void MarkingRegion(string hexagonID, float moveDis, float attackDis, bool isHero = true)
+        public void MarkingRegion(string hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
         {
-            //缓存所有的父节点
-            var cells = FindingMoveRegion(hexagonID, moveDis, isHero);
-            for (int i = 0; i < cells.Count; i++)
+            var region = FindingRegion(hexagonID, moveDis, attackDis, roleType);
+            for (int i = 0; i < region.Count; i++)
             {
-                _markedRegion.Add(cells[i].id);
-                GetHexagon(cells[i].id).Marking(cells[i].type);
-
+                _markedRegion.Add(region[i].id);
+                GetHexagon(region[i].id).Marking(region[i].type);
             }
-            DebugManager.Instance.Log("MarkingRegion:" + cells.Count);
-            cells = FindingAttackRegion(cells, attackDis, isHero);
-            for (int i = 0; i < cells.Count; i++)
-            {
-                _markedRegion.Add(cells[i].id);
-                GetHexagon(cells[i].id).Marking(cells[i].type);
-            }
-            DebugManager.Instance.Log("MarkingRegion:" + cells.Count);
         }
         public void ClearMarkedRegion()
         {
@@ -108,7 +98,7 @@ namespace WarGame
         {
             ClearMarkedPath();
 
-            var cells = FindingPath(initiatorID, targetID);
+            var cells = FindingPath(initiatorID, targetID, Enum.RoleType.Hero, true);
             if (cells.Count <= 0)
                 return;
 
@@ -159,48 +149,72 @@ namespace WarGame
                 this.g = g;
                 this.h = h;
                 this.coor = pos;
-                this.parent = parent;
                 this.id = id;
+                this.parent = parent;
             }
         };
+
+        ///发现当前坐标在垂直方向上可达的地块
+        ///从上往下找当前位置的可抵达地块
+        private Vector3 FindingVerticalCell(Vector3 coor)
+        {
+            for (int i = (int)coor.y + _stepHeight; i >= coor.y - _stepHeight; i--)
+            {
+                if (ContainHexagon(MapTool.Instance.GetHexagonKey(new Vector3(coor.x, i, coor.z))))
+                {
+                    coor.y = i;
+                    break;
+                }
+            }
+            return coor;
+        }
+
+        private bool IsReachable(Vector3 coor, Enum.RoleType roleType, bool isMovePath = true)
+        {
+            //如果当前位置可跨越高度正上方有地块，证明该地块不可达
+            var topKey = MapTool.Instance.GetHexagonKey(coor + new Vector3(0, _stepHeight + 1, 0));
+            var upHexagon = GetHexagon(topKey);
+            if (null != upHexagon)
+                return false;
+
+            var key = MapTool.Instance.GetHexagonKey(coor);
+            if (!ContainHexagon(key))
+                return false;
+
+            var hexagon = GetHexagon(key);
+            if (!hexagon.IsReachable())
+                return false;
+
+            //如果当前地块有敌人，是不可达的，但是攻击距离不受影响
+            if (isMovePath)
+            {
+                var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
+                if (roleId > 0)
+                {
+                    var role = RoleManager.Instance.GetRole(roleId);
+                    if (roleType != role.Type)
+                        return false;
+                }
+            }
+
+            return true;
+        }
 
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleMoveCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, bool isAttackPath = false, bool isHero = true)
+        private Cell HandleCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Enum.RoleType roleType, bool isMovePath = true)
         {
-            //如果当前位置可跨越高度正上方有地块，证明该地块不可达
-            var topKey = MapTool.Instance.GetHexagonKey(cellPos + new Vector3(0, _stepHeight + 1, 0));
-            var upHexagon = GetHexagon(topKey);
-            if (null != upHexagon)
+            cellPos = FindingVerticalCell(cellPos);
+
+            if (!IsReachable(cellPos, roleType, isMovePath))
                 return null;
 
-            //从上往下找当前位置的可抵达地块
-            for (int i = (int)cellPos.y + _stepHeight; i >= cellPos.y - _stepHeight; i--)
-            {
-                if (ContainHexagon(MapTool.Instance.GetHexagonKey(new Vector3(cellPos.x, i, cellPos.z))))
-                {
-                    cellPos.y = i;
-                    break;
-                }
-            }
-
             var key = MapTool.Instance.GetHexagonKey(cellPos);
-            if (!ContainHexagon(key))
+            if (closeDic.ContainsKey(key))
                 return null;
 
             var hexagon = GetHexagon(key);
-            if (!hexagon.IsReachable() || closeDic.ContainsKey(key))
-                return null;
-
-            //如果当前地块有敌人，是不可达的，但是攻击距离不受影响
-            if (!isAttackPath)
-            {
-                if (isHero && RoleManager.Instance.GetEnemyIDByHexagonID(key) > 0)
-                    return null;
-                else if (!isHero && RoleManager.Instance.GetHeroIDByHexagonID(key) > 0)
-                    return null;
-            }
 
             var cost = 0.0f;
             if (null != parent)
@@ -210,7 +224,6 @@ namespace WarGame
             if (cellPos == endPos)
             {
                 cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
-                cell.type = Enum.MarkType.Selected;
                 openDic.Add(key, cell);
             }
             else if (openDic.ContainsKey(key))
@@ -225,12 +238,12 @@ namespace WarGame
             else
             {
                 cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
-                cell.type = Enum.MarkType.Selected;
                 openDic.Add(key, cell);
             }
 
             return cell;
         }
+
 
         /// <summary>
         /// 寻路
@@ -239,7 +252,7 @@ namespace WarGame
         /// <param name="startHexagonID"></param>
         /// <param name="endHexagonID"></param>
         /// <returns></returns>
-        public List<Cell> FindingPath(string startHexagonID, string endHexagonID, bool isAttackPath = false, bool isHero = true)
+        public List<Cell> FindingPath(string startHexagonID, string endHexagonID, Enum.RoleType roleType, bool isMovePath = true)
         {
             List<Cell> path = new List<Cell>();
             Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
@@ -247,15 +260,14 @@ namespace WarGame
 
             var startPos = GetHexagon(startHexagonID).coordinate;
             var endPos = GetHexagon(endHexagonID).coordinate;
-            var cell = HandleMoveCell(startPos, endPos, null, openDic, closeDic, isAttackPath, isHero);
+
+            if (!IsReachable(endPos, roleType, isMovePath))
+                return path;
+
+            var cell = HandleCell(startPos, endPos, null, openDic, closeDic, roleType, isMovePath);
             if (null == cell || cell.coor == endPos)
                 return path;
 
-            var hexagon = GetHexagon(MapTool.Instance.GetHexagonKey(endPos));
-            if (null == hexagon || !hexagon.IsReachable())
-                return path;
-
-            //F = G + H
             Cell endCell = null;
             while (openDic.Count > 0 && null == endCell)
             {
@@ -271,7 +283,7 @@ namespace WarGame
                 for (int i = 0; i < _directions.Length; i++)
                 {
                     var pos2 = c1.coor + _directions[i];
-                    var cell2 = HandleMoveCell(pos2, endPos, c1, openDic, closeDic, isAttackPath, isHero);
+                    var cell2 = HandleCell(pos2, endPos, c1, openDic, closeDic, roleType, isMovePath);
                     if (null != cell2 && cell2.coor == endPos)
                     {
                         endCell = cell2;
@@ -299,9 +311,9 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public List<string> FindingPathForStr(string initiatorID, string targetID, bool isAttackPath = false, bool isHero = true)
+        public List<string> FindingPathForStr(string initiatorID, string targetID, Enum.RoleType roleType, bool isMovePath = true)
         {
-            var path = FindingPath(initiatorID, targetID, isAttackPath, isHero);
+            var path = FindingPath(initiatorID, targetID, roleType, isMovePath);
             List<string> hexagons = new List<string>();
             for (int i = 0; i < path.Count; i++)
             {
@@ -310,112 +322,67 @@ namespace WarGame
             return hexagons;
         }
 
+
         /// <summary>
         /// 标记可达区域专用
         /// </summary>
-        private Cell HandleMoveRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, bool isHero = true)
+        private Cell HandleRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Dictionary<string, Cell> walkableDic, Enum.RoleType roleType, Enum.MarkType markType, bool isMovePath = true)
         {
-            //如果当前位置可跨越高度正上方有地块，证明该地块不可达
-            var topKey = MapTool.Instance.GetHexagonKey(cellPos + new Vector3(0, _stepHeight + 1, 0));
-            var upHexagon = GetHexagon(topKey);
-            if (null != upHexagon)
+            cellPos = FindingVerticalCell(cellPos);
+
+            if (!IsReachable(cellPos, roleType, isMovePath))
                 return null;
 
-            //从上往下找当前位置的可抵达地块
-            for (int i = (int)cellPos.y + _stepHeight; i >= cellPos.y - _stepHeight; i--)
-            {
-                if (ContainHexagon(MapTool.Instance.GetHexagonKey(new Vector3(cellPos.x, i, cellPos.z))))
-                {
-                    cellPos.y = i;
-                    break;
-                }
-            }
-
             var key = MapTool.Instance.GetHexagonKey(cellPos);
-            if (!ContainHexagon(key))
+            if (closeDic.ContainsKey(key))
+                return null;
+            if (null != walkableDic && walkableDic.ContainsKey(key))
                 return null;
 
             var hexagon = GetHexagon(key);
-            if (!hexagon.IsReachable())
-                return null;
-
-            if (closeDic.ContainsKey(key) || openDic.ContainsKey(key))
-                return null;
-
-            if (isHero && RoleManager.Instance.GetEnemyIDByHexagonID(key) > 0)
-                return null;
-
-            if (!isHero && RoleManager.Instance.GetHeroIDByHexagonID(key) > 0)
-                return null;
-
             //每个地块的通过代价不一样，这个问题需要考虑
             float cost = 0;
+            if (!isMovePath)
+            {
+                cost = hexagon.GetCost();
+            }
+
+            //如果有可通过但不可停留的地块（例如同阵营角色所在的地块），通过调高该地块代价来优化路径规划
             if (null != parent)
             {
-                cost = parent.g + hexagon.GetCost();
-            }
-            Cell cell = null;
-            if (cost <= dis)
-            {
-                cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
-                cell.type = Enum.MarkType.Walkable;
-            }
+                if(parent.type == markType)
+                    cost = parent.g + hexagon.GetCost();
 
-            if (null != cell)
-                openDic.Add(key, cell);
-
-            return cell;
-        }
-
-        /// <summary>
-        /// 标记可达区域专用
-        /// </summary>
-        private Cell HandleAttackRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Dictionary<string, Cell> walkableDic, bool isHero = true)
-        {
-            //如果当前位置可跨越高度正上方有地块，证明该地块不可达
-            var topKey = MapTool.Instance.GetHexagonKey(cellPos + new Vector3(0, _stepHeight + 1, 0));
-            var upHexagon = GetHexagon(topKey);
-            if (null != upHexagon)
-                return null;
-
-            //从上往下找当前位置的可抵达地块
-            for (int i = (int)cellPos.y + _stepHeight; i >= cellPos.y - _stepHeight; i--)
-            {
-                if (ContainHexagon(MapTool.Instance.GetHexagonKey(new Vector3(cellPos.x, i, cellPos.z))))
+                var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
+                if (roleId > 0)
                 {
-                    cellPos.y = i;
-                    break;
+                    var role = RoleManager.Instance.GetRole(roleId);
+                    if (roleType == role.Type)
+                    {
+                        cost = cost + 1; //这里有个问题，如果只有己方英雄占据了唯一路口，代价过高会导致寻路失败
+                    }
                 }
             }
 
-            var key = MapTool.Instance.GetHexagonKey(cellPos);
-            if (!ContainHexagon(key))
-                return null;
-
-            var hexagon = GetHexagon(key);
-
-            if (closeDic.ContainsKey(key) || openDic.ContainsKey(key) || walkableDic.ContainsKey(key))
-                return null;
-
-            //每个地块的通过代价不一样，这个问题需要考虑
-            float cost = hexagon.GetCost();
-            if (null != parent)
-            {
-                cost += parent.g;
-            }
             Cell cell = null;
-            if (cost <= dis)
+            if (openDic.ContainsKey(key))
+            {
+                cell = openDic[key];
+                if (cost < cell.g)
+                {
+                    cell.g = cost;
+                    cell.parent = parent;
+                }
+            }
+            else if (cost <= dis)
             {
                 cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
-                cell.type = Enum.MarkType.Attachable;
-            }
-
-            if (null != cell)
+                cell.type = markType;
                 openDic.Add(key, cell);
+            }
 
             return cell;
         }
-
 
         /// <summary>
         /// 标记可达区域
@@ -425,7 +392,7 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public List<Cell> FindingMoveRegion(string hexagonID, float moveDis, bool isHero = true)
+        public List<Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType)
         {
             List<Cell> region = new List<Cell>();
 
@@ -433,7 +400,7 @@ namespace WarGame
             Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
 
             var startPos = GetHexagon(hexagonID).coordinate;
-            var cell = HandleMoveRegionCell(startPos, null, moveDis, openDic, closeDic, isHero);
+            var cell = HandleRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType, Enum.MarkType.Walkable, true);
             if (null == cell)
                 return region;
 
@@ -450,7 +417,7 @@ namespace WarGame
                     for (int i = 0; i < _directions.Length; i++)
                     {
                         var pos2 = cell2.coor + _directions[i];
-                        HandleMoveRegionCell(pos2, cell2, moveDis, openDic, closeDic, isHero);
+                        HandleRegionCell(pos2, cell2, moveDis, openDic, closeDic, null, roleType, Enum.MarkType.Walkable, true);
                     }
                     openDic.Remove(key);
                     closeDic.Add(key, cell2);
@@ -473,31 +440,23 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public List<Cell> FindingAttackRegion(List<Cell> cells, float attackDis, bool isHero = true)
+        public List<Cell> FindingAttackRegion(List<Cell> cells, float attackDis, Enum.RoleType roleType)
         {
             Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
             Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
             Dictionary<string, Cell> walkableDic = new Dictionary<string, Cell>();
 
-            var parentCell = new Dictionary<string, bool>();
             for (int i = 0; i < cells.Count; i++)
             {
-                if (null != cells[i].parent)
-                {
-                    parentCell[cells[i].parent.id] = true;
-                }
-                walkableDic[cells[i].id] = cells[i];
+                walkableDic.Add(cells[i].id, cells[i]);
             }
 
             for (int i = 0; i < cells.Count; i++)
             {
-                if (!parentCell.ContainsKey(cells[i].id))
+                for (int j = 0; j < _directions.Length; j++)
                 {
-                    for (int j = 0; j < _directions.Length; j++)
-                    {
-                        var pos2 = cells[i].coor + _directions[j];
-                        HandleAttackRegionCell(pos2, null, attackDis, openDic, closeDic, walkableDic, isHero);
-                    }
+                    var pos2 = cells[i].coor + _directions[j];
+                    var cell = HandleRegionCell(pos2, cells[i], attackDis, openDic, closeDic, walkableDic, roleType, Enum.MarkType.Attackable, false);
                 }
             }
 
@@ -514,7 +473,7 @@ namespace WarGame
                     for (int i = 0; i < _directions.Length; i++)
                     {
                         var pos2 = cell2.coor + _directions[i];
-                        HandleAttackRegionCell(pos2, cell2, attackDis, openDic, closeDic, walkableDic, isHero);
+                        HandleRegionCell(pos2, cell2, attackDis, openDic, closeDic, walkableDic, roleType, Enum.MarkType.Attackable, false);
                     }
                     openDic.Remove(key);
                     closeDic.Add(key, cell2);
@@ -524,7 +483,6 @@ namespace WarGame
             List<Cell> region = new List<Cell>();
             foreach (var pair in closeDic)
             {
-                DebugManager.Instance.Log(pair.Value.g);
                 region.Add(pair.Value);
             }
 
@@ -533,6 +491,48 @@ namespace WarGame
             walkableDic.Clear();
 
             return region;
+        }
+
+        public List<Cell> FindingRegion(string hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
+        {
+            //缓存所有的父节点
+            var region = FindingMoveRegion(hexagonID, moveDis, roleType);
+            var attackRegion = FindingAttackRegion(region, attackDis, roleType);
+            for (int i = 0; i < attackRegion.Count; i++)
+            {
+                region.Add(attackRegion[i]);
+            }
+            return region;
+        }
+
+        public List<string> FindingAIPath(string initiator, string target, float moveDis, float attackDis)
+        {
+            var region = FindingRegion(initiator, moveDis, attackDis, Enum.RoleType.Enemy);
+            Cell targetCell = null;
+            for (int i = 0; i < region.Count; i++)
+            {
+                if (region[i].id == target)
+                {
+                    targetCell = region[i];
+                }
+            }
+
+            if (null == targetCell)
+                return null;
+
+            List<string> path = new List<string>();
+            targetCell = targetCell.parent;
+            //var heroId = RoleManager.Instance.GetHeroIDByHexagonID(targetCell.id);
+            //var enemyId = RoleManager.Instance.GetEnemyIDByHexagonID(targetCell.id)
+            //if (heroId != _initiator)
+            //return null;
+            while (null != targetCell)
+            {
+                path.Add(targetCell.id);
+                targetCell = targetCell.parent;
+            }
+            path.Reverse();
+            return path;
         }
     }
 }

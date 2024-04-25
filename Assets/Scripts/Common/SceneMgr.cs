@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 namespace WarGame
 {
@@ -15,6 +16,7 @@ namespace WarGame
         private int _roundIndex = 0;
         private string _curMap = null;
         private bool _isStarted = false;
+        private GameObject _heroScene;
 
         public override bool Init()
         {
@@ -23,7 +25,8 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, Idle);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Attack_Event, Attack);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, Cancel);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_MoveEnd_Event, MoveEnd);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Role_MoveEnd_Event, MoveEnd);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, RoundOver);
 
             return true;
         }
@@ -35,7 +38,8 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, Idle);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Attack_Event, Attack);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, Cancel);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_MoveEnd_Event, MoveEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_MoveEnd_Event, MoveEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundOver_Event, RoundOver);
 
             return true;
         }
@@ -44,14 +48,6 @@ namespace WarGame
         {
             if (!_isStarted)
                 return;
-
-            if (RoleManager.Instance.IsAllLocked())
-            {
-                _roundIndex += 1;
-                RoleManager.Instance.UnlockAll();
-                Debug.Log(_roundIndex);
-                EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_Round_Event, new object[] { _roundIndex });
-            }
         }
 
         public void Touch(GameObject obj)
@@ -66,10 +62,10 @@ namespace WarGame
             {
                 if (_initiator > 0)
                 {
-                    var start = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
+                    var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
                     var end = obj.GetComponent<HexagonCellData>().ID;
 
-                    var hero = RoleManager.Instance.GetHero(_initiator);
+                    var hero = RoleManager.Instance.GetRole(_initiator);
                     MapManager.Instance.MarkingPath(start, end, hero.GetMoveDis());
                 }
             }
@@ -96,14 +92,14 @@ namespace WarGame
             {
                 var hexagonID = obj.GetComponent<HexagonCellData>().ID;
 
-                var heroID = RoleManager.Instance.GetHeroIDByHexagonID(hexagonID);
+                var heroID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
                 if (heroID > 0)
                 {
                     ClickHero(heroID);
                     return;
                 }
 
-                var enemyID = RoleManager.Instance.GetEnemyIDByHexagonID(hexagonID);
+                var enemyID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
                 if (enemyID > 0)
                 {
                     ClickEnemy(enemyID);
@@ -122,21 +118,23 @@ namespace WarGame
             }
             if (heroID > 0)
             {
-                var hero = RoleManager.Instance.GetHero(heroID);
-                if (hero.IsLocked())
+                var hero = RoleManager.Instance.GetRole(heroID);
+                if (hero.State == Enum.RoleState.AttackOver)
                     return;
 
-                string hexagonID = RoleManager.Instance.GetHexagonIDByHeroID(heroID);
+                string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
                 MapManager.Instance.ClearMarkedRegion();
                 if (_initiator > 0 && heroID == _initiator)
                 {
-                    MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), true);
+                    MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
                     OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
                 }
                 else
                 {
+                    MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
+                    if (hero.State != Enum.RoleState.Attacking)
+                        return;
                     _initiator = heroID;
-                    MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), true);
                 }
             }
         }
@@ -145,6 +143,10 @@ namespace WarGame
         {
             if (enemyId > 0)
             {
+                var enemy = RoleManager.Instance.GetRole(enemyId);
+                if (enemy.State == Enum.RoleState.AttackOver)
+                    return;
+
                 if (_curInstruct == Enum.InstructType.Attack)
                 {
                     Battle(enemyId);
@@ -152,10 +154,9 @@ namespace WarGame
                 else
                 {
                     _initiator = 0;
-                    string hexagonID = RoleManager.Instance.GetHexagonIDByEnemyID(enemyId);
+                    string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
                     MapManager.Instance.ClearMarkedRegion();
-                    var enemy = RoleManager.Instance.GetEnemy(enemyId);
-                    MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), false);
+                    MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
                 }
             }
         }
@@ -168,7 +169,7 @@ namespace WarGame
             }
             if (_initiator > 0)
             {
-                var startID = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
+                var startID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
                 Move(startID, hexagonID);
             }
         }
@@ -180,7 +181,7 @@ namespace WarGame
         {
             _locked = true;
 
-            var hexagonID = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
             var hexagon = MapManager.Instance.GetHexagon(hexagonID);
             HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", hexagon.GameObject);
         }
@@ -201,7 +202,7 @@ namespace WarGame
         /// <param name="end"></param>
         private void Move(string start, string end)
         {
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end);
+            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, Enum.RoleType.Hero, true);
 
             if (null == hexagons || hexagons.Count <= 0)
                 return;
@@ -211,7 +212,7 @@ namespace WarGame
             {
                 cost += MapManager.Instance.GetHexagon(hexagons[i]).GetCost();
             }
-            var hero = RoleManager.Instance.GetHero(_initiator);
+            var hero = RoleManager.Instance.GetRole(_initiator);
             if (cost > hero.GetMoveDis())
                 return;
 
@@ -219,7 +220,7 @@ namespace WarGame
             _origin = start;
             MapManager.Instance.ClearMarkedPath();
             MapManager.Instance.ClearMarkedRegion();
-            RoleManager.Instance.MoveHero(_initiator, hexagons);
+            RoleManager.Instance.MoveRole(_initiator, hexagons);
         }
 
         /// <summary>
@@ -231,17 +232,17 @@ namespace WarGame
                 return;
 
             _locked = true;
-            var start = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
-            var path = MapManager.Instance.FindingPathForStr(start, _origin);
-            RoleManager.Instance.MoveHero(_initiator, path);
+            var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
+            var path = MapManager.Instance.FindingPathForStr(start, _origin, Enum.RoleType.Hero, true);
+            RoleManager.Instance.MoveRole(_initiator, path);
         }
 
         private void Battle(int enemyID)
         {
-            var initiatorID = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
-            var targetID = RoleManager.Instance.GetHexagonIDByEnemyID(enemyID);
+            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
+            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(enemyID);
 
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, true);
+            List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, Enum.RoleType.Hero, false);
             if (null == hexagons || hexagons.Count <= 0)
                 return;
             var cost = 0.0f;
@@ -250,7 +251,7 @@ namespace WarGame
                 cost += MapManager.Instance.GetHexagon(hexagons[i]).GetCost();
             }
 
-            var hero = RoleManager.Instance.GetHero(_initiator);
+            var hero = RoleManager.Instance.GetRole(_initiator);
             if (cost > hero.GetAttackDis())
                 return;
 
@@ -270,8 +271,9 @@ namespace WarGame
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
-            var hero = RoleManager.Instance.GetHero(_initiator);
-            hero.Lock();
+            RoleManager.Instance.NextState(_initiator);
+            //var hero = RoleManager.Instance.GetHero(_initiator);
+            //hero.NextState();
 
             _initiator = 0;
             _origin = null;
@@ -309,9 +311,9 @@ namespace WarGame
             _locked = false;
             if (_initiator <= 0)
                 return;
-            var hexagonID = RoleManager.Instance.GetHexagonIDByHeroID(_initiator);
-            var hero = RoleManager.Instance.GetHero(_initiator);
-            MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), true);
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
+            var hero = RoleManager.Instance.GetRole(_initiator);
+            MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
             OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
         }
 
@@ -321,14 +323,22 @@ namespace WarGame
 
             var attr = new RoleAttribute();
             attr.hp = 100;
-            attr.attack = 30;
+            attr.attack = 60;
             attr.defense = 5F;
+            attr.moveDis = 6;
+            attr.attackDis = 3;
             var bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero);
             RoleManager.Instance.CreateHero(1, attr, "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab", bornPoint);
 
             bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
             RoleManager.Instance.CreateHero(2, attr, "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab", bornPoint);
 
+            attr = new RoleAttribute();
+            attr.hp = 100;
+            attr.attack = 10;
+            attr.defense = 5F;
+            attr.moveDis = 5;
+            attr.attackDis = 1.0f;
             var bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
             RoleManager.Instance.CreateEnemy(11, attr, "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab", bornPoint2);
 
@@ -337,6 +347,16 @@ namespace WarGame
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
             _isStarted = true;
+
+            RoleManager.Instance.NextAllHeroState();
+        }
+
+        public void RoundOver(params object[] args)
+        {
+            _roundIndex += 1;
+            EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_Round_Event, new object[] { _roundIndex });
+            RoleManager.Instance.NextAllState();
+            RoleManager.Instance.NextAllHeroState();
         }
 
         public void OpenScene(string mapDir)
@@ -358,11 +378,33 @@ namespace WarGame
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("TransitionScene");
             SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
             {
                 UIManager.Instance.OpenPanel("Map", "MapPanel");
             };
+        }
+
+        public void OpenHeroScene(params object[] args)
+        {
+            var prefab = AssetMgr.Instance.LoadAsset<GameObject>("Assets/Prefabs/HeroScene.prefab");
+            _heroScene = GameObject.Instantiate<GameObject>(prefab);
+            _heroScene.transform.position = Vector3.one * 10000;
+            CameraMgr.Instance.SetMainCamera(_heroScene.transform.Find("Camera").GetComponent<Camera>());
+            UIManager.Instance.OpenPanel("Hero", "HeroPanel", args);
+            HUDManager.Instance.SetVisible(false);
+        }
+
+        public void CloseHeroScene()
+        {
+            GameObject.Destroy(_heroScene);
+            UIManager.Instance.ClosePanel("HeroPanel");
+            HUDManager.Instance.SetVisible(true);
+        }
+
+        public Transform GetHeroRoot()
+        {
+            return _heroScene.transform.Find("HeroRoot");
         }
     }
 }

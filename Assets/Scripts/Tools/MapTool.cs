@@ -184,6 +184,7 @@ namespace WarGame
 
             for (int i = 0; i < hexagons.Length; i++)
             {
+                hexagons[i].CreateGameObject();
                 hexagons[i].SetParent(rootObj.transform);
             }
         }
@@ -227,7 +228,7 @@ namespace WarGame
                         }
 
                         string assetPath = MapTool.Instance.GetHexagonPrefab(type);
-                        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+                        GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
                         var obj = GameObject.Instantiate(prefab);
                         obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
                         obj.transform.SetParent(rootObj.transform);

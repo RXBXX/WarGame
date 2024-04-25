@@ -4,12 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEditor;
+using System.Text.RegularExpressions;
 
 namespace WarGame.UI
 {
     public class MapPanel : UIBase
     {
-        private List<string> _maps = new List<string>();
+        private struct Pair
+        {
+            public string key;
+            public string value;
+
+            public Pair(string key, string value)
+            {
+                this.key = key;
+                this.value = value;
+            }
+        }
+
+        private List<Pair> _maps = new List<Pair>();
         private GList _gList = null;
 
         public MapPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
@@ -25,7 +38,13 @@ namespace WarGame.UI
             {
                 if (files[i].Contains(".json") && !files[i].Contains(".json.meta"))
                 {
-                    _maps.Add(files[i]);
+                    var path = files[i].Replace('\\', '/');
+                    var regex = new Regex(@"[^\\/]+(?=\.[^\.\\/]+$)");
+                    var m = regex.Match(path);
+                    if (m.Success)
+                    {
+                        _maps.Add(new Pair(m.Value, files[i]));
+                    }
                 }
             }
 
@@ -37,14 +56,14 @@ namespace WarGame.UI
         private void ItemRenderer(int index, GObject item)
         {
             GComponent gCom = (GComponent)item;
-            gCom.GetChild("title").text = _maps[index];
+            gCom.GetChild("title").text = _maps[index].key;
         }
 
         private void OnClickItem(EventContext context)
         {
             var index = _gList.GetChildIndex((GObject)context.data);
             UIManager.Instance.ClosePanel(name);
-            SceneMgr.Instance.OpenScene(_maps[index]);
+            SceneMgr.Instance.OpenScene(_maps[index].value);
         }
     }
 }

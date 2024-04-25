@@ -62,6 +62,16 @@ namespace WarGame.UI
             return null;
         }
 
+        public void SetVisible(bool visible)
+        {
+            for (int i = _hudList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _hudList.Count)
+                    continue;
+                _hudList[i].SetVisible(visible);
+            }
+        }
+
         public override bool Dispose()
         {
             base.Dispose();

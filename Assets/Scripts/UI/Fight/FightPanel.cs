@@ -10,6 +10,9 @@ namespace WarGame.UI
             _gCom.GetChild("closeBtn").onClick.Add(()=> {
                 SceneMgr.Instance.DestroyScene();
             });
+            _gCom.GetChild("heroBtn").onClick.Add(() => {
+                SceneMgr.Instance.OpenHeroScene(new object[] { "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab" });
+            });
             _round = (GTextField)_gCom.GetChild("round");
             _round.text = "Round:0";
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Round_Event, UpdateRound);

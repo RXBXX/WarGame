@@ -7,8 +7,7 @@ namespace WarGame
 {
     public class RoleManager : Singeton<RoleManager>
     {
-        private List<Hero> _heroList = new List<Hero>();
-        private List<Enemy> _enemyList = new List<Enemy>();
+        private List<Role> _roleList = new List<Role>();
         private int _initiator = 0, _target = 0;
 
         public override bool Init()
@@ -20,15 +19,9 @@ namespace WarGame
 
         public override void Update()
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (null != _heroList[i])
-                    _heroList[i].Update();
-            }
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
-            {
-                if (null != _enemyList[i])
-                    _enemyList[i].Update();
+                _roleList[i].Update();
             }
         }
 
@@ -36,19 +29,7 @@ namespace WarGame
         {
             base.Dispose();
 
-            for (int i = _heroList.Count - 1; i >= 0; i--)
-            {
-                if (null != _heroList[i])
-                    _heroList[i].Dispose();
-            }
-            _heroList.Clear();
-
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
-            {
-                if (null != _enemyList[i])
-                    _enemyList[i].Dispose();
-            }
-            _enemyList.Clear();
+            Clear();
 
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             return true;
@@ -58,57 +39,43 @@ namespace WarGame
         {
             var hero = new Hero(id, attr, prefab, bornHexagon);
 
-            _heroList.Add(hero);
+            _roleList.Add(hero);
 
             return id;
-        }
-
-        public void RemoveHero(int id)
-        {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
-            {
-                if (null != _heroList[i] && id == _heroList[i].ID)
-                {
-                    _heroList.RemoveAt(i);
-                    return;
-                }
-            }
         }
 
         public int CreateEnemy(int id, RoleAttribute attr, string prefab, string bornHexagon)
         {
             var enemy = new Enemy(id, attr, prefab, bornHexagon);
 
-            _enemyList.Add(enemy);
+            _roleList.Add(enemy);
 
             return id;
         }
 
-        public void RemoveEnemy(int id)
+        public void RemoveRole(int id)
         {
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (null != _enemyList[i] && id == _enemyList[i].ID)
+                if (id == _roleList[i].ID)
                 {
-                    _enemyList.RemoveAt(i);
+                    _roleList.RemoveAt(i);
                     return;
                 }
             }
         }
 
 
-        public void MoveHero(int id, List<string> hexagons)
+        public void MoveRole(int id, List<string> hexagons)
         {
-            Hero hero = null;
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (null != _heroList[i] && id == _heroList[i].ID)
+                if (id == _roleList[i].ID)
                 {
-                    hero = _heroList[i];
-                    break;
+                    _roleList[i].Move(hexagons);
+                    return;
                 }
             }
-            hero.Move(hexagons);
         }
 
 
@@ -117,34 +84,15 @@ namespace WarGame
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string GetHexagonIDByHeroID(int id)
+        public string GetHexagonIDByRoleID(int id)
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                if (_heroList[i].ID == id)
+                if (_roleList[i].ID == id)
                 {
-                    return _heroList[i].hexagonID;
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// 获取指定敌人所在的地块id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public string GetHexagonIDByEnemyID(int id)
-        {
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _enemyList.Count)
-                    continue;
-                if (_enemyList[i].ID == id)
-                {
-                    return _enemyList[i].hexagonID;
+                    return _roleList[i].hexagonID;
                 }
             }
             return null;
@@ -155,34 +103,15 @@ namespace WarGame
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int GetEnemyIDByHexagonID(string id)
+        public int GetRoleIDByHexagonID(string id)
         {
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _enemyList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                if (_enemyList[i].hexagonID == id)
+                if (_roleList[i].hexagonID == id)
                 {
-                    return _enemyList[i].ID;
-                }
-            }
-            return 0;
-        }
-
-        /// <summary>
-        /// 获取指定地块的英雄
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public int GetHeroIDByHexagonID(string id)
-        {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _heroList.Count)
-                    continue;
-                if (_heroList[i].hexagonID == id)
-                {
-                    return _heroList[i].ID;
+                    return _roleList[i].ID;
                 }
             }
             return 0;
@@ -190,43 +119,38 @@ namespace WarGame
 
         public void Clear()
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                _heroList[i].Dispose();
+                _roleList[i].Dispose();
             }
-            _heroList.Clear();
-
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _enemyList.Count)
-                    continue;
-                _enemyList[i].Dispose();
-            }
-            _enemyList.Clear();
+            _roleList.Clear();
         }
 
-        public Hero GetHero(int id)
+        public Role GetRole(int id)
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                if (_heroList[i].ID == id)
-                    return _heroList[i];
+                if (_roleList[i].ID == id)
+                    return _roleList[i];
             }
             return null;
         }
 
-        public Enemy GetEnemy(int id)
+        public List<Role> GetAllRolesByType(Enum.RoleType type)
         {
-            for (int i = _enemyList.Count - 1; i >= 0; i--)
+            List<Role> roles = new List<Role>();
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (_enemyList[i].ID == id)
-                    return _enemyList[i];
+                if (i >= _roleList.Count)
+                    continue;
+                if (_roleList[i].Type == type)
+                    roles.Add(_roleList[i]);
             }
-            return null;
+            return roles;
         }
 
         public void Attack(int initiatorID, int targetID)
@@ -234,39 +158,102 @@ namespace WarGame
             _initiator = initiatorID;
             _target = targetID;
 
-            var initiator = GetHero(initiatorID);
+            var initiator = GetRole(initiatorID);
             initiator.Attack();
         }
 
-        public bool IsAllLocked()
+        public bool IsAllAttackOver()
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                if (!_heroList[i].IsLocked())
+                if (_roleList[i].State != Enum.RoleState.AttackOver)
                     return false;
             }
+
             return true;
         }
 
-        public void UnlockAll()
+        public void NextState(int id)
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                _heroList[i].Unlock();
+                if (_roleList[i].ID == id)
+                {
+                    _roleList[i].NextState();
+                    break;
+                }
+            }
+
+            bool allHeroAttackOver = true;
+            bool allEnemyAttackOver = true;
+            for (int i = _roleList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _roleList.Count)
+                    continue;
+                if (_roleList[i].State != Enum.RoleState.AttackOver)
+                {
+                    if (_roleList[i].Type == Enum.RoleType.Hero && !_roleList[i].IsDead())
+                        allHeroAttackOver = false;
+                    else if (_roleList[i].Type == Enum.RoleType.Enemy && !_roleList[i].IsDead())
+                        allEnemyAttackOver = false;
+                }
+            }
+
+            if (allEnemyAttackOver && allHeroAttackOver)
+            {
+                EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_RoundOver_Event);
+            }
+            else if (allHeroAttackOver)
+            {
+                var nonAttackingEnemy = true;
+                for (int i = _roleList.Count - 1; i >= 0; i--)
+                {
+                    if (i >= _roleList.Count)
+                        continue;
+                    if (_roleList[i].State == Enum.RoleState.Attacking && _roleList[i].Type == Enum.RoleType.Enemy)
+                    {
+                        nonAttackingEnemy = false;
+                        break;
+                    }
+                }
+                if (nonAttackingEnemy)
+                {
+                    for (int i = _roleList.Count - 1; i >= 0; i--)
+                    {
+                        if (i >= _roleList.Count)
+                            continue;
+                        if (_roleList[i].State == Enum.RoleState.Waiting && _roleList[i].Type == Enum.RoleType.Enemy && !_roleList[i].IsDead())
+                        {
+                            _roleList[i].NextState();
+                            break;
+                        }
+                    }
+                }
             }
         }
 
-        public void LockAll()
+        public void NextAllHeroState()
         {
-            for (int i = _heroList.Count - 1; i >= 0; i--)
+            for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                if (i >= _heroList.Count)
+                if (i >= _roleList.Count)
                     continue;
-                _heroList[i].Lock();
+                if (_roleList[i].Type == Enum.RoleType.Hero)
+                    _roleList[i].NextState();
+            }
+        }
+
+        public void NextAllState()
+        {
+            for (int i = _roleList.Count - 1; i >= 0; i--)
+            {
+                if (i >= _roleList.Count)
+                    continue;
+                _roleList[i].NextState();
             }
         }
 
@@ -281,37 +268,29 @@ namespace WarGame
             switch (arg)
             {
                 case "Attack":
-                    if(_initiator == (int)args[1] && _target > 0)
+                    if (_initiator == (int)args[1] && _target > 0)
                     {
-                        var initiator = GetHero(_initiator);
-                        var target = GetEnemy(_target);
-
+                        var initiator = GetRole(_initiator);
+                        var target = GetRole(_target);
                         var hurt = initiator.Attribute.attack - target.Attribute.defense;
                         target.Attacked(hurt);
-
                         _target = 0;
                     }
                     break;
                 case "Attack_End":
                     if (_initiator == (int)args[1])
                     {
-                        var initiator = GetHero(_initiator);
-                        initiator.Lock();
-                        _initiator = 0;
+                        NextState(_initiator);
+
                     }
                     break;
                 case "Dead":
-                    var hero = GetHero((int)args[1]);
-                    if (null != hero)
+                    var role = GetRole((int)args[1]);
+                    if (null != role)
                     {
-                        _heroList.Remove(hero);
-                        hero.Dispose();
-                    }    
-                    var enemy = GetEnemy((int)args[1]);
-                    if (null != enemy)
-                    {
-                        _enemyList.Remove(enemy);
-                        enemy.Dispose();
+                        NextState((int)args[1]);
+                        _roleList.Remove(role);
+                        role.Dispose();
                     }
                     break;
             }

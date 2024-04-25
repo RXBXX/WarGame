@@ -30,7 +30,9 @@ namespace WarGame
 
         public override void LateUpdate()
         {
-            base.LateUpdate();
+            if (null != Stage.inst.touchTarget)
+                return;
+
             if (null == MainCamera)
                 return;
             //求出摄像机射线和平面的交点
@@ -64,6 +66,11 @@ namespace WarGame
                 MainCamera.transform.RotateAround(point, Vector3.up, xAxis);
                 MainCamera.transform.RotateAround(point, MainCamera.transform.right, yAxis);
             }
+        }
+
+        public void SetMainCamera(Camera camera)
+        {
+            camera.tag = "MainCamera";
         }
 
         public override bool Dispose()

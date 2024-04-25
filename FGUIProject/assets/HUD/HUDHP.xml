@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" extention="ProgressBar">
+  <controller name="style" pages="0,,1," selected="0"/>
   <displayList>
-    <graph id="n0_kugj" name="n0" xy="0,0" size="160,20" type="rect" lineSize="0" lineColor="#ffa0a0a0" fillColor="#fff0f0f0">
+    <graph id="n0_kugj" name="n0" xy="0,0" size="160,20" type="rect" lineSize="0" lineColor="#ffa0a0a0" fillColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <graph id="n1_kugj" name="bar" xy="0,2" size="160,16" type="rect" lineSize="0" fillColor="#ff3399ff"/>
+    <graph id="n1_kugj" name="bar" xy="0,2" size="160,16" type="rect" lineSize="0" fillColor="#ff007aff">
+      <gearColor controller="style" pages="0" values="#007aff" default="#ff0000"/>
+    </graph>
   </displayList>
   <ProgressBar/>
 </component>

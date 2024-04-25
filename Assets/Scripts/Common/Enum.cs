@@ -35,7 +35,7 @@ public class Enum
         None = 0,
         Selected = 1, //被选中
         Walkable = 2, //可抵达
-        Attachable = 3, //可攻击
+        Attackable = 3, //可攻击
         Target = 4, //攻击目标
     }
 
@@ -50,6 +50,20 @@ public class Enum
         Idle = 5, //待机
     }
 
+    public enum RoleState
+    {
+        Waiting = 0, //等待中
+        Attacking = 1, //攻击中
+        AttackOver = 2, //攻击结束
+    }
+
+    public enum RoleType
+    {
+        None = 0,
+        Hero = 1,
+        Enemy = 2,
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,
@@ -57,8 +71,9 @@ public class Enum
         HUDInstruct_Cancel_Event = 2,
         HUDInstruct_Check_Event = 3,
         HUDInstruct_Select_Event = 4,
-        Hero_MoveEnd_Event = 5,
+        Role_MoveEnd_Event = 5,
         Fight_Event = 6,
         Fight_Round_Event = 7,
+        Fight_RoundOver_Event = 8,
     }
 }

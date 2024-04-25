@@ -6,7 +6,11 @@ namespace WarGame.UI
     {
         public MainPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            _gCom.GetChild("mainBtn").onClick.Add(OnClickMainBtn);
+            var mainBtn = (GButton)_gCom.GetChild("mainBtn");
+            mainBtn.title = "PLAY";
+            mainBtn.onClick.Add(OnClickMainBtn);
+
+            _gCom.GetChild("title").text = "KA KA KILL";
             ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MainBG";
         }
 

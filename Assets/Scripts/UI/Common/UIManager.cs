@@ -53,6 +53,21 @@ namespace WarGame.UI
                 _panelDic[layerList[i]] = new List<UIBase>();
             }
 
+            DebugManager.Instance.Log("Screen:" + Screen.width +"_"+Screen.height);
+            DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
+            DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
+            //设置缩放参数
+            GRoot.inst.SetContentScaleFactor(1134, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
+            DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
+            DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
+            DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
+
+            //加载公用ui包
+            UIPackage.AddPackage("UI/Common");
+
+            //设置默认字体
+            UIConfig.defaultFont = "Bangers";
+
             return true;
         }
 
@@ -75,6 +90,9 @@ namespace WarGame.UI
                 pair.Value.Clear();
             }
             _panelDic.Clear();
+
+            //加载公用ui包
+            UIPackage.RemovePackage("UI/Common");
 
             return true;
     }
@@ -132,35 +150,9 @@ namespace WarGame.UI
         /// <param name=包名></param>
         /// <param name=界面名></param>
         /// <param name=指定层级></param>
-        public UIBase OpenPanel(string packageName, string panelName)
+        public UIBase OpenPanel(string packageName, string panelName, params object[] args)
         {
-            //UIPackage.AddPackage("UI/" + packageName);
-
-            //Type classType = Type.GetType("WarGame.UI." + panelName);
-            //if (null == classType)
-            //{
-            //    UnityEngine.Debug.LogError("没有找到脚本：" + classType);
-            //    return null;
-            //}
-
-            //var ui = (GComponent)UIPackage.CreateObject(packageName, panelName);
-            //if (null == ui)
-            //{
-            //    UnityEngine.Debug.LogError("创建失败：" + classType);
-            //    return null;
-            //}
-
-            //var panel = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)panelName });
-
-            //var layer = GetUILayer(panel.UILayer);
-            //if (null == ui)
-            //{
-            //    UnityEngine.Debug.LogError("未找到对应层级：" + classType);
-            //    return null;
-            //}
-
-            //panel.SetParent(layer);
-            var panel = CreateUI(packageName, panelName);
+            var panel = CreateUI(packageName, panelName, args);
 
             if (panel.UILayer == Enum.UILayer.PanelLayer)
             {

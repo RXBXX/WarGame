@@ -4,9 +4,11 @@
     <loader id="n3_nr69" name="bg" xy="647,355" pivot="0.5,0.5" anchor="true" size="1900,900" fill="scale">
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
-    <text id="n0_rquy" name="n0" xy="667,253" pivot="0.5,0.5" anchor="true" size="604,254" font="HarmonyOS Sans SC" fontSize="200" text="主界面">
+    <text id="n0_rquy" name="title" xy="666,325" pivot="0.5,0.5" anchor="true" size="693,254" font="ui://hd0z4dz5omu90" fontSize="200" color="#ffa500" strokeColor="#000000" strokeSize="10" autoClearText="true" text="KA KA KILL">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
-    <component id="n2_rquy" name="mainBtn" src="rquy1" fileName="MainBtn.xml" xy="517,539"/>
+    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="511,559" controller="style,1">
+      <Button title="play"/>
+    </component>
   </displayList>
 </component>

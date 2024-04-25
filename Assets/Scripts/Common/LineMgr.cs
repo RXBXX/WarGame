@@ -12,7 +12,7 @@ namespace WarGame
         {
             base.Init();
 
-            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Line.prefab");
+            var prefab = AssetMgr.Instance.LoadAsset<GameObject>("Assets/Prefabs/Line.prefab");
             _lineRenderer = GameObject.Instantiate(prefab).GetComponent<LineRenderer>();
             _lineRenderer.transform.rotation = Quaternion.Euler(91, 0, 0);
             GameObject.DontDestroyOnLoad(_lineRenderer.gameObject);

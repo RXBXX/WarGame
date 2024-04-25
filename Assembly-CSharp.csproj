@@ -60,8 +60,9 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlSelect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PopupMenu.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TypingEffect.cs" />
-    <Compile Include="Assets\Scripts\Common\Game.cs" />
+    <Compile Include="Assets\Scripts\Common\AssetMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GSlider.cs" />
+    <Compile Include="Assets\Scripts\Common\Game.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GProgressBar.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIContentScaler.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ShapeHitTest.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\EaseManager.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearLook.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTweener.cs" />
@@ -160,6 +162,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLUtils.cs" />
     <Compile Include="Assets\Scripts\Map\HexagonCellData.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\ExtensionMain.cs" />
@@ -172,6 +175,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
+    <Compile Include="Assets\Scripts\Common\RoleEvents.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
@@ -225,7 +229,6 @@
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
-    <Compile Include="Assets\Resources\UI\Map\UI_MapInstruct.cs" />
     <Compile Include="Assets\Scripts\Common\Role.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TextMeshPro\TextMeshProMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GRoot.cs" />
@@ -299,8 +302,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Common\RoleEvents.cs" />
-    <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -911,6 +912,24 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

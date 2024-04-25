@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="311,100" extention="Button">
+  <controller name="style" exported="true" pages="0,,1," selected="1"/>
+  <displayList>
+    <loader id="n0_omu9" name="icon" xy="0,0" size="311,100" url="ui://hx02grrpomu91" autoSize="true">
+      <gearIcon controller="style" pages="1" values="ui://hx02grrpomu91" default="ui://hx02grrpomu90"/>
+    </loader>
+    <text id="n1_omu9" name="title" xy="155,50" pivot="0.5,0.5" anchor="true" size="126,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffc176" autoClearText="true" text="Start"/>
+  </displayList>
+  <Button/>
+</component>

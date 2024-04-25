@@ -31,9 +31,8 @@ namespace WarGame
 
         public void CreateGameObject()
         {
-            DebugManager.Instance.Log("HexagonCell.OnCreate");
             string assetPath = MapTool.Instance.GetHexagonPrefab(config.type);
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+            GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coordinate);
 
@@ -43,8 +42,6 @@ namespace WarGame
         public void OnClick()
         {
             var worldPos = MapTool.Instance.GetPosFromCoor(coordinate);
-            Debug.Log(coordinate);
-            Debug.Log(worldPos);
             if (null != _tween)
             {
                 _tween.Kill();
@@ -91,7 +88,7 @@ namespace WarGame
                 case Enum.MarkType.Walkable:
                     _gameObject.GetComponent<Renderer>().material.color = Color.green;
                     break;
-                case Enum.MarkType.Attachable:
+                case Enum.MarkType.Attackable:
                     _gameObject.GetComponent<Renderer>().material.color = Color.yellow;
                     break;
                 case Enum.MarkType.Target:
