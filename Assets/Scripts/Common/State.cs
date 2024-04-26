@@ -27,16 +27,14 @@ namespace WarGame
             {
                 lastState.End();
             }
-            DebugManager.Instance.Log(_name + "_Start");
             _state = Enum.RoleAnimState.Start;
-            _role.Animator.SetBool(_name, true);
+            _role.Animator.SetBool(_name, true);  
         }
 
         public virtual void Take()
         {
             if (_state == Enum.RoleAnimState.Take)
                 return;
-            DebugManager.Instance.Log(_name + "_Take");
             _state = Enum.RoleAnimState.Take;
         }
 
@@ -44,7 +42,6 @@ namespace WarGame
         {
             if (_state == Enum.RoleAnimState.Loss)
                 return;
-            DebugManager.Instance.Log(_name + "_Loss");
             _state = Enum.RoleAnimState.Loss;
         }
 
@@ -52,7 +49,6 @@ namespace WarGame
         {
             if (_state == Enum.RoleAnimState.End)
                 return;
-            DebugManager.Instance.Log(_name + "_End");
             _state = Enum.RoleAnimState.End;
             _role.Animator.SetBool(_name, false);
         }
