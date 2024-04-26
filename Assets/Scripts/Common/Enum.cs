@@ -64,6 +64,14 @@ public class Enum
         Enemy = 2,
     }
 
+    public enum RoleAnimState
+    {
+        Start = 0,
+        Take = 1,
+        Loss = 2,
+        End = 3
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,

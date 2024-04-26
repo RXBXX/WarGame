@@ -4,11 +4,13 @@ namespace WarGame.UI
 {
     public class HUDInstruct : HUD
     {
+        private Controller _stateC;
         public HUDInstruct(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             var idleBtn = _gCom.GetChild("idleBtn");
             var attackBtn = _gCom.GetChild("attackBtn");
             var cancelBtn = _gCom.GetChild("cancelBtn");
+            _stateC = _gCom.GetController("state");
 
             idleBtn.onClick.Add(Idle);
             cancelBtn.onClick.Add(Cancel);
@@ -28,7 +30,20 @@ namespace WarGame.UI
 
         private void Attack()
         {
-            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Attack_Event);
+            if (0 == _stateC.selectedIndex)
+                OpenSkills();
+            else
+                CloseSkills();
+        }
+
+        private void OpenSkills()
+        {
+            _stateC.SetSelectedIndex(1);
+        }
+
+        private void CloseSkills()
+        {
+            _stateC.SetSelectedIndex(0);
         }
     }
 }

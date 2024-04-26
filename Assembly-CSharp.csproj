@@ -80,7 +80,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventContext.cs" />
-    <Compile Include="Assets\Resources\UI\Map\UI_MapItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stats.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
@@ -302,6 +301,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDSkills.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />

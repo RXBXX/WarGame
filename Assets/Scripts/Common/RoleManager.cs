@@ -264,35 +264,51 @@ namespace WarGame
             if (args.Length <= 0)
                 return;
 
-            var arg = (string)args[0];
-            switch (arg)
+            var eventName = (string)args[0];
+            DebugManager.Instance.Log("HandleFightEvents:" + eventName);
+            if (eventName == "Attack")
             {
-                case "Attack":
-                    if (_initiator == (int)args[1] && _target > 0)
-                    {
-                        var initiator = GetRole(_initiator);
-                        var target = GetRole(_target);
-                        var hurt = initiator.Attribute.attack - target.Attribute.defense;
-                        target.Attacked(hurt);
-                        _target = 0;
-                    }
-                    break;
-                case "Attack_End":
-                    if (_initiator == (int)args[1])
-                    {
-                        NextState(_initiator);
+                if (_initiator == (int)args[1] && _target > 0)
+                {
+                    var initiator = GetRole(_initiator);
+                    var target = GetRole(_target);
+                    var hurt = initiator.Attribute.attack - target.Attribute.defense;
+                    target.Attacked(hurt);
+                    _target = 0;
+                }
+            }
+            else if (eventName == "Attack_End")
+            {
+                if (_initiator == (int)args[1])
+                {
+                    NextState(_initiator);
 
-                    }
-                    break;
-                case "Dead":
-                    var role = GetRole((int)args[1]);
-                    if (null != role)
-                    {
-                        NextState((int)args[1]);
-                        _roleList.Remove(role);
-                        role.Dispose();
-                    }
-                    break;
+                }
+            }
+            else if (eventName == "Dead")
+            {
+                var role = GetRole((int)args[1]);
+                if (null != role)
+                {
+                    NextState((int)args[1]);
+                    _roleList.Remove(role);
+                    role.Dispose();
+                }
+            }
+            else if (eventName == "Jump_Take")
+            {
+                var role1 = RoleManager.Instance.GetRole((int)args[1]);
+                role1.TakeJump();
+            }
+            else if (eventName == "Jump_Loss")
+            {
+                var role1 = RoleManager.Instance.GetRole((int)args[1]);
+                role1.LossJump();
+            }
+            else if (eventName == "Jump_End")
+            {
+                var role2 = RoleManager.Instance.GetRole((int)args[1]);
+                role2.EndJump();
             }
         }
     }

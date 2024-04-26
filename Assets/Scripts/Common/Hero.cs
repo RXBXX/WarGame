@@ -15,7 +15,7 @@ namespace WarGame
         protected override void CreateHUD()
         {
             _hpHUDKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _gameObject.transform.Find("hudPoint").gameObject, new object[] { _id, 0});
+            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 0});
         }
     }
 }

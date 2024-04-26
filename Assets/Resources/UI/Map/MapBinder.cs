@@ -8,7 +8,6 @@ namespace Map
     {
         public static void BindAll()
         {
-            UIObjectFactory.SetPackageItemExtension(UI_MapItem.URL, typeof(UI_MapItem));
             UIObjectFactory.SetPackageItemExtension(UI_MapPanel.URL, typeof(UI_MapPanel));
         }
     }

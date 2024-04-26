@@ -10,7 +10,7 @@ namespace WarGame.UI
         public Enum.UILayer UILayer = Enum.UILayer.PanelLayer;
         public string name;
         protected GComponent _gCom;
-        private Dictionary<int, UIBase> childDic = new Dictionary<int, UIBase>();
+        private Dictionary<string, UIBase> childDic = new Dictionary<string, UIBase>();
 
         public GComponent GCom {
             get { return _gCom; }
@@ -26,11 +26,11 @@ namespace WarGame.UI
                 var childGCom = gCom.GetChildAt(i);
                 if (null == childGCom.packageItem)
                     continue;
-                var type = Type.GetType(childGCom.name);  //需要验证这是组件packageItem的名称还是当前名称
+                var type = Type.GetType("WarGame.UI." + childGCom.packageItem.name);
                 if (null == type)
                     continue;
-                UIBase child = (UIBase)Activator.CreateInstance(type, new[] { childGCom, (object)childGCom.name });
-                childDic[i] = child;
+                UIBase child = (UIBase)Activator.CreateInstance(type, new[] { childGCom, (object)childGCom.name, null});
+                childDic[childGCom.name] = child;
             }
         }
 
@@ -55,11 +55,16 @@ namespace WarGame.UI
             _gCom.position = pos;
         }
 
+        public UIBase GetChild(string name)
+        {
+            return childDic[name];
+        }
+
         public virtual void Dispose(bool disposeGCom = false)
         {
             foreach (var pair in childDic)
             {
-                childDic[pair.Key].Dispose();
+                pair.Value.Dispose();
             }
             childDic.Clear();
 

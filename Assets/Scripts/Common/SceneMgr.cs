@@ -35,6 +35,7 @@ namespace WarGame
         {
             base.Dispose();
 
+            HUDManager.Instance.RemoveHUD("HUDInstruct_Custom");
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, Idle);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Attack_Event, Attack);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, Cancel);
@@ -181,9 +182,8 @@ namespace WarGame
         {
             _locked = true;
 
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
-            var hexagon = MapManager.Instance.GetHexagon(hexagonID);
-            HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", hexagon.GameObject);
+            var role = RoleManager.Instance.GetRole(_initiator);
+            HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint);
         }
 
         /// <summary>

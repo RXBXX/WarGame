@@ -12,6 +12,7 @@ namespace WarGame.UI
     {
         private Dictionary<Enum.UILayer, GComponent> _uiLayerDic = new Dictionary<Enum.UILayer, GComponent>();
         private Dictionary<Enum.UILayer, List<UIBase>> _panelDic = new Dictionary<Enum.UILayer, List<UIBase>>();
+        private List<UIPackage> _uiPackages = new List<UIPackage>();
 
         public override bool Init()
         {
@@ -63,7 +64,7 @@ namespace WarGame.UI
             DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
 
             //加载公用ui包
-            UIPackage.AddPackage("UI/Common");
+            _uiPackages.Add(UIPackage.AddPackage("UI/Common"));
 
             //设置默认字体
             UIConfig.defaultFont = "Bangers";
@@ -91,8 +92,10 @@ namespace WarGame.UI
             }
             _panelDic.Clear();
 
-            //加载公用ui包
-            UIPackage.RemovePackage("UI/Common");
+            for (int i = 0; i < _uiPackages.Count; i++)
+            {
+                UIPackage.RemovePackage(_uiPackages[i].name);
+            }
 
             return true;
     }

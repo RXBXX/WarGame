@@ -10,6 +10,7 @@ namespace WarGame.UI
     {
         private Transform _heroRoot;
         private Vector2 _touchPos;
+        private GGraph _touchArena;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -19,6 +20,7 @@ namespace WarGame.UI
             _heroRoot = SceneMgr.Instance.GetHeroRoot();
             hero.transform.SetParent(_heroRoot);
             hero.transform.localPosition = Vector3.zero;
+            _touchArena = (GGraph)_gCom.GetChild("touchArena");
 
             _gCom.GetChild("closeBtn").onClick.Add((EventContext context) =>
             {
@@ -26,6 +28,8 @@ namespace WarGame.UI
             });
 
             _gCom.onTouchBegin.Add((EventContext context) => {
+                if (Stage.inst.touchTarget != _touchArena.displayObject)
+                    return;
                 context.CaptureTouch();
                 _touchPos = context.inputEvent.position;
             });
