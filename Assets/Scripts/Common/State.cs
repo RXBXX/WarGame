@@ -80,23 +80,10 @@ namespace WarGame
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
             var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _role.Offset;
             var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _role.Offset;
+
+            var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Spin_RM_SwordAndShield");
             var clips = _role.Animator.runtimeAnimatorController.animationClips;
-            for (int i = 0; i < clips.Length; i++)
-            {
-                if (clips[i].name == "JumpFull_Spin_RM_SwordAndShield")
-                {
-                    float startTime = 0, endTime = 0;
-                    for (int j = 0; j < clips[i].events.Length; j++)
-                    {
-                        if (clips[i].events[j].stringParameter == "Jump_Take")
-                            startTime = clips[i].events[j].time;
-                        if (clips[i].events[j].stringParameter == "Jump_Loss")
-                            endTime = clips[i].events[j].time;
-                    }
-                    _speed = Vector3.Distance(endPos, startPos) / (endTime - startTime);
-                    break;
-                }
-            }
+            _speed = Vector3.Distance(endPos, startPos) / (timeDic["Jump_Loss"] - timeDic["Jump_Take"]);
         }
 
         public override void End()
@@ -132,7 +119,7 @@ namespace WarGame
 
     public class MoveState : State
     {
-        private float _speed = 0.5f;
+        private float _speed = 5f;
 
         public MoveState(string name, Role role) : base(name, role)
         {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -40,6 +41,25 @@ namespace WarGame
                 return Pack.data;
             }
             return JsonUtility.FromJson<T>(json);
+        }
+
+        public Dictionary<string, float> GetEventTimeForAnimClip(Animator animator, string clipName)
+        {
+            var timeDic = new Dictionary<string, float>();
+            var clips = animator.runtimeAnimatorController.animationClips;
+            for (int i = 0; i < clips.Length; i++)
+            {
+                if (clips[i].name == clipName)
+                {
+                    float startTime = 0, endTime = 0;
+                    for (int j = 0; j < clips[i].events.Length; j++)
+                    {
+                        timeDic.Add(clips[i].events[j].stringParameter, clips[i].events[j].time);
+                    }
+                    break;
+                }
+            }
+            return timeDic;
         }
     }
 }
