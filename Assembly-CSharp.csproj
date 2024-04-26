@@ -68,9 +68,9 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ShapeHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Main\MainBtn.cs" />
     <Compile Include="Assets\Scripts\Common\DebugManager.cs" />
-    <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Emoji\EmojiParser.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlPageContext.cs" />
@@ -117,9 +117,9 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTreeNode.cs" />
     <Compile Include="Assets\FairyGUI\Examples\CutScene\CutSceneMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GImage.cs" />
-    <Compile Include="Assets\FairyGUI\Scripts\Core\NTexture.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Image.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventListener.cs" />
+    <Compile Include="Assets\FairyGUI\Scripts\Core\NTexture.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\Emoji.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\UpdateContext.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\DisplayObject.cs" />
@@ -142,8 +142,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GObjectPool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Timers.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeNode.cs" />
-    <Compile Include="Assets\FairyGUI\Scripts\UI\GObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeView.cs" />
+    <Compile Include="Assets\FairyGUI\Scripts\UI\GObject.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIObjectFactory.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HeadBar\HeadBarMain.cs" />
@@ -219,9 +219,9 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearIcon.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearXY.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageCamera.cs" />
-    <Compile Include="Assets\Scripts\Common\InputManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderImage.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\IUISource.cs" />
+    <Compile Include="Assets\Scripts\Common\InputManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\VirtualList\VirtualListMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\BundleUsage\BundleUsageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Transition.cs" />
@@ -238,6 +238,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\Spine\SpineLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RTLSupport.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\FairyBook.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDSkills.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagWindow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\ColorFilter.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearText.cs" />
@@ -301,7 +302,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\HUD\HUDSkills.cs" />
+    <Compile Include="Assets\Scripts\Common\State.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -886,6 +887,9 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>D:\Unity 2020.3.0f1\2020.3.0f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -894,6 +898,9 @@
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -904,32 +911,26 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

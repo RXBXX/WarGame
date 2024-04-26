@@ -35,7 +35,7 @@ namespace WarGame
                     if (hexagonID == path[path.Count - 1])
                     {
                         _target = heros[i].ID;
-                        MoveEnd();
+                        Stop();
                     }
                     else if (RoleManager.Instance.GetRoleIDByHexagonID(path[path.Count - 1]) > 0)
                     {
@@ -53,7 +53,7 @@ namespace WarGame
             RoleManager.Instance.NextState(_id);
         }
 
-        public override void MoveEnd()
+        public override void Stop()
         {
             if (_target > 0)
             {

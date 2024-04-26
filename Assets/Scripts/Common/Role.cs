@@ -16,51 +16,6 @@ namespace WarGame
         public float moveDis; //单次移动距离
     }
 
-    public class StateInfo
-    {
-        private string _name;
-        private Animator _animator;
-        private Enum.RoleAnimState _state = Enum.RoleAnimState.End;
-        private StateInfo _lastState = null;
-
-        public StateInfo(string name, Animator animator)
-        {
-            this._name = name;
-            this._animator = animator;
-        }
-
-        public void Start(StateInfo lastState = null)
-        {
-            if (null != lastState)
-            {
-                lastState.End();
-                _lastState = lastState;
-            }
-            _state = Enum.RoleAnimState.Start;
-            _animator.SetBool(_name, true);
-        }
-
-        public void Take()
-        {
-            _state = Enum.RoleAnimState.Take;
-        }
-
-        public void Loss()
-        {
-            _state = Enum.RoleAnimState.Loss;
-        }
-
-        public void End()
-        {
-            _state = Enum.RoleAnimState.End;
-            _animator.SetBool(_name, false);
-            if (null != _lastState)
-            {
-                _lastState.Start();
-                _lastState = null;
-            }
-        }
-    }
 
     public class Role
     {
@@ -96,9 +51,10 @@ namespace WarGame
 
         protected Enum.RoleType _type = Enum.RoleType.None;
 
-        private Dictionary<string, StateInfo> _stateDic = new Dictionary<string, StateInfo>();
+        private Dictionary<string, State> _stateDic = new Dictionary<string, State>();
 
-        private Enum.RoleAnimState _jumpState = Enum.RoleAnimState.End;
+        private string _curState = null;
+        //private Enum.RoleAnimState _jumpState = Enum.RoleAnimState.End;
 
         public int ID
         {
@@ -131,6 +87,38 @@ namespace WarGame
             get { return _hudPoint; }
         }
 
+        public Animator Animator
+        {
+            get { return _animator; }
+        }
+
+        public List<string> Path
+        {
+            get { return _path; }
+        }
+
+        public int PathIndex
+        {
+            get { return _pathIndex; }
+            set { _pathIndex = value; }
+        }
+
+        public float LerpStep
+        {
+            get { return _lerpStep; }
+            set { _lerpStep = value; }
+        }
+
+        public Vector3 Offset
+        {
+            get { return _offset; }
+        }
+
+        public Quaternion Rotation
+        {
+            get { return _rotation; }
+        }
+
         public Role(int id, RoleAttribute attribute, string assetPath, string hexagonID)
         {
             this._id = id;
@@ -152,13 +140,20 @@ namespace WarGame
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
-            _stateDic.Add("Jump", new StateInfo("Jump", _animator));
-            _stateDic.Add("Idle", new StateInfo("Idle", _animator));
-            _stateDic.Add("Move", new StateInfo("Move", _animator));
-            _stateDic.Add("Attack", new StateInfo("Attack", _animator));
-            _stateDic.Add("Attacked", new StateInfo("Attacked", _animator));
-
+            InitStates();
             CreateHUD();
+        }
+
+        private void InitStates()
+        {
+            _stateDic.Add("Jump", new JumpState("Jump", this));
+            _stateDic.Add("Idle", new State("Idle", this));
+            _stateDic.Add("Move", new MoveState("Move", this));
+            _stateDic.Add("Attack", new State("Attack", this));
+            _stateDic.Add("Attacked", new State("Attacked", this));
+            _stateDic.Add("Dead", new State("Dead", this));
+            _curState = "Idle";
+            _stateDic[_curState].Start();
         }
 
         protected virtual void CreateHUD()
@@ -195,66 +190,36 @@ namespace WarGame
             if (null == _path || _path.Count <= 0)
                 return;
 
-            if (_jumpState == Enum.RoleAnimState.Start || _jumpState == Enum.RoleAnimState.Loss)
-                return;
-
             var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
 
-            //如果需要跨越不同高度地块，切换到跳跃动作
-            if (_jumpState == Enum.RoleAnimState.End && endHexagon.coordinate.y != startHexagon.coordinate.y)
+            if (startHexagon.coordinate.y != endHexagon.coordinate.y)
             {
-                StartJump();
+                EnterState("Jump");
             }
             else
             {
-                var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _offset;
-                var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _offset;
-
-                //if (_jumpState != Enum.RoleAnimState.End)
-                //    return;
-
-                if (_jumpState == Enum.RoleAnimState.Take)
-                    _lerpStep += (Time.deltaTime * _jumpSpeed);
-                else
-                    _lerpStep += (Time.deltaTime * _moveSpeed);
-
-                //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
-                var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
-                _gameObject.transform.rotation = Quaternion.Lerp(_rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
-                _gameObject.transform.position = newPos;
-
-                if (_jumpState == Enum.RoleAnimState.Take)
-                {
-                    return;
-                }
-                if (Stop())
-                {
-                    MoveEnd();
-                }
+                EnterState("Move");
             }
+
+            _stateDic[_curState].Update();
         }
 
-        private bool Stop()
+        private void EnterState(string stateName)
         {
-            //if (null == _path || _pathIndex >= _path.Count)
-            //    return true;
-
-            if (_lerpStep >= 1)
-            {
-                _lerpStep = 0;
-                _pathIndex++;
-                _rotation = _gameObject.transform.rotation;
-                UpdateHexagonID(_path[_pathIndex]);
-                if (_pathIndex >= _path.Count - 1)
-                {
-                    _path = null;
-                    _pathIndex = 0;
-                    return true;
-                }
-            }
-            return false;
+            if (stateName == _curState)
+                return;
+            var curState = _stateDic[_curState];
+            _curState = stateName;
+            _stateDic[_curState].Start(curState);
         }
+
+        public virtual void Stop()
+        {
+            EnterState("Idle");
+            EventDispatcher.Instance.Dispatch(Enum.EventType.Role_MoveEnd_Event);
+        }
+
         public virtual void Move(List<string> hexagons)
         {
             var count = hexagons.Count;
@@ -262,103 +227,35 @@ namespace WarGame
                 return;
 
             this._path = hexagons;
-            _animator.SetBool("Idle", false);
-            _animator.SetBool("Move", true);
-        }
 
-        public virtual void MoveEnd()
-        {
-            _animator.SetBool("Move", false);
-            Idle();
-            EventDispatcher.Instance.Dispatch(Enum.EventType.Role_MoveEnd_Event);
+            EnterState("Move");
         }
 
         public virtual void Attack()
         {
-            //_animator.Play("Attack");
-            _animator.SetBool("Attack", true);
+            EnterState("Attack");
         }
 
         public virtual void Attacked(float hurt)
         {
-            //_animator.Play("Attacked");
-            _animator.SetBool("Attacked", true);
+            EnterState("Attacked");
+
             UpdateHP(_attribute.hp - hurt);
         }
 
         public virtual void Dead()
         {
-            //_animator.Play("Die");
-            _animator.SetBool("Die", true);
+            EnterState("Dead");
         }
 
         public virtual void Idle()
         {
-            DebugManager.Instance.Log("Idle");
-            //_animator.Play("Idle");
-            _animator.SetBool("Move", false);
-            _animator.SetBool("Jump", false);
-            _animator.SetBool("Idle", true);
+            EnterState("Idle");
         }
 
-        public virtual void StartJump()
+        public virtual void Jump()
         {
-            DebugManager.Instance.Log("StartJump");
-            _animator.SetBool("Move", false);
-            _animator.SetBool("Idle", false);
-            _animator.SetBool("Jump", true);
-            _jumpState = Enum.RoleAnimState.Start;
-        }
-
-        public virtual void TakeJump()
-        {
-            DebugManager.Instance.Log("TakeJump");
-            if (null == _path || _pathIndex > _path.Count - 1)
-                return;
-            var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
-            var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _offset;
-            var clips = _animator.runtimeAnimatorController.animationClips;
-            for (int i = 0; i < clips.Length; i++)
-            {
-                if (clips[i].name == "JumpFull_Spin_RM_SwordAndShield")
-                {
-                    float startTime = 0, endTime = 0;
-                    for (int j = 0; j < clips[i].events.Length; j++)
-                    {
-                        if (clips[i].events[j].stringParameter == "Jump_Take")
-                            startTime = clips[i].events[j].time;
-                        if (clips[i].events[j].stringParameter == "Jump_Loss")
-                            endTime = clips[i].events[j].time;
-                    }
-                    _jumpSpeed = Vector3.Distance(endPos, startPos) / (endTime - startTime);
-                    break;
-                }
-            }
-            _jumpState = Enum.RoleAnimState.Take;
-        }
-
-        public virtual void LossJump()
-        {
-            DebugManager.Instance.Log("LossJump");
-            _jumpState = Enum.RoleAnimState.Loss;
-        }
-
-        public virtual void EndJump()
-        {
-            DebugManager.Instance.Log("EndJump");
-            _animator.SetBool("Jump", false);
-            _jumpState = Enum.RoleAnimState.End;
-            _lerpStep = 1;
-            if (Stop())
-            {
-                MoveEnd();
-            }
-            else
-            {
-                _animator.SetBool("Move", true);
-            }
+            EnterState("Jump");
         }
 
         public virtual void NextState()
@@ -406,6 +303,26 @@ namespace WarGame
         public virtual float GetAttackDis()
         {
             return _attribute.attackDis;
+        }
+
+        public void HandleEvent(string stateName, string secondStateName)
+        {
+            var state = _stateDic[stateName];
+            var method = typeof(State).GetMethod(secondStateName);
+            method.Invoke(state, null);
+        }
+
+        public void NextPath()
+        {
+            _pathIndex++;
+            _rotation = _gameObject.transform.rotation;
+            UpdateHexagonID(_path[_pathIndex]);
+            if (_pathIndex >= _path.Count - 1)
+            {
+                _path = null;
+                _pathIndex = 0;
+                Stop();
+            }
         }
 
         public virtual void Dispose()
