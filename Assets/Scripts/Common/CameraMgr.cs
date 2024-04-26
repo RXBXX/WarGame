@@ -73,6 +73,28 @@ namespace WarGame
             camera.tag = "MainCamera";
         }
 
+        /// <summary>
+        /// 攻击选择时，将攻击目标外的所有对象置灰
+        /// </summary>
+        public void OpenGray()
+        {
+            var grayCamera = MainCamera.transform.Find("GrayCamera");
+            grayCamera.gameObject.SetActive(true);
+
+            MainCamera.GetComponent<CameraRender>().enabled = true;
+        }
+
+        /// <summary>
+        /// 攻击选择结束时，将攻击目标外的所有对象恢复正常
+        /// </summary>
+        public void CloseGray()
+        {
+            var grayCamera = MainCamera.transform.Find("GrayCamera");
+            grayCamera.gameObject.SetActive(false);
+
+            MainCamera.GetComponent<CameraRender>().enabled = false;
+        }
+
         public override bool Dispose()
         {
             base.Dispose();

@@ -59,7 +59,7 @@ namespace WarGame.UI
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
             //设置缩放参数
             GRoot.inst.SetContentScaleFactor(1134, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
-            //DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
+            DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
 

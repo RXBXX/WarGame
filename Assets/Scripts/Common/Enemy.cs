@@ -10,6 +10,7 @@ namespace WarGame
         {
             _gameObject.tag = Enum.Tag.Enemy.ToString();
             _type = Enum.RoleType.Enemy;
+            _gameObject.layer = 7;
         }
 
         protected override void CreateHUD()

@@ -39,11 +39,13 @@ namespace WarGame.UI
         private void OpenSkills()
         {
             _stateC.SetSelectedIndex(1);
+            CameraMgr.Instance.OpenGray();
         }
 
         private void CloseSkills()
         {
             _stateC.SetSelectedIndex(0);
+            CameraMgr.Instance.CloseGray();
         }
     }
 }
