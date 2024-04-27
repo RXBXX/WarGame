@@ -16,12 +16,13 @@ namespace WarGame
         public float moveDis; //单次移动距离
     }
 
-
     public class Role
     {
         protected int _id;
 
-        private RoleAttribute _attribute;
+        protected int _configId;
+
+        protected int _starConfigId = 1;
 
         private List<string> _path;
 
@@ -56,15 +57,14 @@ namespace WarGame
         private string _curState = null;
         //private Enum.RoleAnimState _jumpState = Enum.RoleAnimState.End;
 
+        protected int _layer = 7;
+
+        public float hp; //血量
+
         public int ID
         {
             set { }
             get { return _id; }
-        }
-
-        public RoleAttribute Attribute
-        {
-            get { return _attribute; }
         }
 
         public Enum.RoleState State
@@ -119,24 +119,26 @@ namespace WarGame
             get { return _rotation; }
         }
 
-        public Role(int id, RoleAttribute attribute, string assetPath, string hexagonID)
+        public Role(int id, int configId, string hexagonID)
         {
             this._id = id;
-            this._attribute = attribute;
+            this._configId = configId;
             this.hexagonID = hexagonID;
+            this.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).HP;
 
-            var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coordinate) + _offset;
-            OnCreate(assetPath, bornPoint);//加载方式，同步方式，后面都要改
+            var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
+            OnCreate(bornPoint);//加载方式，同步方式，后面都要改
         }
 
-        protected virtual void OnCreate(string assetPath, Vector3 bornPoint)
+        protected virtual void OnCreate(Vector3 bornPoint)
         {
+            var assetPath = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _configId).Prefab;
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.position = bornPoint;
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
-            _gameObject.GetComponent<RoleData>().ID = _id;
+            _gameObject.GetComponent<RoleBehaviour>().ID = _id;
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
@@ -179,7 +181,7 @@ namespace WarGame
 
         public virtual bool IsDead()
         {
-            return _attribute.hp <= 0;
+            return hp <= 0;
         }
 
         public virtual void UpdatePosition()
@@ -193,7 +195,7 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
 
-            if (startHexagon.coordinate.y != endHexagon.coordinate.y)
+            if (startHexagon.coor.y != endHexagon.coor.y)
             {
                 EnterState("Jump");
             }
@@ -205,13 +207,18 @@ namespace WarGame
             _stateDic[_curState].Update();
         }
 
+        public void SetState(string stateName)
+        {
+            _curState = stateName;
+        }
+
         private void EnterState(string stateName)
         {
             if (stateName == _curState)
                 return;
             var curState = _stateDic[_curState];
-            _curState = stateName;
-            _stateDic[_curState].Start(curState);
+            //_curState = stateName;
+            _stateDic[stateName].Start(curState);
         }
 
         public virtual void Stop()
@@ -240,7 +247,7 @@ namespace WarGame
         {
             EnterState("Attacked");
 
-            UpdateHP(_attribute.hp - hurt);
+            UpdateHP(hp - hurt);
         }
 
         public virtual void Dead()
@@ -275,10 +282,10 @@ namespace WarGame
 
         public virtual void UpdateHP(float hp)
         {
-            var hurt = _attribute.hp - hp;
-            _attribute.hp = hp;
+            var hurt = this.hp - hp;
+            this.hp = hp;
             HUDRole hud = (HUDRole)HUDManager.Instance.GetHUD(_hpHUDKey);
-            hud.UpdateHP(hp);
+            hud.UpdateHP(this.hp);
 
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
             var numberHUD = (HUDNumber)HUDManager.Instance.AddHUD("HUD", "HUDNumber", numberID, _gameObject.transform.Find("hudPoint").gameObject);
@@ -289,7 +296,7 @@ namespace WarGame
                 _numberHUDList.Remove(numberID);
             });
 
-            if (_attribute.hp <= 0)
+            if (this.hp <= 0)
             {
                 Dead();
             }
@@ -297,19 +304,22 @@ namespace WarGame
 
         public virtual float GetMoveDis()
         {
-            return _attribute.moveDis;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).MoveDis;
         }
 
         public virtual float GetAttackDis()
         {
-            return _attribute.attackDis;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).AttackDis;
         }
 
         public void HandleEvent(string stateName, string secondStateName)
         {
             var state = _stateDic[stateName];
             var method = typeof(State).GetMethod(secondStateName);
-            method.Invoke(state, null);
+            if (secondStateName == "End")
+                method.Invoke(state, new object[] { true });
+            else
+                method.Invoke(state, null);
         }
 
         public void NextPath()
@@ -323,6 +333,36 @@ namespace WarGame
                 _pathIndex = 0;
                 Stop();
             }
+        }
+
+        public void SetLayer(int layer)
+        {
+            SetLayerRecursion(_gameObject.transform, layer);
+        }
+
+        public void RecoverLayer()
+        {
+            SetLayerRecursion(_gameObject.transform, _layer);
+        }
+
+        private void SetLayerRecursion(Transform tran, int layer)
+        {
+            var childCount = tran.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                SetLayerRecursion(tran.GetChild(i), layer);
+            }
+            tran.gameObject.layer = layer;
+        }
+
+        public float GetAttackPower()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).Attack;
+        }
+
+        public float GetDefensePower()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).Defense;
         }
 
         public virtual void Dispose()

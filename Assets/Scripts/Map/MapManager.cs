@@ -8,7 +8,7 @@ namespace WarGame
 {
     public class MapManager : Singeton<MapManager>
     {
-        private Dictionary<string, HexagonCell> _map = new Dictionary<string, HexagonCell>();
+        private Dictionary<string, Hexagon> _map = new Dictionary<string, Hexagon>();
 
         private List<string> _markedRegion = new List<string>();
 
@@ -62,7 +62,7 @@ namespace WarGame
         {
             return _map.ContainsKey(key);
         }
-        public HexagonCell GetHexagon(string key)
+        public Hexagon GetHexagon(string key)
         {
             if (ContainHexagon(key))
                 return _map[key];
@@ -258,8 +258,8 @@ namespace WarGame
             Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
             Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
 
-            var startPos = GetHexagon(startHexagonID).coordinate;
-            var endPos = GetHexagon(endHexagonID).coordinate;
+            var startPos = GetHexagon(startHexagonID).coor;
+            var endPos = GetHexagon(endHexagonID).coor;
 
             if (!IsReachable(endPos, roleType, isMovePath))
                 return path;
@@ -399,7 +399,7 @@ namespace WarGame
             Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
             Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
 
-            var startPos = GetHexagon(hexagonID).coordinate;
+            var startPos = GetHexagon(hexagonID).coor;
             var cell = HandleRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType, Enum.MarkType.Walkable, true);
             if (null == cell)
                 return region;

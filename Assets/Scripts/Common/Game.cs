@@ -12,6 +12,7 @@ namespace WarGame
 
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
+            ConfigMgr.Instance.Init();
             UIManager.Instance.Init();
             SceneMgr.Instance.Init();
             HUDManager.Instance.Init();
@@ -77,6 +78,7 @@ namespace WarGame
             HUDManager.Instance.Dispose();
             SceneMgr.Instance.Dispose();
             UIManager.Instance.Dispose();
+            ConfigMgr.Instance.Dispose();
             EventDispatcher.Instance.Dispose();
             DebugManager.Instance.Dispose();
             return true;

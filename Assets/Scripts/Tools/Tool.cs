@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 
 namespace WarGame
 {
@@ -24,7 +25,6 @@ namespace WarGame
                 Pack<T> pack = new Pack<T>(obj);
                 pack.data = obj;
                 string json = JsonUtility.ToJson(pack);
-                Debug.Log(json);
                 return json.Substring(8, json.Length - 9);
             }
 
@@ -33,6 +33,8 @@ namespace WarGame
 
         public T FromJson<T>(string json)
         {
+            Debug.Log(json);
+
             if (json == "null" && typeof(T).IsClass) return default(T);
             if (typeof(T).GetInterface("IList") != null)
             {
@@ -41,6 +43,31 @@ namespace WarGame
                 return Pack.data;
             }
             return JsonUtility.FromJson<T>(json);
+        }
+
+        /// <summary>
+        /// 读取json文件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public T ReadJson<T>(string path)
+        {
+            var jsonStr = File.ReadAllText(path);
+            return FromJson<T>(jsonStr);
+        }
+
+        /// <summary>
+        /// 写入json文件
+        /// </summary>
+        public void WriteJson<T>(string path, T t)
+        {
+            var jsonStr = ToJson(t);
+            try { File.WriteAllText(path, jsonStr); }
+            catch (IOException exception)
+            {
+                Debug.Log(exception);
+            };
         }
 
         public Dictionary<string, float> GetEventTimeForAnimClip(Animator animator, string clipName)

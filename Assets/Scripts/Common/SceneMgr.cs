@@ -10,7 +10,7 @@ namespace WarGame
     public class SceneMgr : Singeton<SceneMgr>
     {
         private int _initiator; //当前选中的英雄
-        private string _origin; //英雄移动的起点
+        private List<string> _path; //英雄移动的路径
         private Enum.InstructType _curInstruct = Enum.InstructType.None;
         private bool _locked = false;
         private int _roundIndex = 0;
@@ -64,7 +64,7 @@ namespace WarGame
                 if (_initiator > 0)
                 {
                     var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
-                    var end = obj.GetComponent<HexagonCellData>().ID;
+                    var end = obj.GetComponent<HexagonBehaviour>().ID;
 
                     var hero = RoleManager.Instance.GetRole(_initiator);
                     MapManager.Instance.MarkingPath(start, end, hero.GetMoveDis());
@@ -80,18 +80,18 @@ namespace WarGame
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString())
             {
-                var heroId = obj.GetComponent<RoleData>().ID;
+                var heroId = obj.GetComponent<RoleBehaviour>().ID;
                 ClickHero(heroId);
             }
             else if (tag == Enum.Tag.Enemy.ToString())
             {
 
-                var enemyId = obj.GetComponent<RoleData>().ID;
+                var enemyId = obj.GetComponent<RoleBehaviour>().ID;
                 ClickEnemy(enemyId);
             }
             else if (tag == Enum.Tag.Hexagon.ToString())
             {
-                var hexagonID = obj.GetComponent<HexagonCellData>().ID;
+                var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
 
                 var heroID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
                 if (heroID > 0)
@@ -107,7 +107,7 @@ namespace WarGame
                     return;
                 }
 
-                ClickHexagon(obj.GetComponent<HexagonCellData>().ID);
+                ClickHexagon(obj.GetComponent<HexagonBehaviour>().ID);
             }
         }
 
@@ -217,7 +217,7 @@ namespace WarGame
                 return;
 
             _locked = true;
-            _origin = start;
+            _path = hexagons;
             MapManager.Instance.ClearMarkedPath();
             MapManager.Instance.ClearMarkedRegion();
             RoleManager.Instance.MoveRole(_initiator, hexagons);
@@ -228,13 +228,15 @@ namespace WarGame
         /// </summary>
         private void ReverseMove()
         {
-            if (null == _origin)
+            if (null == _path)
                 return;
 
             _locked = true;
-            var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
-            var path = MapManager.Instance.FindingPathForStr(start, _origin, Enum.RoleType.Hero, true);
-            RoleManager.Instance.MoveRole(_initiator, path);
+            //var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
+            //var path = MapManager.Instance.FindingPathForStr(start, _path, Enum.RoleType.Hero, true);
+            _path.Reverse();
+            RoleManager.Instance.MoveRole(_initiator, _path);
+            _path = null;
         }
 
         private void Battle(int enemyID)
@@ -260,7 +262,12 @@ namespace WarGame
             _initiator = 0;
             _curInstruct = Enum.InstructType.None;
 
-
+            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roles[i].RecoverLayer();
+            }
+            CameraMgr.Instance.CloseGray();
         }
 
         private void Idle(params object[] args)
@@ -272,11 +279,9 @@ namespace WarGame
             MapManager.Instance.ClearMarkedRegion();
 
             RoleManager.Instance.NextState(_initiator);
-            //var hero = RoleManager.Instance.GetHero(_initiator);
-            //hero.NextState();
 
             _initiator = 0;
-            _origin = null;
+            _path = null;
             _locked = false;
         }
 
@@ -290,15 +295,27 @@ namespace WarGame
             MapManager.Instance.ClearMarkedRegion();
 
             _initiator = 0;
-            _origin = null;
         }
 
         private void Attack(params object[] args)
         {
             CloseInstruct();
-
             _curInstruct = Enum.InstructType.Attack;
-            _origin = null;
+
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiator);
+            var hero = RoleManager.Instance.GetRole(_initiator);
+            var region = MapManager.Instance.FindingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
+            var regionDic = new Dictionary<string, bool>();
+            foreach (var v in region)
+                regionDic[v.id] = true;
+            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            for (int i = 0; i < roles.Count; i++)
+            {
+                if (regionDic.ContainsKey(roles[i].hexagonID))
+                    roles[i].SetLayer(8);
+            }
+
+            CameraMgr.Instance.OpenGray();
         }
 
         public void Check(params object[] args)
@@ -321,29 +338,17 @@ namespace WarGame
         {
             MapManager.Instance.CreateMap(mapPath);
 
-            var attr = new RoleAttribute();
-            attr.hp = 100;
-            attr.attack = 60;
-            attr.defense = 5F;
-            attr.moveDis = 6;
-            attr.attackDis = 3;
             var bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero);
-            RoleManager.Instance.CreateHero(1, attr, "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab", bornPoint);
+            RoleManager.Instance.CreateHero(1, 10001, bornPoint);
 
             bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
-            RoleManager.Instance.CreateHero(2, attr, "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab", bornPoint);
+            RoleManager.Instance.CreateHero(2, 10001, bornPoint);
 
-            attr = new RoleAttribute();
-            attr.hp = 100;
-            attr.attack = 10;
-            attr.defense = 5F;
-            attr.moveDis = 5;
-            attr.attackDis = 1.0f;
             var bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
-            RoleManager.Instance.CreateEnemy(11, attr, "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab", bornPoint2);
+            RoleManager.Instance.CreateEnemy(11, 10002, bornPoint2);
 
             bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 4));
-            RoleManager.Instance.CreateEnemy(12, attr, "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab", bornPoint2);
+            RoleManager.Instance.CreateEnemy(12, 10002, bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
             _isStarted = true;

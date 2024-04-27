@@ -170,9 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1771113
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -283,9 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1998504
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -396,9 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2037000
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -509,9 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_0
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &3989250
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -622,9 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &4708424
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -735,9 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &6917246
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -848,9 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &9737734
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -961,9 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &11139185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1074,9 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &11553552
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1187,9 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &18730188
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1300,9 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &23421906
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1413,9 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &27338821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1526,9 +1502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &28289414
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1639,9 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &33910647
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1752,9 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &36067598
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1865,9 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &36253269
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1978,9 +1946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_1_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &39813422
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2091,9 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &42511884
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2204,9 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &43873764
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2317,9 +2279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &45260032
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2430,9 +2390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &45375557
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2543,9 +2501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &47796778
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2656,9 +2612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_6
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &56564082
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2769,9 +2723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &58962892
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2882,9 +2834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &63471434
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2995,9 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &63650529
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3108,9 +3056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &64085483
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3221,9 +3167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &65001891
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3334,9 +3278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &66328963
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3447,9 +3389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &68478576
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3560,9 +3500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &68604607
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3673,9 +3611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &70827831
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3786,9 +3722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &71094577
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3899,9 +3833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_4
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &71592560
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4012,9 +3944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &71935298
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4125,9 +4055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_21
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &72719143
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4238,9 +4166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &73060031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4351,9 +4277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_3_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &74172677
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4464,9 +4388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &77373777
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4577,9 +4499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &79309146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4690,9 +4610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &81453568
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4803,9 +4721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &81467403
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4916,9 +4832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &85168783
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5029,9 +4943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &87169056
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5142,9 +5054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &89777948
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5255,9 +5165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &91681715
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5368,9 +5276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &92142105
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5481,9 +5387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_6
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &98007598
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5594,9 +5498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &98117217
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5707,9 +5609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &101195642
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5820,9 +5720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &102256511
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5933,9 +5831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &103271149
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6046,9 +5942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &106738570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6159,9 +6053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &114760975
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6272,9 +6164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &116074601
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6385,9 +6275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &118596273
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6498,9 +6386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &121221601
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6611,9 +6497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &121762902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6724,9 +6608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &122914997
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6837,9 +6719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &123839738
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6950,9 +6830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &126973244
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7063,9 +6941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &127635626
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7176,9 +7052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &128801046
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7289,9 +7163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &130116226
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7402,9 +7274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &132322065
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7515,9 +7385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_6
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &133342955
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7628,9 +7496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_6
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &133469777
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7741,9 +7607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &134553117
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7854,9 +7718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &139092416
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7967,9 +7829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &139229668
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8080,9 +7940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &140038492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8193,9 +8051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &140841015
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8306,9 +8162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &148084801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8419,9 +8273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &152021553
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8532,9 +8384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &158175959
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8645,9 +8495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &160452142
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8758,9 +8606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_20
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &162553094
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8871,9 +8717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_24
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &163203986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8984,9 +8828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &163404512
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9097,9 +8939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &163521819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9210,9 +9050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &164021233
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9323,9 +9161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &165960635
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9436,9 +9272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &165972786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9549,9 +9383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &169906332
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9662,9 +9494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &170580669
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9775,9 +9605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &175460261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9888,9 +9716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &176281009
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10001,9 +9827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &191705544
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10114,9 +9938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &192368526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10227,9 +10049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &192640230
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10340,9 +10160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_24
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &195216225
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10453,9 +10271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &197468937
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10566,9 +10382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &199852479
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10679,9 +10493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &200143072
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10792,9 +10604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &206134837
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10905,9 +10715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &211104574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11018,9 +10826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &211818024
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11131,9 +10937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &211959209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11244,9 +11048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &213776264
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11357,9 +11159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &217193489
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11470,9 +11270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &220463650
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11583,9 +11381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &220770683
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11696,9 +11492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &220817138
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11809,9 +11603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_0
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &221094980
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11922,9 +11714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &222238083
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12035,9 +11825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_20
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &223290515
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12148,9 +11936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &225171420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12261,9 +12047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &228692356
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12374,9 +12158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &230886125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12487,9 +12269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &238036125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12600,9 +12380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &240207172
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12713,9 +12491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_6
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &240524800
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12826,9 +12602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &244927728
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12939,9 +12713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &245409431
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13052,9 +12824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &249467426
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13165,9 +12935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &250465762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13278,9 +13046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &251029774
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13391,9 +13157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &253788281
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13504,9 +13268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &254816020
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13617,9 +13379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &260700092
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13730,9 +13490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_1_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &264630418
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13843,9 +13601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &265481327
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13956,9 +13712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_29
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &276821725
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14069,9 +13823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_21
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &281222777
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14182,9 +13934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &290733862
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14295,9 +14045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &291349482
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14408,9 +14156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &293349530
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14521,9 +14267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &294780729
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14634,9 +14378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &295059781
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14747,9 +14489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &297090325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14860,9 +14600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 1
 --- !u!64 &297717231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14973,9 +14711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &309722265
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15086,9 +14822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &319606861
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15199,9 +14933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &321248619
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15312,9 +15044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_19
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &321775412
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15425,9 +15155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &324473473
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15538,9 +15266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_24
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &329389037
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15651,9 +15377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &329675793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15764,9 +15488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_28
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &335207139
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15877,9 +15599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &337423927
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15990,9 +15710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_1_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &337812204
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16103,9 +15821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &340651878
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16216,9 +15932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &348395535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16329,9 +16043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &349805512
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16442,9 +16154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &359471986
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16555,9 +16265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &361511914
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16668,9 +16376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &362292178
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16781,9 +16487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &367627697
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16894,9 +16598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &369722879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17007,9 +16709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &373035027
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17120,9 +16820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_1_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &373885871
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17233,9 +16931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &375130048
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17346,9 +17042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &377796255
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17459,9 +17153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_20
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &378769660
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17572,9 +17264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &379236495
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17685,9 +17375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &379509860
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17798,9 +17486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &380170685
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17911,9 +17597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &383594425
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18024,9 +17708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &387316804
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18137,9 +17819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_26
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &392067559
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18250,9 +17930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &395657933
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18363,9 +18041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &398410231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18476,9 +18152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &404131517
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18589,9 +18263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &405313168
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18702,9 +18374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &405415902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18815,9 +18485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &405651403
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19872,9 +19540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_7
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &416773111
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19985,9 +19651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &422147812
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20098,9 +19762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &422797839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20211,9 +19873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &424909564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20324,9 +19984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &429862355
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20437,9 +20095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &432282067
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20550,9 +20206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &432351325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20663,9 +20317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_27
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &434720087
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20776,9 +20428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &441181505
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20889,9 +20539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &441578102
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21002,9 +20650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &445439672
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21115,9 +20761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_16
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &449526944
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21228,9 +20872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &450397029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21341,9 +20983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_26
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &451040508
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21454,9 +21094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &457103750
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21567,9 +21205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &462020259
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21680,9 +21316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &465511736
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21793,9 +21427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &467960787
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21906,9 +21538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &470442375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22019,9 +21649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &471398357
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22132,9 +21760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &474719194
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22245,9 +21871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &477129602
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22358,9 +21982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &482334968
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22471,9 +22093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &482378526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22584,9 +22204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &483466726
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22697,9 +22315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &487699423
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22810,9 +22426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &488462767
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22923,9 +22537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &493364882
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23036,9 +22648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &495377476
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23149,9 +22759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &495829237
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23262,9 +22870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &497304832
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23375,9 +22981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &497661977
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23488,9 +23092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_2_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &497988297
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23601,9 +23203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &498396753
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23714,9 +23314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &501801913
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23827,9 +23425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &507499063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23940,9 +23536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &508804170
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24053,9 +23647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &509983492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24166,9 +23758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &511705810
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24279,9 +23869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &512911113
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24392,9 +23980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &514557034
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24505,9 +24091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &514790727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24618,9 +24202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &515225088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24731,9 +24313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &518789109
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24844,9 +24424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &521312674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24957,9 +24535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &522800277
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25070,9 +24646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &525102430
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25183,9 +24757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &525499180
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25296,9 +24868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &526756128
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25409,9 +24979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &528842081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25522,9 +25090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_5
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &530724788
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25635,9 +25201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &532612308
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25748,9 +25312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &534018716
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25861,9 +25423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_19
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &535267090
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25974,9 +25534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_24
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &536267472
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26087,9 +25645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_25
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &543998609
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26200,9 +25756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &547793255
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26313,9 +25867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &549654150
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26426,9 +25978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &550892538
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26539,9 +26089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_21
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &551126873
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26652,9 +26200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_26
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &553686286
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26765,9 +26311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &553909848
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26878,9 +26422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &554345427
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26991,9 +26533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &560046987
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27104,9 +26644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &560499669
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27217,9 +26755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &560975011
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27330,9 +26866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &561178400
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27443,9 +26977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_8
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &567197565
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27556,9 +27088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &568222724
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27669,9 +27199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &572156410
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27782,9 +27310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &573763116
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27895,9 +27421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &575228331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28008,9 +27532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &576973588
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28121,9 +27643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &577383960
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28234,9 +27754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &578546591
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28347,9 +27865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &584160192
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28460,9 +27976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &584784211
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28573,9 +28087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &585729949
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28686,9 +28198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &585877161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28799,9 +28309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_2_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &587250623
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28912,9 +28420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &607674390
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29025,9 +28531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_16
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &608499753
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29138,9 +28642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_29
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &608996814
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29251,9 +28753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &609749158
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29364,9 +28864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &613955184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29477,9 +28975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &614214382
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29590,9 +29086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &619367769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29703,9 +29197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &620691647
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29816,9 +29308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &622152383
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29929,9 +29419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &626802261
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30042,9 +29530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &628696503
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30155,9 +29641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &630232545
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30268,9 +29752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_27
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &633835050
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30381,9 +29863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &638891770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30494,9 +29974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &639130146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30607,9 +30085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &639599906
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30720,9 +30196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &639733157
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30833,9 +30307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &641592860
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30946,9 +30418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &641858359
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31059,9 +30529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_16
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &643276146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31172,9 +30640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &644056965
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31285,9 +30751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &644286786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31398,9 +30862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &647248797
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31511,9 +30973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &647357235
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31624,9 +31084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &650363976
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31737,9 +31195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &651289214
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31850,9 +31306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &652128852
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31963,9 +31417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &654445853
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32076,9 +31528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &657972409
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32189,9 +31639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &663911657
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32302,9 +31750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &664241132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32415,9 +31861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &665373727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32528,9 +31972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &665611155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32641,9 +32083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_7
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &665990361
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32754,9 +32194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &668103088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32867,9 +32305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &669556501
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32980,9 +32416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &670293101
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33093,9 +32527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &672048747
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33206,9 +32638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &673352811
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33319,9 +32749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_9
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &673455447
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33432,9 +32860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_23
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &676074333
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33545,9 +32971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &676266357
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33658,9 +33082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &678194843
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33771,9 +33193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &680533594
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33884,9 +33304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &687371551
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33997,9 +33415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_6
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &689671120
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34110,9 +33526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &692123648
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34223,9 +33637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &696061435
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34336,9 +33748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &699507797
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34449,9 +33859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &702093371
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34655,9 +34063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &706340558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34768,9 +34174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &710025558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34881,9 +34285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_20
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &710180309
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34994,9 +34396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &711076097
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35107,9 +34507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &712558150
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35220,9 +34618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &712881527
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35333,9 +34729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &713929980
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35446,9 +34840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &715647563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35559,9 +34951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_7
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &719052473
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35672,9 +35062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &721295963
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35785,9 +35173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_24
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &722347766
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35898,9 +35284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_15
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &723534022
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36011,9 +35395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &724262868
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36124,9 +35506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &726056121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36237,9 +35617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &729486539
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36350,9 +35728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &730840294
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36463,9 +35839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_4
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &736194955
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36576,9 +35950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &742101538
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36689,9 +36061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_0
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &745235710
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36802,9 +36172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &748442419
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36915,9 +36283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &748567084
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37028,9 +36394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &750477354
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37141,9 +36505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_2_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &753697608
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37254,9 +36616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &754645834
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37367,9 +36727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &755607198
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37480,9 +36838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &756534502
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37593,9 +36949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &761988518
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37706,9 +37060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &762077982
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37819,9 +37171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &763245629
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37932,9 +37282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_25
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &764841275
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38045,9 +37393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &769160990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38158,9 +37504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &773605864
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38271,9 +37615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_27
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &774549995
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38384,9 +37726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &775397374
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38497,9 +37837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &776049265
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38610,9 +37948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_1_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &777345195
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38723,9 +38059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &777579723
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38836,9 +38170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &778728613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38949,9 +38281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &781415266
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39062,9 +38392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &782411183
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39175,9 +38503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &784415218
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39288,9 +38614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &784728255
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39401,9 +38725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &785453526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39514,9 +38836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &786683502
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39627,9 +38947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &786871432
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39740,9 +39058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_8
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &787061940
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39853,9 +39169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &788150102
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39966,9 +39280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_16
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &790398906
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40079,9 +39391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &794100421
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40192,9 +39502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &794344304
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40305,9 +39613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &796707479
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40418,9 +39724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_3
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &807872712
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40531,9 +39835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &814432063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40644,9 +39946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &814742299
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40757,9 +40057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_8
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &815077762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40870,9 +40168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &815247419
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -40983,9 +40279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &817267616
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41096,9 +40390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &817728734
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41209,9 +40501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &821663029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41322,9 +40612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &823029785
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41435,9 +40723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &824587419
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41548,9 +40834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &824850912
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41661,9 +40945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &826920240
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41774,9 +41056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &827155391
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41887,9 +41167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &827407399
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42000,9 +41278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &831545847
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42113,9 +41389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &833386240
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42226,9 +41500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &833513306
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42339,9 +41611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &835122180
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42452,9 +41722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &837270671
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42565,9 +41833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &837779740
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42678,9 +41944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &840104379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42791,9 +42055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &846770517
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42904,9 +42166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &849566242
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43017,9 +42277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &850616209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43130,9 +42388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &855909918
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43243,9 +42499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &859845881
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43356,9 +42610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &863573237
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43469,9 +42721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &863917285
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43582,9 +42832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &864140483
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43695,9 +42943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &865663756
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43808,9 +43054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &866987205
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43921,9 +43165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_5
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &871744845
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44034,9 +43276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &874443623
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44147,9 +43387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_16
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &882344580
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44260,9 +43498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &883877007
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44373,9 +43609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &887558874
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44486,9 +43720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &887757076
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44599,9 +43831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &888915290
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44712,9 +43942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &889485846
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44825,9 +44053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &889881282
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -44938,9 +44164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &892311909
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45051,9 +44275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &892452879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45164,9 +44386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &893581143
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45277,9 +44497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_16
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &894539267
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45390,9 +44608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &895488900
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45503,9 +44719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &895616489
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45616,9 +44830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &901303132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45729,9 +44941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &901461689
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45842,9 +45052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &902287149
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45955,9 +45163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_3
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &904927791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46068,9 +45274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &905945596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46181,9 +45385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &907216015
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46294,9 +45496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &910312703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46407,9 +45607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_1_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &911710789
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46520,9 +45718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &911827631
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46633,9 +45829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &916583825
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46746,9 +45940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &920771875
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46859,9 +46051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &924902743
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46972,9 +46162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &927717108
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47085,9 +46273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_0
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &929891155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47198,9 +46384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &930121620
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47311,9 +46495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_5
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &930721207
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47424,9 +46606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &937417915
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47537,9 +46717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &937626985
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47650,9 +46828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_24
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &938472786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47763,9 +46939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &939166944
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47876,9 +47050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &944376026
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -47989,9 +47161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &946356791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48102,9 +47272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &946430894
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48215,9 +47383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &946673535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48328,9 +47494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &948239861
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48441,9 +47605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &958502155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48637,9 +47799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &965562221
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48750,9 +47910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &965868649
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48863,9 +48021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &966357800
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48976,9 +48132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &966949669
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49089,9 +48243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &970372258
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49202,9 +48354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &974776134
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49315,9 +48465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &980178339
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49428,9 +48576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &980381838
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49541,9 +48687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &985093256
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49654,9 +48798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &985121694
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49767,9 +48909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &985476652
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49880,9 +49020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &987645623
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49993,9 +49131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &988474212
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50106,9 +49242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &989933411
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50219,9 +49353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &996639012
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50332,9 +49464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1000340274
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50445,9 +49575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1004971023
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50558,9 +49686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1008565930
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50671,9 +49797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_0
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1009906663
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50784,9 +49908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1010074972
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50897,9 +50019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1012031389
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51010,9 +50130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1012478156
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51123,9 +50241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1015825829
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51236,9 +50352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1018592919
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51349,9 +50463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1022726026
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51462,9 +50574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1023425981
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51575,9 +50685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1028349658
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51688,9 +50796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1029987373
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51801,9 +50907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1032280187
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -51914,9 +51018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1032610888
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52027,9 +51129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1034403024
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52140,9 +51240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1040053102
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52253,9 +51351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1043426281
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52366,9 +51462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1046115976
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52479,9 +51573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1047549648
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52592,9 +51684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1050247735
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52705,9 +51795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1051908007
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52818,9 +51906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1057972828
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52931,9 +52017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1058962105
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53044,9 +52128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_0
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1059949472
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53157,9 +52239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1060721778
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53270,9 +52350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1062376645
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53383,9 +52461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1065980273
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53496,9 +52572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_1_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1067068516
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53609,9 +52683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_21
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1068949130
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53722,9 +52794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1070365537
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53835,9 +52905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1073005130
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53948,9 +53016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1074741698
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54061,9 +53127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1079371538
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54174,9 +53238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1079944094
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54287,9 +53349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1084424706
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54400,9 +53460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1085197386
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54513,9 +53571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1086550736
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54626,9 +53682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1088194999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54739,9 +53793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1088743316
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54852,9 +53904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_23
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1090034232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -54965,9 +54015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1092376803
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55078,9 +54126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1094427602
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55191,9 +54237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_6
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1097109471
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55304,9 +54348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1097720769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55417,9 +54459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1099728375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55530,9 +54570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_1_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1103663190
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55643,9 +54681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1107238792
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55756,9 +54792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1110240375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55869,9 +54903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1110413786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55982,9 +55014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1113418007
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56095,9 +55125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1115970674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56208,9 +55236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1121427109
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56321,9 +55347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1124143017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56434,9 +55458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1125546944
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56547,9 +55569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1131170110
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56660,9 +55680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1131362766
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56773,9 +55791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1131478251
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56886,9 +55902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1137208585
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -56999,9 +56013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1144642856
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57112,9 +56124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1146470697
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57225,9 +56235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1148034771
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57338,9 +56346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1148132147
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57451,9 +56457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1152957339
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57564,9 +56568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1155626080
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57677,9 +56679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1156472373
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57790,9 +56790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1166266558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57903,9 +56901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1169156272
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58016,9 +57012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_7
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1170360565
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58129,9 +57123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_18
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1174802757
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58242,9 +57234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1176201919
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58355,9 +57345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1180327183
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58468,9 +57456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1183812536
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58581,9 +57567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1184010184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58694,9 +57678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1184043891
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58807,9 +57789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1190030121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58920,9 +57900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1192147960
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59033,9 +58011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1198924509
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59146,9 +58122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1199040765
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59259,9 +58233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1200321301
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59372,9 +58344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1200978782
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59485,9 +58455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1202253661
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59598,9 +58566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1202687655
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59711,9 +58677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1203159886
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59824,9 +58788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1205007705
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59937,9 +58899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1206012526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60050,9 +59010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1207052812
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60163,9 +59121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1211228662
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60276,9 +59232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1216429229
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60389,9 +59343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1219751069
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60502,9 +59454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1220283103
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60615,9 +59565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1220953645
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60728,9 +59676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1224629070
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60841,9 +59787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1226721101
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60954,9 +59898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1227097286
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61067,9 +60009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1228162229
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61180,9 +60120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1228207954
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61293,9 +60231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1231714824
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61406,9 +60342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_18
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1233325092
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61519,9 +60453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1233972319
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61632,9 +60564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_19
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1235624099
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61745,9 +60675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1236061077
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61858,9 +60786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1241098869
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -61971,9 +60897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1247114559
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62084,9 +61008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_25
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1249674935
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62197,9 +61119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1251854770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62310,9 +61230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1258221253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62423,9 +61341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1260753819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62536,9 +61452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1267487155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62649,9 +61563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1268791755
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62762,9 +61674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1269283834
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62875,9 +61785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1270275374
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -62988,9 +61896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1271037861
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63101,9 +62007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1272389348
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63214,9 +62118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1274762564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63327,9 +62229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1282633801
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63440,9 +62340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1283469600
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63553,9 +62451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1284323173
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63666,9 +62562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1284417319
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63779,9 +62673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1286368632
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63892,9 +62784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_3
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1287194583
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64005,9 +62895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1287627384
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64118,9 +63006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1289646807
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64231,9 +63117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1290484237
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64344,9 +63228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1293613776
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64457,9 +63339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1294190762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64570,9 +63450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1295529464
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64683,9 +63561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1296427294
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64796,9 +63672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1298513611
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -64909,9 +63783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1301089536
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65022,9 +63894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1304167955
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65135,9 +64005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1304465617
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65248,9 +64116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_27
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1304991272
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65361,9 +64227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1306387541
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65474,9 +64338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_16
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1311243627
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65587,9 +64449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1314882750
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65700,9 +64560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1314951101
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65813,9 +64671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1316530967
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -65926,9 +64782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1318555898
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66039,9 +64893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1323875570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66152,9 +65004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_24
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1324586809
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66265,9 +65115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1326907017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66378,9 +65226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1327050166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66491,9 +65337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1329193650
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66604,9 +65448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1330488858
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66717,9 +65559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1331300078
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66830,9 +65670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_23
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1334068096
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66943,9 +65781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1336982760
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67056,9 +65892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1338533884
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67169,9 +66003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1341655816
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67282,9 +66114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_26
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1346612375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67395,9 +66225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1351817420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67508,9 +66336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1356836003
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67621,9 +66447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1358472990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67734,9 +66558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1359241579
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67847,9 +66669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1360400937
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -67960,9 +66780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1362419735
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68073,9 +66891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1375580056
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68186,9 +67002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1376736674
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68299,9 +67113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1380931110
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68412,9 +67224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1382933557
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68525,9 +67335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1384670231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68638,9 +67446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_1_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1385376507
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68751,9 +67557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1386624613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68864,9 +67668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1388243161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68977,9 +67779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1393379011
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69090,9 +67890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1395008021
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69203,9 +68001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1401481641
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69316,9 +68112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1402495825
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69429,9 +68223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1404373257
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69542,9 +68334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1405846073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69655,9 +68445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1408520984
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69768,9 +68556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_17
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1410019877
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69881,9 +68667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1412856927
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -69994,9 +68778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1413003438
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70107,9 +68889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1414384462
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70220,9 +69000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1416653863
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70333,9 +69111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1416952322
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70446,9 +69222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1419196832
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70559,9 +69333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1419241310
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70672,9 +69444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1419317636
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70785,9 +69555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1420666172
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -70898,9 +69666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1420715872
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71011,9 +69777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_12
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1423005946
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71124,9 +69888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1423518248
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71237,9 +69999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1423926060
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71350,9 +70110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1424265805
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71463,9 +70221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1427512496
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71576,9 +70332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1429259999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71689,9 +70443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1431921513
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71802,9 +70554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1435845578
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71915,9 +70665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1443455727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72028,9 +70776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1444070999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72141,9 +70887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1451488028
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72254,9 +70998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1452425017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72367,9 +71109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1454917147
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72480,9 +71220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1455481785
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72593,9 +71331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_22
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1457600077
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72706,9 +71442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1458478019
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72819,9 +71553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1459925470
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72932,9 +71664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_29
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1461094425
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73045,9 +71775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1462454100
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73158,9 +71886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1465786319
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73271,9 +71997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1467030146
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73384,9 +72108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1467260129
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73497,9 +72219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1473702442
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73610,9 +72330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1474122847
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73723,9 +72441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1475804779
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73836,9 +72552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1484070509
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -73949,9 +72663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1484237542
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74062,9 +72774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1489778821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74175,9 +72885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1491105791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74288,9 +72996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_27
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1493749685
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74401,9 +73107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1501980185
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74514,9 +73218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1502837040
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74627,9 +73329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1505270851
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74740,9 +73440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1511953175
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74853,9 +73551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1514954713
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74966,9 +73662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1519360232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75079,9 +73773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_28
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1520278793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75192,9 +73884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1523379165
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75305,9 +73995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_19
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1524249582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75418,9 +74106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1525932675
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75531,9 +74217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1526538166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75644,9 +74328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_7
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1528101017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75757,9 +74439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1529129434
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75870,9 +74550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1533507897
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -75983,9 +74661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_19
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1535421084
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76096,9 +74772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1536355494
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76209,9 +74883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1536987879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76322,9 +74994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1537978573
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76435,9 +75105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1541992716
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76548,9 +75216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1543257083
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76661,9 +75327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1550198527
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76774,9 +75438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_21
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1550908731
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76887,9 +75549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1552384812
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77000,9 +75660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1556061298
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77113,9 +75771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1557044445
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77226,9 +75882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1559777943
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77339,9 +75993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1562367305
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77452,9 +76104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1568390057
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77565,9 +76215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1568611768
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77678,9 +76326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1568642344
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77791,9 +76437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1572103092
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77904,9 +76548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_3
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1572756520
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78017,9 +76659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1575772721
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78130,9 +76770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1580424216
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78243,9 +76881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1582622596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78356,9 +76992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_5
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1585313233
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78469,9 +77103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1585623244
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78582,9 +77214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1588343479
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78695,9 +77325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1591030430
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78808,9 +77436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1591472407
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -78921,9 +77547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1591793073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79034,9 +77658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1596450437
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79147,9 +77769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1599624300
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79260,9 +77880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1599882636
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79373,9 +77991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1600055160
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79486,9 +78102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1600454134
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79599,9 +78213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1602219898
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79712,9 +78324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1604561288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79825,9 +78435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1605237132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79938,9 +78546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1607270232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80051,9 +78657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1607875870
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80164,9 +78768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1613949169
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80277,9 +78879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_22
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1622811195
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80390,9 +78990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1625397657
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80503,9 +79101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1627376685
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80616,9 +79212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1631482724
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80729,9 +79323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1632651142
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80842,9 +79434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1635337274
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -80955,9 +79545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1636461864
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81068,9 +79656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1637948405
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81181,9 +79767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1639199267
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81294,9 +79878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1639202379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81407,9 +79989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1640708971
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81520,9 +80100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1643188381
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81633,9 +80211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1644484239
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81746,9 +80322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1647258667
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81859,9 +80433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1648261207
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -81972,9 +80544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1652560777
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82085,9 +80655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1653511960
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82198,9 +80766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1656270725
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82311,9 +80877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1664031004
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82424,9 +80988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1672577991
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82537,9 +81099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1674788835
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82650,9 +81210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1675176804
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82763,9 +81321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1679299809
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82876,9 +81432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1680472076
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -82989,9 +81543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1681232237
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83102,9 +81654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1684533122
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83215,9 +81765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1688110526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83328,9 +81876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1689051885
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83441,9 +81987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_16
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1690918958
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83554,9 +82098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1695990021
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83667,9 +82209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1696034617
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83780,9 +82320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1696365937
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -83893,9 +82431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1701435477
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84006,9 +82542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1705572797
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84119,9 +82653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1707499344
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84232,9 +82764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1709024250
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84345,9 +82875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1710536878
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84458,9 +82986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1711524233
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84571,9 +83097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1716319699
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84684,9 +83208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_5
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1717562514
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84797,9 +83319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1717966911
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -84910,9 +83430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1722597218
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85023,9 +83541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1725059445
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85136,9 +83652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1732289603
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85249,9 +83763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1732318050
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85362,9 +83874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1739031496
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85475,9 +83985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1742172910
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85588,9 +84096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1744365081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85701,9 +84207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1744550171
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85814,9 +84318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1744988583
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85927,9 +84429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1754160443
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86040,9 +84540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1757543815
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86153,9 +84651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1760342284
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86266,9 +84762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_27
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1761171086
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86379,9 +84873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1762320399
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86492,9 +84984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_27
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1764870014
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86605,9 +85095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1767127117
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86718,9 +85206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1768779028
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86831,9 +85317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1770006620
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -86944,9 +85428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_27
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1772390511
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87057,9 +85539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_1
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1776555017
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87170,9 +85650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1779056117
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87283,9 +85761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_9
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1783836073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87396,9 +85872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1787778570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87509,9 +85983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1789506232
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87622,9 +86094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1791692624
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87735,9 +86205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_2
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1795970253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87848,9 +86316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1799819753
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87961,9 +86427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_14
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1799898761
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88074,9 +86538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_6
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1805630854
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88187,9 +86649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_17
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1805903785
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88300,9 +86760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_1_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1806431272
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88413,9 +86871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1808229664
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88526,9 +86982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1808472262
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88639,9 +87093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1810090062
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88752,9 +87204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1810219593
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88865,9 +87315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1813024031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -88978,9 +87426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1814261125
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89091,9 +87537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1817196883
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89204,9 +87648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1819055047
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89317,9 +87759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1824078846
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89430,9 +87870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1825117614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89543,9 +87981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_11
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1825369506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89656,9 +88092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1829411646
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89769,9 +88203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1830277158
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89882,9 +88314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1833462019
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89995,9 +88425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1834178613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90108,9 +88536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1834872084
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90221,9 +88647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1836878778
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90334,9 +88758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1840870140
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90447,9 +88869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1841263280
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90560,9 +88980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_24
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1843583501
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90673,9 +89091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1850924532
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90786,9 +89202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1852905016
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -90899,9 +89313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_28
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1855514366
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91012,9 +89424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1857326803
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91125,9 +89535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1858339058
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91238,9 +89646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1858550687
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91351,9 +89757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1861355181
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91464,9 +89868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1861557608
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91577,9 +89979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_11
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1861893843
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91690,9 +90090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1862303023
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91803,9 +90201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1863634629
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -91916,9 +90312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_14
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1873814445
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92029,9 +90423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_8
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1876887451
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92142,9 +90534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_20
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1877576218
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92255,9 +90645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_10
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1883306649
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92368,9 +90756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1883731424
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92481,9 +90867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1885751022
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92594,9 +90978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1887114014
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92707,9 +91089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_3
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1887243201
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92820,9 +91200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1892516437
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92933,9 +91311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1894806868
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93046,9 +91422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1895222866
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93159,9 +91533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_18
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1896013428
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93272,9 +91644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1896503104
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93385,9 +91755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_27
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1899324166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93498,9 +91866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1901603130
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93611,9 +91977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_9
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1907467778
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93724,9 +92088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1917155442
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93837,9 +92199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_18
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1917582584
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -93950,9 +92310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1918445684
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94063,9 +92421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1921557054
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94176,9 +92532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_0
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1925415439
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94289,9 +92643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1927508496
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94402,9 +92754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1930702456
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94515,9 +92865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1931885405
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94628,9 +92976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_28
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1933193136
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94741,9 +93087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1934718432
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94854,9 +93198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1938039713
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94967,9 +93309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1938438345
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95080,9 +93420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1939484496
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95193,9 +93531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1941265339
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95306,9 +93642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_7
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1941893563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95419,9 +93753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1945837438
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95532,9 +93864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_21
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1946376692
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95645,9 +93975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1948040753
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95758,9 +94086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 27_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1948080667
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95871,9 +94197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1948171703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -95984,9 +94308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_26
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1951434712
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96097,9 +94419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1953194523
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96210,9 +94530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1953757268
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96323,9 +94641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1954261902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96436,9 +94752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1955033302
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96549,9 +94863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_29
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1955445377
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96662,9 +94974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_11
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1957225985
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96775,9 +95085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1958626752
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -96888,9 +95196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_19
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1958741262
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97001,9 +95307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1962324642
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97114,9 +95418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_4
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1962528016
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97227,9 +95529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_13
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1964225700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97340,9 +95640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_29
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1966687819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97453,9 +95751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1970400340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97566,9 +95862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1976573628
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97679,9 +95973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_13
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &1976592310
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97792,9 +96084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_12
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1981460488
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97905,9 +96195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2_0_15
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &1984161545
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98018,9 +96306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1992719499
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98131,9 +96417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1996799311
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98244,9 +96528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 26_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1997373606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98357,9 +96639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1997815852
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98470,9 +96750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &1998080754
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98583,9 +96861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_5
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2000629213
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98696,9 +96972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 8_0_15
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2001894174
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98809,9 +97083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_6
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2003379766
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -98922,9 +97194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2006661243
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99035,9 +97305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_25
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2008342128
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99148,9 +97416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12_0_9
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2008871159
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99261,9 +97527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2010964633
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99374,9 +97638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_14
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2012097239
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99487,9 +97749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_19
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2019574905
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99600,9 +97860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_23
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2020825288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99713,9 +97971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_29
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2024531765
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99826,9 +98082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_13
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2025750298
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -99939,9 +98193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2029706509
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100052,9 +98304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_20
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2033522018
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100165,9 +98415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2034623898
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100278,9 +98526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_12
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2036084452
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100391,9 +98637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10_0_25
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2036558915
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100504,9 +98748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11_0_2
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2040436576
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100617,9 +98859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4_0_26
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2041263461
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100730,9 +98970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 24_0_21
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2045244854
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100843,9 +99081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2046499267
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100956,9 +99192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 17_0_0
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2051330073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101069,9 +99303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 29_0_10
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2056571561
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101182,9 +99414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2062762928
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101295,9 +99525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_4
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2070049848
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101408,9 +99636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 20_0_4
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2074653116
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101521,9 +99747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2074922105
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101634,9 +99858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_15
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2076140253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101747,9 +99969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 15_0_0
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2077668621
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101860,9 +100080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_25
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2081066551
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -101973,9 +100191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_28
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2081341045
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102086,9 +100302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_8
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2081697552
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102199,9 +100413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 21_0_15
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2083915898
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102312,9 +100524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2089388346
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102425,9 +100635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 25_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2091360595
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102538,9 +100746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 16_0_2
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2092449244
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102651,9 +100857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0_0_23
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2093751340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102764,9 +100968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 28_0_1
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2099488478
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102877,9 +101079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 5_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2104665482
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -102990,9 +101190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14_0_17
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2107527294
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103103,9 +101301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_1
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2107708904
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103216,9 +101412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9_0_5
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2108644303
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103329,9 +101523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1_0_6
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2109974900
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103442,9 +101634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 7_0_21
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2111576637
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103555,9 +101745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2111944090
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103668,9 +101856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_1_16
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2113142331
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103781,9 +101967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_10
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2116153060
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -103894,9 +102078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 23_0_4
-  config:
-    type: 1
-    isReachable: 0
+  configId: 0
 --- !u!64 &2116557000
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -104007,9 +102189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 22_0_22
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2135160606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -104120,9 +102300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3_0_27
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2135525156
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -104233,9 +102411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 18_0_20
-  config:
-    type: 2
-    isReachable: 0
+  configId: 0
 --- !u!64 &2136289364
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -104346,9 +102522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 19_0_21
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2140997769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -104459,9 +102633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6_0_3
-  config:
-    type: 0
-    isReachable: 1
+  configId: 0
 --- !u!64 &2141200760
 MeshCollider:
   m_ObjectHideFlags: 0

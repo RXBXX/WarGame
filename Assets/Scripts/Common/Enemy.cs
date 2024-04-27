@@ -6,11 +6,11 @@ namespace WarGame
     {
         private int _target;
 
-        public Enemy(int id, RoleAttribute attribute, string prefab, string bornHexagon) : base(id, attribute, prefab, bornHexagon)
+        public Enemy(int id, int configId, string bornHexagon) : base(id, configId, bornHexagon)
         {
             _gameObject.tag = Enum.Tag.Enemy.ToString();
             _type = Enum.RoleType.Enemy;
-            _gameObject.layer = 7;
+            _layer = 7;
         }
 
         protected override void CreateHUD()

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexagonCellData : MonoBehaviour
+public class HexagonBehaviour : MonoBehaviour
 {
     public string ID = null;
-    public HexagonCellConfig config;
+
+    public int configId = 0;
 }

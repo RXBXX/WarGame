@@ -73,18 +73,15 @@ namespace WarGame
         /// </summary>
         /// <param name="dir"></param>
         /// <param name="root"></param>
-        public Dictionary<string, HexagonCell> CreateMap(string dir, GameObject root)
+        public Dictionary<string, Hexagon> CreateMap(string dir, GameObject root)
         {
-            var jsonStr = File.ReadAllText(dir);
-            HexagonCell[] hexagons = Tool.Instance.FromJson<HexagonCell[]>(jsonStr);
-            Dictionary<string, HexagonCell> hexagonDic = new Dictionary<string, HexagonCell>();
+            HexagonMapConfig[] hexagons = Tool.Instance.ReadJson<HexagonMapConfig[]>(dir);
+            Dictionary<string, Hexagon> hexagonDic = new Dictionary<string, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
-                var hexagon = hexagons[i];
-                hexagon.CreateGameObject();
+                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].coor);
                 hexagon.SetParent(root.transform);
-
-                hexagonDic[GetHexagonKey(hexagon.coordinate)] = hexagon;
+                hexagonDic[GetHexagonKey(hexagon.coor)] = hexagon;
             }
             return hexagonDic;
         }
@@ -142,28 +139,23 @@ namespace WarGame
             if (!IsActiveMapEditor())
                 return;
 
-            var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
 
             var rootObj = GameObject.Find("Root");
             var hexagonCount = rootObj.transform.childCount;
-            HexagonCell[] hexagons = new HexagonCell[hexagonCount];
+            HexagonMapConfig[] hexagons = new HexagonMapConfig[hexagonCount];
 
             for (int i = 0; i < hexagonCount; i++)
             {
                 var hexagonTra = rootObj.transform.GetChild(i);
-                var data = hexagonTra.GetComponent<HexagonCellData>();
+                var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
-                var hexagonCell = new HexagonCell(GetHexagonKey(coor), data.config);
-                hexagonCell.coordinate = coor;
+                Debug.Log(data.configId);
+                var hexagonCell = new HexagonMapConfig(GetHexagonKey(coor), data.configId, coor);
                 hexagons[i] = hexagonCell;
             }
 
-            var jsonStr = WarGame.Tool.Instance.ToJson(hexagons);
-            try { File.WriteAllText(dir, jsonStr); }
-            catch (IOException exception)
-            {
-                Debug.Log(exception);
-            };
+            var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
+            Tool.Instance.WriteJson<HexagonMapConfig[]>(dir, hexagons);
         }
 
         /// <summary>
@@ -176,16 +168,17 @@ namespace WarGame
 
             ClearEditorMapScene();
 
-            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
-            var jsonStr = File.ReadAllText(dir);
 
             var rootObj = GameObject.Find("Root");
-            HexagonCell[] hexagons = WarGame.Tool.Instance.FromJson<HexagonCell[]>(jsonStr);
+
+            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
+            HexagonMapConfig[] hexagons = Tool.Instance.ReadJson<HexagonMapConfig[]>(dir);
 
             for (int i = 0; i < hexagons.Length; i++)
             {
-                hexagons[i].CreateGameObject();
-                hexagons[i].SetParent(rootObj.transform);
+                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].coor);
+                hexagon.CreateGameObject();
+                hexagon.SetParent(rootObj.transform);
             }
         }
 

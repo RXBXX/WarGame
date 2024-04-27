@@ -1,47 +1,51 @@
-using System;
 using UnityEngine;
-using UnityEditor;
 using DG.Tweening;
 
 namespace WarGame
 {
-    [Serializable]
-    public class HexagonCell
+    public class Hexagon
     {
         public string ID;
 
-        public Vector3 coordinate;
+        private int _configId;
 
-        public HexagonCellConfig config;
-
-        private GameObject _gameObject;
+        public Vector3 coor;
 
         private Tween _tween;
+
+        protected GameObject _gameObject;
 
         public GameObject GameObject
         {
             get { return _gameObject; }
         }
 
-        public HexagonCell(string id, HexagonCellConfig config)
+        public Hexagon(string id, int configId, Vector3 coor)
         {
             this.ID = id;
-            this.config = config;
-        }
+            this._configId = configId;
+            this.coor = coor;
 
+            CreateGameObject();
+        }
         public void CreateGameObject()
         {
-            string assetPath = MapTool.Instance.GetHexagonPrefab(config.type);
-            GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
+            DebugManager.Instance.Log(_configId);
+            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+            GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(config.Prefab);
             _gameObject = GameObject.Instantiate(prefab);
-            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coordinate);
+            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
 
-            _gameObject.GetComponent<HexagonCellData>().ID = this.ID;
+            _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
+        }
+        public void SetParent(Transform transform)
+        {
+            _gameObject.transform.SetParent(transform);
         }
 
         public void OnClick()
         {
-            var worldPos = MapTool.Instance.GetPosFromCoor(coordinate);
+            var worldPos = MapTool.Instance.GetPosFromCoor(coor);
             if (null != _tween)
             {
                 _tween.Kill();
@@ -66,7 +70,8 @@ namespace WarGame
         /// <returns></returns>
         public bool IsReachable()
         {
-            return config.isReachable;
+            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+            return config.Reachable;
         }
 
         /// <summary>
@@ -75,7 +80,8 @@ namespace WarGame
         /// <returns></returns>
         public float GetCost()
         {
-            return 1;
+            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+            return config.Resistance;
         }
 
         public void Marking(Enum.MarkType type)
@@ -98,11 +104,6 @@ namespace WarGame
                     _gameObject.GetComponent<Renderer>().material.color = Color.white;
                     break;
             }
-        }
-
-        public void SetParent(Transform transform)
-        {
-            _gameObject.transform.SetParent(transform);
         }
 
         public void Dispose()

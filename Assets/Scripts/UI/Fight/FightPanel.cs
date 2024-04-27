@@ -11,7 +11,7 @@ namespace WarGame.UI
                 SceneMgr.Instance.DestroyScene();
             });
             _gCom.GetChild("heroBtn").onClick.Add(() => {
-                SceneMgr.Instance.OpenHeroScene(new object[] { "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab" });
+                SceneMgr.Instance.OpenHeroScene(10001);
             });
             _round = (GTextField)_gCom.GetChild("round");
             _round.text = "Round:0";

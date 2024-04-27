@@ -14,8 +14,9 @@ namespace WarGame.UI
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            var heroPath = args[0].ToString();
-            var prefab = AssetMgr.Instance.LoadAsset<GameObject>(heroPath);
+            Debug.Log(args[0]);
+            var heroConfing = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", (int)args[0]);
+            var prefab = AssetMgr.Instance.LoadAsset<GameObject>(heroConfing.Prefab);
             var hero = GameObject.Instantiate(prefab);
             _heroRoot = SceneMgr.Instance.GetHeroRoot();
             hero.transform.SetParent(_heroRoot);

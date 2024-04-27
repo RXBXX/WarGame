@@ -35,18 +35,18 @@ namespace WarGame
             return true;
         }
 
-        public int CreateHero(int id, RoleAttribute attr, string prefab, string bornHexagon)
+        public int CreateHero(int id, int configId, string bornHexagon)
         {
-            var hero = new Hero(id, attr, prefab, bornHexagon);
+            var hero = new Hero(id, configId, bornHexagon);
 
             _roleList.Add(hero);
 
             return id;
         }
 
-        public int CreateEnemy(int id, RoleAttribute attr, string prefab, string bornHexagon)
+        public int CreateEnemy(int id, int configId, string bornHexagon)
         {
-            var enemy = new Enemy(id, attr, prefab, bornHexagon);
+            var enemy = new Enemy(id, configId, bornHexagon);
 
             _roleList.Add(enemy);
 
@@ -155,6 +155,8 @@ namespace WarGame
 
         public void Attack(int initiatorID, int targetID)
         {
+            CameraMgr.Instance.CloseGray();
+
             _initiator = initiatorID;
             _target = targetID;
 
@@ -265,8 +267,17 @@ namespace WarGame
                 return;
 
             var strs = ((string)args[0]).Split('_');
-            var role = GetRole((int)args[1]);
-            role.HandleEvent(strs[0], strs[1]);
+
+            var roleId = (int)args[1];
+            var role = GetRole(roleId);
+            string stateName = strs[0], secondStateName = strs[1];
+            role.HandleEvent(stateName, secondStateName);
+
+            if (stateName == "Attack" && secondStateName == "Take")
+            {
+                var attakedRole = GetRole(_target);
+                attakedRole.Attacked(role.GetAttackPower() - attakedRole.GetDefensePower());
+            }
         }
     }
 }

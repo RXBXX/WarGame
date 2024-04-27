@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RoleData : MonoBehaviour
+public class RoleBehaviour : MonoBehaviour
 {
     public int ID;
 }

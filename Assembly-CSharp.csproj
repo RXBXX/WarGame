@@ -100,7 +100,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\SelectionShape.cs" />
-    <Compile Include="Assets\Scripts\Common\RoleData.cs" />
+    <Compile Include="Assets\Scripts\Common\RoleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Renderer\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MovieClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlElement.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIObjectFactory.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HeadBar\HeadBarMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\IEventDispatcher.cs" />
+    <Compile Include="Assets\Scripts\Renderer\ExcludeFromGrayScale.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPackage.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\BasicsMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\FillMesh.cs" />
@@ -159,7 +161,7 @@
     <Compile Include="Assets\FairyGUI\Examples\LoopList\LoopListMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLUtils.cs" />
-    <Compile Include="Assets\Scripts\Map\HexagonCellData.cs" />
+    <Compile Include="Assets\Scripts\Map\HexagonBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
@@ -187,7 +189,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HitTest\HitTestMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ToolSet.cs" />
-    <Compile Include="Assets\Scripts\Map\HexagonCell.cs" />
+    <Compile Include="Assets\Scripts\Map\Hexagon.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Transition\TransitionMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GButton.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextFormat.cs" />
@@ -216,7 +218,6 @@
     <Compile Include="Assets\FairyGUI\Examples\Curve\CurveMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\UBBParser.cs" />
-    <Compile Include="Assets\Scripts\Map\HexagonCellConfig.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearIcon.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearXY.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageCamera.cs" />
@@ -303,8 +304,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Renderer\CameraRender.cs" />
-    <Compile Include="Assets\Scripts\Renderer\ExcludeFromGrayScale.cs" />
+    <Compile Include="Assets\Scripts\Common\ConfigMgr.cs" />
+    <Compile Include="Assets\Scripts\Common\CastClass.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -318,6 +319,7 @@
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
      <None Include="Assets\Shaders\WhetherShader.shader" />
+     <None Include="Assets\Shaders\ToonShaderAdv.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
      <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
     <Reference Include="UnityEngine">

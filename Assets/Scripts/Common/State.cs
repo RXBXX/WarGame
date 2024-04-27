@@ -10,6 +10,7 @@ namespace WarGame
         protected Enum.RoleAnimState _state = Enum.RoleAnimState.End;
         protected Role _role = null;
         protected float _lerpStep = 0;
+        protected State _last;
 
         public State(string name, Role role)
         {
@@ -25,8 +26,11 @@ namespace WarGame
                 return;
             if (null != lastState)
             {
-                lastState.End();
+                _last = lastState;
+                lastState.End(false);
             }
+            DebugManager.Instance.Log(_name + ":Start");
+            _role.SetState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  
         }
@@ -45,10 +49,15 @@ namespace WarGame
             _state = Enum.RoleAnimState.Loss;
         }
 
-        public virtual void End()
+        public virtual void End(bool reverse)
         {
             if (_state == Enum.RoleAnimState.End)
                 return;
+            if (reverse)
+            {
+                _last.Start();
+                _last = null;
+            }
             _state = Enum.RoleAnimState.End;
             _role.Animator.SetBool(_name, false);
         }
@@ -74,20 +83,20 @@ namespace WarGame
             _lerpStep = 0;
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
 
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Spin_RM_SwordAndShield");
             var clips = _role.Animator.runtimeAnimatorController.animationClips;
             _speed = Vector3.Distance(endPos, startPos) / (timeDic["Jump_Loss"] - timeDic["Jump_Take"]);
         }
 
-        public override void End()
+        public override void End(bool reverse)
         {
             if (_state == Enum.RoleAnimState.End)
                 return;
 
-            base.End();
+            base.End(reverse);
             _role.LerpStep = 0;
 
             _role.NextPath();
@@ -101,8 +110,8 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
 
             _lerpStep += (Time.deltaTime * _speed);
 
@@ -115,7 +124,7 @@ namespace WarGame
 
     public class MoveState : State
     {
-        private float _speed = 5f;
+        private float _speed = 3f;
 
         public MoveState(string name, Role role) : base(name, role)
         {
@@ -127,8 +136,8 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coordinate) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coordinate) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
 
             _lerpStep += (Time.deltaTime * _speed);
 
