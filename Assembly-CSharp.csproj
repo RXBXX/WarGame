@@ -68,6 +68,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ShapeHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Main\MainBtn.cs" />
     <Compile Include="Assets\Scripts\Common\DebugManager.cs" />
+    <Compile Include="Assets\Scripts\Common\ConfigMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
@@ -79,10 +80,12 @@
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\Window4.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
+    <Compile Include="Assets\Scripts\UI\Record\RecordPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventContext.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stats.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
+    <Compile Include="Assets\Scripts\Common\DataInterface.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\HitTestContext.cs" />
     <Compile Include="Assets\Resources\UI\Map\MapBinder.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
@@ -100,7 +103,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\SelectionShape.cs" />
-    <Compile Include="Assets\Scripts\Common\RoleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Role\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Renderer\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MovieClip.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XML.cs" />
+    <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GObjectPool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Timers.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeNode.cs" />
@@ -176,9 +180,9 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
-    <Compile Include="Assets\Scripts\Common\RoleEvents.cs" />
+    <Compile Include="Assets\Scripts\Role\RoleEvents.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
-    <Compile Include="Assets\Scripts\Common\State.cs" />
+    <Compile Include="Assets\Scripts\Role\State.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TouchScreenKeyboard.cs" />
@@ -198,7 +202,7 @@
     <Compile Include="Assets\FairyGUI\Examples\CutScene\LevelManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComboBox.cs" />
-    <Compile Include="Assets\Scripts\Common\Hero.cs" />
+    <Compile Include="Assets\Scripts\Role\Hero.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\DragDropManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay.cs" />
@@ -230,7 +234,7 @@
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
-    <Compile Include="Assets\Scripts\Common\Role.cs" />
+    <Compile Include="Assets\Scripts\Role\Role.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TextMeshPro\TextMeshProMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GRoot.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GMovieClip.cs" />
@@ -271,7 +275,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearSize.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPTextFormat.cs" />
-    <Compile Include="Assets\Scripts\Common\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Role\Enemy.cs" />
     <Compile Include="Assets\Scripts\Tools\MapTool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTween.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
@@ -290,6 +294,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIConfig.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader3D.cs" />
     <Compile Include="Assets\Scripts\UI\MapPanel\MapPanel.cs" />
+    <Compile Include="Assets\Scripts\Common\ConfigInterface.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\ControllerAction.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Guide\GuideMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextField.cs" />
@@ -299,13 +304,13 @@
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\Window3.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\TurnCardMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenValue.cs" />
-    <Compile Include="Assets\Scripts\Common\RoleManager.cs" />
+    <Compile Include="Assets\Scripts\Role\RoleManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Common\ConfigMgr.cs" />
-    <Compile Include="Assets\Scripts\Common\CastClass.cs" />
+    <Compile Include="Assets\Scripts\UI\MapPanel\MapScroll.cs" />
+    <Compile Include="Assets\Resources\UI\Map\UI_MapScroll.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -546,6 +551,9 @@
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Plugins\Newtonsoft\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity 2020.3.0f1\2020.3.0f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

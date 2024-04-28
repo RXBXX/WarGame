@@ -17,7 +17,7 @@ namespace WarGame.UI
         private void OnClickMainBtn()
         {
             UIManager.Instance.ClosePanel(name);
-            UIManager.Instance.OpenPanel("Map", "MapPanel");
+            UIManager.Instance.OpenPanel("Record", "RecordPanel");
         }
     }
 }

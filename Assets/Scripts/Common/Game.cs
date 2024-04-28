@@ -12,6 +12,7 @@ namespace WarGame
 
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
+            DatasMgr.Instance.Init();
             ConfigMgr.Instance.Init();
             UIManager.Instance.Init();
             SceneMgr.Instance.Init();
@@ -35,19 +36,19 @@ namespace WarGame
             return true;
         }
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
-            DebugManager.Instance.Update();
-            EventDispatcher.Instance.Update();
-            UIManager.Instance.Update();
-            SceneMgr.Instance.Update();
-            HUDManager.Instance.Update();
-            CameraMgr.Instance.Update();
-            InputManager.Instance.Update();
-            MapTool.Instance.Update();
-            MapManager.Instance.Update();
-            LineMgr.Instance.Update();
-            RoleManager.Instance.Update();
+            DebugManager.Instance.Update(deltaTime);
+            EventDispatcher.Instance.Update(deltaTime);
+            UIManager.Instance.Update(deltaTime);
+            SceneMgr.Instance.Update(deltaTime);
+            HUDManager.Instance.Update(deltaTime);
+            CameraMgr.Instance.Update(deltaTime);
+            InputManager.Instance.Update(deltaTime);
+            MapTool.Instance.Update(deltaTime);
+            MapManager.Instance.Update(deltaTime);
+            LineMgr.Instance.Update(deltaTime);
+            RoleManager.Instance.Update(deltaTime);
         }
 
         public override void LateUpdate()
@@ -74,11 +75,12 @@ namespace WarGame
             MapTool.Instance.Dispose();
             MapManager.Instance.Dispose();
             LineMgr.Instance.Dispose();
-            RoleManager.Instance.Dispose();
-            HUDManager.Instance.Dispose();
             SceneMgr.Instance.Dispose();
+            HUDManager.Instance.Dispose();
+            RoleManager.Instance.Dispose();
             UIManager.Instance.Dispose();
             ConfigMgr.Instance.Dispose();
+            DatasMgr.Instance.Dispose();
             EventDispatcher.Instance.Dispose();
             DebugManager.Instance.Dispose();
             return true;

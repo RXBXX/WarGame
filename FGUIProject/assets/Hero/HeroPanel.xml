@@ -2,7 +2,7 @@
 <component size="1334,750">
   <displayList>
     <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1158,49" size="100,96"/>
-    <list id="n1_omu9" name="n1" xy="703,195" size="553,100" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
+    <list id="n1_omu9" name="equipmentList" xy="703,196" size="553,100" layout="row" overflow="scroll" scroll="horizontal" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -10,10 +10,12 @@
       <item/>
       <item/>
     </list>
-    <component id="n2_omu9" name="n2" src="omu93" fileName="HeroSkill1.xml" xy="707,325" size="296,100"/>
-    <text id="n5_omu9" name="n5" xy="705,51" size="294,129" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffb500" letterSpacing="10" strokeColor="#000000" strokeSize="5" text="AKUINA"/>
-    <component id="n7_omu9" name="n7" src="omu94" fileName="HeroSkill2.xml" xy="962,325" size="296,100"/>
+    <text id="n5_omu9" name="name" xy="705,51" size="294,129" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffb500" letterSpacing="10" strokeColor="#000000" strokeSize="5" text="AKUINA"/>
+    <component id="n2_omu9" name="commonSkill" src="omu93" fileName="HeroSkill1.xml" xy="707,325" size="296,100"/>
+    <component id="n7_omu9" name="specialSkill" src="omu94" fileName="HeroSkill2.xml" xy="962,325" size="296,100"/>
     <text id="n8_omu9" name="n8" xy="707,443" size="542,212" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffb500" autoSize="none" strokeColor="#000000" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
     <graph id="n9_omu9" name="touchArena" xy="79,0" size="549,750" alpha="0" type="rect"/>
+    <component id="n10_nw17" name="rightBtn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="559,325"/>
+    <component id="n11_nw17" name="leftBtn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="69,325" scale="-1,1"/>
   </displayList>
 </component>

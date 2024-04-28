@@ -2,6 +2,7 @@
 <component size="100,100" pivot="0.5,0.5" extention="Button">
   <displayList>
     <graph id="n0_omu9" name="n0" xy="52,19" size="47,80" type="polygon" lineSize="5" fillColor="#ffff0000" points="-30,-18,47,-18,27,79,-51,80"/>
+    <text id="n1_nw17" name="title" xy="50,50" pivot="0.5,0.5" anchor="true" size="31,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="2" strokeColor="#000000" strokeSize="5" autoClearText="true" text="111"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

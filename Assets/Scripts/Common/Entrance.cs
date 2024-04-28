@@ -20,7 +20,7 @@ namespace WarGame
 
         private void Update()
         {
-            Game.Instance.Update();
+            Game.Instance.Update(Time.deltaTime);
         }
 
         private void LateUpdate()

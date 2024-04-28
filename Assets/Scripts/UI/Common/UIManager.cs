@@ -73,6 +73,17 @@ namespace WarGame.UI
             return true;
         }
 
+        public override void Update(float deltaTime)
+        {
+            foreach (var pair in _panelDic)
+            {
+                foreach (var pair1 in pair.Value)
+                {
+                    pair1.Update(deltaTime);
+                }
+            }
+        }
+
         public override bool Dispose()
         {
             base.Dispose();
@@ -206,32 +217,6 @@ namespace WarGame.UI
         //打开UI组件
         public UIBase OpenComponent(string packageName, string compName, string customName, bool touchEmptyClose = false, Enum.UILayer layerIndex = Enum.UILayer.HUDLayer)
         {
-            //UIPackage.AddPackage("UI/" + packageName); //卸载逻辑还没写
-
-            //Type classType = Type.GetType("WarGame.UI." + compName);
-            //if (null == classType)
-            //{
-            //    UnityEngine.Debug.LogError("没有找到脚本：" + classType);
-            //    return null;
-            //}
-
-            //var ui = (GComponent)UIPackage.CreateObject(packageName, compName);
-            //if (null == ui)
-            //{
-            //    UnityEngine.Debug.LogError("创建失败：" + classType);
-            //    return null;
-            //}
-
-            //var comp = (UIBase)Activator.CreateInstance(classType, new[] { ui, (object)compName });
-
-            //var layer = GetUILayer(layerIndex);
-            //if (null == ui)
-            //{
-            //    UnityEngine.Debug.LogError("未找到对应层级：" + classType);
-            //    return null;
-            //}
-
-            //comp.SetParent(layer);
             var comp = CreateUI(packageName, compName);
             comp.name = customName;
 

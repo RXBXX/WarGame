@@ -21,16 +21,6 @@ namespace WarGame
         private const float _height = 0.23F;
 
 
-        //public float _insideDiameter
-        //{
-        //    get { return _insideDiameter; }
-        //}
-
-        //public float _radian
-        //{
-        //    get { return _radian; }
-        //}
-
         /// <summary>
         /// 从世界坐标转换成地图格子坐标
         /// </summary>

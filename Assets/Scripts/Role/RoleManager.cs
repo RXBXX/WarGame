@@ -17,7 +17,7 @@ namespace WarGame
             return true;
         }
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
             for (int i = _roleList.Count - 1; i >= 0; i--)
             {
@@ -35,22 +35,18 @@ namespace WarGame
             return true;
         }
 
-        public int CreateHero(int id, int configId, string bornHexagon)
+        public void CreateHero(RoleData data, string bornHexagon)
         {
-            var hero = new Hero(id, configId, bornHexagon);
+            var hero = new Hero(data, bornHexagon);
 
             _roleList.Add(hero);
-
-            return id;
         }
 
-        public int CreateEnemy(int id, int configId, string bornHexagon)
+        public void CreateEnemy(RoleData data, string bornHexagon)
         {
-            var enemy = new Enemy(id, configId, bornHexagon);
+            var enemy = new Enemy(data, bornHexagon);
 
             _roleList.Add(enemy);
-
-            return id;
         }
 
         public void RemoveRole(int id)

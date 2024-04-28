@@ -13,7 +13,7 @@ namespace WarGame.UI
             return true;
         }
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
             for (int i = _hudList.Count - 1; i >= 0; i--)
             {

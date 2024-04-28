@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WarGame
 {
@@ -18,6 +19,7 @@ namespace WarGame
         }
 
         ///在使用Unity官方提供的JsonUtility类进行JSON转换时，发现一旦转换数组就会出现问题,需要在数组上套个壳
+        ///另外发现UnityEngine.Json对Dictionary也不支持
         public string ToJson<T>(T obj)
         {
             if (typeof(T).GetInterface("IList") != null)
@@ -53,8 +55,14 @@ namespace WarGame
         /// <returns></returns>
         public T ReadJson<T>(string path)
         {
-            var jsonStr = File.ReadAllText(path);
-            return FromJson<T>(jsonStr);
+            var jsonStr = "";
+            try { jsonStr = File.ReadAllText(path); }
+            catch
+            {
+                return default(T);
+            }
+            return JsonConvert.DeserializeObject<T>(jsonStr);
+            //return FromJson<T>(jsonStr);
         }
 
         /// <summary>
@@ -62,7 +70,7 @@ namespace WarGame
         /// </summary>
         public void WriteJson<T>(string path, T t)
         {
-            var jsonStr = ToJson(t);
+            var jsonStr = JsonConvert.SerializeObject(t);
             try { File.WriteAllText(path, jsonStr); }
             catch (IOException exception)
             {

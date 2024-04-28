@@ -1,11 +1,10 @@
-using UnityEngine;
 using WarGame.UI;
 
 namespace WarGame
 {
     public class Hero:Role
     {
-        public Hero(int id, int configId, string bornHexagon) : base(id, configId, bornHexagon)
+        public Hero(RoleData data, string bornHexagon) : base(data, bornHexagon)
         {
             _gameObject.tag = Enum.Tag.Hero.ToString();
             _type = Enum.RoleType.Hero;

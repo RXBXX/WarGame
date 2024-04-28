@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace WarGame
 {
     public class DebugManager : Singeton<DebugManager>

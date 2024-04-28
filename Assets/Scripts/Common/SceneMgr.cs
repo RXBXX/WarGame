@@ -35,7 +35,7 @@ namespace WarGame
         {
             base.Dispose();
 
-            HUDManager.Instance.RemoveHUD("HUDInstruct_Custom");
+            CloseInstruct();
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, Idle);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Attack_Event, Attack);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, Cancel);
@@ -45,7 +45,7 @@ namespace WarGame
             return true;
         }
 
-        public override void Update()
+        public override void Update(float deltaTime)
         {
             if (!_isStarted)
                 return;
@@ -339,16 +339,16 @@ namespace WarGame
             MapManager.Instance.CreateMap(mapPath);
 
             var bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero);
-            RoleManager.Instance.CreateHero(1, 10001, bornPoint);
+            RoleManager.Instance.CreateHero(DatasMgr.Instance.GetRoleData(1), bornPoint);
 
             bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
-            RoleManager.Instance.CreateHero(2, 10001, bornPoint);
+            RoleManager.Instance.CreateHero(DatasMgr.Instance.GetRoleData(1), bornPoint);
 
             var bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
-            RoleManager.Instance.CreateEnemy(11, 10002, bornPoint2);
+            RoleManager.Instance.CreateEnemy(new RoleData(11, 10002, 1, null, null), bornPoint2);
 
             bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 4));
-            RoleManager.Instance.CreateEnemy(12, 10002, bornPoint2);
+            RoleManager.Instance.CreateEnemy(new RoleData(12, 10002, 1, null, null), bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
             _isStarted = true;
@@ -379,6 +379,7 @@ namespace WarGame
 
         public void DestroyScene()
         {
+            CloseInstruct();
             UIManager.Instance.ClosePanel("FightPanel");
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();

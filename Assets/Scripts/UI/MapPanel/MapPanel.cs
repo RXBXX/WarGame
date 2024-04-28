@@ -51,6 +51,11 @@ namespace WarGame.UI
             _gList.numItems = _maps.Count;
 
             ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MapBG";
+
+            _gCom.GetChild("heroBtn").onClick.Add(OnClickHero);
+            _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
+
+            GetChild<MapScroll>("mapScroll").SetIcon("UI/Background/Map");
         }
 
         private void ItemRenderer(int index, GObject item)
@@ -64,6 +69,16 @@ namespace WarGame.UI
             var index = _gList.GetChildIndex((GObject)context.data);
             UIManager.Instance.ClosePanel(name);
             SceneMgr.Instance.OpenScene(_maps[index].value);
+        }
+
+        private void OnClickHero()
+        {
+            SceneMgr.Instance.OpenHeroScene();
+        }
+
+        private void OnClickClose()
+        {
+            UIManager.Instance.ClosePanel(name);
         }
     }
 }

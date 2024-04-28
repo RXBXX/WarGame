@@ -4,7 +4,8 @@
     <loader id="n2_nr69" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1900,900" fill="scale">
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
-    <list id="n0_rquy" name="mapList" xy="667,375" pivot="0.5,0.5" anchor="true" size="500,590" overflow="scroll" lineGap="30" defaultItem="ui://p7jlxbp3rquy0">
+    <component id="n8_nw17" name="mapScroll" src="nw174" fileName="MapScroll.xml" xy="0,0"/>
+    <list id="n0_rquy" name="mapList" xy="667,375" pivot="0.5,0.5" anchor="true" size="500,590" overflow="scroll" lineGap="30" defaultItem="ui://hx02grrprquy0">
       <relation target="" sidePair="center-center,middle-middle"/>
       <item/>
       <item/>
@@ -14,5 +15,9 @@
       <item/>
       <item/>
     </list>
+    <component id="n3_nw17" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1154,57"/>
+    <component id="n5_nw17" name="heroBtn" src="nw175" fileName="MapHeroBtn.xml" xy="969,608">
+      <Button title="HERO"/>
+    </component>
   </displayList>
 </component>

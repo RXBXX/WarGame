@@ -72,6 +72,19 @@ public class Enum
         End = 3
     }
 
+    public enum EquipmentType
+    {
+        Weapon = 0,
+        Shield = 1
+    }
+
+    [Serializable]
+    public enum SkillType
+    {
+        Common = 0,
+        Special = 1,
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,

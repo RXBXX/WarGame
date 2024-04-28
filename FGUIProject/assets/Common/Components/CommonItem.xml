@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="500,80" pivot="0.5,0.5" extention="Button">
   <displayList>
-    <graph id="n1_rquy" name="n1" xy="0,0" size="499,79" type="polygon" lineSize="5" fillColor="#ffff0000" points="31,11,499,1,475,79,13,78"/>
+    <graph id="n1_rquy" name="n1" xy="0,0" size="499,79" type="polygon" lineSize="5" fillColor="#ffff0000" points="31,11,499,1,475,79,13,78">
+      <relation target="" sidePair="rightext-right"/>
+    </graph>
     <text id="n0_rquy" name="title" xy="250,40" pivot="0.5,0.5" anchor="true" size="210,64" font="ui://hd0z4dz5omu90" fontSize="48" color="#cccccc" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" strokeSize="5" autoClearText="true" text="111111111111"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>

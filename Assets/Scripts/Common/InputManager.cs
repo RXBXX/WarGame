@@ -10,7 +10,7 @@ namespace WarGame
         private Collider _downCollider = null;
 
         // Update is called once per frame
-        public override void Update()
+        public override void Update(float deltaTime)
         {
             if (null != Stage.inst.touchTarget)
                 return;

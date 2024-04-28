@@ -1,26 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using WarGame.UI;
 
 namespace WarGame
 {
-    //角色属性
-    public struct RoleAttribute
-    {
-        public float hp; //血量
-        public float attack; //攻击
-        public float defense; //防御
-        public float attackDis; //攻击距离
-        public float moveDis; //单次移动距离
-    }
-
     public class Role
     {
         protected int _id;
 
-        protected int _configId;
+        protected RoleData _data;
 
         protected int _starConfigId = 1;
 
@@ -119,12 +107,12 @@ namespace WarGame
             get { return _rotation; }
         }
 
-        public Role(int id, int configId, string hexagonID)
+        public Role(RoleData data, string hexagonID)
         {
-            this._id = id;
-            this._configId = configId;
+            this._id = data.UID;
+            this._data = data;
             this.hexagonID = hexagonID;
-            this.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).HP;
+            this.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).HP;
 
             var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
             OnCreate(bornPoint);//加载方式，同步方式，后面都要改
@@ -132,7 +120,7 @@ namespace WarGame
 
         protected virtual void OnCreate(Vector3 bornPoint)
         {
-            var assetPath = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _configId).Prefab;
+            var assetPath = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _data.configId).Prefab;
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.position = bornPoint;
@@ -304,12 +292,12 @@ namespace WarGame
 
         public virtual float GetMoveDis()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).MoveDis;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).MoveDis;
         }
 
         public virtual float GetAttackDis()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).AttackDis;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).AttackDis;
         }
 
         public void HandleEvent(string stateName, string secondStateName)
@@ -357,12 +345,12 @@ namespace WarGame
 
         public float GetAttackPower()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).Attack;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).Attack;
         }
 
         public float GetDefensePower()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _configId * 1000 + 1).Defense;
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).Defense;
         }
 
         public virtual void Dispose()
