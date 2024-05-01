@@ -42,8 +42,7 @@ namespace WarGame
 
         private Dictionary<string, State> _stateDic = new Dictionary<string, State>();
 
-        private string _curState = null;
-        //private Enum.RoleAnimState _jumpState = Enum.RoleAnimState.End;
+        private string _curAnimState = null;
 
         protected int _layer = 7;
 
@@ -53,11 +52,6 @@ namespace WarGame
         {
             set { }
             get { return _id; }
-        }
-
-        public Enum.RoleState State
-        {
-            get { return _state; }
         }
 
         public Enum.RoleType Type
@@ -116,6 +110,8 @@ namespace WarGame
 
             var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
             OnCreate(bornPoint);//加载方式，同步方式，后面都要改
+
+            DebugManager.Instance.Log(_state);
         }
 
         protected virtual void OnCreate(Vector3 bornPoint)
@@ -139,11 +135,11 @@ namespace WarGame
             _stateDic.Add("Jump", new JumpState("Jump", this));
             _stateDic.Add("Idle", new State("Idle", this));
             _stateDic.Add("Move", new MoveState("Move", this));
-            _stateDic.Add("Attack", new State("Attack", this));
-            _stateDic.Add("Attacked", new State("Attacked", this));
-            _stateDic.Add("Dead", new State("Dead", this));
-            _curState = "Idle";
-            _stateDic[_curState].Start();
+            _stateDic.Add("Attack", new AttackState("Attack", this));
+            _stateDic.Add("Attacked", new AttackedState("Attacked", this));
+            _stateDic.Add("Dead", new DeadState("Dead", this));
+            _curAnimState = "Idle";
+            _stateDic[_curAnimState].Start();
         }
 
         protected virtual void CreateHUD()
@@ -160,11 +156,7 @@ namespace WarGame
 
         public virtual void Update()
         {
-            if (_state != Enum.RoleState.Attacking)
-                return;
-
             UpdatePosition();
-
         }
 
         public virtual bool IsDead()
@@ -192,27 +184,26 @@ namespace WarGame
                 EnterState("Move");
             }
 
-            _stateDic[_curState].Update();
+            _stateDic[_curAnimState].Update();
         }
 
-        public void SetState(string stateName)
+        public void SetAnimState(string stateName)
         {
-            _curState = stateName;
+            _curAnimState = stateName;
         }
 
         private void EnterState(string stateName)
         {
-            if (stateName == _curState)
+            if (stateName == _curAnimState)
                 return;
-            var curState = _stateDic[_curState];
+            var curState = _stateDic[_curAnimState];
             //_curState = stateName;
             _stateDic[stateName].Start(curState);
         }
 
-        public virtual void Stop()
+        public virtual void MoveEnd()
         {
             EnterState("Idle");
-            EventDispatcher.Instance.Dispatch(Enum.EventType.Role_MoveEnd_Event);
         }
 
         public virtual void Move(List<string> hexagons)
@@ -253,26 +244,34 @@ namespace WarGame
             EnterState("Jump");
         }
 
-        public virtual void NextState()
+        public Enum.RoleState GetState()
         {
-            if (_state + 1 > Enum.RoleState.AttackOver)
-                _state = Enum.RoleState.Waiting;
-            else
-                _state += 1;
+            return _state;
+        }
+
+        public void SetState(Enum.RoleState state)
+        {
+            if (state == _state)
+                return;
+            DebugManager.Instance.Log(_id + "_" + state);
+            _state = state;
 
             OnStateChanged();
         }
 
-        public virtual void OnStateChanged()
+        protected virtual void OnStateChanged()
         {
-
+            if (_state == Enum.RoleState.Over)
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _id});
+            }
         }
 
-        public virtual void UpdateHP(float hp)
+        protected virtual void UpdateHP(float hp)
         {
             var hurt = this.hp - hp;
             this.hp = hp;
-            HUDRole hud = (HUDRole)HUDManager.Instance.GetHUD(_hpHUDKey);
+            HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateHP(this.hp);
 
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
@@ -319,7 +318,7 @@ namespace WarGame
             {
                 _path = null;
                 _pathIndex = 0;
-                Stop();
+                MoveEnd();
             }
         }
 
@@ -351,6 +350,22 @@ namespace WarGame
         public float GetDefensePower()
         {
             return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).Defense;
+        }
+
+        public virtual Enum.RoleType GetTargetType()
+        {
+            return Enum.RoleType.None;
+        }
+
+        public Vector3 GetPosition()
+        {
+            return _gameObject.transform.position;
+        }
+
+        public void SetForward(Vector3 forward)
+        {
+            _rotation = Quaternion.LookRotation(forward);
+            _gameObject.transform.rotation = _rotation;
         }
 
         public virtual void Dispose()

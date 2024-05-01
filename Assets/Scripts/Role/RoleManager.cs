@@ -8,14 +8,6 @@ namespace WarGame
     public class RoleManager : Singeton<RoleManager>
     {
         private List<Role> _roleList = new List<Role>();
-        private int _initiator = 0, _target = 0;
-
-        public override bool Init()
-        {
-            base.Init();
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
-            return true;
-        }
 
         public override void Update(float deltaTime)
         {
@@ -31,7 +23,6 @@ namespace WarGame
 
             Clear();
 
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             return true;
         }
 
@@ -55,6 +46,7 @@ namespace WarGame
             {
                 if (id == _roleList[i].ID)
                 {
+                    _roleList[i].Dispose();
                     _roleList.RemoveAt(i);
                     return;
                 }
@@ -62,17 +54,17 @@ namespace WarGame
         }
 
 
-        public void MoveRole(int id, List<string> hexagons)
-        {
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (id == _roleList[i].ID)
-                {
-                    _roleList[i].Move(hexagons);
-                    return;
-                }
-            }
-        }
+        //public void MoveRole(int id, List<string> hexagons)
+        //{
+        //    for (int i = _roleList.Count - 1; i >= 0; i--)
+        //    {
+        //        if (id == _roleList[i].ID)
+        //        {
+        //            _roleList[i].Move(hexagons);
+        //            return;
+        //        }
+        //    }
+        //}
 
 
         /// <summary>
@@ -149,131 +141,5 @@ namespace WarGame
             return roles;
         }
 
-        public void Attack(int initiatorID, int targetID)
-        {
-            CameraMgr.Instance.CloseGray();
-
-            _initiator = initiatorID;
-            _target = targetID;
-
-            var initiator = GetRole(initiatorID);
-            initiator.Attack();
-        }
-
-        public bool IsAllAttackOver()
-        {
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                if (_roleList[i].State != Enum.RoleState.AttackOver)
-                    return false;
-            }
-
-            return true;
-        }
-
-        public void NextState(int id)
-        {
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                if (_roleList[i].ID == id)
-                {
-                    _roleList[i].NextState();
-                    break;
-                }
-            }
-
-            bool allHeroAttackOver = true;
-            bool allEnemyAttackOver = true;
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                if (_roleList[i].State != Enum.RoleState.AttackOver)
-                {
-                    if (_roleList[i].Type == Enum.RoleType.Hero && !_roleList[i].IsDead())
-                        allHeroAttackOver = false;
-                    else if (_roleList[i].Type == Enum.RoleType.Enemy && !_roleList[i].IsDead())
-                        allEnemyAttackOver = false;
-                }
-            }
-
-            if (allEnemyAttackOver && allHeroAttackOver)
-            {
-                EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_RoundOver_Event);
-            }
-            else if (allHeroAttackOver)
-            {
-                var nonAttackingEnemy = true;
-                for (int i = _roleList.Count - 1; i >= 0; i--)
-                {
-                    if (i >= _roleList.Count)
-                        continue;
-                    if (_roleList[i].State == Enum.RoleState.Attacking && _roleList[i].Type == Enum.RoleType.Enemy)
-                    {
-                        nonAttackingEnemy = false;
-                        break;
-                    }
-                }
-                if (nonAttackingEnemy)
-                {
-                    for (int i = _roleList.Count - 1; i >= 0; i--)
-                    {
-                        if (i >= _roleList.Count)
-                            continue;
-                        if (_roleList[i].State == Enum.RoleState.Waiting && _roleList[i].Type == Enum.RoleType.Enemy && !_roleList[i].IsDead())
-                        {
-                            _roleList[i].NextState();
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        public void NextAllHeroState()
-        {
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                if (_roleList[i].Type == Enum.RoleType.Hero)
-                    _roleList[i].NextState();
-            }
-        }
-
-        public void NextAllState()
-        {
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                _roleList[i].NextState();
-            }
-        }
-
-        private void HandleFightEvents(params object[] args)
-        {
-            if (null == args)
-                return;
-            if (args.Length <= 0)
-                return;
-
-            var strs = ((string)args[0]).Split('_');
-
-            var roleId = (int)args[1];
-            var role = GetRole(roleId);
-            string stateName = strs[0], secondStateName = strs[1];
-            role.HandleEvent(stateName, secondStateName);
-
-            if (stateName == "Attack" && secondStateName == "Take")
-            {
-                var attakedRole = GetRole(_target);
-                attakedRole.Attacked(role.GetAttackPower() - attakedRole.GetDefensePower());
-            }
-        }
     }
 }

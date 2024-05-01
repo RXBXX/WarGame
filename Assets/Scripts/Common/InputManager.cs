@@ -51,9 +51,24 @@ namespace WarGame
             }
         }
 
+        public bool GetMouseButtonDown(int id)
+        {
+            return Input.GetMouseButtonDown(id);
+        }
+
         public bool GetMouseButton(int id)
         {
             return Input.GetMouseButton(id);
+        }
+
+        public float GetAxis(string name)
+        {
+            return Input.GetAxis(name);
+        }
+
+        public Vector2 GetMousePos()
+        {
+            return Input.mousePosition;
         }
 
         public override bool Dispose()

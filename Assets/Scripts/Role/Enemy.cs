@@ -19,10 +19,17 @@ namespace WarGame
             HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 1 });
         }
 
-        public override void OnStateChanged()
+        protected override void OnStateChanged()
         {
-            if (_state == Enum.RoleState.Attacking)
+            if (_state == Enum.RoleState.Waiting)
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id });
                 StartAI();
+            }
+            else if (_state == Enum.RoleState.Over)
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _id });
+            }
         }
 
         public void StartAI()
@@ -31,41 +38,51 @@ namespace WarGame
             for (int i = 0; i < heros.Count; i++)
             {
                 var path = MapManager.Instance.FindingAIPath(hexagonID, heros[i].hexagonID, GetMoveDis(), GetAttackDis());
-                if (null != path && path.Count > 0)
+                if (path.Count > 0)
                 {
                     if (hexagonID == path[path.Count - 1])
                     {
                         _target = heros[i].ID;
-                        Stop();
+                        MoveEnd();
+                        return;
                     }
                     else if (RoleManager.Instance.GetRoleIDByHexagonID(path[path.Count - 1]) > 0)
                     {
-                        RoleManager.Instance.NextState(_id);
+                        //SetState(Enum.RoleState.Over);
                     }
                     else
                     {
                         _target = heros[i].ID;
+                        SetState(Enum.RoleState.Moving);
                         Move(path);
+                        return;
                     }
-                    return;
                 }
             }
-
-            RoleManager.Instance.NextState(_id);
+            SetState(Enum.RoleState.Over);
         }
 
-        public override void Stop()
+        public override void MoveEnd()
         {
+            base.MoveEnd();
+
             if (_target > 0)
             {
-                RoleManager.Instance.Attack(_id, _target);
+                SetState(Enum.RoleState.Attacking);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack, new object[] { _id, _target });
                 _target = 0;
             }
             else
             {
+                SetState(Enum.RoleState.Over);
                 Idle();
-                RoleManager.Instance.NextState(_id);
             }
         }
+
+        public override Enum.RoleType GetTargetType()
+        {
+            return Enum.RoleType.Hero;
+        }
+
     }
 }

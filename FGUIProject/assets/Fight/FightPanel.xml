@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" opaque="false">
   <displayList>
-    <graph id="n0_nr69" name="heroBtn" xy="60,21" size="100,100" alpha="0.9" type="rect" lineSize="0" lineColor="#ff333333" fillColor="#ff333333"/>
     <graph id="n1_nr69" name="n1" xy="119,630" size="500,150" alpha="0.7" type="rect" lineSize="0" lineColor="#ff333333" fillColor="#ff840101"/>
     <graph id="n2_nr69" name="n2" xy="718,630" size="500,150" alpha="0.7" type="rect" lineSize="0" lineColor="#ff333333" fillColor="#ff000094"/>
-    <text id="n4_p3n5" name="round" xy="60,141" size="149,64" font="ui://hd0z4dz5omu90" fontSize="48" color="#ff0000" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="Round:1"/>
+    <text id="n4_p3n5" name="round" xy="35,32" size="255,104" font="ui://hd0z4dz5omu90" fontSize="80" color="#ff0000" letterSpacing="5" strokeColor="#000000" strokeSize="5" text="Round:1"/>
     <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1154,57"/>
+    <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,323" pivot="0.5,0.5" anchor="true" visible="false">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
   </displayList>
 </component>

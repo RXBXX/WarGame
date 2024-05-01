@@ -48,7 +48,7 @@ namespace WarGame.UI
             }
         }
 
-        public HUD GetHUD(string hudKey)
+        public T GetHUD<T>(string hudKey) where T:HUD
         {
             for (int i = _hudList.Count - 1; i >= 0; i--)
             {
@@ -56,10 +56,10 @@ namespace WarGame.UI
                     continue;
                 if (_hudList[i].name == hudKey)
                 {
-                    return _hudList[i];
+                    return (T)_hudList[i];
                 }
             }
-            return null;
+            return default(T);
         }
 
         public void SetVisible(bool visible)

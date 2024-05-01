@@ -8,9 +8,9 @@ namespace WarGame
     {
         public void PlayEvent(string eventName)
         {
-            Debug.Log("PlayEvent");
+            //Debug.Log("PlayEvent");
             //var id = GetComponent<RoleData>().ID;
-            EventDispatcher.Instance.Dispatch(Enum.EventType.Fight_Event, new object[] { eventName, GetComponent<RoleBehaviour>().ID });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Event, new object[] { eventName, GetComponent<RoleBehaviour>().ID });
         }
     }
 }

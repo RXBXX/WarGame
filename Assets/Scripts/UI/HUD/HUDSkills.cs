@@ -16,7 +16,7 @@ namespace WarGame.UI
 
         private void ClickSkill()
         {
-            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Attack_Event);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Attack_Event);
         }
     }
 }

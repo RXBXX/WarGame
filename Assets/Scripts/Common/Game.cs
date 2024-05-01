@@ -74,8 +74,8 @@ namespace WarGame
             InputManager.Instance.Dispose();
             MapTool.Instance.Dispose();
             MapManager.Instance.Dispose();
-            LineMgr.Instance.Dispose();
             SceneMgr.Instance.Dispose();
+            LineMgr.Instance.Dispose();
             HUDManager.Instance.Dispose();
             RoleManager.Instance.Dispose();
             UIManager.Instance.Dispose();

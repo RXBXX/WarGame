@@ -136,7 +136,6 @@ namespace WarGame.UI
         {
             var roleData = DatasMgr.Instance.GetRoleData(roleUID);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleData.configId);
-            DebugManager.Instance.Log(roleConfig.ID);
             var commonSkillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", roleConfig.CommonSkill.id);
             _commonSkill.title = commonSkillConfig.Name;
             var specialSkillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", roleConfig.SpecialSkill.id);

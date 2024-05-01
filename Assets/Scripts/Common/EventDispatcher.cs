@@ -53,7 +53,7 @@ namespace WarGame
             }
         }
 
-        public void Dispatch(Enum.EventType eventName, object[] args = null)
+        public void PostEvent(Enum.EventType eventName, object[] args = null)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;

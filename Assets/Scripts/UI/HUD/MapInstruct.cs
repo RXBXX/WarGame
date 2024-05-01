@@ -20,12 +20,13 @@ namespace WarGame.UI
 
         private void Idle()
         {
-            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Idle_Event);
+            DebugManager.Instance.Log("MapInstruct:Idle");
+            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Idle_Event);
         }
 
         private void Cancel()
         {
-            EventDispatcher.Instance.Dispatch(Enum.EventType.HUDInstruct_Cancel_Event);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Cancel_Event);
         }
 
         private void Attack()

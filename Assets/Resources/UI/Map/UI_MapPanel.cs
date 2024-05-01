@@ -9,7 +9,6 @@ namespace Map
     {
         public GLoader m_bg;
         public UI_MapScroll m_mapScroll;
-        public GList m_mapList;
         public GButton m_closeBtn;
         public GButton m_heroBtn;
         public const string URL = "ui://p7jlxbp3rquy2";
@@ -25,9 +24,8 @@ namespace Map
 
             m_bg = (GLoader)GetChildAt(0);
             m_mapScroll = (UI_MapScroll)GetChildAt(1);
-            m_mapList = (GList)GetChildAt(2);
-            m_closeBtn = (GButton)GetChildAt(3);
-            m_heroBtn = (GButton)GetChildAt(4);
+            m_closeBtn = (GButton)GetChildAt(2);
+            m_heroBtn = (GButton)GetChildAt(3);
         }
     }
 }

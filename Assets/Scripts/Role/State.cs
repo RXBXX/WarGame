@@ -29,8 +29,8 @@ namespace WarGame
                 _last = lastState;
                 lastState.End(false);
             }
-            DebugManager.Instance.Log(_name + ":Start");
-            _role.SetState(_name);
+            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+            _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  
         }
@@ -58,6 +58,7 @@ namespace WarGame
                 _last.Start();
                 _last = null;
             }
+            DebugManager.Instance.Log(_name + "_End_" + _role.ID);
             _state = Enum.RoleAnimState.End;
             _role.Animator.SetBool(_name, false);
         }
@@ -151,6 +152,44 @@ namespace WarGame
                 _lerpStep = 0;
                 _role.NextPath();
             }
+        }
+    }
+
+    public class AttackState : State
+    {
+        public AttackState(string name, Role role) : base(name, role)
+        { }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+            _role.SetState(Enum.RoleState.Over);
+        }
+    }
+
+    public class AttackedState : State
+    {
+        public AttackedState(string name, Role role) : base(name, role)
+        { 
+        }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID});
+        }
+    }
+
+    public class DeadState : State 
+    {
+        public DeadState(string name, Role role) : base(name, role)
+        { }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dead_End, new object[] { _role.ID });
         }
     }
 }

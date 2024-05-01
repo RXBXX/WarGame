@@ -50,11 +50,19 @@ public class Enum
         Idle = 5, //待机
     }
 
+    /// <summary>
+    /// 角色行为状态
+    /// </summary>
     public enum RoleState
     {
-        Waiting = 0, //等待中
-        Attacking = 1, //攻击中
-        AttackOver = 2, //攻击结束
+        Locked = 0,
+        Waiting = 1,
+        Moving = 2,
+        WaitingOrder = 3,
+        ReturnMoving = 4,
+        WatingTarget = 5, //寻找目标
+        Attacking = 6,  //攻击中
+        Over = 7,
     }
 
     public enum RoleType
@@ -64,6 +72,9 @@ public class Enum
         Enemy = 2,
     }
 
+    /// <summary>
+    /// 角色动作状态
+    /// </summary>
     public enum RoleAnimState
     {
         Start = 0,
@@ -94,7 +105,14 @@ public class Enum
         HUDInstruct_Select_Event = 4,
         Role_MoveEnd_Event = 5,
         Fight_Event = 6,
-        Fight_Round_Event = 7,
+        Fight_RoundChange_Event = 7,
         Fight_RoundOver_Event = 8,
+        Fight_Attack_End = 9,
+        Fight_Attacked_End = 10,
+        Fight_Dead_End = 11,
+        Fight_Attack = 12,
+        Fight_AI_Start = 13,
+        Map_Open_Event = 14,
+        Fight_Cancel = 15,
     }
 }

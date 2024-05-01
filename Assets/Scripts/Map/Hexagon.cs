@@ -30,7 +30,6 @@ namespace WarGame
         }
         public void CreateGameObject()
         {
-            DebugManager.Instance.Log(_configId);
             var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(config.Prefab);
             _gameObject = GameObject.Instantiate(prefab);

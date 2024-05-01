@@ -110,7 +110,7 @@ namespace WarGame.UI
             //UIPackage.RemovePackage("Common");
 
             return true;
-    }
+        }
 
         /// <summary>
         /// 获取ui层根节点
@@ -140,7 +140,7 @@ namespace WarGame.UI
                 return null;
             }
 
-            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName, args});
+            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName, args });
 
             var layer = GetUILayer(ui.UILayer);
             if (null == comp)
@@ -167,7 +167,25 @@ namespace WarGame.UI
         /// <param name=指定层级></param>
         public UIBase OpenPanel(string packageName, string panelName, params object[] args)
         {
-            var panel = CreateUI(packageName, panelName, args);
+            UIBase panel = null;
+            foreach (var panles in _panelDic)
+            {
+                foreach (var p in panles.Value)
+                {
+                    if (p.name == panelName)
+                    {
+                        panel = p;
+                        break;
+                    }
+                }
+                if (null != panel)
+                    break;
+            }
+
+            if (null == panel)
+                panel = CreateUI(packageName, panelName, args);
+            else
+                _panelDic[panel.UILayer].Remove(panel);
 
             if (panel.UILayer == Enum.UILayer.PanelLayer)
             {
@@ -194,6 +212,8 @@ namespace WarGame.UI
                         break;
                     }
                 }
+                if (null != panel)
+                    break;
             }
 
             if (null == panel)

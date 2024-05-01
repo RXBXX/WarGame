@@ -350,7 +350,7 @@ namespace WarGame
             //如果有可通过但不可停留的地块（例如同阵营角色所在的地块），通过调高该地块代价来优化路径规划
             if (null != parent)
             {
-                if(parent.type == markType)
+                if (parent.type == markType)
                     cost = parent.g + hexagon.GetCost();
 
                 var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
@@ -522,13 +522,12 @@ namespace WarGame
 
             List<string> path = new List<string>();
             targetCell = targetCell.parent;
-            //var heroId = RoleManager.Instance.GetHeroIDByHexagonID(targetCell.id);
-            //var enemyId = RoleManager.Instance.GetEnemyIDByHexagonID(targetCell.id)
-            //if (heroId != _initiator)
-            //return null;
             while (null != targetCell)
             {
-                path.Add(targetCell.id);
+                if (targetCell.type == Enum.MarkType.Walkable)
+                {
+                    path.Add(targetCell.id);
+                }
                 targetCell = targetCell.parent;
             }
             path.Reverse();
