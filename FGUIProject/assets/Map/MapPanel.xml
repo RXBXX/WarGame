@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750">
+<component size="1334,750" overflow="hidden">
   <displayList>
     <loader id="n2_nr69" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1900,900" fill="scale">
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
     <component id="n8_nw17" name="mapScroll" src="nw174" fileName="MapScroll.xml" xy="0,0"/>
-    <component id="n3_nw17" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1154,57"/>
-    <component id="n5_nw17" name="heroBtn" src="nw175" fileName="MapHeroBtn.xml" xy="969,608">
-      <Button title="HERO"/>
-    </component>
+    <component id="n3_nw17" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1126,60" pivot="0.5,0.5"/>
+    <component id="n9_ez9s" name="heroBtn" src="ez9sb" fileName="Components/CommonHeroBtn.xml" pkg="hx02grrp" xy="1190,633" pivot="0.5,0.5" anchor="true"/>
+    <component id="n10_ez9s" name="n10" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true"/>
   </displayList>
 </component>

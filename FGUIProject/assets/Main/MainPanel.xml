@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <loader id="n3_nr69" name="bg" xy="649,355" pivot="0.5,0.5" anchor="true" size="1900,900" fill="scale">
+    <loader id="n3_nr69" name="bg" xy="685,410" pivot="0.5,0.5" anchor="true" size="1800,1000" url="ui://pr0w8n6pez9s4" fill="scale" autoSize="true" clearOnPublish="true">
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
-    <text id="n0_rquy" name="title" xy="666,325" pivot="0.5,0.5" anchor="true" size="693,254" font="ui://hd0z4dz5omu90" fontSize="200" color="#ffa500" strokeColor="#000000" strokeSize="10" autoClearText="true" text="KA KA KILL">
+    <loader id="n6_ez9s" name="n6" xy="416,419" pivot="0.5,0.5" anchor="true" size="709,935" url="ui://pr0w8n6pez9s5" fill="scale"/>
+    <text id="n0_rquy" name="title" xy="954,410" pivot="0.5,0.5" anchor="true" size="486,179" font="ui://hd0z4dz5omu90" fontSize="140" color="#333333" autoClearText="true" text="KA KA KILL">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
-    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="511,559" controller="style,1">
+    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="811,509" controller="style,1">
       <Button title="play"/>
     </component>
   </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n6_ez9s" tween="true" startValue="-,419" endValue="416,430" duration="48" ease="Cubic.In"/>
+    <item time="48" type="XY" target="n6_ez9s" tween="true" startValue="416,430" endValue="416,419" duration="48" ease="Cubic.Out"/>
+    <item time="96" type="XY" target="n6_ez9s" value="416,419"/>
+  </transition>
 </component>

@@ -13,6 +13,8 @@ namespace WarGame.UI
 
         public RecordPanel(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
+            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MainBG";
+
             _recordList = (GList)_gCom.GetChild("recordList");
             _recordList.itemRenderer = ItemRenderer;    
             _recordList.onClickItem.Add(OnClickItem);

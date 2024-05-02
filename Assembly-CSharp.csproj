@@ -131,6 +131,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGraph.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Gesture\GestureMain.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\EaseManager.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
+    <Compile Include="Assets\Scripts\Test\Test.cs" />
     <Compile Include="Assets\Scripts\Role\RoleEvents.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
     <Compile Include="Assets\Scripts\Role\State.cs" />
@@ -256,6 +258,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ColliderHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RoundedRectMesh.cs" />
     <Compile Include="Assets\Scripts\Map\MapManager.cs" />
+    <Compile Include="Assets\Scripts\Common\Battlefield.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\ScrollPaneHeader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventBridge.cs" />
@@ -312,9 +316,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Common\Battlefield.cs" />
-    <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
-    <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
@@ -325,6 +326,7 @@
      <None Include="Assets\Shaders\GrayShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
+     <None Include="Assets\Shaders\LineShader_V2.shader" />
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
      <None Include="Assets\Shaders\WhetherShader.shader" />

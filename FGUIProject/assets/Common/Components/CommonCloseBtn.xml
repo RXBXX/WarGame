@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="100,100" pivot="0.5,0.5" extention="Button">
+<component size="128,128" pivot="0.5,0.5" extention="Button">
   <displayList>
-    <graph id="n0_omu9" name="n0" xy="0,0" size="100,98" type="polygon" lineSize="2" fillColor="#ffff0000" points="1,15,100,1,100,80,16,98"/>
-    <graph id="n1_omu9" name="n1" xy="20,3" size="86,102" scale="0.8,0.8" type="polygon" lineSize="2" fillColor="#ff0000ff" points="4.9116,87.54689,40.29853,52.46203,2.247009,20.03199,16,15,51.45714,44.74323,76.60461,6.791208,83,21,63.47446,53.14261,86,84,81.30611,95.02843,45.99646,66.57888,21,102"/>
+    <image id="n2_ez9s" name="n2" src="ez9sa" fileName="Images/CloseBtn.png" xy="0,0" size="128,128"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

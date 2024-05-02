@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="128,128" pivot="0.5,0.5" extention="Button">
+  <displayList>
+    <image id="n0_ez9s" name="n0" src="ez9sc" fileName="Image/Hero.png" xy="0,0" size="128,128"/>
+    <graph id="n4_ez9s" name="n4" xy="-36,123" size="200,2" type="rect" lineSize="0" lineColor="#ffdc403f" fillColor="#ffdc3f3f"/>
+    <text id="n1_ez9s" name="n1" xy="64,123" pivot="0.5,0.5" anchor="true" size="91,57" font="ui://hd0z4dz5omu90" fontSize="42" color="#feb940" leading="48" letterSpacing="5" strokeColor="#000000" strokeSize="4" text="HERO"/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue=".8"/>
+</component>

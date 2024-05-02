@@ -43,33 +43,54 @@ namespace WarGame
         //当在场景中选中对象且Inspector面板显示时，会调用这个接口
         public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
-            if (!MapTool.Instance.IsActiveMapEditor())
-                return;
-
             Transform transform = (Transform)target;
 
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Custom Axes", EditorStyles.boldLabel);
-            customAxesEnabled = EditorGUILayout.Toggle("Enable Custom Axes", customAxesEnabled);
-
-            if (customAxesEnabled)
+            // 显示位置和缩放
+            EditorGUI.BeginChangeCheck();
+            Vector3 position = EditorGUILayout.Vector3Field("Position", transform.localPosition);
+            Vector3 scale = EditorGUILayout.Vector3Field("Scale", transform.localScale);
+            if (EditorGUI.EndChangeCheck())
             {
-                EditorGUI.indentLevel++;
-
-                for (int i = 0; i < customAxes.Length; i++)
-                {
-                    EditorGUI.BeginChangeCheck();
-                    Vector3 customAxis = EditorGUILayout.Vector3Field("Axis " + i, customAxes[i]);
-                    if (EditorGUI.EndChangeCheck())
-                    {
-                        Undo.RecordObject(transform, "Change Custom Axes");
-                        customAxes[i] = customAxis;
-                    }
-                }
-
-                EditorGUI.indentLevel--;
+                Undo.RecordObject(transform, "Change Transform");
+                transform.localPosition = position;
+                transform.localScale = scale;
             }
+
+            // 将旋转转换为欧拉角
+            EditorGUI.BeginChangeCheck();
+            Vector3 rotation = EditorGUILayout.Vector3Field("Rotation", transform.localEulerAngles);
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(transform, "Change Rotation");
+                transform.localEulerAngles = rotation;
+            }
+
+            //base.OnInspectorGUI();
+
+            //if (!MapTool.Instance.IsActiveMapEditor())
+            //    return;
+
+            //EditorGUILayout.Space();
+            //EditorGUILayout.LabelField("Custom Axes", EditorStyles.boldLabel);
+            //customAxesEnabled = EditorGUILayout.Toggle("Enable Custom Axes", customAxesEnabled);
+
+            //if (customAxesEnabled)
+            //{
+            //    EditorGUI.indentLevel++;
+
+            //    for (int i = 0; i < customAxes.Length; i++)
+            //    {
+            //        EditorGUI.BeginChangeCheck();
+            //        Vector3 customAxis = EditorGUILayout.Vector3Field("Axis " + i, customAxes[i]);
+            //        if (EditorGUI.EndChangeCheck())
+            //        {
+            //            Undo.RecordObject(transform, "Change Custom Axes");
+            //            customAxes[i] = customAxis;
+            //        }
+            //    }
+
+            //    EditorGUI.indentLevel--;
+            //}
         }
 
         //当在场景中选中对象时，会调用这个接口

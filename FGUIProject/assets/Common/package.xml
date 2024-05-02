@@ -2,11 +2,18 @@
 <packageDescription id="hx02grrp">
   <resources>
     <image id="omu90" name="Button_1.png" path="/Images/" exported="true"/>
-    <image id="omu91" name="Button_2.png" path="/Images/"/>
+    <image id="omu91" name="Button_2.png" path="/Images/" exported="true"/>
     <component id="omu92" name="CommonBtn.xml" path="/Components/" exported="true"/>
     <component id="omu94" name="CommonCloseBtn.xml" path="/Components/" exported="true"/>
     <component id="rquy0" name="CommonItem.xml" path="/Components/" exported="true"/>
     <component id="nw176" name="CommonArrow.xml" path="/Components/" exported="true"/>
+    <image id="ez9s7" name="Icon.png" path="/Images/" exported="true"/>
+    <image id="ez9s8" name="Common_Btn_BG.png" path="/Images/" scale="9grid" scale9grid="141,45,4,4"/>
+    <image id="ez9s9" name="Common_Item_BG.png" path="/Images/" scale="9grid" scale9grid="204,47,5,5"/>
+    <image id="ez9sa" name="CloseBtn.png" path="/Images/"/>
+    <component id="ez9sb" name="CommonHeroBtn.xml" path="/Components/" exported="true"/>
+    <image id="ez9sc" name="Hero.png" path="/Images/"/>
+    <component id="ez9sd" name="CommonSettingBtn.xml" path="/Components/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

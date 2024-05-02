@@ -13,6 +13,7 @@ namespace WarGame
         private List<string> _path; //Ó¢ÐÛÒÆ¶¯µÄÂ·¾¶
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
+        private string _touchingHexagon = null;
 
         public BattleField(string mapDir)
         {
@@ -84,9 +85,12 @@ namespace WarGame
                     if (role.GetState() != Enum.RoleState.Waiting)
                         return;
 
-                    var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
                     var end = obj.GetComponent<HexagonBehaviour>().ID;
+                    if (_touchingHexagon == end)
+                        return;
 
+                    _touchingHexagon = end;
+                    var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
                     var hero = RoleManager.Instance.GetRole(_initiatorID);
                     MapManager.Instance.MarkingPath(start, end, hero.GetMoveDis());
                 }
@@ -197,11 +201,21 @@ namespace WarGame
                 if (initiator.GetState() == Enum.RoleState.WatingTarget && initiator.GetTargetType() != Enum.RoleType.Enemy)
                     return;
 
+                if (initiator.GetState() != Enum.RoleState.WatingTarget)
+                {
+                    _initiatorID = enemyId;
+                    string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
+                    MapManager.Instance.ClearMarkedRegion();
+                    MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
+                    return;
+                }
+
                 initiator.SetState(Enum.RoleState.Attacking);
                 Battle(enemyId);
             }
             else
             {
+                _initiatorID = enemyId;
                 string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
                 MapManager.Instance.ClearMarkedRegion();
                 MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
@@ -217,7 +231,6 @@ namespace WarGame
             if (role.GetState() != Enum.RoleState.Waiting)
                 return;
 
-            role.SetState(Enum.RoleState.Moving);
             Move(RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID), hexagonID);
         }
 
@@ -259,7 +272,11 @@ namespace WarGame
             if (cost > hero.GetMoveDis())
                 return;
 
+            var role = RoleManager.Instance.GetRole(_initiatorID);
+            role.SetState(Enum.RoleState.Moving);
             _path = hexagons;
+
+            _touchingHexagon = null;
             MapManager.Instance.ClearMarkedPath();
             MapManager.Instance.ClearMarkedRegion();
 
@@ -301,12 +318,7 @@ namespace WarGame
             MapManager.Instance.ClearMarkedRegion();
             Attack(_initiatorID, enemyID);
 
-            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].RecoverLayer();
-            }
-            CameraMgr.Instance.CloseGray();
+            ExitGrayedMode();
         }
 
         private void OnIdle(params object[] args)
@@ -347,22 +359,7 @@ namespace WarGame
         private void OnAttack(params object[] args)
         {
             CloseInstruct();
-
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var hero = RoleManager.Instance.GetRole(_initiatorID);
-            var region = MapManager.Instance.FindingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
-            var regionDic = new Dictionary<string, bool>();
-            foreach (var v in region)
-                regionDic[v.id] = true;
-            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (regionDic.ContainsKey(roles[i].hexagonID))
-                    roles[i].SetLayer(8);
-            }
-            hero.SetState(Enum.RoleState.WatingTarget);
-
-            CameraMgr.Instance.OpenGray();
+            EnterGrayedMode();
         }
 
         public void OnCheck(params object[] args)
@@ -522,8 +519,6 @@ namespace WarGame
 
         public void Attack(int initiatorID, int targetID)
         {
-            CameraMgr.Instance.CloseGray();
-
             _initiatorID = initiatorID;
             _targetID = targetID;
 
@@ -548,12 +543,8 @@ namespace WarGame
 
         private void OnCancelFight(object[] args)
         {
-            CameraMgr.Instance.CloseGray();
-            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].RecoverLayer();
-            }
+            ExitGrayedMode();
+
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
             OpenInstruct();
@@ -578,6 +569,52 @@ namespace WarGame
                 var attakedRole = RoleManager.Instance.GetRole(_targetID);
                 attakedRole.Attacked(role.GetAttackPower() - attakedRole.GetDefensePower());
             }
+        }
+
+        private void EnterGrayedMode()
+        {
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
+            var hero = RoleManager.Instance.GetRole(_initiatorID);
+            var region = MapManager.Instance.FindingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
+            var regionDic = new Dictionary<string, bool>();
+            foreach (var v in region)
+                regionDic[v.id] = true;
+
+            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            for (int i = 0; i < roles.Count; i++)
+            {
+                if (regionDic.ContainsKey(roles[i].hexagonID))
+                    roles[i].SetLayer(8);
+                else
+                {
+                    roles[i].SetColliderEnable(false);
+                }
+            }
+            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            for (int i = 0; i < roles.Count; i++)
+            {
+                heros[i].SetColliderEnable(false);
+            }
+            hero.SetState(Enum.RoleState.WatingTarget);
+
+            CameraMgr.Instance.OpenGray();
+        }
+
+        private void ExitGrayedMode()
+        {
+            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            for (int i = 0; i < heros.Count; i++)
+            {
+                heros[i].SetColliderEnable(true);
+            }
+
+            var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            for (int i = 0; i < enemys.Count; i++)
+            {
+                enemys[i].RecoverLayer();
+                heros[i].SetColliderEnable(true);
+            }
+            CameraMgr.Instance.CloseGray();
         }
     }
 }

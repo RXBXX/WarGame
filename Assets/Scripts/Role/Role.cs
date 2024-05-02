@@ -368,6 +368,10 @@ namespace WarGame
             _gameObject.transform.rotation = _rotation;
         }
 
+        public void SetColliderEnable(bool enable)
+        {
+            _gameObject.GetComponent<BoxCollider>().enabled = enable;
+        }
         public virtual void Dispose()
         {
             if (null != _hpHUDKey)

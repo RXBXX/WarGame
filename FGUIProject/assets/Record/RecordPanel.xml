@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750">
+<component size="1334,750" overflow="hidden">
   <displayList>
-    <graph id="n0_nw17" name="n0" xy="295,6" size="629,744" type="polygon" fillColor="#ffff9900" points="-295,-6,100,-6,629,744,-301,741"/>
-    <graph id="n1_nw17" name="n1" xy="800,21" size="536,728" type="polygon" lineSize="5" fillColor="#ffaa0000" points="-402,-21,533,-21,536,728,128,728"/>
-    <list id="n2_nw17" name="recordList" xy="417,180" size="500,417" overflow="scroll" lineGap="30" defaultItem="ui://hx02grrprquy0" autoClearItems="true">
+    <loader id="n4_ez9s" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1800,1000" url="ui://ngubhyc3ez9s6" autoSize="true" clearOnPublish="true"/>
+    <list id="n2_nw17" name="recordList" xy="417,125" size="500,533" overflow="scroll" lineGap="30" defaultItem="ui://hx02grrprquy0" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -11,5 +10,6 @@
       <item/>
       <item/>
     </list>
+    <component id="n5_ez9s" name="n5" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true"/>
   </displayList>
 </component>
