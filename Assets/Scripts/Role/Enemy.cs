@@ -38,7 +38,7 @@ namespace WarGame
             for (int i = 0; i < heros.Count; i++)
             {
                 var path = MapManager.Instance.FindingAIPath(hexagonID, heros[i].hexagonID, GetMoveDis(), GetAttackDis());
-                if (path.Count > 0)
+                if (null!= path && path.Count > 0)
                 {
                     if (hexagonID == path[path.Count - 1])
                     {

@@ -23,7 +23,6 @@ namespace WarGame.UI
         }
 
         private List<Pair> _maps = new List<Pair>();
-        private GList _gList = null;
         private MapScroll _map;
         private Vector2 _lastMousePos;
 
@@ -104,7 +103,7 @@ namespace WarGame.UI
         {
             var level = (int)args[0];
 
-            SceneMgr.Instance.OpenBattleField("E:/WarGame/Assets/Maps/µØÍ¼1.json");
+            SceneMgr.Instance.OpenBattleField("E:/WarGame/Assets/Maps/Map_2.json");
         }
 
         public override void Dispose(bool disposeGCom = false)

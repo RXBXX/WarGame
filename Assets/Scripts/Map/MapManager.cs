@@ -359,7 +359,7 @@ namespace WarGame
                     var role = RoleManager.Instance.GetRole(roleId);
                     if (roleType == role.Type)
                     {
-                        cost = cost + 1; //这里有个问题，如果只有己方英雄占据了唯一路口，代价过高会导致寻路失败
+                        //cost += 1; //这里有个问题，如果只有己方英雄占据了唯一路口，代价过高会导致寻路失败
                     }
                 }
             }

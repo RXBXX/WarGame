@@ -38,10 +38,10 @@ namespace WarGame
             RoleManager.Instance.CreateHero(DatasMgr.Instance.GetRoleData(2), bornPoint);
 
             var bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
-            RoleManager.Instance.CreateEnemy(new RoleData(11, 10002, 1, null, null), bornPoint2);
+            RoleManager.Instance.CreateEnemy(new RoleData(11, 10003, 1, null, null), bornPoint2);
 
             bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 4));
-            RoleManager.Instance.CreateEnemy(new RoleData(12, 10002, 1, null, null), bornPoint2);
+            RoleManager.Instance.CreateEnemy(new RoleData(12, 10004, 1, null, null), bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
         }
@@ -580,20 +580,16 @@ namespace WarGame
             foreach (var v in region)
                 regionDic[v.id] = true;
 
-            var roles = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            var skillTargetType = hero.GetSkill(Enum.SkillType.Common).TargetType;
+            var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                if (regionDic.ContainsKey(roles[i].hexagonID))
+                if (roles[i].Type == skillTargetType && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].hexagonID))
                     roles[i].SetLayer(8);
                 else
                 {
                     roles[i].SetColliderEnable(false);
                 }
-            }
-            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            for (int i = 0; i < roles.Count; i++)
-            {
-                heros[i].SetColliderEnable(false);
             }
             hero.SetState(Enum.RoleState.WatingTarget);
 
@@ -602,18 +598,13 @@ namespace WarGame
 
         private void ExitGrayedMode()
         {
-            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            for (int i = 0; i < heros.Count; i++)
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
             {
-                heros[i].SetColliderEnable(true);
+                roles[i].RecoverLayer();
+                roles[i].SetColliderEnable(true);
             }
 
-            var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            for (int i = 0; i < enemys.Count; i++)
-            {
-                enemys[i].RecoverLayer();
-                heros[i].SetColliderEnable(true);
-            }
             CameraMgr.Instance.CloseGray();
         }
     }

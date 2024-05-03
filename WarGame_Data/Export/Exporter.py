@@ -75,4 +75,4 @@ with open("ExportRules.txt", "r", encoding='utf-8') as file:
     for line in file:
         params = line.strip().split(',')
         print(params[1])
-        excel_to_json(os.path.join('..', 'Datas', params[0]), os.path.join('..', 'Jsons', params[1] + '.json'))
+        excel_to_json(os.path.join('..', 'Datas', params[0]), os.path.join('..', 'Configs', params[1] + '.json'))

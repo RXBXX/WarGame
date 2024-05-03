@@ -106,7 +106,7 @@ namespace WarGame
             this._id = data.UID;
             this._data = data;
             this.hexagonID = hexagonID;
-            this.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).HP;
+            this.hp = GetStarConfig().HP;
 
             var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
             OnCreate(bornPoint);//加载方式，同步方式，后面都要改
@@ -116,7 +116,7 @@ namespace WarGame
 
         protected virtual void OnCreate(Vector3 bornPoint)
         {
-            var assetPath = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _data.configId).Prefab;
+            var assetPath = GetConfig().Prefab;
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.position = bornPoint;
@@ -263,7 +263,7 @@ namespace WarGame
         {
             if (_state == Enum.RoleState.Over)
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _id});
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _id });
             }
         }
 
@@ -291,12 +291,21 @@ namespace WarGame
 
         public virtual float GetMoveDis()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).MoveDis;
+            return GetStarConfig().MoveDis;
         }
 
         public virtual float GetAttackDis()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).AttackDis;
+            return GetStarConfig().AttackDis;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public virtual float GetViewDis()
+        {
+            return GetStarConfig().AttackDis;
         }
 
         public void HandleEvent(string stateName, string secondStateName)
@@ -344,12 +353,12 @@ namespace WarGame
 
         public float GetAttackPower()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).Attack;
+            return GetStarConfig().Attack;
         }
 
         public float GetDefensePower()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + 1).Defense;
+            return GetStarConfig().Defense;
         }
 
         public virtual Enum.RoleType GetTargetType()
@@ -372,6 +381,29 @@ namespace WarGame
         {
             _gameObject.GetComponent<BoxCollider>().enabled = enable;
         }
+
+        public RoleConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _data.configId);
+        }
+
+        public RoleStarConfig GetStarConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + _data.level);
+        }
+
+        public SkillConfig GetSkill(Enum.SkillType skillType)
+        {
+            if (Enum.SkillType.Common == skillType)
+            {
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill.id);
+            }
+            else
+            {
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill.id);
+            }
+        }
+
         public virtual void Dispose()
         {
             if (null != _hpHUDKey)

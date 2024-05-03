@@ -70,7 +70,10 @@ namespace WarGame
         /// </summary>
         public void WriteJson<T>(string path, T t)
         {
-            var jsonStr = JsonConvert.SerializeObject(t);
+            var jsonStr = JsonConvert.SerializeObject(t, Formatting.Indented, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
             try { File.WriteAllText(path, jsonStr); }
             catch (IOException exception)
             {
@@ -86,7 +89,6 @@ namespace WarGame
             {
                 if (clips[i].name == clipName)
                 {
-                    float startTime = 0, endTime = 0;
                     for (int j = 0; j < clips[i].events.Length; j++)
                     {
                         timeDic.Add(clips[i].events[j].stringParameter, clips[i].events[j].time);

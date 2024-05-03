@@ -81,6 +81,8 @@ namespace WarGame
             var grayCamera = MainCamera.transform.Find("GrayCamera");
             grayCamera.gameObject.SetActive(true);
 
+            DebugManager.Instance.Log(Time.realtimeSinceStartup);
+            MainCamera.GetComponent<CameraRender>().mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
             MainCamera.GetComponent<CameraRender>().enabled = true;
         }
 

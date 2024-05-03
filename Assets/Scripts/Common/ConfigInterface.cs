@@ -22,7 +22,7 @@ namespace WarGame
     {
         public string Name;
         public string Prefab;
-        public int StarGroup;
+        public Enum.RoleType Type;
         public SkillStruct CommonSkill;
         public SkillStruct SpecialSkill;
     }
@@ -55,9 +55,9 @@ namespace WarGame
     public class SkillConfig : Config
     {
         public string Prefab;
-        public int SkillGroup;
         public string Icon;
         public string Name;
+        public Enum.RoleType TargetType;
     }
 
     [Serializable]

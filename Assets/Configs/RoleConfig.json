@@ -3,7 +3,7 @@
         "ID": 10001,
         "Name": "Peter",
         "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab",
-        "StarGroup": 10001,
+        "Type": 1,
         "CommonSkill": {
             "id": 10001,
             "level": 1
@@ -17,13 +17,41 @@
         "ID": 10002,
         "Name": "June",
         "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab",
-        "StarGroup": 10002,
+        "Type": 1,
         "CommonSkill": {
-            "id": 10002,
+            "id": 10003,
             "level": 1
         },
         "SpecialSkill": {
-            "id": 10002,
+            "id": 10004,
+            "level": 1
+        }
+    },
+    {
+        "ID": 10003,
+        "Name": "Peter",
+        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/MaleCharacterPolyart.prefab",
+        "Type": 2,
+        "CommonSkill": {
+            "id": 10005,
+            "level": 1
+        },
+        "SpecialSkill": {
+            "id": 10006,
+            "level": 1
+        }
+    },
+    {
+        "ID": 10004,
+        "Name": "June",
+        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/FemaleCharacterPolyart.prefab",
+        "Type": 2,
+        "CommonSkill": {
+            "id": 10007,
+            "level": 1
+        },
+        "SpecialSkill": {
+            "id": 10008,
             "level": 1
         }
     }

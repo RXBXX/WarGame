@@ -139,8 +139,8 @@ namespace WarGame
                 var hexagonTra = rootObj.transform.GetChild(i);
                 var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
-                Debug.Log(data.configId);
                 var hexagonCell = new HexagonMapConfig(GetHexagonKey(coor), data.configId, coor);
+                DebugManager.Instance.Log(coor);
                 hexagons[i] = hexagonCell;
             }
 
