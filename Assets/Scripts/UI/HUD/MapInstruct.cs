@@ -15,36 +15,47 @@ namespace WarGame.UI
             idleBtn.onClick.Add(Idle);
             cancelBtn.onClick.Add(Cancel);
             attackBtn.onClick.Add(Attack);
+
+            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Attack_Event, OnAttackEvent);
         }
 
 
         private void Idle()
         {
-            DebugManager.Instance.Log("MapInstruct:Idle");
             EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Idle_Event);
         }
 
         private void Cancel()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Cancel_Event);
+            if (0 == _stateC.selectedIndex)
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Cancel_Event);
+            }
+            else if (1 == _stateC.selectedIndex)
+            {
+                _stateC.SetSelectedIndex(0);
+            }
+            else
+            {
+                _stateC.SetSelectedIndex(1);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Cancel);
+            }
         }
 
         private void Attack()
         {
-            if (0 == _stateC.selectedIndex)
-                OpenSkills();
-            else
-                CloseSkills();
-        }
-
-        private void OpenSkills()
-        {
             _stateC.SetSelectedIndex(1);
         }
 
-        private void CloseSkills()
+        private void OnAttackEvent(object[] args)
         {
-            _stateC.SetSelectedIndex(0);
+            _stateC.SetSelectedIndex(2);
+        }
+
+        public override void Dispose(bool disposeGComp = false)
+        {
+            base.Dispose(disposeGComp);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Attack_Event, OnAttackEvent);
         }
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="552,750">
+  <displayList>
+    <text id="n5_omu9" name="name" xy="0,51" size="294,129" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffb500" letterSpacing="10" strokeColor="#000000" strokeSize="5" text="AKUINA"/>
+    <component id="n2_omu9" name="equipBtn" src="omu93" fileName="HeroSkill1.xml" xy="2,205" size="296,100">
+      <Button title="Equip"/>
+    </component>
+    <component id="n7_omu9" name="skillBtn" src="omu94" fileName="HeroSkill2.xml" xy="257,205" size="296,100">
+      <Button title="Skill"/>
+    </component>
+    <text id="n8_omu9" name="desc" xy="2,333" size="552,363" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffb500" autoSize="none" strokeColor="#000000" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
+  </displayList>
+</component>

@@ -83,10 +83,27 @@ public class Enum
         End = 3
     }
 
+    [Serializable]
     public enum EquipmentType
     {
-        Weapon = 0,
-        Shield = 1
+        Wand = 1, //法杖
+        Shield = 2, //盾牌
+        Sword = 3, //剑
+        Knife = 4, //刀
+        Bow = 5, //弓
+        Harmer = 6, //锤
+        Axe = 7, //斧
+        BigWeapon = 8, //双手武器
+        Arrow = 9, //箭
+    }
+
+    //装备佩戴方式
+    [Serializable]
+    public enum EquipPlace
+    {
+        Right = 1, //右手
+        Left = 2, //左手
+        BothHand = 3, //双手
     }
 
     [Serializable]
@@ -94,6 +111,17 @@ public class Enum
     {
         Common = 0,
         Special = 1,
+    }
+
+    //属性类型
+    public enum AttrType
+    {
+        Attack = 1, //攻击
+        Cure = 2,//	治疗
+        Defense = 3,//	防御
+        Move = 4,//	移动距离
+        AttackDis = 5,//	攻击距离
+        Blood = 6,//	流血
     }
 
     public enum EventType
@@ -114,5 +142,8 @@ public class Enum
         Fight_AI_Start = 13,
         Map_Open_Event = 14,
         Fight_Cancel = 15,
+        Hero_Open_Equip = 16,
+        Hero_Open_Skill = 17,
+        Hero_Wear_Equip = 18,
     }
 }

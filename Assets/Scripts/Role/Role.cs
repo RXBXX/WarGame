@@ -138,6 +138,8 @@ namespace WarGame
             _stateDic.Add("Attack", new AttackState("Attack", this));
             _stateDic.Add("Attacked", new AttackedState("Attacked", this));
             _stateDic.Add("Dead", new DeadState("Dead", this));
+            _stateDic.Add("Cured", new CuredState("Cured", this));
+            _stateDic.Add("Cure", new CureState("Cure", this));
             _curAnimState = "Idle";
             _stateDic[_curAnimState].Start();
         }
@@ -222,11 +224,28 @@ namespace WarGame
             EnterState("Attack");
         }
 
-        public virtual void Attacked(float hurt)
+        public virtual void Attacked(float attackPower)
         {
             EnterState("Attacked");
 
-            UpdateHP(hp - hurt);
+            UpdateHP(hp - attackPower + GetDefensePower());
+        }
+
+        public virtual void Cure()
+        {
+            EnterState("Cure");
+        }
+
+        public virtual void Cured(float curePower)
+        {
+            EnterState("Cured");
+
+            UpdateHP(hp + curePower);
+        }
+
+        public virtual float GetCurePower()
+        {
+            return 0;
         }
 
         public virtual void Dead()
@@ -351,19 +370,18 @@ namespace WarGame
             tran.gameObject.layer = layer;
         }
 
-        public float GetAttackPower()
+        public float GetAttackPower(Enum.SkillType skillType)
         {
-            return GetStarConfig().Attack;
+            var attackPower = GetStarConfig().Attack;
+            var skillLevelConfig = GetSkillLevelConfig(skillType);
+            if (skillLevelConfig.Attr.id == (int)Enum.AttrType.Attack)
+                attackPower += skillLevelConfig.Attr.value;
+            return attackPower;
         }
 
         public float GetDefensePower()
         {
             return GetStarConfig().Defense;
-        }
-
-        public virtual Enum.RoleType GetTargetType()
-        {
-            return Enum.RoleType.None;
         }
 
         public Vector3 GetPosition()
@@ -392,7 +410,7 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + _data.level);
         }
 
-        public SkillConfig GetSkill(Enum.SkillType skillType)
+        public SkillConfig GetSkillConfig(Enum.SkillType skillType)
         {
             if (Enum.SkillType.Common == skillType)
             {
@@ -402,6 +420,23 @@ namespace WarGame
             {
                 return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill.id);
             }
+        }
+
+        public SkillLevelConfig GetSkillLevelConfig(Enum.SkillType skillType)
+        {
+            var skillLevelId = GetSkillConfig(skillType).ID * 1000 + 1;
+            return ConfigMgr.Instance.GetConfig<SkillLevelConfig>("SkillLevelConfig", skillLevelId);
+        }
+
+        /// <summary>
+        ///获取指定技能的攻击对象 
+        ///后面会考虑会不会设计类似迷惑类的debuff，会让攻击者有概率选择错误攻击目标
+        /// </summary>
+        /// <param name=""></param>
+        /// <returns></returns>
+        public virtual Enum.RoleType GetTargetType(Enum.SkillType skillType)
+        {
+            return GetSkillConfig(skillType).TargetType;
         }
 
         public virtual void Dispose()

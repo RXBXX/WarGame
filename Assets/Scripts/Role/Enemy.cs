@@ -78,11 +78,5 @@ namespace WarGame
                 Idle();
             }
         }
-
-        public override Enum.RoleType GetTargetType()
-        {
-            return Enum.RoleType.Hero;
-        }
-
     }
 }

@@ -3726,24 +3726,6 @@
     }
   },
   {
-    "ID": "2_0_2",
-    "configId": 3,
-    "coor": {
-      "x": 2.0,
-      "y": 0.0,
-      "z": 2.0,
-      "normalized": {
-        "x": 0.707106769,
-        "y": 0.0,
-        "z": 0.707106769,
-        "magnitude": 1.0,
-        "sqrMagnitude": 0.99999994
-      },
-      "magnitude": 2.828427,
-      "sqrMagnitude": 8.0
-    }
-  },
-  {
     "ID": "2_0_3",
     "configId": 1,
     "coor": {
@@ -5652,74 +5634,6 @@
       },
       "magnitude": 3.0,
       "sqrMagnitude": 9.0
-    }
-  },
-  {
-    "ID": "3_0_1",
-    "configId": 2,
-    "coor": {
-      "x": 3.0,
-      "y": 0.0,
-      "z": 1.0,
-      "normalized": {
-        "x": 0.948683262,
-        "y": 0.0,
-        "z": 0.316227764,
-        "normalized": {
-          "x": 0.9486833,
-          "y": 0.0,
-          "z": 0.3162278,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 0.99999994,
-        "sqrMagnitude": 0.99999994
-      },
-      "magnitude": 3.1622777,
-      "sqrMagnitude": 10.0
-    }
-  },
-  {
-    "ID": "3_0_2",
-    "configId": 3,
-    "coor": {
-      "x": 3.0,
-      "y": 0.0,
-      "z": 2.0,
-      "normalized": {
-        "x": 0.8320503,
-        "y": 0.0,
-        "z": 0.5547002,
-        "magnitude": 1.0,
-        "sqrMagnitude": 1.0
-      },
-      "magnitude": 3.60555124,
-      "sqrMagnitude": 13.0
-    }
-  },
-  {
-    "ID": "3_0_3",
-    "configId": 3,
-    "coor": {
-      "x": 3.0,
-      "y": 0.0,
-      "z": 3.0,
-      "normalized": {
-        "x": 0.7071068,
-        "y": 0.0,
-        "z": 0.7071068,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 1.00000012,
-        "sqrMagnitude": 1.00000012
-      },
-      "magnitude": 4.2426405,
-      "sqrMagnitude": 18.0
     }
   },
   {
@@ -193570,6 +193484,49 @@
       },
       "magnitude": 2.0,
       "sqrMagnitude": 4.0
+    }
+  },
+  {
+    "ID": "3_0_3",
+    "configId": 1,
+    "coor": {
+      "x": 3.0,
+      "y": 0.0,
+      "z": 3.0,
+      "normalized": {
+        "x": 0.7071068,
+        "y": 0.0,
+        "z": 0.7071068,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 1.00000012,
+        "sqrMagnitude": 1.00000012
+      },
+      "magnitude": 4.2426405,
+      "sqrMagnitude": 18.0
+    }
+  },
+  {
+    "ID": "3_0_2",
+    "configId": 1,
+    "coor": {
+      "x": 3.0,
+      "y": 0.0,
+      "z": 2.0,
+      "normalized": {
+        "x": 0.8320503,
+        "y": 0.0,
+        "z": 0.5547002,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 3.60555124,
+      "sqrMagnitude": 13.0
     }
   }
 ]

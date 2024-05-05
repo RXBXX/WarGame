@@ -1,30 +1,106 @@
 [
     {
         "ID": 10001,
-        "Type": 0,
-        "Icon": null,
-        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/OHS03Polyart.prefab",
-        "Name": "Sword1"
+        "Type": 9,
+        "Icon": "UI/Icons/Arrow_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_01.prefab",
+        "Name": "Equip1",
+        "Rotation": null
     },
     {
         "ID": 10002,
-        "Type": 0,
-        "Icon": null,
-        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/OHS06Polyart.prefab",
-        "Name": "Sword2"
+        "Type": 9,
+        "Icon": "UI/Icons/Arrow_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_02.prefab",
+        "Name": "Equip2",
+        "Rotation": null
     },
     {
         "ID": 10003,
-        "Type": 1,
-        "Icon": null,
-        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/Shield05Polyart.prefab",
-        "Name": "Sheild1"
+        "Type": 7,
+        "Icon": "UI/Icons/Axe_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS10_Axe.prefab",
+        "Name": "Equip3",
+        "Rotation": null
     },
     {
         "ID": 10004,
+        "Type": 8,
+        "Icon": "UI/Icons/BigSword_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/THS01_Sword.prefab",
+        "Name": "Equip4",
+        "Rotation": null
+    },
+    {
+        "ID": 10005,
+        "Type": 8,
+        "Icon": "UI/Icons/BogSword_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/THS02_Sword.prefab",
+        "Name": "Equip5",
+        "Rotation": null
+    },
+    {
+        "ID": 10006,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_01.prefab",
+        "Name": "Equip6",
+        "Rotation": null
+    },
+    {
+        "ID": 10007,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_02.prefab",
+        "Name": "Equip7",
+        "Rotation": null
+    },
+    {
+        "ID": 10008,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Shield15.prefab",
+        "Name": "Equip8",
+        "Rotation": null
+    },
+    {
+        "ID": 10009,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Shield14.prefab",
+        "Name": "Equip9",
+        "Rotation": null
+    },
+    {
+        "ID": 10010,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS04_Sword.prefab",
+        "Name": "Equip10",
+        "Rotation": null
+    },
+    {
+        "ID": 10011,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS03_Sword.prefab",
+        "Name": "Equip11",
+        "Rotation": null
+    },
+    {
+        "ID": 10012,
         "Type": 1,
-        "Icon": null,
-        "Prefab": "Assets/RPG Tiny Hero Duo/Prefab/Shield08Polyart.prefab",
-        "Name": "Sheild2"
+        "Icon": "UI/Icons/Wand_01",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Wand02.prefab",
+        "Name": "Equip12",
+        "Rotation": null
+    },
+    {
+        "ID": 10013,
+        "Type": 1,
+        "Icon": "UI/Icons/Wand_02",
+        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Wand01.prefab",
+        "Name": "Equip13",
+        "Rotation": null
     }
 ]

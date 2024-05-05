@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="213,215" pivot="0,1" anchor="true">
-  <controller name="state" pages="0,,1," selected="0"/>
+  <controller name="state" pages="0,,1,,2," selected="1"/>
   <displayList>
-    <component id="n1_nr69" name="idleBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,214" pivot="0,0.959" anchor="true" rotation="-62">
-      <gearLook controller="state" pages="1" values="1,-62,1,0" default="1,-62,0,1"/>
+    <component id="n1_nr69" name="attackBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,214" pivot="0,0.959" anchor="true" rotation="-62" touchable="false" grayed="true">
+      <gearDisplay controller="state" pages="0,1"/>
+      <gearLook controller="state" pages="1,2" values="1,-62,1,0|1,-62,1,0" default="1,-62,0,1"/>
+      <Button title="Skills"/>
+    </component>
+    <component id="n3_kugj" name="idleBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="-2,212" pivot="0,1" anchor="true" rotation="-21" touchable="false" grayed="true">
+      <gearDisplay controller="state" pages="0,1"/>
+      <gearLook controller="state" pages="0" values="1,-21,0,1" default="1,-21,1,0"/>
       <Button title="Idle"/>
     </component>
-    <component id="n3_kugj" name="attackBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="-2,212" pivot="0,1" anchor="true" rotation="-21">
-      <Button title="Attack"/>
-    </component>
     <component id="n2_kugj" name="cancelBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="-3,148" pivot="0,1" rotation="17">
-      <gearLook controller="state" pages="1" values="1,17,1,0" default="1,17,0,1"/>
+      <gearLook controller="state" pages="1" values="1,17,0,1" default="1,17,0,1"/>
       <Button title="Cancel"/>
     </component>
     <component id="n5_omu9" name="skills" src="omu98" fileName="HUDSkills.xml" xy="-1,213">

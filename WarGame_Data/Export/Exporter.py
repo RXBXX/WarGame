@@ -2,7 +2,7 @@ import xlrd
 import json
 import os
 
-def parse_object_string(object_str):
+def parse_Dic(object_str):
     # 去除大括号并根据逗号分割字符串
     parts = object_str.strip('{}').split(',')
     
@@ -17,6 +17,32 @@ def parse_object_string(object_str):
         obj_dict[key.strip()] = int(value.strip()) if value.strip().isdigit() else value.strip()
 
     return obj_dict
+    
+def parse_Array(object_str):
+    # 去除大括号并根据逗号分割字符串
+    parts = object_str.strip().split(';')
+    
+    # 初始化一个空数组
+    obj_array = []
+    
+    # 遍历分割后的字符串，解析每个键值对并添加到字典中
+    for part in parts:
+        if part == "":
+            continue
+        elif int(part):
+            obj_array.append(int(part))
+        elif float(part):
+            obj_array.append(float(part))
+        else:
+            obj_array.append(parse_Dic(part))
+
+    return obj_array
+
+def parse_object_string(object_str):
+    if ';' in object_str.strip():
+        return parse_Array(object_str)
+    else:
+        return parse_Dic(object_str)
 
 def parse_cell_value(cell):
     # 根据单元格的类型解析值

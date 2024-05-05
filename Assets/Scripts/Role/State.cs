@@ -163,7 +163,6 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            _role.SetState(Enum.RoleState.Over);
         }
     }
 
@@ -190,6 +189,30 @@ namespace WarGame
             base.End(reverse);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dead_End, new object[] { _role.ID });
+        }
+    }
+
+    public class CureState : State
+    {
+        public CureState(string name, Role role) : base(name, role)
+        { }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+        }
+    }
+
+    public class CuredState : State
+    {
+        public CuredState(string name, Role role) : base(name, role)
+        {
+        }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID });
         }
     }
 }

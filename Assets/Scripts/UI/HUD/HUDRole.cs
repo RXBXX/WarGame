@@ -21,23 +21,12 @@ namespace WarGame.UI
 
             if (null != args[1])
                 _hp.GetController("style").SetSelectedIndex((int)args[1]);
-
-            _cancelBtn = _gCom.GetChild("cancelBtn");
-            _cancelBtn.onClick.Add(() =>
-            {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Cancel);
-            });
         }
 
         public void UpdateHP(float hp)
         {
             DebugManager.Instance.Log("HUDRole.UpdateHP:" + hp);
             _hp.value = hp;
-        }
-
-        public void SetFightCancelVisible(bool visible)
-        {
-            _cancelBtn.visible = visible;
         }
     }
 }

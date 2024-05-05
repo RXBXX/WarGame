@@ -26,7 +26,7 @@ namespace WarGame
             var gd = new GameData(name, Time.time);
             _dataDic[_curData] = gd;
 
-            SaveGameData(name);
+            SaveGameData();
         }
 
         public void ReadGameData(string name)
@@ -36,10 +36,15 @@ namespace WarGame
 
         public void SaveGameData(string name = null)
         {
-            GameData gd = _dataDic[_curData];
+            GameData gd = null;
             if (null != name)
             {
+                gd = _dataDic[_curData].Clone();
                 _dataDic[name] = gd;
+            }
+            else
+            {
+                gd = _dataDic[_curData];
             }
             gd.time = Time.time;
 
@@ -66,7 +71,7 @@ namespace WarGame
             return _dataDic[_curData].equipmentData[id];
         }
 
-        public int[] GetAllEquipment()
+        public int[] GetAllEquipments()
         {
             var equipments = new int[_dataDic[_curData].equipmentData.Count];
             var index = 0;
@@ -78,7 +83,7 @@ namespace WarGame
             return equipments;
         }
 
-        public int[] GetAllRole()
+        public int[] GetAllRoles()
         {
             var roles = new int[_dataDic[_curData].roleData.Count];
             var index = 0;

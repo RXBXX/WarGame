@@ -5,6 +5,13 @@ using System.Collections.Generic;
 namespace WarGame
 {
     [Serializable]
+    public struct AttrStruct
+    {
+        public int id;
+        public float value;
+    }
+
+    [Serializable]
     public class Config
     {
         public int ID;
@@ -17,9 +24,11 @@ namespace WarGame
         public int level;
     }
 
+    //角色表
     [Serializable]
     public class RoleConfig: Config
     {
+        public int Job;
         public string Name;
         public string Prefab;
         public Enum.RoleType Type;
@@ -27,6 +36,7 @@ namespace WarGame
         public SkillStruct SpecialSkill;
     }
 
+    //地块表
     [Serializable]
     public class HexagonConfig : Config
     {
@@ -35,6 +45,7 @@ namespace WarGame
         public float Resistance;
     }
 
+    //角色星级表
     [Serializable]
     public class RoleStarConfig : Config
     {
@@ -43,14 +54,17 @@ namespace WarGame
         public float HP;
         public float Attack;
         public float Defense;
+        public List<AttrStruct> Attrs;
     }
 
+    //技能等级表
     [Serializable]
     public class SkillLevelConfig : Config
     {
-        public float Attack;
+        public AttrStruct Attr;
     }
 
+    //技能表
     [Serializable]
     public class SkillConfig : Config
     {
@@ -60,15 +74,27 @@ namespace WarGame
         public Enum.RoleType TargetType;
     }
 
+    //装备表
     [Serializable]
     public class EquipmentConfig : Config
     {
-        public string Type;
+        public int Type;
         public string Icon;
         public string Prefab;
         public string Name;
     }
 
+    //装备类型表
+    [Serializable]
+    public class EquipmentTypeConfig : Config
+    {
+        public string Name;
+        public int[] Combination;
+        public Enum.EquipPlace Place;
+        public int Animator;
+    }
+
+    //地块表
     [Serializable]
     public class HexagonMapConfig
     {
@@ -84,5 +110,44 @@ namespace WarGame
             this.configId = configId;
             this.coor = coor;
         }
+    }
+
+    //属性表
+    [Serializable]
+    public class AttrConfig:Config
+    {
+        public string Name;
+    }
+
+
+    //Buff表
+    [Serializable]
+    public class BufferConfig:Config
+    {
+        public AttrStruct Attr;
+        public int Duration;
+    }
+
+    //角色职业表
+    [Serializable]
+    public class RoleJobConfig : Config
+    {
+        public int[] Equipments;
+        public string Name;
+        public string Icon;
+    }
+
+    //动画状态机表
+    [Serializable]
+    public class AnimatorConfig : Config 
+    {
+        public string Controller;
+    }
+
+    //装备部位表
+    [Serializable]
+    public class EquipPlaceConfig : Config
+    {
+        public string SpinePoint;
     }
 }

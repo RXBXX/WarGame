@@ -81,7 +81,7 @@ namespace WarGame
                     if (i == poss.Length - 1)
                     {
                         Vector3 dir = new Vector3(poss[i].x - poss[i - 1].x, 0, poss[i].z - poss[i - 1].z).normalized;
-                        var nor = new Vector3(- dir.z, 0, dir.x).normalized;
+                        var nor = new Vector3(-dir.z, 0, dir.x).normalized;
                         var pos = poss[i] - dir * _arrowLength;
                         var leftPoint = pos + nor * (_width / 2);
                         var rightPoint = pos - nor * (_width / 2);
@@ -135,18 +135,16 @@ namespace WarGame
             triangles[triangles.Length - 1] = vertices.Length - 1;
 
             Vector2[] uvs = new Vector2[vertices.Length];
-            for (int i = 0; i < vertices.Length; i++)
+            for (int i = 0; i < vertices.Length - 3; i += 4)
             {
-                var index = (int)(i % 4);
-                if (index == 0)
-                    uvs[i] = Vector2.zero;
-                else if (index == 1)
-                    uvs[i] = new Vector2(1, 0);
-                else if (index == 2)
-                    uvs[i] = new Vector2(0, 1);
-                else if (index == 3)
-                    uvs[i] = new Vector2(1, 1);
+                uvs[i] = Vector2.zero;
+                uvs[i + 1] = new Vector2(1, 0);
+                uvs[i + 2] = new Vector2(0, 1);
+                uvs[i + 3] = new Vector2(1, 1);
             }
+            uvs[uvs.Length - 3] = Vector2.zero;
+            uvs[uvs.Length - 2] = new Vector2(0.1F, 0.0F);
+            uvs[uvs.Length - 1] = new Vector2(0.1F, 0.1F);
 
             _mesh.vertices = vertices;
             _mesh.triangles = triangles;

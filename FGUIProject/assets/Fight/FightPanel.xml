@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" opaque="false">
   <displayList>
-    <graph id="n1_nr69" name="n1" xy="119,630" size="500,150" alpha="0.7" type="rect" lineSize="0" lineColor="#ff333333" fillColor="#ff840101"/>
-    <graph id="n2_nr69" name="n2" xy="718,630" size="500,150" alpha="0.7" type="rect" lineSize="0" lineColor="#ff333333" fillColor="#ff000094"/>
-    <text id="n4_p3n5" name="round" xy="35,212" size="255,104" font="ui://hd0z4dz5omu90" fontSize="80" color="#ff0000" letterSpacing="5" strokeColor="#000000" strokeSize="5" text="Round:1"/>
-    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1190,124" pivot="0.5,0.5" anchor="true"/>
-    <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,323" pivot="0.5,0.5" anchor="true" visible="false">
+    <graph id="n9_tsk1" name="roundLine1" xy="480,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
+    <text id="n4_p3n5" name="round" xy="666,86" pivot="0.5,0.5" anchor="true" size="19,64" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="48" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
+    <graph id="n10_tsk1" name="roundLine2" xy="853,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
+    <group id="n11_tsk1" name="n11" xy="320,54" size="693,64" advanced="true" layout="hz" colGap="17" excludeInvisibles="true">
+      <relation target="" sidePair="center-center,top-top"/>
+    </group>
+    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1190,124" pivot="0.5,0.5" anchor="true">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
+    <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n8_ez9s" name="n8" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true"/>
+    <component id="n8_ez9s" name="n8" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
   </displayList>
 </component>

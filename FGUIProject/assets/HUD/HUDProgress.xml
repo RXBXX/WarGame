@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="160,20" extention="ProgressBar">
+  <controller name="style" exported="true" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <graph id="n0_kugj" name="n0" xy="0,0" size="160,20" type="rect" lineSize="0" lineColor="#ffa0a0a0" fillColor="#ff333333">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n1_kugj" name="bar" xy="1,1" size="158,18" type="rect" lineSize="0" fillColor="#ff5c8799">
+      <gearColor controller="style" pages="0,1,2" values="#5c8799|#ce4a35|#e2ba2a"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+  </displayList>
+  <ProgressBar/>
+</component>

@@ -53,7 +53,6 @@ Shader "Custom/LineShader_V2"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-            col.a = 0.7f;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

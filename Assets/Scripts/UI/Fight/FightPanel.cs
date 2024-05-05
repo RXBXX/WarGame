@@ -13,7 +13,7 @@ namespace WarGame.UI
             });
 
             _round = (GTextField)_gCom.GetChild("round");
-            _round.text = "Round:0";
+            _round.text = "0";
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);

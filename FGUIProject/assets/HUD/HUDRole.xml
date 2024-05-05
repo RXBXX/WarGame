@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true">
   <displayList>
-    <component id="n11_o8z3" name="hp" src="kugj0" fileName="HUDHP.xml" xy="160,18" size="160,20" rotation="180" controller="style,0">
+    <component id="n11_o8z3" name="hp" src="kugj0" fileName="HUDProgress.xml" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" controller="style,0">
       <ProgressBar value="49" max="100"/>
     </component>
-    <component id="n0_kugj" name="rage" src="kugj0" fileName="HUDHP.xml" xy="0,0" size="160,20" controller="style,2">
+    <component id="n0_kugj" name="rage" src="kugj0" fileName="HUDProgress.xml" xy="0,13" size="160,7" controller="style,2">
       <ProgressBar value="39" max="100"/>
     </component>
     <list id="n2_kugj" name="buffList" xy="59,-13" size="100,10" layout="row" overflow="scroll" colGap="2" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
@@ -17,6 +17,5 @@
       <item/>
     </list>
     <text id="n3_p3n5" name="id" xy="0,-42" size="34,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#ffffff" strokeColor="#000000" strokeSize="3" text="ID:"/>
-    <component id="n9_o8z3" name="cancelBtn" src="o8z3b" fileName="HUDFightCancel.xml" xy="0,20" visible="false"/>
   </displayList>
 </component>

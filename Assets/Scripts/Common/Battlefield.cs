@@ -157,8 +157,12 @@ namespace WarGame
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() == Enum.RoleState.WatingTarget && initiator.GetTargetType() != Enum.RoleType.Hero)
-                    return;
+                if (initiator.GetState() == Enum.RoleState.WatingTarget)
+                {
+                    var targetType = initiator.GetTargetType(Enum.SkillType.Common);
+                    if (targetType != Enum.RoleType.Hero)
+                        return;
+                }
 
                 if (initiator.GetState() == Enum.RoleState.WatingTarget)
                 {
@@ -198,8 +202,12 @@ namespace WarGame
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() == Enum.RoleState.WatingTarget && initiator.GetTargetType() != Enum.RoleType.Enemy)
-                    return;
+                if (initiator.GetState() == Enum.RoleState.WatingTarget)
+                {
+                    var targetType = initiator.GetTargetType(Enum.SkillType.Common);
+                    if (targetType != Enum.RoleType.Enemy)
+                        return;
+                }
 
                 if (initiator.GetState() != Enum.RoleState.WatingTarget)
                 {
@@ -299,6 +307,8 @@ namespace WarGame
 
         private void Battle(int enemyID)
         {
+            CloseInstruct();
+
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(enemyID);
 
@@ -358,7 +368,6 @@ namespace WarGame
 
         private void OnAttack(params object[] args)
         {
-            CloseInstruct();
             EnterGrayedMode();
         }
 
@@ -547,7 +556,6 @@ namespace WarGame
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
-            OpenInstruct();
         }
 
         private void HandleFightEvents(params object[] args)
@@ -559,15 +567,29 @@ namespace WarGame
 
             var strs = ((string)args[0]).Split('_');
 
-            var roleId = (int)args[1];
-            var role = RoleManager.Instance.GetRole(roleId);
+            var initiatorID = (int)args[1];
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
             string stateName = strs[0], secondStateName = strs[1];
-            role.HandleEvent(stateName, secondStateName);
+            initiator.HandleEvent(stateName, secondStateName);
 
-            if (stateName == "Attack" && secondStateName == "Take")
+            if ((stateName == "Attack" || stateName == "Cure") && secondStateName == "Take")
             {
-                var attakedRole = RoleManager.Instance.GetRole(_targetID);
-                attakedRole.Attacked(role.GetAttackPower() - attakedRole.GetDefensePower());
+                var target = RoleManager.Instance.GetRole(_targetID);
+                var skillLevelConfig = initiator.GetSkillLevelConfig(Enum.SkillType.Common);
+                //判断是攻击还是治疗
+                //执行攻击或治疗
+                //如果buff生效，添加buff到目标身上
+                switch ((Enum.AttrType)skillLevelConfig.Attr.id)
+                {
+                    case Enum.AttrType.Attack:
+                        var attackPower = initiator.GetAttackPower(Enum.SkillType.Common);
+                        target.Attacked(attackPower);
+                        break;
+                    case Enum.AttrType.Cure:
+                        var curePower = initiator.GetCurePower() + skillLevelConfig.Attr.value;
+                        target.Cured(curePower);
+                        break;
+                }
             }
         }
 
@@ -580,11 +602,11 @@ namespace WarGame
             foreach (var v in region)
                 regionDic[v.id] = true;
 
-            var skillTargetType = hero.GetSkill(Enum.SkillType.Common).TargetType;
+            var targetType = hero.GetTargetType(Enum.SkillType.Common);
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                if (roles[i].Type == skillTargetType && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].hexagonID))
+                if (roles[i].Type == targetType && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].hexagonID))
                     roles[i].SetLayer(8);
                 else
                 {

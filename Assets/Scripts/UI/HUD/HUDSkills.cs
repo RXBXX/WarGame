@@ -9,7 +9,6 @@ namespace WarGame.UI
     {
         public HUDSkills(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
-            DebugManager.Instance.Log("HUDSkills");
             _gCom.GetChild("skill 1").onClick.Add(ClickSkill);
             _gCom.GetChild("skill 2").onClick.Add(ClickSkill);
         }
