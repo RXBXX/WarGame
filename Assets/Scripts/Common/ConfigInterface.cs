@@ -5,10 +5,16 @@ using System.Collections.Generic;
 namespace WarGame
 {
     [Serializable]
-    public struct AttrStruct
+    public struct Pair
     {
         public int id;
-        public float value;
+        public int value;
+
+        public Pair(int id, int value)
+        {
+            this.id = id;
+            this.value = value;
+        }
     }
 
     [Serializable]
@@ -17,12 +23,12 @@ namespace WarGame
         public int ID;
     }
 
-    [Serializable]
-    public struct SkillStruct
-    {
-        public int id;
-        public int level;
-    }
+    //[Serializable]
+    //public struct SkillStruct
+    //{
+    //    public int id;
+    //    public int level;
+    //}
 
     //角色表
     [Serializable]
@@ -32,8 +38,8 @@ namespace WarGame
         public string Name;
         public string Prefab;
         public Enum.RoleType Type;
-        public SkillStruct CommonSkill;
-        public SkillStruct SpecialSkill;
+        public int CommonSkill;
+        public int SpecialSkill;
     }
 
     //地块表
@@ -49,20 +55,16 @@ namespace WarGame
     [Serializable]
     public class RoleStarConfig : Config
     {
-        public float MoveDis;
-        public float AttackDis;
         public float HP;
-        public float Attack;
-        public float Defense;
-        public List<AttrStruct> Attrs;
+        public List<Pair> Attrs;
     }
 
-    //技能等级表
-    [Serializable]
-    public class SkillLevelConfig : Config
-    {
-        public AttrStruct Attr;
-    }
+    ////技能等级表
+    //[Serializable]
+    //public class SkillLevelConfig : Config
+    //{
+    //    public AttrStruct Attr;
+    //}
 
     //技能表
     [Serializable]
@@ -72,6 +74,7 @@ namespace WarGame
         public string Icon;
         public string Name;
         public Enum.RoleType TargetType;
+        public Enum.AttrType AttrType;
     }
 
     //装备表
@@ -82,6 +85,9 @@ namespace WarGame
         public string Icon;
         public string Prefab;
         public string Name;
+        public Vector3 Rotation;
+        public List<Pair> Attrs;
+        public List<Pair> Buffs;
     }
 
     //装备类型表
@@ -119,13 +125,13 @@ namespace WarGame
         public string Name;
     }
 
-
     //Buff表
     [Serializable]
     public class BufferConfig:Config
     {
-        public AttrStruct Attr;
+        public Pair Attr;
         public int Duration;
+        public string Name;
     }
 
     //角色职业表

@@ -5,7 +5,27 @@
         "Icon": "UI/Icons/Arrow_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_01.prefab",
         "Name": "Equip1",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 90
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 100
+            }
+        ]
     },
     {
         "ID": 10002,
@@ -13,7 +33,27 @@
         "Icon": "UI/Icons/Arrow_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_02.prefab",
         "Name": "Equip2",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 90
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 11
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 101
+            }
+        ]
     },
     {
         "ID": 10003,
@@ -21,7 +61,27 @@
         "Icon": "UI/Icons/Axe_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS10_Axe.prefab",
         "Name": "Equip3",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 12
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            }
+        ]
     },
     {
         "ID": 10004,
@@ -29,7 +89,27 @@
         "Icon": "UI/Icons/BigSword_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/THS01_Sword.prefab",
         "Name": "Equip4",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 90
+            },
+            {
+                "id": 2,
+                "value": 13
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 103
+            }
+        ]
     },
     {
         "ID": 10005,
@@ -37,7 +117,27 @@
         "Icon": "UI/Icons/BogSword_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/THS02_Sword.prefab",
         "Name": "Equip5",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 90
+            },
+            {
+                "id": 2,
+                "value": 14
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 104
+            }
+        ]
     },
     {
         "ID": 10006,
@@ -45,7 +145,27 @@
         "Icon": "UI/Icons/Bow_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_01.prefab",
         "Name": "Equip6",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 15
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 105
+            }
+        ]
     },
     {
         "ID": 10007,
@@ -53,7 +173,27 @@
         "Icon": "UI/Icons/Bow_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_02.prefab",
         "Name": "Equip7",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 16
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 106
+            }
+        ]
     },
     {
         "ID": 10008,
@@ -61,7 +201,27 @@
         "Icon": "UI/Icons/Shield_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Shield15.prefab",
         "Name": "Equip8",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 270
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 17
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 107
+            }
+        ]
     },
     {
         "ID": 10009,
@@ -69,7 +229,27 @@
         "Icon": "UI/Icons/Shield_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Shield14.prefab",
         "Name": "Equip9",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 270
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 18
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 108
+            }
+        ]
     },
     {
         "ID": 10010,
@@ -77,7 +257,27 @@
         "Icon": "UI/Icons/Sword_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS04_Sword.prefab",
         "Name": "Equip10",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 19
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 109
+            }
+        ]
     },
     {
         "ID": 10011,
@@ -85,7 +285,27 @@
         "Icon": "UI/Icons/Sword_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/OHS03_Sword.prefab",
         "Name": "Equip11",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 20
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 110
+            }
+        ]
     },
     {
         "ID": 10012,
@@ -93,7 +313,27 @@
         "Icon": "UI/Icons/Wand_01",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Wand02.prefab",
         "Name": "Equip12",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 21
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 111
+            }
+        ]
     },
     {
         "ID": 10013,
@@ -101,6 +341,26 @@
         "Icon": "UI/Icons/Wand_02",
         "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Wand01.prefab",
         "Name": "Equip13",
-        "Rotation": null
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 22
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 112
+            }
+        ]
     }
 ]

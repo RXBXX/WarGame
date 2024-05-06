@@ -1207,6 +1207,8 @@ GameObject:
   - component: {fileID: 3987109447567684198}
   - component: {fileID: 3521735294980660479}
   - component: {fileID: -624166583076320178}
+  - component: {fileID: -2316993870587226080}
+  - component: {fileID: 406451714742612753}
   m_Layer: 0
   m_Name: Role_10002
   m_TagString: Untagged
@@ -1242,7 +1244,7 @@ Animator:
   m_GameObject: {fileID: 4332144285489064156}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d9b155d656a64f02adc39213c8d11c86, type: 3}
-  m_Controller: {fileID: 9100000, guid: 460f8a3bb5d64cdb84825bb816d5cc0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 13d1a81ddea21ba4dac906eb68f2e659, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1264,6 +1266,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+--- !u!65 &-2316993870587226080
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4332144285489064156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5083821, z: 0.43695313}
+  m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
+--- !u!114 &406451714742612753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4332144285489064156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4348129051668238357
 GameObject:
   m_ObjectHideFlags: 0

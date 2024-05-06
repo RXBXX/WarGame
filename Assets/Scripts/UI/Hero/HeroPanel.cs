@@ -129,11 +129,12 @@ namespace WarGame.UI
                 _heroRoot = SceneMgr.Instance.GetHeroRoot();
                 hero.transform.SetParent(_heroRoot);
                 hero.transform.localPosition = Vector3.zero;
-                hero.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>("Assets/Animators/NoWeaponController.controller");
+                //hero.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>("Assets/Animators/NoWeaponController.controller");
                 _rolesGO.Add(uid, hero);
             }
             _rolesGO[uid].SetActive(true);
 
+            int animatorID = 1;
             foreach (var v in roleData.equipmentDic)
             {
                 var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
@@ -141,9 +142,19 @@ namespace WarGame.UI
 
                 var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
                 var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+
+                if (1 == animatorID)
+                {
+                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", equipConfig.Type);
+                    animatorID = equipTypeConfig.Animator;
+                }
                 var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
                 weapon.transform.SetParent(spinePoint, false);
+                weapon.transform.localEulerAngles = equipConfig.Rotation;
             }
+            
+            var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
+            hero.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
         }
 
         private void OnOpenEquip(params object[] args)
@@ -212,8 +223,11 @@ namespace WarGame.UI
             spinePoint = _rolesGO[roleUID].transform.Find(equipPlaceConfig.SpinePoint);
             var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
             weapon.transform.SetParent(spinePoint, false);
+            weapon.transform.localEulerAngles = equipConfig.Rotation;
 
-            //_rolesGO[roleUID].GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>("Assets/Animators/WandController.controller");
+            var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", equipTypeConfig.Animator);
+            var animator = _rolesGO[roleUID].GetComponent<Animator>();
+            animator.runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
         }
 
         public override void Dispose(bool disposeGCom = false)

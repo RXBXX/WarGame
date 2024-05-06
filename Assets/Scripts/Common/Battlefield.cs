@@ -68,9 +68,9 @@ namespace WarGame
 
         public void Start()
         {
-            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            for (int i = heros.Count - 1; i >= 0; i--)
-                heros[i].SetState(Enum.RoleState.Waiting);
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = roles.Count - 1; i >= 0; i--)
+                roles[i].UpdateRound();
         }
 
         public void Touch(GameObject obj)
@@ -504,27 +504,27 @@ namespace WarGame
 
                 RoundFunc callback = () =>
                 {
-                    for (int i = heros.Count - 1; i >= 0; i--)
+                    var roles = RoleManager.Instance.GetAllRoles();
+                    for (int i = 0; i < roles.Count; i++)
                     {
-                        heros[i].SetState(Enum.RoleState.Waiting);
+                        roles[i].UpdateRound();
                     }
-                    for (int i = enemys.Count - 1; i >= 0; i--)
-                    {
-                        enemys[i].SetState(Enum.RoleState.Locked);
-                    }
+                    //for (int i = heros.Count - 1; i >= 0; i--)
+                    //{
+                    //    heros[i].UpdateRound();
+                    //    heros[i].SetState(Enum.RoleState.Waiting);
+                    //}
+                    //for (int i = enemys.Count - 1; i >= 0; i--)
+                    //{
+                    //    enemys[i].UpdateRound();
+                    //    enemys[i].SetState(Enum.RoleState.Locked);
+                    //}
                     isHeroTurn = true;
                 };
                 _roundIndex += 1;
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _roundIndex, callback });
             }
         }
-
-        //public void RoundOver(params object[] args)
-        //{
-        //    _roundIndex += 1;
-        //    EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Round_Event, new object[] { _roundIndex,  });
-        //}
-
 
         public void Attack(int initiatorID, int targetID)
         {
@@ -575,18 +575,21 @@ namespace WarGame
             if ((stateName == "Attack" || stateName == "Cure") && secondStateName == "Take")
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var skillLevelConfig = initiator.GetSkillLevelConfig(Enum.SkillType.Common);
+                var skillConfig = initiator.GetSkillConfig(Enum.SkillType.Common);
                 //判断是攻击还是治疗
                 //执行攻击或治疗
                 //如果buff生效，添加buff到目标身上
-                switch ((Enum.AttrType)skillLevelConfig.Attr.id)
+                switch (skillConfig.AttrType)
                 {
                     case Enum.AttrType.Attack:
-                        var attackPower = initiator.GetAttackPower(Enum.SkillType.Common);
+                        var attackPower = initiator.GetAttackPower();
                         target.Attacked(attackPower);
+                        target.AddBuffs(initiator.GetAttackBuffs());
+
+                        CameraMgr.Instance.ShakePosition();
                         break;
                     case Enum.AttrType.Cure:
-                        var curePower = initiator.GetCurePower() + skillLevelConfig.Attr.value;
+                        var curePower = initiator.GetCurePower();
                         target.Cured(curePower);
                         break;
                 }

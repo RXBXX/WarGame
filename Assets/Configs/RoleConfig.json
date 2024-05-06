@@ -4,14 +4,8 @@
         "Name": "Peter",
         "Prefab": "Assets/Prefabs/Roles/Role_10001.prefab",
         "Type": 1,
-        "CommonSkill": {
-            "id": 10001,
-            "level": 1
-        },
-        "SpecialSkill": {
-            "id": 10002,
-            "level": 1
-        },
+        "CommonSkill": 10001,
+        "SpecialSkill": 10002,
         "Job": 1
     },
     {
@@ -19,14 +13,8 @@
         "Name": "June",
         "Prefab": "Assets/Prefabs/Roles/Role_10002.prefab",
         "Type": 1,
-        "CommonSkill": {
-            "id": 10003,
-            "level": 1
-        },
-        "SpecialSkill": {
-            "id": 10004,
-            "level": 1
-        },
+        "CommonSkill": 10003,
+        "SpecialSkill": 10004,
         "Job": 2
     },
     {
@@ -34,14 +22,8 @@
         "Name": "Peter",
         "Prefab": "Assets/Prefabs/Roles/Role_10003.prefab",
         "Type": 2,
-        "CommonSkill": {
-            "id": 10005,
-            "level": 1
-        },
-        "SpecialSkill": {
-            "id": 10006,
-            "level": 1
-        },
+        "CommonSkill": 10005,
+        "SpecialSkill": 10006,
         "Job": 3
     },
     {
@@ -49,14 +31,8 @@
         "Name": "June",
         "Prefab": "Assets/Prefabs/Roles/Role_10004.prefab",
         "Type": 2,
-        "CommonSkill": {
-            "id": 10007,
-            "level": 1
-        },
-        "SpecialSkill": {
-            "id": 10008,
-            "level": 1
-        },
+        "CommonSkill": 10007,
+        "SpecialSkill": 10008,
         "Job": 4
     }
 ]

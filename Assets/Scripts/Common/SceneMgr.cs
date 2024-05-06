@@ -12,6 +12,7 @@ namespace WarGame
         private string _curMap = null;
         private BattleField _battleField = null;
         private GameObject _heroScene;
+        private AsyncOperation _asyncOperation;
 
         public override bool Init()
         {
@@ -20,6 +21,14 @@ namespace WarGame
             SceneManager.sceneLoaded += SceneLoaded;
 
             return true;
+        }
+
+        public override void Update(float deltaTime)
+        {
+            if (null != _asyncOperation)
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { _asyncOperation.progress });
+            }
         }
 
         public override bool Dispose()
@@ -49,11 +58,15 @@ namespace WarGame
         public void OpenBattleField(string mapDir)
         {
             _curMap = mapDir;
-            SceneManager.LoadSceneAsync("MapScene");
+            _asyncOperation = SceneManager.LoadSceneAsync("MapScene");
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
         }
 
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            _asyncOperation = null;
+            UIManager.Instance.ClosePanel("LoadPanel");
+
             switch (scene.name)
             {
                 case "MapScene":

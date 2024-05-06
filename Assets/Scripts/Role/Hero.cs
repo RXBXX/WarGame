@@ -22,5 +22,11 @@ namespace WarGame
             base.MoveEnd();
             EventDispatcher.Instance.PostEvent(Enum.EventType.Role_MoveEnd_Event);
         }
+
+        public override void UpdateRound()
+        {
+            base.UpdateRound();
+            SetState(Enum.RoleState.Waiting);
+        }
     }
 }

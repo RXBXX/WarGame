@@ -29,12 +29,16 @@ def parse_Array(object_str):
     for part in parts:
         if part == "":
             continue
-        elif int(part):
-            obj_array.append(int(part))
-        elif float(part):
-            obj_array.append(float(part))
         else:
-            obj_array.append(parse_Dic(part))
+            try:
+                intValue = int(part)
+                obj_array.append(intValue)
+            except ValueError:
+                try:
+                    floatValue = float(part)
+                    obj_array.append(floatValue)
+                except ValueError:
+                    obj_array.append(parse_Dic(part))
 
     return obj_array
 

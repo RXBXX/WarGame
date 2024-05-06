@@ -48,6 +48,8 @@ namespace WarGame
 
         public float hp; //血量
 
+        public List<Pair> _buffs = new List<Pair>();
+
         public int ID
         {
             set { }
@@ -110,8 +112,6 @@ namespace WarGame
 
             var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
             OnCreate(bornPoint);//加载方式，同步方式，后面都要改
-
-            DebugManager.Instance.Log(_state);
         }
 
         protected virtual void OnCreate(Vector3 bornPoint)
@@ -126,8 +126,38 @@ namespace WarGame
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
+            InitAnimatorAndEquip();
             InitStates();
             CreateHUD();
+        }
+
+        private void InitAnimatorAndEquip()
+        {
+            if (null == _data.equipmentDic)
+                return;
+
+            int animatorID = 1;
+            foreach (var v in _data.equipmentDic)
+            {
+                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
+                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
+
+                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+
+                if (1 == animatorID)
+                {
+                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", equipConfig.Type);
+                    animatorID = equipTypeConfig.Animator;
+                }
+                var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
+                weapon.transform.SetParent(spinePoint, false);
+                weapon.transform.localEulerAngles = equipConfig.Rotation;
+            }
+
+            var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
+            _gameObject.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
+
         }
 
         private void InitStates()
@@ -272,7 +302,7 @@ namespace WarGame
         {
             if (state == _state)
                 return;
-            DebugManager.Instance.Log(_id + "_" + state);
+            //DebugManager.Instance.Log(_id + "_" + state);
             _state = state;
 
             OnStateChanged();
@@ -310,12 +340,12 @@ namespace WarGame
 
         public virtual float GetMoveDis()
         {
-            return GetStarConfig().MoveDis;
+            return GetAttribute(Enum.AttrType.Move);
         }
 
         public virtual float GetAttackDis()
         {
-            return GetStarConfig().AttackDis;
+            return GetAttribute(Enum.AttrType.AttackDis);
         }
 
         /// <summary>
@@ -324,7 +354,7 @@ namespace WarGame
         /// <returns></returns>
         public virtual float GetViewDis()
         {
-            return GetStarConfig().AttackDis;
+            return 0;
         }
 
         public void HandleEvent(string stateName, string secondStateName)
@@ -339,6 +369,7 @@ namespace WarGame
 
         public void NextPath()
         {
+            //DebugManager.Instance.Log(_pathIndex + "_" + _path.Count);
             _pathIndex++;
             _rotation = _gameObject.transform.rotation;
             UpdateHexagonID(_path[_pathIndex]);
@@ -370,18 +401,14 @@ namespace WarGame
             tran.gameObject.layer = layer;
         }
 
-        public float GetAttackPower(Enum.SkillType skillType)
+        public float GetAttackPower()
         {
-            var attackPower = GetStarConfig().Attack;
-            var skillLevelConfig = GetSkillLevelConfig(skillType);
-            if (skillLevelConfig.Attr.id == (int)Enum.AttrType.Attack)
-                attackPower += skillLevelConfig.Attr.value;
-            return attackPower;
+            return GetAttribute(Enum.AttrType.Attack);
         }
 
         public float GetDefensePower()
         {
-            return GetStarConfig().Defense;
+            return GetAttribute(Enum.AttrType.Defense);
         }
 
         public Vector3 GetPosition()
@@ -414,18 +441,12 @@ namespace WarGame
         {
             if (Enum.SkillType.Common == skillType)
             {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill.id);
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill);
             }
             else
             {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill.id);
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill);
             }
-        }
-
-        public SkillLevelConfig GetSkillLevelConfig(Enum.SkillType skillType)
-        {
-            var skillLevelId = GetSkillConfig(skillType).ID * 1000 + 1;
-            return ConfigMgr.Instance.GetConfig<SkillLevelConfig>("SkillLevelConfig", skillLevelId);
         }
 
         /// <summary>
@@ -437,6 +458,127 @@ namespace WarGame
         public virtual Enum.RoleType GetTargetType(Enum.SkillType skillType)
         {
             return GetSkillConfig(skillType).TargetType;
+        }
+
+        private float GetAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
+            //英雄属性
+            var attrs = GetStarConfig().Attrs;
+            foreach (var v in attrs)
+            {
+                if ((Enum.AttrType)v.id == attrType)
+                {
+                    value += v.value;
+                    break;
+                }
+            }
+
+            //天赋属性
+            //暂未开发
+
+            //装备属性
+            if (null != _data.equipmentDic)
+            {
+                foreach (var v in _data.equipmentDic)
+                {
+                    var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+                    if (null != equipConfig.Attrs)
+                    {
+                        foreach (var v1 in equipConfig.Attrs)
+                        {
+                            if ((Enum.AttrType)v1.id == attrType)
+                            {
+                                value += v1.value;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return value;
+        }
+
+        //添加buff
+        public void AddBuffs(List<int> buffs)
+        {
+            var hpDelta = 0.0F;
+            for (int i = buffs.Count - 1; i >= 0; i--)
+            {
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
+                if ((Enum.AttrType)buffConfig.Attr.id == Enum.AttrType.Blood)
+                {
+                    hpDelta = buffConfig.Attr.value;
+                    DebugManager.Instance.Log(hpDelta);
+                }
+
+                if (buffConfig.Duration - 1 > 0)
+                {
+                    _buffs.Add(new Pair(buffs[i], buffConfig.Duration - 1));
+                }
+            }
+            UpdateHP(this.hp - hpDelta);
+
+            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            hud.UpdateBuffs(_buffs);
+        }
+
+        protected virtual void ExcuteBuffs()
+        {
+            var hpDelta = 0.0F;
+            for (int i = _buffs.Count - 1; i >= 0; i--)
+            {
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", _buffs[i].id);
+                if ((Enum.AttrType)buffConfig.Attr.id == Enum.AttrType.Blood)
+                {
+                    hpDelta = buffConfig.Attr.value;
+                }
+
+                if (_buffs[i].value - 1 <= 0)
+                {
+                    _buffs.RemoveAt(i);
+                }
+                else
+                {
+                    _buffs[i] = new Pair(_buffs[i].id, _buffs[i].value - 1);
+                }
+            }
+
+            if (0 != hpDelta)
+            {
+                UpdateHP(this.hp - hpDelta);
+            }
+            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            hud.UpdateBuffs(_buffs);
+        }
+
+        public List<int> GetAttackBuffs()
+        {
+            var buffs = new List<int>();
+
+            if (null != _data.equipmentDic)
+            {
+                foreach (var v in _data.equipmentDic)
+                {
+                    var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+                    foreach (var v1 in equipConfig.Buffs)
+                    {
+                        var rd = Random.Range(0, 100);
+                        if (rd < v1.value)
+                            buffs.Add(v1.id);
+                    }
+                }
+            }
+
+            return buffs;
+        }
+
+        public virtual void UpdateRound()
+        {
+            ExcuteBuffs();
         }
 
         public virtual void Dispose()

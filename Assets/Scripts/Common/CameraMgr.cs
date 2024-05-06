@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FairyGUI;
+using DG.Tweening;
 
 namespace WarGame
 {
@@ -10,6 +9,7 @@ namespace WarGame
         private float _moveSpeed = 0.5F;
         private float _zoomSpeed = 3.0f;
         private float _rotateSpeed = 2.0f;
+        private Tweener _tweener;
 
         public Camera MainCamera
         {
@@ -35,6 +35,10 @@ namespace WarGame
 
             if (null == MainCamera)
                 return;
+
+            if ("Main Camera" != MainCamera.name)
+                return;
+
             //求出摄像机射线和平面的交点
             var linePos = MainCamera.transform.position;
             var lineDir = MainCamera.transform.forward;
@@ -68,6 +72,7 @@ namespace WarGame
             }
         }
 
+        //设置主摄像机
         public void SetMainCamera(Camera camera)
         {
             camera.tag = "MainCamera";
@@ -78,10 +83,9 @@ namespace WarGame
         /// </summary>
         public void OpenGray()
         {
-            var grayCamera = MainCamera.transform.Find("GrayCamera");
-            grayCamera.gameObject.SetActive(true);
+            var grayDepthCamera = MainCamera.transform.Find("GrayDepthCamera");
+            grayDepthCamera.gameObject.SetActive(true);
 
-            DebugManager.Instance.Log(Time.realtimeSinceStartup);
             MainCamera.GetComponent<CameraRender>().mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
             MainCamera.GetComponent<CameraRender>().enabled = true;
         }
@@ -91,15 +95,28 @@ namespace WarGame
         /// </summary>
         public void CloseGray()
         {
-            var grayCamera = MainCamera.transform.Find("GrayCamera");
-            grayCamera.gameObject.SetActive(false);
+            var grayDepthCamera = MainCamera.transform.Find("GrayDepthCamera");
+            grayDepthCamera.gameObject.SetActive(false);
 
             MainCamera.GetComponent<CameraRender>().enabled = false;
+        }
+
+        public void ShakePosition()
+        {
+            if (null == _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+            _tweener = MainCamera.transform.DOShakePosition(0.5f, 0.1f);
         }
 
         public override bool Dispose()
         {
             base.Dispose();
+
+            _tweener.Kill();
+            _tweener = null;
 
             return true;
         }

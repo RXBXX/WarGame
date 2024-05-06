@@ -60,7 +60,7 @@ namespace WarGame.UI
 
             _showEquipments.Clear();
             var equipments = DatasMgr.Instance.GetAllEquipments();
-            DebugManager.Instance.Log(equipments.Length);
+            //DebugManager.Instance.Log(equipments.Length);
             for (int i = 0; i < equipments.Length; i++)
             {
                 var equipmentData = DatasMgr.Instance.GetEquipmentData(equipments[i]);
@@ -96,7 +96,7 @@ namespace WarGame.UI
         private void OnClickEquip(EventContext context)
         {
             var index = _equipmentList.GetChildIndex((GObject)context.data);
-            DebugManager.Instance.Log(index);
+            //DebugManager.Instance.Log(index);
             _selectedEquip = _showEquipments[index];
         }
 

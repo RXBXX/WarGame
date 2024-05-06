@@ -1,4 +1,5 @@
 using FairyGUI;
+using System.Collections.Generic;
 
 namespace WarGame.UI
 {
@@ -6,7 +7,8 @@ namespace WarGame.UI
     {
         private GProgressBar _hp;
         private GProgressBar _rage;
-        private GObject _cancelBtn;
+        private GList _buffList;
+        private List<Pair> _buffs;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -17,6 +19,9 @@ namespace WarGame.UI
             _rage.max = 100;
             _rage.value = 0;
 
+            _buffList = (GList)_gCom.GetChild("buffList");
+            _buffList.itemRenderer = OnItemRenderer;
+
             ((GTextField)_gCom.GetChild("id")).text = args[0].ToString();
 
             if (null != args[1])
@@ -25,8 +30,19 @@ namespace WarGame.UI
 
         public void UpdateHP(float hp)
         {
-            DebugManager.Instance.Log("HUDRole.UpdateHP:" + hp);
             _hp.value = hp;
+        }
+
+        public void UpdateBuffs(List<Pair> buffs)
+        {
+            _buffs = buffs;
+            _buffList.numItems = buffs.Count;
+        }
+
+        private void OnItemRenderer(int index, GObject item)
+        {
+            var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", _buffs[index].id);
+            ((GLabel)item).title = buffConfig.Name + "_" + _buffs[index].value;
         }
     }
 }

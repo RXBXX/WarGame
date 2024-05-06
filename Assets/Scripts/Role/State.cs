@@ -29,7 +29,7 @@ namespace WarGame
                 _last = lastState;
                 lastState.End(false);
             }
-            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+            //DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  
@@ -58,7 +58,7 @@ namespace WarGame
                 _last.Start();
                 _last = null;
             }
-            DebugManager.Instance.Log(_name + "_End_" + _role.ID);
+            //DebugManager.Instance.Log(_name + "_End_" + _role.ID);
             _state = Enum.RoleAnimState.End;
             _role.Animator.SetBool(_name, false);
         }
@@ -147,6 +147,7 @@ namespace WarGame
             _role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
             _role.GameObject.transform.position = newPos;
 
+            //DebugManager.Instance.Log(_lerpStep);
             if (_lerpStep >= 1)
             {
                 _lerpStep = 0;

@@ -4,7 +4,7 @@ Shader "Custom/GrayShader"
 	{
 		_MainTex("Texture", 2D) = "white" {}
 	    _StartTime("StartTime", float) = 0.0
-		_ExclusionMap("Exclusion Map", 2D) = "white" {}
+		_ExclusionMapDepth("Exclusion Map Depth", 2D) = "white" {}
 		_Brightness("Brightness", Range(0.1, 2)) = 0.5
 		_Speed("Speed", float) = 5
 	}
@@ -35,10 +35,11 @@ Shader "Custom/GrayShader"
 
 				sampler2D _MainTex;
 				float4 _MainTex_ST;
-				sampler2D _ExclusionMap;
+				sampler2D _ExclusionMapDepth;
 				float _Brightness;
 				float _StartTime;
 				float _Speed;
+				sampler2D _CameraDepthTexture; // Declare _CameraDepthTexture
 
 				v2f vert(appdata v)
 				{
@@ -53,7 +54,7 @@ Shader "Custom/GrayShader"
 					fixed4 col = tex2D(_MainTex, i.uv);
 
 				// Get exclusion value from the exclusion map
-				fixed4 exclusion = tex2D(_ExclusionMap, i.uv);
+				fixed4 exclusionDepth = tex2D(_ExclusionMapDepth, i.uv);
 
 				// y = -x + 0.8
 				float time = (_Time.y - _StartTime) * _Speed;
@@ -70,11 +71,16 @@ Shader "Custom/GrayShader"
 				}
 				else
 				{
-					// If exclusion value is 1 (or greater than 0.5), exclude the pixel
-					if (exclusion.r >= 0.1 && exclusion.g >= 0.1 && exclusion.b >= 0.1)
+					float depth = tex2D(_CameraDepthTexture, i.uv).r;
+					float exclusionDepthValue = exclusionDepth.x;
+#if defined(UNITY_REVERSED_Z)
+					depth = 1.0f - depth;
+					exclusionDepthValue = 1.0f - exclusionDepthValue;
+#endif
+					//这里的0.0001F是因为深度值有精度误差
+					if (exclusionDepthValue < 1 - 0.0001F && exclusionDepthValue - 0.0001F <= depth)
 					{
-						//return col; // Return original color if excluded
-						return tex2D(_ExclusionMap, i.uv);
+						return col;
 					}
 					else
 					{

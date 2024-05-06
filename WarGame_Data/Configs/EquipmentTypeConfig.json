@@ -4,7 +4,7 @@
         "Name": "法杖",
         "Combination": null,
         "Place": 1,
-        "Animator": 1
+        "Animator": 5
     },
     {
         "ID": 2,
@@ -25,7 +25,7 @@
             2
         ],
         "Place": 1,
-        "Animator": 3
+        "Animator": 2
     },
     {
         "ID": 4,
@@ -34,7 +34,7 @@
             2
         ],
         "Place": 1,
-        "Animator": 4
+        "Animator": 2
     },
     {
         "ID": 5,
@@ -42,8 +42,8 @@
         "Combination": [
             9
         ],
-        "Place": 1,
-        "Animator": 5
+        "Place": 2,
+        "Animator": 3
     },
     {
         "ID": 6,
@@ -52,7 +52,7 @@
             2
         ],
         "Place": 1,
-        "Animator": 6
+        "Animator": 2
     },
     {
         "ID": 7,
@@ -61,14 +61,14 @@
             2
         ],
         "Place": 1,
-        "Animator": 7
+        "Animator": 2
     },
     {
         "ID": 8,
         "Name": "双手武器",
         "Combination": null,
         "Place": 3,
-        "Animator": 8
+        "Animator": 4
     },
     {
         "ID": 9,
@@ -76,7 +76,14 @@
         "Combination": [
             5
         ],
-        "Place": 2,
-        "Animator": 9
+        "Place": 1,
+        "Animator": 3
+    },
+    {
+        "ID": 10,
+        "Name": "长枪",
+        "Combination": null,
+        "Place": 3,
+        "Animator": 6
     }
 ]

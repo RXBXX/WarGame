@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <loader id="n3_nr69" name="bg" xy="687,409" pivot="0.5,0.5" anchor="true" size="1800,1000" url="ui://pr0w8n6pez9s4" fill="scale" autoSize="true" clearOnPublish="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <component id="n8_pq96" name="progress" src="pq960" fileName="LoadSlider.xml" xy="167,514">
+      <ProgressBar value="99" max="100"/>
+    </component>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1"/>
+</component>

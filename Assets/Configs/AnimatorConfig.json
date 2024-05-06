@@ -2,26 +2,31 @@
     {
         "ID": 1,
         "Name": "空手",
-        "Controller": null
+        "Controller": "Assets/Animators/DController.controller"
     },
     {
         "ID": 2,
         "Name": "刀剑锤斧和盾",
-        "Controller": null
+        "Controller": "Assets/Animators/WSController.controller"
     },
     {
         "ID": 3,
         "Name": "弓箭",
-        "Controller": null
+        "Controller": "Assets/Animators/BAController.controller"
     },
     {
         "ID": 4,
         "Name": "双手武器",
-        "Controller": null
+        "Controller": "Assets/Animators/BHController.controller"
     },
     {
         "ID": 5,
         "Name": "法杖",
-        "Controller": null
+        "Controller": "Assets/Animators/WController.controller"
+    },
+    {
+        "ID": 6,
+        "Name": "长枪",
+        "Controller": "Assets/Animators/SController.controller"
     }
 ]

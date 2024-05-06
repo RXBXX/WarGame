@@ -27,7 +27,7 @@ namespace WarGame
                 if (!InitConfig<T>(name))
                     return default(T);
             }
-
+            
             if (_configDic[name].ContainsKey(id))
                 return (T)_configDic[name][id];
 

@@ -78,5 +78,11 @@ namespace WarGame
                 Idle();
             }
         }
+
+        public override void UpdateRound()
+        {
+            base.UpdateRound();
+            SetState(Enum.RoleState.Locked);
+        }
     }
 }
