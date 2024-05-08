@@ -25,7 +25,7 @@ namespace WarGame.UI
             UpdatePosition();
         }
 
-        public virtual void Update()
+        public override void Update(float deltaTime)
         {
             UpdatePosition();
         }

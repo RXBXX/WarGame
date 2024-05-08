@@ -139,6 +139,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearLook.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTweener.cs" />
+    <Compile Include="Assets\Scripts\UI\Load\LoadPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\Resources\UI\Map\UI_MapPanel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\Card.cs" />
@@ -320,7 +321,11 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\Load\LoadPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
+    <Compile Include="Assets\Scripts\Common\DialogMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogBox.cs" />
+    <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />

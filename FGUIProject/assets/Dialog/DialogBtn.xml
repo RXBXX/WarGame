@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,50" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="3"/>
+  <displayList>
+    <graph id="n0_a4gr" name="n0" xy="0,0" size="120,50" alpha="0.7" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n3_a4gr" name="n3" xy="59,24" pivot="0.5,0.5" anchor="true" size="71,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="AUTO">
+      <gearText controller="button" pages="0,2" values="N AUTO|N AUTO" default="AUTO"/>
+    </text>
+  </displayList>
+  <Button mode="Check"/>
+</component>

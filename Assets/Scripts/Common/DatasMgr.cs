@@ -97,10 +97,9 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            base.Dispose();
-
+            SaveGameData();
             _dataDic.Clear();
-
+            base.Dispose();
             return true;
         }
     }

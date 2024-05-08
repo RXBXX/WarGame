@@ -9,6 +9,7 @@ namespace WarGame.UI
         private GProgressBar _rage;
         private GList _buffList;
         private List<Pair> _buffs;
+        private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -28,6 +29,14 @@ namespace WarGame.UI
                 _hp.GetController("style").SetSelectedIndex((int)args[1]);
         }
 
+        public override void Update(float deltaTime)
+        {
+            base.Update(deltaTime);
+
+            foreach (var v in _hudBuffDic)
+                v.Value.Update(deltaTime);
+        }
+
         public void UpdateHP(float hp)
         {
             _hp.value = hp;
@@ -41,8 +50,20 @@ namespace WarGame.UI
 
         private void OnItemRenderer(int index, GObject item)
         {
-            var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", _buffs[index].id);
-            ((GLabel)item).title = buffConfig.Name + "_" + _buffs[index].value;
+            if (!_hudBuffDic.ContainsKey(item.id))
+            {
+                _hudBuffDic[item.id] = new HUDBuff((GComponent)item, "HUDBuff");
+            }
+            _hudBuffDic[item.id].UpdateBuff(_buffs[index].id, _buffs[index].value);
+        }
+
+        public override void Dispose(bool disposeGComp = false)
+        {
+            foreach (var v in _hudBuffDic)
+                v.Value.Dispose(false);
+            _hudBuffDic.Clear();
+
+            base.Dispose(disposeGComp);
         }
     }
 }

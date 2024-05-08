@@ -19,7 +19,7 @@ namespace WarGame.UI
             {
                 if (i >= _hudList.Count)
                     continue;
-                _hudList[i].Update();
+                _hudList[i].Update(deltaTime);
             }
         }
 

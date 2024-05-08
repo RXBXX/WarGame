@@ -103,7 +103,7 @@ namespace WarGame.UI
         {
             var level = (int)args[0];
 
-            SceneMgr.Instance.OpenBattleField("E:/WarGame/Assets/Maps/Map_2.json");
+            SceneMgr.Instance.OpenBattleField("E:/WarGame/Assets/Maps/Map_1.json");
         }
 
         public override void Dispose(bool disposeGCom = false)

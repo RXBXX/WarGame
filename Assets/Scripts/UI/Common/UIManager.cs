@@ -12,7 +12,7 @@ namespace WarGame.UI
     {
         private Dictionary<Enum.UILayer, GComponent> _uiLayerDic = new Dictionary<Enum.UILayer, GComponent>();
         private Dictionary<Enum.UILayer, List<UIBase>> _panelDic = new Dictionary<Enum.UILayer, List<UIBase>>();
-        private List<string> _uiPackages = new List<string>();
+        private Dictionary<string, int> _uiPackagesDic = new Dictionary<string, int>();
 
         public override bool Init()
         {
@@ -59,13 +59,12 @@ namespace WarGame.UI
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
             //设置缩放参数
             GRoot.inst.SetContentScaleFactor(1134, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
-            DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
+            //DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
 
             //加载公用ui包
-            var uipackage = UIPackage.AddPackage("UI/Common");
-            _uiPackages.Add(uipackage.name);
+            AddPackage("Common");
 
             //设置默认字体
             UIConfig.defaultFont = "Bangers";
@@ -73,14 +72,27 @@ namespace WarGame.UI
             return true;
         }
 
+        /// <summary>
+        /// 使用foreach遍历一定要注意，禁止在遍历内，让所遍历的List或Dictionary发生变化
+        /// 这里使用For循环的方式遍历就是为了避免引起上述问题引起报错
+        /// InvalidOperationException: Collection was modified; enumeration operation may not execute.
+        /// </summary>
+        /// <param name="deltaTime"></param>
         public override void Update(float deltaTime)
         {
             foreach (var pair in _panelDic)
             {
-                foreach (var pair1 in pair.Value)
+                for (int i = pair.Value.Count - 1; i >= 0; i--)
                 {
-                    pair1.Update(deltaTime);
+                    if (i <= pair.Value.Count)
+                    {
+                        pair.Value[i].Update(deltaTime);
+                    }
                 }
+                //foreach (var pair1 in pair.Value)
+                //{
+                //    pair1.Update(deltaTime);
+                //}
             }
         }
 
@@ -106,7 +118,7 @@ namespace WarGame.UI
 
             //在编辑模式下运行，StageEngine会在OnApplicationQuit把所有包卸载
             UIPackage.RemoveAllPackages();
-            _uiPackages.Clear();
+            _uiPackagesDic.Clear();
             //UIPackage.RemovePackage("Common");
 
             return true;
@@ -124,7 +136,7 @@ namespace WarGame.UI
 
         public UIBase CreateUI(string packageName, string compName, object[] args = null)
         {
-            UIPackage.AddPackage("UI/" + packageName);
+            AddPackage(packageName);
 
             Type classType = Type.GetType("WarGame.UI." + compName);
             if (null == classType)
@@ -196,7 +208,6 @@ namespace WarGame.UI
             _panelDic[panel.UILayer].Add(panel);
 
             return panel;
-            //GRoot._inst.container.AddChild(ui.displayObject);
         }
 
         public void ClosePanel(string panelName)
@@ -229,8 +240,6 @@ namespace WarGame.UI
                     _panelDic[panel.UILayer][lastIndex].SetVisible(true);
             }
 
-            //panel.RemoveParent();
-            //panel.Dispose(true);
             DestroyUI(panel, true);
         }
 
@@ -291,6 +300,38 @@ namespace WarGame.UI
                 callback();
 
                 UIManager.Instance.CloseComponent(customName);
+            }
+        }
+
+        /// <summary>
+        /// 加载包体，并记载引用数
+        /// </summary>
+        /// <param name="packageName"></param>
+        private void AddPackage(string packageName)
+        {
+            var package = UIPackage.AddPackage("UI/" + packageName);
+            var quoteCount = 0;
+            if (_uiPackagesDic.ContainsKey(packageName))
+                quoteCount = _uiPackagesDic[packageName];
+            _uiPackagesDic[package.name] = quoteCount + 1;
+        }
+
+        /// <summary>
+        /// 清楚包体，检查引用计数，符合条件就清除包体
+        /// </summary>
+        /// <param name="packageName"></param>
+        public void RemovePackage(string packageName)
+        {
+            var quoteCount = _uiPackagesDic[packageName];
+            quoteCount -= 1;
+            if (quoteCount <= 0)
+            {
+                UIPackage.RemovePackage(packageName);
+                _uiPackagesDic.Remove(packageName);
+            }
+            else
+            {
+                _uiPackagesDic[packageName] = quoteCount;
             }
         }
     }

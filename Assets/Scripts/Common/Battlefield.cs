@@ -14,6 +14,8 @@ namespace WarGame
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
         private string _touchingHexagon = null;
+        private Transform _battleArena;
+        private bool _skipBattleShow = false;
 
         public BattleField(string mapDir)
         {
@@ -44,6 +46,8 @@ namespace WarGame
             RoleManager.Instance.CreateEnemy(new RoleData(12, 10004, 1, null, null), bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
+            _battleArena = GameObject.Find("Arena").transform;
+            _battleArena.gameObject.SetActive(false);
         }
 
         public void Dispose()
@@ -152,8 +156,6 @@ namespace WarGame
                 return;
 
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
-            MapManager.Instance.ClearMarkedRegion();
-
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
@@ -164,6 +166,7 @@ namespace WarGame
                         return;
                 }
 
+
                 if (initiator.GetState() == Enum.RoleState.WatingTarget)
                 {
                     initiator.SetState(Enum.RoleState.Attacking);
@@ -171,12 +174,15 @@ namespace WarGame
                 }
                 else if (_initiatorID == heroID)
                 {
+                    //MapManager.Instance.ClearMarkedRegion();
+
                     MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
                     hero.SetState(Enum.RoleState.WaitingOrder);
                     OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
                 }
-                else
+                else if (state != Enum.RoleState.Over)
                 {
+                    //MapManager.Instance.ClearMarkedRegion();
                     _initiatorID = heroID;
                     MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
                 }
@@ -213,7 +219,7 @@ namespace WarGame
                 {
                     _initiatorID = enemyId;
                     string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
-                    MapManager.Instance.ClearMarkedRegion();
+                    //MapManager.Instance.ClearMarkedRegion();
                     MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
                     return;
                 }
@@ -225,7 +231,7 @@ namespace WarGame
             {
                 _initiatorID = enemyId;
                 string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
-                MapManager.Instance.ClearMarkedRegion();
+                //MapManager.Instance.ClearMarkedRegion();
                 MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
             }
         }
@@ -311,7 +317,6 @@ namespace WarGame
 
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(enemyID);
-
             List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, Enum.RoleType.Hero, false);
             if (null == hexagons || hexagons.Count <= 0)
                 return;
@@ -326,9 +331,8 @@ namespace WarGame
                 return;
 
             MapManager.Instance.ClearMarkedRegion();
-            Attack(_initiatorID, enemyID);
-
             ExitGrayedMode();
+            Attack(_initiatorID, enemyID);
         }
 
         private void OnIdle(params object[] args)
@@ -400,11 +404,6 @@ namespace WarGame
         {
             if (_targetID <= 0)
             {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                initiator.SetState(Enum.RoleState.Over);
-                _initiatorID = 0;
-                _targetID = 0;
-
                 OnFinishAction();
             }
         }
@@ -420,11 +419,6 @@ namespace WarGame
             if (target.IsDead())
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            initiator.SetState(Enum.RoleState.Over);
-            _initiatorID = 0;
-            _targetID = 0;
-
             OnFinishAction();
         }
 
@@ -434,19 +428,28 @@ namespace WarGame
             if (targetID != _targetID)
                 return;
 
+            OnFinishAction(true);
+        }
+
+        private void OnFinishAction(bool isKill = false)
+        {
+            if (0 != _targetID && !_skipBattleShow)
+            {
+                CloseBattleArena();
+            }
+
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var target = RoleManager.Instance.GetRole(_targetID);
+
             initiator.SetState(Enum.RoleState.Over);
-
-            RoleManager.Instance.RemoveRole(targetID);
-
+            if (isKill)
+            {
+                RoleManager.Instance.RemoveRole(_targetID);
+            }
             _initiatorID = 0;
             _targetID = 0;
 
-            OnFinishAction();
-        }
 
-        private void OnFinishAction()
-        {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
             {
@@ -530,13 +533,28 @@ namespace WarGame
         {
             _initiatorID = initiatorID;
             _targetID = targetID;
-
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var target = RoleManager.Instance.GetRole(_targetID);
-            var forward = target.GetPosition() - initiator.GetPosition();
-            forward.y = 0;
-            initiator.SetForward(forward);
+            var target = RoleManager.Instance.GetRole(targetID);
 
+            if (!_skipBattleShow)
+            {
+                OpenBattleArena(initiator, target);
+            }
+
+            CoroutineMgr.Instance.StartCoroutine(PlayAttack(initiator, target));
+        }
+
+        private IEnumerator PlayAttack(Role initiator, Role target)
+        {
+            var initiatorForward = target.GetPosition() - initiator.GetPosition();
+            initiatorForward.y = 0;
+            initiator.SetForward(initiatorForward);
+
+            var targetForward = initiator.GetPosition() - target.GetPosition();
+            targetForward.y = 0;
+            target.SetForward(targetForward);
+
+            yield return new WaitForSeconds(1.0f);
             initiator.Attack();
         }
 
@@ -629,6 +647,38 @@ namespace WarGame
                 roles[i].RecoverLayer();
                 roles[i].SetColliderEnable(true);
             }
+
+            CameraMgr.Instance.CloseGray();
+        }
+
+        private void OpenBattleArena(Role initiator, Role target)
+        {
+            _battleArena.gameObject.SetActive(true);
+            _battleArena.position = CameraMgr.Instance.MainCamera.transform.position + CameraMgr.Instance.MainCamera.transform.forward * 5;
+            var forward = CameraMgr.Instance.MainCamera.transform.forward;
+            forward.y = 0;
+            _battleArena.transform.forward = forward;
+            var initiatorPos = _battleArena.transform.Find("Initiator").position;
+            var targetPos = _battleArena.transform.Find("Target").position;
+
+            initiator.ChangeToArenaSpace(initiatorPos);
+            target.ChangeToArenaSpace(targetPos);
+
+            initiator.SetLayer(8);
+            target.SetLayer(8);
+
+            CameraMgr.Instance.OpenGray();
+        }
+
+        private void CloseBattleArena()
+        {
+            _battleArena.gameObject.SetActive(false);
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var target = RoleManager.Instance.GetRole(_targetID);
+            initiator.ChangeToMapSpace();
+            target.ChangeToMapSpace();
+            initiator.RecoverLayer();
+            target.RecoverLayer();
 
             CameraMgr.Instance.CloseGray();
         }

@@ -40,6 +40,7 @@ namespace WarGame
         public Enum.RoleType Type;
         public int CommonSkill;
         public int SpecialSkill;
+        public string DialogIcon;
     }
 
     //地块表
@@ -132,6 +133,7 @@ namespace WarGame
         public Pair Attr;
         public int Duration;
         public string Name;
+        public string Desc;
     }
 
     //角色职业表
@@ -155,5 +157,18 @@ namespace WarGame
     public class EquipPlaceConfig : Config
     {
         public string SpinePoint;
+    }
+
+    [Serializable]
+    public class DialogGroupConfig : Config
+    {
+        public int MaxIndex;
+    }
+
+    [Serializable]
+    public class DialogConfig : Config
+    {
+        public string Context;
+        public int Role;
     }
 }

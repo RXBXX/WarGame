@@ -87,7 +87,8 @@ namespace WarGame
             var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
             var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
 
-            var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Spin_RM_SwordAndShield");
+            var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Normal_RM_SwordAndShield");
+            //var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Spin_RM_SwordAndShield");
             var clips = _role.Animator.runtimeAnimatorController.animationClips;
             _speed = Vector3.Distance(endPos, startPos) / (timeDic["Jump_Loss"] - timeDic["Jump_Take"]);
         }
@@ -116,9 +117,10 @@ namespace WarGame
 
             _lerpStep += (Time.deltaTime * _speed);
 
-            //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
+            //在Unity中使用欧拉角插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
             var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
             _role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
+            DebugManager.Instance.Log("position change");
             _role.GameObject.transform.position = newPos;
         }
     }
@@ -145,6 +147,7 @@ namespace WarGame
             //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
             var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
             _role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
+            DebugManager.Instance.Log("position change");
             _role.GameObject.transform.position = newPos;
 
             //DebugManager.Instance.Log(_lerpStep);

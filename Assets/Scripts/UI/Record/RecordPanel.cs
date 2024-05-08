@@ -40,7 +40,7 @@ namespace WarGame.UI
                 DatasMgr.Instance.NewGameData("´æµµ_" + Time.time);
             else
                 DatasMgr.Instance.ReadGameData(_listDatas[index].title);
-            UIManager.Instance.OpenPanel("Map", "MapPanel");
+            SceneMgr.Instance.OpenMapScene();
         }
 
     }

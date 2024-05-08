@@ -58,8 +58,7 @@ namespace WarGame
         public void OpenBattleField(string mapDir)
         {
             _curMap = mapDir;
-            _asyncOperation = SceneManager.LoadSceneAsync("MapScene");
-            UIManager.Instance.OpenPanel("Load", "LoadPanel");
+            OpenScene("MapScene");
         }
 
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
@@ -87,7 +86,7 @@ namespace WarGame
             _battleField.Dispose();
             _battleField = null;
             UIManager.Instance.ClosePanel("FightPanel");
-            SceneManager.LoadSceneAsync("TransitionScene");
+            OpenScene("TransitionScene");
         }
 
         public void OpenHeroScene(params object[] args)
@@ -110,6 +109,17 @@ namespace WarGame
         public Transform GetHeroRoot()
         {
             return _heroScene.transform.Find("HeroRoot");
+        }
+
+        public void OpenMapScene()
+        {
+            SceneManager.LoadScene("TransitionScene");
+        }
+
+        public void OpenScene(string scene)
+        {
+            _asyncOperation = SceneManager.LoadSceneAsync(scene);
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
         }
     }
 }

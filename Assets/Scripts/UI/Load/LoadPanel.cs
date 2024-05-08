@@ -8,13 +8,14 @@ namespace WarGame.UI
 
         public LoadPanel(GComponent gCom, string customName, object[] args):base(gCom, customName, args)
         {
-            _progress = (GProgressBar)GCom.GetChild("progress");
-
+            _progress = GetUIChild<GProgressBar>("progress");
+            GetUIChild<GLoader>("bg").url = "UI/Background/MainBG";
             EventDispatcher.Instance.AddListener(Enum.EventType.Scene_Load_Progress, OnUpdateProgress);
         }
 
         private void OnUpdateProgress(params object[] args)
         {
+            DebugManager.Instance.Log((float)args[0] * 100);
             _progress.value = (float)args[0] * 100;
         }
 

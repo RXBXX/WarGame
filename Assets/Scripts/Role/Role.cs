@@ -275,7 +275,7 @@ namespace WarGame
 
         public virtual float GetCurePower()
         {
-            return 0;
+            return GetAttribute(Enum.AttrType.Cure);
         }
 
         public virtual void Dead()
@@ -318,7 +318,7 @@ namespace WarGame
 
         protected virtual void UpdateHP(float hp)
         {
-            var hurt = this.hp - hp;
+            var hurt = hp - this.hp;
             this.hp = hp;
             HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateHP(this.hp);
@@ -508,18 +508,12 @@ namespace WarGame
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
-                if ((Enum.AttrType)buffConfig.Attr.id == Enum.AttrType.Blood)
-                {
-                    hpDelta = buffConfig.Attr.value;
-                    DebugManager.Instance.Log(hpDelta);
-                }
-
+                UpdateAttr(buffConfig.Attr);
                 if (buffConfig.Duration - 1 > 0)
                 {
                     _buffs.Add(new Pair(buffs[i], buffConfig.Duration - 1));
                 }
             }
-            UpdateHP(this.hp - hpDelta);
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_buffs);
@@ -527,14 +521,10 @@ namespace WarGame
 
         protected virtual void ExcuteBuffs()
         {
-            var hpDelta = 0.0F;
             for (int i = _buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", _buffs[i].id);
-                if ((Enum.AttrType)buffConfig.Attr.id == Enum.AttrType.Blood)
-                {
-                    hpDelta = buffConfig.Attr.value;
-                }
+                UpdateAttr(buffConfig.Attr);
 
                 if (_buffs[i].value - 1 <= 0)
                 {
@@ -546,10 +536,6 @@ namespace WarGame
                 }
             }
 
-            if (0 != hpDelta)
-            {
-                UpdateHP(this.hp - hpDelta);
-            }
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_buffs);
         }
@@ -576,9 +562,43 @@ namespace WarGame
             return buffs;
         }
 
+        private void UpdateAttr(Pair attr)
+        {
+            switch ((Enum.AttrType)attr.id)
+            {
+                case Enum.AttrType.Attack:
+                    break;
+                case Enum.AttrType.Cure:
+                    break;
+                case Enum.AttrType.Defense:
+                    break;
+                case Enum.AttrType.Move:
+                    break;
+                case Enum.AttrType.AttackDis:
+                    break;
+                case Enum.AttrType.Blood:
+                    UpdateHP(this.hp - attr.value);
+                    break;
+            }
+        }
+
         public virtual void UpdateRound()
         {
             ExcuteBuffs();
+        }
+
+        public void ChangeToArenaSpace(Vector3 pos)
+        {
+            DebugManager.Instance.Log(pos);
+            _gameObject.transform.position = pos;
+        }
+
+        public void ChangeToMapSpace()
+        {
+            var hexagon = MapManager.Instance.GetHexagon(hexagonID);
+            var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
+            _gameObject.transform.position = pos;
+            _gameObject.transform.rotation = _rotation;
         }
 
         public virtual void Dispose()

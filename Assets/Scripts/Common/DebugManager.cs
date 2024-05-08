@@ -17,5 +17,10 @@ namespace WarGame
         {
             Debug.LogWarning(message);
         }
+
+        public void ClearLog()
+        {
+            Debug.ClearDeveloperConsole();
+        }
     }
 }

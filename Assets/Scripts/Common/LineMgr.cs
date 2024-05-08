@@ -28,6 +28,7 @@ namespace WarGame
 
         public void SetLine(List<Vector3> points)
         {
+            //DebugManager.Instance.ClearLog();
             _go.transform.position = points[0];
             var poss = new Vector3[points.Count];
             for (int i = 0; i < points.Count; i++)
@@ -76,6 +77,10 @@ namespace WarGame
                         vertices[verticesCount + 1] = rightDownPoint;
                         vertices[verticesCount + 2] = leftUpPoint;
                         vertices[verticesCount + 3] = rightUpPoint;
+                        //DebugManager.Instance.Log("DownDir:" + downDir);
+                        //DebugManager.Instance.Log("UpNormal:" + upNormal);
+                        //DebugManager.Instance.Log("DownPoint:" + leftDownPoint + "_" + rightDownPoint);
+                        //DebugManager.Instance.Log("UpPoint:" + leftUpPoint + "_" + rightUpPoint);
                         verticesCount += 4;
                     }
                     if (i == poss.Length - 1)
@@ -176,7 +181,7 @@ namespace WarGame
                 // 检查两条射线是否平行
                 if (Vector3.Cross(v1, v3).sqrMagnitude > 0)
                 {
-                    Debug.Log("Lines are parallel but not collinear, may intersect.");
+                    //Debug.Log("Lines are parallel but not collinear, may intersect.");
 
                     // 如果 t1 和 t2 都是非负数，则表示两条射线相交
                     if (t1 >= 0 && t2 >= 0)
@@ -201,7 +206,7 @@ namespace WarGame
             }
             else
             {
-                Debug.Log("Lines do not intersect.");
+                //Debug.Log("Lines do not intersect.");
                 return (p1 + p2) / 2.0f;
             }
         }

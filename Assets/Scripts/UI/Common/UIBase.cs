@@ -60,7 +60,7 @@ namespace WarGame.UI
             _gCom.position = pos;
         }
 
-        public T GetChild<T>(string name) where T : UIBase
+        protected T GetChild<T>(string name) where T : UIBase
         {
             if (childDic.ContainsKey(name))
                 return (T)childDic[name];
@@ -68,6 +68,26 @@ namespace WarGame.UI
                 return default(T);
         }
 
+        protected T GetUIChild<T>(string name) where T: GObject
+        {
+            return (T)_gCom.GetChild(name);
+        }
+
+        protected Controller GetController(string name)
+        {
+            return _gCom.GetController(name);
+        }
+
+        protected Transition GetTransition(string name)
+        {
+            return _gCom.GetTransition(name);
+        }
+
+        /// <summary>
+        /// 销毁组件
+        /// </summary>
+        /// <param name="disposeGCom">对于被加载的组件的子组件，disposeGCom为false，跟随父组件的销毁会自动被销毁
+        /// 对于被主动加载的组件，disposeGCom为true，需要手动销毁</param>
         public virtual void Dispose(bool disposeGCom = false)
         {
             foreach (var pair in childDic)
@@ -77,7 +97,10 @@ namespace WarGame.UI
             childDic.Clear();
 
             if (disposeGCom)
+            {
+                UIManager.Instance.RemovePackage(GCom.packageItem.owner.name);
                 _gCom.Dispose();
+            }
 
             _gCom = null;
             name = null;

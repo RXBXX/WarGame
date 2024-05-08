@@ -105,6 +105,8 @@ namespace WarGame.UI
 
         public void OnTouchEnd(EventContext context)
         {
+            _touchPos = context.inputEvent.position;
+            _lastDragTime = Time.time;
             _draging = false;
         }
 

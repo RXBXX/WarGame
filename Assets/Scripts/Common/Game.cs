@@ -14,7 +14,9 @@ namespace WarGame
             EventDispatcher.Instance.Init();
             DatasMgr.Instance.Init();
             ConfigMgr.Instance.Init();
+            CoroutineMgr.Instance.Init();
             UIManager.Instance.Init();
+            DialogMgr.Instance.Init();
             SceneMgr.Instance.Init();
             HUDManager.Instance.Init();
             CameraMgr.Instance.Init();
@@ -31,7 +33,6 @@ namespace WarGame
 
         public bool Start()
         {
-            DebugManager.Instance.Log("Game.Start");
             UIManager.Instance.OpenPanel("Main", "MainPanel");
             return true;
         }
@@ -78,7 +79,9 @@ namespace WarGame
             LineMgr.Instance.Dispose();
             HUDManager.Instance.Dispose();
             RoleManager.Instance.Dispose();
+            DialogMgr.Instance.Dispose();
             UIManager.Instance.Dispose();
+            CoroutineMgr.Instance.Dispose();
             ConfigMgr.Instance.Dispose();
             DatasMgr.Instance.Dispose();
             EventDispatcher.Instance.Dispose();

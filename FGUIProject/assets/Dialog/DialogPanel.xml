@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <graph id="n2_a4gr" name="n2" xy="0,0" size="1334,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n0_a4gr" name="dialogBox" src="a4gr2" fileName="DialogBox.xml" xy="667,692" pivot="0.5,0.5" anchor="true">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </component>
+    <component id="n1_a4gr" name="autoBtn" src="a4gr5" fileName="DialogBtn.xml" xy="1099,113"/>
+  </displayList>
+</component>

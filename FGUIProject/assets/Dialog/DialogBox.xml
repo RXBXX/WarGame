@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1100,170">
+  <controller name="type" pages="0,,1," selected="1"/>
+  <displayList>
+    <loader id="n3_a4gr" name="n3" xy="1072,77" pivot="0.5,1" anchor="true" size="50,50"/>
+    <loader id="n4_a4gr" name="role" xy="257,103" pivot="0.5,1" anchor="true" size="229,409" scale="-1,1" url="ui://flul1mo7a4gr3" fill="scaleNoBorder" clearOnPublish="true">
+      <gearXY controller="type" pages="0,1" values="846,99|257,103"/>
+      <gearSize controller="type" pages="0,1" values="229,409,1,1|229,409,-1,1"/>
+    </loader>
+    <image id="n0_a4gr" name="n0" src="a4gr1" fileName="Images/DialogueBox.png" xy="0,0" size="1100,170"/>
+    <text id="n1_a4gr" name="context" xy="39,10" size="1022,135" font="ui://hd0z4dz5omu90" fontSize="32" color="#ce4a35" leading="0" autoSize="none" bold="true" strokeColor="#000000" strokeSize="3" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
+  </displayList>
+</component>

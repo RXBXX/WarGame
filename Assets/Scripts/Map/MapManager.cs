@@ -75,6 +75,8 @@ namespace WarGame
         /// </summary>
         public void MarkingRegion(string hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
         {
+            ClearMarkedRegion();
+
             var region = FindingRegion(hexagonID, moveDis, attackDis, roleType);
             for (int i = 0; i < region.Count; i++)
             {
@@ -109,18 +111,18 @@ namespace WarGame
             var points = new List<Vector3>();
             for (int i = 0; i < cells.Count; i++)
             {
-                if (i > 0 && cells[i - 1].coor.y != cells[i].coor.y)
-                {
-                    var start = MapTool.Instance.GetPosFromCoor(cells[i - 1].coor) + new Vector3(0, 0.23F, 0);
-                    var end = MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0);
-                    points.Add(new Vector3((start.x + end.x) / 2, start.y, (start.z + end.z) / 2));
-                    points.Add(new Vector3((start.x + end.x) / 2, end.y, (start.z + end.z) / 2));
-                    points.Add(end);
-                }
-                else
-                {
+                //if (i > 0 && cells[i - 1].coor.y != cells[i].coor.y)
+                //{
+                //    var start = MapTool.Instance.GetPosFromCoor(cells[i - 1].coor) + new Vector3(0, 0.23F, 0);
+                //    var end = MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0);
+                //    points.Add(new Vector3((start.x + end.x) / 2, start.y, (start.z + end.z) / 2));
+                //    points.Add(new Vector3((start.x + end.x) / 2, end.y, (start.z + end.z) / 2));
+                //    points.Add(end);
+                //}
+                //else
+                //{
                     points.Add(MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0));
-                }
+                //}
             }
             LineMgr.Instance.SetLine(points);
 

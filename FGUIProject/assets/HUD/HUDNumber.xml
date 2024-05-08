@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="79,49">
+<component size="100,60">
   <displayList>
-    <text id="n0_p3n5" name="title" xy="40,25" pivot="0.5,0.5" anchor="true" size="81,49" fontSize="36" color="#ff0000" bold="true" text="-111"/>
+    <text id="n0_p3n5" name="title" xy="50,62" pivot="0.5,1" anchor="true" size="76,64" font="ui://hd0z4dz5omu90" fontSize="48" color="#ce4a35" letterSpacing="2" bold="true" strokeColor="#000000" strokeSize="2" text="-111"/>
   </displayList>
   <transition name="show">
-    <item time="0" type="XY" target="n0_p3n5" tween="true" startValue="40.5,25.5" endValue="85.5,-35.5" duration="6"/>
+    <item time="0" type="XY" target="n0_p3n5" tween="true" startValue="40.5,49.5" endValue="85.5,-35.5" duration="6"/>
+    <item time="6" type="XY" target="n0_p3n5" tween="true" startValue="85.5,-35.5" endValue="85.5,-35.5" duration="4"/>
+    <item time="10" type="Alpha" target="n0_p3n5" tween="true" startValue="1" endValue="0" duration="5"/>
   </transition>
 </component>
