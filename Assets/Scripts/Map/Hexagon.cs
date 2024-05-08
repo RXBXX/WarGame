@@ -3,7 +3,7 @@ using DG.Tweening;
 
 namespace WarGame
 {
-    public class Hexagon
+    public class Hexagon:MapObject
     {
         public string ID;
 
@@ -12,8 +12,6 @@ namespace WarGame
         public Vector3 coor;
 
         private Tween _tween;
-
-        protected GameObject _gameObject;
 
         public GameObject GameObject
         {
@@ -103,6 +101,17 @@ namespace WarGame
                     _gameObject.GetComponent<Renderer>().material.color = Color.white;
                     break;
             }
+        }
+
+
+        public override void ChangeToMapSpace()
+        {
+            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
+        }
+
+        public Vector3 GetPosition()
+        {
+            return _gameObject.transform.position;
         }
 
         public void Dispose()

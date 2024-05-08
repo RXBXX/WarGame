@@ -28,5 +28,22 @@ namespace WarGame
             base.UpdateRound();
             SetState(Enum.RoleState.Waiting);
         }
+
+        protected override void InitEquips()
+        {
+            if (null == _data.equipmentDic)
+                return;
+
+            foreach (var v in _data.equipmentDic)
+            {
+                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
+                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
+
+                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                var equip = EquipFactory.Instance.GetEquip(equipData);
+                equip.SetSpinePoint(spinePoint);
+                _equipDic[equip.GetPlace()] = equip;
+            }
+        }
     }
 }

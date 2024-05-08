@@ -4,7 +4,7 @@ using WarGame.UI;
 
 namespace WarGame
 {
-    public class Role
+    public class Role:MapObject
     {
         protected int _id;
 
@@ -17,8 +17,6 @@ namespace WarGame
         private int _pathIndex;
 
         private float _lerpStep = 0;
-
-        protected GameObject _gameObject;
 
         protected GameObject _hudPoint;
 
@@ -44,11 +42,11 @@ namespace WarGame
 
         private string _curAnimState = null;
 
-        protected int _layer = 7;
-
         public float hp; //ÑªÁ¿
 
         public List<Pair> _buffs = new List<Pair>();
+
+        protected Dictionary<Enum.EquipPlace, Equip> _equipDic = new Dictionary<Enum.EquipPlace, Equip>();
 
         public int ID
         {
@@ -105,6 +103,8 @@ namespace WarGame
 
         public Role(RoleData data, string hexagonID)
         {
+            this._layer = 7;
+
             this._id = data.UID;
             this._data = data;
             this.hexagonID = hexagonID;
@@ -126,38 +126,30 @@ namespace WarGame
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
-            InitAnimatorAndEquip();
+            InitEquips();
+            InitAnimator();
             InitStates();
             CreateHUD();
         }
 
-        private void InitAnimatorAndEquip()
+        protected virtual void InitEquips()
         {
-            if (null == _data.equipmentDic)
-                return;
+        }
 
+        protected virtual void InitAnimator()
+        {
             int animatorID = 1;
-            foreach (var v in _data.equipmentDic)
+            foreach (var v in _equipDic)
             {
-                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
-                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
-
-                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
-
                 if (1 == animatorID)
                 {
-                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", equipConfig.Type);
+                    var equipTypeConfig = v.Value.GetTypeConfig();
                     animatorID = equipTypeConfig.Animator;
                 }
-                var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
-                weapon.transform.SetParent(spinePoint, false);
-                weapon.transform.localEulerAngles = equipConfig.Rotation;
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
             _gameObject.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
-
         }
 
         private void InitStates()
@@ -249,9 +241,14 @@ namespace WarGame
             EnterState("Move");
         }
 
-        public virtual void Attack()
+        public virtual void Attack(Vector3 targetPos)
         {
             EnterState("Attack");
+
+            foreach (var e in _equipDic)
+            {
+                e.Value.Attack(targetPos);
+            }
         }
 
         public virtual void Attacked(float attackPower)
@@ -379,26 +376,6 @@ namespace WarGame
                 _pathIndex = 0;
                 MoveEnd();
             }
-        }
-
-        public void SetLayer(int layer)
-        {
-            SetLayerRecursion(_gameObject.transform, layer);
-        }
-
-        public void RecoverLayer()
-        {
-            SetLayerRecursion(_gameObject.transform, _layer);
-        }
-
-        private void SetLayerRecursion(Transform tran, int layer)
-        {
-            var childCount = tran.childCount;
-            for (int i = 0; i < childCount; i++)
-            {
-                SetLayerRecursion(tran.GetChild(i), layer);
-            }
-            tran.gameObject.layer = layer;
         }
 
         public float GetAttackPower()
@@ -587,18 +564,17 @@ namespace WarGame
             ExcuteBuffs();
         }
 
-        public void ChangeToArenaSpace(Vector3 pos)
-        {
-            DebugManager.Instance.Log(pos);
-            _gameObject.transform.position = pos;
-        }
-
-        public void ChangeToMapSpace()
+        public override void ChangeToMapSpace()
         {
             var hexagon = MapManager.Instance.GetHexagon(hexagonID);
             var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
             _gameObject.transform.position = pos;
-            _gameObject.transform.rotation = _rotation;
+        }
+
+        public void SetHPVisible(bool visible)
+        {
+            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            hud.SetVisible(visible);
         }
 
         public virtual void Dispose()
@@ -613,6 +589,12 @@ namespace WarGame
                 HUDManager.Instance.RemoveHUD(_numberHUDList[i]);
             }
             _numberHUDList.Clear();
+
+            foreach (var e in _equipDic)
+            {
+                e.Value.Dispose();
+            }
+            _equipDic.Clear();
 
             GameObject.Destroy(_gameObject);
             _gameObject = null;

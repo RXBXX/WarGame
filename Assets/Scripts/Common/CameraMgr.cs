@@ -111,6 +111,16 @@ namespace WarGame
             _tweener = MainCamera.transform.DOShakePosition(0.5f, 0.1f);
         }
 
+        public Vector3 GetMainCamPosition()
+        {
+            return MainCamera.transform.position;
+        }
+
+        public Vector3 GetMainCamForward()
+        {
+            return MainCamera.transform.forward;
+        }
+
         public override bool Dispose()
         {
             base.Dispose();

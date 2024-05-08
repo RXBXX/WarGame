@@ -131,6 +131,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\DisplayObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGraph.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Gesture\GestureMain.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogPanel.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLUtils.cs" />
     <Compile Include="Assets\Scripts\Map\HexagonBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
+    <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NGraphics.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDNumber.cs" />
+    <Compile Include="Assets\Scripts\UI\Dialog\DialogBox.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Margin.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearColor.cs" />
@@ -236,6 +239,7 @@
     <Compile Include="Assets\Scripts\Common\InputManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\VirtualList\VirtualListMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\BundleUsage\BundleUsageMain.cs" />
+    <Compile Include="Assets\Scripts\Common\DialogMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Transition.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
@@ -277,6 +281,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLabel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\ModalWaitingMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Perspetive\PerspectiveMain.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window1.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenPropType.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
@@ -321,11 +326,12 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
-    <Compile Include="Assets\Scripts\Common\DialogMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\Dialog\DialogPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\Dialog\DialogBox.cs" />
-    <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
+    <Compile Include="Assets\Scripts\Weapon\EquipFactory.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Arrow.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Wand.cs" />
+    <Compile Include="Assets\Scripts\Common\MapObject.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />

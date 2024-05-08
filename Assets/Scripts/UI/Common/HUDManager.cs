@@ -72,6 +72,26 @@ namespace WarGame.UI
             }
         }
 
+        //public void HideAllHUD()
+        //{
+        //    for (int i = _hudList.Count - 1; i >= 0; i--)
+        //    {
+        //        if (i > _hudList.Count)
+        //            continue;
+        //        _hudList[i].SetVisible(false);
+        //    }
+        //}
+
+        //public void ShowAllHUD()
+        //{
+        //    for (int i = _hudList.Count - 1; i >= 0; i--)
+        //    {
+        //        if (i > _hudList.Count)
+        //            continue;
+        //        _hudList[i].SetVisible(true);
+        //    }
+        //}
+
         public override bool Dispose()
         {
             base.Dispose();

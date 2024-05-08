@@ -11,5 +11,10 @@ namespace WarGame
         {
             return AssetDatabase.LoadAssetAtPath<T>(path);
         }
+
+        public void Destroy(GameObject go)
+        {
+            GameObject.Destroy(go);
+        }
     }
 }

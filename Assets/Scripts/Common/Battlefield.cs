@@ -14,8 +14,9 @@ namespace WarGame
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
         private string _touchingHexagon = null;
-        private Transform _battleArena;
         private bool _skipBattleShow = false;
+        private IEnumerator _coroutine;
+        private List<MapObject> _arenaObjects = new List<MapObject>();
 
         public BattleField(string mapDir)
         {
@@ -46,8 +47,6 @@ namespace WarGame
             RoleManager.Instance.CreateEnemy(new RoleData(12, 10004, 1, null, null), bornPoint2);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
-            _battleArena = GameObject.Find("Arena").transform;
-            _battleArena.gameObject.SetActive(false);
         }
 
         public void Dispose()
@@ -404,7 +403,8 @@ namespace WarGame
         {
             if (_targetID <= 0)
             {
-                OnFinishAction();
+                _coroutine = OnFinishAction();
+                CoroutineMgr.Instance.StartCoroutine(_coroutine);
             }
         }
 
@@ -419,7 +419,8 @@ namespace WarGame
             if (target.IsDead())
                 return;
 
-            OnFinishAction();
+            _coroutine = OnFinishAction();
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
         private void OnDeadEnd(object[] args)
@@ -428,11 +429,13 @@ namespace WarGame
             if (targetID != _targetID)
                 return;
 
-            OnFinishAction(true);
+            _coroutine = OnFinishAction();
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        private void OnFinishAction(bool isKill = false)
+        private IEnumerator OnFinishAction(bool isKill = false)
         {
+            yield return new WaitForSeconds(1.0f);
             if (0 != _targetID && !_skipBattleShow)
             {
                 CloseBattleArena();
@@ -454,14 +457,16 @@ namespace WarGame
             if (heros.Count <= 0)
             {
                 UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false });
-                return;
+                CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                yield return null;
             }
 
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             if (enemys.Count <= 0)
             {
                 UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
-                return;
+                CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                yield return null;
             }
 
             if (isHeroTurn)
@@ -470,7 +475,10 @@ namespace WarGame
                 for (int i = heros.Count - 1; i >= 0; i--)
                 {
                     if (heros[i].GetState() != Enum.RoleState.Over)
-                        return;
+                    {
+                        CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                        yield return null;
+                    }
                 }
             }
 
@@ -501,7 +509,8 @@ namespace WarGame
                     if (enemys[i].GetState() == Enum.RoleState.Locked)
                     {
                         enemys[i].SetState(Enum.RoleState.Waiting);
-                        return;
+                        CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                        yield return null;
                     }
                 }
 
@@ -512,16 +521,6 @@ namespace WarGame
                     {
                         roles[i].UpdateRound();
                     }
-                    //for (int i = heros.Count - 1; i >= 0; i--)
-                    //{
-                    //    heros[i].UpdateRound();
-                    //    heros[i].SetState(Enum.RoleState.Waiting);
-                    //}
-                    //for (int i = enemys.Count - 1; i >= 0; i--)
-                    //{
-                    //    enemys[i].UpdateRound();
-                    //    enemys[i].SetState(Enum.RoleState.Locked);
-                    //}
                     isHeroTurn = true;
                 };
                 _roundIndex += 1;
@@ -536,11 +535,6 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            if (!_skipBattleShow)
-            {
-                OpenBattleArena(initiator, target);
-            }
-
             CoroutineMgr.Instance.StartCoroutine(PlayAttack(initiator, target));
         }
 
@@ -554,8 +548,13 @@ namespace WarGame
             targetForward.y = 0;
             target.SetForward(targetForward);
 
+            if (!_skipBattleShow)
+            {
+                yield return OpenBattleArena(initiator, target);
+            }
+
             yield return new WaitForSeconds(1.0f);
-            initiator.Attack();
+            initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
         }
 
         public void OnAIAttack(object[] args)
@@ -633,6 +632,9 @@ namespace WarGame
                 {
                     roles[i].SetColliderEnable(false);
                 }
+
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(false);
             }
             hero.SetState(Enum.RoleState.WatingTarget);
 
@@ -646,39 +648,66 @@ namespace WarGame
             {
                 roles[i].RecoverLayer();
                 roles[i].SetColliderEnable(true);
+
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(true);
             }
 
             CameraMgr.Instance.CloseGray();
         }
 
-        private void OpenBattleArena(Role initiator, Role target)
+        private IEnumerator OpenBattleArena(Role initiator, Role target)
         {
-            _battleArena.gameObject.SetActive(true);
-            _battleArena.position = CameraMgr.Instance.MainCamera.transform.position + CameraMgr.Instance.MainCamera.transform.forward * 5;
-            var forward = CameraMgr.Instance.MainCamera.transform.forward;
-            forward.y = 0;
-            _battleArena.transform.forward = forward;
-            var initiatorPos = _battleArena.transform.Find("Initiator").position;
-            var targetPos = _battleArena.transform.Find("Target").position;
-
-            initiator.ChangeToArenaSpace(initiatorPos);
-            target.ChangeToArenaSpace(targetPos);
-
-            initiator.SetLayer(8);
-            target.SetLayer(8);
-
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(false);
+            }
             CameraMgr.Instance.OpenGray();
+
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
+            var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
+            var deltaVec = arenaCenter - pathCenter;
+            var path = MapManager.Instance.FindingPathForStr(initiator.hexagonID, target.hexagonID, Enum.RoleType.Hero, false);
+
+            var moveDuration = 0.2F;
+            for (int i = 0; i < path.Count; i++)
+            {
+                if (0 == i)
+                {
+                    initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
+                    initiator.SetLayer(8);
+                    _arenaObjects.Add(initiator);
+                }
+                else if (path.Count - 1 == i)
+                {
+                    target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+                    target.SetLayer(8);
+                    _arenaObjects.Add(target);
+                }
+                var hexagon = MapManager.Instance.GetHexagon(path[i]);
+                hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+                hexagon.SetLayer(8);
+                _arenaObjects.Add(hexagon);
+                yield return new WaitForSeconds(moveDuration);
+            }
         }
 
         private void CloseBattleArena()
         {
-            _battleArena.gameObject.SetActive(false);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var target = RoleManager.Instance.GetRole(_targetID);
-            initiator.ChangeToMapSpace();
-            target.ChangeToMapSpace();
-            initiator.RecoverLayer();
-            target.RecoverLayer();
+            foreach (var v in _arenaObjects)
+            {
+                v.ChangeToMapSpace();
+                v.RecoverLayer();
+            }
+
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(true);
+            }
 
             CameraMgr.Instance.CloseGray();
         }
