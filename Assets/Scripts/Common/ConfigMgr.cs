@@ -5,6 +5,8 @@ using System;
 
 namespace WarGame
 {
+    public delegate void WGConfigCallback(Config config);
+
     public class ConfigMgr : Singeton<ConfigMgr>
     {
         private Dictionary<string, Dictionary<int, Config>> _configDic = new Dictionary<string, Dictionary<int, Config>>();
@@ -32,6 +34,18 @@ namespace WarGame
                 return (T)_configDic[name][id];
 
             return default(T);
+        }
+
+        public void ForeachConfig<T>(string name, WGConfigCallback callback) where T:Config
+        {
+            if (!_configDic.ContainsKey(name))
+            {
+                InitConfig<T>(name);
+            }
+            foreach (var v in _configDic[name])
+            {
+                callback(v.Value);
+            }
         }
 
         public override bool Dispose()

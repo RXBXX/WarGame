@@ -8,66 +8,46 @@ using System.Text.RegularExpressions;
 
 namespace WarGame.UI
 {
+    public struct MapLevelPair
+    {
+        public int configId;
+        public bool open;
+
+        public MapLevelPair(int configId, bool pass)
+        {
+            this.configId = configId;
+            this.open = pass;
+        }
+    }
+
     public class MapPanel : UIBase
     {
-        private struct Pair
-        {
-            public string key;
-            public string value;
-
-            public Pair(string key, string value)
-            {
-                this.key = key;
-                this.value = value;
-            }
-        }
-
-        private List<Pair> _maps = new List<Pair>();
         private MapScroll _map;
         private Vector2 _lastMousePos;
 
         public MapPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            string dir = Application.dataPath + "/Maps";
-
-            var files = Directory.GetFiles(dir);
-            for (int i = 0; i < files.Length; i++)
-            {
-                if (files[i].Contains(".json") && !files[i].Contains(".json.meta"))
-                {
-                    var path = files[i].Replace('\\', '/');
-                    var regex = new Regex(@"[^\\/]+(?=\.[^\.\\/]+$)");
-                    var m = regex.Match(path);
-                    if (m.Success)
-                    {
-                        _maps.Add(new Pair(m.Value, files[i]));
-                    }
-                }
-            }
-
             ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MapBG";
 
             _gCom.GetChild("heroBtn").onClick.Add(OnClickHero);
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
 
             _map = GetChild<MapScroll>("mapScroll");
-            _map.SetIcon("UI/Background/Map");
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Map_Open_Event, OnMapOpen);
+
+            InitMap();
         }
 
-        //private void ItemRenderer(int index, GObject item)
-        //{
-        //    GComponent gCom = (GComponent)item;
-        //    gCom.GetChild("title").text = _maps[index].key;
-        //}
-
-        //private void OnClickItem(EventContext context)
-        //{
-        //    var index = _gList.GetChildIndex((GObject)context.data);
-        //    UIManager.Instance.ClosePanel(name);
-        //    SceneMgr.Instance.OpenScene(_maps[index].value);
-        //}
+        private void InitMap()
+        {
+            List<MapLevelPair> levels = new List<MapLevelPair>();
+            ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
+            {
+                levels.Add(new MapLevelPair(config.ID, DatasMgr.Instance.IsLevelOpen(config.ID)));
+            });
+            _map.Init("UI/Background/Map", levels);
+        }
 
         private void OnClickHero()
         {
@@ -97,17 +77,20 @@ namespace WarGame.UI
                 _map.Move(mousePos - _lastMousePos);
                 _lastMousePos = mousePos;
             }
+            _map.Update(deltaTime);
         }
 
         private void OnMapOpen(object[] args)
         {
-            var level = (int)args[0];
-
-            SceneMgr.Instance.OpenBattleField("E:/WarGame/Assets/Maps/Map_1.json");
+            var levelID = (int)args[0];
+            if (!DatasMgr.Instance.IsLevelOpen(levelID))
+                return;
+            SceneMgr.Instance.OpenBattleField(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map);
         }
 
         public override void Dispose(bool disposeGCom = false)
         {
+            _map.Dispose();
             base.Dispose(disposeGCom);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Map_Open_Event, OnMapOpen);
         }

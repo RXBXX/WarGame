@@ -63,19 +63,19 @@ namespace WarGame
 
         public RoleData GetRoleData(int id)
         {
-            return _dataDic[_curData].roleData[id];
+            return _dataDic[_curData].roleDataDic[id];
         }
 
         public EquipmentData GetEquipmentData(int id)
         {
-            return _dataDic[_curData].equipmentData[id];
+            return _dataDic[_curData].equipDataDic[id];
         }
 
         public int[] GetAllEquipments()
         {
-            var equipments = new int[_dataDic[_curData].equipmentData.Count];
+            var equipments = new int[_dataDic[_curData].equipDataDic.Count];
             var index = 0;
-            foreach (var v in _dataDic[_curData].equipmentData)
+            foreach (var v in _dataDic[_curData].equipDataDic)
             {
                 equipments[index] = v.Value.UID;
                 index += 1;
@@ -85,14 +85,35 @@ namespace WarGame
 
         public int[] GetAllRoles()
         {
-            var roles = new int[_dataDic[_curData].roleData.Count];
+            var roles = new int[_dataDic[_curData].roleDataDic.Count];
             var index = 0;
-            foreach (var v in _dataDic[_curData].roleData)
+            foreach (var v in _dataDic[_curData].roleDataDic)
             {
                 roles[index] = v.Value.UID;
                 index += 1;
             }
             return roles;
+        }
+
+        public bool IsLevelOpen(int levelID)
+        {
+            var gd = _dataDic[_curData];
+            if (gd.levelDataDic.ContainsKey(levelID))
+                return true;
+            var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
+            if (0 == levelConfig.LastLevel)
+                return true;
+            if (IsLevelPass(levelConfig.LastLevel))
+                return true;
+            return false;
+        }
+
+        public bool IsLevelPass(int levelID)
+        {
+            var gd = _dataDic[_curData];
+            if (!gd.levelDataDic.ContainsKey(levelID))
+                return false;
+            return gd.levelDataDic[levelID].pass;
         }
 
         public override bool Dispose()

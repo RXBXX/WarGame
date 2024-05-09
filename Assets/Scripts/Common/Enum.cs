@@ -124,6 +124,13 @@ public class Enum
         Blood = 6,//	流血
     }
 
+    //关卡类型
+    public enum LevelType
+    {
+        Main = 1,
+        Branch = 2,
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,

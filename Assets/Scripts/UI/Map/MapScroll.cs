@@ -7,8 +7,25 @@ namespace WarGame.UI
 {
     public class MapScroll : UIBase
     {
+        private int _lod = 0;
+        private List<MapMark> _levels = new List<MapMark>();
+
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+        }
+
+        public void Init(string bg, List<MapLevelPair> levels)
+        {
+            SetIcon(bg);
+            for (int i = 0; i < levels.Count; i++)
+            {
+                var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levels[i].configId);
+                var ui = UIManager.Instance.CreateUI<MapMark>("Map", "MapMark");
+                ui.Init(levels[i].configId, levels[i].open, config.Type, config.Name, config.Desc);
+                ui.SetParent(_gCom);
+                ui.SetPosition(config.UIPos);
+                _levels.Add(ui);
+            }
         }
 
         public void Zoom(Vector2 mousePos, float zoomDelta)
@@ -27,6 +44,22 @@ namespace WarGame.UI
             var pos = new Vector2(uiPosX - centerX, uiPosY - centerY);
             if (IsZoomCrossBorder(ref pos, ref scale))
                 return;
+
+            if (scale.x >= 1)
+            {
+                if (0 != _lod)
+                    OnChangeLOD(0);
+            }
+            else
+            {
+                if (1 != _lod)
+                    OnChangeLOD(1);
+            }
+
+            foreach (var v in _levels)
+            {
+                v.SetScale(Vector2.one * 1 / scale.x);
+            }
 
             _gCom.scale = scale;
             _gCom.xy = pos;
@@ -78,7 +111,7 @@ namespace WarGame.UI
             return false;
         }
 
-        public void SetIcon(string url)
+        private void SetIcon(string url)
         {
             ((GLoader)_gCom.GetChild("map")).url = url;
         }
@@ -94,14 +127,31 @@ namespace WarGame.UI
             return false;
         }
 
-        public void SetLevel(int curLevel)
+        private void OnChangeLOD(int lod)
         {
-            for (int i = 0; i <= 8; i++)
+            _lod = lod;
+            foreach (var v in _levels)
             {
-                var mark = GetChild<MapMark>("level_" + i);
-                mark.SetLevel(i);
-                mark.SetGrayed(curLevel < i);
+                v.OnChangeLOD(lod);
             }
+        }
+
+        public override void Update(float timeDelta)
+        {
+            foreach (var v in _levels)
+            {
+                v.Update(timeDelta);
+            }
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            base.Dispose(disposeGCom);
+            foreach (var v in _levels)
+            {
+                v.Dispose();
+            }
+            _levels.Clear();
         }
     }
 }

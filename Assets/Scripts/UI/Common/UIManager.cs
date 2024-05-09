@@ -165,6 +165,31 @@ namespace WarGame.UI
             return ui;
         }
 
+        public T CreateUI<T>(string packageName, string compName, object[] args = null) where T : UIBase
+        {
+            AddPackage(packageName);
+
+            var classType = typeof(T);
+            var comp = (GComponent)UIPackage.CreateObject(packageName, compName);
+            if (null == comp)
+            {
+                UnityEngine.Debug.LogError("创建失败：" + classType);
+                return null;
+            }
+
+            var ui = (T)Activator.CreateInstance(classType, new[] { comp, (object)compName, args });
+
+            var layer = GetUILayer(ui.UILayer);
+            if (null == comp)
+            {
+                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+                return null;
+            }
+
+            ui.SetParent(layer);
+            return ui;
+        }
+
         public void DestroyUI(UIBase ui, bool isPanel)
         {
             ui.RemoveParent();

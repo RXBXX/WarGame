@@ -1,0 +1,67 @@
+[
+    {
+        "ID": 10001,
+        "Name": "主线1",
+        "LastLevel": 0,
+        "BranchGroup": 10001,
+        "UIPos": {
+            "x": 2515,
+            "y": 1351
+        },
+        "BranchCount": 2,
+        "Map": "Assets/Maps/Map_2.json",
+        "Desc": "1111111111111111111"
+    },
+    {
+        "ID": 10002,
+        "Name": "主线2",
+        "LastLevel": 10001,
+        "BranchGroup": 10002,
+        "UIPos": {
+            "x": 1718,
+            "y": 332
+        },
+        "BranchCount": 2,
+        "Map": "Assets/Maps/Map_2.json",
+        "Desc": "222222222222222222"
+    },
+    {
+        "ID": 10003,
+        "Name": "主线3",
+        "LastLevel": 10002,
+        "BranchGroup": 10003,
+        "UIPos": {
+            "x": 980,
+            "y": 662
+        },
+        "BranchCount": 2,
+        "Map": "Assets/Maps/Map_2.json",
+        "Desc": "1111111111111111111"
+    },
+    {
+        "ID": 10004,
+        "Name": "主线4",
+        "LastLevel": 10003,
+        "BranchGroup": 10004,
+        "UIPos": {
+            "x": 1330,
+            "y": 1700
+        },
+        "BranchCount": 2,
+        "Map": "Assets/Maps/Map_2.json",
+        "Desc": "222222222222222222"
+    },
+    {
+        "ID": 10005,
+        "Name": "主线5",
+        "LastLevel": 10004,
+        "BranchGroup": 10005,
+        "UIPos": {
+            "x": 471,
+            "y": 2479
+        },
+        "BranchCount": 2,
+        "Map": "Assets/Maps/Map_2.json",
+        "Desc": "1111111111111111111"
+    }
+]

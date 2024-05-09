@@ -83,6 +83,11 @@ namespace WarGame.UI
             return _gCom.GetTransition(name);
         }
 
+        public void SetScale(Vector2 scale)
+        {
+            _gCom.scale = scale;
+        }
+
         /// <summary>
         /// Ïú»Ù×é¼þ
         /// </summary>

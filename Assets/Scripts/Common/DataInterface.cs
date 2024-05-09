@@ -55,13 +55,42 @@ namespace WarGame
         }
     }
 
+    /// <summary>
+    /// 关卡中角色数据
+    /// </summary>
+    [Serializable]
+    public class LevelRoleData
+    {
+        public float UID;
+        public int configId;
+        public int level;
+        public float hp;
+        public string hexagonID;
+        public Dictionary<Enum.EquipPlace, int> equipmentDic = new Dictionary<Enum.EquipPlace, int>();
+        public Dictionary<int, int> skillDic = new Dictionary<int, int>();
+        public List<Pair> _buffs = new List<Pair>();
+    }
+
+    /// <summary>
+    /// 关卡数据
+    /// </summary>
+    [Serializable]
+    public class LevelData 
+    {
+        public int configId;
+        public bool pass;
+        public List<LevelRoleData> heros = new List<LevelRoleData>();
+        public List<LevelRoleData> enemys = new List<LevelRoleData>();
+    }
+
     [Serializable]
     public class GameData
     {
         public string title;
         public float time;
-        public Dictionary<int, RoleData> roleData = new Dictionary<int, RoleData>();
-        public Dictionary<int, EquipmentData> equipmentData = new Dictionary<int, EquipmentData>();
+        public Dictionary<int, RoleData> roleDataDic = new Dictionary<int, RoleData>();
+        public Dictionary<int, EquipmentData> equipDataDic = new Dictionary<int, EquipmentData>();
+        public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
 
         public GameData(string title, float time)
         {
@@ -70,34 +99,34 @@ namespace WarGame
             var skillDic = new Dictionary<int, int>();
             skillDic.Add(10001, 1);
             skillDic.Add(10002, 1);
-            roleData.Add(1, new RoleData(1, 10001, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-            roleData.Add(2, new RoleData(2, 10002, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-
-            equipmentData.Add(1, new EquipmentData(1, 10001));
-            equipmentData.Add(2, new EquipmentData(2, 10002));
-            equipmentData.Add(3, new EquipmentData(3, 10003));
-            equipmentData.Add(4, new EquipmentData(4, 10004));
-            equipmentData.Add(5, new EquipmentData(5, 10005));
-            equipmentData.Add(6, new EquipmentData(6, 10006));
-            equipmentData.Add(7, new EquipmentData(7, 10007));
-            equipmentData.Add(8, new EquipmentData(8, 10008));
-            equipmentData.Add(9, new EquipmentData(9, 10009));
-            equipmentData.Add(10, new EquipmentData(10, 10010));
-            equipmentData.Add(11, new EquipmentData(11, 10011));
-            equipmentData.Add(12, new EquipmentData(12, 10012));
-            equipmentData.Add(13, new EquipmentData(13, 10013));
+            roleDataDic.Add(1, new RoleData(1, 10001, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
+            roleDataDic.Add(2, new RoleData(2, 10002, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
+             
+            equipDataDic.Add(1, new EquipmentData(1, 10001));
+            equipDataDic.Add(2, new EquipmentData(2, 10002));
+            equipDataDic.Add(3, new EquipmentData(3, 10003));
+            equipDataDic.Add(4, new EquipmentData(4, 10004));
+            equipDataDic.Add(5, new EquipmentData(5, 10005));
+            equipDataDic.Add(6, new EquipmentData(6, 10006));
+            equipDataDic.Add(7, new EquipmentData(7, 10007));
+            equipDataDic.Add(8, new EquipmentData(8, 10008));
+            equipDataDic.Add(9, new EquipmentData(9, 10009));
+            equipDataDic.Add(10, new EquipmentData(10, 10010));
+            equipDataDic.Add(11, new EquipmentData(11, 10011));
+            equipDataDic.Add(12, new EquipmentData(12, 10012));
+            equipDataDic.Add(13, new EquipmentData(13, 10013));
         }
 
         public GameData Clone()
         {
             var gd = new GameData(this.title, this.time);
-            foreach (var v in roleData)
+            foreach (var v in roleDataDic)
             {
-                gd.roleData.Add(v.Key, v.Value.Clone());
+                gd.roleDataDic.Add(v.Key, v.Value.Clone());
             }
-            foreach (var v in equipmentData)
+            foreach (var v in equipDataDic)
             {
-                gd.equipmentData.Add(v.Key, v.Value.Clone());
+                gd.equipDataDic.Add(v.Key, v.Value.Clone());
             }
             return gd;
         }

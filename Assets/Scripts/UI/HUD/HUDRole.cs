@@ -10,6 +10,7 @@ namespace WarGame.UI
         private GList _buffList;
         private List<Pair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
+        private float _hpChangeDuration = 0.2F;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -39,7 +40,10 @@ namespace WarGame.UI
 
         public void UpdateHP(float hp)
         {
-            _hp.value = hp;
+            if (hp == _hp.value)
+                return;
+
+            _hp.TweenValue(hp, _hpChangeDuration);
         }
 
         public void UpdateBuffs(List<Pair> buffs)

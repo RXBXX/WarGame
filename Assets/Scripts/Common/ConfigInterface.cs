@@ -159,16 +159,30 @@ namespace WarGame
         public string SpinePoint;
     }
 
+    //对话组表
     [Serializable]
     public class DialogGroupConfig : Config
     {
         public int MaxIndex;
     }
 
+    //对话表
     [Serializable]
     public class DialogConfig : Config
     {
         public string Context;
         public int Role;
+    }
+
+    //关卡表
+    [Serializable]
+    public class LevelConfig : Config 
+    {
+        public string Name;
+        public Vector2 UIPos;
+        public string Desc;
+        public int LastLevel;
+        public Enum.LevelType Type;
+        public string Map;
     }
 }

@@ -429,7 +429,7 @@ namespace WarGame
             if (targetID != _targetID)
                 return;
 
-            _coroutine = OnFinishAction();
+            _coroutine = OnFinishAction(true);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
