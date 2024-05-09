@@ -6,7 +6,7 @@ namespace WarGame
     {
         private int _target;
 
-        public Enemy(RoleData data, string bornHexagon) : base(data, bornHexagon)
+        public Enemy(LevelRoleData data) : base(data)
         {
             _gameObject.tag = Enum.Tag.Enemy.ToString();
             _type = Enum.RoleType.Enemy;

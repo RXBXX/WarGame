@@ -84,7 +84,10 @@ namespace WarGame.UI
         {
             var levelID = (int)args[0];
             if (!DatasMgr.Instance.IsLevelOpen(levelID))
+            {
+                TipsMgr.Instance.Add("关卡没有开启！");
                 return;
+            }
             SceneMgr.Instance.OpenBattleField(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map);
         }
 

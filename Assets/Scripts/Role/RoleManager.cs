@@ -26,16 +26,16 @@ namespace WarGame
             return true;
         }
 
-        public void CreateHero(RoleData data, string bornHexagon)
+        public void CreateHero(LevelRoleData data)
         {
-            var hero = new Hero(data, bornHexagon);
+            var hero = new Hero(data);
 
             _roleList.Add(hero);
         }
 
-        public void CreateEnemy(RoleData data, string bornHexagon)
+        public void CreateEnemy(LevelRoleData data)
         {
-            var enemy = new Enemy(data, bornHexagon);
+            var enemy = new Enemy(data);
 
             _roleList.Add(enemy);
         }

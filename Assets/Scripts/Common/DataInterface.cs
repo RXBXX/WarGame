@@ -61,7 +61,7 @@ namespace WarGame
     [Serializable]
     public class LevelRoleData
     {
-        public float UID;
+        public int UID;
         public int configId;
         public int level;
         public float hp;

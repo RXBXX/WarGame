@@ -2,11 +2,15 @@
 <component size="86,49" pivot="0.5,0.5" extention="Button">
   <controller name="type" pages="0,Main,1,Branch" selected="0"/>
   <displayList>
-    <text id="n0_hctw" name="title" xy="43,24" pivot="0.5,0.5" anchor="true" size="86,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#ffffff" letterSpacing="4" strokeColor="#ce4a35" strokeSize="5" text="Mark">
-      <gearColor controller="type" pages="0,1" values="#ffffff,#ce4a35|#ffffff,#5c8799"/>
+    <image id="n5_b0z0" name="n5" src="b0z0e" fileName="Images/BG_01.png" pkg="hx02grrp" xy="43,24" pivot="0.5,0.5" anchor="true" size="108,71" alpha="0.7" grayed="true" color="#000000"/>
+    <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="3,9" size="16,29" group="n4_b0z0"/>
+    <text id="n0_hctw" name="title" xy="52,24" pivot="0.5,0.5" anchor="true" size="57,34" group="n4_b0z0" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" letterSpacing="2" strokeColor="#5c8799" strokeSize="2" text="Mark">
+      <gearColor controller="type" pages="0,1" values="#e2ba2a,#5c8799|#ffffff,#5c8799"/>
     </text>
-    <text id="n1_b0z0" name="desc" xy="43,-1" pivot="0.5,1" anchor="true" size="313,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="11111111111111111111111"/>
-    <text id="n2_b0z0" name="lock" xy="42,59" pivot="0.5,0.5" anchor="true" size="73,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ce4a35" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="Locked"/>
+    <group id="n4_b0z0" name="n4" xy="3,7" size="78,34" advanced="true" layout="hz" colGap="5" excludeInvisibles="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
+    <text id="n1_b0z0" name="desc" xy="43,6" pivot="0.5,1" anchor="true" size="181,27" font="ui://hd0z4dz5omu90" fontSize="18" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="11111111111111111111111"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

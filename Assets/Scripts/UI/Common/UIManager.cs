@@ -136,7 +136,6 @@ namespace WarGame.UI
 
         public UIBase CreateUI(string packageName, string compName, object[] args = null)
         {
-            AddPackage(packageName);
 
             Type classType = Type.GetType("WarGame.UI." + compName);
             if (null == classType)
@@ -145,7 +144,7 @@ namespace WarGame.UI
                 return null;
             }
 
-            var comp = (GComponent)UIPackage.CreateObject(packageName, compName);
+            var comp = (GComponent)CreateObject(packageName, compName);
             if (null == comp)
             {
                 UnityEngine.Debug.LogError("创建失败：" + classType);
@@ -167,27 +166,30 @@ namespace WarGame.UI
 
         public T CreateUI<T>(string packageName, string compName, object[] args = null) where T : UIBase
         {
-            AddPackage(packageName);
-
-            var classType = typeof(T);
-            var comp = (GComponent)UIPackage.CreateObject(packageName, compName);
+            var comp = (GComponent)CreateObject(packageName, compName);
             if (null == comp)
             {
-                UnityEngine.Debug.LogError("创建失败：" + classType);
+                UnityEngine.Debug.LogError("创建失败：" + compName);
                 return null;
             }
 
-            var ui = (T)Activator.CreateInstance(classType, new[] { comp, (object)compName, args });
+            var ui = (T)Activator.CreateInstance(typeof(T), new[] { comp, (object)compName, args });
 
             var layer = GetUILayer(ui.UILayer);
             if (null == comp)
             {
-                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+                UnityEngine.Debug.LogError("未找到对应层级：" + compName);
                 return null;
             }
 
             ui.SetParent(layer);
             return ui;
+        }
+
+        public GObject CreateObject(string packageName, string compName)
+        {
+            AddPackage(packageName);
+            return UIPackage.CreateObject(packageName, compName);
         }
 
         public void DestroyUI(UIBase ui, bool isPanel)

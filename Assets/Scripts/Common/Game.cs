@@ -16,6 +16,7 @@ namespace WarGame
             ConfigMgr.Instance.Init();
             CoroutineMgr.Instance.Init();
             UIManager.Instance.Init();
+            TipsMgr.Instance.Init();
             DialogMgr.Instance.Init();
             SceneMgr.Instance.Init();
             HUDManager.Instance.Init();
@@ -80,6 +81,7 @@ namespace WarGame
             HUDManager.Instance.Dispose();
             RoleManager.Instance.Dispose();
             DialogMgr.Instance.Dispose();
+            TipsMgr.Instance.Dispose();
             UIManager.Instance.Dispose();
             CoroutineMgr.Instance.Dispose();
             ConfigMgr.Instance.Dispose();

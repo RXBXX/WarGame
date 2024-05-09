@@ -8,8 +8,8 @@ namespace Map
     public partial class UI_MapMark : GButton
     {
         public Controller m_type;
+        public GImage m_lock;
         public GTextField m_desc;
-        public GTextField m_lock;
         public const string URL = "ui://p7jlxbp3hctw6";
 
         public static UI_MapMark CreateInstance()
@@ -22,8 +22,8 @@ namespace Map
             base.ConstructFromXML(xml);
 
             m_type = GetControllerAt(0);
-            m_desc = (GTextField)GetChildAt(1);
-            m_lock = (GTextField)GetChildAt(2);
+            m_lock = (GImage)GetChildAt(1);
+            m_desc = (GTextField)GetChildAt(4);
         }
     }
 }

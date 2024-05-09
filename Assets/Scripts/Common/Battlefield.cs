@@ -34,17 +34,43 @@ namespace WarGame
 
             MapManager.Instance.CreateMap(mapDir);
 
-            var bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero);
-            RoleManager.Instance.CreateHero(DatasMgr.Instance.GetRoleData(1), bornPoint);
+            var levelRoleData = new LevelRoleData();
+            var roleData = DatasMgr.Instance.GetRoleData(1);
+            levelRoleData.UID = roleData.UID;
+            levelRoleData.configId = roleData.configId;
+            levelRoleData.level = roleData.level;
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero);
+            levelRoleData.equipmentDic = roleData.equipmentDic;
+            levelRoleData.skillDic = roleData.skillDic;
+            RoleManager.Instance.CreateHero(levelRoleData);
 
-            bornPoint = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
-            RoleManager.Instance.CreateHero(DatasMgr.Instance.GetRoleData(2), bornPoint);
+            levelRoleData = new LevelRoleData();
+            roleData = DatasMgr.Instance.GetRoleData(2);
+            levelRoleData.UID = roleData.UID;
+            levelRoleData.configId = roleData.configId;
+            levelRoleData.level = roleData.level;
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
+            levelRoleData.equipmentDic = roleData.equipmentDic;
+            levelRoleData.skillDic = roleData.skillDic;
+            RoleManager.Instance.CreateHero(levelRoleData);
 
-            var bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
-            RoleManager.Instance.CreateEnemy(new RoleData(11, 10003, 1, null, null), bornPoint2);
+            levelRoleData = new LevelRoleData();
+            levelRoleData.UID = 11;
+            levelRoleData.configId = 10003;
+            levelRoleData.level = 1;
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
+            RoleManager.Instance.CreateEnemy(levelRoleData);
 
-            bornPoint2 = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 4));
-            RoleManager.Instance.CreateEnemy(new RoleData(12, 10004, 1, null, null), bornPoint2);
+            levelRoleData = new LevelRoleData();
+            levelRoleData.UID = 12;
+            levelRoleData.configId = 10004;
+            levelRoleData.level = 1;
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 4));
+            RoleManager.Instance.CreateEnemy(levelRoleData);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
         }

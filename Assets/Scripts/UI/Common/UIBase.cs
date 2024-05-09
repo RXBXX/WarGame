@@ -88,6 +88,11 @@ namespace WarGame.UI
             _gCom.scale = scale;
         }
 
+        public float GetHeight()
+        {
+            return _gCom.height;
+        }
+
         /// <summary>
         /// Ïú»Ù×é¼þ
         /// </summary>

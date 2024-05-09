@@ -4,7 +4,7 @@ namespace WarGame
 {
     public class Hero:Role
     {
-        public Hero(RoleData data, string bornHexagon) : base(data, bornHexagon)
+        public Hero(LevelRoleData data) : base(data)
         {
             _gameObject.tag = Enum.Tag.Hero.ToString();
             _type = Enum.RoleType.Hero;

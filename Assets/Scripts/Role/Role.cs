@@ -8,7 +8,7 @@ namespace WarGame
     {
         protected int _id;
 
-        protected RoleData _data;
+        protected LevelRoleData _data;
 
         protected int _starConfigId = 1;
 
@@ -101,13 +101,12 @@ namespace WarGame
             get { return _rotation; }
         }
 
-        public Role(RoleData data, string hexagonID)
+        public Role(LevelRoleData data)
         {
             this._layer = 7;
-
             this._id = data.UID;
             this._data = data;
-            this.hexagonID = hexagonID;
+            this.hexagonID = data.hexagonID;
             this.hp = GetStarConfig().HP;
 
             var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
