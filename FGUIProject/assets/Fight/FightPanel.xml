@@ -16,5 +16,17 @@
     <component id="n8_ez9s" name="n8" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true">
       <relation target="" sidePair="left-left,top-top"/>
     </component>
+    <component id="n12_b0z0" name="initiatorHP" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="160,630" pivot="0,0.5" size="400,20" scale="0,1" visible="false" rotation="-90">
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <component id="n13_b0z0" name="targetHP" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="1165,630" pivot="0,0.5" anchor="true" size="400,20" scale="0,1" visible="false" rotation="-90" controller="style,1">
+      <ProgressBar value="50" max="100"/>
+    </component>
   </displayList>
+  <transition name="showHP">
+    <item time="0" type="Scale" target="n12_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>
+    <item time="0" type="Scale" target="n13_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>
+    <item time="6" type="Scale" target="n12_b0z0" value="1,1"/>
+    <item time="6" type="Scale" target="n13_b0z0" value="1,1"/>
+  </transition>
 </component>

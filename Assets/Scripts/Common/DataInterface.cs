@@ -29,6 +29,7 @@ namespace WarGame
         public int level;
         public Dictionary<Enum.EquipPlace, int> equipmentDic = new Dictionary<Enum.EquipPlace, int>();
         public Dictionary<int, int> skillDic = new Dictionary<int, int>();
+        public Dictionary<int, int> talentDic = new Dictionary<int, int>();
 
         public RoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic)
         {
@@ -37,6 +38,80 @@ namespace WarGame
             this.level = level;
             this.equipmentDic = equipmentDic;
             this.skillDic = skillDic;
+        }
+
+        public RoleConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", configId);
+        }
+
+        public RoleStarConfig GetStarConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", configId * 1000 + level);
+        }
+
+        public SkillConfig GetSkillConfig(Enum.SkillType skillType)
+        {
+            if (Enum.SkillType.Common == skillType)
+            {
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill);
+            }
+            else
+            {
+                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill);
+            }
+        }
+
+        public float GetAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
+
+            //英雄属性
+            var attrs = GetStarConfig().Attrs;
+            foreach (var v in attrs)
+            {
+                if ((Enum.AttrType)v.id == attrType)
+                {
+                    value += v.value;
+                    break;
+                }
+            }
+
+            //天赋属性
+            foreach (var v in talentDic)
+            {
+                var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", v.Value);
+                foreach (var v1 in config.Attrs)
+                {
+                    if ((Enum.AttrType)v1.id == attrType)
+                    {
+                        value += v1.value;
+                    }
+                }
+            }
+
+            //装备属性
+            if (null != equipmentDic)
+            {
+                foreach (var v in equipmentDic)
+                {
+                    var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+                    if (null != equipConfig.Attrs)
+                    {
+                        foreach (var v1 in equipConfig.Attrs)
+                        {
+                            if ((Enum.AttrType)v1.id == attrType)
+                            {
+                                value += v1.value;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return value;
         }
 
         public RoleData Clone()
@@ -59,15 +134,19 @@ namespace WarGame
     /// 关卡中角色数据
     /// </summary>
     [Serializable]
-    public class LevelRoleData
+    public class LevelRoleData:RoleData
     {
-        public int UID;
-        public int configId;
-        public int level;
+        public LevelRoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic):base(UID,configId,level, equipmentDic,skillDic)
+        {
+            this.UID = UID;
+            this.configId = configId;
+            this.level = level;
+            this.equipmentDic = equipmentDic;
+            this.skillDic = skillDic;
+        }
+
         public float hp;
         public string hexagonID;
-        public Dictionary<Enum.EquipPlace, int> equipmentDic = new Dictionary<Enum.EquipPlace, int>();
-        public Dictionary<int, int> skillDic = new Dictionary<int, int>();
         public List<Pair> _buffs = new List<Pair>();
     }
 
@@ -81,6 +160,11 @@ namespace WarGame
         public bool pass;
         public List<LevelRoleData> heros = new List<LevelRoleData>();
         public List<LevelRoleData> enemys = new List<LevelRoleData>();
+
+        public LevelData(int configId)
+        {
+            this.configId = configId;
+        }
     }
 
     [Serializable]

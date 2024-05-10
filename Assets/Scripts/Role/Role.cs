@@ -250,8 +250,13 @@ namespace WarGame
             }
         }
 
-        public virtual void Attacked(float attackPower)
+        public virtual void Hit(float attackPower)
         {
+            //var prefabPath = "Assets/JMO Assets/Cartoon FX(legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab";
+            var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
+            var hitPrefab = GameObject.Instantiate(AssetMgr.Instance.LoadAsset<GameObject>(prefabPath));
+            hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
+
             EnterState("Attacked");
 
             UpdateHP(hp - attackPower + GetDefensePower());
@@ -405,24 +410,17 @@ namespace WarGame
 
         public RoleConfig GetConfig()
         {
-            return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", _data.configId);
+            return _data.GetConfig();
         }
 
         public RoleStarConfig GetStarConfig()
         {
-            return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", _data.configId * 1000 + _data.level);
+            return _data.GetStarConfig();
         }
 
         public SkillConfig GetSkillConfig(Enum.SkillType skillType)
         {
-            if (Enum.SkillType.Common == skillType)
-            {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill);
-            }
-            else
-            {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill);
-            }
+            return _data.GetSkillConfig(skillType);
         }
 
         /// <summary>
@@ -438,57 +436,16 @@ namespace WarGame
 
         private float GetAttribute(Enum.AttrType attrType)
         {
-            var value = 0.0F;
-            //英雄属性
-            var attrs = GetStarConfig().Attrs;
-            foreach (var v in attrs)
-            {
-                if ((Enum.AttrType)v.id == attrType)
-                {
-                    value += v.value;
-                    break;
-                }
-            }
-
-            //天赋属性
-            //暂未开发
-
-            //装备属性
-            if (null != _data.equipmentDic)
-            {
-                foreach (var v in _data.equipmentDic)
-                {
-                    var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
-                    if (null != equipConfig.Attrs)
-                    {
-                        foreach (var v1 in equipConfig.Attrs)
-                        {
-                            if ((Enum.AttrType)v1.id == attrType)
-                            {
-                                value += v1.value;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return value;
+            return _data.GetAttribute(attrType);
         }
 
         //添加buff
         public void AddBuffs(List<int> buffs)
         {
-            var hpDelta = 0.0F;
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
-                UpdateAttr(buffConfig.Attr);
-                if (buffConfig.Duration - 1 > 0)
-                {
-                    _buffs.Add(new Pair(buffs[i], buffConfig.Duration - 1));
-                }
+                _buffs.Add(new Pair(buffs[i], buffConfig.Duration));
             }
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
@@ -574,6 +531,11 @@ namespace WarGame
         {
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.SetVisible(visible);
+        }
+
+        public float GetHP()
+        {
+            return this.hp;
         }
 
         public virtual void Dispose()

@@ -1,27 +1,38 @@
 {
   "存档_1.372288": {
     "title": "存档_1.372288",
-    "time": 42.3361931,
+    "time": 35.2886963,
     "roleDataDic": {
       "1": {
         "UID": 1,
         "configId": 10001,
         "level": 1,
-        "equipmentDic": {},
+        "equipmentDic": {
+          "BothHand": 4
+        },
         "skillDic": {
           "10001": 1,
           "10002": 1
+        },
+        "talentDic": {
+          "1": 10001001,
+          "4": 10001004,
+          "2": 10001002,
+          "8": 10001008
         }
       },
       "2": {
         "UID": 2,
         "configId": 10002,
         "level": 1,
-        "equipmentDic": {},
+        "equipmentDic": {
+          "Right": 12
+        },
         "skillDic": {
           "10001": 1,
           "10002": 1
-        }
+        },
+        "talentDic": {}
       }
     },
     "equipDataDic": {
@@ -78,6 +89,13 @@
         "configId": 10013
       }
     },
-    "levelDataDic": {}
+    "levelDataDic": {
+      "10001": {
+        "configId": 10001,
+        "pass": true,
+        "heros": [],
+        "enemys": []
+      }
+    }
   }
 }

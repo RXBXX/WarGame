@@ -41,6 +41,7 @@ namespace WarGame
         public int CommonSkill;
         public int SpecialSkill;
         public string DialogIcon;
+        public int TalentGroup;
     }
 
     //地块表
@@ -184,5 +185,16 @@ namespace WarGame
         public int LastLevel;
         public Enum.LevelType Type;
         public string Map;
+    }
+
+    //天赋表
+    [Serializable]
+    public class TalentConfig : Config 
+    {
+        public int Group;
+        public string Name;
+        public List<Pair> Attrs;
+        public int LastTalent;
+        public int Place;
     }
 }

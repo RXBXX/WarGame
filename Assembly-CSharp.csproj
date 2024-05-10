@@ -78,8 +78,10 @@
     <Compile Include="Assets\FairyGUI\Examples\Emoji\EmojiParser.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlPageContext.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\CaptureCamera.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\Window4.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordPanel.cs" />
@@ -102,22 +104,26 @@
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\PullToRefreshMain.cs" />
     <Compile Include="Assets\Scripts\Common\Singleton.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTree.cs" />
+    <Compile Include="Assets\Resources\UI\Map\UI_MapMark.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\SelectionShape.cs" />
     <Compile Include="Assets\Scripts\Role\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Renderer\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MovieClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlElement.cs" />
     <Compile Include="Assets\Scripts\Common\Enum.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitNumbersMain.cs" />
+    <Compile Include="Assets\Scripts\UI\Tips\TipsItem.cs" />
     <Compile Include="Assets\Scripts\Common\LineMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlLink.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay2.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\IKeyboard.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearFontSize.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLIterator.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextField.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Particles\CoolComponent.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTreeNode.cs" />
@@ -134,7 +140,9 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPanel.cs" />
     <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Wand.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
+    <Compile Include="Assets\Scripts\Weapon\EquipFactory.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\EaseManager.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearLook.cs" />
@@ -146,6 +154,7 @@
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\Card.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Filter\FilterMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XML.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
@@ -154,6 +163,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeNode.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeView.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GObject.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Arrow.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIObjectFactory.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HeadBar\HeadBarMain.cs" />
@@ -170,6 +180,7 @@
     <Compile Include="Assets\FairyGUI\Examples\LoopList\LoopListMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLUtils.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\Map\HexagonBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
     <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
@@ -177,7 +188,7 @@
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\ExtensionMain.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroSkillComp.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroTalentComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextInput.cs" />
@@ -187,9 +198,10 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
-    <Compile Include="Assets\Scripts\Test\Test.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
     <Compile Include="Assets\Scripts\Role\RoleEvents.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
+    <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\Scripts\Role\State.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
@@ -200,6 +212,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Window.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HitTest\HitTestMain.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ToolSet.cs" />
     <Compile Include="Assets\Scripts\Map\Hexagon.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Transition\TransitionMain.cs" />
@@ -216,6 +229,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\ScrollPane.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLList.cs" />
+    <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPanel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ScrollPane\ScrollPaneMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MaterialManager.cs" />
@@ -223,6 +237,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NGraphics.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDNumber.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogBox.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Margin.cs" />
@@ -268,6 +283,7 @@
     <Compile Include="Assets\Scripts\Common\Battlefield.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\ScrollPaneHeader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventBridge.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlPageContext.cs" />
@@ -284,9 +300,11 @@
     <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window1.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenPropType.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GPath.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIBase.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearSize.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPTextFormat.cs" />
@@ -326,19 +344,17 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
-    <Compile Include="Assets\Scripts\Weapon\EquipFactory.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Arrow.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Wand.cs" />
-    <Compile Include="Assets\Scripts\Common\MapObject.cs" />
-    <Compile Include="Assets\Resources\UI\Map\UI_MapMark.cs" />
-    <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\Tips\TipsItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Glow.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Ubershader.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
      <None Include="Assets\FairyGUI\Examples\Resources\Role\Materials\Role-Diffuse.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
      <None Include="Assets\Shaders\LineShader.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\HowToTestHDRP_URP.txt" />
      <None Include="Assets\Shaders\ToonShader.shader" />
@@ -346,14 +362,22 @@
      <None Include="Assets\Shaders\GrayShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
      <None Include="Assets\Shaders\LineShader_V2.shader" />
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Shaders\WhetherShader.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
      <None Include="Assets\Shaders\ToonShaderAdv.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
+     <None Include="Assets\Shaders\ParticleShader.shader" />
      <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Distortion.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity 2020.3.0f1\2020.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -939,9 +963,6 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -956,6 +977,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -977,6 +1001,30 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{1780EB8E-C545-FEAB-FE27-988211B8357E}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="ToonyColorsPro.Demo.Editor.csproj">
+      <Project>{68B850CD-70B2-A7E4-EF6A-085D8BF08AF2}</Project>
+      <Name>ToonyColorsPro.Demo.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.csproj">
+      <Project>{19DBDB4E-4ADB-833D-F70F-67513AA6AD6A}</Project>
+      <Name>KinoBloom.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXREditor.csproj">
+      <Project>{EE1A9B2E-02D0-48C8-7476-177AA8F2BB3B}</Project>
+      <Name>CFXREditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXR.WelcomeScreen.csproj">
+      <Project>{A269DB35-CBE1-008B-0D65-585260F6C65F}</Project>
+      <Name>CFXR.WelcomeScreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRDemo.csproj">
+      <Project>{B6254C6A-5F24-64A7-732A-94A975D50596}</Project>
+      <Name>CFXRDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRRuntime.csproj">
+      <Project>{D8A1C1EB-AD95-3BB1-67D6-99DE432ABCF6}</Project>
+      <Name>CFXRRuntime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

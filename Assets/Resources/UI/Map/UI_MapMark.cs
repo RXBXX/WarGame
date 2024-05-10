@@ -22,8 +22,8 @@ namespace Map
             base.ConstructFromXML(xml);
 
             m_type = GetControllerAt(0);
-            m_lock = (GImage)GetChildAt(1);
-            m_desc = (GTextField)GetChildAt(4);
+            m_lock = (GImage)GetChildAt(2);
+            m_desc = (GTextField)GetChildAt(5);
         }
     }
 }

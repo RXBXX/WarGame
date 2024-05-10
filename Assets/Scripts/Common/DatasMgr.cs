@@ -116,6 +116,53 @@ namespace WarGame
             return gd.levelDataDic[levelID].pass;
         }
 
+        /// <summary>
+        /// 卸掉装备
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="place"></param>
+        public void UnwearEquip(int roleUID, Enum.EquipPlace place)
+        {
+            var roleData = GetRoleData(roleUID);
+            roleData.equipmentDic.Remove(place);
+        }
+
+        /// <summary>
+        /// 穿戴装备
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="equipUID"></param>
+        public void WearEquip(int roleUID, Enum.EquipPlace place, int equipUID)
+        {
+            var roleData = GetRoleData(roleUID);
+            roleData.equipmentDic.Add(place, equipUID);
+        }
+
+
+        public void ActiveTalent(int roleUID, int talentID)
+        {
+            var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
+            var roleData = GetRoleData(roleUID);
+            if (null == roleData.talentDic)
+                roleData.talentDic = new Dictionary<int, int>();
+            roleData.talentDic.Add(config.Place, talentID);
+        }
+
+        public void StartLevel(int levelID)
+        {
+            var gd = _dataDic[_curData];
+            if (!gd.levelDataDic.ContainsKey(levelID))
+            {
+                gd.levelDataDic[levelID] = new LevelData(levelID);
+            }
+        }
+
+        public void CompleteLevel(int levelID)
+        {
+            var gd = _dataDic[_curData];
+            gd.levelDataDic[levelID].pass = true;
+        }
+
         public override bool Dispose()
         {
             SaveGameData();

@@ -20,7 +20,7 @@ namespace WarGame.UI
         private bool _draging = false;
         private HeroProComp _proComp;
         private HeroEquipComp _equipComp;
-        private HeroSkillComp _skillComp;
+        private HeroTalentComp _talentComp;
         private Controller _stateC;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
@@ -42,16 +42,22 @@ namespace WarGame.UI
 
             _proComp = GetChild<HeroProComp>("proComp");
             _equipComp = GetChild<HeroEquipComp>("equipComp");
-            _skillComp = GetChild<HeroSkillComp>("skillComp");
+            _talentComp = GetChild<HeroTalentComp>("talentComp");
 
             var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleData.configId);
-            _proComp.UpdateComp(roleConfig.Name, "");
-            _equipComp.UpdateComp(roleConfig.Job);
+            string attrDesc = "";
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config)=> {
+                attrDesc += ((AttrConfig)config).Name + ": +" + roleData.GetAttribute((Enum.AttrType)config.ID) + "\n";
+            });
+            _proComp.UpdateComp(roleConfig.Name, attrDesc);
+            _equipComp.UpdateComp(roleConfig.Job, roleData.equipmentDic);
+            _talentComp.UpdateComp(roleConfig.TalentGroup, roleData.talentDic);
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Talent_Active, OnActiveEquip);
         }
 
         public override void Update(float deltaTime)
@@ -81,7 +87,7 @@ namespace WarGame.UI
             var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleData.configId);
             _proComp.UpdateComp(roleConfig.Name, "");
-            _equipComp.UpdateComp(roleConfig.Job);
+            _equipComp.UpdateComp(roleConfig.Job, roleData.equipmentDic);
         }
 
         private void OnTouchBegin(EventContext context)
@@ -131,10 +137,13 @@ namespace WarGame.UI
                 _heroRoot = SceneMgr.Instance.GetHeroRoot();
                 hero.transform.SetParent(_heroRoot);
                 hero.transform.localPosition = Vector3.zero;
-                //hero.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>("Assets/Animators/NoWeaponController.controller");
                 _rolesGO.Add(uid, hero);
             }
-            _rolesGO[uid].SetActive(true);
+            else
+            {
+                hero = _rolesGO[uid];
+                hero.SetActive(true);
+            }
 
             int animatorID = 1;
             foreach (var v in roleData.equipmentDic)
@@ -183,7 +192,7 @@ namespace WarGame.UI
             //检查同部位有没有佩戴武器
             if (roleData.equipmentDic.ContainsKey(equipTypeConfig.Place))
             {
-                roleData.equipmentDic.Remove(equipTypeConfig.Place);
+                DatasMgr.Instance.UnwearEquip(roleUID, equipTypeConfig.Place);
                 equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)equipTypeConfig.Place);
                 spinePoint = _rolesGO[roleUID].transform.Find(equipPlaceConfig.SpinePoint);
                 GameObject.Destroy(spinePoint.GetChild(0).gameObject);
@@ -214,13 +223,13 @@ namespace WarGame.UI
 
             for (int i = removePlace.Count - 1; i >= 0; i--)
             {
-                roleData.equipmentDic.Remove(removePlace[i]);
+                DatasMgr.Instance.UnwearEquip(roleUID, removePlace[i]);
                 equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)removePlace[i]);
                 spinePoint = _rolesGO[roleUID].transform.Find(equipPlaceConfig.SpinePoint);
                 GameObject.Destroy(spinePoint.GetChild(0).gameObject);
             }
 
-            roleData.equipmentDic.Add(equipTypeConfig.Place, equipUID);
+            DatasMgr.Instance.WearEquip(roleUID, equipTypeConfig.Place, equipUID);
             equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)equipTypeConfig.Place);
             spinePoint = _rolesGO[roleUID].transform.Find(equipPlaceConfig.SpinePoint);
             var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
@@ -230,6 +239,13 @@ namespace WarGame.UI
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", equipTypeConfig.Animator);
             var animator = _rolesGO[roleUID].GetComponent<Animator>();
             animator.runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
+        }
+
+        private void OnActiveEquip(params object[] args)
+        {
+            DebugManager.Instance.Log("ActivieTalent");
+            var talentId = (int)args[0];
+            DatasMgr.Instance.ActiveTalent(_roles[_roleIndex], talentId);
         }
 
         public override void Dispose(bool disposeGCom = false)

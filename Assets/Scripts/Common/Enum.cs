@@ -153,5 +153,9 @@ public class Enum
         Hero_Open_Skill = 17,
         Hero_Wear_Equip = 18,
         Scene_Load_Progress = 19, //更新场景加载进度
+        Hero_Talent_Active = 20,
+        Fight_Show_HP = 21,
+        Fight_Close_HP = 22,
+        Fight_HP_Change = 23,
     }
 }

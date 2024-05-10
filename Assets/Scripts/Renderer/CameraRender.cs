@@ -5,6 +5,12 @@ using UnityEngine;
 public class CameraRender : MonoBehaviour
 {
     public Material mat;
+
+    public void Start()
+    {
+
+    }
+
     public void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         Graphics.Blit(source, destination, mat);

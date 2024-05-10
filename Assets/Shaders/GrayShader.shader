@@ -4,6 +4,7 @@ Shader "Custom/GrayShader"
 	{
 		_MainTex("Texture", 2D) = "white" {}
 	    _StartTime("StartTime", float) = 0.0
+		_ExclusionMap("Exclusion Map", 2D) = "white" {}
 		_ExclusionMapDepth("Exclusion Map Depth", 2D) = "white" {}
 		_Brightness("Brightness", Range(0.1, 2)) = 0.5
 		_Speed("Speed", float) = 5
@@ -35,6 +36,7 @@ Shader "Custom/GrayShader"
 
 				sampler2D _MainTex;
 				float4 _MainTex_ST;
+				sampler2D _ExclusionMap;
 				sampler2D _ExclusionMapDepth;
 				float _Brightness;
 				float _StartTime;
@@ -77,14 +79,16 @@ Shader "Custom/GrayShader"
 					depth = 1.0f - depth;
 					exclusionDepthValue = 1.0f - exclusionDepthValue;
 #endif
+					fixed4 grayCol = dot(col.rgb, float3(0.299, 0.587, 0.114)) * _Brightness;
 					//这里的0.0001F是因为深度值有精度误差
 					if (exclusionDepthValue < 1 - 0.0001F && exclusionDepthValue - 0.0001F <= depth)
 					{
-						return col;
+						fixed4 exCol = tex2D(_ExclusionMap, i.uv);
+						return exCol * exCol.a + grayCol * (1-exCol.a);
 					}
 					else
 					{
-						return dot(col.rgb, float3(0.299, 0.587, 0.114)) * _Brightness;
+						return grayCol;
 					}
 				}
 			}

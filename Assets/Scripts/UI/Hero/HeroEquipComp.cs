@@ -42,7 +42,7 @@ namespace WarGame.UI
             _gCom.GetChild("wearBtn").onClick.Add(OnWearEquip);
         }
 
-        public void UpdateComp(int job)
+        public void UpdateComp(int job, Dictionary<Enum.EquipPlace, int> wearedEquip)
         {
             _job = job;
 

@@ -9,6 +9,7 @@ namespace WarGame
 
     public class BattleField
     {
+        private int _levelID;
         private int _initiatorID = 0, _targetID = 0; //当前选中的英雄
         private List<string> _path; //英雄移动的路径
         private int _roundIndex = 0;
@@ -18,8 +19,13 @@ namespace WarGame
         private IEnumerator _coroutine;
         private List<MapObject> _arenaObjects = new List<MapObject>();
 
-        public BattleField(string mapDir)
+        public BattleField(int levelID)
         {
+            _levelID = levelID;
+
+            DatasMgr.Instance.StartLevel(levelID);
+
+            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Attack_Event, OnAttack);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
@@ -34,42 +40,26 @@ namespace WarGame
 
             MapManager.Instance.CreateMap(mapDir);
 
-            var levelRoleData = new LevelRoleData();
             var roleData = DatasMgr.Instance.GetRoleData(1);
-            levelRoleData.UID = roleData.UID;
-            levelRoleData.configId = roleData.configId;
-            levelRoleData.level = roleData.level;
+            var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero);
-            levelRoleData.equipmentDic = roleData.equipmentDic;
-            levelRoleData.skillDic = roleData.skillDic;
             RoleManager.Instance.CreateHero(levelRoleData);
 
-            levelRoleData = new LevelRoleData();
             roleData = DatasMgr.Instance.GetRoleData(2);
-            levelRoleData.UID = roleData.UID;
-            levelRoleData.configId = roleData.configId;
-            levelRoleData.level = roleData.level;
+            levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
-            levelRoleData.equipmentDic = roleData.equipmentDic;
-            levelRoleData.skillDic = roleData.skillDic;
             RoleManager.Instance.CreateHero(levelRoleData);
 
-            levelRoleData = new LevelRoleData();
-            levelRoleData.UID = 11;
-            levelRoleData.configId = 10003;
-            levelRoleData.level = 1;
+            levelRoleData = new LevelRoleData(11, 10003, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
             RoleManager.Instance.CreateEnemy(levelRoleData);
 
-            levelRoleData = new LevelRoleData();
-            levelRoleData.UID = 12;
-            levelRoleData.configId = 10004;
-            levelRoleData.level = 1;
+            levelRoleData = new LevelRoleData(12, 10004, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
-            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 4));
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 5));
             RoleManager.Instance.CreateEnemy(levelRoleData);
 
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
@@ -461,7 +451,7 @@ namespace WarGame
 
         private IEnumerator OnFinishAction(bool isKill = false)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.5f);
             if (0 != _targetID && !_skipBattleShow)
             {
                 CloseBattleArena();
@@ -490,6 +480,7 @@ namespace WarGame
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             if (enemys.Count <= 0)
             {
+                DatasMgr.Instance.CompleteLevel(_levelID);
                 UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
                 CoroutineMgr.Instance.StopCoroutine(_coroutine);
                 yield return null;
@@ -626,9 +617,8 @@ namespace WarGame
                 {
                     case Enum.AttrType.Attack:
                         var attackPower = initiator.GetAttackPower();
-                        target.Attacked(attackPower);
+                        target.Hit(attackPower);
                         target.AddBuffs(initiator.GetAttackBuffs());
-
                         CameraMgr.Instance.ShakePosition();
                         break;
                     case Enum.AttrType.Cure:
@@ -636,6 +626,7 @@ namespace WarGame
                         target.Cured(curePower);
                         break;
                 }
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
         }
 
@@ -687,8 +678,7 @@ namespace WarGame
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(false);
+                roles[i].SetHPVisible(false);
             }
             CameraMgr.Instance.OpenGray();
 
@@ -718,21 +708,25 @@ namespace WarGame
                 _arenaObjects.Add(hexagon);
                 yield return new WaitForSeconds(moveDuration);
             }
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID});
         }
 
         private void CloseBattleArena()
         {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Close_HP);
+
             foreach (var v in _arenaObjects)
             {
                 v.ChangeToMapSpace();
                 v.RecoverLayer();
             }
+            _arenaObjects.Clear();
 
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(true);
+                roles[i].SetHPVisible(true);
             }
 
             CameraMgr.Instance.CloseGray();

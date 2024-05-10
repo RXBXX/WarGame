@@ -9,7 +9,7 @@ namespace WarGame
 {
     public class SceneMgr : Singeton<SceneMgr>
     {
-        private string _curMap = null;
+        private int _levelID;
         private BattleField _battleField = null;
         private GameObject _heroScene;
         private AsyncOperation _asyncOperation;
@@ -55,9 +55,9 @@ namespace WarGame
             _battleField.Click(obj);
         }
 
-        public void OpenBattleField(string mapDir)
+        public void OpenBattleField(int levelID)
         {
-            _curMap = mapDir;
+            _levelID = levelID;
             OpenScene("MapScene");
         }
 
@@ -69,7 +69,7 @@ namespace WarGame
             switch (scene.name)
             {
                 case "MapScene":
-                    _battleField = new BattleField(_curMap);
+                    _battleField = new BattleField(_levelID);
                     _battleField.Start();
                     break;
                 case "TransitionScene":

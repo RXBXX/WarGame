@@ -83,8 +83,10 @@ namespace WarGame
         /// </summary>
         public void OpenGray()
         {
-            var grayDepthCamera = MainCamera.transform.Find("GrayDepthCamera");
-            grayDepthCamera.gameObject.SetActive(true);
+            var depthCamera = MainCamera.transform.Find("DepthCamera");
+            depthCamera.gameObject.SetActive(true);
+            var colorCamera = MainCamera.transform.Find("ColorCamera");
+            colorCamera.gameObject.SetActive(true);
 
             MainCamera.GetComponent<CameraRender>().mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
             MainCamera.GetComponent<CameraRender>().enabled = true;
@@ -95,8 +97,10 @@ namespace WarGame
         /// </summary>
         public void CloseGray()
         {
-            var grayDepthCamera = MainCamera.transform.Find("GrayDepthCamera");
-            grayDepthCamera.gameObject.SetActive(false);
+            var depthCamera = MainCamera.transform.Find("DepthCamera");
+            depthCamera.gameObject.SetActive(false);
+            var colorCamera = MainCamera.transform.Find("ColorCamera");
+            colorCamera.gameObject.SetActive(false);
 
             MainCamera.GetComponent<CameraRender>().enabled = false;
         }
