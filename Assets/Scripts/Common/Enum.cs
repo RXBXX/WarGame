@@ -84,7 +84,7 @@ public class Enum
     }
 
     [Serializable]
-    public enum EquipmentType
+    public enum EquipType
     {
         Wand = 1, //∑®’»
         Shield = 2, //∂‹≈∆
@@ -116,12 +116,15 @@ public class Enum
     // Ù–‘¿‡–Õ
     public enum AttrType
     {
-        Attack = 1, //π•ª˜
-        Cure = 2,//	÷Œ¡∆
-        Defense = 3,//	∑¿”˘
-        Move = 4,//	“∆∂Øæ‡¿Î
-        AttackDis = 5,//	π•ª˜æ‡¿Î
-        Blood = 6,//	¡˜—™
+        HP = 1,
+        Rage = 2,
+        PhysicalAttack = 3, //π•ª˜
+        MagicAttack = 4,
+        Cure = 5,//	÷Œ¡∆
+        PhysicalDefense = 6,//	∑¿”˘
+        MagicDefense = 7,
+        MoveDis = 8,//	“∆∂Øæ‡¿Î
+        AttackDis = 9,//	π•ª˜æ‡¿Î
     }
 
     //πÿø®¿‡–Õ
@@ -131,10 +134,16 @@ public class Enum
         Branch = 2,
     }
 
+    public enum ErrorCode
+    {
+        Success = 0,
+        Error = 1,
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,
-        HUDInstruct_Attack_Event = 1,
+        HUDInstruct_Click_Skill = 1,
         HUDInstruct_Cancel_Event = 2,
         HUDInstruct_Check_Event = 3,
         HUDInstruct_Select_Event = 4,
@@ -145,10 +154,10 @@ public class Enum
         Fight_Attack_End = 9,
         Fight_Attacked_End = 10,
         Fight_Dead_End = 11,
-        Fight_Attack = 12,
+        Fight_AI_Attack = 12,
         Fight_AI_Start = 13,
         Map_Open_Event = 14,
-        Fight_Cancel = 15,
+        HUDInstruct_Cancel_Skill = 15,
         Hero_Open_Equip = 16,
         Hero_Open_Skill = 17,
         Hero_Wear_Equip = 18,
@@ -157,5 +166,6 @@ public class Enum
         Fight_Show_HP = 21,
         Fight_Close_HP = 22,
         Fight_HP_Change = 23,
+        Hero_Unwear_Equip = 24,
     }
 }

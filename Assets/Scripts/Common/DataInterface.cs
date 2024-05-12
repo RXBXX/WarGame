@@ -15,6 +15,66 @@ namespace WarGame
             this.configId = configId;
         }
 
+        public int GetConfigID()
+        {
+            return configId;
+        }
+
+        public string GetName()
+        {
+            return GetConfig().Name;
+        }
+
+        public string GetIcon()
+        {
+            return GetConfig().Icon;
+        }
+
+        public EquipmentConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", configId);
+        }
+
+        public EquipmentTypeConfig GetTypeConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)GetType());
+        }
+
+        public new Enum.EquipType GetType()
+        {
+            return (Enum.EquipType)GetConfig().Type;
+        }
+
+        public Enum.EquipType[] GetCombination()
+        {
+            return GetTypeConfig().Combination;
+        }
+
+        public Enum.EquipType GetForcedCombination()
+        {
+            return GetTypeConfig().ForcedCombination;
+        }
+
+        public List<Pair> GetAttrs()
+        {
+            return GetConfig().Attrs;
+        }
+
+        public Enum.EquipPlace GetPlace()
+        {
+            return GetTypeConfig().Place;
+        }
+
+        public EquipPlaceConfig GetPlaceConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)GetPlace());
+        }
+
+        public string GetSpinePoint()
+        {
+            return GetPlaceConfig().SpinePoint;
+        }
+
         public EquipmentData Clone()
         {
             return new EquipmentData(this.UID, this.configId);
@@ -62,7 +122,7 @@ namespace WarGame
             }
         }
 
-        public float GetAttribute(Enum.AttrType attrType)
+        public virtual float GetAttribute(Enum.AttrType attrType)
         {
             var value = 0.0F;
 
@@ -134,27 +194,104 @@ namespace WarGame
     /// 关卡中角色数据
     /// </summary>
     [Serializable]
-    public class LevelRoleData:RoleData
+    public class LevelRoleData : RoleData
     {
-        public LevelRoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic):base(UID,configId,level, equipmentDic,skillDic)
+        public float hp;
+        public string hexagonID;
+        public List<Pair> buffs = new List<Pair>();
+        public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
+
+        public LevelRoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic) : base(UID, configId, level, equipmentDic, skillDic)
         {
             this.UID = UID;
             this.configId = configId;
             this.level = level;
             this.equipmentDic = equipmentDic;
             this.skillDic = skillDic;
+
+            InitAttrs();
         }
 
-        public float hp;
-        public string hexagonID;
-        public List<Pair> _buffs = new List<Pair>();
+        /// <summary>
+        /// 初始化所有属性
+        /// </summary>
+        private void InitAttrs()
+        {
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+            {
+                var attrType = (Enum.AttrType)config.ID;
+                attrDic[attrType] = base.GetAttribute(attrType);
+            });
+        }
+
+        public override float GetAttribute(Enum.AttrType attrType)
+        {
+            var value = attrDic[attrType];
+
+            //需要找到所有临时性buff计算
+            foreach (var v in buffs)
+            {
+
+            }
+
+            return value;
+        }
+
+        //添加buff
+        public void AddBuffs(List<int> buffs)
+        {
+            for (int i = buffs.Count - 1; i >= 0; i--)
+            {
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
+                this.buffs.Add(new Pair(buffs[i], buffConfig.Duration));
+            }
+        }
+
+        public void ExcuteBuffs()
+        {
+            for (int i = buffs.Count - 1; i >= 0; i--)
+            {
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
+                var attrType = (Enum.AttrType)buffConfig.Attr.id;
+                UpdateAttr(attrType, attrDic[attrType] + buffConfig.Attr.id);
+
+                if (buffs[i].value - 1 <= 0)
+                {
+                    buffs.RemoveAt(i);
+                }
+                else
+                {
+                    buffs[i] = new Pair(buffs[i].id, buffs[i].value - 1);
+                }
+            }
+        }
+
+        public void UpdateAttr(Enum.AttrType type, float value)
+        {
+            switch (type)
+            {
+                case Enum.AttrType.HP:
+                    attrDic[Enum.AttrType.HP] = value;
+                    break;
+                case Enum.AttrType.PhysicalAttack:
+                    break;
+                case Enum.AttrType.Cure:
+                    break;
+                case Enum.AttrType.PhysicalDefense:
+                    break;
+                case Enum.AttrType.MoveDis:
+                    break;
+                case Enum.AttrType.AttackDis:
+                    break;
+            }
+        }
     }
 
     /// <summary>
     /// 关卡数据
     /// </summary>
     [Serializable]
-    public class LevelData 
+    public class LevelData
     {
         public int configId;
         public bool pass;
@@ -185,7 +322,9 @@ namespace WarGame
             skillDic.Add(10002, 1);
             roleDataDic.Add(1, new RoleData(1, 10001, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
             roleDataDic.Add(2, new RoleData(2, 10002, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-             
+            roleDataDic.Add(3, new RoleData(3, 10003, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
+            roleDataDic.Add(4, new RoleData(4, 10004, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
+
             equipDataDic.Add(1, new EquipmentData(1, 10001));
             equipDataDic.Add(2, new EquipmentData(2, 10002));
             equipDataDic.Add(3, new EquipmentData(3, 10003));
@@ -227,4 +366,37 @@ namespace WarGame
             this.time = time;
         }
     }
+
+
+    //region 协议部分 -------------------------------------------------------------------------------------------
+    public struct UnwearEquipNDPU
+    {
+        public Enum.ErrorCode ret;
+        public int roleUID;
+        public List<int> unwearEquips;
+
+        public UnwearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> unwearEquips)
+        {
+            this.ret = ret;
+            this.roleUID = roleUID;
+            this.unwearEquips = unwearEquips;
+        }
+    }
+
+    public struct WearEquipNDPU
+    {
+        public Enum.ErrorCode ret;
+        public int roleUID;
+        public List<int> wearEquips;
+        public List<int> unwearEquips;
+
+        public WearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> wearEquips, List<int> unwearEquips)
+        {
+            this.ret = ret;
+            this.roleUID = roleUID;
+            this.wearEquips = wearEquips;
+            this.unwearEquips = unwearEquips;
+        }
+    }
+    //endregion -------------------------------------------------------------------------------------------------
 }

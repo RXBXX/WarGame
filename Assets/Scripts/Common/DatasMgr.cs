@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace WarGame
 {
@@ -116,26 +117,94 @@ namespace WarGame
             return gd.levelDataDic[levelID].pass;
         }
 
+
+        /// region 协议部分----------------------------------------------------------
+
+
         /// <summary>
         /// 卸掉装备
         /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="place"></param>
-        public void UnwearEquip(int roleUID, Enum.EquipPlace place)
+        public UnwearEquipNDPU UnwearEquip(int roleUID, int equipUID)
         {
-            var roleData = GetRoleData(roleUID);
-            roleData.equipmentDic.Remove(place);
+            try
+            {
+                var unwearEquips = new List<int>();
+
+                var roleData = GetRoleData(roleUID);
+                var equipData = GetEquipmentData(equipUID);
+                roleData.equipmentDic.Remove(equipData.GetPlace());
+                unwearEquips.Add(equipUID);
+
+                var forcedCom = equipData.GetForcedCombination();
+                if (0 != forcedCom)
+                {
+                    var forcedComPlace = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)forcedCom).Place;
+                    if (roleData.equipmentDic.ContainsKey(forcedComPlace))
+                    {
+                        unwearEquips.Add(roleData.equipmentDic[forcedComPlace]);
+                        roleData.equipmentDic.Remove(forcedComPlace);
+                    }
+                }
+                return new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips);
+            }
+            catch
+            {
+                return new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null);
+            }
         }
+
 
         /// <summary>
         /// 穿戴装备
         /// </summary>
-        /// <param name="roleId"></param>
-        /// <param name="equipUID"></param>
-        public void WearEquip(int roleUID, Enum.EquipPlace place, int equipUID)
+        public WearEquipNDPU WearEquip(int roleUID, int equipUID, int forcedComEquipUID)
         {
-            var roleData = GetRoleData(roleUID);
-            roleData.equipmentDic.Add(place, equipUID);
+            try
+            {
+                var wearEquips = new List<int>();
+                var unwearEquips = new List<int>();
+
+                var roleData = GetRoleData(roleUID);
+                var equipData = GetEquipmentData(equipUID);
+
+                var combinationDic = new Dictionary<Enum.EquipType, bool>();
+                var combinations = equipData.GetCombination();
+                if (null != combinations)
+                {
+                    foreach (var v in combinations)
+                    {
+                        combinationDic[v] = true;
+                    };
+                }
+                foreach (var v in roleData.equipmentDic)
+                {
+                    var tempEquipData = GetEquipmentData(v.Value);
+                    if (!combinationDic.ContainsKey(tempEquipData.GetType()))
+                    {
+                        unwearEquips.Add(v.Value);
+                    }
+                }
+
+                foreach (var v in unwearEquips)
+                    UnwearEquip(roleUID, v);
+
+                wearEquips.Add(equipUID);
+                roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
+
+                if (0 != forcedComEquipUID)
+                {
+                    wearEquips.Add(forcedComEquipUID);
+                    var forcedComEquip = GetEquipmentData(forcedComEquipUID);
+                    roleData.equipmentDic.Add(forcedComEquip.GetPlace(), forcedComEquipUID);
+                }
+
+                return new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips, unwearEquips);
+            }
+            catch (Exception e)
+            {
+                DebugManager.Instance.Log(e);
+                return new WearEquipNDPU(Enum.ErrorCode.Error, 0, null, null);
+            }
         }
 
 
@@ -162,6 +231,8 @@ namespace WarGame
             var gd = _dataDic[_curData];
             gd.levelDataDic[levelID].pass = true;
         }
+
+        /// endregion -----------------------------------------------------------------------------------------------------
 
         public override bool Dispose()
         {

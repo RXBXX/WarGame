@@ -5,104 +5,159 @@ namespace WarGame.UI
 {
     public class HeroEquipComp : UIBase
     {
-        private struct EquipmentStruct
-        {
-            public int UID;
-            public int configId;
-            public string name;
-            public string icon;
-
-            public EquipmentStruct(int UID, int configId, string name, string icon)
-            {
-                this.UID = UID;
-                this.configId = configId;
-                this.name = name;
-                this.icon = icon;
-            }
-        }
-
-        private int _job;
-        private int _selectedIndex = 0;
-        private GList _equipmentList = null;
-        private List<int> _showEquipments = new List<int>();
         private int _selectedEquip;
-        private List<int> _showTypes = new List<int>();
-        private GList _typeList = null;
+
+        private GList _equipList = null;
+        private int[] _equipsData;
+
+        private GList _forcedEquipList;
+        private List<int> _forcedEquipData = new List<int>();
+
+        private GTextField _attrs;
+        private GButton _wearBtn;
+
+        private int _roleUID;
 
         public HeroEquipComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _typeList = (GList)_gCom.GetChild("typeList");
-            _typeList.itemRenderer = OnTypeRenderer;
-            _typeList.onClickItem.Add(OnClickType);
+            _equipList = GetUIChild<GList>("equipList");
+            _equipList.itemRenderer = OnEquipRender;
+            _equipList.onClickItem.Add(OnClickEquip);
 
-            _equipmentList = (GList)_gCom.GetChild("equipmentList");
-            _equipmentList.itemRenderer = OnEquipmentRender;
-            _equipmentList.onClickItem.Add(OnClickEquip);
+            _forcedEquipList = GetUIChild<GList>("forcedEquipList");
+            _forcedEquipList.itemRenderer = OnForcedEquipRender;
+            _forcedEquipList.onClickItem.Add(OnClickForcedEquip);
 
-            _gCom.GetChild("wearBtn").onClick.Add(OnWearEquip);
+            _wearBtn = GetUIChild<GButton>("wearBtn");
+            _wearBtn.onClick.Add(OnClickBtn);
+            _attrs = GetUIChild<GTextField>("attr");
+
+            gCom.onTouchBegin.Add(OnTouchBegin);
         }
 
-        public void UpdateComp(int job, Dictionary<Enum.EquipPlace, int> wearedEquip)
+        public void UpdateComp(int roleUID)
         {
-            _job = job;
+            _roleUID = roleUID;
 
-            var jobConfig = ConfigMgr.Instance.GetConfig<RoleJobConfig>("RoleJobConfig", _job);
-            _showTypes.AddRange(jobConfig.Equipments);
-            _typeList.numItems = _showTypes.Count;
+            _equipsData = DatasMgr.Instance.GetAllEquipments();
+            _selectedEquip = _equipsData[0];
 
-            UpdateEquipments();
+            _equipList.numItems = _equipsData.Length;
         }
 
-        private void UpdateEquipments()
+        private void OnEquipRender(int index, GObject item)
         {
-            var jobConfig = ConfigMgr.Instance.GetConfig<RoleJobConfig>("RoleJobConfig", _job);
-            var equipmentType = jobConfig.Equipments[_selectedIndex];
+            var equip = DatasMgr.Instance.GetEquipmentData(_equipsData[index]);
 
-            _showEquipments.Clear();
-            var equipments = DatasMgr.Instance.GetAllEquipments();
-            //DebugManager.Instance.Log(equipments.Length);
-            for (int i = 0; i < equipments.Length; i++)
-            {
-                var equipmentData = DatasMgr.Instance.GetEquipmentData(equipments[i]);
-                var equipmentConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipmentData.configId);
-                if (equipmentConfig.Type == equipmentType)
-                {
-                    _showEquipments.Add(equipments[i]);
-                }
-            }
-            _equipmentList.numItems = _showEquipments.Count;
+            var btn = ((GButton)item);
+            btn.title = equip.GetName();
+            btn.icon = equip.GetIcon();
+            btn.selected = _equipsData[index] == _selectedEquip;
         }
 
-        private void OnEquipmentRender(int index, GObject item)
-        {
-            var equipmentData = DatasMgr.Instance.GetEquipmentData(_showEquipments[index]);
-            var equipmentConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipmentData.configId);
-            ((GButton)item).title = equipmentConfig.Name;
-            ((GButton)item).icon = equipmentConfig.Icon;
-        }
-
-        private void OnTypeRenderer(int index, GObject item)
-        {
-            ((GButton)item).title = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", _showTypes[index]).Name;
-        }
-
-        private void OnClickType(EventContext context)
-        {
-            var index = _typeList.GetChildIndex((GObject)context.data);
-            _selectedIndex = index;
-            UpdateEquipments();
-        }
 
         private void OnClickEquip(EventContext context)
         {
-            var index = _equipmentList.GetChildIndex((GObject)context.data);
-            //DebugManager.Instance.Log(index);
-            _selectedEquip = _showEquipments[index];
+            var index = _equipList.GetChildIndex((GObject)context.data);
+            SelectEquip(_equipsData[index]);
         }
 
-        private void OnWearEquip()
+        private void OnForcedEquipRender(int index, GObject item)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
+            var equip = DatasMgr.Instance.GetEquipmentData(_forcedEquipData[index]);
+
+            var btn = ((GButton)item);
+            btn.title = equip.GetName();
+            btn.icon = equip.GetIcon();
+            btn.selected = _equipsData[index] == _selectedEquip;
+        }
+
+        private void OnClickForcedEquip(EventContext context)
+        {
+            var index = _forcedEquipList.GetChildIndex((GObject)context.data);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip, _forcedEquipData[index]});
+        }
+
+
+        private void SelectEquip(int equipUID)
+        {
+            _selectedEquip = equipUID;
+            var attrStr = "";
+            if (0 != _selectedEquip)
+            {
+                var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
+                foreach (var v in equip.GetAttrs())
+                {
+                    attrStr += ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name + ":+" + v.value + "\n";
+                }
+                _wearBtn.visible = true;
+
+                var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
+                var place = equip.GetPlace();
+                if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
+                {
+                    _wearBtn.title = "Unwear";
+                }
+                else
+                {
+                    _wearBtn.title = "Wear";
+                }
+            }
+            else
+            {
+                _wearBtn.visible = false;
+            }
+        }
+
+        private void OnClickBtn()
+        {
+            var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
+            var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
+            var place = equip.GetPlace();
+            if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
+            {
+                UnwearEquip(equip);
+            }
+            else
+            {
+                WearEquip(equip);
+            }
+        }
+
+        private void UnwearEquip(EquipmentData equip)
+        {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Unwear_Equip, new object[] { _selectedEquip });
+        }
+
+        private void WearEquip(EquipmentData equip)
+        {
+            if (0 == equip.GetForcedCombination())
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
+            }
+            else
+            {
+                _forcedEquipData.Clear();
+                for (int i = 0; i < _equipsData.Length; i++)
+                {
+                    var tempEquip = DatasMgr.Instance.GetEquipmentData(_equipsData[i]);
+                    if (equip.GetForcedCombination() == tempEquip.GetType())
+                        _forcedEquipData.Add(_equipsData[i]);
+
+                }
+                _forcedEquipList.numItems = _forcedEquipData.Count;
+                _forcedEquipList.visible = true;
+            }
+        }
+
+        private void OnTouchBegin(EventContext context)
+        {
+            var touchTarget = Stage.inst.touchTarget;
+            while (null != touchTarget && touchTarget != _forcedEquipList.displayObject)
+            {
+                touchTarget = touchTarget.parent;
+            }
+            _forcedEquipList.visible = false;
         }
     }
 }

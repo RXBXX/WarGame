@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="552,750">
   <displayList>
-    <list id="n1_omu9" name="equipmentList" xy="5,181" size="539,266" layout="flow_hz" overflow="scroll" scroll="horizontal" lineGap="12" colGap="8" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
+    <text id="n8_omu9" name="attr" xy="0,467" size="552,251" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffb500" autoSize="none" strokeColor="#000000" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
+    <list id="n19_b0z0" name="equipList" xy="0,119" size="552,321" layout="flow_hz" overflow="scroll" lineGap="12" colGap="6" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -9,17 +10,16 @@
       <item/>
       <item/>
     </list>
-    <text id="n8_omu9" name="attr" xy="0,457" size="552,251" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffb500" autoSize="none" strokeColor="#000000" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
-    <list id="n12_tsk1" name="typeList" xy="1,128" size="536,40" layout="flow_vt" overflow="scroll" scroll="horizontal" colGap="5" defaultItem="ui://ubnp7phxtsk16" autoClearItems="true">
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-    </list>
-    <component id="n13_tsk1" name="wearBtn" src="vvm61" fileName="HeroBtn.xml" xy="406,628" size="100,50">
+    <component id="n13_tsk1" name="wearBtn" src="vvm61" fileName="HeroBtn.xml" xy="406,640" size="100,50">
       <Button title="Wear"/>
     </component>
+    <list id="n21_bscs" name="forcedEquipList" xy="273,439" size="271,193" visible="false" layout="flow_hz" overflow="scroll" lineGap="12" colGap="6" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
   </displayList>
 </component>

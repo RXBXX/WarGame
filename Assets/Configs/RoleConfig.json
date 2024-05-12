@@ -8,21 +8,47 @@
         "SpecialSkill": 10002,
         "Job": 1,
         "DialogIcon": "UI/Icons/Role/10001",
-        "TalentGroup": 10001
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10001"
     },
     {
         "ID": 10002,
         "Name": "June",
         "Prefab": "Assets/Prefabs/Roles/Role_10002.prefab",
         "Type": 1,
-        "CommonSkill": 10003,
-        "SpecialSkill": 10004,
+        "CommonSkill": 10001,
+        "SpecialSkill": 10003,
         "Job": 2,
         "DialogIcon": "UI/Icons/Role/10002",
-        "TalentGroup": 10001
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10002"
     },
     {
         "ID": 10003,
+        "Name": "Peter",
+        "Prefab": "Assets/Prefabs/Roles/Role_10003.prefab",
+        "Type": 1,
+        "CommonSkill": 10001,
+        "SpecialSkill": 10002,
+        "Job": 3,
+        "DialogIcon": "UI/Icons/Role/10003",
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10003"
+    },
+    {
+        "ID": 10004,
+        "Name": "June",
+        "Prefab": "Assets/Prefabs/Roles/Role_10004.prefab",
+        "Type": 1,
+        "CommonSkill": 10001,
+        "SpecialSkill": 10002,
+        "Job": 4,
+        "DialogIcon": "UI/Icons/Role/10004",
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10004"
+    },
+    {
+        "ID": 10005,
         "Name": "Peter",
         "Prefab": "Assets/Prefabs/Roles/Role_10003.prefab",
         "Type": 2,
@@ -30,17 +56,19 @@
         "SpecialSkill": 10006,
         "Job": 3,
         "DialogIcon": "UI/Icons/Role/10003",
-        "TalentGroup": 10001
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10003"
     },
     {
-        "ID": 10004,
+        "ID": 10006,
         "Name": "June",
         "Prefab": "Assets/Prefabs/Roles/Role_10004.prefab",
         "Type": 2,
-        "CommonSkill": 10007,
-        "SpecialSkill": 10008,
+        "CommonSkill": 10005,
+        "SpecialSkill": 10006,
         "Job": 4,
         "DialogIcon": "UI/Icons/Role/10004",
-        "TalentGroup": 10001
+        "TalentGroup": 10001,
+        "Icon": "UI/Icons/Role/10004"
     }
 ]

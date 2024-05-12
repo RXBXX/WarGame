@@ -10,7 +10,6 @@ namespace WarGame.UI
 
         public HeroTalentItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            DebugManager.Instance.Log("ActivieTalent");
             _gCom.onClick.Add(OnClick);
         }
 

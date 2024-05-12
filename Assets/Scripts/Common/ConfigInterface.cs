@@ -97,7 +97,8 @@ namespace WarGame
     public class EquipmentTypeConfig : Config
     {
         public string Name;
-        public int[] Combination;
+        public Enum.EquipType ForcedCombination;
+        public Enum.EquipType[] Combination;
         public Enum.EquipPlace Place;
         public int Animator;
     }

@@ -2,6 +2,7 @@
     {
         "ID": 1,
         "Name": "法杖",
+        "ForcedCombination": 0,
         "Combination": null,
         "Place": 1,
         "Animator": 5
@@ -9,6 +10,7 @@
     {
         "ID": 2,
         "Name": "盾牌",
+        "ForcedCombination": 0,
         "Combination": [
             3,
             4,
@@ -21,6 +23,7 @@
     {
         "ID": 3,
         "Name": "剑",
+        "ForcedCombination": 0,
         "Combination": [
             2
         ],
@@ -30,6 +33,7 @@
     {
         "ID": 4,
         "Name": "刀",
+        "ForcedCombination": 0,
         "Combination": [
             2
         ],
@@ -39,6 +43,7 @@
     {
         "ID": 5,
         "Name": "弓箭-弓",
+        "ForcedCombination": 9,
         "Combination": [
             9
         ],
@@ -48,6 +53,7 @@
     {
         "ID": 6,
         "Name": "锤",
+        "ForcedCombination": 0,
         "Combination": [
             2
         ],
@@ -57,6 +63,7 @@
     {
         "ID": 7,
         "Name": "斧",
+        "ForcedCombination": 0,
         "Combination": [
             2
         ],
@@ -66,6 +73,7 @@
     {
         "ID": 8,
         "Name": "双手武器",
+        "ForcedCombination": 0,
         "Combination": null,
         "Place": 3,
         "Animator": 4
@@ -73,6 +81,7 @@
     {
         "ID": 9,
         "Name": "弓箭-剑",
+        "ForcedCombination": 5,
         "Combination": [
             5
         ],
@@ -82,6 +91,7 @@
     {
         "ID": 10,
         "Name": "长枪",
+        "ForcedCombination": 0,
         "Combination": null,
         "Place": 3,
         "Animator": 6

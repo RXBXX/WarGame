@@ -11,6 +11,7 @@ namespace WarGame
     {
         private int _levelID;
         private int _initiatorID = 0, _targetID = 0; //当前选中的英雄
+        private Enum.SkillType _skillType;
         private List<string> _path; //英雄移动的路径
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
@@ -25,20 +26,19 @@ namespace WarGame
 
             DatasMgr.Instance.StartLevel(levelID);
 
-            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Attack_Event, OnAttack);
+            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
             EventDispatcher.Instance.AddListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attack_End, OnAttackEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attack, OnAIAttack);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Attack, OnAIAttack);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Start, OnAIStart);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Cancel, OnCancelFight);
+            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
 
-            MapManager.Instance.CreateMap(mapDir);
+            MapManager.Instance.CreateMap(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map);
 
             var roleData = DatasMgr.Instance.GetRoleData(1);
             var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
@@ -50,6 +50,18 @@ namespace WarGame
             levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
+            RoleManager.Instance.CreateHero(levelRoleData);
+
+            roleData = DatasMgr.Instance.GetRoleData(3);
+            levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 1));
+            RoleManager.Instance.CreateHero(levelRoleData);
+
+            roleData = DatasMgr.Instance.GetRoleData(4);
+            levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+            levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(2, 0, 1));
             RoleManager.Instance.CreateHero(levelRoleData);
 
             levelRoleData = new LevelRoleData(11, 10003, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
@@ -73,16 +85,16 @@ namespace WarGame
             MapManager.Instance.ClearMap();
 
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Attack_Event, OnAttack);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attack_End, OnAttackEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attack, OnAIAttack);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Attack, OnAIAttack);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Start, OnAIStart);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Cancel, OnCancelFight);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
         }
 
         public void Start()
@@ -176,7 +188,7 @@ namespace WarGame
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
                 if (initiator.GetState() == Enum.RoleState.WatingTarget)
                 {
-                    var targetType = initiator.GetTargetType(Enum.SkillType.Common);
+                    var targetType = initiator.GetTargetType(_skillType);
                     if (targetType != Enum.RoleType.Hero)
                         return;
                 }
@@ -225,7 +237,7 @@ namespace WarGame
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
                 if (initiator.GetState() == Enum.RoleState.WatingTarget)
                 {
-                    var targetType = initiator.GetTargetType(Enum.SkillType.Common);
+                    var targetType = initiator.GetTargetType(_skillType);
                     if (targetType != Enum.RoleType.Enemy)
                         return;
                 }
@@ -269,7 +281,10 @@ namespace WarGame
         private void OpenInstruct(Enum.InstructType[] orders = null)
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
-            HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint);
+            HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
+            role.GetSkillConfig(Enum.SkillType.Common).Name,
+            role.GetSkillConfig(Enum.SkillType.Special).Name,
+            });
         }
 
         /// <summary>
@@ -347,7 +362,7 @@ namespace WarGame
 
             MapManager.Instance.ClearMarkedRegion();
             ExitGrayedMode();
-            Attack(_initiatorID, enemyID);
+            Attack(_initiatorID, enemyID, _skillType);
         }
 
         private void OnIdle(params object[] args)
@@ -385,14 +400,11 @@ namespace WarGame
             }
         }
 
-        private void OnAttack(params object[] args)
+        private void OnClickSkill(params object[] args)
         {
-            EnterGrayedMode();
-        }
+            _skillType = (Enum.SkillType)args[0];
 
-        public void OnCheck(params object[] args)
-        {
-            UIManager.Instance.OpenPanel("Hero", "HeroPanel");
+            EnterGrayedMode();
         }
 
         public void OnMoveEnd(params object[] args)
@@ -417,16 +429,17 @@ namespace WarGame
 
         public void OnAttackEnd(object[] args)
         {
-            if (_targetID <= 0)
-            {
-                _coroutine = OnFinishAction();
-                CoroutineMgr.Instance.StartCoroutine(_coroutine);
-            }
+            if (_targetID > 0)
+                return;
+
+            DebugManager.Instance.Log("OnAttackEnd" + _targetID);
+            _coroutine = OnFinishAction();
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
         private void OnAttackedEnd(object[] args)
         {
-            //DebugManager.Instance.Log("OnAttackedEnd:" + args[0] + "_" +_targetID);
+            DebugManager.Instance.Log("OnAttackedEnd");
             var targetID = (int)args[0];
             if (targetID != _targetID)
                 return;
@@ -435,23 +448,25 @@ namespace WarGame
             if (target.IsDead())
                 return;
 
-            _coroutine = OnFinishAction();
+            _coroutine = OnFinishAction(1.5f);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
         private void OnDeadEnd(object[] args)
         {
+            DebugManager.Instance.Log("OnDeadEnd");
             var targetID = (int)args[0];
             if (targetID != _targetID)
                 return;
 
-            _coroutine = OnFinishAction(true);
+            _coroutine = OnFinishAction(1.5F, true);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        private IEnumerator OnFinishAction(bool isKill = false)
+        private IEnumerator OnFinishAction(float waitingTime = 0f, bool isKill = false)
         {
-            yield return new WaitForSeconds(1.5f);
+            DebugManager.Instance.Log("OnFinishAction"+_targetID);
+            yield return new WaitForSeconds(waitingTime);
             if (0 != _targetID && !_skipBattleShow)
             {
                 CloseBattleArena();
@@ -545,18 +560,21 @@ namespace WarGame
             }
         }
 
-        public void Attack(int initiatorID, int targetID)
+        public void Attack(int initiatorID, int targetID, Enum.SkillType skillType)
         {
             _initiatorID = initiatorID;
             _targetID = targetID;
-            var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var target = RoleManager.Instance.GetRole(targetID);
+            _skillType = skillType;
 
-            CoroutineMgr.Instance.StartCoroutine(PlayAttack(initiator, target));
+            DebugManager.Instance.Log(_targetID);
+            CoroutineMgr.Instance.StartCoroutine(PlayAttack());
         }
 
-        private IEnumerator PlayAttack(Role initiator, Role target)
+        private IEnumerator PlayAttack()
         {
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var target = RoleManager.Instance.GetRole(_targetID);
+
             var initiatorForward = target.GetPosition() - initiator.GetPosition();
             initiatorForward.y = 0;
             initiator.SetForward(initiatorForward);
@@ -565,18 +583,33 @@ namespace WarGame
             targetForward.y = 0;
             target.SetForward(targetForward);
 
+            DebugManager.Instance.Log("11111" + _targetID);
             if (!_skipBattleShow)
             {
                 yield return OpenBattleArena(initiator, target);
             }
 
             yield return new WaitForSeconds(1.0f);
-            initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
+
+            var skillConfig = initiator.GetSkillConfig(_skillType);
+            //判断是攻击还是治疗
+            //执行攻击或治疗
+            //如果buff生效，添加buff到目标身上
+            DebugManager.Instance.Log(skillConfig.AttrType);
+            switch (skillConfig.AttrType)
+            {
+                case Enum.AttrType.PhysicalAttack:
+                    initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
+                    break;
+                case Enum.AttrType.Cure:
+                    initiator.Cure();
+                    break;
+            }
         }
 
         public void OnAIAttack(object[] args)
         {
-            Attack((int)args[0], (int)args[1]);
+            Attack((int)args[0], (int)args[1], (Enum.SkillType)args[2]);
         }
 
         private void OnAIStart(object[] args)
@@ -584,7 +617,7 @@ namespace WarGame
             _initiatorID = (int)args[0];
         }
 
-        private void OnCancelFight(object[] args)
+        private void OnCancelSkill(object[] args)
         {
             ExitGrayedMode();
 
@@ -609,14 +642,15 @@ namespace WarGame
             if ((stateName == "Attack" || stateName == "Cure") && secondStateName == "Take")
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var skillConfig = initiator.GetSkillConfig(Enum.SkillType.Common);
+                var skillConfig = initiator.GetSkillConfig(_skillType);
                 //判断是攻击还是治疗
                 //执行攻击或治疗
                 //如果buff生效，添加buff到目标身上
                 switch (skillConfig.AttrType)
                 {
-                    case Enum.AttrType.Attack:
+                    case Enum.AttrType.PhysicalAttack:
                         var attackPower = initiator.GetAttackPower();
+                        DebugManager.Instance.Log("AttackPower:"+ attackPower);
                         target.Hit(attackPower);
                         target.AddBuffs(initiator.GetAttackBuffs());
                         CameraMgr.Instance.ShakePosition();
@@ -639,7 +673,7 @@ namespace WarGame
             foreach (var v in region)
                 regionDic[v.id] = true;
 
-            var targetType = hero.GetTargetType(Enum.SkillType.Common);
+            var targetType = hero.GetTargetType(_skillType);
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
@@ -709,7 +743,8 @@ namespace WarGame
                 yield return new WaitForSeconds(moveDuration);
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID});
+            DebugManager.Instance.Log("2222"+_targetID);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
         }
 
         private void CloseBattleArena()

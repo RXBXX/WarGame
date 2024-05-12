@@ -9,13 +9,13 @@ namespace WarGame
         public Equip GetEquip(EquipmentData data)
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", data.configId);
-            switch ((Enum.EquipmentType)config.Type)
+            switch ((Enum.EquipType)config.Type)
             {
-                case Enum.EquipmentType.Wand:
+                case Enum.EquipType.Wand:
                     return new Wand(data);
-                case Enum.EquipmentType.Bow:
+                case Enum.EquipType.Bow:
                     return new Bow(data);
-                case Enum.EquipmentType.Arrow:
+                case Enum.EquipType.Arrow:
                     return new Arrow(data);
                 default:
                     return new Equip(data);

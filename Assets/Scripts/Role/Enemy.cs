@@ -66,10 +66,11 @@ namespace WarGame
         {
             base.MoveEnd();
 
+            DebugManager.Instance.Log("MoveEnd:"+_target);
             if (_target > 0)
             {
                 SetState(Enum.RoleState.Attacking);
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack, new object[] { _id, _target });
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Attack, new object[] { _id, _target, Enum.SkillType.Common});
                 _target = 0;
             }
             else
