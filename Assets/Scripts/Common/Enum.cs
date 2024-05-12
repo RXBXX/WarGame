@@ -167,5 +167,8 @@ public class Enum
         Fight_Close_HP = 22,
         Fight_HP_Change = 23,
         Hero_Unwear_Equip = 24,
+        Fight_Action_Over = 25,
+        Fight_AI_Move = 26,
+        Fight_AI_Over = 27,
     }
 }

@@ -161,6 +161,8 @@ namespace WarGame
 
         public void ClearLine()
         {
+            if (null == _mesh)
+                return;
             _mesh.Clear();
         }
 

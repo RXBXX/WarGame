@@ -108,7 +108,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\SelectionShape.cs" />
-    <Compile Include="Assets\Scripts\Role\RoleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Renderer\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
     <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
@@ -200,10 +200,10 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
-    <Compile Include="Assets\Scripts\Role\RoleEvents.cs" />
+    <Compile Include="Assets\Scripts\Battle\RoleEvents.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
-    <Compile Include="Assets\Scripts\Role\State.cs" />
+    <Compile Include="Assets\Scripts\Battle\State.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TouchScreenKeyboard.cs" />
@@ -224,7 +224,7 @@
     <Compile Include="Assets\FairyGUI\Examples\CutScene\LevelManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComboBox.cs" />
-    <Compile Include="Assets\Scripts\Role\Hero.cs" />
+    <Compile Include="Assets\Scripts\Battle\Hero.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\DragDropManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay.cs" />
@@ -260,7 +260,7 @@
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
-    <Compile Include="Assets\Scripts\Role\Role.cs" />
+    <Compile Include="Assets\Scripts\Battle\Role.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TextMeshPro\TextMeshProMain.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapMark.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GRoot.cs" />
@@ -281,7 +281,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ColliderHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RoundedRectMesh.cs" />
     <Compile Include="Assets\Scripts\Map\MapManager.cs" />
-    <Compile Include="Assets\Scripts\Common\Battlefield.cs" />
+    <Compile Include="Assets\Scripts\Battle\Battlefield.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
@@ -309,7 +309,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearSize.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPTextFormat.cs" />
-    <Compile Include="Assets\Scripts\Role\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Tools\MapTool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTween.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
@@ -340,12 +340,15 @@
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\Window3.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\TurnCardMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenValue.cs" />
-    <Compile Include="Assets\Scripts\Role\RoleManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\RoleManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquip.cs" />
+    <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
+    <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
