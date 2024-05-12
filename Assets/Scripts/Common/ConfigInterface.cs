@@ -42,6 +42,7 @@ namespace WarGame
         public int SpecialSkill;
         public string DialogIcon;
         public int TalentGroup;
+        public string Icon;
     }
 
     //µØ¿é±í
@@ -83,7 +84,7 @@ namespace WarGame
     [Serializable]
     public class EquipmentConfig : Config
     {
-        public int Type;
+        public Enum.EquipType Type;
         public string Icon;
         public string Prefab;
         public string Name;
@@ -142,7 +143,7 @@ namespace WarGame
     [Serializable]
     public class RoleJobConfig : Config
     {
-        public int[] Equipments;
+        public Enum.EquipType[] AdeptEquipTypes;
         public string Name;
         public string Icon;
     }

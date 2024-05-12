@@ -155,6 +155,16 @@ namespace WarGame.UI
         public void UpdateEquips(int uid)
         {
             var roleData = DatasMgr.Instance.GetRoleData(uid);
+            ConfigMgr.Instance.ForeachConfig<EquipPlaceConfig>("EquipPlaceConfig", (config) =>
+             {
+                 var placeConfig = (EquipPlaceConfig)config;
+                 var spinePoint = _rolesGO[uid].transform.Find(placeConfig.SpinePoint);
+                 if (spinePoint.childCount > 0)
+                 {
+                     GameObject.Destroy(spinePoint.GetChild(0).gameObject);
+                 }
+             });
+
             foreach (var v in roleData.equipmentDic)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
@@ -208,7 +218,6 @@ namespace WarGame.UI
             {
                 var unwearEquipData = DatasMgr.Instance.GetEquipmentData(v);
                 var unwearSpinePoint = _rolesGO[roleUID].transform.Find(unwearEquipData.GetPlaceConfig().SpinePoint);
-                DebugManager.Instance.Log(unwearSpinePoint.GetChild(0).name);
                 GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
             }
 

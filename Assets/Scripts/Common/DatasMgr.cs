@@ -188,11 +188,36 @@ namespace WarGame
                 foreach (var v in unwearEquips)
                     UnwearEquip(roleUID, v);
 
+                var allRoles = GetAllRoles();
+                foreach (var v in allRoles)
+                {
+                    foreach (var v1 in GetRoleData(v).equipmentDic)
+                    {
+                        if (v1.Value == equipUID)
+                        {
+                            UnwearEquip(v, equipUID);
+                            break;
+                        }
+                    }
+                }
+
                 wearEquips.Add(equipUID);
                 roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
 
                 if (0 != forcedComEquipUID)
                 {
+                    foreach (var v in allRoles)
+                    {
+                        foreach (var v1 in GetRoleData(v).equipmentDic)
+                        {
+                            if (v1.Value == forcedComEquipUID)
+                            {
+                                UnwearEquip(v, forcedComEquipUID);
+                                break;
+                            }
+                        }
+                    }
+
                     wearEquips.Add(forcedComEquipUID);
                     var forcedComEquip = GetEquipmentData(forcedComEquipUID);
                     roleData.equipmentDic.Add(forcedComEquip.GetPlace(), forcedComEquipUID);

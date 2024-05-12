@@ -189,6 +189,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\ExtensionMain.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentComp.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextInput.cs" />
@@ -344,7 +345,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroEquip.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />

@@ -1,16 +1,13 @@
 {
   "存档_1.679376": {
     "title": "存档_1.679376",
-    "time": 16.8813,
+    "time": 17.7876759,
     "roleDataDic": {
       "1": {
         "UID": 1,
         "configId": 10001,
         "level": 1,
-        "equipmentDic": {
-          "Right": 1,
-          "Left": 6
-        },
+        "equipmentDic": {},
         "skillDic": {
           "10001": 1,
           "10002": 1
@@ -21,7 +18,9 @@
         "UID": 2,
         "configId": 10002,
         "level": 1,
-        "equipmentDic": {},
+        "equipmentDic": {
+          "Right": 3
+        },
         "skillDic": {
           "10001": 1,
           "10002": 1

@@ -122,6 +122,11 @@ namespace WarGame
             }
         }
 
+        public RoleJobConfig GetJobConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<RoleJobConfig>("RoleJobConfig", GetConfig().Job);
+        }
+
         public virtual float GetAttribute(Enum.AttrType attrType)
         {
             var value = 0.0F;

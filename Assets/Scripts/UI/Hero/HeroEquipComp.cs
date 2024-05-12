@@ -5,18 +5,38 @@ namespace WarGame.UI
 {
     public class HeroEquipComp : UIBase
     {
+        private struct EquipStruct
+        {
+            public int uid;
+            public int ownerUID;
+            public bool adept;
+            public Enum.EquipType type;
+
+            public EquipStruct(int uid, Enum.EquipType type, int ownerUID, bool adept)
+            {
+                this.uid = uid;
+                this.type = type;
+                this.ownerUID = ownerUID;
+                this.adept = adept;
+            }
+        }
+
         private int _selectedEquip;
 
         private GList _equipList = null;
-        private int[] _equipsData;
+        private List<EquipStruct> _equipsData = new List<EquipStruct>();
+        private Dictionary<string, HeroEquip> _equips = new Dictionary<string, HeroEquip>();
 
         private GList _forcedEquipList;
-        private List<int> _forcedEquipData = new List<int>();
+        private List<EquipStruct> _forcedEquipsData = new List<EquipStruct>();
+        private Dictionary<string, HeroEquip> _forcedEquips = new Dictionary<string, HeroEquip>();
 
         private GTextField _attrs;
         private GButton _wearBtn;
 
         private int _roleUID;
+        private Dictionary<Enum.EquipType, bool> _adeptEquipType = new Dictionary<Enum.EquipType, bool>();
+        private Dictionary<int, int> _wearedEquipDic = new Dictionary<int, int>();
 
         public HeroEquipComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -39,43 +59,65 @@ namespace WarGame.UI
         {
             _roleUID = roleUID;
 
-            _equipsData = DatasMgr.Instance.GetAllEquipments();
-            _selectedEquip = _equipsData[0];
+            var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
+            var jobConfig = roleData.GetJobConfig();
+            foreach (var v in jobConfig.AdeptEquipTypes)
+            {
+                _adeptEquipType[v] = true;
+            }
 
-            _equipList.numItems = _equipsData.Length;
+            foreach (var v in DatasMgr.Instance.GetAllRoles())
+            {
+                var rd = DatasMgr.Instance.GetRoleData(v);
+                foreach (var v1 in rd.equipmentDic)
+                {
+                    _wearedEquipDic[v1.Value] = rd.UID;
+                }
+            }
+
+            _equipsData.Clear();
+            int ownerUID = 0;
+            bool adept = false;
+            Enum.EquipType type;
+            EquipmentData equipData;
+            foreach (var v in DatasMgr.Instance.GetAllEquipments())
+            {
+                ownerUID = _wearedEquipDic.ContainsKey(v) ? _wearedEquipDic[v] : 0;
+                equipData = DatasMgr.Instance.GetEquipmentData(v);
+                type = equipData.GetConfig().Type;
+                adept = _adeptEquipType.ContainsKey(type) ? true : false;
+                _equipsData.Add(new EquipStruct(v, type, ownerUID, adept));
+            }
+
+            _selectedEquip = _equipsData[0].uid;
+            _equipList.numItems = _equipsData.Count;
         }
 
         private void OnEquipRender(int index, GObject item)
         {
-            var equip = DatasMgr.Instance.GetEquipmentData(_equipsData[index]);
-
-            var btn = ((GButton)item);
-            btn.title = equip.GetName();
-            btn.icon = equip.GetIcon();
-            btn.selected = _equipsData[index] == _selectedEquip;
+            if (!_equips.ContainsKey(item.id))
+                _equips.Add(item.id, new HeroEquip((GComponent)item));
+            _equips[item.id].UpdateItem(_equipsData[index].uid, _equipsData[index].adept, _equipsData[index].ownerUID);
         }
 
 
         private void OnClickEquip(EventContext context)
         {
             var index = _equipList.GetChildIndex((GObject)context.data);
-            SelectEquip(_equipsData[index]);
+            SelectEquip(_equipsData[index].uid);
         }
 
         private void OnForcedEquipRender(int index, GObject item)
         {
-            var equip = DatasMgr.Instance.GetEquipmentData(_forcedEquipData[index]);
-
-            var btn = ((GButton)item);
-            btn.title = equip.GetName();
-            btn.icon = equip.GetIcon();
-            btn.selected = _equipsData[index] == _selectedEquip;
+            if (!_forcedEquips.ContainsKey(item.id))
+                _forcedEquips.Add(item.id, new HeroEquip((GComponent)item));
+            _forcedEquips[item.id].UpdateItem(_forcedEquipsData[index].uid, _forcedEquipsData[index].adept, _forcedEquipsData[index].ownerUID);
         }
 
         private void OnClickForcedEquip(EventContext context)
         {
             var index = _forcedEquipList.GetChildIndex((GObject)context.data);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip, _forcedEquipData[index]});
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip, _forcedEquipsData[index].uid });
         }
 
 
@@ -137,15 +179,22 @@ namespace WarGame.UI
             }
             else
             {
-                _forcedEquipData.Clear();
-                for (int i = 0; i < _equipsData.Length; i++)
+                _forcedEquipsData.Clear();
+                int ownerUID = 0;
+                bool adept = false;
+                Enum.EquipType type;
+                EquipmentData equipData;
+                foreach (var v in _equipsData)
                 {
-                    var tempEquip = DatasMgr.Instance.GetEquipmentData(_equipsData[i]);
-                    if (equip.GetForcedCombination() == tempEquip.GetType())
-                        _forcedEquipData.Add(_equipsData[i]);
-
+                    if (equip.GetForcedCombination() == v.type)
+                    {
+                        ownerUID = _wearedEquipDic.ContainsKey(v.uid) ? _wearedEquipDic[v.uid] : 0;
+                        adept = _adeptEquipType.ContainsKey(v.type) ? true : false;
+                        _forcedEquipsData.Add(new EquipStruct(v.uid, v.type, ownerUID, adept));
+                    }
                 }
-                _forcedEquipList.numItems = _forcedEquipData.Count;
+
+                _forcedEquipList.numItems = _forcedEquipsData.Count;
                 _forcedEquipList.visible = true;
             }
         }
