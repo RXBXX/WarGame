@@ -22,14 +22,22 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
         }
 
         public virtual void Dispose()
         {
+            if (null != _coroutine)
+            {
+                CoroutineMgr.Instance.StartCoroutine(_coroutine);
+                _coroutine = null;
+            }
+
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attack_End, OnAttackEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
         }
 
         protected IEnumerator OpenBattleArena(Role initiator, Role target)
@@ -137,17 +145,22 @@ namespace WarGame
 
         protected void OnAttackEnd(object[] args)
         {
+            if (_initiatorID <= 0)
+                return;
+
             if (_targetID > 0)
                 return;
 
-            DebugManager.Instance.Log("OnAttackEnd" + _targetID);
+            if (null != _coroutine)
+                return;
+
+            DebugManager.Instance.Log("OnAttackEnd");
             _coroutine = OnFinishAction();
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
         private void OnAttackedEnd(object[] args)
         {
-            DebugManager.Instance.Log("OnAttackedEnd");
             var targetID = (int)args[0];
             if (targetID != _targetID)
                 return;
@@ -156,15 +169,21 @@ namespace WarGame
             if (target.IsDead())
                 return;
 
+            if (null != _coroutine)
+                return;
+
+            DebugManager.Instance.Log("OnAttackedEnd");
             _coroutine = OnFinishAction(1.5f);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
         private void OnDeadEnd(object[] args)
         {
-            DebugManager.Instance.Log("OnDeadEnd");
             var targetID = (int)args[0];
             if (targetID != _targetID)
+                return;
+
+            if (null != _coroutine)
                 return;
 
             _coroutine = OnFinishAction(1.5F, true);
@@ -247,13 +266,11 @@ namespace WarGame
             }
         }
 
-        protected void Attack(int initiatorID, int targetID, Enum.SkillType skillType)
+        protected void Attack()
         {
-            _initiatorID = initiatorID;
-            _targetID = targetID;
-            _skillType = skillType;
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            initiator.SetState(Enum.RoleState.Attacking);
 
-            DebugManager.Instance.Log(_targetID);
             CoroutineMgr.Instance.StartCoroutine(PlayAttack());
         }
 
@@ -265,14 +282,30 @@ namespace WarGame
                 CloseBattleArena();
             }
 
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            initiator.SetState(Enum.RoleState.Over);
             if (isKill)
             {
                 RoleManager.Instance.RemoveRole(_targetID);
             }
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;
+            initiator.SetState(Enum.RoleState.Over);
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
+        }
+
+        protected virtual void OnMoveEnd(params object[] args)
+        { 
+        
+        }
+
+        protected virtual void StandByInitiator()
+        {
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            _initiatorID = 0;
+            _targetID = 0;
+            initiator.SetState(Enum.RoleState.Over);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }

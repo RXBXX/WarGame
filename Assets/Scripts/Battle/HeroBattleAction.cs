@@ -12,7 +12,6 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
         }
 
@@ -21,7 +20,6 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
             base.Dispose();
         }
@@ -113,7 +111,6 @@ namespace WarGame
 
                 if (initiator.GetState() == Enum.RoleState.WatingTarget)
                 {
-                    initiator.SetState(Enum.RoleState.Attacking);
                     Battle(heroID);
                 }
                 else if (_initiatorID == heroID)
@@ -160,7 +157,6 @@ namespace WarGame
                     return;
                 }
 
-                initiator.SetState(Enum.RoleState.Attacking);
                 Battle(enemyId);
             }
             else
@@ -268,19 +264,21 @@ namespace WarGame
 
             MapManager.Instance.ClearMarkedRegion();
             ExitGrayedMode();
-            Attack(_initiatorID, enemyID, _skillType);
+
+            _targetID = enemyID;
+            Attack();
         }
 
         private void OnIdle(params object[] args)
         {
+            DebugManager.Instance.Log("OnIdle");
             if (_initiatorID <= 0)
                 return;
 
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
-            var role = RoleManager.Instance.GetRole(_initiatorID);
-            role.SetState(Enum.RoleState.Over);
+            StandByInitiator();
 
             _path = null;
         }
@@ -312,7 +310,7 @@ namespace WarGame
             EnterGrayedMode();
         }
 
-         private void OnMoveEnd(params object[] args)
+         protected override void OnMoveEnd(params object[] args)
          {
             if (_initiatorID <= 0)
                 return;

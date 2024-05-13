@@ -224,6 +224,7 @@ namespace WarGame
         public virtual void MoveEnd()
         {
             EnterState("Idle");
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Role_MoveEnd_Event);
         }
 
         public virtual void Move(List<string> hexagons)

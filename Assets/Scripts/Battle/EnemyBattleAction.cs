@@ -4,39 +4,47 @@ namespace WarGame
     {
         public EnemyBattleAction()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Attack, OnAIAttack);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Start, OnAIStart);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Move, OnAIMove);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Over, OnAIOver);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Start, OnStart);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
         }
 
         public override void Dispose()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Attack, OnAIAttack);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Start, OnAIStart);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Start, OnStart);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
             base.Dispose();
         }
 
-        private void OnAIAttack(object[] args)
-        {
-            Attack((int)args[0], (int)args[1], (Enum.SkillType)args[2]);
-        }
 
-        private void OnAIStart(object[] args)
+        private void OnStart(object[] args)
         {
             _initiatorID = (int)args[0];
+            _targetID = (int)args[1];
+            _skillType = (Enum.SkillType)args[2];
         }
 
-        private void OnAIMove(object[] args)
+        public void OnMoveStart(object[] args)
         {
             var inititor = RoleManager.Instance.GetRole(_initiatorID);
             inititor.SetState(Enum.RoleState.Moving);
         }
 
-        private void OnAIOver(object[] args)
+        protected override void OnMoveEnd(params object[] args)
         {
-            var inititor = RoleManager.Instance.GetRole(_initiatorID);
-            inititor.SetState(Enum.RoleState.Over);
+            DebugManager.Instance.Log("OnMoveEnd" + _targetID);
+            if (_targetID > 0)
+            {
+                OnAIAttack();
+            }
+            else
+            {
+                StandByInitiator();
+            }
+        }
+
+        private void OnAIAttack()
+        {
+            Attack();
         }
     }
 }

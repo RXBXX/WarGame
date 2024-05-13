@@ -1,11 +1,10 @@
+using System.Collections.Generic;
 using WarGame.UI;
 
 namespace WarGame
 {
     public class Enemy : Role
     {
-        private int _target;
-
         public Enemy(LevelRoleData data) : base(data)
         {
             _gameObject.tag = Enum.Tag.Enemy.ToString();
@@ -24,55 +23,60 @@ namespace WarGame
             base.OnStateChanged();
             if (_state == Enum.RoleState.Waiting)
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id });
                 StartAI();
             }
         }
 
-        public void StartAI()
+        protected virtual void StartAI()
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            var targetID = 0;
+            List<string> path = null;
             for (int i = 0; i < heros.Count; i++)
             {
-                var path = MapManager.Instance.FindingAIPath(hexagonID, heros[i].hexagonID, GetMoveDis(), GetAttackDis());
-                if (null!= path && path.Count > 0)
+                var tempPath = MapManager.Instance.FindingAIPath(hexagonID, heros[i].hexagonID, GetMoveDis(), GetAttackDis());
+                if (null!= tempPath && tempPath.Count > 0)
                 {
-                    if (hexagonID == path[path.Count - 1])
+                    if (hexagonID == tempPath[tempPath.Count - 1])
                     {
-                        _target = heros[i].ID;
-                        MoveEnd();
-                        return;
+                        targetID = heros[i].ID;
+                        break;
                     }
-                    else if (RoleManager.Instance.GetRoleIDByHexagonID(path[path.Count - 1]) > 0)
+                    else if (RoleManager.Instance.GetRoleIDByHexagonID(tempPath[tempPath.Count - 1]) > 0)
                     {
                         //SetState(Enum.RoleState.Over);
                     }
                     else
                     {
-                        _target = heros[i].ID;
-                        EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Move, new object[] { _id });
-                        Move(path);
-                        return;
+                        path = tempPath;
+                        targetID = heros[i].ID;
+                        break;
                     }
                 }
             }
-            SetState(Enum.RoleState.Over);
-        }
 
-        public override void MoveEnd()
-        {
-            base.MoveEnd();
-            if (_target > 0)
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, Enum.SkillType.Common});
+            if (targetID <= 0)
             {
-                SetState(Enum.RoleState.Attacking);
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Attack, new object[] { _id, _target, Enum.SkillType.Common});
-                _target = 0;
+                SetState(Enum.RoleState.Over);
             }
             else
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Over, new object[] { _id });
-                Idle();
+                if (null != path)
+                {
+                    Move(path);
+                }
+                else
+                {
+                    MoveEnd();
+                }
             }
+        }
+
+        public override void Move(List<string> hexagons)
+        {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_MoveStart, new object[] { _id });
+            base.Move(hexagons);
         }
 
         public override void UpdateRound()

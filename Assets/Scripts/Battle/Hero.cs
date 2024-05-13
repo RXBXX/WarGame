@@ -17,12 +17,6 @@ namespace WarGame
             HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 0});
         }
 
-        public override void MoveEnd()
-        {
-            base.MoveEnd();
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Role_MoveEnd_Event);
-        }
-
         public override void UpdateRound()
         {
             base.UpdateRound();
