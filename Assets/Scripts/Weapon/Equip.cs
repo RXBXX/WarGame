@@ -20,6 +20,13 @@ namespace WarGame
             _gameObject = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(config.Prefab));
             _gameObject.transform.SetParent(spinePoint, false);
             _gameObject.transform.localEulerAngles = config.Rotation;
+
+            OnCreate();
+        }
+
+        public virtual void OnCreate()
+        { 
+        
         }
 
         public virtual void Attack(Vector3 targetPos)
@@ -42,6 +49,27 @@ namespace WarGame
         public Enum.EquipPlace GetPlace()
         {
             return GetTypeConfig().Place;
+        }
+
+        protected virtual void SpawnBullet()
+        { 
+        
+        }
+
+        protected virtual void DestroyBullet()
+        {
+
+        }
+
+        public virtual void HandleEvent(string firstName, string secondName)
+        {
+            if ("Bullet" == firstName)
+            {
+                if ("Take" == secondName)
+                    SpawnBullet();
+                else if ("End" == secondName)
+                    DestroyBullet();
+            }
         }
 
         public virtual void Dispose()

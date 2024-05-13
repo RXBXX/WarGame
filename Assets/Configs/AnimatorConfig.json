@@ -2,31 +2,37 @@
     {
         "ID": 1,
         "Name": "空手",
-        "Controller": "Assets/Animators/DController.controller"
+        "Controller": "Assets/Animators/DController.controller",
+        "Jump": "JumpFull_RM_NoWeapon"
     },
     {
         "ID": 2,
         "Name": "刀剑锤斧和盾",
-        "Controller": "Assets/Animators/WSController.controller"
+        "Controller": "Assets/Animators/WSController.controller",
+        "Jump": "JumpFull_Normal_RM_SwordAndShield"
     },
     {
         "ID": 3,
         "Name": "弓箭",
-        "Controller": "Assets/Animators/BAController.controller"
+        "Controller": "Assets/Animators/BAController.controller",
+        "Jump": "JumpFull_RM_BowAndArrow"
     },
     {
         "ID": 4,
         "Name": "双手武器",
-        "Controller": "Assets/Animators/BHController.controller"
+        "Controller": "Assets/Animators/BHController.controller",
+        "Jump": "JumpFull_RM_THS"
     },
     {
         "ID": 5,
         "Name": "法杖",
-        "Controller": "Assets/Animators/WController.controller"
+        "Controller": "Assets/Animators/WController.controller",
+        "Jump": "JumpFull_RM_MagicWand"
     },
     {
         "ID": 6,
         "Name": "长枪",
-        "Controller": "Assets/Animators/SController.controller"
+        "Controller": "Assets/Animators/SController.controller",
+        "Jump": "JumpFull_RM_Spear"
     }
 ]

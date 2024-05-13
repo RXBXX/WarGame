@@ -200,7 +200,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
-    <Compile Include="Assets\Scripts\Battle\RoleEvents.cs" />
+    <Compile Include="Assets\Scripts\Battle\EventBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\Scripts\Battle\State.cs" />
@@ -349,6 +349,7 @@
     <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
+    <Compile Include="Assets\Scripts\Test\CurveTest.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />

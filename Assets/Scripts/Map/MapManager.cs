@@ -99,7 +99,6 @@ namespace WarGame
         public void MarkingPath(string initiatorID, string targetID, float moveDis)
         {
             ClearMarkedPath();
-
             var cells = FindingPath(initiatorID, targetID, Enum.RoleType.Hero, true);
             if (cells.Count <= 0)
                 return;
@@ -111,18 +110,7 @@ namespace WarGame
             var points = new List<Vector3>();
             for (int i = 0; i < cells.Count; i++)
             {
-                //if (i > 0 && cells[i - 1].coor.y != cells[i].coor.y)
-                //{
-                //    var start = MapTool.Instance.GetPosFromCoor(cells[i - 1].coor) + new Vector3(0, 0.23F, 0);
-                //    var end = MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0);
-                //    points.Add(new Vector3((start.x + end.x) / 2, start.y, (start.z + end.z) / 2));
-                //    points.Add(new Vector3((start.x + end.x) / 2, end.y, (start.z + end.z) / 2));
-                //    points.Add(end);
-                //}
-                //else
-                //{
-                    points.Add(MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0));
-                //}
+                points.Add(MapTool.Instance.GetPosFromCoor(cells[i].coor) + new Vector3(0, 0.23F, 0));
             }
             LineMgr.Instance.SetLine(points);
 
@@ -145,6 +133,11 @@ namespace WarGame
             public Vector3 coor;
             public Cell parent;
             public Enum.MarkType type;
+
+            public float f
+            {
+                get { return g + h; }
+            }
 
             public Cell(float g, float h, Vector3 pos, Cell parent, string id)
             {
@@ -276,7 +269,7 @@ namespace WarGame
                 Cell c1 = null;
                 foreach (var pair in openDic)
                 {
-                    if (null == c1 || c1.h > pair.Value.h)
+                    if (null == c1 || c1.f > pair.Value.f)
                     {
                         c1 = pair.Value;
                     }

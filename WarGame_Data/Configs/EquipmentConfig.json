@@ -3,7 +3,7 @@
         "ID": 10001,
         "Type": 9,
         "Icon": "UI/Icons/Arrow_01",
-        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_01.prefab",
+        "Prefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "Name": "Equip1",
         "Rotation": {
             "x": 0,
@@ -21,7 +21,7 @@
             },
             {
                 "id": 9,
-                "value": 1
+                "value": 2
             }
         ],
         "Buffs": [
@@ -29,13 +29,14 @@
                 "id": 1,
                 "value": 100
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10002,
         "Type": 9,
         "Icon": "UI/Icons/Arrow_02",
-        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Arrow_02.prefab",
+        "Prefab": "Assets/Prefabs/Equipments/Arrow_02.prefab",
         "Name": "Equip2",
         "Rotation": {
             "x": 0,
@@ -53,7 +54,7 @@
             },
             {
                 "id": 9,
-                "value": 1
+                "value": 2
             }
         ],
         "Buffs": [
@@ -61,7 +62,8 @@
                 "id": 1,
                 "value": 101
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10003,
@@ -89,7 +91,8 @@
                 "id": 1,
                 "value": 102
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10004,
@@ -117,7 +120,8 @@
                 "id": 1,
                 "value": 103
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10005,
@@ -145,17 +149,18 @@
                 "id": 1,
                 "value": 104
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10006,
         "Type": 5,
         "Icon": "UI/Icons/Bow_01",
-        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_01.prefab",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_01.prefab",
         "Name": "Equip6",
         "Rotation": {
             "x": 0,
-            "y": 0,
+            "y": 270,
             "z": 0
         },
         "Attrs": [
@@ -169,7 +174,7 @@
             },
             {
                 "id": 9,
-                "value": 1
+                "value": 2
             }
         ],
         "Buffs": [
@@ -177,17 +182,18 @@
                 "id": 1,
                 "value": 105
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10007,
         "Type": 5,
         "Icon": "UI/Icons/Bow_02",
-        "Prefab": "Assets/RPGTinyHeroWavePolyart/Prefab/Weapons/Bow_02.prefab",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_02.prefab",
         "Name": "Equip7",
         "Rotation": {
             "x": 0,
-            "y": 0,
+            "y": 270,
             "z": 0
         },
         "Attrs": [
@@ -201,7 +207,7 @@
             },
             {
                 "id": 9,
-                "value": 1
+                "value": 2
             }
         ],
         "Buffs": [
@@ -209,7 +215,8 @@
                 "id": 1,
                 "value": 106
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10008,
@@ -237,7 +244,8 @@
                 "id": 1,
                 "value": 107
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10009,
@@ -265,7 +273,8 @@
                 "id": 1,
                 "value": 108
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10010,
@@ -293,7 +302,8 @@
                 "id": 1,
                 "value": 109
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10011,
@@ -321,7 +331,8 @@
                 "id": 1,
                 "value": 110
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10012,
@@ -353,7 +364,8 @@
                 "id": 1,
                 "value": 111
             }
-        ]
+        ],
+        "Skill": null
     },
     {
         "ID": 10013,
@@ -385,6 +397,7 @@
                 "id": 1,
                 "value": 112
             }
-        ]
+        ],
+        "Skill": null
     }
 ]

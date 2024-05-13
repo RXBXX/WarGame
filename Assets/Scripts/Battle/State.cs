@@ -29,7 +29,7 @@ namespace WarGame
                 _last = lastState;
                 lastState.End(false);
             }
-            //DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  
@@ -53,8 +53,12 @@ namespace WarGame
         {
             if (_state == Enum.RoleAnimState.End)
                 return;
+
+            DebugManager.Instance.Log("StateEnd" + reverse);
+
             if (reverse)
             {
+                DebugManager.Instance.Log("StateEnd" + _last._name) ;
                 _last.Start();
                 _last = null;
             }
@@ -70,6 +74,7 @@ namespace WarGame
 
     public class JumpState : State
     {
+        public float duration = 0;
         private float _speed = 0;
 
         public JumpState(string name, Role role) : base(name, role)
@@ -86,11 +91,7 @@ namespace WarGame
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
             var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
             var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
-
-            var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Normal_RM_SwordAndShield");
-            //var timeDic = Tool.Instance.GetEventTimeForAnimClip(_role.Animator, "JumpFull_Spin_RM_SwordAndShield");
-            var clips = _role.Animator.runtimeAnimatorController.animationClips;
-            _speed = Vector3.Distance(endPos, startPos) / (timeDic["Jump_Loss"] - timeDic["Jump_Take"]);
+            _speed = Vector3.Distance(endPos, startPos) / duration;
         }
 
         public override void End(bool reverse)
@@ -177,6 +178,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
+            DebugManager.Instance.Log("Enum.EventType.Fight_Attacked_End");
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID});
         }
     }

@@ -4,7 +4,7 @@ using WarGame.UI;
 
 namespace WarGame
 {
-    public class Role:MapObject
+    public class Role : MapObject
     {
         protected int _id;
 
@@ -132,23 +132,20 @@ namespace WarGame
 
         protected virtual void InitAnimator()
         {
-            int animatorID = 1;
-            foreach (var v in _equipDic)
-            {
-                if (1 == animatorID)
-                {
-                    var equipTypeConfig = v.Value.GetTypeConfig();
-                    animatorID = equipTypeConfig.Animator;
-                }
-            }
-
-            var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
+            var animatorConfig = GetAnimatorConfig();
             _gameObject.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
         }
 
         private void InitStates()
         {
             _stateDic.Add("Jump", new JumpState("Jump", this));
+            var clip = GetAnimatorConfig().Jump;
+            var timeDic = Tool.Instance.GetEventTimeForAnimClip(_animator, clip);
+            DebugManager.Instance.Log(GetAnimatorConfig().Controller + clip);
+            foreach (var v in timeDic)
+                DebugManager.Instance.Log(v.Key);
+            ((JumpState)_stateDic["Jump"]).duration = timeDic["Jump_Loss"] - timeDic["Jump_Take"];
+
             _stateDic.Add("Idle", new State("Idle", this));
             _stateDic.Add("Move", new MoveState("Move", this));
             _stateDic.Add("Attack", new AttackState("Attack", this));
@@ -159,13 +156,25 @@ namespace WarGame
             _curAnimState = "Idle";
             _stateDic[_curAnimState].Start();
         }
-        
-
 
         protected virtual void CreateHUD()
         {
             _hpHUDKey = _id + "_HP";
             HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
+        }
+
+        public AnimatorConfig GetAnimatorConfig()
+        {
+            int animatorID = 1;
+            foreach (var v in _equipDic)
+            {
+                if (1 == animatorID)
+                {
+                    var equipTypeConfig = v.Value.GetTypeConfig();
+                    animatorID = equipTypeConfig.Animator;
+                }
+            }
+            return ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
         }
 
         private void UpdateHexagonID(string id)
@@ -358,12 +367,27 @@ namespace WarGame
 
         public void HandleEvent(string stateName, string secondStateName)
         {
-            var state = _stateDic[stateName];
-            var method = typeof(State).GetMethod(secondStateName);
-            if (secondStateName == "End")
-                method.Invoke(state, new object[] { true });
-            else
-                method.Invoke(state, null);
+            if (_stateDic.ContainsKey(stateName))
+            {
+                var state = _stateDic[stateName];
+                var method = typeof(State).GetMethod(secondStateName);
+                if (null != method)
+                {
+                    if (secondStateName == "End")
+                    {
+                        method.Invoke(state, new object[] { true });
+                    }
+                    else
+                    {
+                        method.Invoke(state, null);
+                    }
+                }
+            }
+
+            foreach (var v in _equipDic)
+            {
+                v.Value.HandleEvent(stateName, secondStateName);
+            }
         }
 
         public void NextPath()

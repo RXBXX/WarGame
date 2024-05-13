@@ -12,7 +12,7 @@ namespace WarGame
         protected Enum.SkillType _skillType;
         protected List<string> _path; //英雄移动的路径
         protected IEnumerator _coroutine;
-        protected bool _skipBattleShow = false;
+        protected bool _skipBattleShow = true;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected string _touchingHexagon = null;
 
@@ -76,7 +76,6 @@ namespace WarGame
                 yield return new WaitForSeconds(moveDuration);
             }
 
-            DebugManager.Instance.Log("2222" + _targetID);
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
         }
 
@@ -236,29 +235,32 @@ namespace WarGame
 
             var strs = ((string)args[0]).Split('_');
 
-            var initiatorID = (int)args[1];
-            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var eventOnwerUID = (int)args[1];
+            if (0 == eventOnwerUID)
+                return;
+
+            var owner = RoleManager.Instance.GetRole(eventOnwerUID);
             string stateName = strs[0], secondStateName = strs[1];
-            initiator.HandleEvent(stateName, secondStateName);
+            owner.HandleEvent(stateName, secondStateName);
 
             if ((stateName == "Attack" || stateName == "Cure") && secondStateName == "Take")
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var skillConfig = initiator.GetSkillConfig(_skillType);
+                var skillConfig = owner.GetSkillConfig(_skillType);
                 //判断是攻击还是治疗
                 //执行攻击或治疗
                 //如果buff生效，添加buff到目标身上
                 switch (skillConfig.AttrType)
                 {
                     case Enum.AttrType.PhysicalAttack:
-                        var attackPower = initiator.GetAttackPower();
+                        var attackPower = owner.GetAttackPower();
                         DebugManager.Instance.Log("AttackPower:" + attackPower);
                         target.Hit(attackPower);
-                        target.AddBuffs(initiator.GetAttackBuffs());
+                        target.AddBuffs(owner.GetAttackBuffs());
                         CameraMgr.Instance.ShakePosition();
                         break;
                     case Enum.AttrType.Cure:
-                        var curePower = initiator.GetCurePower();
+                        var curePower = owner.GetCurePower();
                         target.Cured(curePower);
                         break;
                 }
@@ -296,8 +298,8 @@ namespace WarGame
         }
 
         protected virtual void OnMoveEnd(params object[] args)
-        { 
-        
+        {
+
         }
 
         protected virtual void StandByInitiator()

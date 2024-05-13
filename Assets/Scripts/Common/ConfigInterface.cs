@@ -153,6 +153,7 @@ namespace WarGame
     public class AnimatorConfig : Config 
     {
         public string Controller;
+        public string Jump;
     }
 
     //装备部位表

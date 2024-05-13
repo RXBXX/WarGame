@@ -1,42 +1,66 @@
 [
     {
         "ID": 10001,
-        "Prefab": null,
-        "Icon": null,
+        "Prefab": "prefab",
+        "Icon": "icon",
         "Name": "攻击",
         "TargetType": 2,
         "AttrType": 3
     },
     {
         "ID": 10002,
-        "Prefab": null,
-        "Icon": null,
+        "Prefab": "prefab",
+        "Icon": "icon",
         "Name": "重击",
         "TargetType": 2,
         "AttrType": 3
     },
     {
         "ID": 10003,
-        "Prefab": null,
-        "Icon": null,
+        "Prefab": "prefab",
+        "Icon": "icon",
         "Name": "治疗",
         "TargetType": 1,
         "AttrType": 5
     },
     {
         "ID": 10005,
-        "Prefab": null,
-        "Icon": null,
+        "Prefab": "prefab",
+        "Icon": "icon",
         "Name": "攻击",
         "TargetType": 1,
         "AttrType": 3
     },
     {
         "ID": 10006,
-        "Prefab": null,
-        "Icon": null,
+        "Prefab": "prefab",
+        "Icon": "icon",
         "Name": "重击",
         "TargetType": 1,
+        "AttrType": 3
+    },
+    {
+        "ID": 10007,
+        "Prefab": "prefab",
+        "Icon": "icon",
+        "Name": "群体伤害",
+        "TargetType": 2,
+        "AttrType": 3
+    },
+    {
+        "ID": 10008,
+        "Prefab": "prefab",
+        "Icon": "icon",
+        "Name": "眩晕",
+        "TargetType": 2,
+        "AttrType": 3
+    },
+    {
+        "ID": 10009,
+        "Prefab": "prefab",
+        "Icon": "icon",
+        "Name": "降低敌人伤害",
+        "TargetType": 2,
         "AttrType": 3
     }
 ]
