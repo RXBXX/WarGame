@@ -12,7 +12,7 @@ namespace WarGame
         protected Enum.SkillType _skillType;
         protected List<string> _path; //Ó¢ÐÛÒÆ¶¯µÄÂ·¾¶
         protected IEnumerator _coroutine;
-        protected bool _skipBattleShow = true;
+        protected bool _skipBattleShow = false;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected string _touchingHexagon = null;
 
@@ -198,11 +198,6 @@ namespace WarGame
             initiatorForward.y = 0;
             initiator.SetForward(initiatorForward);
 
-            var targetForward = initiator.GetPosition() - target.GetPosition();
-            targetForward.y = 0;
-            target.SetForward(targetForward);
-
-            DebugManager.Instance.Log("11111" + _targetID);
             if (!_skipBattleShow)
             {
                 yield return OpenBattleArena(initiator, target);

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <displayList>
-    <component id="n11_o8z3" name="hp" src="kugj0" fileName="HUDProgress.xml" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0" pkg="hx02grrp">
+    <component id="n11_o8z3" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0">
       <ProgressBar value="49" max="100"/>
     </component>
-    <component id="n0_kugj" name="rage" src="kugj0" fileName="HUDProgress.xml" xy="0,13" size="160,7" touchable="false" controller="style,2" pkg="hx02grrp">
+    <component id="n0_kugj" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="0,13" size="160,7" touchable="false" controller="style,2">
       <ProgressBar value="39" max="100"/>
     </component>
-    <list id="n2_kugj" name="buffList" xy="0,-31" size="160,30" layout="row" colGap="4" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
+    <list id="n2_kugj" name="buffList" xy="0,-31" size="160,30" touchable="false" layout="row" overflow="hidden" colGap="4" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
       <item/>
       <item/>
       <item/>

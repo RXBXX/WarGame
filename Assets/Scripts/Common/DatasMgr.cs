@@ -37,6 +37,9 @@ namespace WarGame
 
         public void SaveGameData(string name = null)
         {
+            if (null == _curData)
+                return;
+
             GameData gd = null;
             if (null != name)
             {

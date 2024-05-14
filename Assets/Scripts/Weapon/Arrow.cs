@@ -32,7 +32,7 @@ namespace WarGame
 
             _bullet = GameObject.Instantiate(_gameObject);
             _bullet.transform.position = _gameObject.transform.position;
-            _bullet.transform.rotation = _gameObject.transform.rotation;
+            _bullet.transform.forward = _targetPos - _gameObject.transform.position;
             _bullet.transform.DOMove(_targetPos, duration);
 
         }
