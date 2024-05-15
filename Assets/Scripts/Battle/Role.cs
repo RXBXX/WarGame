@@ -138,7 +138,7 @@ namespace WarGame
 
         protected override void SmoothNormal()
         {
-            Tool.Instance.PreProcessingFotOutLine(_gameObject);
+            Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
         }
 
         protected virtual void InitEquips()

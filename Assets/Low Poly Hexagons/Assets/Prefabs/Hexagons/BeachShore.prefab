@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33824211751207446}
   - component: {fileID: 23679102973394836}
   - component: {fileID: 64646421689702758}
-  - component: {fileID: -1772885799460202546}
+  - component: {fileID: 1379862437876499340}
   m_Layer: 0
   m_Name: BeachShore
   m_TagString: Hexagon
@@ -97,7 +97,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 0164b949b56b05642992be3ce4f5a9c7, type: 3}
---- !u!114 &-1772885799460202546
+--- !u!114 &1379862437876499340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

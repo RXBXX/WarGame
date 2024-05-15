@@ -103,100 +103,57 @@ namespace WarGame
         /// 平滑发现，将平滑后的法线写入切线位置，解决描边不连续的问题
         /// </summary>
         /// <param name="go"></param>
-        public void PreProcessingFotOutLine(GameObject go)
+        public void ApplyProcessingFotOutLine(GameObject go)
         {
-            for (int i = 0; i < go.transform.childCount; i++)
+            try
             {
-                PreProcessingFotOutLine(go.transform.GetChild(i).gameObject);
-            }
-
-            SkinnedMeshRenderer meshRenderer = null;
-            if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
-            {
-                var mesh = meshRenderer.sharedMesh;
-                WriteAverageNormalToTangent(mesh);
-                return;
-            }
-
-            MeshFilter meshFilter = null;
-            if (go.TryGetComponent<MeshFilter>(out meshFilter))
-            {
-                var mesh = meshFilter.sharedMesh;
-                WriteAverageNormalToTangent(mesh);
-                return;
-            }
-        }
-
-        public void PreProcessingFotOutLineSMR(GameObject go)
-        {
-            ////耗时11.88s
-            //SkinnedMeshRenderer[] mrs = go.GetComponentsInChildren<SkinnedMeshRenderer>();
-            //for (int i = 0; i < mrs.Length; i++)
-            //{
-            //    WriteAverageNormalToTangent(mrs[i].sharedMesh);
-            //}
-
-            //耗时14.70s
-            for (int i = 0; i < go.transform.childCount; i++)
-            {
-                PreProcessingFotOutLine(go.transform.GetChild(i).gameObject);
-            }
-
-            SkinnedMeshRenderer meshRenderer = null;
-            if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
-            {
-                var mesh = meshRenderer.sharedMesh;
-                WriteAverageNormalToTangent(mesh);
-                return;
-            }
-        }
-
-        public void PreProcessingFotOutLineMF(GameObject go)
-        {
-            //MeshFilter[] mfs = go.GetComponentsInChildren<MeshFilter>();
-            //for (int i = 0; i < mfs.Length; i++)
-            //{
-            //    WriteAverageNormalToTangent(mfs[i].sharedMesh);
-            //}
-
-            for (int i = 0; i < go.transform.childCount; i++)
-            {
-                PreProcessingFotOutLine(go.transform.GetChild(i).gameObject);
-            }
-
-            MeshFilter meshFilter = null;
-            if (go.TryGetComponent<MeshFilter>(out meshFilter))
-            {
-                var mesh = meshFilter.sharedMesh;
-                WriteAverageNormalToTangent(mesh);
-                return;
-            }
-        }
-
-        public void WriteAverageNormalToTangent(Mesh mesh)
-        {
-            var averageNormalHash = new Dictionary<Vector3, Vector3>();
-            for (var j = 0; j < mesh.vertices.Length; j++)
-            {
-                if (!averageNormalHash.ContainsKey(mesh.vertices[j]))
+                for (int i = 0; i < go.transform.childCount; i++)
                 {
-                    averageNormalHash.Add(mesh.vertices[j], mesh.normals[j]);
+                    var child = go.transform.GetChild(i).gameObject;
+                    ApplyProcessingFotOutLine(child);
                 }
-                else
+
+                SkinnedMeshRenderer meshRenderer = null;
+                if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
                 {
-                    averageNormalHash[mesh.vertices[j]] = (averageNormalHash[mesh.vertices[j]] + mesh.normals[j]).normalized;
+                    var mesh = meshRenderer.sharedMesh;
+                    ReadAverageNormalToTangent(mesh);
+                    return;
+                }
+
+                MeshFilter meshFilter = null;
+                if (go.TryGetComponent<MeshFilter>(out meshFilter))
+                {
+                    var mesh = meshFilter.sharedMesh;
+                    ReadAverageNormalToTangent(mesh);
+                    return;
                 }
             }
-            var averageNormals = new Vector3[mesh.vertexCount];
-            for (var j = 0; j < mesh.vertices.Length; j++)
+            catch
             {
-                averageNormals[j] = averageNormalHash[mesh.vertices[j]];
+                DebugManager.Instance.Log("请检查模型："+go.name +"是否已经采集描边采样");
             }
+        }
 
-            var tangents = new Vector4[mesh.vertexCount];
-            for (var j = 0; j < mesh.vertices.Length; j++)
+        public static void ReadAverageNormalToTangent(Mesh mesh)
+        {
+            Debug.Log("ReadAverageNormalToTangent");
+
+            var bytes = File.ReadAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png");
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(bytes);
+            Vector4[] tangents = new Vector4[mesh.vertices.Length];
+            for (int i = 0; i < texture.width; i++)
             {
-                tangents[j] = new Vector4(averageNormals[j].x, averageNormals[j].y, averageNormals[j].z, 0);
+                for (int j = 0; j < texture.height; j++)
+                {
+                    var index = i * texture.width + j;
+                    if (index >= mesh.vertices.Length)
+                        break;
+                    var color = texture.GetPixel(i, j);
+                    //Debug.Log("Read"+color.r +"_"+ color.g+"_"+ color.b+"_"+ color.a);
+                    tangents[index] = new Vector4(color.r * 2 -1, color.g *2-1, color.b*2-1, color.a*2-1);
+                }
             }
             mesh.tangents = tangents;
         }
