@@ -167,7 +167,7 @@ namespace WarGame
             for (int i = 0; i < hexagons.Length; i++)
             {
                 var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].coor);
-                hexagon.CreateGameObject();
+                hexagon.CreateGO();
                 hexagon.SetParent(rootObj.transform);
             }
         }

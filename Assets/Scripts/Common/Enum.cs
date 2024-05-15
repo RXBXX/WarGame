@@ -140,6 +140,11 @@ public class Enum
         Error = 1,
     }
 
+    public enum PostProcessingType
+    {
+        Gray = 0
+    }
+
     public enum EventType
     {
         HUDInstruct_Idle_Event = 0,

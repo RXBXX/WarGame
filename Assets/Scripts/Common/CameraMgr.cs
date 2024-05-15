@@ -83,13 +83,9 @@ namespace WarGame
         /// </summary>
         public void OpenGray()
         {
-            var depthCamera = MainCamera.transform.Find("DepthCamera");
-            depthCamera.gameObject.SetActive(true);
-            var colorCamera = MainCamera.transform.Find("ColorCamera");
-            colorCamera.gameObject.SetActive(true);
-
-            MainCamera.GetComponent<CameraRender>().mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
-            MainCamera.GetComponent<CameraRender>().enabled = true;
+            RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Gray);
+            //MainCamera.GetComponent<RenderMgr>().mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
+            //MainCamera.GetComponent<RenderMgr>().OpenGrayEffect();
         }
 
         /// <summary>
@@ -97,12 +93,13 @@ namespace WarGame
         /// </summary>
         public void CloseGray()
         {
-            var depthCamera = MainCamera.transform.Find("DepthCamera");
-            depthCamera.gameObject.SetActive(false);
-            var colorCamera = MainCamera.transform.Find("ColorCamera");
-            colorCamera.gameObject.SetActive(false);
+            //var depthCamera = MainCamera.transform.Find("DepthCamera");
+            //depthCamera.gameObject.SetActive(false);
+            //var colorCamera = MainCamera.transform.Find("ColorCamera");
+            //colorCamera.gameObject.SetActive(false);
 
-            MainCamera.GetComponent<CameraRender>().enabled = false;
+            //MainCamera.GetComponent<RenderMgr>().CloseGrayEffect();
+            RenderMgr.Instance.ClosePostProcessiong();
         }
 
         public void ShakePosition()

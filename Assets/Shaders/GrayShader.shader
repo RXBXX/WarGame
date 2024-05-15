@@ -3,7 +3,7 @@ Shader "Custom/GrayShader"
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
-	    _StartTime("StartTime", float) = 0.0
+		_StartTime("StartTime", float) = 0.0
 		_ExclusionMap("Exclusion Map", 2D) = "white" {}
 		_ExclusionMapDepth("Exclusion Map Depth", 2D) = "white" {}
 		_Brightness("Brightness", Range(0.1, 2)) = 0.5
@@ -58,14 +58,13 @@ Shader "Custom/GrayShader"
 				// Get exclusion value from the exclusion map
 				fixed4 exclusionDepth = tex2D(_ExclusionMapDepth, i.uv);
 
-				// y = -x + 0.8
 				float time = (_Time.y - _StartTime) * _Speed;
-				if(time < 0)
+				if (time < 0)
 					return tex2D(_MainTex, i.uv);
 
 				float posX = i.uv.x - 0.5;
 				float posY = i.uv.y - 0.5;
-				float cross = - time * posY - 1.2F * time * (posX - time);
+				float cross = -time * posY - 1.2F * time * (posX - time);
 				float cross2 = time * posY + 1.2F * time * (posX + time);
 				if (cross2 < 0 || cross < 0)
 				{
@@ -84,7 +83,7 @@ Shader "Custom/GrayShader"
 					if (exclusionDepthValue < 1 - 0.0001F && exclusionDepthValue - 0.0001F <= depth)
 					{
 						fixed4 exCol = tex2D(_ExclusionMap, i.uv);
-						return exCol * exCol.a + grayCol * (1-exCol.a);
+						return exCol * exCol.a + grayCol * (1 - exCol.a);
 					}
 					else
 					{

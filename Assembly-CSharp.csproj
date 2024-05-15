@@ -78,6 +78,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Emoji\EmojiParser.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlPageContext.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\CaptureCamera.cs" />
+    <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\Window4.cs" />
@@ -110,7 +111,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\SelectionShape.cs" />
     <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
     <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MovieClip.cs" />
@@ -150,6 +150,7 @@
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTweener.cs" />
     <Compile Include="Assets\Scripts\UI\Load\LoadPanel.cs" />
+    <Compile Include="Assets\Scripts\SRP\CameraRenderer1.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\Resources\UI\Map\UI_MapPanel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\Card.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Extension\ExtensionMain.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentComp.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
+    <Compile Include="Assets\Scripts\SRP\CameraRenderer.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextInput.cs" />
@@ -275,6 +277,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\Spine\SpineLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RTLSupport.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\FairyBook.cs" />
+    <Compile Include="Assets\Scripts\SRP\WGRenderPipeline.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDSkills.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagWindow.cs" />
     <Compile Include="Assets\Resources\UI\Map\UI_MapScroll.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Particles\ParticlesMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderTextureMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Controller.cs" />
+    <Compile Include="Assets\Scripts\SRP\WGRenderPipelineAsset.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLabel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\ModalWaitingMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Perspetive\PerspectiveMain.cs" />
@@ -349,37 +353,38 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Render\WGRenderPipelineAsset.cs" />
-    <Compile Include="Assets\Scripts\Render\WGRenderPipeline.cs" />
-    <Compile Include="Assets\Scripts\Render\CameraRenderer.cs" />
-    <Compile Include="Assets\Scripts\Render\CameraRenderer1.cs" />
+    <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
+    <Compile Include="Assets\Scripts\Render\GrayPP.cs" />
+    <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
+    <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Shaders\OutlineProcessing.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
-     <None Include="Assets\Scripts\Render\SimpleUnlitColor.shader" />
+     <None Include="Assets\Scripts\SRP\SimpleUnlitColor.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Glow.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Ubershader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
      <None Include="Assets\FairyGUI\Examples\Resources\Role\Materials\Role-Diffuse.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
-     <None Include="Assets\Scripts\Render\NewSurfaceShader.shader" />
-     <None Include="Assets\Scripts\Render\NewUnlitShader.shader" />
+     <None Include="Assets\Scripts\SRP\NewSurfaceShader.shader" />
+     <None Include="Assets\Scripts\SRP\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
-     <None Include="Assets\Shaders\LineShader.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\HowToTestHDRP_URP.txt" />
-     <None Include="Assets\Scripts\Render\Unlit.shader" />
+     <None Include="Assets\Scripts\SRP\Unlit.shader" />
      <None Include="Assets\Shaders\ToonShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
      <None Include="Assets\Shaders\GrayShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
+     <None Include="Assets\Shaders\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
-     <None Include="Assets\Scripts\Render\UnlitPass.hlsl" />
+     <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
-     <None Include="Assets\Scripts\Render\NewSurfaceShader 1.shader" />
+     <None Include="Assets\Scripts\SRP\NewSurfaceShader 1.shader" />
      <None Include="Assets\Shaders\LineShader_V2.shader" />
      <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
@@ -971,6 +976,9 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -995,6 +1003,9 @@
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -1009,12 +1020,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

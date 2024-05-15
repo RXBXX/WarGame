@@ -24,17 +24,25 @@ namespace WarGame
             this._configId = configId;
             this.coor = coor;
 
-            CreateGameObject();
+            CreateGO();
         }
-        public void CreateGameObject()
+        public void CreateGO()
         {
             var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(config.Prefab);
             _gameObject = GameObject.Instantiate(prefab);
-            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
 
+
+            OnCreate();
+        }
+
+        protected override void OnCreate()
+        {
+            //base.OnCreate();
+            _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
         }
+
         public void SetParent(Transform transform)
         {
             _gameObject.transform.SetParent(transform);

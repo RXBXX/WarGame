@@ -1,5 +1,6 @@
 using DG.Tweening;
 using WarGame.UI;
+using UnityEngine;
 
 namespace WarGame
 {
@@ -66,6 +67,11 @@ namespace WarGame
             MapManager.Instance.LateUpdate();
             LineMgr.Instance.LateUpdate();
             RoleManager.Instance.LateUpdate();
+        }
+
+        public void OnRenderImage(RenderTexture source, RenderTexture destination)
+        { 
+            RenderMgr.Instance.OnRenderImage(source, destination);
         }
 
         public override bool Dispose()

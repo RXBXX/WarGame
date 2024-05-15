@@ -44,6 +44,8 @@ namespace WarGame
 
         protected Dictionary<Enum.EquipPlace, Equip> _equipDic = new Dictionary<Enum.EquipPlace, Equip>();
 
+        private Vector3 _bornPoint;
+
         public int ID
         {
             set { }
@@ -104,16 +106,24 @@ namespace WarGame
             this._data = data;
             this.hexagonID = data.hexagonID;
 
-            var bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
-            OnCreate(bornPoint);//加载方式，同步方式，后面都要改
+            _bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
+            CreateGO();//加载方式，同步方式，后面都要改
         }
 
-        protected virtual void OnCreate(Vector3 bornPoint)
+        private void CreateGO()
         {
             var assetPath = GetConfig().Prefab;
             GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
             _gameObject = GameObject.Instantiate(prefab);
-            _gameObject.transform.position = bornPoint;
+
+            OnCreate();
+        }
+
+        protected override void OnCreate()
+        {
+            base.OnCreate();
+
+            _gameObject.transform.position = _bornPoint;
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleBehaviour>().ID = _id;

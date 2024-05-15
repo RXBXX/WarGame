@@ -1,4 +1,4 @@
-Shader "Custom/LineShader_V2"
+Shader "Custom/LineShader"
 {
     Properties
     {

@@ -9,6 +9,16 @@ namespace WarGame
 
         protected int _layer = 0;
 
+        protected virtual void OnCreate()
+        {
+            SmoothNormal(_gameObject);
+        }
+
+        private void SmoothNormal(GameObject go)
+        {
+            Tool.Instance.PreProcessingFotOutLine(go);
+        }
+
         public virtual void ChangeToArenaSpace(Vector3 pos, float duration)
         {
             _gameObject.transform.DOMove(pos, duration);
@@ -16,6 +26,7 @@ namespace WarGame
 
         public virtual void ChangeToMapSpace()
         {
+
         }
 
         public void SetLayer(int layer)

@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _ExclusionMap:
-        m_Texture: {fileID: 8400000, guid: 2e0df01f8a4cf364b915b3b59bc0c741, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ExclusionMapDepth:
-        m_Texture: {fileID: 8400000, guid: 2301da722f4f2ff43826d1a7755f2192, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -32,9 +32,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 0.151
+    - _Brightness: 0.1
     - _ExcludedObject: 0
     - _Speed: 2
-    - _StartTime: 25.276075
+    - _StartTime: 13.943308
     m_Colors: []
   m_BuildTextureStacks: []
