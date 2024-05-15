@@ -11,12 +11,11 @@ namespace WarGame
 
         protected virtual void OnCreate()
         {
-            SmoothNormal(_gameObject);
+            SmoothNormal();
         }
 
-        private void SmoothNormal(GameObject go)
+        protected virtual void SmoothNormal()
         {
-            Tool.Instance.PreProcessingFotOutLine(go);
         }
 
         public virtual void ChangeToArenaSpace(Vector3 pos, float duration)
@@ -48,5 +47,13 @@ namespace WarGame
             }
             tran.gameObject.layer = layer;
         }
+
+        public virtual void HighLight()
+        { 
+        
+        }
+
+        public virtual void ResetHighLight()
+        { }
     }
 }

@@ -67,10 +67,10 @@
     <Compile Include="Assets\FairyGUI\Editor\DisplayObjectEditor.cs" />
     <Compile Include="Assets\Editor\BuildMap.cs" />
     <Compile Include="Assets\FairyGUI\Editor\UIConfigEditor.cs" />
+    <Compile Include="Assets\Editor\SmoothNormalTool.cs" />
     <Compile Include="Assets\FairyGUI\Editor\UIPanelEditor.cs" />
     <Compile Include="Assets\FairyGUI\Editor\UIPainterEditor.cs" />
     <Compile Include="Assets\FairyGUI\Editor\PackagesWindow.cs" />
-    <Compile Include="Assets\Editor\SmoothNormalTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -127,7 +127,53 @@ namespace WarGame
             }
         }
 
-        private void WriteAverageNormalToTangent(Mesh mesh)
+        public void PreProcessingFotOutLineSMR(GameObject go)
+        {
+            ////ºÄÊ±11.88s
+            //SkinnedMeshRenderer[] mrs = go.GetComponentsInChildren<SkinnedMeshRenderer>();
+            //for (int i = 0; i < mrs.Length; i++)
+            //{
+            //    WriteAverageNormalToTangent(mrs[i].sharedMesh);
+            //}
+
+            //ºÄÊ±14.70s
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                PreProcessingFotOutLine(go.transform.GetChild(i).gameObject);
+            }
+
+            SkinnedMeshRenderer meshRenderer = null;
+            if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
+            {
+                var mesh = meshRenderer.sharedMesh;
+                WriteAverageNormalToTangent(mesh);
+                return;
+            }
+        }
+
+        public void PreProcessingFotOutLineMF(GameObject go)
+        {
+            //MeshFilter[] mfs = go.GetComponentsInChildren<MeshFilter>();
+            //for (int i = 0; i < mfs.Length; i++)
+            //{
+            //    WriteAverageNormalToTangent(mfs[i].sharedMesh);
+            //}
+
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                PreProcessingFotOutLine(go.transform.GetChild(i).gameObject);
+            }
+
+            MeshFilter meshFilter = null;
+            if (go.TryGetComponent<MeshFilter>(out meshFilter))
+            {
+                var mesh = meshFilter.sharedMesh;
+                WriteAverageNormalToTangent(mesh);
+                return;
+            }
+        }
+
+        public void WriteAverageNormalToTangent(Mesh mesh)
         {
             var averageNormalHash = new Dictionary<Vector3, Vector3>();
             for (var j = 0; j < mesh.vertices.Length; j++)

@@ -24,6 +24,8 @@ namespace WarGame
 
             MapManager.Instance.CreateMap(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map);
 
+            var time = Time.realtimeSinceStartup;
+
             var roleData = DatasMgr.Instance.GetRoleData(1);
             var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, roleData.equipmentDic, roleData.skillDic);
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
@@ -57,7 +59,7 @@ namespace WarGame
             levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 5));
             RoleManager.Instance.CreateEnemy(levelRoleData);
-
+            DebugManager.Instance.Log("Duration: " + (Time.realtimeSinceStartup - time));
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
         }
 

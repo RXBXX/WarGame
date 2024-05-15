@@ -136,8 +136,14 @@ namespace WarGame
             CreateHUD();
         }
 
+        protected override void SmoothNormal()
+        {
+            Tool.Instance.PreProcessingFotOutLine(_gameObject);
+        }
+
         protected virtual void InitEquips()
         {
+
         }
 
         protected virtual void InitAnimator()
@@ -525,6 +531,38 @@ namespace WarGame
         public float GetHP()
         {
             return _data.GetAttribute(Enum.AttrType.HP);
+        }
+
+        public override void HighLight()
+        {
+            SetMaterial(_gameObject, 0, Color.white);
+        }
+
+        public override void ResetHighLight()
+        {
+            SetMaterial(_gameObject, 1, Color.black);
+        }
+
+        private void SetMaterial(GameObject go, float highLigt, Color color)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+               SetMaterial(go.transform.GetChild(i).gameObject, highLigt, color);
+            }
+
+            SkinnedMeshRenderer smr;
+            if (go.TryGetComponent(out smr))
+            {
+                smr.material.SetFloat("_HighLight", highLigt);
+                smr.material.SetColor("_OutlineColor", color);
+            }
+
+            MeshRenderer mr;
+            if (go.TryGetComponent(out mr))
+            {
+                mr.material.SetFloat("_HighLight", highLigt);
+                mr.material.SetColor("_OutlineColor", color);
+            }
         }
 
         public virtual void Dispose()

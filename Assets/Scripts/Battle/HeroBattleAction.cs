@@ -24,8 +24,32 @@ namespace WarGame
             base.Dispose();
         }
 
+        private int _touchRoleID;
         public override void OnTouch(GameObject obj)
         {
+            if (obj.tag == Enum.Tag.Hero.ToString() || obj.tag == Enum.Tag.Enemy.ToString())
+            {
+                var touchRoleID = obj.GetComponent<RoleBehaviour>().ID;
+                if (_touchRoleID != touchRoleID)
+                {
+                    if (0 != _touchRoleID)
+                    {
+                        var role = RoleManager.Instance.GetRole(_touchRoleID);
+                        role.ResetHighLight();
+                    }
+
+                    _touchRoleID = touchRoleID;
+                    var touchRole = RoleManager.Instance.GetRole(_touchRoleID);
+                    touchRole.HighLight();
+                }
+            }
+            else if (0 != _touchRoleID)
+            {
+                var role = RoleManager.Instance.GetRole(_touchRoleID);
+                role.ResetHighLight();
+                _touchRoleID = 0;
+            }
+
             if (obj.tag == Enum.Tag.Hexagon.ToString())
             {
                 if (_initiatorID > 0)
@@ -33,6 +57,7 @@ namespace WarGame
                     var role = RoleManager.Instance.GetRole(_initiatorID);
                     if (role.Type != Enum.RoleType.Hero)
                         return;
+
                     if (role.GetState() != Enum.RoleState.Waiting)
                         return;
 
@@ -310,8 +335,8 @@ namespace WarGame
             EnterGrayedMode();
         }
 
-         protected override void OnMoveEnd(params object[] args)
-         {
+        protected override void OnMoveEnd(params object[] args)
+        {
             if (_initiatorID <= 0)
                 return;
 

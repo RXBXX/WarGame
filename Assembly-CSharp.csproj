@@ -169,6 +169,7 @@
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIObjectFactory.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HeadBar\HeadBarMain.cs" />
+    <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\IEventDispatcher.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPackage.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\BasicsMain.cs" />
@@ -288,6 +289,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ColliderHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RoundedRectMesh.cs" />
     <Compile Include="Assets\Scripts\Map\MapManager.cs" />
+    <Compile Include="Assets\Scripts\Render\GrayPP.cs" />
     <Compile Include="Assets\Scripts\Battle\Battlefield.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
@@ -340,6 +342,7 @@
     <Compile Include="Assets\Scripts\Common\ConfigInterface.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroProComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\ControllerAction.cs" />
+    <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Guide\GuideMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextField.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RegularPolygonMesh.cs" />
@@ -352,11 +355,8 @@
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
-    <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
-    <Compile Include="Assets\Scripts\Render\GrayPP.cs" />
-    <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
+    <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />
@@ -380,6 +380,7 @@
      <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
      <None Include="Assets\Shaders\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
+     <None Include="Assets\Shaders\NewUnlitShader 1.shader" />
      <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
