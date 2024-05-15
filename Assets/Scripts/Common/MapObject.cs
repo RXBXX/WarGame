@@ -16,6 +16,7 @@ namespace WarGame
 
         protected virtual void SmoothNormal()
         {
+            Tool.Instance.PreProcessingFotOutLine(_gameObject);
         }
 
         public virtual void ChangeToArenaSpace(Vector3 pos, float duration)

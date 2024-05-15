@@ -357,6 +357,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
+    <Compile Include="Assets\Scripts\Render\BloomPP.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />
@@ -368,6 +369,7 @@
      <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
      <None Include="Assets\FairyGUI\Examples\Resources\Role\Materials\Role-Diffuse.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
+     <None Include="Assets\Shaders\BloomShader.shader" />
      <None Include="Assets\Scripts\SRP\NewSurfaceShader.shader" />
      <None Include="Assets\Scripts\SRP\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
@@ -375,12 +377,11 @@
      <None Include="Assets\Scripts\SRP\Unlit.shader" />
      <None Include="Assets\Shaders\ToonShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
+     <None Include="Assets\Shaders\Toon.shader" />
      <None Include="Assets\Shaders\GrayShader.shader" />
      <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
-     <None Include="Assets\Shaders\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
-     <None Include="Assets\Shaders\NewUnlitShader 1.shader" />
      <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
      <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />

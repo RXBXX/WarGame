@@ -1,8 +1,8 @@
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-//Ãè±ßShader  
-//by£ºpuppet_master  
+//ï¿½ï¿½ï¿½Shader  
+//byï¿½ï¿½puppet_master  
 //2017.1.5  
 
 Shader "Custom/ToonShader"
@@ -13,70 +13,130 @@ Shader "Custom/ToonShader"
 		_Outline("Outline", Range(0,1)) = 0.1
 		_OutlineColor("Outline Color", Color) = (0,0,0,0)
 		_HighLight("HighLight", Range(0,1)) = 1
+		_Factor("Factor",range(0,1)) = 0.5//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶
+		_ToonEffect("Toon Effect",range(0,1)) = 0.5//ï¿½ï¿½Í¨ï¿½ï¿½ï¿½Ì¶È£ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ä½ï¿½ï¿½ï¿½ï¿½ß£ï¿½
+		_Steps("Steps of toon",range(0,9)) = 3//É«ï¿½×²ï¿½ï¿½ï¿½
 	}
 		SubShader
 		{
-			Pass
+	pass {//Æ½ï¿½Ð¹ï¿½Äµï¿½passï¿½ï¿½È¾
+			Tags{"LightMode" = "ForwardBase"}
+			Cull Back
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
+
+			float4 _LightColor0;
+			float4 _Color;
+			float _Steps;
+			float _ToonEffect;
+			sampler2D _MainTex;
+			float4 _MainTex_ST;
+
+			struct appdata
 			{
-				Tags {"LightMode" = "ForwardBase"}
-				//Stencil //Ä£°å²âÊÔÉèÖÃ
-				//{
-				//    Ref 1
-				//    Comp Always
-				//    Pass Replace
-				//}
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+				float3 normal : NORMAL;
+			};
 
-				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-				#include "UnityCG.cginc"  
-				#include "UnityLightingCommon.cginc" // ¶ÔÓÚ _LightColor0
+			struct v2f {
+				float4 pos:SV_POSITION;
+				float3 lightDir:TEXCOORD0;
+				float3 viewDir:TEXCOORD1;
+				float3 normal:TEXCOORD2;
+				float2 uv : TEXCOORD3;
+			};
 
-				sampler2D _MainTex;
-				float4 _MainTex_ST;
-
-				struct appdata
-				{
-					float4 vertex : POSITION;
-					float2 uv : TEXCOORD0;
-					float3 normal : NORMAL;
-				};
-
-				struct v2f
-				{
-					float2 uv : TEXCOORD0;
-					float4 vertex : SV_POSITION;
-					fixed4 diff : COLOR0; // ÂþÉä¹âÕÕÑÕÉ«
-				};
-
-				v2f vert(appdata v)
-				{
-					v2f o;
-					o.vertex = UnityObjectToClipPos(v.vertex);
-					o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-
-					// ÔÚÊÀ½ç¿Õ¼äÖÐ»ñÈ¡¶¥µã·¨Ïß
-					half3 worldNormal = UnityObjectToWorldNormal(v.normal);
-					// ±ê×¼ÂþÉä£¨À¼²®ÌØ£©¹âÕÕµÄ·¨ÏßºÍ
-					// ¹âÏß·½ÏòÖ®¼äµÄµã»ý
-					half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
-					// ¿¼ÂÇÇ³É«ÒòËØ
-					o.diff = nl * _LightColor0;
-					o.diff.rgb += ShadeSH9(half4(worldNormal, 1));
-					return o;
-				}
-
-				fixed4 frag(v2f i) : SV_Target
-				{
-					fixed4 col = tex2D(_MainTex, i.uv);
-					return col * i.diff;
-				}
-				ENDCG
+			v2f vert(appdata v) {
+				v2f o;
+				o.pos = UnityObjectToClipPos(v.vertex);//ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				o.normal = v.normal;
+				o.lightDir = ObjSpaceLightDir(v.vertex);
+				o.viewDir = ObjSpaceViewDir(v.vertex);
+				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				return o;
 			}
+			float4 frag(v2f i) :COLOR
+			{
+				float4 c = 1;
+				float3 N = normalize(i.normal);
+				float3 viewDir = normalize(i.viewDir);
+				float3 lightDir = normalize(i.lightDir);
+				float diff = max(0,dot(N,i.lightDir));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+				diff = (diff + 1) / 2;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				diff = smoothstep(0,1,diff);//Ê¹ï¿½ï¿½É«Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[0,1]ï¿½ï¿½Î§Ö®ï¿½ï¿½
+				float toon = floor(diff * _Steps) / _Steps;//ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½É¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½diffuseï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_Stepsï¿½Ö£ï¿½_Stepsï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Ê¹É«ï¿½×¼ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+				diff = lerp(diff,toon,_ToonEffect);//ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½Ç¿É¿ØµÄ¿ï¿½Í¨ï¿½ï¿½ï¿½Ì¶ï¿½Öµ_ToonEffectï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Êµï¿½Ä±ï¿½ï¿½ï¿½
+
+				fixed4 col = tex2D(_MainTex, i.uv);
+				c = col * _LightColor0 * (diff);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½
+				return c;
+			}
+			ENDCG
+			}//
+			pass {//ï¿½ï¿½ï¿½Óµï¿½ï¿½Ô´ï¿½ï¿½passï¿½ï¿½È¾
+			Tags{"LightMode" = "ForwardAdd"}
+			Blend One One
+			Cull Back
+			ZWrite Off
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
+
+			float4 _LightColor0;
+			float4 _Color;
+			float _Steps;
+			float _ToonEffect;
+
+			struct v2f {
+				float4 pos:SV_POSITION;
+				float3 lightDir:TEXCOORD0;
+				float3 viewDir:TEXCOORD1;
+				float3 normal:TEXCOORD2;
+			};
+
+			v2f vert(appdata_full v) {
+				v2f o;
+				o.pos = UnityObjectToClipPos(v.vertex);
+				o.normal = v.normal;
+				o.viewDir = ObjSpaceViewDir(v.vertex);
+				o.lightDir = _WorldSpaceLightPos0 - v.vertex;
+
+				return o;
+			}
+			float4 frag(v2f i) :COLOR
+			{
+				float4 c = 1;
+				float3 N = normalize(i.normal);
+				float3 viewDir = normalize(i.viewDir);
+				float dist = length(i.lightDir);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ä¾ï¿½ï¿½ï¿½
+				float3 lightDir = normalize(i.lightDir);
+				float diff = max(0,dot(N,i.lightDir));
+				diff = (diff + 1) / 2;
+				diff = smoothstep(0,1,diff);
+				float atten = 1 / (dist);//ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½Ô´ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½
+				float toon = floor(diff * atten * _Steps) / _Steps;
+				diff = lerp(diff,toon,_ToonEffect);
+
+				half3 h = normalize(lightDir + viewDir);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				float nh = max(0, dot(N, h));
+				float spec = pow(nh, 32.0);//ï¿½ï¿½ï¿½ï¿½ß¹ï¿½Ç¿ï¿½ï¿½
+				float toonSpec = floor(spec * atten * 2) / 2;//ï¿½Ñ¸ß¹ï¿½Ò²ï¿½ï¿½É¢ï¿½ï¿½
+				spec = lerp(spec,toonSpec,_ToonEffect);//ï¿½ï¿½ï¿½Ú¿ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Êµï¿½ß¹ï¿½Ä±ï¿½ï¿½ï¿½
+
+
+				c = _Color * _LightColor0 * (diff + spec);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+				return c;
+			}
+			ENDCG
+			}//
 			Pass
 			{
 				Cull Front
-				//Stencil //Ä£°å²âÊÔÉèÖÃ
+				//Stencil //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				//{
 				//    Ref 1
 				//    Comp NotEqual
@@ -85,7 +145,7 @@ Shader "Custom/ToonShader"
 				#pragma vertex vert
 				#pragma fragment frag     
 				#include "UnityCG.cginc"  
-				#include "UnityLightingCommon.cginc" // ¶ÔÓÚ _LightColor0
+				#include "UnityLightingCommon.cginc" // ï¿½ï¿½ï¿½ï¿½ _LightColor0
 
 				float _Outline;
 				fixed4 _OutlineColor;
@@ -95,12 +155,12 @@ Shader "Custom/ToonShader"
 				{
 					float4 pos : POSITION;
 					float3 normal : NORMAL;
-					float3 tangent : TANGENT; //Ôö¼ÓÇÐÏß²åÖµÆ÷
+					float3 tangent : TANGENT; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²ï¿½Öµï¿½ï¿½
 				};
 				struct v2f
 				{
 					float4 pos : SV_POSITION;
-					fixed4 diff : COLOR0; // ÂþÉä¹âÕÕÑÕÉ«
+					fixed4 diff : COLOR0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 				};
 
 				v2f vert(appdata v)
@@ -109,18 +169,18 @@ Shader "Custom/ToonShader"
 
 					float4 pos = UnityObjectToClipPos(v.pos);
 					float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
-					float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;//½«·¨Ïß±ä»»µ½NDC¿Õ¼ä
-					float aspect = _ScreenParams.y / _ScreenParams.x; //¼ÆËãÆÁÄ»³¤¿í±È,_ScreenParamsÎªunityÄÚÖÃ±äÁ¿
-					ndcNormal.x *= aspect; //½øÐÐµÈ±ÈËõ·Å
+					float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;//ï¿½ï¿½ï¿½ï¿½ï¿½ß±ä»»ï¿½ï¿½NDCï¿½Õ¼ï¿½
+					float aspect = _ScreenParams.y / _ScreenParams.x; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,_ScreenParamsÎªunityï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½
+					ndcNormal.x *= aspect; //ï¿½ï¿½ï¿½ÐµÈ±ï¿½ï¿½ï¿½ï¿½ï¿½
 					pos.xy += 0.1 * _Outline * ndcNormal.xy;
 					o.pos = pos;
 
-					// ÔÚÊÀ½ç¿Õ¼äÖÐ»ñÈ¡¶¥µã·¨Ïß
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð»ï¿½È¡ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½
 					half3 worldNormal = UnityObjectToWorldNormal(v.normal);
-					// ±ê×¼ÂþÉä£¨À¼²®ÌØ£©¹âÕÕµÄ·¨ÏßºÍ
-					// ¹âÏß·½ÏòÖ®¼äµÄµã»ý
+					// ï¿½ï¿½×¼ï¿½ï¿½ï¿½ä£¨ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ÕµÄ·ï¿½ï¿½ßºï¿½
+					// ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Äµï¿½ï¿½
 					half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
-					// ¿¼ÂÇÇ³É«ÒòËØ
+					// ï¿½ï¿½ï¿½ï¿½Ç³É«ï¿½ï¿½ï¿½ï¿½
 					o.diff = nl * _LightColor0;
 					return o;
 				}
@@ -133,39 +193,39 @@ Shader "Custom/ToonShader"
 					}
 					else
 					{
-					    return float4(_OutlineColor.rgb, 1);
+						return float4(_OutlineColor.rgb, 1);
 					}
 				}
 				ENDCG
 			}
-					// ÒõÓ°Í¶ÉäÎïäÖÈ¾Í¨µÀ£¬
-		// Ê¹ÓÃ UnityCG.cginc ÖÐµÄºêÊÖ¶¯ÊµÏÖ
-		Pass
+				// ï¿½ï¿½Ó°Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Í¨ï¿½ï¿½ï¿½ï¿½
+	// Ê¹ï¿½ï¿½ UnityCG.cginc ï¿½ÐµÄºï¿½ï¿½Ö¶ï¿½Êµï¿½ï¿½
+	Pass
+				{
+					Tags {"LightMode" = "ShadowCaster"}
+
+					CGPROGRAM
+					#pragma vertex vert
+					#pragma fragment frag
+					#pragma multi_compile_shadowcaster
+					#include "UnityCG.cginc"
+
+					struct v2f {
+						V2F_SHADOW_CASTER;
+					};
+
+					v2f vert(appdata_base v)
 					{
-						Tags {"LightMode" = "ShadowCaster"}
-
-						CGPROGRAM
-						#pragma vertex vert
-						#pragma fragment frag
-						#pragma multi_compile_shadowcaster
-						#include "UnityCG.cginc"
-
-						struct v2f {
-							V2F_SHADOW_CASTER;
-						};
-
-						v2f vert(appdata_base v)
-						{
-							v2f o;
-							TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
-							return o;
-						}
-
-						float4 frag(v2f i) : SV_Target
-						{
-							SHADOW_CASTER_FRAGMENT(i)
-						}
-						ENDCG
+						v2f o;
+						TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+						return o;
 					}
+
+					float4 frag(v2f i) : SV_Target
+					{
+						SHADOW_CASTER_FRAGMENT(i)
+					}
+					ENDCG
+				}
 		}
 }

@@ -73,14 +73,15 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Factor: 0.487
     - _GlossMapScale: 1
     - _Glossiness: 0.77
     - _GlossyReflections: 1
-    - _HighLight: 1
+    - _HighLight: 0.05
     - _Metallic: 0.203
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.05
+    - _Outline: 0.04
     - _OutlineFactor: 0.028
     - _OutlineWidth: 0.634
     - _Parallax: 0.02
@@ -90,6 +91,8 @@ Material:
     - _Speed: 5
     - _SrcBlend: 1
     - _StartTime: 0
+    - _Steps: 7.9
+    - _ToonEffect: 0.795
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

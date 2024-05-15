@@ -39,20 +39,20 @@ namespace WarGame
             if ("Main Camera" != MainCamera.name)
                 return;
 
-            //Çó³öÉãÏñ»úÉäÏßºÍÆ½ÃæµÄ½»µã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßºï¿½Æ½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
             var linePos = MainCamera.transform.position;
             var lineDir = MainCamera.transform.forward;
-            var planePoint = Vector3.zero; //²»Í¬¸ß¶È£¬Õâ¸öµãºóÃæ»á¶¯Ì¬±ä»¯
+            var planePoint = Vector3.zero; //ï¿½ï¿½Í¬ï¿½ß¶È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¶¯Ì¬ï¿½ä»¯
             var planeNorVec = Vector3.up;
             float t = (planeNorVec.x * (planePoint.x - linePos.x) + planeNorVec.y * (planePoint.y - linePos.y) + planeNorVec.z * (planePoint.z - linePos.z)) /
                 (planeNorVec.x * lineDir.x + planeNorVec.y * lineDir.y + planeNorVec.z * lineDir.z);
             var point = new Vector3(linePos.x + t * lineDir.x, linePos.y + t * lineDir.y, linePos.z + t * lineDir.z);
 
-            //¾µÍ·Ç°ºóÒÆ¶¯
+            //ï¿½ï¿½Í·Ç°ï¿½ï¿½ï¿½Æ¶ï¿½
             float scrollValue = Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
             MainCamera.transform.position += MainCamera.transform.forward * scrollValue;
 
-            //¾µÍ·xzÆ½ÃæÒÆ¶¯
+            //ï¿½ï¿½Í·xzÆ½ï¿½ï¿½ï¿½Æ¶ï¿½
             if (InputManager.Instance.GetMouseButton(0))
             {
                 float xAxis = Input.GetAxis("Mouse X") * _moveSpeed;
@@ -61,7 +61,7 @@ namespace WarGame
                 MainCamera.transform.position = pos;
             }
 
-            //¾µÍ·Ðý×ª
+            //ï¿½ï¿½Í·ï¿½ï¿½×ª
             if (InputManager.Instance.GetMouseButton(1))
             {
                 float xAxis = Input.GetAxis("Mouse X") * _rotateSpeed;
@@ -72,14 +72,14 @@ namespace WarGame
             }
         }
 
-        //ÉèÖÃÖ÷ÉãÏñ»ú
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public void SetMainCamera(Camera camera)
         {
             camera.tag = "MainCamera";
         }
 
         /// <summary>
-        /// ¹¥»÷Ñ¡ÔñÊ±£¬½«¹¥»÷Ä¿±êÍâµÄËùÓÐ¶ÔÏóÖÃ»Ò
+        /// ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
         /// </summary>
         public void OpenGray()
         {
@@ -89,7 +89,7 @@ namespace WarGame
         }
 
         /// <summary>
-        /// ¹¥»÷Ñ¡Ôñ½áÊøÊ±£¬½«¹¥»÷Ä¿±êÍâµÄËùÓÐ¶ÔÏó»Ö¸´Õý³£
+        /// ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½
         /// </summary>
         public void CloseGray()
         {

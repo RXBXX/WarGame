@@ -7,47 +7,52 @@ namespace WarGame
 {
     public class InputManager : Singeton<InputManager>
     {
+        private Ray _ray;
+        private RaycastHit _hitInfo;
         private Collider _downCollider = null;
 
         // Update is called once per frame
         public override void Update(float deltaTime)
         {
-            if (null != Stage.inst.touchTarget)
-                return;
-
             if (null == CameraMgr.Instance.MainCamera)
                 return;
 
+            if (null != Stage.inst.touchTarget)
+            {
+                SceneMgr.Instance.Touch(null);
+                return;
+            }
+
+            _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+            var raycast = Physics.Raycast(_ray, out _hitInfo);
+            if (raycast)
+            {
+                SceneMgr.Instance.Touch(_hitInfo.collider.gameObject);
+            }
+            else
+            {
+                SceneMgr.Instance.Touch(null);
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
-                var ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hitInfo;
-                if (Physics.Raycast(ray, out hitInfo))
+                _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(_ray, out _hitInfo))
                 {
-                    _downCollider = hitInfo.collider;
+                    _downCollider = _hitInfo.collider;
                 }
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                var ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hitInfo;
-                if (Physics.Raycast(ray, out hitInfo))
+                _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(_ray, out _hitInfo))
                 {
-                    if (hitInfo.collider == _downCollider)
+                    if (_hitInfo.collider == _downCollider)
                     {
-                        SceneMgr.Instance.Click(hitInfo.collider.gameObject);
+                        SceneMgr.Instance.Click(_hitInfo.collider.gameObject);
                     }
                 }
                 _downCollider = null;
-            }
-            else
-            {
-                var ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hitInfo;
-                if (Physics.Raycast(ray, out hitInfo))
-                {
-                    SceneMgr.Instance.Touch(hitInfo.collider.gameObject);
-                }
             }
         }
 

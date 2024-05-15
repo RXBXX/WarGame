@@ -27,6 +27,17 @@ namespace WarGame
         private int _touchRoleID;
         public override void OnTouch(GameObject obj)
         {
+            if (null == obj)
+            {
+                if (0 != _touchRoleID)
+                {
+                    var role = RoleManager.Instance.GetRole(_touchRoleID);
+                    role.ResetHighLight();
+                    _touchRoleID = 0;
+                }
+                return;
+            }
+
             if (obj.tag == Enum.Tag.Hero.ToString() || obj.tag == Enum.Tag.Enemy.ToString())
             {
                 var touchRoleID = obj.GetComponent<RoleBehaviour>().ID;
