@@ -81,7 +81,7 @@ Material:
     - _Metallic: 0.203
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.06
+    - _Outline: 0.05
     - _OutlineFactor: 0.028
     - _OutlineWidth: 0.634
     - _Parallax: 0.02
@@ -91,7 +91,7 @@ Material:
     - _Speed: 5
     - _SrcBlend: 1
     - _StartTime: 0
-    - _Steps: 7.9
+    - _Steps: 7.07
     - _ToonEffect: 0.795
     - _UVSec: 0
     - _ZWrite: 1
@@ -100,6 +100,6 @@ Material:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineCol: {r: 1, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

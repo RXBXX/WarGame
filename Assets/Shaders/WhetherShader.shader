@@ -5,6 +5,7 @@ Shader "Custom/WhetherShader"
         _Texture1("Texture 1", 2D) = "white" {}
         _Texture2("Texture 2", 2D) = "white" {}
         _Blend("Blend", Range(0,1)) = 0.0
+        _Color("Color", Color) = (1,1,1,0)
     }
     SubShader
     {
@@ -20,6 +21,7 @@ Shader "Custom/WhetherShader"
 
         sampler2D _Texture1;
         sampler2D _Texture2;
+        float4 _Color;
 
         struct Input
         {
@@ -38,7 +40,7 @@ Shader "Custom/WhetherShader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = lerp(tex2D(_Texture1, IN.uv_Texture1), tex2D(_Texture2, IN.uv_Texture1), _Blend);
+            fixed4 c = lerp(tex2D(_Texture1, IN.uv_Texture1), tex2D(_Texture2, IN.uv_Texture1), _Blend) * _Color;
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Alpha = c.a;

@@ -94,10 +94,10 @@ namespace WarGame
             switch (type)
             {
                 case Enum.MarkType.Selected:
-                    _gameObject.GetComponent<Renderer>().material.color = Color.blue;
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
                     break;
                 case Enum.MarkType.Walkable:
-                    _gameObject.GetComponent<Renderer>().material.color = Color.green;
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
                     break;
                 case Enum.MarkType.Attackable:
                     _gameObject.GetComponent<Renderer>().material.color = Color.yellow;

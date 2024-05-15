@@ -16,10 +16,11 @@ Shader "Custom/ToonShader"
 		_Factor("Factor",range(0,1)) = 0.5//������Զ
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5//��ͨ���̶ȣ�����Ԫ������Ԫ�Ľ����ߣ�
 		_Steps("Steps of toon",range(0,9)) = 3//ɫ�ײ���
+		_Color("Color", Color) = (0, 0, 0, 0)
 	}
-		SubShader
-		{
-	pass {//ƽ�й�ĵ�pass��Ⱦ
+	SubShader
+	{
+		pass {//ƽ�й�ĵ�pass��Ⱦ
 			Tags{"LightMode" = "ForwardBase"}
 			Cull Back
 			CGPROGRAM
@@ -71,12 +72,12 @@ Shader "Custom/ToonShader"
 				diff = lerp(diff,toon,_ToonEffect);//�����ⲿ���ǿɿصĿ�ͨ���̶�ֵ_ToonEffect�����ڿ�ͨ����ʵ�ı���
 
 				fixed4 col = tex2D(_MainTex, i.uv);
-				c = col * _LightColor0 * (diff);//��������ɫ���
+				c = col * _LightColor0 * (diff) * _Color;//��������ɫ���
 				return c;
 			}
 			ENDCG
-			}//
-			pass {//���ӵ��Դ��pass��Ⱦ
+		}//
+		pass {//���ӵ��Դ��pass��Ⱦ
 			Tags{"LightMode" = "ForwardAdd"}
 			Blend One One
 			Cull Back
@@ -132,100 +133,100 @@ Shader "Custom/ToonShader"
 				return c;
 			}
 			ENDCG
-			}//
-			Pass
-			{
-				Cull Front
-				//Stencil //ģ���������
-				//{
+		}//
+		Pass
+		{
+			Cull Front
+			//Stencil //ģ���������
+			//{
 				//    Ref 1
 				//    Comp NotEqual
-				//}
-				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag     
-				#include "UnityCG.cginc"  
-				#include "UnityLightingCommon.cginc" // ���� _LightColor0
+			//}
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag     
+			#include "UnityCG.cginc"  
+			#include "UnityLightingCommon.cginc" // ���� _LightColor0
 
-				float _Outline;
-				fixed4 _OutlineColor;
-				float _HighLight;
+			float _Outline;
+			fixed4 _OutlineColor;
+			float _HighLight;
 
-				struct appdata
-				{
-					float4 pos : POSITION;
-					float3 normal : NORMAL;
-					float3 tangent : TANGENT; //�������߲�ֵ��
-				};
-				struct v2f
-				{
-					float4 pos : SV_POSITION;
-					fixed4 diff : COLOR0; // ���������ɫ
-				};
+			struct appdata
+			{
+				float4 pos : POSITION;
+				float3 normal : NORMAL;
+				float3 tangent : TANGENT; //�������߲�ֵ��
+			};
+			struct v2f
+			{
+				float4 pos : SV_POSITION;
+				fixed4 diff : COLOR0; // ���������ɫ
+			};
 
-				v2f vert(appdata v)
-				{
-					v2f o;
+			v2f vert(appdata v)
+			{
+				v2f o;
 
-					float4 pos = UnityObjectToClipPos(v.pos);
-					float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
-					float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;//�����߱任��NDC�ռ�
-					float aspect = _ScreenParams.y / _ScreenParams.x; //������Ļ������,_ScreenParamsΪunity���ñ���
-					ndcNormal.x *= aspect; //���еȱ�����
-					pos.xy += 0.1 * _Outline * ndcNormal.xy;
-					o.pos = pos;
+				float4 pos = UnityObjectToClipPos(v.pos);
+				float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
+				float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;//�����߱任��NDC�ռ�
+				float aspect = _ScreenParams.y / _ScreenParams.x; //������Ļ������,_ScreenParamsΪunity���ñ���
+				ndcNormal.x *= aspect; //���еȱ�����
+				pos.xy += 0.1 * _Outline * ndcNormal.xy;
+				o.pos = pos;
 
-					// ������ռ��л�ȡ���㷨��
-					half3 worldNormal = UnityObjectToWorldNormal(v.normal);
-					// ��׼���䣨�����أ����յķ��ߺ�
-					// ���߷���֮��ĵ��
-					half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
-					// ����ǳɫ����
-					o.diff = nl * _LightColor0;
-					return o;
-				}
-
-				float4 frag(v2f i) : SV_TARGET
-				{
-					if (_HighLight > 0.5)
-					{
-						return float4(_OutlineColor.rgb, 1) * i.diff;
-					}
-					else
-					{
-						return float4(_OutlineColor.rgb, 1);
-					}
-				}
-				ENDCG
+				// ������ռ��л�ȡ���㷨��
+				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+				// ��׼���䣨�����أ����յķ��ߺ�
+				// ���߷���֮��ĵ��
+				half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
+				// ����ǳɫ����
+				o.diff = nl * _LightColor0;
+				return o;
 			}
-				// ��ӰͶ������Ⱦͨ����
-	// ʹ�� UnityCG.cginc �еĺ��ֶ�ʵ��
-	Pass
+
+			float4 frag(v2f i) : SV_TARGET
+			{
+				if (_HighLight > 0.5)
 				{
-					Tags {"LightMode" = "ShadowCaster"}
-
-					CGPROGRAM
-					#pragma vertex vert
-					#pragma fragment frag
-					#pragma multi_compile_shadowcaster
-					#include "UnityCG.cginc"
-
-					struct v2f {
-						V2F_SHADOW_CASTER;
-					};
-
-					v2f vert(appdata_base v)
-					{
-						v2f o;
-						TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
-						return o;
-					}
-
-					float4 frag(v2f i) : SV_Target
-					{
-						SHADOW_CASTER_FRAGMENT(i)
-					}
-					ENDCG
+					return float4(_OutlineColor.rgb, 1) * i.diff;
 				}
+				else
+				{
+					return float4(_OutlineColor.rgb, 1);
+				}
+			}
+			ENDCG
 		}
+		// ��ӰͶ������Ⱦͨ����
+		// ʹ�� UnityCG.cginc �еĺ��ֶ�ʵ��
+		Pass
+		{
+			Tags {"LightMode" = "ShadowCaster"}
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			#pragma multi_compile_shadowcaster
+			#include "UnityCG.cginc"
+
+			struct v2f {
+				V2F_SHADOW_CASTER;
+			};
+
+			v2f vert(appdata_base v)
+			{
+				v2f o;
+				TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+				return o;
+			}
+
+			float4 frag(v2f i) : SV_Target
+			{
+				SHADOW_CASTER_FRAGMENT(i)
+			}
+			ENDCG
+		}
+	}
 }
