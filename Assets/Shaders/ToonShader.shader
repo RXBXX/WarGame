@@ -17,6 +17,7 @@ Shader "Custom/ToonShader"
     {
         Pass
         {
+            Tags {"LightMode" = "ForwardBase"}
             Stencil //模板测试设置
             {
                 Ref 1
@@ -28,6 +29,7 @@ Shader "Custom/ToonShader"
             #pragma vertex vert
             #pragma fragment frag
             #include "UnityCG.cginc"  
+            #include "UnityLightingCommon.cginc" // 对于 _LightColor0
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
@@ -43,6 +45,7 @@ Shader "Custom/ToonShader"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                fixed4 diff : COLOR0; // 漫射光照颜色
             };
 
             v2f vert(appdata v)
@@ -50,13 +53,22 @@ Shader "Custom/ToonShader"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+                // 在世界空间中获取顶点法线
+                half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+                // 标准漫射（兰伯特）光照的法线和
+                // 光线方向之间的点积
+                half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
+                // 考虑浅色因素
+                o.diff = nl * _LightColor0;
+
                 return o;
             }
 
             fixed4 frag(v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col;
+                return col * i.diff;
             }
             ENDCG
         }
