@@ -25,8 +25,8 @@ namespace WarGame
         }
 
         public virtual void OnCreate()
-        { 
-        
+        {
+            Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
         }
 
         public virtual void Attack(Vector3 targetPos)
@@ -73,6 +73,8 @@ namespace WarGame
         }
 
         public virtual void Dispose()
-        { }
+        { 
+        
+        }
     }
 }

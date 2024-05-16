@@ -55,7 +55,7 @@ namespace WarGame
                 }
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, Enum.SkillType.Common});
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, Enum.SkillType.CommonAttack});
             if (targetID <= 0)
             {
                 SetState(Enum.RoleState.Over);

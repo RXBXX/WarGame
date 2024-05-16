@@ -138,7 +138,7 @@ namespace WarGame
 
         protected override void SmoothNormal()
         {
-            Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
+            Tool.Instance.ApplyProcessingFotOutLine(_gameObject, new List<string> { "Body", "Hair", "Head", "Hat", "AC"});
         }
 
         protected virtual void InitEquips()
@@ -157,9 +157,9 @@ namespace WarGame
             _stateDic.Add("Jump", new JumpState("Jump", this));
             var clip = GetAnimatorConfig().Jump;
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_animator, clip);
-            DebugManager.Instance.Log(GetAnimatorConfig().Controller + clip);
-            foreach (var v in timeDic)
-                DebugManager.Instance.Log(v.Key);
+            //DebugManager.Instance.Log(GetAnimatorConfig().Controller + clip);
+            //foreach (var v in timeDic)
+            //    DebugManager.Instance.Log(v.Key);
             ((JumpState)_stateDic["Jump"]).duration = timeDic["Jump_Loss"] - timeDic["Jump_Take"];
 
             _stateDic.Add("Idle", new State("Idle", this));

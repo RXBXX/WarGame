@@ -32,14 +32,16 @@ namespace WarGame
 
             _bullet = GameObject.Instantiate(_gameObject);
             _bullet.transform.position = _gameObject.transform.position;
-            _bullet.transform.forward = _targetPos - _gameObject.transform.position;
-            _bullet.transform.DOMove(_targetPos, duration);
+            var forward = _targetPos - _gameObject.transform.position;
+            _bullet.transform.forward = forward;
+            var tp = _targetPos - forward.normalized;
+            _bullet.transform.DOMove(tp, duration);
 
         }
 
         protected override void DestroyBullet()
         {
-            DOTween.Kill(_bullet);
+            DOTween.Kill(_bullet.transform);
             GameObject.Destroy(_bullet);
         }
     }

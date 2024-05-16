@@ -153,7 +153,7 @@ namespace WarGame
             if (null != _coroutine)
                 return;
 
-            DebugManager.Instance.Log("OnAttackEnd");
+            //DebugManager.Instance.Log("OnAttackEnd");
             _coroutine = OnFinishAction();
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
@@ -171,7 +171,7 @@ namespace WarGame
             if (null != _coroutine)
                 return;
 
-            DebugManager.Instance.Log("OnAttackedEnd");
+            //DebugManager.Instance.Log("OnAttackedEnd");
             _coroutine = OnFinishAction(1.5f);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
@@ -238,7 +238,7 @@ namespace WarGame
             string stateName = strs[0], secondStateName = strs[1];
             owner.HandleEvent(stateName, secondStateName);
 
-            if ((stateName == "Attack" || stateName == "Cure") && secondStateName == "Take")
+            if (_skillType == Enum.SkillType.CommonAttack)
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
                 var skillConfig = owner.GetSkillConfig(_skillType);

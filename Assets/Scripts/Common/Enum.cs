@@ -109,7 +109,7 @@ public class Enum
     [Serializable]
     public enum SkillType
     {
-        Common = 0,
+        CommonAttack = 0,
         Special = 1,
     }
 

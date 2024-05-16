@@ -13,7 +13,7 @@ namespace WarGame.UI
         public HUDSkills(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
             _skill1 = GetUIChild<GButton>("skill 1");
-            _skill1.onClick.Add(()=> { ClickSkill(Enum.SkillType.Common); });
+            _skill1.onClick.Add(()=> { ClickSkill(Enum.SkillType.CommonAttack); });
 
             _skill2 = GetUIChild<GButton>("skill 2");
             _skill2.onClick.Add(() => { ClickSkill(Enum.SkillType.Special); });

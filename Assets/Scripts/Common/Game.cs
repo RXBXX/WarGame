@@ -8,7 +8,7 @@ namespace WarGame
     {
         public override bool Init()
         {
-            DebugManager.Instance.Log("Game.Init");
+            //DebugManager.Instance.Log("Game.Init");
             base.Init();
 
             DebugManager.Instance.Init();

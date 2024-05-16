@@ -7,14 +7,14 @@ namespace WarGame
     {
         private void Awake()
         {
-            Debug.Log("Entrance Awake");
+            //Debug.Log("Entrance Awake");
             DontDestroyOnLoad(this);
             Game.Instance.Init();
         }
 
         private void Start()
         {
-            Debug.Log("Entrance Start");
+            //Debug.Log("Entrance Start");
             Game.Instance.Start();
         }
 

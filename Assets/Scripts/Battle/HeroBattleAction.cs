@@ -221,7 +221,7 @@ namespace WarGame
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
             HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
-            role.GetSkillConfig(Enum.SkillType.Common).Name,
+            role.GetSkillConfig(Enum.SkillType.CommonAttack).Name,
             role.GetSkillConfig(Enum.SkillType.Special).Name,
             });
         }
@@ -307,7 +307,7 @@ namespace WarGame
 
         private void OnIdle(params object[] args)
         {
-            DebugManager.Instance.Log("OnIdle");
+            //DebugManager.Instance.Log("OnIdle");
             if (_initiatorID <= 0)
                 return;
 
@@ -373,6 +373,5 @@ namespace WarGame
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
         }
-
     }
 }

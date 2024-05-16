@@ -112,7 +112,7 @@ namespace WarGame
 
         public SkillConfig GetSkillConfig(Enum.SkillType skillType)
         {
-            if (Enum.SkillType.Common == skillType)
+            if (Enum.SkillType.CommonAttack == skillType)
             {
                 return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill);
             }

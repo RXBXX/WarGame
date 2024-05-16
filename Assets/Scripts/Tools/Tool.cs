@@ -103,42 +103,67 @@ namespace WarGame
         /// 平滑发现，将平滑后的法线写入切线位置，解决描边不连续的问题
         /// </summary>
         /// <param name="go"></param>
-        public void ApplyProcessingFotOutLine(GameObject go)
+        public void ApplyProcessingFotOutLine(GameObject go, List<string> names = null)
         {
             try
             {
                 for (int i = 0; i < go.transform.childCount; i++)
                 {
                     var child = go.transform.GetChild(i).gameObject;
-                    ApplyProcessingFotOutLine(child);
+                    ApplyProcessingFotOutLine(child, names);
+                }
+
+                var needApply = false;
+                if (null == names)
+                {
+                    needApply = true;
+                }
+                else
+                {
+                    foreach (var v in names)
+                    {
+                        needApply = go.name.Contains(v);
+                        if (needApply)
+                            break;
+                    }
                 }
 
                 SkinnedMeshRenderer meshRenderer = null;
                 if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
                 {
-                    var mesh = meshRenderer.sharedMesh;
-                    ReadAverageNormalToTangent(mesh);
+                    if (needApply)
+                    {
+                        ReadAverageNormalToTangent(meshRenderer.sharedMesh);
+                    }
+                    else
+                    {
+                        meshRenderer.material.SetFloat("_Outline", 0);
+                    }
                     return;
                 }
 
                 MeshFilter meshFilter = null;
                 if (go.TryGetComponent<MeshFilter>(out meshFilter))
                 {
-                    var mesh = meshFilter.sharedMesh;
-                    ReadAverageNormalToTangent(mesh);
+                    if (needApply)
+                    {
+                        ReadAverageNormalToTangent(meshFilter.sharedMesh);
+                    }
+                    else
+                    {
+                        go.GetComponent<MeshRenderer>().material.SetFloat("_Outline", 0);
+                    }
                     return;
                 }
             }
             catch
             {
-                DebugManager.Instance.Log("请检查模型："+go.name +"是否已经采集描边采样");
+                DebugManager.Instance.Log("请检查模型：" + go.name + "是否已经采集描边采样");
             }
         }
 
         public static void ReadAverageNormalToTangent(Mesh mesh)
         {
-            Debug.Log("ReadAverageNormalToTangent");
-
             var bytes = File.ReadAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png");
             Texture2D texture = new Texture2D(2, 2);
             texture.LoadImage(bytes);
@@ -152,7 +177,7 @@ namespace WarGame
                         break;
                     var color = texture.GetPixel(i, j);
                     //Debug.Log("Read"+color.r +"_"+ color.g+"_"+ color.b+"_"+ color.a);
-                    tangents[index] = new Vector4(color.r * 2 -1, color.g *2-1, color.b*2-1, color.a*2-1);
+                    tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
                 }
             }
             mesh.tangents = tangents;

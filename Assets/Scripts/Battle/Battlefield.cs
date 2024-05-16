@@ -65,7 +65,12 @@ namespace WarGame
 
         public void Dispose()
         {
-            _action.Dispose();
+            if (null != _action)
+            {
+                _action.Dispose();
+                _action = null;
+            }
+
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
@@ -174,7 +179,7 @@ namespace WarGame
                     {
                         roles[i].UpdateRound();
                     }
-                     isHeroTurn = true;
+                    isHeroTurn = true;
                     _action = new HeroBattleAction();
                 };
 
