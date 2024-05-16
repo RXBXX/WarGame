@@ -2,25 +2,30 @@ namespace WarGame
 {
     public class EnemyBattleAction : BattleAction
     {
-        public EnemyBattleAction()
+        public EnemyBattleAction():base()
         {
+        }
+
+        protected override void AddListeners()
+        {
+            base.AddListeners();
+
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Start, OnStart);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
         }
 
-        public override void Dispose()
+        protected override void RemoveListeners()
         {
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Start, OnStart);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
-            base.Dispose();
+            base.RemoveListeners();
         }
-
 
         private void OnStart(object[] args)
         {
             _initiatorID = (int)args[0];
             _targetID = (int)args[1];
-            _skillType = (Enum.SkillType)args[2];
+            _skillID = (int)args[2];
         }
 
         public void OnMoveStart(object[] args)
@@ -31,7 +36,7 @@ namespace WarGame
 
         protected override void OnMoveEnd(params object[] args)
         {
-            DebugManager.Instance.Log("OnMoveEnd" + _targetID);
+            //DebugManager.Instance.Log("OnMoveEnd" + _targetID);
             if (_targetID > 0)
             {
                 OnAIAttack();
@@ -44,7 +49,13 @@ namespace WarGame
 
         private void OnAIAttack()
         {
-            Attack();
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            initiator.SetState(Enum.RoleState.WatingTarget);
+            _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction.Start();
+
+            _skillAction.ClickHero(_targetID);
+            //_skillAction.Play(_targetID);
         }
     }
 }

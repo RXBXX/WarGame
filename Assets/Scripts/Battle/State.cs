@@ -82,6 +82,7 @@ namespace WarGame
 
         public override void Take()
         {
+            DebugManager.Instance.Log("JumpTake:" + _state);
             if (_state == Enum.RoleAnimState.Take)
                 return;
             base.Take();
@@ -107,6 +108,7 @@ namespace WarGame
 
         public override void Update()
         {
+            //DebugManager.Instance.Log("JumpState:" + _state);
             if (_state == Enum.RoleAnimState.Start || _state == Enum.RoleAnimState.Loss || _state == Enum.RoleAnimState.End)
                 return;
 
@@ -166,6 +168,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _role.ID });
         }
     }
 
@@ -178,7 +181,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            DebugManager.Instance.Log("Enum.EventType.Fight_Attacked_End");
+            //DebugManager.Instance.Log("Enum.EventType.Fight_Attacked_End");
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID});
         }
     }
@@ -216,7 +219,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Cured_End, new object[] { _role.ID });
         }
     }
 }

@@ -110,18 +110,6 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", configId * 1000 + level);
         }
 
-        public SkillConfig GetSkillConfig(Enum.SkillType skillType)
-        {
-            if (Enum.SkillType.CommonAttack == skillType)
-            {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().CommonSkill);
-            }
-            else
-            {
-                return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", GetConfig().SpecialSkill);
-            }
-        }
-
         public RoleJobConfig GetJobConfig()
         {
             return ConfigMgr.Instance.GetConfig<RoleJobConfig>("RoleJobConfig", GetConfig().Job);

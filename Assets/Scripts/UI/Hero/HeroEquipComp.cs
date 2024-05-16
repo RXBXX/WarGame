@@ -31,7 +31,7 @@ namespace WarGame.UI
         private List<EquipStruct> _forcedEquipsData = new List<EquipStruct>();
         private Dictionary<string, HeroEquip> _forcedEquips = new Dictionary<string, HeroEquip>();
 
-        private GTextField _attrs;
+        //private GTextField _attrs;
         private GButton _wearBtn;
 
         private int _roleUID;
@@ -50,7 +50,7 @@ namespace WarGame.UI
 
             _wearBtn = GetUIChild<GButton>("wearBtn");
             _wearBtn.onClick.Add(OnClickBtn);
-            _attrs = GetUIChild<GTextField>("attr");
+            //_attrs = GetUIChild<GTextField>("attr");
 
             gCom.onTouchBegin.Add(OnTouchBegin);
         }
@@ -182,8 +182,8 @@ namespace WarGame.UI
                 _forcedEquipsData.Clear();
                 int ownerUID = 0;
                 bool adept = false;
-                Enum.EquipType type;
-                EquipmentData equipData;
+                //Enum.EquipType type;
+                //EquipmentData equipData;
                 foreach (var v in _equipsData)
                 {
                     if (equip.GetForcedCombination() == v.type)

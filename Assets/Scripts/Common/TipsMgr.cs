@@ -41,11 +41,8 @@ namespace WarGame
 
         private void OnTipsOver(params object[] args)
         {
-            DebugManager.Instance.Log("OnTipsOver");
             var item = (TipsItem)args[0];
-            DebugManager.Instance.Log("OnTipsOver"+ _tipsList.Count);
             _tipsList.Remove(item);
-            DebugManager.Instance.Log("OnTipsOver" + _tipsList.Count);
             _tipsRecyclePool.Add(item);
 
             for (int i = 0; i < _tipsList.Count; i++)
@@ -56,17 +53,23 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            for (int i = 0; i < _tipsList.Count; i++)
+            if (null != _tipsList)
             {
-                _tipsList[i].Dispose(true);
+                for (int i = 0; i < _tipsList.Count; i++)
+                {
+                    _tipsList[i].Dispose(true);
+                }
+                _tipsList.Clear();
             }
-            _tipsList.Clear();
 
-            for (int i = 0; i < _tipsRecyclePool.Count; i++)
+            if (null != _tipsRecyclePool)
             {
-                _tipsRecyclePool[i].Dispose(true);
+                for (int i = 0; i < _tipsRecyclePool.Count; i++)
+                {
+                    _tipsRecyclePool[i].Dispose(true);
+                }
+                _tipsRecyclePool.Clear();
             }
-            _tipsRecyclePool.Clear();
 
             return base.Dispose();
         }

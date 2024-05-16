@@ -21,6 +21,7 @@ namespace WarGame
             DatasMgr.Instance.StartLevel(levelID);
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
 
             MapManager.Instance.CreateMap(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map);
 
@@ -50,13 +51,13 @@ namespace WarGame
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(2, 0, 1));
             RoleManager.Instance.CreateHero(levelRoleData);
 
-            levelRoleData = new LevelRoleData(11, 10003, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
-            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
+            levelRoleData = new LevelRoleData(11, 10005, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10005 * 1000 + 1).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(3, 0, 3));
             RoleManager.Instance.CreateEnemy(levelRoleData);
 
-            levelRoleData = new LevelRoleData(12, 10004, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
-            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10004 * 1000 + 1).HP;
+            levelRoleData = new LevelRoleData(12, 10006, 1, new Dictionary<Enum.EquipPlace, int>(), new Dictionary<int, int>());
+            levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", 10006 * 1000 + 1).HP;
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 5));
             RoleManager.Instance.CreateEnemy(levelRoleData);
             DebugManager.Instance.Log("Duration: " + (Time.realtimeSinceStartup - time));
@@ -75,6 +76,7 @@ namespace WarGame
             MapManager.Instance.ClearMap();
 
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
         }
 
         public void Start()
@@ -186,6 +188,26 @@ namespace WarGame
                 _roundIndex += 1;
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _roundIndex, callback });
             }
+        }
+
+        private void HandleFightEvents(params object[] args)
+        {
+            if (null == args)
+                return;
+            if (args.Length <= 0)
+                return;
+
+            var strs = ((string)args[0]).Split('_');
+            var senderID = (int)args[1];
+            if (0 == senderID)
+                return;
+
+            var sender = RoleManager.Instance.GetRole(senderID);
+            string stateName = strs[0], secondStateName = strs[1];
+            sender.HandleEvent(stateName, secondStateName);
+
+            if (null != _action)
+                _action.HandleFightEvents(senderID, stateName, secondStateName);
         }
     }
 }

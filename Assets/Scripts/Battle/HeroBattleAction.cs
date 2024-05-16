@@ -7,24 +7,35 @@ namespace WarGame
 {
     public class HeroBattleAction : BattleAction
     {
-        public HeroBattleAction()
+        private int _touchRoleID;
+
+        public HeroBattleAction() : base()
         {
+        }
+
+
+        protected override void AddListeners()
+        {
+            base.AddListeners();
+
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
             EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Battle, Battle);
         }
 
-        public override void Dispose()
+        protected override void RemoveListeners()
         {
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
-            base.Dispose();
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Battle, Battle);
+            base.RemoveListeners();
         }
 
-        private int _touchRoleID;
+
         public override void OnTouch(GameObject obj)
         {
             if (null == obj)
@@ -127,6 +138,7 @@ namespace WarGame
                 ClickHexagon(obj.GetComponent<HexagonBehaviour>().ID);
             }
         }
+
         private void ClickHero(int heroID)
         {
             var hero = RoleManager.Instance.GetRole(heroID);
@@ -134,22 +146,16 @@ namespace WarGame
             if (state != Enum.RoleState.Waiting && state != Enum.RoleState.Over)
                 return;
 
+            if (null != _skillAction)
+            {
+                _skillAction.ClickHero(heroID);
+                return;
+            }
+
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
             if (_initiatorID > 0)
             {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() == Enum.RoleState.WatingTarget)
-                {
-                    var targetType = initiator.GetTargetType(_skillType);
-                    if (targetType != Enum.RoleType.Hero)
-                        return;
-                }
-
-                if (initiator.GetState() == Enum.RoleState.WatingTarget)
-                {
-                    Battle(heroID);
-                }
-                else if (_initiatorID == heroID)
+                if (_initiatorID == heroID)
                 {
                     MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
                     hero.SetState(Enum.RoleState.WaitingOrder);
@@ -161,10 +167,8 @@ namespace WarGame
                     MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
                 }
             }
-            else
+            else if (state != Enum.RoleState.Over)
             {
-                if (state == Enum.RoleState.Over)
-                    return;
                 _initiatorID = heroID;
                 MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
             }
@@ -176,36 +180,26 @@ namespace WarGame
             if (enemy.GetState() != Enum.RoleState.Locked)
                 return;
 
-            if (_initiatorID > 0)
+            if (null != _skillAction)
             {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() == Enum.RoleState.WatingTarget)
-                {
-                    var targetType = initiator.GetTargetType(_skillType);
-                    if (targetType != Enum.RoleType.Enemy)
-                        return;
-                }
-
-                if (initiator.GetState() != Enum.RoleState.WatingTarget)
-                {
-                    string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
-                    MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
-                    return;
-                }
-
-                Battle(enemyId);
+                _skillAction.ClickEnemy(enemyId);
+                return;
             }
-            else
-            {
-                string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
-                MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
-            }
+
+            string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
+            MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
         }
 
         private void ClickHexagon(string hexagonID)
         {
             if (_initiatorID <= 0)
                 return;
+
+            if (null != _skillAction)
+            {
+                _skillAction.ClickHexagon(hexagonID);
+                return;
+            }
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             if (role.GetState() != Enum.RoleState.Waiting)
@@ -221,8 +215,8 @@ namespace WarGame
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
             HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
-            role.GetSkillConfig(Enum.SkillType.CommonAttack).Name,
-            role.GetSkillConfig(Enum.SkillType.Special).Name,
+            role.GetConfig().CommonSkill,
+            role.GetConfig().SpecialSkill,
             });
         }
 
@@ -279,30 +273,11 @@ namespace WarGame
             _path = null;
         }
 
-        private void Battle(int enemyID)
+        private void Battle(params object[] args)
         {
             CloseInstruct();
 
-            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(enemyID);
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, Enum.RoleType.Hero, false);
-            if (null == hexagons || hexagons.Count <= 0)
-                return;
-            var cost = 0.0f;
-            for (int i = 1; i < hexagons.Count; i++)
-            {
-                cost += MapManager.Instance.GetHexagon(hexagons[i]).GetCost();
-            }
-
-            var hero = RoleManager.Instance.GetRole(_initiatorID);
-            if (cost > hero.GetAttackDis())
-                return;
-
             MapManager.Instance.ClearMarkedRegion();
-            ExitGrayedMode();
-
-            _targetID = enemyID;
-            Attack();
         }
 
         private void OnIdle(params object[] args)
@@ -341,9 +316,13 @@ namespace WarGame
 
         private void OnClickSkill(params object[] args)
         {
-            _skillType = (Enum.SkillType)args[0];
+            _skillID = (int)args[0];
 
-            EnterGrayedMode();
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            initiator.SetState(Enum.RoleState.WatingTarget);
+
+            _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction.Start();
         }
 
         protected override void OnMoveEnd(params object[] args)
@@ -368,7 +347,8 @@ namespace WarGame
 
         private void OnCancelSkill(object[] args)
         {
-            ExitGrayedMode();
+            _skillAction.Dispose();
+            _skillAction = null;
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);

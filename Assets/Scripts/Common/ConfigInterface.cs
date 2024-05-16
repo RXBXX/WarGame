@@ -76,7 +76,7 @@ namespace WarGame
         public string Prefab;
         public string Icon;
         public string Name;
-        public Enum.RoleType TargetType;
+        public Enum.TargetType TargetType;
         public Enum.AttrType AttrType;
     }
 

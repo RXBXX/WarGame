@@ -7,27 +7,31 @@ namespace WarGame.UI
 {
     public class HUDSkills : HUD
     {
+        private int _commonSkill, _specialSkill;
         private GButton _skill1;
         private GButton _skill2;
 
         public HUDSkills(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
             _skill1 = GetUIChild<GButton>("skill 1");
-            _skill1.onClick.Add(()=> { ClickSkill(Enum.SkillType.CommonAttack); });
+            _skill1.onClick.Add(()=> { ClickSkill(_commonSkill); });
 
             _skill2 = GetUIChild<GButton>("skill 2");
-            _skill2.onClick.Add(() => { ClickSkill(Enum.SkillType.Special); });
+            _skill2.onClick.Add(() => { ClickSkill(_specialSkill); });
         }
 
         public void UpdateComp(object[] args)
         {
-            _skill1.title = (string)args[0];
-            _skill2.title = (string)args[1];
+            _commonSkill = (int)args[0];
+            _specialSkill = (int)args[1];
+
+            _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).Name;
+            _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).Name;
         }
 
-        private void ClickSkill(Enum.SkillType type)
+        private void ClickSkill(int skillId)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Click_Skill, new object[] { type});
+            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Click_Skill, new object[] { skillId});
         }
     }
 }

@@ -190,6 +190,7 @@
     <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUD.cs" />
+    <Compile Include="Assets\Scripts\Render\BloomPP.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\ExtensionMain.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentComp.cs" />
@@ -307,6 +308,7 @@
     <Compile Include="Assets\Scripts\SRP\WGRenderPipelineAsset.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLabel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\ModalWaitingMain.cs" />
+    <Compile Include="Assets\Scripts\Battle\AttackSkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Perspetive\PerspectiveMain.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window1.cs" />
@@ -333,6 +335,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window2.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\RelationItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\FieldTypes.cs" />
+    <Compile Include="Assets\Scripts\Battle\SkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParser.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\TranslationHelper.cs" />
@@ -357,7 +360,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Render\BloomPP.cs" />
+    <Compile Include="Assets\Scripts\Battle\CureSkillAction.cs" />
+    <Compile Include="Assets\Scripts\Battle\SkillFactory.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />
@@ -373,6 +377,7 @@
      <None Include="Assets\Scripts\SRP\NewSurfaceShader.shader" />
      <None Include="Assets\Scripts\SRP\NewUnlitShader.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
+     <None Include="Assets\Shaders\HexagonToonShader.shader" />
      <None Include="Assets\RPGTinyHeroWavePolyart\HowToTestHDRP_URP.txt" />
      <None Include="Assets\Scripts\SRP\Unlit.shader" />
      <None Include="Assets\Shaders\ToonShader.shader" />

@@ -1,7 +1,7 @@
 {
   "存档_1.679376": {
     "title": "存档_1.679376",
-    "time": 32.3928833,
+    "time": 78.22304,
     "roleDataDic": {
       "1": {
         "UID": 1,
@@ -127,6 +127,118 @@
       "10001": {
         "configId": 10001,
         "pass": true,
+        "heros": [],
+        "enemys": []
+      }
+    }
+  },
+  "存档_24.54062": {
+    "title": "存档_24.54062",
+    "time": 52.8131638,
+    "roleDataDic": {
+      "1": {
+        "UID": 1,
+        "configId": 10001,
+        "level": 1,
+        "equipmentDic": {},
+        "skillDic": {
+          "10001": 1,
+          "10002": 1
+        },
+        "talentDic": {}
+      },
+      "2": {
+        "UID": 2,
+        "configId": 10002,
+        "level": 1,
+        "equipmentDic": {},
+        "skillDic": {
+          "10001": 1,
+          "10002": 1
+        },
+        "talentDic": {}
+      },
+      "3": {
+        "UID": 3,
+        "configId": 10003,
+        "level": 1,
+        "equipmentDic": {},
+        "skillDic": {
+          "10001": 1,
+          "10002": 1
+        },
+        "talentDic": {}
+      },
+      "4": {
+        "UID": 4,
+        "configId": 10004,
+        "level": 1,
+        "equipmentDic": {},
+        "skillDic": {
+          "10001": 1,
+          "10002": 1
+        },
+        "talentDic": {}
+      }
+    },
+    "equipDataDic": {
+      "1": {
+        "UID": 1,
+        "configId": 10001
+      },
+      "2": {
+        "UID": 2,
+        "configId": 10002
+      },
+      "3": {
+        "UID": 3,
+        "configId": 10003
+      },
+      "4": {
+        "UID": 4,
+        "configId": 10004
+      },
+      "5": {
+        "UID": 5,
+        "configId": 10005
+      },
+      "6": {
+        "UID": 6,
+        "configId": 10006
+      },
+      "7": {
+        "UID": 7,
+        "configId": 10007
+      },
+      "8": {
+        "UID": 8,
+        "configId": 10008
+      },
+      "9": {
+        "UID": 9,
+        "configId": 10009
+      },
+      "10": {
+        "UID": 10,
+        "configId": 10010
+      },
+      "11": {
+        "UID": 11,
+        "configId": 10011
+      },
+      "12": {
+        "UID": 12,
+        "configId": 10012
+      },
+      "13": {
+        "UID": 13,
+        "configId": 10013
+      }
+    },
+    "levelDataDic": {
+      "10001": {
+        "configId": 10001,
+        "pass": false,
         "heros": [],
         "enemys": []
       }

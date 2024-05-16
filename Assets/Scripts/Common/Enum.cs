@@ -109,11 +109,12 @@ public class Enum
     [Serializable]
     public enum SkillType
     {
-        CommonAttack = 0,
-        Special = 1,
+        Attack = 10001,
+        Cure = 10002,
     }
 
     //属性类型
+    [Serializable]
     public enum AttrType
     {
         HP = 1,
@@ -143,6 +144,13 @@ public class Enum
     public enum PostProcessingType
     {
         Gray = 0
+    }
+
+    [Serializable]
+    public enum TargetType
+    {
+        Opponent = 0, //对手
+        Friend = 1, //友方
     }
 
     public enum EventType
@@ -175,5 +183,8 @@ public class Enum
         Fight_AI_Move = 25,
         Fight_AI_MoveStart = 26,
         Fight_AI_MoveEnd = 27,
+        Fight_Skill_Over = 28,
+        Fight_Battle = 29,
+        Fight_Cured_End = 30,
     }
 }

@@ -333,10 +333,6 @@ namespace WarGame
 
         protected virtual void OnStateChanged()
         {
-            if (_state == Enum.RoleState.Over)
-            {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _id });
-            }
         }
 
         protected virtual void UpdateHP(float hp)
@@ -456,21 +452,6 @@ namespace WarGame
             return _data.GetStarConfig();
         }
 
-        public SkillConfig GetSkillConfig(Enum.SkillType skillType)
-        {
-            return _data.GetSkillConfig(skillType);
-        }
-
-        /// <summary>
-        ///获取指定技能的攻击对象 
-        ///后面会考虑会不会设计类似迷惑类的debuff，会让攻击者有概率选择错误攻击目标
-        /// </summary>
-        /// <param name=""></param>
-        /// <returns></returns>
-        public virtual Enum.RoleType GetTargetType(Enum.SkillType skillType)
-        {
-            return GetSkillConfig(skillType).TargetType;
-        }
 
         //添加buff
         public void AddBuffs(List<int> buffs)
