@@ -90,6 +90,7 @@
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stats.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
+    <Compile Include="Assets\Scripts\Battle\SkillFactory.cs" />
     <Compile Include="Assets\Scripts\Common\DataInterface.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\HitTestContext.cs" />
     <Compile Include="Assets\Resources\UI\Map\MapBinder.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLIterator.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoRotate.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextField.cs" />
+    <Compile Include="Assets\Scripts\Battle\CureSkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Particles\CoolComponent.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTreeNode.cs" />
     <Compile Include="Assets\FairyGUI\Examples\CutScene\CutSceneMain.cs" />
@@ -360,8 +362,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\Battle\CureSkillAction.cs" />
-    <Compile Include="Assets\Scripts\Battle\SkillFactory.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightVSComp.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />

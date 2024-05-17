@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" opaque="false">
   <displayList>
+    <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightVSComp.xml" xy="-83,125"/>
     <graph id="n9_tsk1" name="roundLine1" xy="480,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
     <text id="n4_p3n5" name="round" xy="666,86" pivot="0.5,0.5" anchor="true" size="19,64" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="48" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
     <graph id="n10_tsk1" name="roundLine2" xy="853,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
@@ -26,7 +27,5 @@
   <transition name="showHP">
     <item time="0" type="Scale" target="n12_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>
     <item time="0" type="Scale" target="n13_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>
-    <item time="6" type="Scale" target="n12_b0z0" value="1,1"/>
-    <item time="6" type="Scale" target="n13_b0z0" value="1,1"/>
   </transition>
 </component>

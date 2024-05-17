@@ -186,5 +186,7 @@ public class Enum
         Fight_Skill_Over = 28,
         Fight_Battle = 29,
         Fight_Cured_End = 30,
+        Fight_VS_Show = 31,
+        Fight_VS_Hide = 32,
     }
 }

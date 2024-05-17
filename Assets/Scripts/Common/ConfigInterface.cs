@@ -77,7 +77,6 @@ namespace WarGame
         public string Icon;
         public string Name;
         public Enum.TargetType TargetType;
-        public Enum.AttrType AttrType;
     }
 
     //×°±¸±í

@@ -8,6 +8,7 @@ namespace WarGame.UI
         private GProgressBar _initiatorHP;
         private GProgressBar _targetHP;
         private Transition _showHP;
+        private FightVSComp _vsComp;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -21,11 +22,15 @@ namespace WarGame.UI
             _round = (GTextField)_gCom.GetChild("round");
             _round.text = "0";
 
+            _vsComp = GetChild<FightVSComp>("vsComp");
+
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_HP_Change, OnHPChange);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_VS_Show, OnVSShow);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_VS_Hide, OnVSHide);
         }
 
         private void OnUpdateRound(object[] args)
@@ -67,6 +72,16 @@ namespace WarGame.UI
             _targetHP.TweenValue(hp, 0.5F);
         }
 
+        private void OnVSShow(params object[] args)
+        {
+            _vsComp.Show();
+        }
+
+        private void OnVSHide(params object[] args)
+        {
+            _vsComp.Hide();
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             base.Dispose(disposeGCom);
@@ -75,6 +90,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_HP_Change, OnHPChange);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_VS_Show, OnVSShow);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_VS_Hide, OnVSHide);
         }
     }
 }
