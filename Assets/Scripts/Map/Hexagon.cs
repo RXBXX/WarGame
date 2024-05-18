@@ -121,6 +121,8 @@ namespace WarGame
 
         public override void ChangeToMapSpace()
         {
+            base.ChangeToMapSpace();
+
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
         }
 

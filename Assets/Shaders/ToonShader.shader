@@ -93,7 +93,7 @@ Shader "Custom/ToonShader"
 
 				fixed shadow = SHADOW_ATTENUATION(i);
 
-				float4 diffCol = (_LightColor0 * (diff + spec)* shadow);
+				float4 diffCol = (_LightColor0 * (diff + spec) * shadow);
 				diffCol.rgb += i.ambient;
 				return col * diffCol * _Color;
 			}

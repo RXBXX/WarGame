@@ -140,6 +140,7 @@ namespace WarGame.UI
                 _heroRoot = SceneMgr.Instance.GetHeroRoot();
                 hero.transform.SetParent(_heroRoot);
                 hero.transform.localPosition = Vector3.zero;
+                hero.transform.localScale = Vector3.one * 1.2F;
                 _rolesGO.Add(uid, hero);
             }
             else

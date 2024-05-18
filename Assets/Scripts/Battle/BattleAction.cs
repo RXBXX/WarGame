@@ -44,13 +44,12 @@ namespace WarGame
                 _skillAction.HandleFightEvents(sender, stateName, secondStateName);
         }
 
-        private void OnSkillOver(params object[] args)
+        protected virtual void OnSkillOver(params object[] args)
         {
             _skillAction.Dispose();
             _skillAction = null;
 
             OnActionOver();
-            //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }
 
         protected virtual void OnMoveEnd(params object[] args)

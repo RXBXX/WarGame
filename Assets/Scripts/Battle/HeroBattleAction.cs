@@ -15,6 +15,17 @@ namespace WarGame
 
         }
 
+        public override void Dispose()
+        {
+            if (null != _arrow)
+            {
+                _arrow.Dispose();
+                _arrow = null;
+            }
+
+            base.Dispose();
+        }
+
         protected override void AddListeners()
         {
             base.AddListeners();
@@ -41,7 +52,7 @@ namespace WarGame
         {
             var touchingID = 0;
             string touchingHexagonID = null;
-            if (null != obj && null == _skillAction)
+            if (null != obj)
             {
                 var tag = obj.tag;
                 if (tag == Enum.Tag.Hero.ToString())
@@ -85,7 +96,8 @@ namespace WarGame
             if (_initiatorID > 0 && null != touchingHexagonID && _touchingHexagon != touchingHexagonID)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                MapManager.Instance.MarkingPath(initiator.hexagonID, touchingHexagonID, initiator.GetMoveDis());
+                if (initiator.GetState() == Enum.RoleState.Waiting)
+                    MapManager.Instance.MarkingPath(initiator.hexagonID, touchingHexagonID, initiator.GetMoveDis());
             }
 
             if (0 != touchingID && _touchingID != touchingID)
@@ -102,7 +114,7 @@ namespace WarGame
                 }
                 _touchingHexagon = null;
             }
-            else if(touchingHexagonID != _touchingHexagon)
+            else if (touchingHexagonID != _touchingHexagon)
             {
                 _touchingHexagon = touchingHexagonID;
                 if (null == _arrow)
@@ -344,6 +356,8 @@ namespace WarGame
 
             _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
+
+            _arrow.SetLayer(8);
         }
 
         protected override void OnMoveEnd(params object[] args)
@@ -368,17 +382,19 @@ namespace WarGame
 
         private void OnCancelSkill(object[] args)
         {
+            _arrow.RecoverLayer();
+
             _skillAction.Dispose();
             _skillAction = null;
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
+        }
 
-            if (null != _arrow)
-            {
-                _arrow.Dispose();
-                _arrow = null;
-            }
+        protected override void OnActionOver(params object[] args)
+        {
+            _arrow.RecoverLayer();
+            base.OnActionOver(args);
         }
     }
 }

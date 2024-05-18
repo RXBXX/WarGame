@@ -499,6 +499,8 @@ namespace WarGame
 
         public override void ChangeToMapSpace()
         {
+            base.ChangeToMapSpace();
+
             var hexagon = MapManager.Instance.GetHexagon(hexagonID);
             var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
             _gameObject.transform.position = pos;

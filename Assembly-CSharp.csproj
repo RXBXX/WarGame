@@ -364,6 +364,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
+    <Compile Include="Assets\Test\VisualEffectTest.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />
@@ -1035,6 +1036,24 @@
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

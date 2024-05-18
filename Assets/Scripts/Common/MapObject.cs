@@ -18,15 +18,16 @@ namespace WarGame
         {
 
         }
-
+        
         public virtual void ChangeToArenaSpace(Vector3 pos, float duration)
         {
             _gameObject.transform.DOMove(pos, duration);
+            SetLayer(8);
         }
 
         public virtual void ChangeToMapSpace()
         {
-
+            RecoverLayer();
         }
 
         public void SetLayer(int layer)

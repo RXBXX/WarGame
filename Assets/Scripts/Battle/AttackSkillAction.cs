@@ -231,18 +231,15 @@ namespace WarGame
                 if (0 == i)
                 {
                     initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
-                    initiator.SetLayer(8);
                     _arenaObjects.Add(initiator);
                 }
                 else if (path.Count - 1 == i)
                 {
                     target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
-                    target.SetLayer(8);
                     _arenaObjects.Add(target);
                 }
                 var hexagon = MapManager.Instance.GetHexagon(path[i]);
                 hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
-                hexagon.SetLayer(8);
                 _arenaObjects.Add(hexagon);
                 yield return new WaitForSeconds(moveDuration);
             }
@@ -257,7 +254,6 @@ namespace WarGame
             foreach (var v in _arenaObjects)
             {
                 v.ChangeToMapSpace();
-                v.RecoverLayer();
             }
             _arenaObjects.Clear();
 
