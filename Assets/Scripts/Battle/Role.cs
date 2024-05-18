@@ -30,7 +30,7 @@ namespace WarGame
 
         protected List<string> _numberHUDList = new List<string>();
 
-        private Vector3 _offset = new Vector3(0.0f, 0.2f, 0.0f);
+        private Vector3 _offset = new Vector3(0.0f, 0.224f, 0.0f);
 
         protected Enum.RoleState _state;
 
@@ -124,11 +124,12 @@ namespace WarGame
             base.OnCreate();
 
             _gameObject.transform.position = _bornPoint;
-            _gameObject.transform.localScale = Vector3.one * 0.6F;
+            _gameObject.transform.localScale = Vector3.one * 0.7F;
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleBehaviour>().ID = _id;
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
+
 
             InitEquips();
             InitAnimator();
@@ -546,7 +547,7 @@ namespace WarGame
             }
         }
 
-        public virtual void Dispose()
+        public override void Dispose()
         {
             if (null != _hpHUDKey)
             {
@@ -565,8 +566,7 @@ namespace WarGame
             }
             _equipDic.Clear();
 
-            GameObject.Destroy(_gameObject);
-            _gameObject = null;
+            base.Dispose();
         }
     }
 }

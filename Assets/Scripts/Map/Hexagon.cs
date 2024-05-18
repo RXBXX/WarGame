@@ -91,16 +91,17 @@ namespace WarGame
 
         public void Marking(Enum.MarkType type)
         {
+            Transform go;
             switch (type)
             {
                 case Enum.MarkType.Selected:
-                    _gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+                    _gameObject.GetComponent<Renderer>().material.color = Color.red;
                     break;
                 case Enum.MarkType.Walkable:
-                    _gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                    _gameObject.GetComponent<Renderer>().material.color = new Color(92.0f/255.0f, 135.0f / 255.0f, 153.0f / 255.0f);
                     break;
                 case Enum.MarkType.Attackable:
-                    _gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                    _gameObject.GetComponent<Renderer>().material.color = new Color(226.0f / 255.0f, 186.0f / 255.0f, 42.0f / 255.0f);
                     break;
                 case Enum.MarkType.Target:
                     _gameObject.GetComponent<Renderer>().material.color = Color.red;
@@ -122,18 +123,15 @@ namespace WarGame
             return _gameObject.transform.position;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             if (null != _tween)
             {
                 _tween.Kill();
                 _tween = null;
             }
-            if (null != _gameObject)
-            {
-                GameObject.Destroy(_gameObject);
-                _gameObject = null;
-            }
+
+            base.Dispose();
         }
     }
 }

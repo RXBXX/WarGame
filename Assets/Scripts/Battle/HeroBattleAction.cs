@@ -7,12 +7,13 @@ namespace WarGame
 {
     public class HeroBattleAction : BattleAction
     {
-        private int _touchRoleID;
+        private int _touchingID = 0;
+        private LocatingArrow _arrow;
 
         public HeroBattleAction() : base()
         {
-        }
 
+        }
 
         protected override void AddListeners()
         {
@@ -38,62 +39,86 @@ namespace WarGame
 
         public override void OnTouch(GameObject obj)
         {
-            if (null == obj)
+            var touchingID = 0;
+            string touchingHexagonID = null;
+            if (null != obj)
             {
-                if (0 != _touchRoleID)
+                var tag = obj.tag;
+                if (tag == Enum.Tag.Hero.ToString())
                 {
-                    var role = RoleManager.Instance.GetRole(_touchRoleID);
-                    role.ResetHighLight();
-                    _touchRoleID = 0;
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
                 }
-                return;
-            }
-
-            if (obj.tag == Enum.Tag.Hero.ToString() || obj.tag == Enum.Tag.Enemy.ToString())
-            {
-                var touchRoleID = obj.GetComponent<RoleBehaviour>().ID;
-                if (_touchRoleID != touchRoleID)
+                else if (tag == Enum.Tag.Enemy.ToString())
                 {
-                    if (0 != _touchRoleID)
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+                else if (tag == Enum.Tag.Hexagon.ToString())
+                {
+                    var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
+
+                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
+                    if (roleID > 0)
                     {
-                        var role = RoleManager.Instance.GetRole(_touchRoleID);
-                        role.ResetHighLight();
+                        touchingID = roleID;
                     }
-
-                    _touchRoleID = touchRoleID;
-                    var touchRole = RoleManager.Instance.GetRole(_touchRoleID);
-                    touchRole.HighLight();
+                    else
+                    {
+                        var hexagon = MapManager.Instance.GetHexagon(hexagonID);
+                        if (hexagon.IsReachable())
+                        {
+                            touchingHexagonID = hexagonID;
+                        }
+                    }
                 }
             }
-            else if (0 != _touchRoleID)
+
+            if (0 != _touchingID && _touchingID != touchingID)
             {
-                var role = RoleManager.Instance.GetRole(_touchRoleID);
-                role.ResetHighLight();
-                _touchRoleID = 0;
+                RoleManager.Instance.GetRole(_touchingID).ResetHighLight();
+                _touchingID = 0;
             }
 
-            if (obj.tag == Enum.Tag.Hexagon.ToString())
+            if (_initiatorID < 0 || null == touchingHexagonID || _touchingHexagon != touchingHexagonID)
             {
-                if (_initiatorID > 0)
+                MapManager.Instance.ClearMarkedPath();
+            }
+            if (_initiatorID > 0 && null != touchingHexagonID && _touchingHexagon != touchingHexagonID)
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                MapManager.Instance.MarkingPath(initiator.hexagonID, touchingHexagonID, initiator.GetMoveDis());
+            }
+
+            if (0 != touchingID && _touchingID != touchingID)
+            {
+                _touchingID = touchingID;
+                RoleManager.Instance.GetRole(_touchingID).HighLight();
+            }
+
+            if (null == touchingHexagonID)
+            {
+                if (null != _arrow && _arrow.Active)
                 {
-                    var role = RoleManager.Instance.GetRole(_initiatorID);
-                    if (role.Type != Enum.RoleType.Hero)
-                        return;
-
-                    if (role.GetState() != Enum.RoleState.Waiting)
-                        return;
-
-                    var end = obj.GetComponent<HexagonBehaviour>().ID;
-                    if (_touchingHexagon == end)
-                        return;
-
-                    _touchingHexagon = end;
-                    var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-                    var hero = RoleManager.Instance.GetRole(_initiatorID);
-                    MapManager.Instance.MarkingPath(start, end, hero.GetMoveDis());
+                    _arrow.Active = false;
                 }
+                _touchingHexagon = null;
+            }
+            else if(touchingHexagonID != _touchingHexagon)
+            {
+                _touchingHexagon = touchingHexagonID;
+                if (null == _arrow)
+                {
+                    _arrow = new LocatingArrow();
+                }
+                else
+                {
+                    _arrow.Active = true;
+                }
+                _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
             }
         }
+
+        private void TouchHexagon(string hexagonID)
+        { }
 
         public override void OnClick(GameObject obj)
         {
@@ -108,34 +133,29 @@ namespace WarGame
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString())
             {
-                var heroId = obj.GetComponent<RoleBehaviour>().ID;
-                ClickHero(heroId);
+                ClickHero(obj.GetComponent<RoleBehaviour>().ID);
             }
             else if (tag == Enum.Tag.Enemy.ToString())
             {
 
-                var enemyId = obj.GetComponent<RoleBehaviour>().ID;
-                ClickEnemy(enemyId);
+                ClickEnemy(obj.GetComponent<RoleBehaviour>().ID);
             }
             else if (tag == Enum.Tag.Hexagon.ToString())
             {
                 var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
 
-                var heroID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
-                if (heroID > 0)
+                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
+                if (roleID > 0)
                 {
-                    ClickHero(heroID);
+                    var role = RoleManager.Instance.GetRole(roleID);
+                    if (role.Type == Enum.RoleType.Hero)
+                        ClickHero(roleID);
+                    else
+                        ClickEnemy(roleID);
                     return;
                 }
 
-                var enemyID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
-                if (enemyID > 0)
-                {
-                    ClickEnemy(enemyID);
-                    return;
-                }
-
-                ClickHexagon(obj.GetComponent<HexagonBehaviour>().ID);
+                ClickHexagon(hexagonID);
             }
         }
 
@@ -186,6 +206,7 @@ namespace WarGame
                 return;
             }
 
+            _initiatorID = 0;
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
             MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
         }
@@ -352,6 +373,12 @@ namespace WarGame
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
+
+            if (null != _arrow)
+            {
+                _arrow.Dispose();
+                _arrow = null;
+            }
         }
     }
 }

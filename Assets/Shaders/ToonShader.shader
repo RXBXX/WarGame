@@ -27,8 +27,14 @@ Shader "Custom/ToonShader"
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
+			#include "Lighting.cginc"
+			// 将着色器编译成多个有阴影和没有阴影的变体
+			//（我们还不关心任何光照贴图，所以跳过这些变体）
+			#pragma multi_compile_fwdbase nolightmap nodirlightmap nodynlightmap novertexlight
+			// 阴影 helper 函数和宏
+			#include "AutoLight.cginc"
 
-			float4 _LightColor0;
+			//float4 _LightColor0;
 			float4 _Color;
 			float _Steps;
 			float _ToonEffect;
@@ -48,92 +54,51 @@ Shader "Custom/ToonShader"
 				float3 viewDir:TEXCOORD1;
 				float3 normal:TEXCOORD2;
 				float2 uv : TEXCOORD3;
+				float3 ambient:TEXCOORD4;
+				SHADOW_COORDS(5) // 将阴影数据放入 TEXCOORD1
 			};
 
 			v2f vert(appdata v) {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);//�л�����������
 				o.normal = v.normal;
+				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.lightDir = ObjSpaceLightDir(v.vertex);
 				o.viewDir = ObjSpaceViewDir(v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+				o.ambient = ShadeSH9(fixed4(worldNormal, 1));
+				// 计算阴影数据
+				TRANSFER_SHADOW(o)
 				return o;
 			}
 			float4 frag(v2f i) :COLOR
 			{
-				float4 c = 1;
 				float3 N = normalize(i.normal);
 				float3 viewDir = normalize(i.viewDir);
 				float3 lightDir = normalize(i.lightDir);
-				float diff = max(0,dot(N,i.lightDir));//�����������������ɫ
-				diff = (diff + 1) / 2;//����������
-				diff = smoothstep(0,1,diff);//ʹ��ɫƽ������[0,1]��Χ֮��
-				float toon = floor(diff * _Steps) / _Steps;//����ɫ����ɢ����������diffuse��ɫ������_Steps�֣�_Steps����ɫ��������ɫ�������Ĵ���ʹɫ�׼���ƽ������ʾ
-				diff = lerp(diff,toon,_ToonEffect);//�����ⲿ���ǿɿصĿ�ͨ���̶�ֵ_ToonEffect�����ڿ�ͨ����ʵ�ı���
 
-				fixed4 col = tex2D(_MainTex, i.uv);
-				c = col * _LightColor0 * (diff) * _Color;//��������ɫ���
-				return c;
-			}
-			ENDCG
-		}//
-		pass {//���ӵ��Դ��pass��Ⱦ
-			Tags{"LightMode" = "ForwardAdd"}
-			Blend One One
-			Cull Back
-			ZWrite Off
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
-			#include "UnityCG.cginc"
-
-			float4 _LightColor0;
-			float4 _Color;
-			float _Steps;
-			float _ToonEffect;
-
-			struct v2f {
-				float4 pos:SV_POSITION;
-				float3 lightDir:TEXCOORD0;
-				float3 viewDir:TEXCOORD1;
-				float3 normal:TEXCOORD2;
-			};
-
-			v2f vert(appdata_full v) {
-				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);
-				o.normal = v.normal;
-				o.viewDir = ObjSpaceViewDir(v.vertex);
-				o.lightDir = _WorldSpaceLightPos0 - v.vertex;
-
-				return o;
-			}
-			float4 frag(v2f i) :COLOR
-			{
-				float4 c = 1;
-				float3 N = normalize(i.normal);
-				float3 viewDir = normalize(i.viewDir);
-				float dist = length(i.lightDir);//��������Դ�ľ���
-				float3 lightDir = normalize(i.lightDir);
 				float diff = max(0,dot(N,i.lightDir));
 				diff = (diff + 1) / 2;
 				diff = smoothstep(0,1,diff);
-				float atten = 1 / (dist);//���ݾ��Դ�ľ������˥��
-				float toon = floor(diff * atten * _Steps) / _Steps;
+				float toon = floor(diff * _Steps) / _Steps;
 				diff = lerp(diff,toon,_ToonEffect);
 
-				half3 h = normalize(lightDir + viewDir);//����������
+				half3 h = normalize(lightDir + viewDir);
 				float nh = max(0, dot(N, h));
-				float spec = pow(nh, 32.0);//����߹�ǿ��
-				float toonSpec = floor(spec * atten * 2) / 2;//�Ѹ߹�Ҳ��ɢ��
-				spec = lerp(spec,toonSpec,_ToonEffect);//���ڿ�ͨ����ʵ�߹�ı���
+				float spec = pow(nh, 32.0);
+				float toonSpec = floor(spec * toon * 2) / 2;
+				spec = lerp(spec, toonSpec, _ToonEffect);
 
+				fixed4 col = tex2D(_MainTex, i.uv);
 
-				c = _Color * _LightColor0 * (diff + spec);//���������ɫ
-				return c;
+				fixed shadow = SHADOW_ATTENUATION(i);
+
+				float4 diffCol = (_LightColor0 * (diff + spec)* shadow);
+				diffCol.rgb += i.ambient;
+				return col * diffCol * _Color;
 			}
 			ENDCG
-		}//
+		}
 		Pass
 		{
 			Cull Front
@@ -146,7 +111,7 @@ Shader "Custom/ToonShader"
 			#pragma vertex vert
 			#pragma fragment frag     
 			#include "UnityCG.cginc"  
-			#include "UnityLightingCommon.cginc" // ���� _LightColor0
+			#include "UnityLightingCommon.cginc"
 
 			float _Outline;
 			fixed4 _OutlineColor;
@@ -156,12 +121,12 @@ Shader "Custom/ToonShader"
 			{
 				float4 pos : POSITION;
 				float3 normal : NORMAL;
-				float3 tangent : TANGENT; //�������߲�ֵ��
+				float3 tangent : TANGENT;
 			};
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
-				fixed4 diff : COLOR0; // ���������ɫ
+				fixed4 diff : COLOR0;
 			};
 
 			v2f vert(appdata v)
@@ -170,18 +135,14 @@ Shader "Custom/ToonShader"
 
 				float4 pos = UnityObjectToClipPos(v.pos);
 				float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
-				float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;//�����߱任��NDC�ռ�
-				float aspect = _ScreenParams.y / _ScreenParams.x; //������Ļ������,_ScreenParamsΪunity���ñ���
-				ndcNormal.x *= aspect; //���еȱ�����
+				float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;
+				float aspect = _ScreenParams.y / _ScreenParams.x;
+				ndcNormal.x *= aspect;
 				pos.xy += 0.1 * _Outline * ndcNormal.xy;
 				o.pos = pos;
 
-				// ������ռ��л�ȡ���㷨��
 				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
-				// ��׼���䣨�����أ����յķ��ߺ�
-				// ���߷���֮��ĵ��
 				half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
-				// ����ǳɫ����
 				o.diff = nl * _LightColor0;
 				return o;
 			}
@@ -199,8 +160,7 @@ Shader "Custom/ToonShader"
 			}
 			ENDCG
 		}
-		// ��ӰͶ������Ⱦͨ����
-		// ʹ�� UnityCG.cginc �еĺ��ֶ�ʵ��
+
 		Pass
 		{
 			Tags {"LightMode" = "ShadowCaster"}

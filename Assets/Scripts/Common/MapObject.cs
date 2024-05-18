@@ -16,7 +16,7 @@ namespace WarGame
 
         protected virtual void SmoothNormal()
         {
-            //Tool.Instance.PreProcessingFotOutLine(_gameObject);
+
         }
 
         public virtual void ChangeToArenaSpace(Vector3 pos, float duration)
@@ -56,5 +56,14 @@ namespace WarGame
 
         public virtual void ResetHighLight()
         { }
+
+        public virtual void Dispose()
+        {
+            if (null != _gameObject)
+            {
+                GameObject.Destroy(_gameObject);
+                _gameObject = null;
+            }
+        }
     }
 }

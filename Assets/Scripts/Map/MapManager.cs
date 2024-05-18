@@ -335,7 +335,6 @@ namespace WarGame
                 return null;
 
             var hexagon = GetHexagon(key);
-            //每个地块的通过代价不一样，这个问题需要考虑
             float cost = 0;
             if (!isMovePath)
             {

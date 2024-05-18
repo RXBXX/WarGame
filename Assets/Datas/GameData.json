@@ -134,13 +134,16 @@
   },
   "存档_24.54062": {
     "title": "存档_24.54062",
-    "time": 52.8131638,
+    "time": 48.2041435,
     "roleDataDic": {
       "1": {
         "UID": 1,
         "configId": 10001,
         "level": 1,
-        "equipmentDic": {},
+        "equipmentDic": {
+          "Left": 7,
+          "Right": 1
+        },
         "skillDic": {
           "10001": 1,
           "10002": 1
