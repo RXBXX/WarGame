@@ -12,12 +12,14 @@ namespace WarGame
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_Start, OnStart);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AIAction_Over, OnActionOver);
         }
 
         protected override void RemoveListeners()
         {
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_Start, OnStart);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AI_MoveStart, OnMoveStart);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AIAction_Over, OnActionOver);
             base.RemoveListeners();
         }
 
@@ -36,14 +38,13 @@ namespace WarGame
 
         protected override void OnMoveEnd(params object[] args)
         {
-            //DebugManager.Instance.Log("OnMoveEnd" + _targetID);
             if (_targetID > 0)
             {
                 OnAIAttack();
             }
             else
             {
-                StandByInitiator();
+                OnActionOver();
             }
         }
 

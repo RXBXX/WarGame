@@ -200,12 +200,12 @@ namespace WarGame
         /// </summary>
         private Cell HandleCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Enum.RoleType roleType, bool isMovePath = true)
         {
-            cellPos = FindingVerticalCell(cellPos);
+            var nexCell = FindingVerticalCell(cellPos);
 
-            if (!IsReachable(cellPos, roleType, isMovePath))
+            if (!IsReachable(nexCell, roleType, isMovePath))
                 return null;
 
-            var key = MapTool.Instance.GetHexagonKey(cellPos);
+            var key = MapTool.Instance.GetHexagonKey(nexCell);
             if (closeDic.ContainsKey(key))
                 return null;
 
@@ -213,12 +213,15 @@ namespace WarGame
 
             var cost = 0.0f;
             if (null != parent)
-                cost = hexagon.GetCost() + parent.g;
+            {
+                //这里默认垂直方向的消耗是1
+                cost = hexagon.GetCost() + parent.g + Mathf.Abs(nexCell.y - cellPos.y) * 1;
+            }
 
             Cell cell = null;
-            if (cellPos == endPos)
+            if (nexCell == endPos)
             {
-                cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
+                cell = new Cell(cost, Vector3.Distance(nexCell, endPos), nexCell, parent, hexagon.ID);
                 openDic.Add(key, cell);
             }
             else if (openDic.ContainsKey(key))
@@ -232,7 +235,7 @@ namespace WarGame
             }
             else
             {
-                cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
+                cell = new Cell(cost, Vector3.Distance(nexCell, endPos), nexCell, parent, hexagon.ID);
                 openDic.Add(key, cell);
             }
 
@@ -323,39 +326,44 @@ namespace WarGame
         /// </summary>
         private Cell HandleRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Dictionary<string, Cell> walkableDic, Enum.RoleType roleType, Enum.MarkType markType, bool isMovePath = true)
         {
-            cellPos = FindingVerticalCell(cellPos);
+            var nexCell = FindingVerticalCell(cellPos);
 
-            if (!IsReachable(cellPos, roleType, isMovePath))
+            if (!IsReachable(nexCell, roleType, isMovePath))
                 return null;
 
-            var key = MapTool.Instance.GetHexagonKey(cellPos);
+            var key = MapTool.Instance.GetHexagonKey(nexCell);
             if (closeDic.ContainsKey(key))
                 return null;
             if (null != walkableDic && walkableDic.ContainsKey(key))
                 return null;
 
             var hexagon = GetHexagon(key);
+            ////如果有可通过但不可停留的地块（例如同阵营角色所在的地块），通过调高该地块代价来优化路径规划
+            //if (null != parent)
+            //{
+            //    var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
+            //    if (roleId > 0)
+            //    {
+            //        var role = RoleManager.Instance.GetRole(roleId);
+            //        if (roleType == role.Type)
+            //        {
+            //            //cost += 1; //这里有个问题，如果只有己方英雄占据了唯一路口，代价过高会导致寻路失败
+            //        }
+            //    }
+            //}
+
             float cost = 0;
             if (!isMovePath)
             {
-                cost = hexagon.GetCost();
+                cost = hexagon.GetCost() + Mathf.Abs(nexCell.y - cellPos.y) * 1;
             }
-
-            //如果有可通过但不可停留的地块（例如同阵营角色所在的地块），通过调高该地块代价来优化路径规划
-            if (null != parent)
+            if (null != parent && parent.type == markType)
             {
-                if (parent.type == markType)
-                    cost = parent.g + hexagon.GetCost();
-
-                var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
-                if (roleId > 0)
-                {
-                    var role = RoleManager.Instance.GetRole(roleId);
-                    if (roleType == role.Type)
-                    {
-                        //cost += 1; //这里有个问题，如果只有己方英雄占据了唯一路口，代价过高会导致寻路失败
-                    }
-                }
+                cost = parent.g + hexagon.GetCost() + Mathf.Abs(nexCell.y - cellPos.y) * 1;
+            }
+            else if (!isMovePath)
+            {
+                cost = hexagon.GetCost() + Mathf.Abs(nexCell.y - cellPos.y) * 1;
             }
 
             Cell cell = null;
@@ -370,7 +378,7 @@ namespace WarGame
             }
             else if (cost <= dis)
             {
-                cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
+                cell = new Cell(cost, 0, nexCell, parent, hexagon.ID);
                 cell.type = markType;
                 openDic.Add(key, cell);
             }

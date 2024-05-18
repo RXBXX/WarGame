@@ -104,7 +104,7 @@ namespace WarGame
 
         private void DisposeAction()
         {
-            DebugManager.Instance.Log("DisposeAction");
+            //DebugManager.Instance.Log("DisposeAction");
             _action.Dispose();
             _action = null;
         }

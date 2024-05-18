@@ -41,7 +41,7 @@ namespace WarGame
         {
             var touchingID = 0;
             string touchingHexagonID = null;
-            if (null != obj)
+            if (null != obj && null == _skillAction)
             {
                 var tag = obj.tag;
                 if (tag == Enum.Tag.Hero.ToString())
@@ -310,7 +310,7 @@ namespace WarGame
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
-            StandByInitiator();
+            OnActionOver();
 
             _path = null;
         }

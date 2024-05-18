@@ -55,10 +55,12 @@ namespace WarGame
                 }
             }
 
+            DebugManager.Instance.Log("TargetID:" + targetID);
+
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, GetConfig().CommonSkill});
             if (targetID <= 0)
             {
-                SetState(Enum.RoleState.Over);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AIAction_Over, new object[] {});
             }
             else
             {

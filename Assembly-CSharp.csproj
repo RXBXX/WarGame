@@ -187,6 +187,7 @@
     <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquip.cs" />
+    <Compile Include="Assets\Scripts\Battle\LocatingArrow.cs" />
     <Compile Include="Assets\Scripts\Map\HexagonBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
     <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
@@ -330,6 +331,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\PlayTransitionAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\ShaderConfig.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightVSComp.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickModule.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TypingEffect\TypingEffectMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitComponent.cs" />
@@ -362,8 +364,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Model\ModelMain.cs" />
-    <Compile Include="Assets\Scripts\UI\Fight\FightVSComp.cs" />
-    <Compile Include="Assets\Scripts\Battle\LocatingArrow.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />
@@ -1029,6 +1029,12 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

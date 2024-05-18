@@ -48,7 +48,9 @@ namespace WarGame
         {
             _skillAction.Dispose();
             _skillAction = null;
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
+
+            OnActionOver();
+            //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }
 
         protected virtual void OnMoveEnd(params object[] args)
@@ -56,8 +58,9 @@ namespace WarGame
 
         }
 
-        protected virtual void StandByInitiator()
+        protected virtual void OnActionOver(params object[] args)
         {
+            DebugManager.Instance.Log("OnActionOver:" + _initiatorID);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;

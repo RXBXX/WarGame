@@ -89,6 +89,12 @@ namespace WarGame
             return config.Resistance;
         }
 
+        public float GetVerticalCost()
+        {
+            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+            return config.Resistance;
+        }
+
         public void Marking(Enum.MarkType type)
         {
             Transform go;

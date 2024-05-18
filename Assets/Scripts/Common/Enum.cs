@@ -188,5 +188,6 @@ public class Enum
         Fight_Cured_End = 30,
         Fight_VS_Show = 31,
         Fight_VS_Hide = 32,
+        Fight_AIAction_Over = 33,
     }
 }
