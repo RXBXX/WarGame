@@ -49,7 +49,7 @@ namespace WarGame.UI
             {
                 attrDesc += ((AttrConfig)config).Name + ": +" + roleData.GetAttribute((Enum.AttrType)config.ID) + "\n";
             });
-            _proComp.UpdateComp(roleConfig.Name, attrDesc);
+            _proComp.UpdateComp(_roles[_roleIndex]);
             _equipComp.UpdateComp(_roles[_roleIndex]);
             _talentComp.UpdateComp(roleConfig.TalentGroup, roleData.talentDic);
 
@@ -65,7 +65,11 @@ namespace WarGame.UI
         public override void Update(float deltaTime)
         {
             if (_draging)
+            {
+                if (Time.time - _lastDragTime > deltaTime)
+                    _dragingPower = 0;
                 return;
+            }
 
             if (Mathf.Abs(_dragingPower) < 0.1F)
             {
@@ -74,7 +78,7 @@ namespace WarGame.UI
             }
 
             _heroRoot.Rotate(Vector3.up, _rotateSpeed * deltaTime * _dragingPower);
-            _dragingPower = Mathf.Lerp(_dragingPower, 0, deltaTime);// (_dragingPower / Mathf.Abs(_dragingPower)) * 5;
+            _dragingPower = Mathf.Lerp(_dragingPower, 0, deltaTime);
         }
 
         private void OnClickArrow(int dir)
@@ -88,7 +92,7 @@ namespace WarGame.UI
 
             var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleData.configId);
-            _proComp.UpdateComp(roleConfig.Name, "");
+            _proComp.UpdateComp(_roles[_roleIndex]);
             _equipComp.UpdateComp(_roles[_roleIndex]);
             _talentComp.UpdateComp(roleConfig.TalentGroup, roleData.talentDic);
         }
@@ -114,7 +118,6 @@ namespace WarGame.UI
 
         public void OnTouchEnd(EventContext context)
         {
-            _touchPos = context.inputEvent.position;
             _lastDragTime = Time.time;
             _draging = false;
         }
@@ -141,6 +144,7 @@ namespace WarGame.UI
                 hero.transform.SetParent(_heroRoot);
                 hero.transform.localPosition = Vector3.zero;
                 hero.transform.localScale = Vector3.one * 1.2F;
+                Tool.Instance.ApplyProcessingFotOutLine(hero, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
                 _rolesGO.Add(uid, hero);
             }
             else
@@ -173,6 +177,9 @@ namespace WarGame.UI
 
                 var equipConfig = equipData.GetConfig();
                 var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
+
+                Tool.Instance.ApplyProcessingFotOutLine(weapon);
+
                 weapon.transform.SetParent(spinePoint, false);
                 weapon.transform.localEulerAngles = equipConfig.Rotation;
             }

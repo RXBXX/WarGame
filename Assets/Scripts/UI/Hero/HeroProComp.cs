@@ -19,10 +19,16 @@ namespace WarGame.UI
             _skillBtn.onClick.Add(OnClickSkill);
         }
 
-        public void UpdateComp(string name, string attr)
+        public void UpdateComp(int UID)
         {
-            _nameText.text = name;
-            _descText.text = attr;
+            var role = DatasMgr.Instance.GetRoleData(UID);
+;            _nameText.text = role.GetConfig().Name;
+            var attrs = "";
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+            {
+                attrs += ((AttrConfig)config).Name + ":" + role.GetAttribute((Enum.AttrType)config.ID) +"\n";
+            });
+            _descText.text = attrs;
         }
 
         private void OnClickEquip()
