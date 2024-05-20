@@ -13,7 +13,12 @@ namespace WarGame
 
         public override void Setup()
         {
-            _mat = AssetMgr.Instance.LoadAsset<Material>("Assets/Materials/GrayMat.mat");
+            AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/GrayMat.mat", (Material mat)=> {
+                _mat = mat;
+                _mat.SetTexture("_ExclusionMap", _colorRT);
+                _mat.SetTexture("_ExclusionMapDepth", _depthRT);
+                _mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
+            });
             var mainCamera = CameraMgr.Instance.MainCamera;
             _depthCamera = mainCamera.transform.Find("DepthCamera").GetComponent<Camera>();
             _depthCamera.gameObject.SetActive(true);
@@ -25,15 +30,13 @@ namespace WarGame
             _colorRT = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
             _colorCamera.GetComponent<Camera>().targetTexture = _colorRT;
 
-            _mat.SetTexture("_ExclusionMap", _colorRT);
-            _mat.SetTexture("_ExclusionMapDepth", _depthRT);
-            _mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
-
             base.Setup();
         }
 
         public override void Render(RenderTexture source, RenderTexture destination)
         {
+            if (null == _mat)
+                return;
             Graphics.Blit(source, destination, _mat);
         }
 

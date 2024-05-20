@@ -14,8 +14,9 @@ namespace WarGame
            
         }
 
-        public override void OnCreate()
+        protected override void OnCreate(GameObject prefab)
         {
+            base.OnCreate(prefab);
             _animator = _gameObject.GetComponent<Animator>();
         }
 

@@ -8,13 +8,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: aa4b5b4079d122f42acc577725c4c958
-  - enabled: 1
-    path: Assets/Scenes/MapScene.unity
-    guid: 3aaa4913dc937b44ab858ece257198e1
-  - enabled: 1
-    path: Assets/Scenes/TransitionScene.unity
-    guid: 49c8009625da87b429e886120109faa9
-  - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: d0bbcb14fbbc92146b1fad5fa2a6a005
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 042c3183d8b0ac04faa37dd321a57555, type: 2}

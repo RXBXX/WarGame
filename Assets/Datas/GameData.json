@@ -134,14 +134,14 @@
   },
   "存档_24.54062": {
     "title": "存档_24.54062",
-    "time": 82.07019,
+    "time": 270.681427,
     "roleDataDic": {
       "1": {
         "UID": 1,
         "configId": 10001,
         "level": 1,
         "equipmentDic": {
-          "BothHand": 4
+          "Right": 3
         },
         "skillDic": {
           "10001": 1,
@@ -179,7 +179,7 @@
         "configId": 10003,
         "level": 1,
         "equipmentDic": {
-          "BothHand": 5
+          "Left": 8
         },
         "skillDic": {
           "10001": 1,
@@ -191,7 +191,9 @@
         "UID": 4,
         "configId": 10004,
         "level": 1,
-        "equipmentDic": {},
+        "equipmentDic": {
+          "Right": 11
+        },
         "skillDic": {
           "10001": 1,
           "10002": 1

@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Equips
+  m_EditorClassIdentifier: 
+  m_GroupName: Equips
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a51845e9b3204704ba9e6fe6b94b95a5
+  m_SerializeEntries:
+  - m_GUID: 347e15328de8878489b05d22e76c4a2c
+    m_Address: Assets/Prefabs/Equipments/Wand07.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ddd9dae8fac532f408a928d02fc93de7
+    m_Address: Assets/Prefabs/Equipments/Arrow_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 68102c785fd4ebd4195d52eded021220
+    m_Address: Assets/Prefabs/Equipments/Arrow_02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0ab28be0d9605b3429102d449ae55934
+    m_Address: Assets/Prefabs/Equipments/Axe_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 560c145745d7d3c4a9fee9273fd114af
+    m_Address: Assets/Prefabs/Equipments/Bow_01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5dd144aa400c39d4c80f89912a357734
+    m_Address: Assets/Prefabs/Equipments/Bow_02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 86ac92304ea7d3748bf11b76e1677389
+    m_Address: Assets/Prefabs/Equipments/Wand01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 245e67815960d7e41ae0dd30ea53b7d0
+    m_Address: Assets/Prefabs/Equipments/Wand02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d51b47cefc33c024d994d28052f46827
+    m_Address: Assets/Prefabs/Equipments/Wand03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5edde208d1837bd409d9249d8d296aef
+    m_Address: Assets/Prefabs/Equipments/Wand04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ab353b2a5a39d784a82d8d1e782cf691
+    m_Address: Assets/Prefabs/Equipments/Wand05.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 5387689d37be46141a07137b27372bf9
+    m_Address: Assets/Prefabs/Equipments/Wand06.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 112d24a33d1b7004eac981e8abcf1388
+    m_Address: Assets/Prefabs/Equipments/THS01_Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 609f9183561513e45ab126fd1c9ce57c
+    m_Address: Assets/Prefabs/Equipments/THS02_Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 350cff3159f8f4342a5f26255135e133
+    m_Address: Assets/Prefabs/Equipments/OHS04_Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ec33da1c02959bb44ad7ba56309479ee
+    m_Address: Assets/Prefabs/Equipments/OHS03_Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0ae43bb06d302f04cb868f447b2dfeeb
+    m_Address: Assets/Prefabs/Equipments/Shield15.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: fcbed2e234816cb4e86a1db3f3126cd1
+    m_Address: Assets/Prefabs/Equipments/Shield14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8a98b1b38538b9a4a956e890e5d31280, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 59cc2d7767b334c4589ccdaa2e664d81, type: 2}
+    - {fileID: 11400000, guid: 98b75fc5bc46e374d877f52ee0f802bd, type: 2}

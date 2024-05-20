@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class Coroutine : MonoBehaviour
+    public class CoroutineBehaviour : MonoBehaviour
     { }
 
     public class CoroutineMgr : Singeton<CoroutineMgr>
@@ -17,17 +17,19 @@ namespace WarGame
 
             GameObject go = new GameObject();
             GameObject.DontDestroyOnLoad(go);
-            _monoBehaviour = go.AddComponent<Coroutine>();
+            _monoBehaviour = go.AddComponent<CoroutineBehaviour>();
             //_monoBehaviour = new MonoBehaviour(); //MonoBehaviour不允许通过new实例化
             return true;
         }
 
-        public void StartCoroutine(IEnumerator ie)
+        public Coroutine StartCoroutine(IEnumerator ie)
         {
-            _monoBehaviour.StartCoroutine(ie);
+            if (null == _monoBehaviour)
+                Init();
+            return _monoBehaviour.StartCoroutine(ie);
         }
 
-        public void StopCoroutine(IEnumerator ie)
+        public void StopCoroutine(Coroutine ie)
         {
             _monoBehaviour.StopCoroutine(ie);
         }

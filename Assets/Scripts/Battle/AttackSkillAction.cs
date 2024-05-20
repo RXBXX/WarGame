@@ -58,6 +58,7 @@ namespace WarGame
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
+            //initiator.SetGrayed(true);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skill_Over);
         }

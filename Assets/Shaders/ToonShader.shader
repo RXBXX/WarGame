@@ -17,6 +17,7 @@ Shader "Custom/ToonShader"
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5//��ͨ���̶ȣ�����Ԫ������Ԫ�Ľ����ߣ�
 		_Steps("Steps of toon",range(0,9)) = 3//ɫ�ײ���
 		_Color("Color", Color) = (0, 0, 0, 0)
+		_Gray("Gray", Range(0, 1)) = 0
 	}
 	SubShader
 	{
@@ -40,6 +41,7 @@ Shader "Custom/ToonShader"
 			float _ToonEffect;
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float _Gray;
 
 			struct appdata
 			{
@@ -93,9 +95,14 @@ Shader "Custom/ToonShader"
 
 				fixed shadow = SHADOW_ATTENUATION(i);
 
-				float4 diffCol = (_LightColor0 * (diff + spec) * shadow);
+				float4 diffCol = (_LightColor0 * (diff + spec));// *shadow);
 				diffCol.rgb += i.ambient;
-				return col * diffCol * _Color;
+
+				fixed4 finalCol = col * diffCol * _Color;
+				if (_Gray > 0)
+					return dot(finalCol.rgb, float3(0.299, 0.587, 0.114));
+				else
+					return finalCol;
 			}
 			ENDCG
 		}

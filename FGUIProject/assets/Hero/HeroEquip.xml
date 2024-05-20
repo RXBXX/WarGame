@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="86,86" pivot="0.5,0.5" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="3"/>
+<component size="100,100" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="1"/>
   <displayList>
-    <image id="n3_bscs" name="n3" src="bscsh" fileName="Images/BG.png" pkg="hx02grrp" xy="0,0" size="86,86" alpha="0.7"/>
-    <loader id="n2_tsk1" name="icon" xy="43,43" pivot="0.5,0.5" anchor="true" size="86,86" align="center" vAlign="middle" fill="scale" shrinkOnly="true"/>
-    <image id="n4_bscs" name="n4" src="bscsj" fileName="Images/Selected.png" pkg="hx02grrp" xy="0,0" size="86,86">
+    <image id="n8_h53u" name="n8" src="h53ub" fileName="Images/EquipSlot.png" xy="0,3" size="100,100" color="#cccccc"/>
+    <loader id="n2_tsk1" name="icon" xy="50,48" pivot="0.5,0.5" anchor="true" size="55,56" url="ui://ubnp7phxh53ud" align="center" vAlign="middle" fill="scale" shrinkOnly="true" clearOnPublish="true"/>
+    <image id="n4_bscs" name="n4" src="h53uc" fileName="Images/Selected.png" xy="0,0" size="100,100">
       <gearDisplay controller="button" pages="1,3"/>
     </image>
-    <text id="n1_nw17" name="title" xy="42,76" pivot="0.5,0.5" anchor="true" size="31,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="111"/>
-    <loader id="n5_bscs" name="ownerIcon" xy="39,2" size="44,43" align="center" vAlign="middle" fill="scale"/>
+    <text id="n1_nw17" name="title" xy="50,94" pivot="0.5,0.5" anchor="true" size="29,32" font="ui://hd0z4dz5omu90" fontSize="22" color="#ffffff" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="111"/>
+    <loader id="n5_bscs" name="ownerIcon" xy="48,1" size="44,43" align="center" vAlign="middle" fill="scale"/>
   </displayList>
   <Button mode="Radio"/>
 </component>

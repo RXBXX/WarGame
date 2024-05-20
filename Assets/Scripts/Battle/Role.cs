@@ -112,17 +112,12 @@ namespace WarGame
 
         private void CreateGO()
         {
-            var assetPath = GetConfig().Prefab;
-            GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
-            _gameObject = GameObject.Instantiate(prefab);
-
-            OnCreate();
+            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
-        protected override void OnCreate()
+        protected override void OnCreate(GameObject go)
         {
-            base.OnCreate();
-
+            base.OnCreate(go);
             _gameObject.transform.position = _bornPoint;
             _gameObject.transform.localScale = Vector3.one * 0.7F;
             _animator = _gameObject.GetComponent<Animator>();
@@ -130,10 +125,8 @@ namespace WarGame
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
-
             InitEquips();
             InitAnimator();
-            InitStates();
             CreateHUD();
         }
 
@@ -144,13 +137,28 @@ namespace WarGame
 
         protected virtual void InitEquips()
         {
+            if (null == _data.equipmentDic)
+                return;
 
+            foreach (var v in _data.equipmentDic)
+            {
+                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
+                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
+
+                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                var equip = EquipFactory.Instance.GetEquip(equipData);
+                equip.SetSpinePoint(spinePoint);
+                _equipDic[equip.GetPlace()] = equip;
+            }
         }
 
         protected virtual void InitAnimator()
         {
             var animatorConfig = GetAnimatorConfig();
-            _gameObject.GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
+            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller)=> {
+                _gameObject.GetComponent<Animator>().runtimeAnimatorController = controller;
+                InitStates();
+            });
         }
 
         private void InitStates()
@@ -158,9 +166,6 @@ namespace WarGame
             _stateDic.Add("Jump", new JumpState("Jump", this));
             var clip = GetAnimatorConfig().Jump;
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_animator, clip);
-            //DebugManager.Instance.Log(GetAnimatorConfig().Controller + clip);
-            //foreach (var v in timeDic)
-            //    DebugManager.Instance.Log(v.Key);
             ((JumpState)_stateDic["Jump"]).duration = timeDic["Jump_Loss"] - timeDic["Jump_Take"];
 
             _stateDic.Add("Idle", new State("Idle", this));
@@ -278,8 +283,10 @@ namespace WarGame
         {
             //var prefabPath = "Assets/JMO Assets/Cartoon FX(legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab";
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
-            var hitPrefab = GameObject.Instantiate(AssetMgr.Instance.LoadAsset<GameObject>(prefabPath));
-            hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
+            AssetMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab)=> {
+                var hitPrefab = GameObject.Instantiate(prefab);
+                hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
+            });
 
             EnterState("Attacked");
 
@@ -549,6 +556,21 @@ namespace WarGame
             }
         }
 
+        public override float GetLoadingProgress()
+        {
+            var percent = base.GetLoadingProgress();
+            if (null != _data.equipmentDic)
+            {
+                foreach (var v in _data.equipmentDic)
+                {
+                    if (_equipDic.ContainsKey(v.Key))
+                    {
+                        percent += _equipDic[v.Key].GetLoadingProgress();
+                    }
+                }
+            }
+            return percent / (1 + _data.equipmentDic.Count);
+        }
         public override void Dispose()
         {
             if (null != _hpHUDKey)

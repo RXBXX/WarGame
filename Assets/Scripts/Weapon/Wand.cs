@@ -15,11 +15,13 @@ namespace WarGame
 
         public override void Attack(Vector3 targetPos)
         {
-            _prefab = GameObject.Instantiate(AssetMgr.Instance.LoadAsset<GameObject>("Assets/Prefabs/Effects/WandEffect.prefab"));
-            var spinePoint = _gameObject.transform.Find("spinePoint");
-            _prefab.transform.position = spinePoint.position;
-            _tweener = _prefab.transform.DOMove(targetPos, 0.5f);
-            _tweener.OnComplete(()=> { OnAttackOver(); });
+            AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/WandEffect.prefab", (GameObject prefab) =>{
+                _prefab = GameObject.Instantiate(_prefab);
+                var spinePoint = _gameObject.transform.Find("spinePoint");
+                _prefab.transform.position = spinePoint.position;
+                _tweener = _prefab.transform.DOMove(targetPos, 0.5f);
+                _tweener.OnComplete(() => { OnAttackOver(); });
+            });
         }
 
         public void OnAttackOver()

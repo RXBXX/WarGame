@@ -53,6 +53,13 @@ namespace WarGame
             }
         }
 
+        public float GetLoadingProgress()
+        {
+            float progress = 0;
+            foreach (var v in _roleList)
+                progress += v.GetLoadingProgress();
+            return progress / _roleList.Count;
+        }
 
         //public void MoveRole(int id, List<string> hexagons)
         //{

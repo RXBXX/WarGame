@@ -46,6 +46,14 @@ namespace WarGame
             _map = MapTool.Instance.CreateMap(mapPath, GameObject.Find("Root"));
         }
 
+        public float GetLoadingProgress()
+        {
+            float progress = 0;
+            foreach (var v in _map)
+                progress += v.Value.GetLoadingProgress();
+            return progress / _map.Count;
+        }
+
         public void ClearMap()
         {
             ClearMarkedPath();

@@ -211,10 +211,11 @@ namespace WarGame
                         }
 
                         string assetPath = MapTool.Instance.GetHexagonPrefab(type);
-                        GameObject prefab = AssetMgr.Instance.LoadAsset<GameObject>(assetPath);
-                        var obj = GameObject.Instantiate(prefab);
-                        obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
-                        obj.transform.SetParent(rootObj.transform);
+                        AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab)=> {
+                            var obj = GameObject.Instantiate(prefab);
+                            obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
+                            obj.transform.SetParent(rootObj.transform);
+                        });
                     }
                 }
             }

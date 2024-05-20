@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using WarGame.UI;
+using UnityEngine;
 
 namespace WarGame
 {
@@ -7,9 +8,14 @@ namespace WarGame
     {
         public Enemy(LevelRoleData data) : base(data)
         {
-            _gameObject.tag = Enum.Tag.Enemy.ToString();
             _type = Enum.RoleType.Enemy;
             _layer = 7;
+        }
+
+        protected override void OnCreate(GameObject go)
+        {
+            base.OnCreate(go);
+            _gameObject.tag = Enum.Tag.Enemy.ToString();
         }
 
         protected override void CreateHUD()

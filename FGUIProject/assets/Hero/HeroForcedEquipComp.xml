@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="229,263">
+  <displayList>
+    <graph id="n22_h53u" name="n22" xy="0,0" size="229,263" alpha="0.7" type="rect" lineSize="2" lineColor="#ffffffff" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n21_bscs" name="list" xy="10,40" size="201,210" layout="flow_hz" overflow="scroll" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n23_h53u" name="title" xy="9,-2" size="35,44" font="ui://hd0z4dz5omu90" fontSize="32" strokeColor="#ffffff" strokeSize="2" text="111："/>
+  </displayList>
+  <relation target="n21_bscs" sidePair="rightext-right,bottomext-bottom"/>
+</component>

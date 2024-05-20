@@ -8,21 +8,13 @@ namespace WarGame
     public class HeroBattleAction : BattleAction
     {
         private int _touchingID = 0;
-        private LocatingArrow _arrow;
 
-        public HeroBattleAction() : base()
+        public HeroBattleAction(LocatingArrow arrow) : base(arrow)
         {
-
         }
 
         public override void Dispose()
         {
-            if (null != _arrow)
-            {
-                _arrow.Dispose();
-                _arrow = null;
-            }
-
             base.Dispose();
         }
 
@@ -117,14 +109,7 @@ namespace WarGame
             else if (touchingHexagonID != _touchingHexagon)
             {
                 _touchingHexagon = touchingHexagonID;
-                if (null == _arrow)
-                {
-                    _arrow = new LocatingArrow();
-                }
-                else
-                {
-                    _arrow.Active = true;
-                }
+                _arrow.Active = true;
                 _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
             }
         }

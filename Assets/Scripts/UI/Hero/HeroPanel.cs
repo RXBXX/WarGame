@@ -138,23 +138,27 @@ namespace WarGame.UI
             GameObject hero = null;
             if (!_rolesGO.ContainsKey(uid))
             {
-                var prefab = AssetMgr.Instance.LoadAsset<GameObject>(heroConfing.Prefab);
-                hero = GameObject.Instantiate(prefab);
-                _heroRoot = SceneMgr.Instance.GetHeroRoot();
-                hero.transform.SetParent(_heroRoot);
-                hero.transform.localPosition = Vector3.zero;
-                hero.transform.localScale = Vector3.one * 1.2F;
-                Tool.Instance.ApplyProcessingFotOutLine(hero, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
-                _rolesGO.Add(uid, hero);
+                AssetMgr.Instance.LoadAssetAsync<GameObject>(heroConfing.Prefab, (GameObject prefab) => {
+                    hero = GameObject.Instantiate(prefab);
+                    _heroRoot = SceneMgr.Instance.GetHeroRoot();
+                    hero.transform.SetParent(_heroRoot);
+                    hero.transform.localPosition = Vector3.zero;
+                    hero.transform.localScale = Vector3.one * 1.2F;
+                    Tool.Instance.ApplyProcessingFotOutLine(hero, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
+                    _rolesGO.Add(uid, hero);
+
+                    UpdateEquips(uid);
+                    UpdateAnimator(uid);
+                });
             }
             else
             {
                 hero = _rolesGO[uid];
                 hero.SetActive(true);
-            }
 
-            UpdateEquips(uid);
-            UpdateAnimator(uid);
+                UpdateEquips(uid);
+                UpdateAnimator(uid);
+            }
         }
 
         public void UpdateEquips(int uid)
@@ -176,12 +180,13 @@ namespace WarGame.UI
                 var spinePoint = _rolesGO[uid].transform.Find(equipData.GetPlaceConfig().SpinePoint);
 
                 var equipConfig = equipData.GetConfig();
-                var weapon = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipConfig.Prefab));
-
-                Tool.Instance.ApplyProcessingFotOutLine(weapon);
-
-                weapon.transform.SetParent(spinePoint, false);
-                weapon.transform.localEulerAngles = equipConfig.Rotation;
+                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipConfig.Prefab, (GameObject prefab) =>
+                {
+                    var weapon = GameObject.Instantiate<GameObject>(prefab);
+                    Tool.Instance.ApplyProcessingFotOutLine(weapon);
+                    weapon.transform.SetParent(spinePoint, false);
+                    weapon.transform.localEulerAngles = equipConfig.Rotation;
+                });
             }
         }
 
@@ -199,7 +204,9 @@ namespace WarGame.UI
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
-            _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = AssetMgr.Instance.LoadAsset<RuntimeAnimatorController>(animatorConfig.Controller);
+            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller)=> {
+                _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
+            });
         }
 
         private void OnOpenEquip(params object[] args)
@@ -233,9 +240,11 @@ namespace WarGame.UI
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
                 var spinePoint = _rolesGO[roleUID].transform.Find(equipData.GetPlaceConfig().SpinePoint);
-                var equip = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(equipData.GetConfig().Prefab));
-                equip.transform.SetParent(spinePoint, false);
-                equip.transform.localEulerAngles = equipData.GetConfig().Rotation;
+                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab)=> {
+                    var equip = GameObject.Instantiate<GameObject>(prefab);
+                    equip.transform.SetParent(spinePoint, false);
+                    equip.transform.localEulerAngles = equipData.GetConfig().Rotation;
+                });
             }
 
             UpdateAnimator(roleUID);

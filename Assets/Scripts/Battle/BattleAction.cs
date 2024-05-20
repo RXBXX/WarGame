@@ -15,14 +15,17 @@ namespace WarGame
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected string _touchingHexagon = null;
         protected SkillAction _skillAction;
+        protected LocatingArrow _arrow;
 
-        public BattleAction()
+        public BattleAction(LocatingArrow arrow = null)
         {
+            _arrow = arrow;
             AddListeners();
         }
 
         public virtual void Dispose()
         {
+            _arrow = null;
             RemoveListeners();
         }
 
@@ -64,6 +67,7 @@ namespace WarGame
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
+            //initiator.SetGrayed(true);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }

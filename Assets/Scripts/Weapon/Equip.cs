@@ -4,28 +4,28 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class Equip
+    public class Equip : MapObject
     {
         protected EquipmentData _data;
-        protected GameObject _gameObject;
+        protected Transform _spinePoint;
 
         public Equip(EquipmentData data)
         {
             this._data = data;
+            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
         public virtual void SetSpinePoint(Transform spinePoint)
         {
-            var config = GetConfig();
-            _gameObject = GameObject.Instantiate<GameObject>(AssetMgr.Instance.LoadAsset<GameObject>(config.Prefab));
-            _gameObject.transform.SetParent(spinePoint, false);
-            _gameObject.transform.localEulerAngles = config.Rotation;
-
-            OnCreate();
+            _spinePoint = spinePoint;
         }
 
-        public virtual void OnCreate()
+        protected override void OnCreate(GameObject prefab)
         {
+            base.OnCreate(prefab);
+            var config = GetConfig();
+            _gameObject.transform.SetParent(_spinePoint, false);
+            _gameObject.transform.localEulerAngles = config.Rotation;
             Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
         }
 
@@ -70,11 +70,6 @@ namespace WarGame
                 else if ("End" == secondName)
                     DestroyBullet();
             }
-        }
-
-        public virtual void Dispose()
-        { 
-        
         }
     }
 }

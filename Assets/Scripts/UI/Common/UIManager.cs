@@ -117,8 +117,11 @@ namespace WarGame.UI
             _panelDic.Clear();
 
             //在编辑模式下运行，StageEngine会在OnApplicationQuit把所有包卸载
-            UIPackage.RemoveAllPackages();
-            _uiPackagesDic.Clear();
+            if (!Application.isEditor)
+            {
+                UIPackage.RemoveAllPackages();
+                _uiPackagesDic.Clear();
+            }
             //UIPackage.RemovePackage("Common");
 
             return true;

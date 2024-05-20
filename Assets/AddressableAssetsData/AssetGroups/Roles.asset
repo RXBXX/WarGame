@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Roles
+  m_EditorClassIdentifier: 
+  m_GroupName: Roles
+  m_Data:
+    m_SerializedData: []
+  m_GUID: a5f936aaa3b866d4897222b2bf5573fd
+  m_SerializeEntries:
+  - m_GUID: 246489d9ee790ea4bbeec775586b3d7b
+    m_Address: Assets/Prefabs/Roles/Role_10001.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 4865736feed9b5d40a1a413640d11dc2
+    m_Address: Assets/Prefabs/Roles/Role_10003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 14a50ef9b60cd874c8211470c2b77a00
+    m_Address: Assets/Prefabs/Roles/Role_10002.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: d7723d5f52aff3345904be070ae612ce
+    m_Address: Assets/Prefabs/Roles/Role_10004.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8a98b1b38538b9a4a956e890e5d31280, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e9516518a89566942bb2505e76d10dde, type: 2}
+    - {fileID: 11400000, guid: 45ea5e33c508ff3488c62db5fab60617, type: 2}

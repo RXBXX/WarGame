@@ -9,13 +9,17 @@ namespace WarGame
 
     public class BattleField
     {
+        private bool _isStart = false;
         private int _levelID;
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
         private BattleAction _action;
+        private LocatingArrow _arrow;
 
         public BattleField(int levelID)
         {
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
+
             _levelID = levelID;
 
             DatasMgr.Instance.StartLevel(levelID);
@@ -61,7 +65,20 @@ namespace WarGame
             levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(new Vector3(4, 0, 5));
             RoleManager.Instance.CreateEnemy(levelRoleData);
             DebugManager.Instance.Log("Duration: " + (Time.realtimeSinceStartup - time));
-            UIManager.Instance.OpenPanel("Fight", "FightPanel");
+
+            _arrow = new LocatingArrow();
+        }
+
+        public void Update(float deltaTime)
+        {
+            if (_isStart)
+                return;
+
+            var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
+
+            if (progress >= 1)
+                Start();
         }
 
         public void Dispose()
@@ -79,24 +96,40 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
         }
 
-        public void Start()
+        private void Start()
         {
+            UIManager.Instance.ClosePanel("LoadPanel");
+            _isStart = true;
+            UIManager.Instance.OpenPanel("Fight", "FightPanel");
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = roles.Count - 1; i >= 0; i--)
                 roles[i].UpdateRound();
 
-            _action = new HeroBattleAction();
+            _action = new HeroBattleAction(_arrow);
+        }
+
+        public IEnumerator DelayStart()
+        {
+            yield return new WaitForSeconds(5);
+            Start();
         }
 
         public void Touch(GameObject obj)
         {
+            if (!_isStart)
+                return;
+
             if (null == _action)
                 return;
+
             _action.OnTouch(obj);
         }
 
         public void Click(GameObject obj)
         {
+            if (!_isStart)
+                return;
+
             if (null == _action)
                 return;
             _action.OnClick(obj);
@@ -135,7 +168,7 @@ namespace WarGame
                 {
                     if (heros[i].GetState() != Enum.RoleState.Over)
                     {
-                        _action = new HeroBattleAction();
+                        _action = new HeroBattleAction(_arrow);
                         return;
                     }
                 }
@@ -145,6 +178,12 @@ namespace WarGame
             {
                 RoundFunc callback = () =>
                 {
+                    ////将所有英雄移除置灰状态
+                    //for (int i = heros.Count - 1; i >= 0; i--)
+                    //{
+                    //    heros[i].SetGrayed(false);
+                    //}
+
                     //查找到下一个应该行动的敌人
                     for (int i = enemys.Count - 1; i >= 0; i--)
                     {
@@ -176,13 +215,19 @@ namespace WarGame
 
                 RoundFunc callback = () =>
                 {
+                    ////将所有敌人移除置灰状态
+                    //for (int i = enemys.Count - 1; i >= 0; i--)
+                    //{
+                    //    enemys[i].SetGrayed(false);
+                    //}
+
                     var roles = RoleManager.Instance.GetAllRoles();
                     for (int i = 0; i < roles.Count; i++)
                     {
                         roles[i].UpdateRound();
                     }
                     isHeroTurn = true;
-                    _action = new HeroBattleAction();
+                    _action = new HeroBattleAction(_arrow);
                 };
 
                 _roundIndex += 1;

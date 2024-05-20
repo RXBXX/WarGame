@@ -1,4 +1,5 @@
 using WarGame.UI;
+using UnityEngine;
 
 namespace WarGame
 {
@@ -6,9 +7,14 @@ namespace WarGame
     {
         public Hero(LevelRoleData data) : base(data)
         {
-            _gameObject.tag = Enum.Tag.Hero.ToString();
             _type = Enum.RoleType.Hero;
             _layer = 6;
+        }
+
+        protected override void OnCreate(GameObject go)
+        {
+            base.OnCreate(go);
+            _gameObject.tag = Enum.Tag.Hero.ToString();
         }
 
         protected override void CreateHUD()
@@ -21,23 +27,6 @@ namespace WarGame
         {
             base.UpdateRound();
             SetState(Enum.RoleState.Waiting);
-        }
-
-        protected override void InitEquips()
-        {
-            if (null == _data.equipmentDic)
-                return;
-
-            foreach (var v in _data.equipmentDic)
-            {
-                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
-                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
-
-                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                var equip = EquipFactory.Instance.GetEquip(equipData);
-                equip.SetSpinePoint(spinePoint);
-                _equipDic[equip.GetPlace()] = equip;
-            }
         }
     }
 }
