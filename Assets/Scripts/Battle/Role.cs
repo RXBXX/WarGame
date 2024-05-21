@@ -26,13 +26,9 @@ namespace WarGame
 
         protected float _moveSpeed = 0.50f, _jumpSpeed = 0.0f;
 
-        public string hexagonID;
-
         protected List<string> _numberHUDList = new List<string>();
 
         private Vector3 _offset = new Vector3(0.0f, 0.224f, 0.0f);
-
-        protected Enum.RoleState _state;
 
         private Quaternion _rotation;
 
@@ -99,19 +95,30 @@ namespace WarGame
             get { return _rotation; }
         }
 
+        public LevelRoleData Data
+        {
+            get { return _data; }
+        }
+
+        public string Hexagon
+        {
+            get { return _data.hexagonID; }
+            set { _data.hexagonID = value; }
+        }
+
         public Role(LevelRoleData data)
         {
             this._layer = 7;
             this._id = data.UID;
             this._data = data;
-            this.hexagonID = data.hexagonID;
+            _bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
 
-            _bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(hexagonID).coor) + _offset;
-            CreateGO();//加载方式，同步方式，后面都要改
+            CreateGO();
         }
 
-        private void CreateGO()
+        protected override void CreateGO()
         {
+            base.CreateGO();
             _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
@@ -127,25 +134,31 @@ namespace WarGame
 
             InitEquips();
             InitAnimator();
+
+            if (!Application.isPlaying)
+                return;
+
             CreateHUD();
+
+            OnStateChanged();
         }
 
         protected override void SmoothNormal()
         {
-            Tool.Instance.ApplyProcessingFotOutLine(_gameObject, new List<string> { "Body", "Hair", "Head", "Hat", "AC"});
+            Tool.Instance.ApplyProcessingFotOutLine(_gameObject, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
         }
 
         protected virtual void InitEquips()
         {
-            if (null == _data.equipmentDic)
+            if (null == _data.equipDataDic)
                 return;
 
-            foreach (var v in _data.equipmentDic)
+            foreach (var v in _data.equipDataDic)
             {
                 var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
                 var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
 
-                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                var equipData = _data.equipDataDic[v.Key];
                 var equip = EquipFactory.Instance.GetEquip(equipData);
                 equip.SetSpinePoint(spinePoint);
                 _equipDic[equip.GetPlace()] = equip;
@@ -155,7 +168,8 @@ namespace WarGame
         protected virtual void InitAnimator()
         {
             var animatorConfig = GetAnimatorConfig();
-            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller)=> {
+            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
+            {
                 _gameObject.GetComponent<Animator>().runtimeAnimatorController = controller;
                 InitStates();
             });
@@ -182,18 +196,19 @@ namespace WarGame
         protected virtual void CreateHUD()
         {
             _hpHUDKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
+            var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
+            hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
         }
 
         public AnimatorConfig GetAnimatorConfig()
         {
             int animatorID = 1;
-            foreach (var v in _equipDic)
+            foreach (var v in _data.equipDataDic)
             {
-                if (1 == animatorID)
+                var tempAnimatorID = v.Value.GetTypeConfig().Animator;
+                if (ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID).Priority < ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", tempAnimatorID).Priority)
                 {
-                    var equipTypeConfig = v.Value.GetTypeConfig();
-                    animatorID = equipTypeConfig.Animator;
+                    animatorID = tempAnimatorID;
                 }
             }
             return ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
@@ -201,7 +216,7 @@ namespace WarGame
 
         private void UpdateHexagonID(string id)
         {
-            hexagonID = id;
+            Hexagon = id;
         }
 
 
@@ -261,7 +276,7 @@ namespace WarGame
         public virtual void Move(List<string> hexagons)
         {
             var count = hexagons.Count;
-            if (count <= 0 || hexagons[count - 1] == hexagonID)
+            if (count <= 0 || hexagons[count - 1] == Hexagon)
                 return;
 
             this._path = hexagons;
@@ -283,7 +298,8 @@ namespace WarGame
         {
             //var prefabPath = "Assets/JMO Assets/Cartoon FX(legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab";
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
-            AssetMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab)=> {
+            AssetMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab) =>
+            {
                 var hitPrefab = GameObject.Instantiate(prefab);
                 hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
             });
@@ -327,20 +343,30 @@ namespace WarGame
 
         public Enum.RoleState GetState()
         {
-            return _state;
+            return _data.state;
         }
 
         public void SetState(Enum.RoleState state)
         {
-            if (state == _state)
+            if (state == _data.state)
                 return;
-            _state = state;
+            _data.state = state;
 
             OnStateChanged();
         }
 
         protected virtual void OnStateChanged()
         {
+            HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            if (_data.state == Enum.RoleState.Locked)
+                hud.SetState(0);
+            else if (_data.state == Enum.RoleState.Waiting)
+                hud.SetState(1);
+            else if (_data.state == Enum.RoleState.Over)
+                hud.SetState(2);
+            else
+                hud.SetState(3);
+
         }
 
         protected virtual void UpdateHP(float hp)
@@ -374,6 +400,11 @@ namespace WarGame
         public virtual float GetAttackDis()
         {
             return _data.GetAttribute(Enum.AttrType.AttackDis);
+        }
+
+        public float GetAttribute(Enum.AttrType type)
+        {
+            return _data.GetAttribute(type);
         }
 
         /// <summary>
@@ -475,19 +506,19 @@ namespace WarGame
             _data.ExcuteBuffs();
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.UpdateBuffs(_data.buffs);
+            //if (null != hud)
+                hud.UpdateBuffs(_data.buffs);
         }
 
         public List<int> GetAttackBuffs()
         {
             var buffs = new List<int>();
 
-            if (null != _data.equipmentDic)
+            if (null != _data.equipDataDic)
             {
-                foreach (var v in _data.equipmentDic)
+                foreach (var v in _data.equipDataDic)
                 {
-                    var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
                     foreach (var v1 in equipConfig.Buffs)
                     {
                         var rd = Random.Range(0, 100);
@@ -508,7 +539,7 @@ namespace WarGame
         {
             base.ChangeToMapSpace();
 
-            var hexagon = MapManager.Instance.GetHexagon(hexagonID);
+            var hexagon = MapManager.Instance.GetHexagon(Hexagon);
             var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
             _gameObject.transform.position = pos;
         }
@@ -538,7 +569,7 @@ namespace WarGame
         {
             for (int i = 0; i < go.transform.childCount; i++)
             {
-               SetMaterial(go.transform.GetChild(i).gameObject, highLigt, color);
+                SetMaterial(go.transform.GetChild(i).gameObject, highLigt, color);
             }
 
             SkinnedMeshRenderer smr;
@@ -559,9 +590,9 @@ namespace WarGame
         public override float GetLoadingProgress()
         {
             var percent = base.GetLoadingProgress();
-            if (null != _data.equipmentDic)
+            if (null != _data.equipDataDic)
             {
-                foreach (var v in _data.equipmentDic)
+                foreach (var v in _data.equipDataDic)
                 {
                     if (_equipDic.ContainsKey(v.Key))
                     {
@@ -569,7 +600,7 @@ namespace WarGame
                     }
                 }
             }
-            return percent / (1 + _data.equipmentDic.Count);
+            return percent / (1 + _data.equipDataDic.Count);
         }
         public override void Dispose()
         {

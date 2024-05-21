@@ -197,9 +197,10 @@ namespace WarGame.UI
             foreach (var v in roleData.equipmentDic)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                if (1 == animatorID)
+                var tempAnimatorID = equipData.GetTypeConfig().Animator;
+                if (ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID).Priority < ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", tempAnimatorID).Priority)
                 {
-                    animatorID = equipData.GetTypeConfig().Animator;
+                    animatorID = tempAnimatorID;
                 }
             }
 

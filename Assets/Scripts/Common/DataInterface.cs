@@ -91,13 +91,17 @@ namespace WarGame
         public Dictionary<int, int> skillDic = new Dictionary<int, int>();
         public Dictionary<int, int> talentDic = new Dictionary<int, int>();
 
-        public RoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic)
+        public RoleData(int UID, int configId, int level, Dictionary<int, int> talentDic = null,  Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
         {
             this.UID = UID;
             this.configId = configId;
             this.level = level;
-            this.equipmentDic = equipmentDic;
-            this.skillDic = skillDic;
+            if (null != talentDic)
+                this.talentDic = talentDic;
+            if (null != equipmentDic)
+                this.equipmentDic = equipmentDic;
+            if (null != skillDic)
+                this.skillDic = skillDic;
         }
 
         public RoleConfig GetConfig()
@@ -179,7 +183,7 @@ namespace WarGame
             {
                 cloneSkillDic.Add(v.Key, v.Value);
             }
-            return new RoleData(this.UID, this.configId, this.level, cloneEquipDic, cloneSkillDic);
+            return new RoleData(this.UID, this.configId, this.level, talentDic, cloneEquipDic, cloneSkillDic);
         }
     }
 
@@ -193,14 +197,16 @@ namespace WarGame
         public string hexagonID;
         public List<Pair> buffs = new List<Pair>();
         public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
+        public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+        public Enum.RoleState state;
 
-        public LevelRoleData(int UID, int configId, int level, Dictionary<Enum.EquipPlace, int> equipmentDic, Dictionary<int, int> skillDic) : base(UID, configId, level, equipmentDic, skillDic)
+        public LevelRoleData(int UID, int configId, int level, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, Dictionary<int, int> talentDic) : base(UID, configId, level, talentDic, null)
         {
             this.UID = UID;
             this.configId = configId;
             this.level = level;
-            this.equipmentDic = equipmentDic;
-            this.skillDic = skillDic;
+            this.equipDataDic = equipDataDic;
+            this.state = state;
 
             InitAttrs();
         }
@@ -213,7 +219,27 @@ namespace WarGame
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
                 var attrType = (Enum.AttrType)config.ID;
-                attrDic[attrType] = base.GetAttribute(attrType);
+
+                var value = base.GetAttribute(attrType);
+                if (null != equipDataDic)
+                {
+                    foreach (var v in equipDataDic)
+                    {
+                        var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
+                        if (null != equipConfig.Attrs)
+                        {
+                            foreach (var v1 in equipConfig.Attrs)
+                            {
+                                if ((Enum.AttrType)v1.id == attrType)
+                                {
+                                    value += v1.value;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                attrDic[attrType] = value;
             });
         }
 
@@ -313,10 +339,10 @@ namespace WarGame
             var skillDic = new Dictionary<int, int>();
             skillDic.Add(10001, 1);
             skillDic.Add(10002, 1);
-            roleDataDic.Add(1, new RoleData(1, 10001, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-            roleDataDic.Add(2, new RoleData(2, 10002, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-            roleDataDic.Add(3, new RoleData(3, 10003, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
-            roleDataDic.Add(4, new RoleData(4, 10004, 1, new Dictionary<Enum.EquipPlace, int>(), skillDic));
+            roleDataDic.Add(1, new RoleData(1, 10001, 1));
+            roleDataDic.Add(2, new RoleData(2, 10002, 1));
+            roleDataDic.Add(3, new RoleData(3, 10003, 1));
+            roleDataDic.Add(4, new RoleData(4, 10004, 1));
 
             equipDataDic.Add(1, new EquipmentData(1, 10001));
             equipDataDic.Add(2, new EquipmentData(2, 10002));

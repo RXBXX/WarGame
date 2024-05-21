@@ -54,7 +54,7 @@ namespace WarGame.UI
                 _panelDic[layerList[i]] = new List<UIBase>();
             }
 
-            //DebugManager.Instance.Log("Screen:" + Screen.width +"_"+Screen.height);
+            //DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
             //设置缩放参数

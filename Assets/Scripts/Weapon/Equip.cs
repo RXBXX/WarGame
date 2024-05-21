@@ -36,14 +36,13 @@ namespace WarGame
 
         public EquipmentConfig GetConfig()
         {
-            return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _data.configId);
+            return _data.GetConfig();
         }
 
 
         public EquipmentTypeConfig GetTypeConfig()
         {
-            var config = GetConfig();
-            return ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)config.Type);
+            return _data.GetTypeConfig();
         }
 
         public Enum.EquipPlace GetPlace()

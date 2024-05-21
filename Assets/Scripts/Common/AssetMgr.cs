@@ -38,11 +38,17 @@ namespace WarGame
         /// <returns></returns>
         public int LoadAssetAsync<T>(string path, LoadAssetCB<T> callback) where T:Object
         {
+            if (!Application.isPlaying)
+            {
+                var obj = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
+                callback((T)obj);
+                return 0;
+            }
+
             _id += 1;
             var handle = Addressables.LoadAssetAsync<Object>(path);
             var coroutine = CoroutineMgr.Instance.StartCoroutine(Load<T>(handle, callback));
             _operationDic[_id] = new LoadHandle(_id, handle, coroutine);
-
             return _id;
         }
 

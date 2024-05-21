@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" opaque="false">
   <displayList>
-    <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightVSComp.xml" xy="-83,125"/>
+    <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightInforComp.xml" xy="667,355" touchable="false"/>
     <graph id="n9_tsk1" name="roundLine1" xy="480,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
     <text id="n4_p3n5" name="round" xy="666,86" pivot="0.5,0.5" anchor="true" size="19,64" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="48" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
     <graph id="n10_tsk1" name="roundLine2" xy="853,84" pivot="0.5,0.5" anchor="true" size="320,4" group="n11_tsk1" type="rect" lineSize="0" fillColor="#ff5c8799"/>
@@ -14,7 +14,7 @@
     <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n8_ez9s" name="n8" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true">
+    <component id="n8_ez9s" name="settingsBtn" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true">
       <relation target="" sidePair="left-left,top-top"/>
     </component>
     <component id="n12_b0z0" name="initiatorHP" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="160,630" pivot="0,0.5" size="400,20" scale="0,1" visible="false" rotation="-90">
@@ -23,6 +23,7 @@
     <component id="n13_b0z0" name="targetHP" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="1165,630" pivot="0,0.5" anchor="true" size="400,20" scale="0,1" visible="false" rotation="-90" controller="style,1">
       <ProgressBar value="50" max="100"/>
     </component>
+    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="944,606"/>
   </displayList>
   <transition name="showHP">
     <item time="0" type="Scale" target="n12_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>

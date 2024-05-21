@@ -103,21 +103,47 @@ namespace WarGame
         public int Animator;
     }
 
-    //地块表
     [Serializable]
-    public class HexagonMapConfig
+    public class HexagonMapPlugin
     {
         public string ID;
 
-        public int configId;
+        public int configId; 
 
         public Vector3 coor;
 
-        public HexagonMapConfig(string id, int configId, Vector3 coor)
+        public HexagonMapPlugin(string id, int configId, Vector3 coor)
         {
             this.ID = id;
             this.configId = configId;
             this.coor = coor;
+        }
+    }
+
+    [Serializable]
+    public class EnemyMapPlugin
+    {
+        public int configId;
+
+        public string hexagonID;
+
+        public EnemyMapPlugin(int configId, string hexagonID)
+        {
+            this.configId = configId;
+            this.hexagonID = hexagonID;
+        }
+    }
+
+    [Serializable]
+    public class LevelMapPlugin
+    {
+        public HexagonMapPlugin[] hexagons;
+        public EnemyMapPlugin[] enemys;
+
+        public LevelMapPlugin(HexagonMapPlugin[] hexagons, EnemyMapPlugin[] enemys)
+        {
+            this.hexagons = hexagons;
+            this.enemys = enemys;
         }
     }
 
@@ -153,6 +179,7 @@ namespace WarGame
     {
         public string Controller;
         public string Jump;
+        public int Priority;
     }
 
     //装备部位表
@@ -187,6 +214,15 @@ namespace WarGame
         public int LastLevel;
         public Enum.LevelType Type;
         public string Map;
+    }
+
+    [Serializable]
+    public class LevelEnemyConfig : Config 
+    {
+        public int RoleID;
+        public int Level;
+        public float HP;
+        public int[] Equips;
     }
 
     //天赋表

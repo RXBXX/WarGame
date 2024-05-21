@@ -1,4 +1,5 @@
 using FairyGUI;
+using UnityEngine;
 
 namespace WarGame.UI
 {
@@ -8,29 +9,37 @@ namespace WarGame.UI
         private GProgressBar _initiatorHP;
         private GProgressBar _targetHP;
         private Transition _showHP;
-        private FightVSComp _vsComp;
+        private FightInforComp _vsComp;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            _gCom.GetChild("closeBtn").onClick.Add(()=> {
-                SceneMgr.Instance.DestroyBattleFiled();
-            });
-
             _initiatorHP = GetUIChild<GProgressBar>("initiatorHP");
             _targetHP = GetUIChild<GProgressBar>("targetHP");
             _showHP = GetTransition("showHP");
             _round = (GTextField)_gCom.GetChild("round");
             _round.text = "0";
 
-            _vsComp = GetChild<FightVSComp>("vsComp");
+            _vsComp = GetChild<FightInforComp>("vsComp");
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_HP_Change, OnHPChange);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_VS_Show, OnVSShow);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_VS_Hide, OnVSHide);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
+
+            _gCom.GetChild("closeBtn").onClick.Add(() => {
+                SceneMgr.Instance.DestroyBattleFiled();
+            });
+
+            _gCom.GetChild("skipBtn").onClick.Add(() => {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
+            });
+
+            _gCom.GetChild("settingsBtn").onClick.Add(() => {
+                UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
+            });
         }
 
         private void OnUpdateRound(object[] args)
@@ -74,7 +83,7 @@ namespace WarGame.UI
 
         private void OnVSShow(params object[] args)
         {
-            _vsComp.Show();
+            _vsComp.Show((int)args[0], (Vector3)args[1]);
         }
 
         private void OnVSHide(params object[] args)
@@ -90,8 +99,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_HP_Change, OnHPChange);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_VS_Show, OnVSShow);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_VS_Hide, OnVSHide);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
         }
     }
 }

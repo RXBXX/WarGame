@@ -53,6 +53,8 @@ namespace WarGame
             gd.time = Time.time;
 
             Tool.Instance.WriteJson<Dictionary<string, GameData>>(_path, _dataDic);
+
+            TipsMgr.Instance.Add("存储成功！");
         }
 
         public List<SampleGameData> GetGameDatas()
@@ -120,6 +122,12 @@ namespace WarGame
             return gd.levelDataDic[levelID].pass;
         }
 
+
+        public LevelData GetLevelData(int levelID)
+        {
+            var gd = _dataDic[_curData];
+            return gd.levelDataDic[levelID];
+        }
 
         /// region 协议部分----------------------------------------------------------
 

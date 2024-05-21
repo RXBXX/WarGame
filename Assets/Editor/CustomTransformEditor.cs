@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 
 namespace WarGame
 {
@@ -96,6 +95,7 @@ namespace WarGame
         //当在场景中选中对象时，会调用这个接口
         private void OnSceneGUI()
         {
+            Debug.Log("OnSceneGUI()");
             if (!MapTool.Instance.IsActiveMapEditor())
                 return;
 
@@ -225,15 +225,24 @@ namespace WarGame
             if (!MapTool.Instance.IsActiveMapEditor())
                 return;
 
-            var rootObj = GameObject.Find("Root");
-
             // 获取场景中的所有地块
+            var rootObj = GameObject.Find("Root");
             GameObject[] rootObjects = GameObject.FindGameObjectsWithTag(Enum.Tag.Hexagon.ToString());
             for (int i = 0; i < rootObjects.Length; i++)
             {
                 if (rootObjects[i].transform.parent != rootObj)
                 {
                     rootObjects[i].transform.SetParent(rootObj.transform);
+                }
+            }
+
+            var roleRootObj = GameObject.Find("RoleRoot");
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag(Enum.Tag.Enemy.ToString());
+            for (int i = 0; i < enemys.Length; i++)
+            {
+                if (enemys[i].transform.parent != roleRootObj)
+                {
+                    enemys[i].transform.SetParent(roleRootObj.transform);
                 }
             }
         }

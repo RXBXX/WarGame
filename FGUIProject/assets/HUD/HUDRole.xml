@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
+  <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="2"/>
   <displayList>
     <component id="n11_o8z3" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0">
       <ProgressBar value="49" max="100"/>
@@ -17,5 +18,8 @@
       <item/>
     </list>
     <text id="n3_p3n5" name="id" xy="-3,10" pivot="1,0.5" anchor="true" size="27,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" align="right" vAlign="middle" strokeColor="#000000" strokeSize="3" text="ID:"/>
+    <loader id="n12_h53u" name="state" xy="157,-15" size="47,47" touchable="false" url="ui://hx02grrph53un" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <gearIcon controller="state" pages="0,2,3" values="ui://hx02grrph53um|ui://hx02grrph53un|" default="ui://hx02grrph53uo"/>
+    </loader>
   </displayList>
 </component>

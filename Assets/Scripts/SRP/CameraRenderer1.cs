@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public partial class CameraRenderer : MonoBehaviour
 {
@@ -72,6 +74,6 @@ public partial class CameraRenderer : MonoBehaviour
         _buffer.name = SampleName = _camera.name;
     }
 #else
-const string SampleName = bufferName;
+const string SampleName = _bufferName;
 #endif
 }

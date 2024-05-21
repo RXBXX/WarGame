@@ -26,9 +26,30 @@ namespace WarGame
             return true;
         }
 
+        public void InitEnemys(EnemyMapPlugin[] enemys)
+        {
+            for (int i = 0; i < enemys.Length; i++)
+            {
+                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", enemys[i].configId);
+                var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+                for (int j = 0; j < enemyConfig.Equips.Length; j++)
+                {
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
+                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
+                    equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
+                }
+                var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
+                levelRoleData.hp = enemyConfig.HP;
+                levelRoleData.hexagonID = enemys[i].hexagonID;
+                CreateEnemy(levelRoleData);
+            }
+        }
+
         public void CreateHero(LevelRoleData data)
         {
             var hero = new Hero(data);
+
+            hero.SetParent(GameObject.Find("RoleRoot").transform);
 
             _roleList.Add(hero);
         }
@@ -36,6 +57,8 @@ namespace WarGame
         public void CreateEnemy(LevelRoleData data)
         {
             var enemy = new Enemy(data);
+
+            enemy.SetParent(GameObject.Find("RoleRoot").transform);
 
             _roleList.Add(enemy);
         }
@@ -87,7 +110,7 @@ namespace WarGame
                     continue;
                 if (_roleList[i].ID == id)
                 {
-                    return _roleList[i].hexagonID;
+                    return _roleList[i].Hexagon;
                 }
             }
             return null;
@@ -104,7 +127,7 @@ namespace WarGame
             {
                 if (i >= _roleList.Count)
                     continue;
-                if (_roleList[i].hexagonID == id)
+                if (_roleList[i].Hexagon == id)
                 {
                     return _roleList[i].ID;
                 }

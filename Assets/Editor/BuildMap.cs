@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace WarGame
 {
+#if UNITY_EDITOR
     public class BuildMap : EditorWindow
     {
         private const string ToolTitle = "µØÍ¼±à¼­Æ÷";
@@ -92,4 +93,5 @@ namespace WarGame
             }
         }
     }
+#endif
 }

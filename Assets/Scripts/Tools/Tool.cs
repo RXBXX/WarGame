@@ -105,6 +105,9 @@ namespace WarGame
         /// <param name="go"></param>
         public void ApplyProcessingFotOutLine(GameObject go, List<string> names = null)
         {
+            if (!Application.isPlaying)
+                return;
+
             try
             {
                 for (int i = 0; i < go.transform.childCount; i++)

@@ -11,6 +11,12 @@ namespace WarGame
 
         protected int _layer = 0;
 
+        protected Transform _parent;
+
+        protected virtual void CreateGO()
+        {
+        }
+
         protected virtual void OnCreate(GameObject prefab)
         {
             _gameObject = GameObject.Instantiate(prefab);
@@ -86,6 +92,12 @@ namespace WarGame
             if (_assetID <= 0)
                 return 0;
             return AssetMgr.Instance.GetLoadingProgress(_assetID);
+        }
+
+        public void SetParent(Transform transform)
+        {
+            _parent = transform;
+            //_gameObject.transform.SetParent(transform);
         }
 
         public virtual void Dispose()

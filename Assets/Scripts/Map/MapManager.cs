@@ -41,9 +41,9 @@ namespace WarGame
             return true;
         }
 
-        public void CreateMap(string mapPath)
+        public void CreateMap(HexagonMapPlugin[] hexagons)
         {
-            _map = MapTool.Instance.CreateMap(mapPath, GameObject.Find("Root"));
+            _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
         }
 
         public float GetLoadingProgress()

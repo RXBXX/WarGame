@@ -13,8 +13,6 @@ namespace WarGame
 
         private Tween _tween;
 
-        private Transform _parent;
-
         public GameObject GameObject
         {
             get { return _gameObject; }
@@ -28,7 +26,7 @@ namespace WarGame
 
             CreateGO();
         }
-        public void CreateGO()
+        protected override void CreateGO()
         {
             var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
             _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
@@ -40,12 +38,6 @@ namespace WarGame
             _gameObject.transform.SetParent(_parent);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
-        }
-
-        public void SetParent(Transform transform)
-        {
-            _parent = transform;
-            //_gameObject.transform.SetParent(transform);
         }
 
         public void OnClick()
@@ -97,7 +89,6 @@ namespace WarGame
 
         public void Marking(Enum.MarkType type)
         {
-            Transform go;
             switch (type)
             {
                 case Enum.MarkType.Selected:

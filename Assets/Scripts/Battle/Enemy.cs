@@ -21,13 +21,14 @@ namespace WarGame
         protected override void CreateHUD()
         {
             _hpHUDKey = _id + "_HP";
-            HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 1 });
+            var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 1 });
+            hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
         }
 
         protected override void OnStateChanged()
         {
             base.OnStateChanged();
-            if (_state == Enum.RoleState.Waiting)
+            if (_data.state == Enum.RoleState.Waiting)
             {
                 StartAI();
             }
@@ -40,10 +41,10 @@ namespace WarGame
             List<string> path = null;
             for (int i = 0; i < heros.Count; i++)
             {
-                var tempPath = MapManager.Instance.FindingAIPath(hexagonID, heros[i].hexagonID, GetMoveDis(), GetAttackDis());
+                var tempPath = MapManager.Instance.FindingAIPath(Hexagon, heros[i].Hexagon, GetMoveDis(), GetAttackDis());
                 if (null!= tempPath && tempPath.Count > 0)
                 {
-                    if (hexagonID == tempPath[tempPath.Count - 1])
+                    if (Hexagon == tempPath[tempPath.Count - 1])
                     {
                         targetID = heros[i].ID;
                         break;
@@ -91,22 +92,6 @@ namespace WarGame
         {
             base.UpdateRound();
             SetState(Enum.RoleState.Locked);
-        }
-
-        protected override void InitEquips()
-        {
-            if (null == _data.equipmentDic)
-                return;
-
-            foreach (var v in _data.equipmentDic)
-            {
-                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
-                var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
-
-                var equip = EquipFactory.Instance.GetEquip(new EquipmentData(0, v.Value));
-                equip.SetSpinePoint(spinePoint);
-                _equipDic[equip.GetPlace()] = equip;
-            }
         }
     }
 }

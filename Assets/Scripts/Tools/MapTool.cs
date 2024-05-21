@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 using UnityEditor;
+#endif
 
 namespace WarGame
 {
@@ -63,9 +65,8 @@ namespace WarGame
         /// </summary>
         /// <param name="dir"></param>
         /// <param name="root"></param>
-        public Dictionary<string, Hexagon> CreateMap(string dir, GameObject root)
+        public Dictionary<string, Hexagon> CreateMap(HexagonMapPlugin[] hexagons, GameObject root)
         {
-            HexagonMapConfig[] hexagons = Tool.Instance.ReadJson<HexagonMapConfig[]>(dir);
             Dictionary<string, Hexagon> hexagonDic = new Dictionary<string, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
@@ -75,6 +76,8 @@ namespace WarGame
             }
             return hexagonDic;
         }
+
+#if UNITY_EDITOR
 
         /// <summary>
         /// 是否开启地图编辑模式
@@ -109,7 +112,6 @@ namespace WarGame
             }
             return assetPath;
         }
-
         /// <summary>
         /// 打开地图编辑专用的场景
         /// </summary>
@@ -132,20 +134,31 @@ namespace WarGame
 
             var rootObj = GameObject.Find("Root");
             var hexagonCount = rootObj.transform.childCount;
-            HexagonMapConfig[] hexagons = new HexagonMapConfig[hexagonCount];
-
+            HexagonMapPlugin[] hexagons = new HexagonMapPlugin[hexagonCount];
             for (int i = 0; i < hexagonCount; i++)
             {
                 var hexagonTra = rootObj.transform.GetChild(i);
                 var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
-                var hexagonCell = new HexagonMapConfig(GetHexagonKey(coor), data.configId, coor);
-                DebugManager.Instance.Log(coor);
+                var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.configId, coor);
+                //DebugManager.Instance.Log(coor);
                 hexagons[i] = hexagonCell;
             }
 
+            var roleRootObj = GameObject.Find("RoleRoot");
+            var enemyCount = roleRootObj.transform.childCount;
+            EnemyMapPlugin[] enemys = new EnemyMapPlugin[enemyCount];
+            for (int i = 0; i < enemyCount; i++)
+            {
+                var enemyTra = roleRootObj.transform.GetChild(i);
+                var data = enemyTra.GetComponent<RoleBehaviour>();
+                enemys[i] = new EnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position)));
+            }
+
+            var levelPlugin = new LevelMapPlugin(hexagons, enemys);
+
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
-            Tool.Instance.WriteJson<HexagonMapConfig[]>(dir, hexagons);
+            Tool.Instance.WriteJson<LevelMapPlugin>(dir, levelPlugin);
         }
 
         /// <summary>
@@ -158,18 +171,28 @@ namespace WarGame
 
             ClearEditorMapScene();
 
+            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
+            LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
             var rootObj = GameObject.Find("Root");
+            MapManager.Instance.CreateMap(levelPlugin.hexagons);
+            //for (int i = 0; i < levelPlugin.hexagons.Length; i++)
+            //{
+            //    var hexagon = new Hexagon(levelPlugin.hexagons[i].ID, levelPlugin.hexagons[i].configId, levelPlugin.hexagons[i].coor);
+            //    //hexagon.CreateGO();
+            //    hexagon.SetParent(rootObj.transform);
+            //}
 
-            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
-            HexagonMapConfig[] hexagons = Tool.Instance.ReadJson<HexagonMapConfig[]>(dir);
+            var enemyRootObj = GameObject.Find("RoleRoot");
 
-            for (int i = 0; i < hexagons.Length; i++)
-            {
-                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].coor);
-                hexagon.CreateGO();
-                hexagon.SetParent(rootObj.transform);
-            }
+            RoleManager.Instance.InitEnemys(levelPlugin.enemys);
+            //for (int i = 0; i < levelPlugin.enemys.Length; i++)
+            //{
+            //    var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", levelPlugin.enemys[i].configId);
+            //    Debug.Log(enemyConfig.ID);
+            //    var enemy = new Enemy(new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, enemyConfig.EquipDic, null));
+            //    enemy.SetParent(enemyRootObj.transform);
+            //}
         }
 
         /// <summary>
@@ -210,7 +233,7 @@ namespace WarGame
                             }
                         }
 
-                        string assetPath = MapTool.Instance.GetHexagonPrefab(type);
+                        string assetPath = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", (int)type).Prefab;
                         AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab)=> {
                             var obj = GameObject.Instantiate(prefab);
                             obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
@@ -231,13 +254,19 @@ namespace WarGame
 
             var rootObj = GameObject.Find("Root");
             var hexagonCount = rootObj.transform.childCount;
-
             for (int i = hexagonCount - 1; i >= 0; i--)
             {
                 GameObject.DestroyImmediate(rootObj.transform.GetChild(i).gameObject);
             }
-        }
 
+            var roleRootObj = GameObject.Find("RoleRoot");
+            var enemyCount = roleRootObj.transform.childCount;
+            for (int i = enemyCount - 1; i >= 0; i--)
+            {
+                GameObject.DestroyImmediate(roleRootObj.transform.GetChild(i).gameObject);
+            }
+        }
+#endif
         /// <summary>
         /// 获取地块在构建的地图数据中的key
         /// </summary>

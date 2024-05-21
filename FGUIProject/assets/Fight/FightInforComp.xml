@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="273,34" pivot="0.5,0.5" opaque="false">
+  <displayList>
+    <text id="n3_h53u" name="attrs" xy="0,0" size="273,34" font="ui://hd0z4dz5omu90" fontSize="24" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="11111111111111111111111111111111111"/>
+  </displayList>
+  <relation target="n3_h53u" sidePair="rightext-right,bottomext-bottom"/>
+  <transition name="show">
+    <item time="0" type="Scale" target="n3_h53u" tween="true" startValue="0,0" endValue="1,1" duration="3"/>
+  </transition>
+</component>

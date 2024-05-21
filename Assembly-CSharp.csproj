@@ -163,6 +163,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\NGraphics.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Margin.cs" />
     <Compile Include="Assets\Scripts\Test\CurveTest.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightInforComp.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Cooldown\CooldownMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Curve\CurveMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
@@ -201,7 +202,6 @@
     <Compile Include="Assets\Scripts\Tools\MapTool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
-    <Compile Include="Assets\Scripts\UI\Fight\FightVSComp.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitComponent.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\AsyncCreationHelper.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window2.cs" />
@@ -265,6 +265,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GObjectPool.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroForcedEquipComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GObject.cs" />
     <Compile Include="Assets\Scripts\Weapon\Arrow.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
@@ -367,7 +368,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\TMPFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroForcedEquipComp.cs" />
+    <Compile Include="Assets\Scripts\UI\Settings\SettingsPanel.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\OutlineProcessing.shader" />

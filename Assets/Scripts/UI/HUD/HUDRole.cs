@@ -11,6 +11,7 @@ namespace WarGame.UI
         private List<Pair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
         private float _hpChangeDuration = 0.2F;
+        private Controller _stateC;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -20,6 +21,7 @@ namespace WarGame.UI
             _rage = (GProgressBar)_gCom.GetChild("rage");
             _rage.max = 100;
             _rage.value = 0;
+            _stateC = GetController("state");
 
             _buffList = (GList)_gCom.GetChild("buffList");
             _buffList.itemRenderer = OnItemRenderer;
@@ -59,6 +61,11 @@ namespace WarGame.UI
                 _hudBuffDic[item.id] = new HUDBuff((GComponent)item, "HUDBuff");
             }
             _hudBuffDic[item.id].UpdateBuff(_buffs[index].id, _buffs[index].value);
+        }
+
+        public void SetState(int state)
+        {
+            _stateC.SetSelectedIndex(state);
         }
 
         public override void Dispose(bool disposeGComp = false)

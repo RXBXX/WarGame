@@ -150,7 +150,7 @@ namespace WarGame
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].hexagonID))
+                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
                 {
                     roles[i].SetLayer(8);
                 }
@@ -221,10 +221,10 @@ namespace WarGame
             }
             CameraMgr.Instance.OpenGray();
 
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
             var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
             var deltaVec = arenaCenter - pathCenter;
-            var path = MapManager.Instance.FindingPathForStr(initiator.hexagonID, target.hexagonID, Enum.RoleType.Hero, false);
+            var path = MapManager.Instance.FindingPathForStr(initiator.Hexagon, target.Hexagon, Enum.RoleType.Hero, false);
 
             var moveDuration = 0.2F;
             for (int i = 0; i < path.Count; i++)

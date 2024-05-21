@@ -79,6 +79,15 @@ namespace WarGame
             {
                 RoleManager.Instance.GetRole(_touchingID).ResetHighLight();
                 _touchingID = 0;
+
+                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Infor_Hide);
+            }
+            if (0 != touchingID && _touchingID != touchingID)
+            {
+                _touchingID = touchingID;
+                var role = RoleManager.Instance.GetRole(_touchingID);
+                role.HighLight();
+                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Infor_Show, new object[] { _touchingID, role.HUDPoint.transform.position });
             }
 
             if (_initiatorID < 0 || null == touchingHexagonID || _touchingHexagon != touchingHexagonID)
@@ -89,13 +98,7 @@ namespace WarGame
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
                 if (initiator.GetState() == Enum.RoleState.Waiting)
-                    MapManager.Instance.MarkingPath(initiator.hexagonID, touchingHexagonID, initiator.GetMoveDis());
-            }
-
-            if (0 != touchingID && _touchingID != touchingID)
-            {
-                _touchingID = touchingID;
-                RoleManager.Instance.GetRole(_touchingID).HighLight();
+                    MapManager.Instance.MarkingPath(initiator.Hexagon, touchingHexagonID, initiator.GetMoveDis());
             }
 
             if (null == touchingHexagonID)
@@ -113,9 +116,6 @@ namespace WarGame
                 _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
             }
         }
-
-        private void TouchHexagon(string hexagonID)
-        { }
 
         public override void OnClick(GameObject obj)
         {
