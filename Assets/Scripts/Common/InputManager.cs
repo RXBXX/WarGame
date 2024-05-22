@@ -66,6 +66,11 @@ namespace WarGame
             return Input.GetMouseButton(id);
         }
 
+        public bool GetMouseButtonUp(int id)
+        {
+            return Input.GetMouseButtonUp(id);
+        }
+
         public float GetAxis(string name)
         {
             return Input.GetAxis(name);

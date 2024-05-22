@@ -4662,31 +4662,6 @@
       }
     },
     {
-      "ID": "6_4_3",
-      "configId": 1,
-      "coor": {
-        "x": 6.0,
-        "y": 4.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.768221259,
-          "y": 0.5121475,
-          "z": 0.38411063,
-          "normalized": {
-            "x": 0.7682213,
-            "y": 0.512147546,
-            "z": 0.384110659,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 7.81025,
-        "sqrMagnitude": 61.0
-      }
-    },
-    {
       "ID": "6_0_4",
       "configId": 1,
       "coor": {
@@ -30990,6 +30965,42 @@
         "magnitude": 55.1543274,
         "sqrMagnitude": 3042.0
       }
+    },
+    {
+      "ID": "6_7_4",
+      "configId": 1,
+      "coor": {
+        "x": 6.0,
+        "y": 7.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.597022355,
+          "y": 0.696526051,
+          "z": 0.3980149,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 10.0498753,
+        "sqrMagnitude": 101.0
+      }
+    },
+    {
+      "ID": "5_9_4",
+      "configId": 1,
+      "coor": {
+        "x": 5.0,
+        "y": 9.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.45267874,
+          "y": 0.8148217,
+          "z": 0.362143,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 11.0453606,
+        "sqrMagnitude": 122.0
+      }
     }
   ],
   "enemys": [
@@ -30999,7 +31010,7 @@
     },
     {
       "configId": 100002,
-      "hexagonID": "7_1_4"
+      "hexagonID": "7_0_4"
     }
   ]
 }

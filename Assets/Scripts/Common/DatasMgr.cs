@@ -272,7 +272,6 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            SaveGameData();
             _dataDic.Clear();
             base.Dispose();
             return true;

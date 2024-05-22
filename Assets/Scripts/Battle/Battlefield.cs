@@ -157,6 +157,10 @@ namespace WarGame
         private IEnumerator Start()
         {
             yield return null;
+
+            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            CameraMgr.Instance.SetTarget(heros[0].GameObject);
+
             UIManager.Instance.ClosePanel("LoadPanel");
             _isStart = true;
             UIManager.Instance.OpenPanel("Fight", "FightPanel");

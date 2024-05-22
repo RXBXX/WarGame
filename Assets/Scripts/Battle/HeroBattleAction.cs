@@ -169,6 +169,8 @@ namespace WarGame
                 return;
             }
 
+            CameraMgr.Instance.SetTarget(hero.GameObject);
+
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
             if (_initiatorID > 0)
             {
@@ -202,6 +204,8 @@ namespace WarGame
                 _skillAction.ClickEnemy(enemyId);
                 return;
             }
+
+            CameraMgr.Instance.SetTarget(enemy.GameObject);
 
             _initiatorID = 0;
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
@@ -253,7 +257,7 @@ namespace WarGame
         /// <param name="end"></param>
         private void Move(string start, string end)
         {
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, Enum.RoleType.Hero, true);
+            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
 
             if (null == hexagons || hexagons.Count <= 0)
                 return;

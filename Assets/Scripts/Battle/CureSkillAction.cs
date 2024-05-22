@@ -172,26 +172,24 @@ namespace WarGame
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
             var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
             var deltaVec = arenaCenter - pathCenter;
-            var path = MapManager.Instance.FindingPathForStr(initiator.Hexagon, target.Hexagon, Enum.RoleType.Hero, false);
 
             var moveDuration = 0.2F;
-            for (int i = 0; i < path.Count; i++)
-            {
-                if (0 == i)
-                {
-                    initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
-                    _arenaObjects.Add(initiator);
-                }
-                else if (path.Count - 1 == i)
-                {
-                    target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
-                    _arenaObjects.Add(target);
-                }
-                var hexagon = MapManager.Instance.GetHexagon(path[i]);
-                hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
-                _arenaObjects.Add(hexagon);
-                yield return new WaitForSeconds(moveDuration);
-            }
+            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
+            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(hexagon);
+
+            initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(initiator);
+
+            yield return new WaitForSeconds(moveDuration);
+
+            hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
+            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(hexagon);
+
+            target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(target);
+            yield return new WaitForSeconds(moveDuration);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
         }
@@ -222,17 +220,8 @@ namespace WarGame
 
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, Enum.RoleType.Hero, false);
-            if (null == hexagons || hexagons.Count <= 0)
-                return;
-            var cost = 0.0f;
-            for (int i = 1; i < hexagons.Count; i++)
-            {
-                cost += MapManager.Instance.GetHexagon(hexagons[i]).GetCost();
-            }
-
-            var hero = RoleManager.Instance.GetRole(_initiatorID);
-            if (cost > hero.GetAttackDis())
+            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            if (null == hexagons)
                 return;
 
             _targetID = id;
@@ -246,17 +235,8 @@ namespace WarGame
 
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(initiatorID, targetID, Enum.RoleType.Hero, false);
-            if (null == hexagons || hexagons.Count <= 0)
-                return;
-            var cost = 0.0f;
-            for (int i = 1; i < hexagons.Count; i++)
-            {
-                cost += MapManager.Instance.GetHexagon(hexagons[i]).GetCost();
-            }
-
-            var hero = RoleManager.Instance.GetRole(_initiatorID);
-            if (cost > hero.GetAttackDis())
+            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            if (null == hexagons)
                 return;
 
             _targetID = id;
