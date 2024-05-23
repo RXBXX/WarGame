@@ -7,7 +7,7 @@ namespace WarGame
     public class CameraMgr : Singeton<CameraMgr>
     {
         private float _moveSpeed = 0.5F;
-        private float _zoomSpeed = 3.0f;
+        private float _zoomSpeed = 5.0f;
         private float _rotateSpeed = 2.0f;
         private Tweener _tweener;
         private GameObject _target;
@@ -55,10 +55,10 @@ namespace WarGame
             //    (planeNorVec.x * lineDir.x + planeNorVec.y * lineDir.y + planeNorVec.z * lineDir.z);
             //var point = new Vector3(linePos.x + t * lineDir.x, linePos.y + t * lineDir.y, linePos.z + t * lineDir.z);
 
-            float scrollValue = Input.GetAxis("Mouse ScrollWheel") * _zoomSpeed;
+            float scrollValue = Input.GetAxis("Mouse ScrollWheel");
             if (0 != scrollValue)
             {
-                _cameraDis -= scrollValue;
+                _cameraDis -= scrollValue * _zoomSpeed;
                 if (_cameraDis < 25 && _cameraDis > 8)
                 {
                     MainCamera.transform.position = _target.transform.position - MainCamera.transform.forward * _cameraDis;

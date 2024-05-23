@@ -735,11 +735,11 @@ namespace WarGame
 
             if (null == targetCell)
                 return null;
-
+            DebugManager.Instance.Log("11111");
             var path = FindingPath(initiator, target, Enum.RoleType.Enemy);
             if (null == path || path.Count <= 0)
                 return null;
-
+            DebugManager.Instance.Log("22222");
             List<string> finalPath = new List<string>();
             foreach (var v in path)
             {
