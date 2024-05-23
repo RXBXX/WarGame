@@ -169,7 +169,7 @@ namespace WarGame
                 return;
             }
 
-            CameraMgr.Instance.SetTarget(hero.GameObject);
+            CameraMgr.Instance.SetTarget(heroID);
 
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
             if (_initiatorID > 0)
@@ -205,7 +205,7 @@ namespace WarGame
                 return;
             }
 
-            CameraMgr.Instance.SetTarget(enemy.GameObject);
+            CameraMgr.Instance.SetTarget(enemyId);
 
             _initiatorID = 0;
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);

@@ -12,6 +12,7 @@ namespace WarGame.UI
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
         private float _hpChangeDuration = 0.2F;
         private Controller _stateC;
+        private Controller _followingC;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -22,6 +23,7 @@ namespace WarGame.UI
             _rage.max = 100;
             _rage.value = 0;
             _stateC = GetController("state");
+            _followingC = GetController("following");
 
             _buffList = (GList)_gCom.GetChild("buffList");
             _buffList.itemRenderer = OnItemRenderer;
@@ -66,6 +68,11 @@ namespace WarGame.UI
         public void SetState(int state)
         {
             _stateC.SetSelectedIndex(state);
+        }
+
+        public void SetFollowing(bool following)
+        {
+            _followingC.SetSelectedIndex(following ? 1 :0);
         }
 
         public override void Dispose(bool disposeGComp = false)

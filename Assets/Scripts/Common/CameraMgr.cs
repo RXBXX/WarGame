@@ -10,7 +10,7 @@ namespace WarGame
         private float _zoomSpeed = 5.0f;
         private float _rotateSpeed = 2.0f;
         private Tweener _tweener;
-        private GameObject _target;
+        private int _targetID;
         private float _cameraDis;
 
         public Camera MainCamera
@@ -27,6 +27,8 @@ namespace WarGame
         {
             base.Init();
 
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Role_Dispose, OnRoleDispose);
+
             return true;
         }
 
@@ -41,7 +43,7 @@ namespace WarGame
             if ("Main Camera" != MainCamera.name)
                 return;
 
-            if (null == _target)
+            if (0 == _targetID)
                 return;
 
             if (null != _tweener)
@@ -58,10 +60,13 @@ namespace WarGame
             float scrollValue = Input.GetAxis("Mouse ScrollWheel");
             if (0 != scrollValue)
             {
-                _cameraDis -= scrollValue * _zoomSpeed;
-                if (_cameraDis < 25 && _cameraDis > 8)
+                var tempCameraDis = _cameraDis - scrollValue * _zoomSpeed;
+                if (tempCameraDis < 25 && tempCameraDis > 8)
                 {
-                    MainCamera.transform.position = _target.transform.position - MainCamera.transform.forward * _cameraDis;
+                    _cameraDis = tempCameraDis;
+
+                    var target = RoleManager.Instance.GetRole(_targetID);
+                    MainCamera.transform.position = target.GameObject.transform.position - MainCamera.transform.forward * _cameraDis;
                 }
             }
 
@@ -70,8 +75,9 @@ namespace WarGame
                 float xAxis = Input.GetAxis("Mouse X") * _rotateSpeed;
                 float yAxis = Input.GetAxis("Mouse Y") * _rotateSpeed;
 
-                MainCamera.transform.RotateAround(_target.transform.position, Vector3.up, xAxis);
-                MainCamera.transform.RotateAround(_target.transform.position, MainCamera.transform.right, yAxis);
+                var target = RoleManager.Instance.GetRole(_targetID);
+                MainCamera.transform.RotateAround(target.GameObject.transform.position, Vector3.up, xAxis);
+                MainCamera.transform.RotateAround(target.GameObject.transform.position, MainCamera.transform.right, yAxis);
             }
 
             if (InputManager.Instance.GetMouseButton(0))
@@ -83,18 +89,7 @@ namespace WarGame
             }
             else if (InputManager.Instance.GetMouseButtonUp(0))
             {
-                var roles = RoleManager.Instance.GetAllRoles();
-                var minRole = roles[0];
-                var viewCenter = MainCamera.transform.position + MainCamera.transform.forward * _cameraDis;
-                for (int i = 1; i < roles.Count; i++)
-                {
-                    if (Vector3.Distance(roles[i].GetPosition(), viewCenter) < Vector3.Distance(minRole.GetPosition(), viewCenter))
-                    {
-                        minRole = roles[i];
-                    }
-                }
-
-                SetTarget(minRole.GameObject);
+                FindingTarget();
             }
         }
 
@@ -122,18 +117,9 @@ namespace WarGame
 
         public void ShakePosition()
         {
-            if (null == _tweener)
-            {
-                _tweener.Kill();
-                _tweener = null;
-            }
+            KillTweener();
             _tweener = MainCamera.transform.DOShakePosition(0.5f, 0.1f);
-
-            _tweener.onComplete = (() =>
-            {
-                _tweener.Kill();
-                _tweener = null;
-            });
+            _tweener.onComplete = (() =>{KillTweener();});
         }
 
         public Vector3 GetMainCamPosition()
@@ -146,36 +132,75 @@ namespace WarGame
             return MainCamera.transform.forward;
         }
 
-        public void SetTarget(GameObject go)
+        public void SetTarget(int targetID)
         {
-            if (null == _tweener)
+            KillTweener();
+            if (0 != _targetID)
             {
-                _tweener.Kill();
-                _tweener = null;
+                var oldTarget = RoleManager.Instance.GetRole(_targetID);
+                oldTarget.SetFollowing(false);
             }
 
-            _target = go;
+            _targetID = targetID;
+
+            if (0 == _targetID)
+            {
+                _targetID = 0;
+                _cameraDis = 0;
+                return;
+            }
 
             if (0 == _cameraDis)
             {
                 _cameraDis = 15;
             }
 
-            _tweener = MainCamera.transform.DOMove(_target.transform.position - _cameraDis * MainCamera.transform.forward, 0.2F);
-            _tweener.onComplete = (() =>
+            var target = RoleManager.Instance.GetRole(_targetID);
+            target.SetFollowing(true);
+            _tweener = MainCamera.transform.DOMove(target.GameObject.transform.position - _cameraDis * MainCamera.transform.forward, 0.2F);
+            _tweener.onComplete = (() =>{KillTweener();});
+        }
+
+        private void KillTweener()
+        {
+            if (null != _tweener)
             {
                 _tweener.Kill();
                 _tweener = null;
-            });
+            }
+        }
+
+        private void OnRoleDispose(params object[] args)
+        {
+            if (0 == _targetID)
+                return;
+            FindingTarget();
+        }
+
+        private void FindingTarget()
+        {
+            var roles = RoleManager.Instance.GetAllRoles();
+            var minRole = roles[0];
+            var viewCenter = MainCamera.transform.position + MainCamera.transform.forward * _cameraDis;
+            for (int i = 1; i < roles.Count; i++)
+            {
+                if (Vector3.Distance(roles[i].GetPosition(), viewCenter) < Vector3.Distance(minRole.GetPosition(), viewCenter))
+                {
+                    minRole = roles[i];
+                }
+            }
+
+            SetTarget(minRole.ID);
         }
 
         public override bool Dispose()
         {
-            base.Dispose();
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Role_Dispose, OnRoleDispose);
 
             _tweener.Kill();
             _tweener = null;
 
+            base.Dispose();
             return true;
         }
     }

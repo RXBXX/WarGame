@@ -602,8 +602,16 @@ namespace WarGame
             }
             return percent / (1 + _data.equipDataDic.Count);
         }
+
+        public void SetFollowing(bool following)
+        {
+            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            hud.SetFollowing(following);
+        }
+
         public override void Dispose()
         {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Role_Dispose, new object[] { _id });
             if (null != _hpHUDKey)
             {
                 HUDManager.Instance.RemoveHUD(_hpHUDKey);

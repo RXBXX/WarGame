@@ -140,6 +140,8 @@ namespace WarGame
 
         public void Dispose()
         {
+            CameraMgr.Instance.SetTarget(0);
+
             if (null != _action)
             {
                 _action.Dispose();
@@ -159,7 +161,7 @@ namespace WarGame
             yield return null;
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            CameraMgr.Instance.SetTarget(heros[0].GameObject);
+            CameraMgr.Instance.SetTarget(heros[0].ID);
 
             UIManager.Instance.ClosePanel("LoadPanel");
             _isStart = true;

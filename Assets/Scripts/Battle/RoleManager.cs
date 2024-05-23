@@ -69,8 +69,9 @@ namespace WarGame
             {
                 if (id == _roleList[i].ID)
                 {
-                    _roleList[i].Dispose();
+                    var role = _roleList[i];
                     _roleList.RemoveAt(i);
+                    role.Dispose();
                     return;
                 }
             }

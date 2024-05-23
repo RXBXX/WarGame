@@ -192,6 +192,7 @@ namespace WarGame
             Fight_Infor_Hide = 32,
             Fight_AIAction_Over = 33,
             Fight_Skip_Rount = 34,
+            Fight_Role_Dispose = 35,
         }
     }
 }
