@@ -82,7 +82,7 @@ namespace WarGame
 
         public override void Take()
         {
-            DebugManager.Instance.Log("JumpTake:" + _state);
+            //DebugManager.Instance.Log("JumpTake:" + _state);
             if (_state == Enum.RoleAnimState.Take)
                 return;
             base.Take();
@@ -121,9 +121,11 @@ namespace WarGame
             _lerpStep += (Time.deltaTime * _speed);
 
             //在Unity中使用欧拉角插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
-            var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
-            _role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
-            _role.GameObject.transform.position = newPos;
+            //var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
+            //_role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
+            //_role.GameObject.transform.position = newPos;
+            _role.UpdatePosition(Vector3.Lerp(startPos, endPos, _lerpStep));
+            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep));
         }
     }
 
@@ -147,9 +149,12 @@ namespace WarGame
             _lerpStep += (Time.deltaTime * _speed);
 
             //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
-            var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
-            _role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
-            _role.GameObject.transform.position = newPos;
+            _role.UpdatePosition(Vector3.Lerp(startPos, endPos, _lerpStep));
+            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep));
+
+            //var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
+            //_role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
+            //_role.GameObject.transform.position = newPos;
 
             //DebugManager.Instance.Log(_lerpStep);
             if (_lerpStep >= 1)

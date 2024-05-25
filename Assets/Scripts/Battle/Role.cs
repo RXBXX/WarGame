@@ -40,7 +40,9 @@ namespace WarGame
 
         protected Dictionary<Enum.EquipPlace, Equip> _equipDic = new Dictionary<Enum.EquipPlace, Equip>();
 
-        private Vector3 _bornPoint;
+        private Vector3 _position;
+
+        private bool _isFollowing = false;
 
         public int ID
         {
@@ -111,7 +113,7 @@ namespace WarGame
             this._layer = 7;
             this._id = data.UID;
             this._data = data;
-            _bornPoint = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
 
             CreateGO();
         }
@@ -125,7 +127,7 @@ namespace WarGame
         protected override void OnCreate(GameObject go)
         {
             base.OnCreate(go);
-            _gameObject.transform.position = _bornPoint;
+            _gameObject.transform.position = _position;
             _gameObject.transform.localScale = Vector3.one * 0.7F;
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleBehaviour>().ID = _id;
@@ -198,6 +200,7 @@ namespace WarGame
             _hpHUDKey = _id + "_HP";
             var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
             hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
+            hud.SetFollowing(_isFollowing);
         }
 
         public AnimatorConfig GetAnimatorConfig()
@@ -214,23 +217,15 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
         }
 
-        private void UpdateHexagonID(string id)
+        public void UpdateHexagonID(string id)
         {
             Hexagon = id;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
+            _gameObject.transform.position = _position;
         }
 
 
         public virtual void Update()
-        {
-            UpdatePosition();
-        }
-
-        public virtual bool IsDead()
-        {
-            return _data.GetAttribute(Enum.AttrType.HP) <= 0;
-        }
-
-        public virtual void UpdatePosition()
         {
             if (null == _gameObject)
                 return;
@@ -251,6 +246,22 @@ namespace WarGame
             }
 
             _stateDic[_curAnimState].Update();
+        }
+
+        public virtual bool IsDead()
+        {
+            return _data.GetAttribute(Enum.AttrType.HP) <= 0;
+        }
+
+        public virtual void UpdatePosition(Vector3 pos)
+        {
+            _position = pos;
+            _gameObject.transform.position = _position;
+        }
+
+        public virtual void UpdateRotation(Quaternion rotation)
+        {
+            _gameObject.transform.rotation = rotation;
         }
 
         public void SetAnimState(string stateName)
@@ -467,7 +478,8 @@ namespace WarGame
 
         public Vector3 GetPosition()
         {
-            return _gameObject.transform.position;
+            return _position;
+            //return _gameObject.transform.position;
         }
 
         public void SetForward(Vector3 forward)
@@ -507,7 +519,7 @@ namespace WarGame
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             //if (null != hud)
-                hud.UpdateBuffs(_data.buffs);
+            hud.UpdateBuffs(_data.buffs);
         }
 
         public List<int> GetAttackBuffs()
@@ -557,11 +569,15 @@ namespace WarGame
 
         public override void HighLight()
         {
+            if (null == _gameObject)
+                return;
             SetMaterial(_gameObject, 0, Color.white);
         }
 
         public override void ResetHighLight()
         {
+            if (null == _gameObject)
+                return;
             SetMaterial(_gameObject, 1, Color.black);
         }
 
@@ -605,8 +621,11 @@ namespace WarGame
 
         public void SetFollowing(bool following)
         {
+            _isFollowing = following;
+
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.SetFollowing(following);
+            if (null != hud)
+                hud.SetFollowing(_isFollowing);
         }
 
         public override void Dispose()

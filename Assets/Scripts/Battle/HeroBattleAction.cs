@@ -7,7 +7,8 @@ namespace WarGame
 {
     public class HeroBattleAction : BattleAction
     {
-        private int _touchingID = 0;
+        //private int _touchingID = 0;
+        protected string _touchingHexagon = null;
 
         public HeroBattleAction(LocatingArrow arrow) : base(arrow)
         {
@@ -42,29 +43,16 @@ namespace WarGame
 
         public override void OnTouch(GameObject obj)
         {
-            var touchingID = 0;
             string touchingHexagonID = null;
             if (null != obj)
             {
                 var tag = obj.tag;
-                if (tag == Enum.Tag.Hero.ToString())
-                {
-                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
-                }
-                else if (tag == Enum.Tag.Enemy.ToString())
-                {
-                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
-                }
-                else if (tag == Enum.Tag.Hexagon.ToString())
+                if (tag == Enum.Tag.Hexagon.ToString())
                 {
                     var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
 
                     var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
-                    if (roleID > 0)
-                    {
-                        touchingID = roleID;
-                    }
-                    else
+                    if (roleID <= 0)
                     {
                         var hexagon = MapManager.Instance.GetHexagon(hexagonID);
                         if (hexagon.IsReachable())
@@ -75,45 +63,16 @@ namespace WarGame
                 }
             }
 
-            if (0 != _touchingID && _touchingID != touchingID)
-            {
-                RoleManager.Instance.GetRole(_touchingID).ResetHighLight();
-                _touchingID = 0;
-
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Infor_Hide);
-            }
-            if (0 != touchingID && _touchingID != touchingID)
-            {
-                _touchingID = touchingID;
-                var role = RoleManager.Instance.GetRole(_touchingID);
-                role.HighLight();
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Infor_Show, new object[] { _touchingID, role.HUDPoint.transform.position });
-            }
-
-            if (_initiatorID < 0 || null == touchingHexagonID || _touchingHexagon != touchingHexagonID)
-            {
-                MapManager.Instance.ClearMarkedPath();
-            }
-            if (_initiatorID > 0 && null != touchingHexagonID && _touchingHexagon != touchingHexagonID)
-            {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() == Enum.RoleState.Waiting)
-                    MapManager.Instance.MarkingPath(initiator.Hexagon, touchingHexagonID, initiator.GetMoveDis());
-            }
-
-            if (null == touchingHexagonID)
-            {
-                if (null != _arrow && _arrow.Active)
-                {
-                    _arrow.Active = false;
-                }
-                _touchingHexagon = null;
-            }
-            else if (touchingHexagonID != _touchingHexagon)
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            if (null != initiator && null != touchingHexagonID && _touchingHexagon != touchingHexagonID && initiator.GetState() == Enum.RoleState.Waiting)
             {
                 _touchingHexagon = touchingHexagonID;
-                _arrow.Active = true;
-                _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
+                MapManager.Instance.MarkingPath(initiator.Hexagon, touchingHexagonID, initiator.GetMoveDis());
+            }
+            else if(null != _touchingHexagon && _touchingHexagon != touchingHexagonID)
+            {
+                _touchingHexagon = null;
+                MapManager.Instance.ClearMarkedPath();
             }
         }
 
@@ -134,7 +93,6 @@ namespace WarGame
             }
             else if (tag == Enum.Tag.Enemy.ToString())
             {
-
                 ClickEnemy(obj.GetComponent<RoleBehaviour>().ID);
             }
             else if (tag == Enum.Tag.Hexagon.ToString())
@@ -169,8 +127,6 @@ namespace WarGame
                 return;
             }
 
-            CameraMgr.Instance.SetTarget(heroID);
-
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
             if (_initiatorID > 0)
             {
@@ -204,8 +160,6 @@ namespace WarGame
                 _skillAction.ClickEnemy(enemyId);
                 return;
             }
-
-            CameraMgr.Instance.SetTarget(enemyId);
 
             _initiatorID = 0;
             string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);

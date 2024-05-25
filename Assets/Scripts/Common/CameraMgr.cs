@@ -119,7 +119,7 @@ namespace WarGame
         {
             KillTweener();
             _tweener = MainCamera.transform.DOShakePosition(0.5f, 0.1f);
-            _tweener.onComplete = (() =>{KillTweener();});
+            _tweener.onComplete = (() => { KillTweener(); });
         }
 
         public Vector3 GetMainCamPosition()
@@ -132,33 +132,38 @@ namespace WarGame
             return MainCamera.transform.forward;
         }
 
-        public void SetTarget(int targetID)
+        private void ClearTarget()
         {
-            KillTweener();
             if (0 != _targetID)
             {
                 var oldTarget = RoleManager.Instance.GetRole(_targetID);
-                oldTarget.SetFollowing(false);
-            }
+                if (null != oldTarget)
+                    oldTarget.SetFollowing(false);
 
-            _targetID = targetID;
-
-            if (0 == _targetID)
-            {
                 _targetID = 0;
-                _cameraDis = 0;
-                return;
             }
+        }
+
+        public void SetTarget(int targetID)
+        {
+            if (targetID == _targetID)
+                return;
+             
+            KillTweener();
+            ClearTarget();
+
+            if (0 == targetID)
+                return;
 
             if (0 == _cameraDis)
             {
                 _cameraDis = 15;
             }
-
+            _targetID = targetID;
             var target = RoleManager.Instance.GetRole(_targetID);
             target.SetFollowing(true);
-            _tweener = MainCamera.transform.DOMove(target.GameObject.transform.position - _cameraDis * MainCamera.transform.forward, 0.2F);
-            _tweener.onComplete = (() =>{KillTweener();});
+            _tweener = MainCamera.transform.DOMove(target.GetPosition() - _cameraDis * MainCamera.transform.forward, 0.2F);
+            _tweener.onComplete = (() => { KillTweener(); });
         }
 
         private void KillTweener()
@@ -172,8 +177,9 @@ namespace WarGame
 
         private void OnRoleDispose(params object[] args)
         {
-            if (0 == _targetID)
+            if ((int)args[0] != _targetID)
                 return;
+            ClearTarget();
             FindingTarget();
         }
 
@@ -197,8 +203,7 @@ namespace WarGame
         {
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Role_Dispose, OnRoleDispose);
 
-            _tweener.Kill();
-            _tweener = null;
+            ClearTarget();
 
             base.Dispose();
             return true;

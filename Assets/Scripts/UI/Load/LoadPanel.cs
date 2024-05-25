@@ -15,7 +15,7 @@ namespace WarGame.UI
 
         private void OnUpdateProgress(params object[] args)
         {
-            DebugManager.Instance.Log((float)args[0] * 100);
+            //DebugManager.Instance.Log((float)args[0] * 100);
             _progress.value = (float)args[0] * 100;
         }
 

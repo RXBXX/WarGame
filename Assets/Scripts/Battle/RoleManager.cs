@@ -45,13 +45,15 @@ namespace WarGame
             }
         }
 
-        public void CreateHero(LevelRoleData data)
+        public Role CreateHero(LevelRoleData data)
         {
             var hero = new Hero(data);
 
             hero.SetParent(GameObject.Find("RoleRoot").transform);
 
             _roleList.Add(hero);
+
+            return hero;
         }
 
         public void CreateEnemy(LevelRoleData data)

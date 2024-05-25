@@ -67,9 +67,13 @@ namespace WarGame
         }
 
         public virtual void ClickEnemy(int id)
-        { }
+        {
+        
+        }
 
         public virtual void ClickHexagon(string id)
-        { }
+        {
+        
+        }
     }
 }

@@ -1,7 +1,5 @@
-using WarGame.UI;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 namespace WarGame
 {
@@ -13,7 +11,6 @@ namespace WarGame
         protected List<string> _path; //Ó¢ÐÛÒÆ¶¯µÄÂ·¾¶
         protected bool _skipBattleShow = false;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
-        protected string _touchingHexagon = null;
         protected SkillAction _skillAction;
         protected LocatingArrow _arrow;
 
@@ -62,17 +59,20 @@ namespace WarGame
 
         protected virtual void OnActionOver(params object[] args)
         {
-            DebugManager.Instance.Log("OnActionOver:" + _initiatorID);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
-            //initiator.SetGrayed(true);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }
 
         public virtual void OnTouch(GameObject obj)
+        {
+
+        }
+
+        public virtual void OnClickBegin(GameObject obg)
         {
 
         }

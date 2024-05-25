@@ -23,7 +23,15 @@
     <component id="n13_b0z0" name="targetHP" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="1165,630" pivot="0,0.5" anchor="true" size="400,20" scale="0,1" visible="false" rotation="-90" controller="style,1">
       <ProgressBar value="50" max="100"/>
     </component>
-    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="944,606"/>
+    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="944,606">
+      <Button title="SKIP"/>
+    </component>
+    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="944,501">
+      <Button title="START"/>
+    </component>
+    <component id="n22_pfj8" name="heroGroup" src="pfj86" fileName="FightHeroGroup.xml" xy="0,0" visible="false">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
   </displayList>
   <transition name="showHP">
     <item time="0" type="Scale" target="n12_b0z0" tween="true" startValue="0,1" endValue="1,1" duration="6"/>

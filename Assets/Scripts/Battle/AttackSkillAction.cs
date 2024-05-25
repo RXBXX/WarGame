@@ -268,16 +268,17 @@ namespace WarGame
 
         public override void ClickHero(int id)
         {
+            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-
+            DebugManager.Instance.Log("22222");
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
 
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-
+            DebugManager.Instance.Log("33333");
             _targetID = id;
             Play();
         }

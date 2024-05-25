@@ -35,7 +35,6 @@ namespace WarGame
         protected override void OnCreate(GameObject pefab)
         {
             base.OnCreate(pefab);
-            _gameObject.transform.SetParent(_parent);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
         }
@@ -119,7 +118,8 @@ namespace WarGame
 
         public Vector3 GetPosition()
         {
-            return _gameObject.transform.position;
+            return MapTool.Instance.GetPosFromCoor(coor);
+            //return _gameObject.transform.position;
         }
 
         public override void Dispose()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FairyGUI;
 
@@ -20,6 +18,18 @@ namespace WarGame
             if (null != Stage.inst.touchTarget)
             {
                 SceneMgr.Instance.Touch(null);
+                if (Input.GetMouseButtonUp(0))
+                {
+                    _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(_ray, out _hitInfo))
+                    {
+                        if (_hitInfo.collider == _downCollider)
+                        {
+                            SceneMgr.Instance.Click(_hitInfo.collider.gameObject);
+                        }
+                    }
+                    _downCollider = null;
+                }
                 return;
             }
 
@@ -40,6 +50,7 @@ namespace WarGame
                 if (Physics.Raycast(_ray, out _hitInfo))
                 {
                     _downCollider = _hitInfo.collider;
+                    SceneMgr.Instance.ClickBegin(_downCollider.gameObject);
                 }
             }
             else if (Input.GetMouseButtonUp(0))

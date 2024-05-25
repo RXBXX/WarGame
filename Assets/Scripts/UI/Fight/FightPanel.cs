@@ -10,6 +10,7 @@ namespace WarGame.UI
         private GProgressBar _targetHP;
         private Transition _showHP;
         private FightInforComp _vsComp;
+        private FightHeroGroup _heroGroup;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -20,6 +21,7 @@ namespace WarGame.UI
             _round.text = "0";
 
             _vsComp = GetChild<FightInforComp>("vsComp");
+            _heroGroup = GetChild<FightHeroGroup>("heroGroup");
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
@@ -28,6 +30,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
 
             _gCom.GetChild("closeBtn").onClick.Add(() => {
                 SceneMgr.Instance.DestroyBattleFiled();
@@ -35,6 +38,10 @@ namespace WarGame.UI
 
             _gCom.GetChild("skipBtn").onClick.Add(() => {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
+            });
+
+            _gCom.GetChild("startBtn").onClick.Add(() => {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Ready_GO);
             });
 
             _gCom.GetChild("settingsBtn").onClick.Add(() => {
@@ -91,6 +98,11 @@ namespace WarGame.UI
             _vsComp.Hide();
         }
 
+        private void OnShowHeroGroup(params object[] args)
+        {
+            _heroGroup.Show((Vector2)args[0], (int[])args[1]);
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             base.Dispose(disposeGCom);
@@ -101,6 +113,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
         }
     }
 }

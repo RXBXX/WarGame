@@ -989,7 +989,6 @@ namespace FairyGUI
             GetHitTarget();
 
             UpdateTouchPosition();
-
             if (_customInput)
             {
                 HandleCustomInput();
@@ -1091,6 +1090,7 @@ namespace FairyGUI
 
         void HandleCustomInput()
         {
+            Debug.Log("HandleCustomInput");
             Vector2 pos = _customInputPos;
             pos.y = _contentRect.height - pos.y;
             TouchInfo touch = _touches[0];

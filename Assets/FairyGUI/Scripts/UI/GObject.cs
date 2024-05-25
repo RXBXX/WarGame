@@ -952,7 +952,7 @@ namespace FairyGUI
         {
             get
             {
-                return _visible && (group == null || group.internalVisible2);
+                return _visible && (group == null || group.internalVisible2);  
             }
         }
 

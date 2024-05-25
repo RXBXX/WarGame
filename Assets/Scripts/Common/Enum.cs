@@ -193,6 +193,9 @@ namespace WarGame
             Fight_AIAction_Over = 33,
             Fight_Skip_Rount = 34,
             Fight_Role_Dispose = 35,
+            Fight_Show_HeroGroup = 36,
+            Fight_Change_Hero = 37,
+            Fight_Ready_GO = 38,
         }
     }
 }

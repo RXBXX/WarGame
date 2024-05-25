@@ -20,6 +20,7 @@ namespace WarGame
         protected virtual void OnCreate(GameObject prefab)
         {
             _gameObject = GameObject.Instantiate(prefab);
+            _gameObject.transform.SetParent(_parent);
             SmoothNormal();
         }
 

@@ -16,6 +16,8 @@ namespace WarGame
         private BattleAction _action;
         private LocatingArrow _arrow;
         private Coroutine _coroutine;
+        private int _touchingID = 0;
+        protected string _touchingHexagon = null;
 
         public BattleField(int levelID)
         {
@@ -28,62 +30,44 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Ready_GO, OnReadyGO);
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
 
             MapManager.Instance.CreateMap(levelPlugin.hexagons);
 
+            var heroDatas = DatasMgr.Instance.GetAllRoles();
             var levelData = DatasMgr.Instance.GetLevelData(levelID);
-            if (levelData.heros.Count <= 0)
+            if (levelData.heros.Count <= 0 || true)
             {
-                var roleData = DatasMgr.Instance.GetRoleData(1);
-                var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                foreach (var v in roleData.equipmentDic)
+                var bornPoint = new string[2];
+                bornPoint[0] = MapTool.Instance.GetHexagonKey(new Vector3(2, 0, 1));
+                bornPoint[1] = MapTool.Instance.GetHexagonKey(new Vector3(1, 0, 1));
+                var index = 0;
+                foreach (var p in bornPoint)
                 {
-                    equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
-                }
-                var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
-                levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero);
-                RoleManager.Instance.CreateHero(levelRoleData);
-                levelData.heros.Add(levelRoleData);
+                    AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                    {
+                        DebugManager.Instance.Log(prefab.name);
+                        var go = GameObject.Instantiate<GameObject>(prefab);
+                        go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
+                    });
 
-                roleData = DatasMgr.Instance.GetRoleData(2);
-                equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                foreach (var v in roleData.equipmentDic)
-                {
-                    equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
-                }
-                levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
-                levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 0));
-                RoleManager.Instance.CreateHero(levelRoleData);
-                levelData.heros.Add(levelRoleData);
+                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
+                    var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+                    foreach (var v in roleData.equipmentDic)
+                    {
+                        equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
+                    }
+                    var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
+                    levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+                    levelRoleData.hexagonID = p;
+                    RoleManager.Instance.CreateHero(levelRoleData);
+                    levelData.heros.Add(levelRoleData);
 
-                roleData = DatasMgr.Instance.GetRoleData(3);
-                equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                foreach (var v in roleData.equipmentDic)
-                {
-                    equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
+                    index += 1;
                 }
-                levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
-                levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(1, 0, 1));
-                RoleManager.Instance.CreateHero(levelRoleData);
-                levelData.heros.Add(levelRoleData);
-
-                roleData = DatasMgr.Instance.GetRoleData(4);
-                equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                foreach (var v in roleData.equipmentDic)
-                {
-                    equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
-                }
-                levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
-                levelRoleData.hexagonID = MapTool.Instance.GetHexagonKey(Vector3.zero + new Vector3(2, 0, 1));
-                RoleManager.Instance.CreateHero(levelRoleData);
-                levelData.heros.Add(levelRoleData);
             }
             else
             {
@@ -105,6 +89,7 @@ namespace WarGame
                         var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
                         equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
                     }
+
                     var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
                     levelRoleData.hp = enemyConfig.HP;
                     levelRoleData.hexagonID = levelPlugin.enemys[i].hexagonID;
@@ -154,6 +139,7 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Ready_GO, OnReadyGO);
         }
 
         private IEnumerator Start()
@@ -166,11 +152,8 @@ namespace WarGame
             UIManager.Instance.ClosePanel("LoadPanel");
             _isStart = true;
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
-            //var roles = RoleManager.Instance.GetAllRoles();
-            //for (int i = roles.Count - 1; i >= 0; i--)
-            //    roles[i].UpdateRound();
 
-            _action = new HeroBattleAction(_arrow);
+            _action = new ReadyBattleAction(_arrow);
         }
 
         public IEnumerator DelayStart()
@@ -184,10 +167,112 @@ namespace WarGame
             if (!_isStart)
                 return;
 
-            if (null == _action)
+            OnTouch(obj);
+
+            if (null != _action)
+            {
+                _action.OnTouch(obj);
+            }
+        }
+
+        private void OnTouch(GameObject obj)
+        {
+            var touchingID = 0;
+            string touchingHexagonID = null;
+            if (null != obj)
+            {
+                var tag = obj.tag;
+                if (tag == Enum.Tag.Hero.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+                else if (tag == Enum.Tag.Enemy.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+                else if (tag == Enum.Tag.Hexagon.ToString())
+                {
+                    var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
+
+                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
+                    if (roleID > 0)
+                    {
+                        touchingID = roleID;
+                    }
+                    else
+                    {
+                        var hexagon = MapManager.Instance.GetHexagon(hexagonID);
+                        if (hexagon.IsReachable())
+                        {
+                            touchingHexagonID = hexagonID;
+                        }
+                    }
+                }
+            }
+
+            if (0 != _touchingID && _touchingID != touchingID)
+            {
+                RoleManager.Instance.GetRole(_touchingID).ResetHighLight();
+                _touchingID = 0;
+
+            }
+            if (0 != touchingID && _touchingID != touchingID)
+            {
+                _touchingID = touchingID;
+                var role = RoleManager.Instance.GetRole(_touchingID);
+                role.HighLight();
+            }
+
+            if (null == touchingHexagonID)
+            {
+                if (null != _arrow && _arrow.Active)
+                {
+                    _arrow.Active = false;
+                }
+                _touchingHexagon = null;
+            }
+            else if (touchingHexagonID != _touchingHexagon)
+            {
+                _touchingHexagon = touchingHexagonID;
+                _arrow.Active = true;
+                _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
+            }
+        }
+
+        public void ClickBegin(GameObject obj)
+        {
+            if (!_isStart)
                 return;
 
-            _action.OnTouch(obj);
+            //OnClickBegin(obj);
+
+            if (null != _action)
+            {
+                _action.OnClickBegin(obj);
+            }
+        }
+
+        public void OnClickBegin(GameObject obj)
+        {
+            var tag = obj.tag;
+            if (tag == Enum.Tag.Hero.ToString())
+            {
+                CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
+            }
+            else if (tag == Enum.Tag.Enemy.ToString())
+            {
+                CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
+            }
+            else if (tag == Enum.Tag.Hexagon.ToString())
+            {
+                var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
+
+                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
+                if (roleID > 0)
+                {
+                    CameraMgr.Instance.SetTarget(roleID);
+                }
+            }
         }
 
         public void Click(GameObject obj)
@@ -195,9 +280,12 @@ namespace WarGame
             if (!_isStart)
                 return;
 
-            if (null == _action)
-                return;
-            _action.OnClick(obj);
+            OnClickBegin(obj);
+
+            if (null != _action)
+            {
+                _action.OnClick(obj);
+            }
         }
 
         private void DisposeAction()
@@ -327,6 +415,12 @@ namespace WarGame
                 v.SetState(Enum.RoleState.Over);
 
             OnFinishAction();
+        }
+
+        private void OnReadyGO(params object[] args)
+        {
+            DisposeAction();
+            _action = new HeroBattleAction(_arrow);
         }
     }
 }

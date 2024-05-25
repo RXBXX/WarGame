@@ -51,6 +51,13 @@ namespace WarGame
             _battleField.Touch(obj);
         }
 
+        public void ClickBegin(GameObject obj)
+        {
+            if (null == _battleField)
+                return;
+            _battleField.ClickBegin(obj);
+        }
+
         public void Click(GameObject obj)
         {
             if (null == _battleField)

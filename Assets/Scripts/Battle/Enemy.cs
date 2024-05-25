@@ -41,6 +41,7 @@ namespace WarGame
             List<string> path = null;
             for (int i = 0; i < heros.Count; i++)
             {
+                DebugManager.Instance.Log("Target:" + heros[i].Hexagon);
                 var tempPath = MapManager.Instance.FindingAIPath(Hexagon, heros[i].Hexagon, GetMoveDis(), GetAttackDis());
                 if (null!= tempPath && tempPath.Count > 0)
                 {

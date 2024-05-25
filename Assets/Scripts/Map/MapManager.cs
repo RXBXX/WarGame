@@ -726,28 +726,46 @@ namespace WarGame
             Cell targetCell = null;
             for (int i = 0; i < region.Count; i++)
             {
+                //DebugManager.Instance.Log(region[i].id);
                 if (region[i].id == target)
                 {
                     targetCell = region[i];
                     break;
                 }
             }
-
             if (null == targetCell)
                 return null;
-            DebugManager.Instance.Log("11111");
-            var path = FindingPath(initiator, target, Enum.RoleType.Enemy);
-            if (null == path || path.Count <= 0)
-                return null;
-            DebugManager.Instance.Log("22222");
+
             List<string> finalPath = new List<string>();
-            foreach (var v in path)
+            targetCell = targetCell.parent;
+            while (null != targetCell)
             {
-                if (v.g > moveDis)
-                    break;
-                finalPath.Add(v.id);
+                if (targetCell.type == Enum.MarkType.Walkable)
+                {
+                    finalPath.Add(targetCell.id);
+                }
+                targetCell = targetCell.parent;
             }
+            finalPath.Reverse();
             return finalPath;
+
+            //    //DebugManager.Instance.Log(11111);
+            //    if (null == targetCell)
+            //        return null;
+            //    DebugManager.Instance.Log("TargetCell:" + targetCell.id);
+            //    var path = FindingPath(initiator, target, Enum.RoleType.Enemy);
+            //    if (null == path || path.Count <= 0)
+            //        return null;
+            //    DebugManager.Instance.Log("TargetPath:" + path.Count);
+            //    //DebugManager.Instance.Log(33333);
+            //    List<string> finalPath = new List<string>();
+            //    foreach (var v in path)
+            //    {
+            //        if (v.g > moveDis)
+            //            break;
+            //        finalPath.Add(v.id);
+            //    }
+            //    return finalPath;
         }
     }
 }
