@@ -51,7 +51,7 @@ namespace WarGame.UI
                     _queue[i].visible = true;
                 }
                 var role = RoleManager.Instance.GetRole(enemys[i].ID);
-                ui.title = role.GetConfig().Name;
+                //ui.title = role.GetConfig().Name;
                 ui.icon = role.GetConfig().Icon;
             }
             SetVisible(true);

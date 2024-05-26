@@ -90,7 +90,7 @@ namespace WarGame.UI
 
                         var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
                         var config = roleData.GetConfig();
-                        ui.title = config.Name;
+                        //ui.title = config.Name;
                         ui.icon = config.Icon;
                         _heroDic.Add(coor.x + "_" + coor.y, roleData.UID);
                         if (openList.Count > heros.Length)

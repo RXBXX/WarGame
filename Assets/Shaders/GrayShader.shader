@@ -74,6 +74,7 @@ Shader "Custom/GrayShader"
 				{
 					float depth = tex2D(_CameraDepthTexture, i.uv).r;
 					float exclusionDepthValue = exclusionDepth.x;
+					//float exclusionDepthValue = tex2D(_ExclusionMapDepth, i.vertex.xy / i.vertex.w).r;
 #if defined(UNITY_REVERSED_Z)
 					depth = 1.0f - depth;
 					exclusionDepthValue = 1.0f - exclusionDepthValue;

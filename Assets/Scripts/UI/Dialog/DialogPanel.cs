@@ -42,8 +42,7 @@ namespace WarGame.UI
             }
 
             var dialogConfig = ConfigMgr.Instance.GetConfig<DialogConfig>("DialogConfig", _dialogGroup * 1000 + _curIndex);
-            var roleIcon = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", dialogConfig.Role).DialogIcon;
-            _dialogBox.Play(dialogConfig.Context, roleIcon, OnDialogEnd);
+            _dialogBox.Play(dialogConfig.Context, dialogConfig.Role, OnDialogEnd);
         }
 
         private void OnClick(EventContext context)

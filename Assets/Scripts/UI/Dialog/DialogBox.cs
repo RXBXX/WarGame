@@ -9,18 +9,19 @@ namespace WarGame.UI
     public class DialogBox : UIBase
     {
         private GTextField _context;
-        private GLoader _role;
+        private GButton _role;
         private Controller _type;
         private TypingEffect _te;
         private bool _start = false;
         private float _interval = 0.1f;
         private float _time = 0.0f;
         private WGEventCallback _callback;
+        private int _lastRole = 0;
         
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _context = GetUIChild<GTextField>("context");
-            _role = GetUIChild<GLoader>("role");
+            _role = GetUIChild<GButton>("role");
             _type = GetController("type");
             _te = new TypingEffect(_context);
         }
@@ -43,16 +44,17 @@ namespace WarGame.UI
             }
         }
 
-        public void Play(string context, string roleURL, WGEventCallback callback)
+        public void Play(string context, int roleID, WGEventCallback callback)
         {
             _callback = callback;
-            var type = _type.selectedIndex;
-            if (0 == type)
-                type = 1;
-            else
-                type = 0;
-            _type.SetSelectedIndex(type);
-            _role.url = roleURL;
+
+            if (0 != _lastRole && _lastRole != roleID)
+            {
+                var type = _type.selectedIndex == 0 ? 1 : 0;
+                _type.SetSelectedIndex(type);
+            }
+            _lastRole = roleID;
+            _role.icon = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleID).Icon;
             _context.text = context;
             _te.Start();
             _te.Print();
