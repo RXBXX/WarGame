@@ -32,18 +32,14 @@ namespace WarGame
             {
                 _selectedHero = obj.GetComponent<RoleBehaviour>().ID;
 
-                //¡Ÿ ±¥˙¬Î
                 var hexagonID = RoleManager.Instance.GetRole(_selectedHero).Hexagon;
                 var hexagon = MapManager.Instance.GetHexagon(hexagonID);
-                if (hexagon.coor != new Vector3(2, 0, 1) && hexagon.coor != new Vector3(1, 0, 1))
+                if ((Enum.HexagonType)hexagon.ConfigID != Enum.HexagonType.Born)
                     return;
-                //
 
-                var hero = RoleManager.Instance.GetRole(_selectedHero);
                 var screenPos = InputManager.Instance.GetMousePos();
                 screenPos.y = Screen.height - screenPos.y;
                 var uiPos = GRoot.inst.GlobalToLocal(screenPos);
-
                 var allHeros = DatasMgr.Instance.GetAllRoles();
                 var heros = new int[allHeros.Length - 1];
                 var index = 0;

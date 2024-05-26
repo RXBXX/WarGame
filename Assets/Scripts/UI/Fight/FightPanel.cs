@@ -11,6 +11,7 @@ namespace WarGame.UI
         private Transition _showHP;
         private FightInforComp _vsComp;
         private FightHeroGroup _heroGroup;
+        private FightEnemyQueue _enemyQueue;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -22,6 +23,7 @@ namespace WarGame.UI
 
             _vsComp = GetChild<FightInforComp>("vsComp");
             _heroGroup = GetChild<FightHeroGroup>("heroGroup");
+            _enemyQueue = GetChild<FightEnemyQueue>("enemyQueue");
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
@@ -32,19 +34,27 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
 
-            _gCom.GetChild("closeBtn").onClick.Add(() => {
+            _gCom.GetChild("closeBtn").onClick.Add(() =>
+            {
                 SceneMgr.Instance.DestroyBattleFiled();
             });
 
-            _gCom.GetChild("skipBtn").onClick.Add(() => {
+            var skipBtn = _gCom.GetChild("skipBtn");
+            skipBtn.onClick.Add(() =>
+            {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
             });
 
-            _gCom.GetChild("startBtn").onClick.Add(() => {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Ready_GO);
+            var startBtn = GetUIChild<GButton>("startBtn");
+            startBtn.onClick.Add(() =>
+            {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Start);
+                startBtn.visible = false;
+                skipBtn.visible = true;
             });
 
-            _gCom.GetChild("settingsBtn").onClick.Add(() => {
+            _gCom.GetChild("settingsBtn").onClick.Add(() =>
+            {
                 UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
             });
         }
@@ -52,12 +62,18 @@ namespace WarGame.UI
         private void OnUpdateRound(object[] args)
         {
             _round.text = ((int)args[0]).ToString();
-            GetChild<FightTips>("tips").ShowTips("Hero Turn", (RoundFunc)args[1]);
         }
 
         private void OnStartEnemyTurn(object[] args)
         {
-            GetChild<FightTips>("tips").ShowTips("EnemyTurn", (RoundFunc)args[0]);
+            if ((Enum.FightTurn)args[0] == Enum.FightTurn.HeroTurn)
+            {
+                GetChild<FightTips>("tips").ShowTips("Hero Turn", (RoundFunc)args[1]);
+            }
+            else
+            {
+                GetChild<FightTips>("tips").ShowTips("EnemyTurn", (RoundFunc)args[1]);
+            }
         }
 
         private void OnShowHP(params object[] args)
@@ -75,7 +91,8 @@ namespace WarGame.UI
 
         private void OnCloseHP(params object[] args)
         {
-            _showHP.PlayReverse(()=>{
+            _showHP.PlayReverse(() =>
+            {
                 _initiatorHP.visible = false;
                 _targetHP.visible = false;
             });

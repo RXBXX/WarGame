@@ -20,9 +20,9 @@ Shader "Custom/HexagonToonShader"
 	}
 		SubShader
 		{
-		pass {//ƽ�й�ĵ�pass��Ⱦ
+		pass {
 			Tags{"LightMode" = "ForwardBase"}
-			Cull Back
+			//Cull Back
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -93,7 +93,7 @@ Shader "Custom/HexagonToonShader"
 
 					fixed shadow = SHADOW_ATTENUATION(i);
 
-					float4 diffCol = (_LightColor0 * (diff + spec) * shadow);
+					float4 diffCol = (_LightColor0 * (diff + spec) * shadow );
 					diffCol.rgb += i.ambient;
 					return col * diffCol * _Color;
 				}

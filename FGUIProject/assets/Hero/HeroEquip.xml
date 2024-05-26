@@ -4,7 +4,7 @@
   <displayList>
     <image id="n8_h53u" name="n8" src="h53ub" fileName="Images/EquipSlot.png" xy="0,3" size="100,100" color="#cccccc"/>
     <loader id="n2_tsk1" name="icon" xy="50,48" pivot="0.5,0.5" anchor="true" size="55,56" url="ui://ubnp7phxh53ud" align="center" vAlign="middle" fill="scale" shrinkOnly="true" clearOnPublish="true"/>
-    <image id="n4_bscs" name="n4" src="h53uc" fileName="Images/Selected.png" xy="0,0" size="100,100">
+    <image id="n4_bscs" name="n4" src="h53uc" fileName="Images/Selected.png" xy="0,0" size="100,100" pkg="hx02grrp">
       <gearDisplay controller="button" pages="1,3"/>
     </image>
     <text id="n1_nw17" name="title" xy="50,94" pivot="0.5,0.5" anchor="true" size="29,32" font="ui://hd0z4dz5omu90" fontSize="22" color="#ffffff" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="111"/>

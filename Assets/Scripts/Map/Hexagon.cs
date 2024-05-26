@@ -18,6 +18,11 @@ namespace WarGame
             get { return _gameObject; }
         }
 
+        public int ConfigID
+        {
+            get { return _configId; }
+        }
+
         public Hexagon(string id, int configId, Vector3 coor)
         {
             this.ID = id;

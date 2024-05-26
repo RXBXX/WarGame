@@ -214,6 +214,9 @@ namespace WarGame
         public int LastLevel;
         public Enum.LevelType Type;
         public string Map;
+        public int StartDialog;
+        public int WinDialog;
+        public int FailedDialog;
     }
 
     [Serializable]

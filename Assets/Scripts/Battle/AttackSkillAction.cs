@@ -10,6 +10,7 @@ namespace WarGame
 
         public AttackSkillAction(int id, int initiatorID) : base(id, initiatorID)
         {
+            CameraMgr.Instance.LockTarget();
         }
 
         protected override void AddListeners()
@@ -66,6 +67,7 @@ namespace WarGame
         public override void Dispose()
         {
             ExitGrayedMode();
+            CameraMgr.Instance.UnlockTarget();
             RemoveListeners();
         }
 
@@ -219,6 +221,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
+            CameraMgr.Instance.Lock();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
@@ -249,6 +252,7 @@ namespace WarGame
 
         private void CloseBattleArena()
         {
+            DebugManager.Instance.Log("CloseBattleArena");
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Close_HP);
 
             foreach (var v in _arenaObjects)
@@ -264,6 +268,7 @@ namespace WarGame
             }
 
             CameraMgr.Instance.CloseGray();
+            CameraMgr.Instance.Unlock();
         }
 
         public override void ClickHero(int id)
@@ -285,15 +290,16 @@ namespace WarGame
 
         public override void ClickEnemy(int id)
         {
+            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-
+            DebugManager.Instance.Log("22222");
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons )
                 return;
-
+            DebugManager.Instance.Log("33333");
             _targetID = id;
             Play();
         }

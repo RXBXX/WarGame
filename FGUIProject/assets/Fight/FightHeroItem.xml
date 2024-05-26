@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="64,64" pivot="0.5,0.5" anchor="true" extention="Button" mask="n3_pfj8">
+<component size="80,80" pivot="0.5,0.5" anchor="true" extention="Button" mask="n3_pfj8">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <loader id="n1_pfj8" name="n1" xy="0,0" size="64,64" touchable="false"/>
-    <image id="n3_pfj8" name="n3" src="pfj8p" fileName="Images/HeroMask.png" pkg="hx02grrp" xy="0,0" size="64,64"/>
-    <image id="n4_pfj8" name="n4" src="pfj8p" fileName="Images/HeroMask.png" pkg="hx02grrp" xy="0,0" size="64,64" alpha="0.7"/>
-    <text id="n5_pfj8" name="title" xy="32,32" pivot="0.5,0.5" anchor="true" size="20,22" fontSize="14" color="#cccccc" text="11"/>
+    <image id="n3_pfj8" name="n3" src="pfj8p" fileName="Images/HeroMask.png" pkg="hx02grrp" xy="0,0" size="80,80"/>
+    <image id="n4_pfj8" name="n4" src="pfj8p" fileName="Images/HeroMask.png" pkg="hx02grrp" xy="0,0" size="80,80" alpha="0.7"/>
+    <loader id="n1_pfj8" name="icon" xy="6,12" size="66,67" touchable="false" url="ui://kbw86fxtpfj88" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
+    <text id="n5_pfj8" name="title" xy="40,40" pivot="0.5,0.5" anchor="true" size="20,22" fontSize="14" color="#cccccc" text="11"/>
+    <image id="n7_pfj8" name="n7" src="h53uc" fileName="Images/SelectedHexagon.png" pkg="hx02grrp" xy="24,-16" size="83,82" rotation="30">
+      <gearDisplay controller="button" pages="2"/>
+    </image>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

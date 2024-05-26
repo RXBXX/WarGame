@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using WarGame.UI;
 using UnityEngine;
+using System.Collections;
 
 namespace WarGame
 {
@@ -30,11 +31,11 @@ namespace WarGame
             base.OnStateChanged();
             if (_data.state == Enum.RoleState.Waiting)
             {
-                StartAI();
+                CoroutineMgr.Instance.StartCoroutine(StartAI());
             }
         }
 
-        protected virtual void StartAI()
+        protected virtual IEnumerator StartAI()
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             var targetID = 0;
@@ -66,9 +67,10 @@ namespace WarGame
             DebugManager.Instance.Log("TargetID:" + targetID);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, GetConfig().CommonSkill});
+            yield return new WaitForSeconds(1.0F);
             if (targetID <= 0)
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AIAction_Over, new object[] {});
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Over, new object[] { _id, targetID, GetConfig().CommonSkill });
             }
             else
             {

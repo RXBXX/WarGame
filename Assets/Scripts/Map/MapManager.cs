@@ -85,12 +85,26 @@ namespace WarGame
         {
             return _map.ContainsKey(key);
         }
+
         public Hexagon GetHexagon(string key)
         {
             if (ContainHexagon(key))
                 return _map[key];
             else
                 return null;
+        }
+
+        public List<string> GetHexagonsByType(Enum.HexagonType type)
+        {
+            var hexagons = new List<string>();
+            foreach (var v in _map)
+            {
+                if ((Enum.HexagonType)v.Value.ConfigID == Enum.HexagonType.Born)
+                {
+                    hexagons.Add(v.Key);
+                }
+            }
+            return hexagons;
         }
 
         /// <summary>
@@ -237,11 +251,11 @@ namespace WarGame
             var cost = 0.0f;
             if (null != parent)
             {
-                cost = parent.g;
-                if (cellPos.y != parent.coor.y)
-                    cost += hexagon.GetCost();
-                if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
-                    cost += hexagon.GetCost();
+                cost = parent.g + hexagon.GetCost();
+                //if (cellPos.y != parent.coor.y)
+                //    cost += hexagon.GetCost();
+                //if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
+                //    cost += hexagon.GetCost();
             }
 
             Cell cell = null;
@@ -370,14 +384,14 @@ namespace WarGame
                 tempParent = tempParent.parent;
             }
 
-            var cost = 0.0f;
+            var cost = 0f;
             if (null != parent)
             {
-                cost = parent.g;
-                if (cellPos.y != parent.coor.y)
-                    cost += 1;
-                if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
-                    cost += 1;
+                cost = parent.g + 1;
+                //if (cellPos.y != parent.coor.y)
+                //    cost += 1;
+                //if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
+                //    cost += 1;
             }
 
             Cell cell = null;
@@ -506,11 +520,11 @@ namespace WarGame
             float cost = 0;
             if (null != parent)
             {
-                cost = parent.g;
-                if (cellPos.y != parent.coor.y)
-                    cost += hexagon.GetCost();
-                if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
-                    cost += hexagon.GetCost();
+                cost = parent.g + hexagon.GetCost();
+                //if (cellPos.y != parent.coor.y)
+                //    cost += hexagon.GetCost();
+                //if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
+                //    cost += hexagon.GetCost();
             }
 
             if (cost > dis)
@@ -559,11 +573,11 @@ namespace WarGame
             //    tempParent = tempParent.parent;
             //}
 
-            float cost = 0;
-            if (cellPos.y != parent.coor.y)
-                cost += 1;
-            if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
-                cost += 1;
+            float cost = 1;
+            //if (cellPos.y != parent.coor.y)
+            //    cost += 1;
+            //if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
+            //    cost += 1;
 
             if (null != parent && parent.type == Enum.MarkType.Attackable)
             {

@@ -16,11 +16,11 @@ namespace WarGame.UI
         new Vector2(-1, 1)
     };
 
-        private float _outsideDiameter = 66.0f;
+        private float _outsideDiameter = 84.0f;
         private float _radian = 30.0f / 360.0f * 2.0f * Mathf.PI;
 
         private Dictionary<string, int> _heroDic = new Dictionary<string, int>();
-        private Dictionary<string, GComponent> _heroUIDic = new Dictionary<string, GComponent>();
+        private Dictionary<string, GButton> _heroUIDic = new Dictionary<string, GButton>();
 
         public FightHeroGroup(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -70,14 +70,14 @@ namespace WarGame.UI
                             continue;
                         openList.Add(coor);
 
-                        GComponent ui = null;
+                        GButton ui = null;
                         if (_heroUIDic.ContainsKey(coor.x + "_" + coor.y))
                         {
                             ui = _heroUIDic[coor.x + "_" + coor.y];
                         }
                         else
                         {
-                            ui = UIManager.Instance.CreateObject("Fight", "FightHeroItem") as GComponent;
+                            ui = UIManager.Instance.CreateObject<GButton>("Fight", "FightHeroItem");
                             GCom.AddChild(ui);
                             ui.asButton.title = coor.x + "_" + coor.y;
 
@@ -88,7 +88,11 @@ namespace WarGame.UI
                         ui.xy = centerPos;
                         ui.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
 
-                        _heroDic.Add(coor.x + "_" + coor.y, heros[openList.Count - 2]);
+                        var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
+                        var config = roleData.GetConfig();
+                        ui.title = config.Name;
+                        ui.icon = config.Icon;
+                        _heroDic.Add(coor.x + "_" + coor.y, roleData.UID);
                         if (openList.Count > heros.Length)
                             break;
                     }

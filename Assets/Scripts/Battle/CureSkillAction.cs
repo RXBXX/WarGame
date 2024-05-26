@@ -167,6 +167,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
+            CameraMgr.Instance.Lock();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
@@ -211,6 +212,7 @@ namespace WarGame
             }
 
             CameraMgr.Instance.CloseGray();
+            CameraMgr.Instance.Unlock();
         }
 
         public override void ClickHero(int id)

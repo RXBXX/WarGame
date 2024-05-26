@@ -718,42 +718,6 @@
       }
     },
     {
-      "ID": "1_0_1",
-      "configId": 1,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 1.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 1.41421354,
-        "sqrMagnitude": 2.0
-      }
-    },
-    {
-      "ID": "1_0_2",
-      "configId": 1,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 2.236068,
-        "sqrMagnitude": 5.0
-      }
-    },
-    {
       "ID": "1_0_3",
       "configId": 1,
       "coor": {
@@ -1505,24 +1469,6 @@
         },
         "magnitude": 2.0,
         "sqrMagnitude": 4.0
-      }
-    },
-    {
-      "ID": "2_0_1",
-      "configId": 1,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 1.0,
-        "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 2.236068,
-        "sqrMagnitude": 5.0
       }
     },
     {
@@ -31000,6 +30946,60 @@
         },
         "magnitude": 11.0453606,
         "sqrMagnitude": 122.0
+      }
+    },
+    {
+      "ID": "1_0_2",
+      "configId": 5,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.4472136,
+          "y": 0.0,
+          "z": 0.8944272,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 2.236068,
+        "sqrMagnitude": 5.0
+      }
+    },
+    {
+      "ID": "2_0_1",
+      "configId": 5,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 1.0,
+        "normalized": {
+          "x": 0.8944272,
+          "y": 0.0,
+          "z": 0.4472136,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 2.236068,
+        "sqrMagnitude": 5.0
+      }
+    },
+    {
+      "ID": "1_0_1",
+      "configId": 5,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 1.0,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 1.41421354,
+        "sqrMagnitude": 2.0
       }
     }
   ],

@@ -12,6 +12,7 @@ namespace WarGame
             DigSite = 2,
             HellLake = 3,
             Lake = 4,
+            Born = 5
         }
 
         //Unity对象标签
@@ -155,6 +156,13 @@ namespace WarGame
             Friend = 1, //友方
         }
 
+        //当前回合
+        public enum FightTurn
+        {
+            HeroTurn = 0,
+            EnemyTurn = 1,
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,
@@ -195,7 +203,9 @@ namespace WarGame
             Fight_Role_Dispose = 35,
             Fight_Show_HeroGroup = 36,
             Fight_Change_Hero = 37,
-            Fight_Ready_GO = 38,
+            Fight_Start = 38,
+            Fight_AI_Over = 39,
+            Fight_AIAction_Start = 40,
         }
     }
 }

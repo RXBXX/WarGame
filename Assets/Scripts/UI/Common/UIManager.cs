@@ -147,7 +147,7 @@ namespace WarGame.UI
                 return null;
             }
 
-            var comp = (GComponent)CreateObject(packageName, compName);
+            var comp = CreateObject<GComponent>(packageName, compName);
             if (null == comp)
             {
                 UnityEngine.Debug.LogError("创建失败：" + classType);
@@ -169,7 +169,7 @@ namespace WarGame.UI
 
         public T CreateUI<T>(string packageName, string compName, object[] args = null) where T : UIBase
         {
-            var comp = (GComponent)CreateObject(packageName, compName);
+            var comp = CreateObject<GComponent>(packageName, compName);
             if (null == comp)
             {
                 UnityEngine.Debug.LogError("创建失败：" + compName);
@@ -189,10 +189,10 @@ namespace WarGame.UI
             return ui;
         }
 
-        public GObject CreateObject(string packageName, string compName)
+        public T CreateObject<T>(string packageName, string compName) where T:GComponent
         {
             AddPackage(packageName);
-            return UIPackage.CreateObject(packageName, compName);
+            return (T)UIPackage.CreateObject(packageName, compName);
         }
 
         public void DestroyUI(UIBase ui, bool isPanel)

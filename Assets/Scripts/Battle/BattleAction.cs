@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 namespace WarGame
 {
@@ -64,6 +65,12 @@ namespace WarGame
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
 
+            CoroutineMgr.Instance.StartCoroutine(PlayActionOver());
+        }
+
+        protected virtual IEnumerator PlayActionOver()
+        {
+            yield return new WaitForSeconds(1.0F);
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
         }
 

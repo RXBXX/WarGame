@@ -106,6 +106,7 @@ namespace WarGame
 
         public RoleConfig GetConfig()
         {
+            DebugManager.Instance.Log(configId);
             return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", configId);
         }
 

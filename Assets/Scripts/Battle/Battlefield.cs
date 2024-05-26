@@ -9,7 +9,7 @@ namespace WarGame
 
     public class BattleField
     {
-        private bool _isStart = false;
+        private bool _loaded = false;
         private int _levelID;
         private int _roundIndex = 0;
         private bool isHeroTurn = true;
@@ -18,6 +18,8 @@ namespace WarGame
         private Coroutine _coroutine;
         private int _touchingID = 0;
         protected string _touchingHexagon = null;
+        private List<int> _bornEffects = new List<int>();
+        private List<GameObject> _bornEffectGOs = new List<GameObject>();
 
         public BattleField(int levelID)
         {
@@ -30,7 +32,7 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Ready_GO, OnReadyGO);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Start, Start);
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
@@ -41,18 +43,18 @@ namespace WarGame
             var levelData = DatasMgr.Instance.GetLevelData(levelID);
             if (levelData.heros.Count <= 0 || true)
             {
-                var bornPoint = new string[2];
-                bornPoint[0] = MapTool.Instance.GetHexagonKey(new Vector3(2, 0, 1));
-                bornPoint[1] = MapTool.Instance.GetHexagonKey(new Vector3(1, 0, 1));
+                var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
                 var index = 0;
-                foreach (var p in bornPoint)
+                foreach (var p in bornPoints)
                 {
-                    AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                    _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
                         DebugManager.Instance.Log(prefab.name);
                         var go = GameObject.Instantiate<GameObject>(prefab);
                         go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
-                    });
+
+                        _bornEffectGOs.Add(go);
+                    }));
 
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
                     var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
@@ -110,7 +112,7 @@ namespace WarGame
 
         public void Update(float deltaTime)
         {
-            if (_isStart)
+            if (_loaded)
                 return;
 
             var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
@@ -119,12 +121,13 @@ namespace WarGame
             if (progress >= 1 && null == _coroutine)
             {
                 //延迟一帧开始，防止场景内对象没有初始化完成
-                _coroutine = CoroutineMgr.Instance.StartCoroutine(Start());
+                _coroutine = CoroutineMgr.Instance.StartCoroutine(OnLoad());
             }
         }
 
         public void Dispose()
         {
+            ClearBornEffects();
             CameraMgr.Instance.SetTarget(0);
 
             if (null != _action)
@@ -139,32 +142,37 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Ready_GO, OnReadyGO);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Start, Start);
         }
 
-        private IEnumerator Start()
+        private IEnumerator OnLoad()
         {
             yield return null;
+            _loaded = true;
 
+            DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).StartDialog);
+            Ready();
+        }
+
+        private void Ready()
+        {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             CameraMgr.Instance.SetTarget(heros[0].ID);
-
             UIManager.Instance.ClosePanel("LoadPanel");
-            _isStart = true;
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
-
             _action = new ReadyBattleAction(_arrow);
         }
 
-        public IEnumerator DelayStart()
+        private void Start(params object[] args)
         {
-            yield return new WaitForSeconds(5);
-            Start();
+            ClearBornEffects();
+            DisposeAction();
+            _action = new HeroBattleAction(_arrow);
         }
 
         public void Touch(GameObject obj)
         {
-            if (!_isStart)
+            if (!_loaded)
                 return;
 
             OnTouch(obj);
@@ -212,7 +220,9 @@ namespace WarGame
 
             if (0 != _touchingID && _touchingID != touchingID)
             {
-                RoleManager.Instance.GetRole(_touchingID).ResetHighLight();
+                var role = RoleManager.Instance.GetRole(_touchingID);
+                if (null != role)
+                    role.ResetHighLight();
                 _touchingID = 0;
 
             }
@@ -220,7 +230,8 @@ namespace WarGame
             {
                 _touchingID = touchingID;
                 var role = RoleManager.Instance.GetRole(_touchingID);
-                role.HighLight();
+                if (null != role)
+                    role.HighLight();
             }
 
             if (null == touchingHexagonID)
@@ -241,7 +252,7 @@ namespace WarGame
 
         public void ClickBegin(GameObject obj)
         {
-            if (!_isStart)
+            if (!_loaded)
                 return;
 
             //OnClickBegin(obj);
@@ -277,7 +288,7 @@ namespace WarGame
 
         public void Click(GameObject obj)
         {
-            if (!_isStart)
+            if (!_loaded)
                 return;
 
             OnClickBegin(obj);
@@ -290,19 +301,20 @@ namespace WarGame
 
         private void DisposeAction()
         {
-            //DebugManager.Instance.Log("DisposeAction");
             _action.Dispose();
             _action = null;
         }
 
         private void OnFinishAction(params object[] args)
         {
+            DebugManager.Instance.Log("OnFinishAction");
             DisposeAction();
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
             {
                 UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false });
+                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog);
                 return;
             }
 
@@ -311,6 +323,7 @@ namespace WarGame
             {
                 DatasMgr.Instance.CompleteLevel(_levelID);
                 UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
+                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog);
                 return;
             }
 
@@ -331,12 +344,6 @@ namespace WarGame
             {
                 RoundFunc callback = () =>
                 {
-                    ////将所有英雄移除置灰状态
-                    //for (int i = heros.Count - 1; i >= 0; i--)
-                    //{
-                    //    heros[i].SetGrayed(false);
-                    //}
-
                     //查找到下一个应该行动的敌人
                     for (int i = enemys.Count - 1; i >= 0; i--)
                     {
@@ -350,7 +357,7 @@ namespace WarGame
                     isHeroTurn = false;
                 };
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { callback });
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
             }
 
             if (!isHeroTurn)
@@ -368,12 +375,6 @@ namespace WarGame
 
                 RoundFunc callback = () =>
                 {
-                    ////将所有敌人移除置灰状态
-                    //for (int i = enemys.Count - 1; i >= 0; i--)
-                    //{
-                    //    enemys[i].SetGrayed(false);
-                    //}
-
                     var roles = RoleManager.Instance.GetAllRoles();
                     for (int i = 0; i < roles.Count; i++)
                     {
@@ -382,6 +383,8 @@ namespace WarGame
                     isHeroTurn = true;
                     _action = new HeroBattleAction(_arrow);
                 };
+
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
 
                 _roundIndex += 1;
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _roundIndex, callback });
@@ -417,10 +420,19 @@ namespace WarGame
             OnFinishAction();
         }
 
-        private void OnReadyGO(params object[] args)
+        private void ClearBornEffects()
         {
-            DisposeAction();
-            _action = new HeroBattleAction(_arrow);
+            foreach (var v in _bornEffectGOs)
+            {
+                AssetMgr.Instance.Destroy(v);
+            }
+            _bornEffectGOs.Clear();
+
+            foreach (var v in _bornEffects)
+            {
+                AssetMgr.Instance.ReleaseAsset(v);
+            }
+            _bornEffects.Clear();
         }
     }
 }
