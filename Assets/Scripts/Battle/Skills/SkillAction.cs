@@ -18,6 +18,8 @@ namespace WarGame
             this._initiatorID = initiatorID;
 
             AddListeners();
+
+            CameraMgr.Instance.LockTarget();
         }
 
         protected virtual void AddListeners()
@@ -74,6 +76,11 @@ namespace WarGame
         public virtual void ClickHexagon(string id)
         {
         
+        }
+
+        public virtual void OnMoveEnd()
+        { 
+
         }
     }
 }

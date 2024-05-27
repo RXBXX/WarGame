@@ -14,6 +14,10 @@ namespace WarGame
                     return new AttackSkillAction(skillID, initiatorID);
                 case Enum.SkillType.Cure:
                     return new CureSkillAction(skillID, initiatorID);
+                case Enum.SkillType.AttackRetreat:
+                    return new AttackRetreatSkillAction(skillID, initiatorID);
+                case Enum.SkillType.GroupAttack:
+                    return new GroupAttackSkillAction(skillID, initiatorID);
             }
             return null;
         }

@@ -10,7 +10,7 @@ namespace WarGame
         //private int _touchingID = 0;
         protected string _touchingHexagon = null;
 
-        public HeroBattleAction(LocatingArrow arrow) : base(arrow)
+        public HeroBattleAction(int id) : base(id)
         {
         }
 
@@ -171,6 +171,8 @@ namespace WarGame
             if (_initiatorID <= 0)
                 return;
 
+            MapManager.Instance.ClearMarkedPath();
+
             if (null != _skillAction)
             {
                 _skillAction.ClickHexagon(hexagonID);
@@ -229,7 +231,6 @@ namespace WarGame
             role.SetState(Enum.RoleState.Moving);
             _path = hexagons;
 
-            MapManager.Instance.ClearMarkedPath();
             MapManager.Instance.ClearMarkedRegion();
 
             hero.Move(hexagons);
@@ -303,6 +304,12 @@ namespace WarGame
 
         protected override void OnMoveEnd(params object[] args)
         {
+            if (null != _skillAction)
+            {
+                _skillAction.OnMoveEnd();
+                return;
+            }
+
             if (_initiatorID <= 0)
                 return;
 

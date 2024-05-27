@@ -40,6 +40,11 @@ namespace WarGame
             new Vector3(0, 1, 0),
             };
 
+        public Vector3[] Dicections
+        {
+            get { return _directions; }
+        }
+
         public override bool Init()
         {
             base.Init();

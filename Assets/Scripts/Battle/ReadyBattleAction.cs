@@ -11,18 +11,20 @@ namespace WarGame
         private int _selectedHero = 0;
         private LevelData _levelData;
 
-        public ReadyBattleAction(LevelData data) : base()
+        public ReadyBattleAction(int id, LevelData data) : base(id)
         {
             _levelData = data;
         }
 
         protected override void AddListeners()
         {
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Start, OnReadyOver);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Change_Hero, OnChangeHero);
         }
 
         protected override void RemoveListeners()
         {
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Start, OnReadyOver);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Change_Hero, OnChangeHero);
         }
 
@@ -58,7 +60,7 @@ namespace WarGame
 
         protected override void OnActionOver(params object[] args)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
+            CoroutineMgr.Instance.StartCoroutine(PlayActionOver());
         }
 
         private void OnChangeHero(params object[] args)
@@ -124,6 +126,12 @@ namespace WarGame
             }
 
             _selectedHexagon = null;
+        }
+
+        private void OnReadyOver(params object[] args)
+        {
+            _levelData.isReady = true;
+            OnActionOver();
         }
     }
 }

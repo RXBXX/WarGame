@@ -114,6 +114,8 @@ namespace WarGame
         {
             Attack = 10001,
             Cure = 10002,
+            AttackRetreat = 10003,
+            GroupAttack = 10004,
         }
 
         // Ù–‘¿‡–Õ

@@ -102,7 +102,7 @@ namespace WarGame
             Addressables.UnloadSceneAsync(handle);
         }
 
-        public void Destroy(GameObject go)
+        public void Destroy<T>(T go) where T:Object
         {
             GameObject.Destroy(go);
         }

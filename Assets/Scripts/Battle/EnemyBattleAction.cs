@@ -5,7 +5,7 @@ namespace WarGame
 {
     public class EnemyBattleAction : BattleAction
     {
-        public EnemyBattleAction():base()
+        public EnemyBattleAction(int id):base(id)
         {
         }
 

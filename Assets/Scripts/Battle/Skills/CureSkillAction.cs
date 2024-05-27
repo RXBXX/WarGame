@@ -4,25 +4,22 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class AttackSkillAction : SkillAction
+    public class CureSkillAction : SkillAction
     {
         protected List<MapObject> _arenaObjects = new List<MapObject>();
 
-        public AttackSkillAction(int id, int initiatorID) : base(id, initiatorID)
+        public CureSkillAction(int id, int initiatorID) : base(id, initiatorID)
         {
-            CameraMgr.Instance.LockTarget();
         }
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Cured_End, OnCuredEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Cured_End, OnCuredEnd);
         }
 
         public override void Start()
@@ -67,7 +64,6 @@ namespace WarGame
         public override void Dispose()
         {
             ExitGrayedMode();
-            CameraMgr.Instance.UnlockTarget();
             RemoveListeners();
         }
 
@@ -77,33 +73,12 @@ namespace WarGame
                 return;
 
             var initiator = RoleManager.Instance.GetRole(sender);
-            if ("Attack" == stateName && "Take" == secondStateName)
+            if ("Cure" == stateName && "Take" == secondStateName)
             {
                 var attackPower = initiator.GetAttackPower();
                 var target = RoleManager.Instance.GetRole(_targetID);
-                target.Hit(attackPower);
+                target.Cured(attackPower);
                 target.AddBuffs(initiator.GetAttackBuffs());
-                CameraMgr.Instance.ShakePosition();
-
-                //var target = RoleManager.Instance.GetRole(_targetID);
-                //var skillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
-                ////判断是攻击还是治疗
-                ////执行攻击或治疗
-                ////如果buff生效，添加buff到目标身上
-                //switch (skillConfig.AttrType)
-                //{
-                //    case Enum.AttrType.PhysicalAttack:
-                //        var attackPower = owner.GetAttackPower();
-                //        DebugManager.Instance.Log("AttackPower:" + attackPower);
-                //        target.Hit(attackPower);
-                //        target.AddBuffs(owner.GetAttackBuffs());
-                //        CameraMgr.Instance.ShakePosition();
-                //        break;
-                //    case Enum.AttrType.Cure:
-                //        var curePower = owner.GetCurePower();
-                //        target.Cured(curePower);
-                //        break;
-                //}
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
         }
@@ -122,22 +97,8 @@ namespace WarGame
                 yield return OpenBattleArena(initiator, target);
             }
 
-            yield return new WaitForSeconds(1.0f);
-            initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
-            //var skillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
-            ////判断是攻击还是治疗
-            ////执行攻击或治疗
-            ////如果buff生效，添加buff到目标身上
-            //DebugManager.Instance.Log(skillConfig.AttrType);
-            //switch (skillConfig.AttrType)
-            //{
-            //    case Enum.AttrType.PhysicalAttack:
-            //        initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
-            //        break;
-            //    case Enum.AttrType.Cure:
-            //        initiator.Cure();
-            //        break;
-            //}
+            //yield return new WaitForSeconds(1.0f);
+            initiator.Cure();
         }
 
         private void EnterGrayedMode()
@@ -153,9 +114,7 @@ namespace WarGame
             for (int i = 0; i < roles.Count; i++)
             {
                 if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
-                {
                     roles[i].SetLayer(8);
-                }
                 else
                 {
                     roles[i].SetColliderEnable(false);
@@ -184,7 +143,7 @@ namespace WarGame
             CameraMgr.Instance.CloseGray();
         }
 
-        private void OnAttackedEnd(object[] args)
+        private void OnCuredEnd(object[] args)
         {
             var targetID = (int)args[0];
             if (targetID != _targetID)
@@ -201,19 +160,6 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        private void OnDeadEnd(object[] args)
-        {
-            var targetID = (int)args[0];
-            if (targetID != _targetID)
-                return;
-
-            if (null != _coroutine)
-                return;
-
-            _coroutine = Over(1.5F, true);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
-        }
-
         private IEnumerator OpenBattleArena(Role initiator, Role target)
         {
             var roles = RoleManager.Instance.GetAllRoles();
@@ -224,12 +170,11 @@ namespace WarGame
             CameraMgr.Instance.Lock();
             CameraMgr.Instance.OpenGray();
 
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
             var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
             var deltaVec = arenaCenter - pathCenter;
 
             var moveDuration = 0.2F;
-
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
             hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
             _arenaObjects.Add(hexagon);
@@ -248,11 +193,11 @@ namespace WarGame
             yield return new WaitForSeconds(moveDuration);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
+            yield return new WaitForSeconds(1.0f);
         }
 
         private void CloseBattleArena()
         {
-            DebugManager.Instance.Log("CloseBattleArena");
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Close_HP);
 
             foreach (var v in _arenaObjects)
@@ -273,33 +218,30 @@ namespace WarGame
 
         public override void ClickHero(int id)
         {
-            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-            DebugManager.Instance.Log("22222");
+
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-            DebugManager.Instance.Log("33333");
+
             _targetID = id;
             Play();
         }
 
         public override void ClickEnemy(int id)
         {
-            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-            DebugManager.Instance.Log("22222");
+
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
-            if (null == hexagons )
+            if (null == hexagons)
                 return;
-            DebugManager.Instance.Log("33333");
+
             _targetID = id;
             Play();
         }

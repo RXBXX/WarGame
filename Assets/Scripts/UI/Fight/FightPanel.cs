@@ -12,6 +12,7 @@ namespace WarGame.UI
         private FightInforComp _vsComp;
         private FightHeroGroup _heroGroup;
         private FightEnemyQueue _enemyQueue;
+        private GButton _skipBtn;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -39,8 +40,8 @@ namespace WarGame.UI
                 SceneMgr.Instance.DestroyBattleFiled();
             });
 
-            var skipBtn = _gCom.GetChild("skipBtn");
-            skipBtn.onClick.Add(() =>
+            _skipBtn = GetUIChild<GButton>("skipBtn");
+            _skipBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
             });
@@ -50,8 +51,14 @@ namespace WarGame.UI
             {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Start);
                 startBtn.visible = false;
-                skipBtn.visible = true;
+                _skipBtn.visible = true;
             });
+
+            if ((bool)args[0])
+            {
+                startBtn.visible = false;
+                _skipBtn.visible = true;
+            }
 
             _gCom.GetChild("settingsBtn").onClick.Add(() =>
             {
@@ -68,10 +75,12 @@ namespace WarGame.UI
         {
             if ((Enum.FightTurn)args[0] == Enum.FightTurn.HeroTurn)
             {
+                _skipBtn.visible = true;
                 GetChild<FightTips>("tips").ShowTips("Hero Turn", (RoundFunc)args[1]);
             }
             else
             {
+                _skipBtn.visible = false;
                 GetChild<FightTips>("tips").ShowTips("EnemyTurn", (RoundFunc)args[1]);
             }
         }

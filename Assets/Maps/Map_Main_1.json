@@ -30949,24 +30949,6 @@
       }
     },
     {
-      "ID": "1_0_2",
-      "configId": 5,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 2.236068,
-        "sqrMagnitude": 5.0
-      }
-    },
-    {
       "ID": "2_0_1",
       "configId": 5,
       "coor": {
@@ -30977,6 +30959,24 @@
           "x": 0.8944272,
           "y": 0.0,
           "z": 0.4472136,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 2.236068,
+        "sqrMagnitude": 5.0
+      }
+    },
+    {
+      "ID": "1_0_2",
+      "configId": 5,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.4472136,
+          "y": 0.0,
+          "z": 0.8944272,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
@@ -31006,11 +31006,15 @@
   "enemys": [
     {
       "configId": 100001,
-      "hexagonID": "7_5_2"
+      "hexagonID": "4_0_4"
     },
     {
       "configId": 100002,
-      "hexagonID": "7_0_4"
+      "hexagonID": "3_0_5"
+    },
+    {
+      "configId": 100003,
+      "hexagonID": "3_0_6"
     }
   ]
 }

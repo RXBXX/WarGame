@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
+using DG.Tweening;
 
 namespace WarGame
 {
@@ -128,7 +129,7 @@ namespace WarGame
         {
             base.OnCreate(go);
             _gameObject.transform.position = _position;
-            _gameObject.transform.localScale = Vector3.one * 0.7F;
+            _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
             _gameObject.GetComponent<RoleBehaviour>().ID = _id;
             _rotation = _gameObject.transform.rotation;
@@ -547,13 +548,24 @@ namespace WarGame
             ExcuteBuffs();
         }
 
+        public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
+        {
+            var tweener = base.ChangeToArenaSpace(pos, duration);
+            tweener.onUpdate = () =>
+            {
+                _position = GameObject.transform.position;
+            };
+            return tweener;
+        }
+
         public override void ChangeToMapSpace()
         {
             base.ChangeToMapSpace();
 
             var hexagon = MapManager.Instance.GetHexagon(Hexagon);
             var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
-            _gameObject.transform.position = pos;
+            UpdatePosition(pos);
+            //_gameObject.transform.position = pos;
         }
 
         public void SetHPVisible(bool visible)
@@ -626,6 +638,11 @@ namespace WarGame
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             if (null != hud)
                 hud.SetFollowing(_isFollowing);
+        }
+
+        public Vector3 GetEffectPos()
+        {
+            return GetPosition() + new Vector3(0, 0.6F, 0);
         }
 
         public override void Dispose()

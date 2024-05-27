@@ -21,6 +21,7 @@ namespace WarGame
         private List<int> _bornEffects = new List<int>();
         private List<GameObject> _bornEffectGOs = new List<GameObject>();
         private LevelData _levelData = null;
+        private int _battleActionID = -1;
 
         public BattleField(int levelID)
         {
@@ -34,7 +35,6 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Start, Start);
             EventDispatcher.Instance.AddListener(Enum.EventType.Save_Data, OnSave);
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
@@ -132,11 +132,7 @@ namespace WarGame
             ClearBornEffects();
             CameraMgr.Instance.SetTarget(0);
 
-            if (null != _action)
-            {
-                _action.Dispose();
-                _action = null;
-            }
+            DisposeAction(_battleActionID);
 
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
@@ -144,7 +140,6 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Start, Start);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Save_Data, OnSave);
         }
 
@@ -153,36 +148,29 @@ namespace WarGame
             yield return null;
             _loaded = true;
 
-            if (!_levelData.isRead)
-            {
-                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).StartDialog, (args) =>
-                {
-                    _levelData.isRead = true;
-                });
-            }
-
-            Ready();
-        }
-
-        private void Ready()
-        {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             CameraMgr.Instance.SetTarget(heros[0].ID);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel");
-            _action = new ReadyBattleAction(_levelData);
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.isReady});
 
-            if (_levelData.isReady)
-                Start();
-        }
-
-        private void Start(params object[] args)
-        {
-            _levelData.isReady = true;
-
-            ClearBornEffects();
-            DisposeAction();
-            _action = new HeroBattleAction(_arrow);
+            if (!_levelData.isRead)
+            {
+                var dialogGroup = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartDialog;
+                DialogMgr.Instance.OpenDialog(dialogGroup, (args) =>
+                {
+                    _levelData.isRead = true;
+                    if (!_levelData.isReady)
+                        _action = new ReadyBattleAction(GetActionID(), _levelData);
+                });
+            }
+            else if (!_levelData.isReady)
+            {
+                _action = new ReadyBattleAction(GetActionID(), _levelData);
+            }
+            else
+            {
+                _action = new HeroBattleAction(GetActionID());
+            }
         }
 
         public void Touch(GameObject obj)
@@ -314,8 +302,17 @@ namespace WarGame
             }
         }
 
-        private void DisposeAction()
+        private int GetActionID()
         {
+            return ++_battleActionID;
+        }
+
+        private void DisposeAction(int actionID)
+        {
+            if (null == _action)
+                return;
+            if (_action.ID != actionID)
+                return;
             _action.Dispose();
             _action = null;
         }
@@ -323,7 +320,12 @@ namespace WarGame
         private void OnFinishAction(params object[] args)
         {
             DebugManager.Instance.Log("OnFinishAction");
-            DisposeAction();
+            DisposeAction((int)args[0]);
+
+            if ((int)args[0] == 0)
+            {
+                ClearBornEffects();
+            }
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
@@ -353,7 +355,7 @@ namespace WarGame
                 {
                     if (heros[i].GetState() != Enum.RoleState.Over)
                     {
-                        _action = new HeroBattleAction(_arrow);
+                        _action = new HeroBattleAction(GetActionID());
                         return;
                     }
                 }
@@ -368,7 +370,7 @@ namespace WarGame
                     {
                         if (enemys[i].GetState() == Enum.RoleState.Locked)
                         {
-                            _action = new EnemyBattleAction();
+                            _action = new EnemyBattleAction(GetActionID());
                             enemys[i].SetState(Enum.RoleState.Waiting);
                             break;
                         }
@@ -386,7 +388,7 @@ namespace WarGame
                 {
                     if (enemys[i].GetState() == Enum.RoleState.Locked)
                     {
-                        _action = new EnemyBattleAction();
+                        _action = new EnemyBattleAction(GetActionID());
                         enemys[i].SetState(Enum.RoleState.Waiting);
                         return;
                     }
@@ -400,7 +402,7 @@ namespace WarGame
                         roles[i].UpdateRound();
                     }
                     isHeroTurn = true;
-                    _action = new HeroBattleAction(_arrow);
+                    _action = new HeroBattleAction(GetActionID());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
@@ -436,7 +438,7 @@ namespace WarGame
             foreach (var v in heros)
                 v.SetState(Enum.RoleState.Over);
 
-            OnFinishAction();
+            OnFinishAction(new object[] { _battleActionID });
         }
 
         private void ClearBornEffects()

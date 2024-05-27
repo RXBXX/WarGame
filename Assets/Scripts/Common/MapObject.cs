@@ -29,10 +29,10 @@ namespace WarGame
 
         }
 
-        public virtual void ChangeToArenaSpace(Vector3 pos, float duration)
+        public virtual Tweener ChangeToArenaSpace(Vector3 pos, float duration)
         {
-            _gameObject.transform.DOMove(pos, duration);
             SetLayer(8);
+            return _gameObject.transform.DOMove(pos, duration);
         }
 
         public virtual void ChangeToMapSpace()

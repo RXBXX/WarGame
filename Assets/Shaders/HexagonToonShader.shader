@@ -95,7 +95,6 @@ Shader "Custom/HexagonToonShader"
 
 					float4 diffCol = (_LightColor0 * (diff + spec) * shadow );
 					diffCol.rgb += i.ambient;
-					diffCol.a = 1;
 					return col * diffCol * _Color;
 				}
 				ENDCG

@@ -95,7 +95,7 @@ namespace WarGame
         //当在场景中选中对象时，会调用这个接口
         private void OnSceneGUI()
         {
-            Debug.Log("OnSceneGUI()");
+            //Debug.Log("OnSceneGUI()");
             if (!MapTool.Instance.IsActiveMapEditor())
                 return;
 

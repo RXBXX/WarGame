@@ -6,6 +6,7 @@ namespace WarGame
 {
     public class BattleAction
     {
+        public int ID;
         protected int _initiatorID;
         protected int _targetID;
         protected int _skillID;
@@ -14,8 +15,9 @@ namespace WarGame
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected SkillAction _skillAction;
 
-        public BattleAction(LocatingArrow arrow = null)
+        public BattleAction(int id)
         {
+            this.ID = id;
             AddListeners();
         }
 
@@ -68,7 +70,7 @@ namespace WarGame
         protected virtual IEnumerator PlayActionOver()
         {
             yield return new WaitForSeconds(1.0F);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] {ID});
         }
 
         public virtual void OnTouch(GameObject obj)
