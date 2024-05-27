@@ -206,6 +206,7 @@ namespace WarGame
             Fight_Start = 38,
             Fight_AI_Over = 39,
             Fight_AIAction_Start = 40,
+            Save_Data = 41,
         }
     }
 }

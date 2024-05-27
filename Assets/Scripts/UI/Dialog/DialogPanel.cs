@@ -12,12 +12,15 @@ namespace WarGame.UI
         private int _curIndex = 0;
         private DialogBox _dialogBox;
         private bool _isAutoPlay = false;
+        private WGEventCallback _callback;
 
         public DialogPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
             _dialogBox = GetChild<DialogBox>("dialogBox");
             _dialogGroup = (int)args[0];
+            _callback = (WGEventCallback)args[1];
+
             var dialogGroupConfig = ConfigMgr.Instance.GetConfig<DialogGroupConfig>("DialogGroupConfig", _dialogGroup);
             _max = dialogGroupConfig.MaxIndex;
             _curIndex = 0;
@@ -38,6 +41,8 @@ namespace WarGame.UI
             if (_curIndex > _max)
             {
                 DialogMgr.Instance.CloseDialog();
+                if (null != _callback)
+                    _callback();
                 return;
             }
 

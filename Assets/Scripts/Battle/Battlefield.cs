@@ -20,12 +20,14 @@ namespace WarGame
         protected string _touchingHexagon = null;
         private List<int> _bornEffects = new List<int>();
         private List<GameObject> _bornEffectGOs = new List<GameObject>();
+        private LevelData _levelData = null;
 
         public BattleField(int levelID)
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
 
             _levelID = levelID;
+            _levelData = DatasMgr.Instance.GetLevelData(_levelID).Clone();
 
             DatasMgr.Instance.StartLevel(levelID);
 
@@ -33,6 +35,7 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Start, Start);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Save_Data, OnSave);
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
@@ -40,8 +43,7 @@ namespace WarGame
             MapManager.Instance.CreateMap(levelPlugin.hexagons);
 
             var heroDatas = DatasMgr.Instance.GetAllRoles();
-            var levelData = DatasMgr.Instance.GetLevelData(levelID);
-            if (levelData.heros.Count <= 0 || true)
+            if (_levelData.heros.Count <= 0)
             {
                 var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
                 var index = 0;
@@ -66,20 +68,20 @@ namespace WarGame
                     levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
                     levelRoleData.hexagonID = p;
                     RoleManager.Instance.CreateHero(levelRoleData);
-                    levelData.heros.Add(levelRoleData);
+                    _levelData.heros.Add(levelRoleData);
 
                     index += 1;
                 }
             }
             else
             {
-                foreach (var v in levelData.heros)
+                foreach (var v in _levelData.heros)
                 {
                     RoleManager.Instance.CreateHero(v);
                 }
             }
 
-            if (levelData.enemys.Count <= 0)
+            if (_levelData.enemys.Count <= 0)
             {
                 for (int i = 0; i < levelPlugin.enemys.Length; i++)
                 {
@@ -96,12 +98,12 @@ namespace WarGame
                     levelRoleData.hp = enemyConfig.HP;
                     levelRoleData.hexagonID = levelPlugin.enemys[i].hexagonID;
                     RoleManager.Instance.CreateEnemy(levelRoleData);
-                    levelData.enemys.Add(levelRoleData);
+                    _levelData.enemys.Add(levelRoleData);
                 }
             }
             else
             {
-                foreach (var v in levelData.enemys)
+                foreach (var v in _levelData.enemys)
                 {
                     RoleManager.Instance.CreateEnemy(v);
                 }
@@ -143,6 +145,7 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Start, Start);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Save_Data, OnSave);
         }
 
         private IEnumerator OnLoad()
@@ -150,7 +153,14 @@ namespace WarGame
             yield return null;
             _loaded = true;
 
-            DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).StartDialog);
+            if (!_levelData.isRead)
+            {
+                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).StartDialog, (args) =>
+                {
+                    _levelData.isRead = true;
+                });
+            }
+
             Ready();
         }
 
@@ -160,11 +170,16 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             UIManager.Instance.ClosePanel("LoadPanel");
             UIManager.Instance.OpenPanel("Fight", "FightPanel");
-            _action = new ReadyBattleAction(_arrow);
+            _action = new ReadyBattleAction(_levelData);
+
+            if (_levelData.isReady)
+                Start();
         }
 
         private void Start(params object[] args)
         {
+            _levelData.isReady = true;
+
             ClearBornEffects();
             DisposeAction();
             _action = new HeroBattleAction(_arrow);
@@ -313,8 +328,10 @@ namespace WarGame
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
             {
-                UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false });
-                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog);
+                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog, (args) =>
+                {
+                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false });
+                });
                 return;
             }
 
@@ -322,8 +339,10 @@ namespace WarGame
             if (enemys.Count <= 0)
             {
                 DatasMgr.Instance.CompleteLevel(_levelID);
-                UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
-                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog);
+                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog, (args) =>
+                {
+                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
+                });
                 return;
             }
 
@@ -433,6 +452,11 @@ namespace WarGame
                 AssetMgr.Instance.ReleaseAsset(v);
             }
             _bornEffects.Clear();
+        }
+
+        private void OnSave(params object[] args)
+        {
+            DatasMgr.Instance.SetLevelData(_levelData.Clone());
         }
     }
 }

@@ -299,8 +299,6 @@ namespace WarGame
 
             _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
-
-            _arrow.SetLayer(8);
         }
 
         protected override void OnMoveEnd(params object[] args)
@@ -325,8 +323,6 @@ namespace WarGame
 
         private void OnCancelSkill(object[] args)
         {
-            _arrow.RecoverLayer();
-
             _skillAction.Dispose();
             _skillAction = null;
 
@@ -336,7 +332,6 @@ namespace WarGame
 
         protected override void OnActionOver(params object[] args)
         {
-            _arrow.RecoverLayer();
             base.OnActionOver(args);
         }
     }

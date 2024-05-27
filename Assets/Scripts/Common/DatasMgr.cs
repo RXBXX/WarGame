@@ -126,7 +126,17 @@ namespace WarGame
         public LevelData GetLevelData(int levelID)
         {
             var gd = _dataDic[_curData];
+            if (!gd.levelDataDic.ContainsKey(levelID))
+            {
+                _dataDic[_curData].levelDataDic[levelID] = new LevelData(levelID);
+            }
             return gd.levelDataDic[levelID];
+        }
+
+        public void SetLevelData(LevelData levelData)
+        {
+            var gd = _dataDic[_curData];
+            gd.levelDataDic[levelData.configId] = levelData;
         }
 
         /// region 协议部分----------------------------------------------------------

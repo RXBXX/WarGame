@@ -106,7 +106,6 @@ namespace WarGame
 
         public RoleConfig GetConfig()
         {
-            DebugManager.Instance.Log(configId);
             return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", configId);
         }
 
@@ -305,6 +304,32 @@ namespace WarGame
                     break;
             }
         }
+
+        public new LevelRoleData Clone()
+        {
+            var cloneEquipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+            foreach (var v in equipDataDic)
+            {
+                cloneEquipDataDic.Add(v.Key, v.Value.Clone());
+            }
+
+            var clone = new LevelRoleData(this.UID, this.configId, this.level, state, cloneEquipDataDic, new Dictionary<int, int>());
+            clone.hexagonID = hexagonID;
+            clone.hp = hp;
+            clone.state = state;
+
+            var cloneAttrsDic = new Dictionary<Enum.AttrType, float>();
+            foreach (var v in attrDic)
+                cloneAttrsDic.Add(v.Key, v.Value);
+            clone.attrDic = cloneAttrsDic;
+
+            var cloneBuffs = new List<Pair>();
+            foreach (var v in buffs)
+                cloneBuffs.Add(v);
+            clone.buffs = cloneBuffs;
+
+            return clone;
+        }
     }
 
     /// <summary>
@@ -314,6 +339,8 @@ namespace WarGame
     public class LevelData
     {
         public int configId;
+        public bool isRead;
+        public bool isReady;
         public bool pass;
         public List<LevelRoleData> heros = new List<LevelRoleData>();
         public List<LevelRoleData> enemys = new List<LevelRoleData>();
@@ -321,6 +348,25 @@ namespace WarGame
         public LevelData(int configId)
         {
             this.configId = configId;
+        }
+
+        public LevelData Clone()
+        {
+            var clone = new LevelData(configId);
+            clone.isRead = isRead;
+            clone.pass = pass;
+            clone.isReady = isReady;
+            var cloneHeros = new List<LevelRoleData>();
+            foreach (var v in heros)
+                cloneHeros.Add(v.Clone());
+            clone.heros = cloneHeros;
+
+            var cloneEnemys = new List<LevelRoleData>();
+            foreach (var v in enemys)
+                cloneEnemys.Add(v.Clone());
+            clone.enemys = cloneEnemys;
+
+            return clone;
         }
     }
 

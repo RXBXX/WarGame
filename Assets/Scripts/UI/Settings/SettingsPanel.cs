@@ -12,6 +12,8 @@ namespace WarGame.UI
             var saveBtn = GetUIChild<GButton>("saveBtn");
             saveBtn.onClick.Add(() =>
             {
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Save_Data);
+
                 UIManager.Instance.ClosePanel(this.name);
                 DatasMgr.Instance.SaveGameData();
             });

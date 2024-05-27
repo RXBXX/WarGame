@@ -1,7 +1,7 @@
 {
-  "存档_1.580671": {
-    "title": "存档_1.580671",
-    "time": 309.5156,
+  "存档_1.989557": {
+    "title": "存档_1.989557",
+    "time": 18.5702839,
     "roleDataDic": {
       "1": {
         "UID": 1,
@@ -93,14 +93,16 @@
     "levelDataDic": {
       "10001": {
         "configId": 10001,
+        "isRead": true,
+        "isReady": true,
         "pass": false,
         "heros": [
           {
             "hp": 100.0,
-            "hexagonID": "5_3_4",
+            "hexagonID": "0_0_4",
             "buffs": [],
             "attrDic": {
-              "HP": 60.0,
+              "HP": 100.0,
               "Rage": 0.0,
               "PhysicalAttack": 70.0,
               "MagicAttack": 0.0,
@@ -121,7 +123,7 @@
           },
           {
             "hp": 100.0,
-            "hexagonID": "1_0_0",
+            "hexagonID": "3_0_2",
             "buffs": [],
             "attrDic": {
               "HP": 100.0,
@@ -135,7 +137,7 @@
               "AttackDis": 1.0
             },
             "equipDataDic": {},
-            "state": 1,
+            "state": 7,
             "UID": 2,
             "configId": 10002,
             "level": 1,
@@ -166,36 +168,12 @@
             "equipmentDic": {},
             "skillDic": {},
             "talentDic": {}
-          },
-          {
-            "hp": 100.0,
-            "hexagonID": "2_0_1",
-            "buffs": [],
-            "attrDic": {
-              "HP": 100.0,
-              "Rage": 0.0,
-              "PhysicalAttack": 70.0,
-              "MagicAttack": 0.0,
-              "Cure": 0.0,
-              "PhysicalDefense": 40.0,
-              "MagicDefense": 0.0,
-              "MoveDis": 6.0,
-              "AttackDis": 1.0
-            },
-            "equipDataDic": {},
-            "state": 1,
-            "UID": 4,
-            "configId": 10004,
-            "level": 1,
-            "equipmentDic": {},
-            "skillDic": {},
-            "talentDic": {}
           }
         ],
         "enemys": [
           {
             "hp": 100.0,
-            "hexagonID": "5_3_3",
+            "hexagonID": "7_5_2",
             "buffs": [],
             "attrDic": {
               "HP": 100.0,
@@ -227,7 +205,7 @@
             "hexagonID": "7_0_4",
             "buffs": [],
             "attrDic": {
-              "HP": 70.0,
+              "HP": 100.0,
               "Rage": 0.0,
               "PhysicalAttack": 80.0,
               "MagicAttack": 0.0,

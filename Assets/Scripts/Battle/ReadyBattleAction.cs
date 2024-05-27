@@ -9,10 +9,11 @@ namespace WarGame
     {
         //private int _touchingID = 0;
         private int _selectedHero = 0;
+        private LevelData _levelData;
 
-        public ReadyBattleAction(LocatingArrow arrow) : base(arrow)
+        public ReadyBattleAction(LevelData data) : base()
         {
-
+            _levelData = data;
         }
 
         protected override void AddListeners()
@@ -69,6 +70,14 @@ namespace WarGame
                 if (0 != oldRoleID)
                 {
                     RoleManager.Instance.RemoveRole(oldRoleID);
+                    foreach (var v in _levelData.heros)
+                    {
+                        if (v.UID == oldRoleID)
+                        {
+                            _levelData.heros.Remove(v);
+                            break;
+                        }
+                    }
                 }
             }
             else
@@ -86,6 +95,8 @@ namespace WarGame
                     levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
                     levelRoleData.hexagonID = _selectedHexagon;
                     newRole = RoleManager.Instance.CreateHero(levelRoleData);
+
+                    _levelData.heros.Add(levelRoleData);
                 }
 
                 if (0 != oldRoleID)
@@ -100,6 +111,14 @@ namespace WarGame
                     else
                     {
                         RoleManager.Instance.RemoveRole(oldRoleID);
+                        foreach (var v in _levelData.heros)
+                        {
+                            if (v.UID == oldRoleID)
+                            {
+                                _levelData.heros.Remove(v);
+                                break;
+                            }
+                        }
                     }
                 }
             }
