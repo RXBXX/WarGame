@@ -1,44 +1,117 @@
 using FairyGUI;
+using System.Collections.Generic;
 
 namespace WarGame.UI
 {
     public class HeroProComp : UIBase
     {
-        private GTextField _nameText;
-        private GTextField _descText;
-        private GButton _equipBtn, _skillBtn;
+        private GList _attrList;
+        private HeroTalentComp _talentComp;
+        private GList _skillList;
+        private HeroEquipComp _equipComp;
+        private Dictionary<string, CommonSkillItem> _skillItemsDic = new Dictionary<string, CommonSkillItem>();
+        private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
+        private List<AttrStruct> _attrsData = new List<AttrStruct>();
+        private List<int> _skillsData = new List<int>();
 
         public HeroProComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _nameText = (GTextField)_gCom.GetChild("name");
-            _descText = (GTextField)_gCom.GetChild("desc");
+            GetChild<HeroTitleItem>("talentTitle").Init("Talents", 0, OnClickTalent);
+            GetChild<HeroTitleItem>("skillTitle").Init("Skills", 0, OnClickSkill);
+            GetChild<HeroTitleItem>("attrTitle").Init("Attrs", 1, OnClickAttr);
+            GetChild<HeroTitleItem>("equipTitle").Init("Equips", 0, OnClickEquip);
 
-            _equipBtn = (GButton)_gCom.GetChild("equipBtn");
-            _skillBtn = (GButton)_gCom.GetChild("skillBtn");
-            _equipBtn.onClick.Add(OnClickEquip);
-            _skillBtn.onClick.Add(OnClickSkill);
+            _attrList = GetUIChild<GList>("attrList");
+            _attrList.itemRenderer = OnAttrRenderer;
+            _attrList.visible = true;
+
+            _talentComp = GetChild<HeroTalentComp>("talentComp");
+            _talentComp.SetVisible(false);
+
+            _skillList = GetUIChild<GList>("skillList");
+            _skillList.itemRenderer = OnSkillRenderer;
+            _skillList.visible = false;
+
+            _equipComp = GetChild<HeroEquipComp>("equipComp");
+            _equipComp.SetVisible(false);
         }
 
         public void UpdateComp(int UID)
         {
+            _attrsData.Clear();
+            _skillsData.Clear();
+
             var role = DatasMgr.Instance.GetRoleData(UID);
-;            _nameText.text = role.GetConfig().Name;
-            var attrs = "";
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
-                attrs += ((AttrConfig)config).Name + ":" + role.GetAttribute((Enum.AttrType)config.ID) +"\n";
+                var value = role.GetAttribute((Enum.AttrType)config.ID);
+                if (value != 0)
+                {
+                    _attrsData.Add(new AttrStruct(((AttrConfig)config).Name, value.ToString()));
+                }
             });
-            _descText.text = attrs;
+            _attrList.numItems = _attrsData.Count;
+            _attrList.ResizeToFit();
+
+            _skillsData.Add(role.GetConfig().CommonSkill);
+            _skillsData.Add(role.GetConfig().SpecialSkill);
+            _skillList.numItems = _skillsData.Count;
+            _skillList.ResizeToFit();
+
+            _equipComp.UpdateComp(UID);
+
+            _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
         }
 
-        private void OnClickEquip()
+        private void OnClickTalent(params object[] args)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Open_Equip);
+            _talentComp.SetVisible((bool)args[0]);
         }
 
-        private void OnClickSkill()
+        private void OnClickSkill(params object[] args)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Open_Skill);
+            _skillList.visible = (bool)args[0];
+        }
+
+        private void OnClickAttr(params object[] args)
+        {
+            _attrList.visible = (bool)args[0];
+        }
+
+        private void OnClickEquip(params object[] args)
+        {
+            _equipComp.SetVisible((bool)args[0]);
+        }
+
+        private void OnSkillRenderer(int index, GObject item)
+        {
+            if (!_skillItemsDic.ContainsKey(item.id))
+            {
+                _skillItemsDic[item.id] = new CommonSkillItem((GComponent)item);
+            }
+            _skillItemsDic[item.id].Update(_skillsData[index]);
+        }
+
+        private void OnAttrRenderer(int index, GObject item)
+        {
+            if (!_attrItemsDic.ContainsKey(item.id))
+            {
+                _attrItemsDic[item.id] = new CommonAttrItem((GComponent)item);
+            }
+            _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            foreach (var v in _attrItemsDic)
+                v.Value.Dispose();
+            _attrItemsDic.Clear();
+
+            foreach (var v in _skillItemsDic)
+                v.Value.Dispose();
+            _skillItemsDic.Clear();
+
+            base.Dispose(disposeGCom);
         }
     }
 }

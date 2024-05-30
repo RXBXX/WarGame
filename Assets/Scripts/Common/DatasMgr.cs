@@ -254,13 +254,15 @@ namespace WarGame
         }
 
 
-        public void ActiveTalent(int roleUID, int talentID)
+        public void HeroTalentActiveC2S(int roleUID, int talentID)
         {
             var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
             var roleData = GetRoleData(roleUID);
             if (null == roleData.talentDic)
                 roleData.talentDic = new Dictionary<int, int>();
             roleData.talentDic.Add(config.Place, talentID);
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.HeroTalentActiveS2C, new object[] { roleUID, talentID });
         }
 
         public void StartLevel(int levelID)

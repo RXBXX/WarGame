@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="552,750">
+<component size="500,207">
   <displayList>
-    <graph id="n22_h53u" name="n22" xy="-22,102" size="596,349" alpha="0.3" type="rect" lineSize="2" lineColor="#ffffffff" fillColor="#ff666666"/>
-    <list id="n19_b0z0" name="equipList" xy="0,119" size="552,321" layout="flow_hz" overflow="scroll" colGap="-10" defaultItem="ui://ubnp7phxomu92" autoClearItems="true">
+    <list id="n30_gy0s" name="equipList" xy="0,11" size="500,184" layout="flow_hz" overflow="hidden" lineGap="10" colGap="20" defaultItem="ui://ubnp7phxgy0sl" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -10,11 +9,6 @@
       <item/>
       <item/>
     </list>
-    <graph id="n24_h53u" name="n24" xy="-21,459" size="596,270" alpha="0.3" type="rect" lineSize="2" lineColor="#ffffffff" fillColor="#ff666666"/>
-    <text id="n8_omu9" name="attr" xy="14,467" size="534,251" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffb500" leading="0" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
-    <component id="n13_tsk1" name="wearBtn" src="vvm61" fileName="HeroBtn.xml" xy="406,640" size="100,50">
-      <Button title="Wear"/>
-    </component>
-    <component id="n23_h53u" name="forcedEquip" src="h53ue" fileName="HeroForcedEquipComp.xml" xy="141,171" visible="false"/>
   </displayList>
+  <relation target="n30_gy0s" sidePair="bottomext-bottom"/>
 </component>

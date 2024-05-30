@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,34">
+  <displayList>
+    <graph id="n17_gy0s" name="n17" xy="0,0" size="500,34" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n13_gy0s" name="name" xy="30,0" size="63,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffe7ac" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n14_gy0s" name="value" xy="470,16" pivot="1,0.5" anchor="true" size="26,29" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffe7ac" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
+      <relation target="" sidePair="right-right"/>
+    </text>
+  </displayList>
+</component>

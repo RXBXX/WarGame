@@ -60,7 +60,7 @@ namespace WarGame
 
         protected override void OnActionOver(params object[] args)
         {
-            CoroutineMgr.Instance.StartCoroutine(PlayActionOver());
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
         }
 
         private void OnChangeHero(params object[] args)

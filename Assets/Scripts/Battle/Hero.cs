@@ -8,7 +8,7 @@ namespace WarGame
         public Hero(LevelRoleData data) : base(data)
         {
             _type = Enum.RoleType.Hero;
-            _layer = 6;
+            _layer = Enum.Layer.Hero;
         }
 
         protected override void OnCreate(GameObject go)

@@ -185,5 +185,15 @@ namespace WarGame
             }
             mesh.tangents = tangents;
         }
+
+        public static void SetLayer(Transform tran, Enum.Layer layer)
+        {
+            var childCount = tran.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                SetLayer(tran.GetChild(i), layer);
+            }
+            tran.gameObject.layer = (int)layer;
+        }
     }
 }

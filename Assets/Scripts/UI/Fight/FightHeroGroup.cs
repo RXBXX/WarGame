@@ -77,20 +77,19 @@ namespace WarGame.UI
                         }
                         else
                         {
-                            ui = UIManager.Instance.CreateObject<GButton>("Fight", "FightHeroItem");
+                            ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHexagonItem");
                             GCom.AddChild(ui);
                             ui.asButton.title = coor.x + "_" + coor.y;
 
                             _heroUIDic.Add(coor.x + "_" + coor.y, ui);
                         }
-                        var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) + centerPos.x;
-                        var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) + centerPos.y;
-                        ui.xy = centerPos;
+                        var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) + centerPos.x - _outsideDiameter / 2;
+                        var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) + centerPos.y - _outsideDiameter / 2;
+                        ui.xy = centerPos - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
                         ui.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
 
                         var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
                         var config = roleData.GetConfig();
-                        //ui.title = config.Name;
                         ui.icon = config.Icon;
                         _heroDic.Add(coor.x + "_" + coor.y, roleData.UID);
                         if (openList.Count > heros.Length)

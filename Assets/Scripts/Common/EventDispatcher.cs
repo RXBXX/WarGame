@@ -5,11 +5,9 @@ using FairyGUI;
 
 namespace WarGame
 {
-    public delegate void WGEventCallback(params object[] args);
-
     public class EventDispatcher : Singeton<EventDispatcher>
     {
-        private Dictionary<Enum.EventType, List<WGEventCallback>> _eventDic = new Dictionary<Enum.EventType, List<WGEventCallback>>();
+        private Dictionary<Enum.EventType, List<WGArgsCallback>> _eventDic = new Dictionary<Enum.EventType, List<WGArgsCallback>>();
 
         public override bool Init()
         {
@@ -29,16 +27,16 @@ namespace WarGame
             return true;
         }
 
-        public void AddListener(Enum.EventType eventName, WGEventCallback callback)
+        public void AddListener(Enum.EventType eventName, WGArgsCallback callback)
         {
             if (!_eventDic.ContainsKey(eventName))
             {
-                _eventDic.Add(eventName, new List<WGEventCallback>());
+                _eventDic.Add(eventName, new List<WGArgsCallback>());
             }
             _eventDic[eventName].Add(callback);
         }
 
-        public void RemoveListener(Enum.EventType eventName, WGEventCallback callback)
+        public void RemoveListener(Enum.EventType eventName, WGArgsCallback callback)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;

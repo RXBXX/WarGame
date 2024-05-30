@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,80" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0">
+    <action type="play_transition" fromPage="0,2" toPage="1,3" transition="out"/>
+    <action type="play_transition" fromPage="1,3" toPage="0,2" transition="in"/>
+  </controller>
+  <displayList>
+    <component id="n1_gy0s" name="icon" src="pfj84" fileName="Components/CommonHexagonItem.xml" pkg="hx02grrp" xy="0,0" touchable="false">
+      <gearXY controller="button" pages="0,1,3" values="0,0|40,0|40,0" default="0,0"/>
+    </component>
+  </displayList>
+  <Button mode="Radio"/>
+  <transition name="out">
+    <item time="0" type="XY" target="n1_gy0s" tween="true" startValue="0,0" endValue="40,0" duration="3"/>
+    <item time="3" type="XY" target="n1_gy0s" value="40,0"/>
+  </transition>
+  <transition name="in">
+    <item time="0" type="XY" target="n1_gy0s" tween="true" startValue="40,0" endValue="0,0" duration="4"/>
+  </transition>
+</component>

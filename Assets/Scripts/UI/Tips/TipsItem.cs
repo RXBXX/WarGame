@@ -17,7 +17,7 @@ namespace WarGame.UI
             _show = GetTransition("show");
         }
 
-        public void Show(string str, WGEventCallback callback)
+        public void Show(string str, WGArgsCallback callback)
         {
             _desc.text = str;
             _show.Play(()=> { callback(this); });

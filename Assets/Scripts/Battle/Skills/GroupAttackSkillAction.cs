@@ -6,13 +6,21 @@ namespace WarGame
 {
     public class GroupAttackSkillAction : AttackSkillAction
     {
-        private Dictionary<int, LineRenderer> _chainsDic = new Dictionary<int, LineRenderer>();
         private int _chainMatID;
+        private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
         private List<int> _targets = new List<int>();
 
         public GroupAttackSkillAction(int id, int initiatorID) : base(id, initiatorID)
         {
 
+        }
+
+        public override void Update(float deltaTime)
+        {
+            foreach (var v in _chainsDic)
+            {
+                v.Value.Update(deltaTime);
+            }
         }
 
         public override void Dispose()
@@ -26,7 +34,6 @@ namespace WarGame
 
         protected override IEnumerator OpenBattleArena(Role initiator, Role target)
         {
-            DebugManager.Instance.Log("OpenBattleArena");
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
@@ -73,7 +80,6 @@ namespace WarGame
                         {
                             neighbouringRole.ChangeToArenaSpace(neighbouringRole.GetPosition() + deltaVec, moveDuration);
                             _arenaObjects.Add(neighbouringRole);
-                            _chainsDic.Add(neighbouringRole.ID, neighbouringRole.GameObject.AddComponent<LineRenderer>());
                             _targets.Add(neighbouringRoleID);
 
                             var neighbouringHexagon = MapManager.Instance.GetHexagon(hexagonKey);
@@ -88,18 +94,15 @@ namespace WarGame
 
             _chainMatID = AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/ChainMat.mat", (Material mat) =>
             {
-                foreach (var v in _chainsDic)
+                foreach (var v in _targets)
                 {
-                    v.Value.material = mat;
-                    v.Value.startWidth = 0.08f;
-                    v.Value.endWidth = 0.08f;
-                    v.Value.textureScale = new Vector2(8, 1);
-                    v.Value.SetPositions(new Vector3[] { target.GetEffectPos(), RoleManager.Instance.GetRole(v.Key).GetEffectPos()});
+                    if (v != _targetID)
+                        _chainsDic.Add(v, new Chain(target.GetEffectPoint(), RoleManager.Instance.GetRole(v).GetEffectPoint(), mat));
                 }
             });
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
-            yield return new WaitForSeconds(1);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets });
+            yield return new WaitForSeconds(1.5F);
         }
 
         protected override void CloseBattleArena()
@@ -111,8 +114,21 @@ namespace WarGame
         protected override void OnAttackedEnd(object[] args)
         {
             var targetID = (int)args[0];
-            if(!_targets.Contains(targetID))
+            if (!_targets.Contains(targetID))
                 return;
+
+            if (targetID == _targetID)
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                var attackPower = initiator.GetAttackPower();
+                foreach (var v in _targets)
+                {
+                    if (v != _targetID)
+                    {
+                        RoleManager.Instance.GetRole(v).Hit(attackPower * 0.6F);
+                    }
+                }
+            }
 
             var target = RoleManager.Instance.GetRole(targetID);
             if (target.IsDead())
@@ -150,7 +166,7 @@ namespace WarGame
         {
             foreach (var v in _chainsDic)
             {
-                AssetMgr.Instance.Destroy(v.Value);
+                v.Value.Dispose();
             }
             _chainsDic.Clear();
         }
@@ -164,41 +180,12 @@ namespace WarGame
             if ("Attack" == stateName && "Take" == secondStateName)
             {
                 var attackPower = initiator.GetAttackPower();
-                foreach (var v in _targets)
-                {
-                    var target = RoleManager.Instance.GetRole(v);
-                    if (v == _targetID)
-                    {
-                        target.Hit(attackPower);
-                        target.AddBuffs(initiator.GetAttackBuffs());
-                    }
-                    else
-                    {
-                        target.Hit(attackPower * 0.6F);
-                    }
-                }
-                CameraMgr.Instance.ShakePosition();
+                var target = RoleManager.Instance.GetRole(_targetID);
+                target.Hit(attackPower);
+                target.AddBuffs(initiator.GetAttackBuffs());
 
-                //var target = RoleManager.Instance.GetRole(_targetID);
-                //var skillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
-                ////判断是攻击还是治疗
-                ////执行攻击或治疗
-                ////如果buff生效，添加buff到目标身上
-                //switch (skillConfig.AttrType)
-                //{
-                //    case Enum.AttrType.PhysicalAttack:
-                //        var attackPower = owner.GetAttackPower();
-                //        DebugManager.Instance.Log("AttackPower:" + attackPower);
-                //        target.Hit(attackPower);
-                //        target.AddBuffs(owner.GetAttackBuffs());
-                //        CameraMgr.Instance.ShakePosition();
-                //        break;
-                //    case Enum.AttrType.Cure:
-                //        var curePower = owner.GetCurePower();
-                //        target.Cured(curePower);
-                //        break;
-                //}
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                CameraMgr.Instance.ShakePosition();
+                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
         }
     }

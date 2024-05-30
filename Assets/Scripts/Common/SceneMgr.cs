@@ -105,8 +105,9 @@ namespace WarGame
             {
                 _heroScene = GameObject.Instantiate<GameObject>(prefab);
                 _heroScene.transform.position = Vector3.one * 10000;
-                CameraMgr.Instance.SetMainCamera(_heroScene.transform.Find("Camera").GetComponent<Camera>());
-                UIManager.Instance.OpenPanel("Hero", "HeroPanel", args);
+                var heroCamera = _heroScene.transform.Find("Camera").GetComponent<Camera>();
+                CameraMgr.Instance.SetMainCamera(heroCamera);
+                UIManager.Instance.OpenPanel("Hero", "HeroPanel", new object[] { heroCamera.targetTexture });
                 HUDManager.Instance.SetVisible(false);
             });
         }
@@ -133,7 +134,8 @@ namespace WarGame
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
 
-            AssetMgr.Instance.LoadSceneAsync(scene, (string name) => {
+            AssetMgr.Instance.LoadSceneAsync(scene, (string name) =>
+            {
                 UIManager.Instance.ClosePanel("LoadPanel");
                 switch (name)
                 {

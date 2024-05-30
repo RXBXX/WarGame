@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="80,80" extention="Button" mask="n3_pfj8">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n3_pfj8" name="n3" src="pfj8p" fileName="Images/HeroMask.png" xy="1,1" size="78,78"/>
+    <image id="n4_pfj8" name="n4" src="pfj8p" fileName="Images/HeroMask.png" xy="0,0" size="80,80" alpha="0.7"/>
+    <loader id="n1_pfj8" name="icon" xy="0,0" size="80,80" touchable="false" url="ui://kbw86fxte05z9" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
+    <text id="n5_pfj8" name="title" xy="40,40" pivot="0.5,0.5" anchor="true" size="20,21" fontSize="14" color="#cccccc" autoClearText="true" text="11"/>
+    <image id="n8_e05z" name="n8" src="e05zq" fileName="Images/Selected_02.png" xy="24,-16" size="84,82" rotation="30" color="#000000"/>
+    <image id="n7_pfj8" name="n7" src="h53uc" fileName="Images/SelectedHexagon.png" xy="24,-16" size="84,82" rotation="30">
+      <gearDisplay controller="button" pages="2"/>
+    </image>
+  </displayList>
+  <Button/>
+</component>

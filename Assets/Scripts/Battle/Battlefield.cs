@@ -36,6 +36,8 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Save_Data, OnSave);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
@@ -115,8 +117,11 @@ namespace WarGame
         public void Update(float deltaTime)
         {
             if (_loaded)
+            {
+                if (null != _action)
+                    _action.Update(deltaTime);
                 return;
-
+            }
             var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
             EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
 
@@ -125,6 +130,8 @@ namespace WarGame
                 //延迟一帧开始，防止场景内对象没有初始化完成
                 _coroutine = CoroutineMgr.Instance.StartCoroutine(OnLoad());
             }
+
+
         }
 
         public void Dispose()
@@ -141,6 +148,8 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Save_Data, OnSave);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HP, OnShowHP);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
         }
 
         private IEnumerator OnLoad()
@@ -459,6 +468,30 @@ namespace WarGame
         private void OnSave(params object[] args)
         {
             DatasMgr.Instance.SetLevelData(_levelData.Clone());
+        }
+
+        private void OnShowHP(params object[] args)
+        {
+            UIManager.Instance.OpenPanel("Fight", "FightArenaPanel", args);
+            //var initiator = RoleManager.Instance.GetRole((int)args[0]);
+            //var target = RoleManager.Instance.GetRole((int)args[1]);
+            //_initiatorHP.GetController("style").SetSelectedIndex(initiator.Type == Enum.RoleType.Hero ? 0 : 1);
+            //_targetHP.GetController("style").SetSelectedIndex(target.Type == Enum.RoleType.Hero ? 0 : 1);
+            //_initiatorHP.value = initiator.GetHP();
+            //_targetHP.value = target.GetHP();
+            //_initiatorHP.visible = true;
+            //_targetHP.visible = true;
+            //_showHP.Play();
+        }
+
+        private void OnCloseHP(params object[] args)
+        {
+            UIManager.Instance.ClosePanel("FightArenaPanel");
+            //_showHP.PlayReverse(() =>
+            //{
+            //    _initiatorHP.visible = false;
+            //    _targetHP.visible = false;
+            //});
         }
     }
 }

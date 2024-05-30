@@ -5,8 +5,6 @@ using System;
 
 namespace WarGame
 {
-    public delegate void WGConfigCallback(Config config);
-
     public class ConfigMgr : Singeton<ConfigMgr>
     {
         private Dictionary<string, Dictionary<int, Config>> _configDic = new Dictionary<string, Dictionary<int, Config>>();

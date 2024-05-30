@@ -103,7 +103,7 @@ namespace WarGame
                 //        target.Cured(curePower);
                 //        break;
                 //}
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
         }
 
@@ -153,7 +153,7 @@ namespace WarGame
             {
                 if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
                 {
-                    roles[i].SetLayer(8);
+                    roles[i].SetLayer(Enum.Layer.Gray);
                 }
                 else
                 {
@@ -246,7 +246,7 @@ namespace WarGame
             _arenaObjects.Add(target);
             yield return new WaitForSeconds(moveDuration);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { _initiatorID, _targetID });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, new List<int> { _targetID } });
             yield return new WaitForSeconds(1);
         }
 

@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Role_10001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2459644543345086586, guid: 246489d9ee790ea4bbeec775586b3d7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2984119649395772096, guid: 246489d9ee790ea4bbeec775586b3d7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -191,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_Name
       value: BeachShore (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112543149308768679, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -251,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8187305791010860844, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8187305791010860844, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -285,6 +293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8508881070313456053, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bea804303d7afbe42a8bf2082baea580, type: 2}
     - target: {fileID: 8850971372080543126, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
       propertyPath: m_Name
       value: Role_10004
@@ -294,6 +306,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
+--- !u!1 &554671611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8596428904088297656, guid: 4865736feed9b5d40a1a413640d11dc2, type: 3}
+  m_PrefabInstance: {fileID: 1764695978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613991028
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +324,7 @@ GameObject:
   - component: {fileID: 613991031}
   - component: {fileID: 613991030}
   - component: {fileID: 613991029}
+  - component: {fileID: 613991034}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -505,6 +523,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613991034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613991028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f797e9227d7e484f8d3686efbbbfaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step: 1
+  startGO: {fileID: 554671611}
+  endGO: {fileID: 2000691236}
+  lr: {fileID: 613991029}
+  droop: 2
+  positionCount: 0
 --- !u!1 &632558322
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Role_10002
       objectReference: {fileID: 0}
+    - target: {fileID: 4332144285489064156, guid: 14a50ef9b60cd874c8211470c2b77a00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -864,6 +904,10 @@ PrefabInstance:
     - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_Name
       value: BeachShore (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112543149308768679, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1013,6 +1057,10 @@ PrefabInstance:
     - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_Name
       value: BeachShore
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107481421216563261, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112543149308768679, guid: f4c9000ec5186ab409a9cf00aaa5aa0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1215,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5075749050038359667, guid: 4865736feed9b5d40a1a413640d11dc2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bea804303d7afbe42a8bf2082baea580, type: 2}
     - target: {fileID: 5075749050366958303, guid: 4865736feed9b5d40a1a413640d11dc2, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -1474,6 +1526,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2000691236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5127794667233032062, guid: d7723d5f52aff3345904be070ae612ce, type: 3}
+  m_PrefabInstance: {fileID: 478095087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125424719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1597,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1576,7 +1633,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125424719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0054275032d1bdf43a4349463b73fcb1, type: 3}
   m_Name: 
@@ -1635,6 +1692,10 @@ PrefabInstance:
     - target: {fileID: 4511679737231470252, guid: 740b45c11189e5d45b5387f9315604e0, type: 3}
       propertyPath: m_Name
       value: SelectedRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511679737231470252, guid: 740b45c11189e5d45b5387f9315604e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

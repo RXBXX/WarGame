@@ -111,7 +111,6 @@ namespace WarGame
 
         public Role(LevelRoleData data)
         {
-            this._layer = 7;
             this._id = data.UID;
             this._data = data;
             _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
@@ -402,6 +401,8 @@ namespace WarGame
             {
                 Dead();
             }
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _id});
         }
 
         public virtual float GetMoveDis()
@@ -643,6 +644,11 @@ namespace WarGame
         public Vector3 GetEffectPos()
         {
             return GetPosition() + new Vector3(0, 0.6F, 0);
+        }
+
+        public GameObject GetEffectPoint()
+        {
+            return _gameObject.transform.Find("root/pelvis/spine_01/spine_02/spine_03/neck_01/head").gameObject;
         }
 
         public override void Dispose()

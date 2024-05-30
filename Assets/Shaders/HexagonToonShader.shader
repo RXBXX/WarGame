@@ -94,6 +94,7 @@ Shader "Custom/HexagonToonShader"
 					fixed shadow = SHADOW_ATTENUATION(i);
 
 					float4 diffCol = (_LightColor0 * (diff + spec) * shadow );
+					diffCol.a = 1;
 					diffCol.rgb += i.ambient;
 					return col * diffCol * _Color;
 				}

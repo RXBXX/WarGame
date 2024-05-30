@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FairyGUI;
 using UnityEditor;
+using DG.Tweening;
 
 namespace WarGame.UI
 {
@@ -19,13 +20,12 @@ namespace WarGame.UI
         private float _lastDragTime = 0.0f;
         private bool _draging = false;
         private HeroProComp _proComp;
-        private HeroEquipComp _equipComp;
-        private HeroTalentComp _talentComp;
-        private Controller _stateC;
+        private GList _heroList;
+        private Dictionary<string, HeroItem> _herosDic = new Dictionary<string, HeroItem>();
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _stateC = _gCom.GetController("state");
+            GetUIChild<GLoader>("BG").url = "UI/Background/HeroBG";
             _touchArena = (GGraph)_gCom.GetChild("touchArena");
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
 
@@ -33,14 +33,9 @@ namespace WarGame.UI
             _gCom.onTouchMove.Add(OnTouchMove);
             _gCom.onTouchEnd.Add(OnTouchEnd);
 
-            _gCom.GetChild("rightBtn").onClick.Add(() => { OnClickArrow(1); });
-            _gCom.GetChild("leftBtn").onClick.Add(() => { OnClickArrow(-1); });
-
             _roles = DatasMgr.Instance.GetAllRoles();
 
             _proComp = GetChild<HeroProComp>("proComp");
-            _equipComp = GetChild<HeroEquipComp>("equipComp");
-            _talentComp = GetChild<HeroTalentComp>("talentComp");
 
             var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
             var roleConfig = roleData.GetConfig();
@@ -49,17 +44,19 @@ namespace WarGame.UI
             {
                 attrDesc += ((AttrConfig)config).Name + ": +" + roleData.GetAttribute((Enum.AttrType)config.ID) + "\n";
             });
-            _proComp.UpdateComp(_roles[_roleIndex]);
-            _equipComp.UpdateComp(_roles[_roleIndex]);
-            _talentComp.UpdateComp(roleConfig.TalentGroup, roleData.talentDic);
+            GetUIChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Talent_Active, OnActiveEquip);
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
 
-            LoadHero(_roles[_roleIndex]);
+            _heroList = GetUIChild<GList>("heroList");
+            _heroList.itemRenderer = HeroItemRenderer;
+            _heroList.onClickItem.Add(ClickHeroItem);
+            _heroList.numItems = _roles.Length;
+
+            SelectHero(_roles[_roleIndex]);
+
+            //LoadHero(_roles[_roleIndex]);
         }
 
         public override void Update(float deltaTime)
@@ -76,25 +73,10 @@ namespace WarGame.UI
                 _dragingPower = 0;
                 return;
             }
-
-            _heroRoot.Rotate(Vector3.up, _rotateSpeed * deltaTime * _dragingPower);
+            if (!_rolesGO.ContainsKey(_roles[_roleIndex]))
+                return;
+            _rolesGO[_roles[_roleIndex]].transform.Rotate(Vector3.up, _rotateSpeed * deltaTime * _dragingPower);
             _dragingPower = Mathf.Lerp(_dragingPower, 0, deltaTime);
-        }
-
-        private void OnClickArrow(int dir)
-        {
-            if (_rolesGO.ContainsKey(_roles[_roleIndex]))
-                _rolesGO[_roles[_roleIndex]].SetActive(false);
-
-            _roleIndex = (_roleIndex + 1) % _roles.Length;
-
-            LoadHero(_roles[_roleIndex]);
-
-            var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
-            var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleData.configId);
-            _proComp.UpdateComp(_roles[_roleIndex]);
-            _equipComp.UpdateComp(_roles[_roleIndex]);
-            _talentComp.UpdateComp(roleConfig.TalentGroup, roleData.talentDic);
         }
 
         private void OnTouchBegin(EventContext context)
@@ -111,7 +93,7 @@ namespace WarGame.UI
         private void OnTouchMove(EventContext context)
         {
             _dragingPower = _touchPos.x - context.inputEvent.position.x;
-            _heroRoot.Rotate(Vector3.up, _rotateSpeed * _dragingPower * (Time.time - _lastDragTime));
+            _rolesGO[_roles[_roleIndex]].transform.Rotate(Vector3.up, _rotateSpeed * _dragingPower * (Time.time - _lastDragTime));
             _touchPos = context.inputEvent.position;
             _lastDragTime = Time.time;
         }
@@ -124,10 +106,7 @@ namespace WarGame.UI
 
         private void OnClickClose()
         {
-            if (2 == _stateC.selectedIndex || 1 == _stateC.selectedIndex)
-                _stateC.SetSelectedIndex(0);
-            else
-                SceneMgr.Instance.CloseHeroScene();
+            SceneMgr.Instance.CloseHeroScene();
         }
 
         private void LoadHero(int uid)
@@ -138,14 +117,19 @@ namespace WarGame.UI
             GameObject hero = null;
             if (!_rolesGO.ContainsKey(uid))
             {
-                AssetMgr.Instance.LoadAssetAsync<GameObject>(heroConfing.Prefab, (GameObject prefab) => {
+                AssetMgr.Instance.LoadAssetAsync<GameObject>(heroConfing.Prefab, (GameObject prefab) =>
+                {
                     hero = GameObject.Instantiate(prefab);
                     _heroRoot = SceneMgr.Instance.GetHeroRoot();
                     hero.transform.SetParent(_heroRoot);
-                    hero.transform.localPosition = Vector3.zero;
-                    hero.transform.localScale = Vector3.one * 1.2F;
+                    hero.transform.localPosition = new Vector3(2, 0, 0);
+                    hero.transform.localScale = Vector3.zero;
+                    hero.transform.forward = new Vector3(0, 0, -1);
+                    Tool.SetLayer(hero.transform, Enum.Layer.Display);
                     Tool.Instance.ApplyProcessingFotOutLine(hero, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
                     _rolesGO.Add(uid, hero);
+
+                    Jump(uid, hero, 0);
 
                     UpdateEquips(uid);
                     UpdateAnimator(uid);
@@ -154,7 +138,11 @@ namespace WarGame.UI
             else
             {
                 hero = _rolesGO[uid];
-                hero.SetActive(true);
+                hero.transform.localPosition = new Vector3(2, 0, 0);
+                hero.transform.localScale = Vector3.zero;
+                hero.transform.forward = new Vector3(0, 0, -1);
+                //hero.SetActive(true);
+                Jump(uid, hero, 0);
 
                 UpdateEquips(uid);
                 UpdateAnimator(uid);
@@ -205,19 +193,10 @@ namespace WarGame.UI
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
-            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller)=> {
+            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
+            {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
             });
-        }
-
-        private void OnOpenEquip(params object[] args)
-        {
-            _stateC.SetSelectedIndex(1);
-        }
-
-        private void OnOpenSkill(params object[] args)
-        {
-            _stateC.SetSelectedIndex(2);
         }
 
         private void OnWearEquip(params object[] args)
@@ -241,7 +220,8 @@ namespace WarGame.UI
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
                 var spinePoint = _rolesGO[roleUID].transform.Find(equipData.GetPlaceConfig().SpinePoint);
-                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab)=> {
+                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab) =>
+                {
                     var equip = GameObject.Instantiate<GameObject>(prefab);
                     equip.transform.SetParent(spinePoint, false);
                     equip.transform.localEulerAngles = equipData.GetConfig().Rotation;
@@ -271,10 +251,72 @@ namespace WarGame.UI
             UpdateAnimator(roleUID);
         }
 
-        private void OnActiveEquip(params object[] args)
+        private void SelectHero(int index)
         {
-            var talentId = (int)args[0];
-            DatasMgr.Instance.ActiveTalent(_roles[_roleIndex], talentId);
+            if (index == _roleIndex)
+                return;
+
+            if (_rolesGO.ContainsKey(_roles[_roleIndex]))
+            {
+                Jump(_roles[_roleIndex], _rolesGO[_roles[_roleIndex]], -2);
+            }
+
+            _roleIndex = index;
+            LoadHero(_roles[_roleIndex]);
+
+            _proComp.UpdateComp(_roles[_roleIndex]);
+        }
+
+        private void HeroItemRenderer(int index, GObject item)
+        {
+            if (!_herosDic.ContainsKey(item.id))
+            {
+                _herosDic.Add(item.id, new HeroItem((GComponent)item));
+            }
+            var roleData = DatasMgr.Instance.GetRoleData(_roles[index]);
+            _herosDic[item.id].Update(roleData.GetConfig().Icon);
+        }
+
+        private void ClickHeroItem(EventContext context)
+        {
+            var index = _heroList.GetChildIndex((GObject)context.data);
+            SelectHero(index);
+        }
+
+        private void Jump(int uid, GameObject hero, float posX)
+        {
+            var roleData = DatasMgr.Instance.GetRoleData(uid);
+            int animatorID = 1;
+            foreach (var v in roleData.equipmentDic)
+            {
+                var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
+                var tempAnimatorID = equipData.GetTypeConfig().Animator;
+                if (ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID).Priority < ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", tempAnimatorID).Priority)
+                {
+                    animatorID = tempAnimatorID;
+                }
+            }
+
+            var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
+            var animator = hero.GetComponent<Animator>();
+            var eventDic = Tool.Instance.GetEventTimeForAnimClip(animator, animatorConfig.Jump);
+            animator.SetBool("Jump", true);
+            animator.SetBool("Idle", false);
+            Sequence seq = DOTween.Sequence();
+            var tweener = hero.transform.DOLocalMoveX(posX, eventDic["Jump_Loss"] - eventDic["Jump_Take"]);
+            tweener.onUpdate = () =>
+            {
+                hero.transform.localScale = (1 - Mathf.Abs(hero.transform.localPosition.x / 2)) * Vector3.one;
+            };
+
+            seq.AppendInterval(eventDic["Jump_Take"] - eventDic["Jump_Start"]);
+            seq.Append(tweener);
+            seq.AppendInterval(eventDic["Jump_End"] - eventDic["Jump_Loss"]);
+            seq.AppendCallback(() =>
+            {
+                animator.SetBool("Jump", false);
+                animator.SetBool("Idle", true);
+            });
         }
 
         public override void Dispose(bool disposeGCom = false)
@@ -288,11 +330,14 @@ namespace WarGame.UI
             _rolesGO.Clear();
             _roles = null;
 
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
+            foreach (var v in _herosDic)
+                v.Value.Dispose();
+            _herosDic.Clear();
+
+            //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
+            //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Talent_Active, OnActiveEquip);
         }
     }
 }

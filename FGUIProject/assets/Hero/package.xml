@@ -3,18 +3,21 @@
   <resources>
     <component id="p3n50" name="HeroPanel.xml" path="/" exported="true"/>
     <component id="vvm61" name="HeroBtn.xml" path="/"/>
-    <component id="omu92" name="HeroEquip.xml" path="/" exported="true"/>
-    <component id="omu93" name="HeroSkill1.xml" path="/" exported="true"/>
-    <component id="omu94" name="HeroSkill2.xml" path="/" exported="true"/>
     <component id="tsk15" name="HeroEquipComp.xml" path="/" exported="true"/>
-    <component id="tsk16" name="HeroEquipTab.xml" path="/" exported="true"/>
     <component id="tsk17" name="HeroTalentComp.xml" path="/" exported="true"/>
     <component id="tsk18" name="HeroProComp.xml" path="/" exported="true"/>
     <component id="a4gr9" name="HeroTalentItem.xml" path="/" exported="true"/>
     <image id="b0z0a" name="Talent.png" path="/Images/"/>
     <image id="h53ub" name="EquipSlot.png" path="/Images/"/>
     <image id="h53ud" name="Bow_02.png" path="/Images/"/>
-    <component id="h53ue" name="HeroForcedEquipComp.xml" path="/" exported="true"/>
+    <component id="h53ue" name="HeroEquipsPool.xml" path="/" exported="true"/>
+    <image id="gy0sf" name="dp_x_The_identification_of_the_attack_zonecomic_polygon_more_ou_c240ff09-5b09-4b0a-9f06-f3050f246ae8.png" path="/Previews/"/>
+    <component id="gy0sh" name="HeroTitleItem.xml" path="/" exported="true"/>
+    <image id="gy0si" name="HeroBG.png" path="/Previews/"/>
+    <component id="gy0sj" name="HeroItem.xml" path="/"/>
+    <component id="gy0sk" name="HeroAttrsInfo.xml" path="/" exported="true"/>
+    <component id="gy0sl" name="HeroEquipItem.xml" path="/" exported="true"/>
+    <component id="gy0sm" name="HeroTalentInfo.xml" path="/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

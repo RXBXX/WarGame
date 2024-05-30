@@ -10,7 +10,7 @@ namespace WarGame
             return true;
         }
 
-        public void OpenDialog(int dialogGroup, WGEventCallback callback)
+        public void OpenDialog(int dialogGroup, WGArgsCallback callback)
         {
             UIManager.Instance.OpenPanel("Dialog", "DialogPanel", new object[] { dialogGroup, callback});
         }

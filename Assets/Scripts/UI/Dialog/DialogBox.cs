@@ -15,7 +15,7 @@ namespace WarGame.UI
         private bool _start = false;
         private float _interval = 0.1f;
         private float _time = 0.0f;
-        private WGEventCallback _callback;
+        private WGArgsCallback _callback;
         private int _lastRole = 0;
         
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
@@ -44,7 +44,7 @@ namespace WarGame.UI
             }
         }
 
-        public void Play(string context, int roleID, WGEventCallback callback)
+        public void Play(string context, int roleID, WGArgsCallback callback)
         {
             _callback = callback;
 

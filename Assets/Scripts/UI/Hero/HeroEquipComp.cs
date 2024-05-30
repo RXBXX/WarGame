@@ -25,7 +25,7 @@ namespace WarGame.UI
 
         private GList _equipList = null;
         private List<EquipStruct> _equipsData = new List<EquipStruct>();
-        private Dictionary<string, HeroEquip> _equips = new Dictionary<string, HeroEquip>();
+        private Dictionary<string, HeroEquipItem> _equipsDic = new Dictionary<string, HeroEquipItem>();
 
         //private GList _forcedEquipList;
         //private List<EquipStruct> _forcedEquipsData = new List<EquipStruct>();
@@ -34,7 +34,7 @@ namespace WarGame.UI
         private GTextField _attrs;
         private GButton _wearBtn;
 
-        private HeroForcedEquipComp _forcedEquipComp;
+        private HeroEquipsPool _forcedEquipComp;
 
         private int _roleUID;
         private Dictionary<Enum.EquipType, bool> _adeptEquipType = new Dictionary<Enum.EquipType, bool>();
@@ -44,19 +44,19 @@ namespace WarGame.UI
         {
             _equipList = GetUIChild<GList>("equipList");
             _equipList.itemRenderer = OnEquipRender;
-            _equipList.onClickItem.Add(OnClickEquip);
+            //_equipList.onClickItem.Add(OnClickEquip);
 
-            _forcedEquipComp = GetChild<HeroForcedEquipComp>("forcedEquip");
+            //_forcedEquipComp = GetChild<HeroEquipsComp>("forcedEquip");
 
-            //_forcedEquipList = GetUIChild<GList>("forcedEquipList");
-            //_forcedEquipList.itemRenderer = OnForcedEquipRender;
-            //_forcedEquipList.onClickItem.Add(OnClickForcedEquip);
+            ////_forcedEquipList = GetUIChild<GList>("forcedEquipList");
+            ////_forcedEquipList.itemRenderer = OnForcedEquipRender;
+            ////_forcedEquipList.onClickItem.Add(OnClickForcedEquip);
 
-            _wearBtn = GetUIChild<GButton>("wearBtn");
-            _wearBtn.onClick.Add(OnClickBtn);
-            _attrs = GetUIChild<GTextField>("attr");
+            //_wearBtn = GetUIChild<GButton>("wearBtn");
+            //_wearBtn.onClick.Add(OnClickBtn);
+            //_attrs = GetUIChild<GTextField>("attr");
 
-            //gCom.onTouchBegin.Add(OnTouchBegin);
+            ////gCom.onTouchBegin.Add(OnTouchBegin);
         }
 
         public void UpdateComp(int roleUID)
@@ -95,13 +95,14 @@ namespace WarGame.UI
 
             _selectedEquip = _equipsData[0].uid;
             _equipList.numItems = _equipsData.Count;
+            _equipList.ResizeToFit();
         }
 
         private void OnEquipRender(int index, GObject item)
         {
-            if (!_equips.ContainsKey(item.id))
-                _equips.Add(item.id, new HeroEquip((GComponent)item));
-            _equips[item.id].UpdateItem(_equipsData[index].uid, _equipsData[index].adept, _equipsData[index].ownerUID);
+            if (!_equipsDic.ContainsKey(item.id))
+                _equipsDic.Add(item.id, new HeroEquipItem((GComponent)item));
+            _equipsDic[item.id].UpdateItem(_equipsData[index].uid, _equipsData[index].adept, _equipsData[index].ownerUID);
         }
 
 

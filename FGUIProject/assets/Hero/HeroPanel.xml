@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750">
-  <controller name="state" pages="0,,1,,2," selected="1"/>
+<component size="1334,750" overflow="hidden">
   <displayList>
-    <graph id="n15_bscs" name="n15" xy="671,0" size="987,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="height-height,right-right"/>
+    <loader id="n17_icsb" name="BG" xy="669,375" pivot="0.5,0.5" anchor="true" size="1504,1145" url="ui://ubnp7phxgy0si" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <graph id="n9_omu9" name="touchArena" xy="0,0" size="1334,750" alpha="0" type="rect">
+      <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n12_tsk1" name="proComp" src="tsk18" fileName="HeroProComp.xml" xy="706,0">
-      <gearDisplay controller="state" pages="0"/>
-    </component>
-    <component id="n14_tsk1" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="706,0">
-      <gearDisplay controller="state" pages="2"/>
-    </component>
-    <component id="n13_tsk1" name="equipComp" src="tsk15" fileName="HeroEquipComp.xml" xy="706,0">
-      <gearDisplay controller="state" pages="1"/>
-    </component>
-    <graph id="n9_omu9" name="touchArena" xy="79,0" size="549,750" alpha="0" type="rect"/>
-    <component id="n10_nw17" name="rightBtn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="559,325"/>
-    <component id="n11_nw17" name="leftBtn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="69,325" scale="-1,1"/>
-    <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1158,49" size="100,96"/>
+    <loader id="n16_icsb" name="heroLoader" xy="465,374" pivot="0.5,0.5" anchor="true" size="1334,750" touchable="false" align="center" vAlign="middle" fill="scale" autoSize="true"/>
+    <graph id="n29_gy0s" name="n29" xy="-146,-119" size="291,976" alpha="0.3" type="rect" fillColor="#ff000000"/>
+    <graph id="n30_gy0s" name="n30" xy="828,-126" size="666,976" alpha="0.3" type="rect" fillColor="#ff000000"/>
+    <list id="n22_gy0s" name="heroList" xy="25,154" size="120,522" layout="flow_vt" overflow="scroll" lineGap="5" defaultItem="ui://ubnp7phxgy0sj" align="center">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n12_tsk1" name="proComp" src="tsk18" fileName="HeroProComp.xml" xy="836,39" size="500,660"/>
+    <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="2,7" size="100,96"/>
+    <graph id="n36_gy0s" name="n36" xy="242,573" size="446,129" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <text id="n32_gy0s" name="name" xy="468,641" pivot="0.5,0.5" anchor="true" size="294,129" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffb500" letterSpacing="10" strokeColor="#000000" strokeSize="5" text="AKUINA"/>
+    <component id="n38_gy0s" name="attrsInfo" src="gy0sk" fileName="HeroAttrsInfo.xml" xy="522,110" visible="false"/>
+    <component id="n39_gy0s" name="talentInfo" src="gy0sm" fileName="HeroTalentInfo.xml" xy="476,418" visible="false"/>
   </displayList>
 </component>

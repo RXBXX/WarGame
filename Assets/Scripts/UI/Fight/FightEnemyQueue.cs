@@ -41,9 +41,9 @@ namespace WarGame.UI
                 GButton ui = null;
                 if (_queue.Count < i + 1)
                 {
-                    ui = UIManager.Instance.CreateObject<GButton>("Fight", "FightHeroItem");
+                    ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHexagonItem");
                     GCom.AddChild(ui);
-                    ui.xy = new Vector2(startPosX - 90 * i - 40, 40);
+                    ui.xy = new Vector2(startPosX - 90 * i - 90, 0);
                     _queue.Add(ui);
                 }
                 else
@@ -77,7 +77,7 @@ namespace WarGame.UI
 
             var startPosX = GCom.width;
             var ui = _queue[index];
-            var tweener = ui.TweenMoveY(-44, 0.2F);
+            var tweener = ui.TweenMoveY(-84, 0.2F);
             tweener.OnComplete(()=> {
                 for (int i = index - 1; i >= 0; i--)
                 {
@@ -85,7 +85,7 @@ namespace WarGame.UI
                     _queue[i + 1] = _queue[i];
                 }
                 _queue[0] = ui;
-                ui.TweenMoveX(startPosX - 40, 0.2F);
+                ui.TweenMoveX(startPosX - 90, 0.2F);
             });
 
 
@@ -98,7 +98,7 @@ namespace WarGame.UI
 
         private void OnEnemyOver(params object[] args)
         {
-            _queue[0].TweenMoveY(40, 0.2F);
+            _queue[0].TweenMoveY(0, 0.2F);
         }
     }
 }

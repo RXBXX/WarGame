@@ -10,7 +10,7 @@ namespace WarGame
         public Enemy(LevelRoleData data) : base(data)
         {
             _type = Enum.RoleType.Enemy;
-            _layer = 7;
+            _layer = Enum.Layer.Enemy;
         }
 
         protected override void OnCreate(GameObject go)

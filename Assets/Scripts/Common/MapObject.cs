@@ -9,7 +9,7 @@ namespace WarGame
 
         protected GameObject _gameObject;
 
-        protected int _layer = 0;
+        protected Enum.Layer _layer = Enum.Layer.Default;
 
         protected Transform _parent;
 
@@ -31,7 +31,7 @@ namespace WarGame
 
         public virtual Tweener ChangeToArenaSpace(Vector3 pos, float duration)
         {
-            SetLayer(8);
+            SetLayer(Enum.Layer.Gray);
             return _gameObject.transform.DOMove(pos, duration);
         }
 
@@ -40,24 +40,14 @@ namespace WarGame
             RecoverLayer();
         }
 
-        public void SetLayer(int layer)
+        public void SetLayer(Enum.Layer layer)
         {
-            SetLayerRecursion(_gameObject.transform, layer);
+            Tool.SetLayer(_gameObject.transform, layer);
         }
 
         public void RecoverLayer()
         {
-            SetLayerRecursion(_gameObject.transform, _layer);
-        }
-
-        private void SetLayerRecursion(Transform tran, int layer)
-        {
-            var childCount = tran.childCount;
-            for (int i = 0; i < childCount; i++)
-            {
-                SetLayerRecursion(tran.GetChild(i), layer);
-            }
-            tran.gameObject.layer = layer;
+            Tool.SetLayer(_gameObject.transform, _layer);
         }
 
         public virtual void HighLight() { }

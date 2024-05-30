@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="552,750">
+<component size="500,650" overflow="scroll">
   <displayList>
-    <text id="n5_omu9" name="name" xy="0,51" size="294,129" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffb500" letterSpacing="10" strokeColor="#000000" strokeSize="5" text="AKUINA"/>
-    <component id="n2_omu9" name="equipBtn" src="omu93" fileName="HeroSkill1.xml" xy="2,205" size="296,100">
-      <Button title="Equip"/>
-    </component>
-    <component id="n7_omu9" name="skillBtn" src="omu94" fileName="HeroSkill2.xml" xy="257,205" size="296,100">
-      <Button title="Skill"/>
-    </component>
-    <text id="n8_omu9" name="desc" xy="2,333" size="552,363" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffb500" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attack：1&#xA;Attack：1&#xA;Defense：1Attack：1&#xA;Defense：1&#xA;Defense：1"/>
+    <component id="n14_gy0s" name="talentTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,0" group="n11_gy0s"/>
+    <component id="n10_gy0s" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="0,62" size="500,500" group="n11_gy0s"/>
+    <component id="n15_gy0s" name="skillTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,572" group="n11_gy0s"/>
+    <list id="n12_gy0s" name="skillList" xy="0,634" size="500,259" group="n11_gy0s" overflow="hidden" lineGap="10" defaultItem="ui://hx02grrpgy0sg">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n17_gy0s" name="equipTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,903" group="n11_gy0s"/>
+    <component id="n18_gy0s" name="equipComp" src="tsk15" fileName="HeroEquipComp.xml" xy="0,965" group="n11_gy0s"/>
+    <component id="n16_gy0s" name="attrTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,1182" group="n11_gy0s"/>
+    <list id="n13_gy0s" name="attrList" xy="0,1244" size="500,300" group="n11_gy0s" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <group id="n11_gy0s" name="n11" xy="0,0" size="500,1544" advanced="true" layout="vt" lineGap="10" excludeInvisibles="true"/>
   </displayList>
 </component>

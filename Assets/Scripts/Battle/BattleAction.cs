@@ -87,6 +87,12 @@ namespace WarGame
         {
 
         }
+
+        public virtual void Update(float deltaTime)
+        {
+            if (null != _skillAction)
+                _skillAction.Update(deltaTime);
+        }
     }
 }
 

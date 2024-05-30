@@ -504,7 +504,7 @@
   },
   "存档_33.44838": {
     "title": "存档_33.44838",
-    "time": 33.44838,
+    "time": 213.8439,
     "roleDataDic": {
       "1": {
         "UID": 1,
@@ -593,6 +593,176 @@
         "configId": 10013
       }
     },
-    "levelDataDic": {}
+    "levelDataDic": {
+      "10001": {
+        "configId": 10001,
+        "isRead": true,
+        "isReady": true,
+        "pass": false,
+        "heros": [
+          {
+            "hp": 100.0,
+            "hexagonID": "2_0_1",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 70.0,
+              "MagicAttack": 0.0,
+              "Cure": 10.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 5.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 1,
+            "configId": 10001,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "hp": 100.0,
+            "hexagonID": "1_0_2",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 70.0,
+              "MagicAttack": 0.0,
+              "Cure": 10.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 5.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 2,
+            "configId": 10002,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "hp": 100.0,
+            "hexagonID": "1_0_1",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 70.0,
+              "MagicAttack": 0.0,
+              "Cure": 0.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 6.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 3,
+            "configId": 10003,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          }
+        ],
+        "enemys": [
+          {
+            "hp": 100.0,
+            "hexagonID": "4_0_4",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 80.0,
+              "MagicAttack": 0.0,
+              "Cure": 29.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 5.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {
+              "Right": {
+                "UID": 0,
+                "configId": 10010
+              }
+            },
+            "state": 0,
+            "UID": 100001,
+            "configId": 10005,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "hp": 100.0,
+            "hexagonID": "3_0_5",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 80.0,
+              "MagicAttack": 0.0,
+              "Cure": 30.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 5.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {
+              "Right": {
+                "UID": 0,
+                "configId": 10011
+              }
+            },
+            "state": 0,
+            "UID": 100002,
+            "configId": 10006,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "hp": 100.0,
+            "hexagonID": "3_0_6",
+            "buffs": [],
+            "attrDic": {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "PhysicalAttack": 80.0,
+              "MagicAttack": 0.0,
+              "Cure": 30.0,
+              "PhysicalDefense": 40.0,
+              "MagicDefense": 0.0,
+              "MoveDis": 5.0,
+              "AttackDis": 1.0
+            },
+            "equipDataDic": {
+              "Right": {
+                "UID": 0,
+                "configId": 10011
+              }
+            },
+            "state": 0,
+            "UID": 100003,
+            "configId": 10005,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          }
+        ]
+      }
+    }
   }
 }

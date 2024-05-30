@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,52">
+  <controller name="state" pages="0,close,1,open" selected="1"/>
+  <displayList>
+    <graph id="n7_gy0s" name="n7" xy="0,0" size="500,52" alpha="0.3" type="rect" lineColor="#ffffffff" fillColor="#ff000000"/>
+    <text id="n2_gy0s" name="title" xy="20,0" size="89,52" font="ui://hd0z4dz5omu90" fontSize="38" color="#ffb500" strokeColor="#000000" text="Talent"/>
+    <component id="n4_gy0s" name="btn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="410,-24" scale="0.3,0.3" rotation="90">
+      <gearLook controller="state" pages="0,1" values="1,-90,0,1|1,90,0,1"/>
+    </component>
+  </displayList>
+</component>

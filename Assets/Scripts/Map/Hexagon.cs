@@ -37,9 +37,10 @@ namespace WarGame
             _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
         }
 
-        protected override void OnCreate(GameObject pefab)
+        protected override void OnCreate(GameObject prefab)
         {
-            base.OnCreate(pefab);
+            _gameObject = GameObject.Instantiate(prefab);
+            _gameObject.transform.SetParent(_parent);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
         }

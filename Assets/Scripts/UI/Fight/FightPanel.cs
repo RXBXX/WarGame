@@ -28,9 +28,6 @@ namespace WarGame.UI
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_HP_Change, OnHPChange);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
@@ -85,35 +82,6 @@ namespace WarGame.UI
             }
         }
 
-        private void OnShowHP(params object[] args)
-        {
-            var initiator = RoleManager.Instance.GetRole((int)args[0]);
-            var target = RoleManager.Instance.GetRole((int)args[1]);
-            _initiatorHP.GetController("style").SetSelectedIndex(initiator.Type == Enum.RoleType.Hero ? 0 : 1);
-            _targetHP.GetController("style").SetSelectedIndex(target.Type == Enum.RoleType.Hero ? 0 : 1);
-            _initiatorHP.value = initiator.GetHP();
-            _targetHP.value = target.GetHP();
-            _initiatorHP.visible = true;
-            _targetHP.visible = true;
-            _showHP.Play();
-        }
-
-        private void OnCloseHP(params object[] args)
-        {
-            _showHP.PlayReverse(() =>
-            {
-                _initiatorHP.visible = false;
-                _targetHP.visible = false;
-            });
-        }
-
-        private void OnHPChange(params object[] args)
-        {
-            var target = RoleManager.Instance.GetRole((int)args[0]);
-            var hp = target.GetHP();
-            _targetHP.TweenValue(hp, 0.5F);
-        }
-
         private void OnVSShow(params object[] args)
         {
             _vsComp.Show((int)args[0], (Vector3)args[1]);
@@ -134,9 +102,6 @@ namespace WarGame.UI
             base.Dispose(disposeGCom);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HP, OnShowHP);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_HP_Change, OnHPChange);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);

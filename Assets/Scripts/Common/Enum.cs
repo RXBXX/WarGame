@@ -165,6 +165,15 @@ namespace WarGame
             EnemyTurn = 1,
         }
 
+        public enum Layer
+        {
+            Default = 0,
+            Hero = 6,
+            Enemy = 7,
+            Gray = 8,
+            Display = 9,
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,
@@ -182,11 +191,8 @@ namespace WarGame
             Fight_AI_Start = 12,
             Map_Open_Event = 13,
             HUDInstruct_Cancel_Skill = 14,
-            Hero_Open_Equip = 15,
-            Hero_Open_Skill = 16,
             Hero_Wear_Equip = 17,
             Scene_Load_Progress = 18, //更新场景加载进度
-            Hero_Talent_Active = 19,
             Fight_Show_HP = 20,
             Fight_Close_HP = 21,
             Fight_HP_Change = 22,
@@ -209,6 +215,9 @@ namespace WarGame
             Fight_AI_Over = 39,
             Fight_AIAction_Start = 40,
             Save_Data = 41,
+            Hero_Show_Attrs = 42,
+            Hero_Show_Talent = 43,
+            HeroTalentActiveS2C = 10001,
         }
     }
 }

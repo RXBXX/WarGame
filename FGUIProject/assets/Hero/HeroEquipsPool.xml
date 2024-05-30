@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="103,233" pivot="1,0" anchor="true">
+  <displayList>
+    <graph id="n22_h53u" name="n22" xy="0,0" size="103,233" alpha="0.3" type="rect" lineColor="#ffffffff" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n21_bscs" name="equipList" xy="10,10" size="80,210" layout="flow_hz" overflow="scroll" defaultItem="ui://hx02grrppfj84" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <graph id="n23_gy0s" name="n23" xy="-108,0" size="103,233" alpha="0.3" type="rect" lineColor="#ffffffff" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n24_gy0s" name="forcedEquipList" xy="-98,10" size="80,210" layout="flow_hz" overflow="scroll" defaultItem="ui://hx02grrppfj84" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+  <relation target="n21_bscs" sidePair="rightext-right,bottomext-bottom"/>
+</component>
