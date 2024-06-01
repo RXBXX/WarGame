@@ -63,30 +63,25 @@ Shader "Custom/ToonShader"
 			v2f vert(appdata v) {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);//�л�����������
-				o.normal = v.normal;
+				o.normal = normalize(v.normal);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.lightDir = ObjSpaceLightDir(v.vertex);
-				o.viewDir = ObjSpaceViewDir(v.vertex);
+				o.lightDir = normalize(ObjSpaceLightDir(v.vertex));
+				o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
+
 				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.ambient = ShadeSH9(fixed4(worldNormal, 1));
+
 				// 计算阴影数据
 				TRANSFER_SHADOW(o)
 				return o;
 			}
 			float4 frag(v2f i) :COLOR
 			{
-				float3 N = normalize(i.normal);
-				float3 viewDir = normalize(i.viewDir);
-				float3 lightDir = normalize(i.lightDir);
-
-				float diff = max(0,dot(N,i.lightDir));
-				diff = (diff + 1) / 2;
-				diff = smoothstep(0,1,diff);
+				float diff = max(0,dot(i.normal, i.lightDir));
 				float toon = floor(diff * _Steps) / _Steps;
-				diff = lerp(diff,toon,_ToonEffect);
 
-				half3 h = normalize(lightDir + viewDir);
-				float nh = max(0, dot(N, h));
+				half3 h = normalize(i.lightDir + i.viewDir);
+				float nh = max(0, dot(i.normal, h));
 				float spec = pow(nh, 32.0);
 				float toonSpec = floor(spec * toon * 2) / 2;
 				spec = lerp(spec, toonSpec, _ToonEffect);
@@ -95,16 +90,11 @@ Shader "Custom/ToonShader"
 
 				fixed shadow = SHADOW_ATTENUATION(i);
 
-				float4 diffCol = (_LightColor0 * (diff + spec));
-				diffCol.a = 1;
-				diffCol.rgb *= shadow;
-				diffCol.rgb += i.ambient;
-
-				fixed4 finalCol = col * diffCol * _Color;
+				col.rgb *= (diff + spec) * _LightColor0.rgb * shadow + i.ambient;
 				if (_Gray > 0)
-					return dot(finalCol.rgb, float3(0.299, 0.587, 0.114));
+					return dot(col.rgb, float3(0.299, 0.587, 0.114));
 				else
-					return finalCol;
+					return col;
 			}
 			ENDCG
 		}

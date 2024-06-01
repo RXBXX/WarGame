@@ -22,6 +22,7 @@ namespace WarGame
         private List<GameObject> _bornEffectGOs = new List<GameObject>();
         private LevelData _levelData = null;
         private int _battleActionID = -1;
+        private Weather _weather;
 
         public BattleField(int levelID, bool restart)
         {
@@ -110,7 +111,7 @@ namespace WarGame
                     RoleManager.Instance.CreateEnemy(v);
                 }
             }
-
+            _weather = new Weather();
             _arrow = new LocatingArrow();
         }
 
@@ -120,22 +121,28 @@ namespace WarGame
             {
                 if (null != _action)
                     _action.Update(deltaTime);
-                return;
-            }
-            var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
 
-            if (progress >= 1 && null == _coroutine)
+                if (null != _weather)
+                    _weather.Update(deltaTime);
+            }
+            else
             {
-                //延迟一帧开始，防止场景内对象没有初始化完成
-                _coroutine = CoroutineMgr.Instance.StartCoroutine(OnLoad());
+                var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
+
+                if (progress >= 1 && null == _coroutine)
+                {
+                    //延迟一帧开始，防止场景内对象没有初始化完成
+                    _coroutine = CoroutineMgr.Instance.StartCoroutine(OnLoad());
+                }
             }
-
-
         }
 
         public void Dispose()
         {
+            _weather.Dispose();
+            _weather = null;
+
             ClearBornEffects();
             CameraMgr.Instance.SetTarget(0);
 

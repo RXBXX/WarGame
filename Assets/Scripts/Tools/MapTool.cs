@@ -91,27 +91,6 @@ namespace WarGame
             return curScene.name == "MapEditorScene";
         }
 
-        ///获取格子预制体
-        public string GetHexagonPrefab(Enum.HexagonType type)
-        {
-            string assetPath = "";
-            switch (type)
-            {
-                case Enum.HexagonType.BeachShore:
-                    assetPath = "Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/BeachShore.prefab";
-                    break;
-                case Enum.HexagonType.DigSite:
-                    assetPath = "Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/DigSite.prefab";
-                    break;
-                case Enum.HexagonType.HellLake:
-                    assetPath = "Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/HellLake.prefab";
-                    break;
-                case Enum.HexagonType.Lake:
-                    assetPath = "Assets/Low Poly Hexagons/Assets/Prefabs/Hexagons/Lake.prefab";
-                    break;
-            }
-            return assetPath;
-        }
         /// <summary>
         /// 打开地图编辑专用的场景
         /// </summary>
@@ -211,8 +190,11 @@ namespace WarGame
             int weightBase = 0;
             foreach (var pair in weightList)
             {
-                weightBase += pair.Value;
-                castDic[weightBase] = pair.Key;
+                if (0 != pair.Value)
+                {
+                    weightBase += pair.Value;
+                    castDic[weightBase] = pair.Key;
+                }
             }
 
             for (int i = 0; i < xNum; i++)
@@ -226,15 +208,16 @@ namespace WarGame
                         Enum.HexagonType type = Enum.HexagonType.BeachShore;
                         foreach (var pair in castDic)
                         {
-                            if (rd < pair.Key && pair.Key < minKey)
+                            if (rd < pair.Key && pair.Key <= minKey)
                             {
                                 minKey = pair.Key;
                                 type = pair.Value;
                             }
                         }
-
+                        Debug.Log(type);
                         string assetPath = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", (int)type).Prefab;
-                        AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab)=> {
+                        AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab) =>
+                        {
                             var obj = GameObject.Instantiate(prefab);
                             obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
                             obj.transform.SetParent(rootObj.transform);

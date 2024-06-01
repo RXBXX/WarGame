@@ -12,7 +12,11 @@ namespace WarGame
             DigSite = 2,
             HellLake = 3,
             Lake = 4,
-            Born = 5
+            Born = 5,
+            Fire1 = 6,
+            Fire2 = 7,
+            Fire3 = 8,
+            Fire4 = 9
         }
 
         //Unity∂‘œÛ±Í«©
