@@ -13,6 +13,9 @@ namespace WarGame.UI
         private GTextField _desc;
         private Enum.LevelType _levelType;
         private GObject _lock;
+        private Controller _showBtnC;
+        private GButton _goOnBtn;
+        private GButton _restartBtn;
 
         public MapMark(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -20,7 +23,13 @@ namespace WarGame.UI
             _desc = GetUIChild<GTextField>("desc");
             _typeC = GetController("type");
             _lock = GetUIChild<GObject>("lock");
+            _showBtnC = GetController("showBtn");
+            _goOnBtn = GetUIChild<GButton>("goOnBtn");
+            _goOnBtn.onClick.Add(OnClickGoOn);
+            _restartBtn = GetUIChild<GButton>("restartBtn");
+            _restartBtn.onClick.Add(OnClickRestart);
             _gCom.onClick.Add(OnClick);
+            Stage.inst.onTouchBegin.Add(OnTouchBegin);
         }
 
         public void Init(int levelID, bool isOpen, Enum.LevelType type, string name, string desc)
@@ -35,7 +44,7 @@ namespace WarGame.UI
 
         private void OnClick()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Map_Open_Event, new object[] { _levelID });
+            _showBtnC.SetSelectedIndex(1);
         }
 
         public void SetGrayed(bool grayed)
@@ -56,6 +65,36 @@ namespace WarGame.UI
             {
                 SetVisible(lod == 0);
             }
+        }
+
+        private void OnClickGoOn()
+        {
+            _showBtnC.SetSelectedIndex(0);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Map_Open_Event, new object[] { _levelID, false});
+        }
+
+        private void OnClickRestart()
+        {
+            _showBtnC.SetSelectedIndex(0);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Map_Open_Event, new object[] { _levelID, true});
+        }
+
+        private void OnTouchBegin()
+        {
+            bool isTouch = false;
+            var touchTarget = Stage.inst.touchTarget;
+            while (null != touchTarget)
+            {
+                if (touchTarget == GCom.displayObject)
+                {
+                    isTouch = true;
+                    break;
+                }
+                touchTarget = touchTarget.parent;
+            }
+
+            if (!isTouch)
+                _showBtnC.SetSelectedIndex(0);
         }
     }
 }

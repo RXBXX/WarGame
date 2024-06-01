@@ -20,5 +20,5 @@ namespace WarGame
             this.name = name;
             this.desc = desc;
         }
-    }
+    }  
 }

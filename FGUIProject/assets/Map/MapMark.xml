@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="86,49" pivot="0.5,0.5" extention="Button">
-  <controller name="type" pages="0,Main,1,Branch" selected="1"/>
+  <controller name="type" pages="0,Main,1,Branch" selected="0"/>
+  <controller name="showBtn" pages="0,,1," selected="0"/>
   <displayList>
     <image id="n5_b0z0" name="n5" src="b0z0e" fileName="Images/BG_01.png" pkg="hx02grrp" xy="43,24" pivot="0.5,0.5" anchor="true" size="108,71" alpha="0.7" color="#000000">
       <gearDisplay controller="type" pages="0"/>
@@ -9,13 +10,21 @@
       <gearDisplay controller="type" pages="1"/>
     </image>
     <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="3,9" size="16,29" group="n4_b0z0"/>
-    <text id="n0_hctw" name="title" xy="52,24" pivot="0.5,0.5" anchor="true" size="57,34" group="n4_b0z0" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="2" strokeColor="#5c8799" strokeSize="2" text="Mark">
+    <text id="n0_hctw" name="title" xy="52,24" pivot="0.5,0.5" anchor="true" size="57,34" group="n4_b0z0" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" letterSpacing="2" strokeColor="#5c8799" strokeSize="2" text="Mark">
       <gearColor controller="type" pages="0,1" values="#e2ba2a,#5c8799|#ffffff,#5c8799"/>
     </text>
     <group id="n4_b0z0" name="n4" xy="3,7" size="78,34" advanced="true" layout="hz" colGap="5" excludeInvisibles="true">
       <relation target="" sidePair="center-center,middle-middle"/>
     </group>
-    <text id="n1_b0z0" name="desc" xy="43,6" pivot="0.5,1" anchor="true" size="181,27" font="ui://hd0z4dz5omu90" fontSize="18" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="11111111111111111111111"/>
+    <text id="n1_b0z0" name="desc" xy="43,6" pivot="0.5,1" anchor="true" size="179,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" autoClearText="true" text="11111111111111111111111"/>
+    <component id="n7_gy0s" name="goOnBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="-13,24" pivot="1,0.5" anchor="true" scale="0.3,0.3">
+      <gearDisplay controller="showBtn" pages="1"/>
+      <Button title="GO ON"/>
+    </component>
+    <component id="n9_gy0s" name="restartBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="101,24" pivot="0,0.5" anchor="true" scale="0.3,0.3">
+      <gearDisplay controller="showBtn" pages="1"/>
+      <Button title="Restart"/>
+    </component>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

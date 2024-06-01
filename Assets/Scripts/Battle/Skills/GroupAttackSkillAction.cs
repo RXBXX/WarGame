@@ -9,6 +9,7 @@ namespace WarGame
         private int _chainMatID;
         private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
         private List<int> _targets = new List<int>();
+        private float _hurt;
 
         public GroupAttackSkillAction(int id, int initiatorID) : base(id, initiatorID)
         {
@@ -119,13 +120,11 @@ namespace WarGame
 
             if (targetID == _targetID)
             {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                var attackPower = initiator.GetAttackPower();
                 foreach (var v in _targets)
                 {
                     if (v != _targetID)
                     {
-                        RoleManager.Instance.GetRole(v).Hit(attackPower * 0.6F);
+                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F);
                     }
                 }
             }
@@ -171,6 +170,7 @@ namespace WarGame
             _chainsDic.Clear();
         }
 
+
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
         {
             if (sender != _initiatorID)
@@ -179,13 +179,33 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(sender);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                var attackPower = initiator.GetAttackPower();
                 var target = RoleManager.Instance.GetRole(_targetID);
-                target.Hit(attackPower);
-                target.AddBuffs(initiator.GetAttackBuffs());
+                var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
+                var rd = Random.Range(0, 1.0f);
+                if (rd < dodgeRatio)
+                {
+                    target.Dodge();
+                }
+                else
+                {
+                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack);
+                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio);
+                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack);
+                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio);
+                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio);
+                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio);
 
-                CameraMgr.Instance.ShakePosition();
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                    var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
+                    var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
+
+                    var physicalHurt = initiatorPhysicalAttack * (1 + initiatorPhysicalAttackRatio) - (1 - initiatorPhysicalPenetrateRatio) * targetPhysicalDefense;
+                    var magicHurt = initiatorMagicAttack * (1 + initiatorMagicAttackRatio) - (1 - initiatorMagicPenetrateRatio) * targetMagicDefense;
+                    target.Hit(physicalHurt + magicHurt);
+                    target.AddBuffs(initiator.GetAttackBuffs());
+                    CameraMgr.Instance.ShakePosition();
+
+                    _hurt = physicalHurt + magicHurt;
+                }
             }
         }
     }

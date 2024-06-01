@@ -39,7 +39,7 @@ namespace WarGame
                     equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
                 }
                 var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
-                levelRoleData.hp = enemyConfig.HP;
+                levelRoleData.HP = enemyConfig.HP;
                 levelRoleData.hexagonID = enemys[i].hexagonID;
                 CreateEnemy(levelRoleData);
             }

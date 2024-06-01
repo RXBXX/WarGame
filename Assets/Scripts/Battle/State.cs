@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace WarGame
 {
@@ -225,6 +226,25 @@ namespace WarGame
         {
             base.End(reverse);
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Cured_End, new object[] { _role.ID });
+        }
+    }
+
+    public class DodgeState : State
+    {
+        public DodgeState(string name, Role role) : base(name, role)
+        {
+        }
+
+        public override void Take()
+        {
+            base.Take();
+            _role.GameObject.transform.DOMove(_role.GetPosition() - _role.GameObject.transform.forward * 0.2F, 0.2F);
+        }
+
+        public override void End(bool reverse)
+        {
+            base.End(reverse);
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dodge_End, new object[] { _role.ID });
         }
     }
 }

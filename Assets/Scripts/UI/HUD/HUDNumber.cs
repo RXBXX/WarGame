@@ -16,9 +16,9 @@ namespace WarGame.UI
             _showT = (Transition)_gCom.GetTransition("show");
         }
 
-        public void Show(float hurt, PlayCompleteCallback callback)
+        public void Show(string str, PlayCompleteCallback callback)
         {
-            _title.text = hurt.ToString();
+            _title.text = str;
             _showT.Play(callback);
         }
     }

@@ -15,6 +15,7 @@ namespace WarGame
         protected override void AddListeners()
         {
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dodge_End, OnDodgeEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
         }
 
@@ -22,6 +23,7 @@ namespace WarGame
         {
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dodge_End, OnDodgeEnd);
         }
 
         public override void Start()
@@ -78,32 +80,31 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(sender);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                var attackPower = initiator.GetAttackPower();
                 var target = RoleManager.Instance.GetRole(_targetID);
-                target.Hit(attackPower);
-                target.AddBuffs(initiator.GetAttackBuffs());
-                CameraMgr.Instance.ShakePosition();
+                var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
+                var rd = Random.Range(0, 1.0f);
+                if (rd < dodgeRatio)
+                {
+                    target.Dodge();
+                }
+                else
+                {
+                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack);
+                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio);
+                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack);
+                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio);
+                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio);
+                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio);
 
-                //var target = RoleManager.Instance.GetRole(_targetID);
-                //var skillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
-                ////判断是攻击还是治疗
-                ////执行攻击或治疗
-                ////如果buff生效，添加buff到目标身上
-                //switch (skillConfig.AttrType)
-                //{
-                //    case Enum.AttrType.PhysicalAttack:
-                //        var attackPower = owner.GetAttackPower();
-                //        DebugManager.Instance.Log("AttackPower:" + attackPower);
-                //        target.Hit(attackPower);
-                //        target.AddBuffs(owner.GetAttackBuffs());
-                //        CameraMgr.Instance.ShakePosition();
-                //        break;
-                //    case Enum.AttrType.Cure:
-                //        var curePower = owner.GetCurePower();
-                //        target.Cured(curePower);
-                //        break;
-                //}
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                    var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
+                    var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
+
+                    var physicalHurt = initiatorPhysicalAttack * (1 + initiatorPhysicalAttackRatio) - (1 - initiatorPhysicalPenetrateRatio) * targetPhysicalDefense;
+                    var magicHurt = initiatorMagicAttack * (1 + initiatorMagicAttackRatio) - (1 - initiatorMagicPenetrateRatio) * targetMagicDefense;
+                    target.Hit(physicalHurt + magicHurt);
+                    target.AddBuffs(initiator.GetAttackBuffs());
+                    CameraMgr.Instance.ShakePosition();
+                }
             }
         }
 
@@ -213,6 +214,20 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
+        protected virtual void OnDodgeEnd(object[] args)
+        {
+            DebugManager.Instance.Log("OnDodgeEnd");
+            var targetID = (int)args[0];
+            if (targetID != _targetID)
+                return;
+
+            if (null != _coroutine)
+                return;
+
+            _coroutine = Over(1.5F);
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+        }
+
         protected virtual IEnumerator OpenBattleArena(Role initiator, Role target)
         {
             var roles = RoleManager.Instance.GetAllRoles();
@@ -272,33 +287,27 @@ namespace WarGame
 
         public override void ClickHero(int id)
         {
-            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-            DebugManager.Instance.Log("22222");
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
 
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-            DebugManager.Instance.Log("33333");
             _targetID = id;
             Play();
         }
 
         public override void ClickEnemy(int id)
         {
-            DebugManager.Instance.Log("11111");
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-            DebugManager.Instance.Log("22222");
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons )
                 return;
-            DebugManager.Instance.Log("33333");
             _targetID = id;
             Play();
         }

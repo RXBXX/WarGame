@@ -75,9 +75,8 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                var attackPower = initiator.GetAttackPower();
                 var target = RoleManager.Instance.GetRole(_targetID);
-                target.Cured(attackPower);
+                target.Cured(initiator.GetAttribute(Enum.AttrType.Cure));
                 target.AddBuffs(initiator.GetAttackBuffs());
                 //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }

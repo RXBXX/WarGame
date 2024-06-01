@@ -191,6 +191,7 @@ namespace WarGame
             _stateDic.Add("Dead", new DeadState("Dead", this));
             _stateDic.Add("Cured", new CuredState("Cured", this));
             _stateDic.Add("Cure", new CureState("Cure", this));
+            _stateDic.Add("Dodge", new DodgeState("Dodge", this));
             _curAnimState = "Idle";
             _stateDic[_curAnimState].Start();
         }
@@ -199,7 +200,7 @@ namespace WarGame
         {
             _hpHUDKey = _id + "_HP";
             var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
-            hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
+            hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
             hud.SetFollowing(_isFollowing);
         }
 
@@ -250,7 +251,7 @@ namespace WarGame
 
         public virtual bool IsDead()
         {
-            return _data.GetAttribute(Enum.AttrType.HP) <= 0;
+            return GetHP() <= 0;
         }
 
         public virtual void UpdatePosition(Vector3 pos)
@@ -305,9 +306,8 @@ namespace WarGame
             }
         }
 
-        public virtual void Hit(float attackPower)
+        public virtual void Hit(float deltaHP)
         {
-            //var prefabPath = "Assets/JMO Assets/Cartoon FX(legacy)/CFX Prefabs/Hits/CFX_Hit_A Red+RandomText.prefab";
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
             AssetMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab) =>
             {
@@ -317,7 +317,7 @@ namespace WarGame
 
             EnterState("Attacked");
 
-            UpdateHP(_data.GetAttribute(Enum.AttrType.HP) - attackPower + GetDefensePower());
+            UpdateHP(-deltaHP);
         }
 
         public virtual void Cure()
@@ -325,16 +325,23 @@ namespace WarGame
             EnterState("Cure");
         }
 
-        public virtual void Cured(float curePower)
+        public virtual void Cured(float deltaHP)
         {
             EnterState("Cured");
 
-            UpdateHP(_data.GetAttribute(Enum.AttrType.HP) + curePower);
+            UpdateHP(deltaHP);
         }
 
         public virtual float GetCurePower()
         {
-            return _data.GetAttribute(Enum.AttrType.Cure);
+            return GetAttribute(Enum.AttrType.Cure);
+        }
+
+        public virtual void Dodge()
+        {
+            DebugManager.Instance.Log("Dodge");
+            EnterState("Dodge");
+            AddFloatHUD("Miss");
         }
 
         public virtual void Dead()
@@ -380,24 +387,28 @@ namespace WarGame
 
         }
 
-        protected virtual void UpdateHP(float hp)
+        private void AddFloatHUD(string str)
         {
-            var hurt = hp - _data.GetAttribute(Enum.AttrType.HP);
-            _data.UpdateAttr(Enum.AttrType.HP, hp);
-
-            HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
-
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
             var numberHUD = (HUDNumber)HUDManager.Instance.AddHUD("HUD", "HUDNumber", numberID, _gameObject.transform.Find("hudPoint").gameObject);
             _numberHUDList.Add(numberID);
-            numberHUD.Show(hurt, () =>
+            numberHUD.Show(str, () =>
             {
                 HUDManager.Instance.RemoveHUD(numberID);
                 _numberHUDList.Remove(numberID);
             });
+        }
 
-            if (_data.GetAttribute(Enum.AttrType.HP) <= 0)
+        protected virtual void UpdateHP(float deltaHP)
+        {
+            _data.UpdateAttr(Enum.AttrType.HP, deltaHP);
+
+            HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+            hud.UpdateHP(GetHP());
+
+            AddFloatHUD(deltaHP.ToString());
+
+            if (IsDead())
             {
                 Dead();
             }
@@ -405,14 +416,24 @@ namespace WarGame
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _id});
         }
 
+        public float GetHP()
+        {
+            return _data.HP;
+        }
+
+        public float GetRage()
+        {
+            return _data.Rage;
+        }
+
         public virtual float GetMoveDis()
         {
-            return _data.GetAttribute(Enum.AttrType.MoveDis);
+            return GetAttribute(Enum.AttrType.MoveDis);
         }
 
         public virtual float GetAttackDis()
         {
-            return _data.GetAttribute(Enum.AttrType.AttackDis);
+            return GetAttribute(Enum.AttrType.AttackDis);
         }
 
         public float GetAttribute(Enum.AttrType type)
@@ -456,7 +477,6 @@ namespace WarGame
 
         public void NextPath()
         {
-            //DebugManager.Instance.Log(_pathIndex + "_" + _path.Count);
             _pathIndex++;
             _rotation = _gameObject.transform.rotation;
             UpdateHexagonID(_path[_pathIndex]);
@@ -466,16 +486,6 @@ namespace WarGame
                 _pathIndex = 0;
                 MoveEnd();
             }
-        }
-
-        public float GetAttackPower()
-        {
-            return _data.GetAttribute(Enum.AttrType.PhysicalAttack);
-        }
-
-        public float GetDefensePower()
-        {
-            return _data.GetAttribute(Enum.AttrType.PhysicalDefense);
         }
 
         public Vector3 GetPosition()
@@ -573,11 +583,6 @@ namespace WarGame
         {
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.SetVisible(visible);
-        }
-
-        public float GetHP()
-        {
-            return _data.GetAttribute(Enum.AttrType.HP);
         }
 
         public override void HighLight()

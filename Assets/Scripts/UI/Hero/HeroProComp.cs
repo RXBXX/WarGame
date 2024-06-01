@@ -5,6 +5,7 @@ namespace WarGame.UI
 {
     public class HeroProComp : UIBase
     {
+        private int _heroUID;
         private GList _attrList;
         private HeroTalentComp _talentComp;
         private GList _skillList;
@@ -34,14 +35,34 @@ namespace WarGame.UI
 
             _equipComp = GetChild<HeroEquipComp>("equipComp");
             _equipComp.SetVisible(false);
+
+            EventDispatcher.Instance.AddListener(Enum.EventType.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
         }
 
         public void UpdateComp(int UID)
         {
+            _heroUID = UID;
+
             _attrsData.Clear();
             _skillsData.Clear();
 
+            UpdateAttrList();
+
             var role = DatasMgr.Instance.GetRoleData(UID);
+            _skillsData.Add(role.GetConfig().CommonSkill);
+            _skillsData.Add(role.GetConfig().SpecialSkill);
+            _skillList.numItems = _skillsData.Count;
+            _skillList.ResizeToFit();
+
+            _equipComp.UpdateComp(UID);
+
+            _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
+        }
+
+        private void UpdateAttrList()
+        {
+            _attrsData.Clear();
+            var role = DatasMgr.Instance.GetRoleData(_heroUID);
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
@@ -52,15 +73,6 @@ namespace WarGame.UI
             });
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();
-
-            _skillsData.Add(role.GetConfig().CommonSkill);
-            _skillsData.Add(role.GetConfig().SpecialSkill);
-            _skillList.numItems = _skillsData.Count;
-            _skillList.ResizeToFit();
-
-            _equipComp.UpdateComp(UID);
-
-            _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
         }
 
         private void OnClickTalent(params object[] args)
@@ -101,8 +113,20 @@ namespace WarGame.UI
             _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
         }
 
+
+        private void OnHeroTalentActiveS2C(params object[] args)
+        {
+            if (_heroUID != (int)args[0])
+                return;
+            _talentComp.ActiveTalent((int)args[1]);
+
+            UpdateAttrList();
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+
             foreach (var v in _attrItemsDic)
                 v.Value.Dispose();
             _attrItemsDic.Clear();

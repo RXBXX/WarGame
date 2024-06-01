@@ -88,7 +88,7 @@ namespace WarGame.UI
                 TipsMgr.Instance.Add("关卡没有开启！");
                 return;
             }
-            SceneMgr.Instance.OpenBattleField(levelID);
+            SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);
         }
 
         public override void Dispose(bool disposeGCom = false)

@@ -23,7 +23,7 @@ namespace WarGame
         private LevelData _levelData = null;
         private int _battleActionID = -1;
 
-        public BattleField(int levelID)
+        public BattleField(int levelID, bool restart)
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
 
@@ -45,7 +45,7 @@ namespace WarGame
             MapManager.Instance.CreateMap(levelPlugin.hexagons);
 
             var heroDatas = DatasMgr.Instance.GetAllRoles();
-            if (_levelData.heros.Count <= 0)
+            if (_levelData.heros.Count <= 0 || restart)
             {
                 var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
                 var index = 0;
@@ -67,7 +67,7 @@ namespace WarGame
                         equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
                     }
                     var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                    levelRoleData.hp = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+                    levelRoleData.HP = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
                     levelRoleData.hexagonID = p;
                     RoleManager.Instance.CreateHero(levelRoleData);
                     _levelData.heros.Add(levelRoleData);
@@ -83,7 +83,7 @@ namespace WarGame
                 }
             }
 
-            if (_levelData.enemys.Count <= 0)
+            if (_levelData.enemys.Count <= 0 || restart)
             {
                 for (int i = 0; i < levelPlugin.enemys.Length; i++)
                 {
@@ -97,7 +97,7 @@ namespace WarGame
                     }
 
                     var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
-                    levelRoleData.hp = enemyConfig.HP;
+                    levelRoleData.HP = enemyConfig.HP;
                     levelRoleData.hexagonID = levelPlugin.enemys[i].hexagonID;
                     RoleManager.Instance.CreateEnemy(levelRoleData);
                     _levelData.enemys.Add(levelRoleData);
@@ -328,7 +328,6 @@ namespace WarGame
 
         private void OnFinishAction(params object[] args)
         {
-            DebugManager.Instance.Log("OnFinishAction");
             DisposeAction((int)args[0]);
 
             if ((int)args[0] == 0)

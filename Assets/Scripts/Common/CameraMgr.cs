@@ -227,7 +227,6 @@ namespace WarGame
 
         public void Unlock()
         {
-            DebugManager.Instance.Log(_isLocking);
             _isLocking = false;
         }
 

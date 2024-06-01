@@ -65,10 +65,10 @@ namespace WarGame
             _battleField.Click(obj);
         }
 
-        public void OpenBattleField(int levelID)
+        public void OpenBattleField(int levelID, bool restart)
         {
             _levelID = levelID;
-            OpenScene("Assets/Scenes/MapScene.unity");
+            OpenScene("Assets/Scenes/MapScene.unity", restart);
         }
 
         //private void SceneLoaded(Scene scene, LoadSceneMode mode)
@@ -130,7 +130,7 @@ namespace WarGame
             OpenScene("Assets/Scenes/TransitionScene.unity");
         }
 
-        public void OpenScene(string scene)
+        public void OpenScene(string scene, bool restart = false)
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
 
@@ -140,7 +140,7 @@ namespace WarGame
                 switch (name)
                 {
                     case "MapScene":
-                        _battleField = new BattleField(_levelID);
+                        _battleField = new BattleField(_levelID, restart);
                         break;
                     case "TransitionScene":
                         UIManager.Instance.OpenPanel("Map", "MapPanel");

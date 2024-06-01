@@ -1166,6 +1166,10 @@ namespace FairyGUI
                 for (int i = 0; i < cnt; ++i)
                 {
                     GObject child = _children[i];
+                    //滚动组件，忽略不显示的子对象的占位
+                    if (!child.visible)
+                        continue;
+
                     tmp = child.x;
                     if (tmp < ax)
                         ax = tmp;

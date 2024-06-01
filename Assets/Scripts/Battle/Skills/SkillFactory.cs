@@ -8,15 +8,15 @@ namespace WarGame
     {
         public SkillAction GetSkill(int skillID, int initiatorID)
         {
-            switch((Enum.SkillType)skillID)
+            switch((Enum.Skill)skillID)
             {
-                case Enum.SkillType.Attack:
+                case Enum.Skill.Attack:
                     return new AttackSkillAction(skillID, initiatorID);
-                case Enum.SkillType.Cure:
+                case Enum.Skill.Cure:
                     return new CureSkillAction(skillID, initiatorID);
-                case Enum.SkillType.AttackRetreat:
+                case Enum.Skill.AttackRetreat:
                     return new AttackRetreatSkillAction(skillID, initiatorID);
-                case Enum.SkillType.GroupAttack:
+                case Enum.Skill.GroupAttack:
                     return new GroupAttackSkillAction(skillID, initiatorID);
             }
             return null;

@@ -8,12 +8,16 @@ namespace WarGame.UI
     {
         private int _heroUID = 0;
         private int _talentID = 0;
+        private GTextField _title;
+        private GTextField _desc;
         private GList _attrList;
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
 
         public HeroTalentInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
+            _title = GetUIChild<GTextField>("title");
+            _desc = GetUIChild<GTextField>("desc");
             _attrList = GetUIChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
 
@@ -34,19 +38,22 @@ namespace WarGame.UI
 
         private void OnShowTalent(params object[] args)
         {
-            _attrsData.Clear();
-
             _heroUID = (int)args[0];
             _talentID = (int)args[1];
             var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _talentID);
+
+            _title.text = talentConfig.Name;
+            _desc.text = talentConfig.Desc;
+
+            _attrsData.Clear();
             foreach (var v in talentConfig.Attrs)
             {
                 _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name, v.value.ToString()));
             }
             _attrList.numItems = _attrsData.Count;
+            _attrList.ResizeToFit();
 
             SetPosition((Vector2)args[2]);
-
             SetVisible(true);
         }
 

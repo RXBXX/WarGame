@@ -31,10 +31,8 @@ namespace WarGame
 
         public override void ClickHexagon(string id)
         {
-            DebugManager.Instance.Log("111111111111");
             if (1 != _stage)
                 return;
-            DebugManager.Instance.Log("2222222222");
             var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var end = id;
 
@@ -42,7 +40,6 @@ namespace WarGame
 
             if (null == hexagons || hexagons.Count <= 0)
                 return;
-            DebugManager.Instance.Log("3333333333");
             var cost = 0.0f;
             for (int i = 1; i < hexagons.Count; i++)
             {
@@ -51,7 +48,6 @@ namespace WarGame
             var hero = RoleManager.Instance.GetRole(_initiatorID);
             if (cost > hero.GetMoveDis())
                 return;
-            DebugManager.Instance.Log("444444444");
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.Moving);
 

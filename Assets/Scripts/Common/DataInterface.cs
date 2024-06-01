@@ -91,7 +91,7 @@ namespace WarGame
         public Dictionary<int, int> skillDic = new Dictionary<int, int>();
         public Dictionary<int, int> talentDic = new Dictionary<int, int>();
 
-        public RoleData(int UID, int configId, int level, Dictionary<int, int> talentDic = null,  Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
+        public RoleData(int UID, int configId, int level, Dictionary<int, int> talentDic = null, Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
         {
             this.UID = UID;
             this.configId = configId;
@@ -168,7 +168,10 @@ namespace WarGame
                 }
             }
 
-            return value;
+            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+                return value / 100.0f;
+            else
+                return value;
         }
 
         public RoleData Clone()
@@ -193,10 +196,11 @@ namespace WarGame
     [Serializable]
     public class LevelRoleData : RoleData
     {
-        public float hp;
+        public float HP;
+        public float Rage;
         public string hexagonID;
         public List<Pair> buffs = new List<Pair>();
-        public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
+        //public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
 
@@ -208,44 +212,44 @@ namespace WarGame
             this.equipDataDic = equipDataDic;
             this.state = state;
 
-            InitAttrs();
+            //InitAttrs();
         }
 
-        /// <summary>
-        /// 初始化所有属性
-        /// </summary>
-        private void InitAttrs()
-        {
-            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
-            {
-                var attrType = (Enum.AttrType)config.ID;
+        ///// <summary>
+        ///// 初始化所有属性
+        ///// </summary>
+        //private void InitAttrs()
+        //{
+        //    ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+        //    {
+        //        var attrType = (Enum.AttrType)config.ID;
 
-                var value = base.GetAttribute(attrType);
-                if (null != equipDataDic)
-                {
-                    foreach (var v in equipDataDic)
-                    {
-                        var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
-                        if (null != equipConfig.Attrs)
-                        {
-                            foreach (var v1 in equipConfig.Attrs)
-                            {
-                                if ((Enum.AttrType)v1.id == attrType)
-                                {
-                                    value += v1.value;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-                attrDic[attrType] = value;
-            });
-        }
+        //        var value = base.GetAttribute(attrType);
+        //        if (null != equipDataDic)
+        //        {
+        //            foreach (var v in equipDataDic)
+        //            {
+        //                var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
+        //                if (null != equipConfig.Attrs)
+        //                {
+        //                    foreach (var v1 in equipConfig.Attrs)
+        //                    {
+        //                        if ((Enum.AttrType)v1.id == attrType)
+        //                        {
+        //                            value += v1.value;
+        //                            break;
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        attrDic[attrType] = value;
+        //    });
+        //}
 
         public override float GetAttribute(Enum.AttrType attrType)
         {
-            var value = attrDic[attrType];
+            var value = base.GetAttribute(attrType);
 
             //需要找到所有临时性buff计算
             foreach (var v in buffs)
@@ -272,7 +276,7 @@ namespace WarGame
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
                 var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                UpdateAttr(attrType, attrDic[attrType] + buffConfig.Attr.id);
+                UpdateAttr(attrType, buffConfig.Attr.value);
 
                 if (buffs[i].value - 1 <= 0)
                 {
@@ -285,22 +289,15 @@ namespace WarGame
             }
         }
 
-        public void UpdateAttr(Enum.AttrType type, float value)
+        public void UpdateAttr(Enum.AttrType type, float deltaValue)
         {
             switch (type)
             {
                 case Enum.AttrType.HP:
-                    attrDic[Enum.AttrType.HP] = value;
+                    HP += deltaValue;
                     break;
-                case Enum.AttrType.PhysicalAttack:
-                    break;
-                case Enum.AttrType.Cure:
-                    break;
-                case Enum.AttrType.PhysicalDefense:
-                    break;
-                case Enum.AttrType.MoveDis:
-                    break;
-                case Enum.AttrType.AttackDis:
+                case Enum.AttrType.Rage:
+                    Rage += deltaValue;
                     break;
             }
         }
@@ -315,13 +312,9 @@ namespace WarGame
 
             var clone = new LevelRoleData(this.UID, this.configId, this.level, state, cloneEquipDataDic, new Dictionary<int, int>());
             clone.hexagonID = hexagonID;
-            clone.hp = hp;
+            clone.HP = HP;
+            clone.Rage = Rage;
             clone.state = state;
-
-            var cloneAttrsDic = new Dictionary<Enum.AttrType, float>();
-            foreach (var v in attrDic)
-                cloneAttrsDic.Add(v.Key, v.Value);
-            clone.attrDic = cloneAttrsDic;
 
             var cloneBuffs = new List<Pair>();
             foreach (var v in buffs)

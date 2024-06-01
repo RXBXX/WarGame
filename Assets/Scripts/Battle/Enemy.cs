@@ -23,7 +23,7 @@ namespace WarGame
         {
             _hpHUDKey = _id + "_HP";
             var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 1 });
-            hud.UpdateHP(_data.GetAttribute(Enum.AttrType.HP));
+            hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
         }
 
         protected override void OnStateChanged()

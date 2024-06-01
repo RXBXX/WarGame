@@ -78,6 +78,7 @@ namespace WarGame
         public string Name;
         public string Desc;
         public Enum.TargetType TargetType;
+        public List<Enum.AttrType> Effects;
     }
 
     //装备表
@@ -153,6 +154,10 @@ namespace WarGame
     public class AttrConfig:Config
     {
         public string Name;
+        public int TargetAttr;
+        public Enum.ValueType ValueType;
+        public int OppositeAttr;
+        public Enum.AttrTargetType TargetType;
     }
 
     //Buff表
@@ -235,6 +240,7 @@ namespace WarGame
     {
         public int Group;
         public string Name;
+        public string Desc;
         public List<Pair> Attrs;
         public int LastTalent;
         public int Place;

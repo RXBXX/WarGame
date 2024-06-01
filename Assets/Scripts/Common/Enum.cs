@@ -110,7 +110,7 @@ namespace WarGame
         }
 
         [Serializable]
-        public enum SkillType
+        public enum Skill
         {
             Attack = 10001,
             Cure = 10002,
@@ -131,6 +131,27 @@ namespace WarGame
             MagicDefense = 7,
             MoveDis = 8,//	移动距离
             AttackDis = 9,//	攻击距离
+            DodgeRatio = 10, //闪避率
+            PhysicalPenetrateRatio = 11, //物理穿透
+            MagicPenetrateRatio = 12, //魔法穿透
+            PhysicalAttackRatio = 13, //物理增伤
+            MagicAttackRatio = 14, //魔法增伤
+        }
+
+        //数值类型
+        [Serializable]
+        public enum ValueType
+        {
+            Int = 1,
+            Percentage = 2,
+        }
+
+        //属性作用目标
+        [Serializable]
+        public enum AttrTargetType
+        {
+            Self = 0,
+            Target = 1
         }
 
         //关卡类型
@@ -217,6 +238,7 @@ namespace WarGame
             Save_Data = 41,
             Hero_Show_Attrs = 42,
             Hero_Show_Talent = 43,
+            Fight_Dodge_End = 44,
             HeroTalentActiveS2C = 10001,
         }
     }

@@ -13,7 +13,7 @@ namespace WarGame.UI
         private Vector2 _touchPos;
         private GGraph _touchArena;
         private int[] _roles;
-        private int _roleIndex = 0;
+        private int _roleIndex = -1;
         private Dictionary<int, GameObject> _rolesGO = new Dictionary<int, GameObject>();
         private float _dragingPower = 0.0f;
         private float _rotateSpeed = 50.0f;
@@ -22,28 +22,18 @@ namespace WarGame.UI
         private HeroProComp _proComp;
         private GList _heroList;
         private Dictionary<string, HeroItem> _herosDic = new Dictionary<string, HeroItem>();
+        private GTextField _name;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             GetUIChild<GLoader>("BG").url = "UI/Background/HeroBG";
             _touchArena = (GGraph)_gCom.GetChild("touchArena");
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
-
             _gCom.onTouchBegin.Add(OnTouchBegin);
             _gCom.onTouchMove.Add(OnTouchMove);
             _gCom.onTouchEnd.Add(OnTouchEnd);
-
-            _roles = DatasMgr.Instance.GetAllRoles();
-
             _proComp = GetChild<HeroProComp>("proComp");
-
-            var roleData = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
-            var roleConfig = roleData.GetConfig();
-            string attrDesc = "";
-            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
-            {
-                attrDesc += ((AttrConfig)config).Name + ": +" + roleData.GetAttribute((Enum.AttrType)config.ID) + "\n";
-            });
+            _name = GetUIChild<GTextField>("name");
             GetUIChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
@@ -52,9 +42,11 @@ namespace WarGame.UI
             _heroList = GetUIChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
             _heroList.onClickItem.Add(ClickHeroItem);
-            _heroList.numItems = _roles.Length;
 
-            SelectHero(_roles[_roleIndex]);
+            _roles = DatasMgr.Instance.GetAllRoles();
+            _heroList.numItems = _roles.Length;
+            _heroList.selectedIndex = 0;
+            SelectHero(0);
 
             //LoadHero(_roles[_roleIndex]);
         }
@@ -256,7 +248,7 @@ namespace WarGame.UI
             if (index == _roleIndex)
                 return;
 
-            if (_rolesGO.ContainsKey(_roles[_roleIndex]))
+            if (_roleIndex >= 0 && _rolesGO.ContainsKey(_roles[_roleIndex]))
             {
                 Jump(_roles[_roleIndex], _rolesGO[_roles[_roleIndex]], -2);
             }
@@ -264,6 +256,8 @@ namespace WarGame.UI
             _roleIndex = index;
             LoadHero(_roles[_roleIndex]);
 
+            var role = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
+            _name.text = role.GetConfig().Name;
             _proComp.UpdateComp(_roles[_roleIndex]);
         }
 

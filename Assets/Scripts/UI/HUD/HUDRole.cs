@@ -20,11 +20,8 @@ namespace WarGame.UI
             _hp.max = 100;
             _hp.value = 100;
             _rage = (GProgressBar)_gCom.GetChild("rage");
-            _rage.max = 100;
-            _rage.value = 0;
             _stateC = GetController("state");
             _followingC = GetController("following");
-
             _buffList = (GList)_gCom.GetChild("buffList");
             _buffList.itemRenderer = OnItemRenderer;
 
@@ -32,6 +29,15 @@ namespace WarGame.UI
 
             if (null != args[1])
                 _hp.GetController("style").SetSelectedIndex((int)args[1]);
+        }
+
+        public void Init(float HP, float totalHP, float rage, float totalRage)
+        {
+            _rage.max = totalHP;
+            _rage.value = HP;
+
+            _rage.max = totalRage;
+            _rage.value = rage;
         }
 
         public override void Update(float deltaTime)
