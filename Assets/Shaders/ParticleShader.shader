@@ -16,7 +16,7 @@ Shader "Custom/ParticleShader"
 				"PreviewType" = "Plane"
 			}
 
-			Blend SrcAlpha OneMinusSrcAlpha // 设置混合模式
+			Blend One One // 设置混合模式
 			ColorMask RGBA
 			Cull Off
 			Lighting Off
@@ -56,7 +56,8 @@ Shader "Custom/ParticleShader"
 
 				fixed4 frag(v2f i) : SV_Target
 				{
-					fixed4 col = tex2D(_MainTex, i.uv) * _Color;
+					fixed4 col = tex2D(_MainTex, i.uv);
+				    col.rgb *= _Color.rgb;
 					return col;
 				}
 				ENDCG

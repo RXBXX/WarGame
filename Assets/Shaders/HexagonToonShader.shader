@@ -61,7 +61,7 @@ Shader "Custom/HexagonToonShader"
 				fixed3 worldNormal = normalize(i.worldNormal);
 				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
 
-				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz *10;
 
 				fixed diffuse = max(0, dot(worldNormal, worldLightDir));
 
