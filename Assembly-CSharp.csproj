@@ -60,7 +60,6 @@
     <Analyzer Include="C:\Unity\2022.3.22f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Test\NewBehaviourScript1.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearAnimation.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader3D.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearIcon.cs" />
@@ -138,6 +137,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ToolSet.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RegularPolygonMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearXY.cs" />
+    <Compile Include="Assets\Scripts\Map\BonfireBehaviour.cs" />
     <Compile Include="Assets\Scripts\Battle\Battlefield.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearColor.cs" />
@@ -339,6 +339,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParser.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\AttackSkillAction.cs" />
+    <Compile Include="Assets\Scripts\Map\Bonfire.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
@@ -423,7 +424,6 @@
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
-    <None Include="Assets\Test\NewSurfaceShader.shader" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader 1.shader" />
     <None Include="Assets\Shaders\LineShader_V2.shader" />
     <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />

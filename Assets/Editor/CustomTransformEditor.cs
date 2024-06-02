@@ -120,6 +120,7 @@ namespace WarGame
             }
 
             Transform transform = (Transform)target;
+            //Debug.Log(target.name);
             for (int i = 0; i < customAxes.Length; i++)
             {
                 Handles.color = GetAxisColor(i);
@@ -145,6 +146,7 @@ namespace WarGame
                 switch (guiEvent.type)
                 {
                     case EventType.MouseDown:
+                        Debug.Log("MouseDown");
                         if (guiEvent.button == 0 && HandleUtility.DistanceToLine(endPosition, startPosition) < 10f)
                         {
                             dragingAxis = i;
@@ -186,8 +188,6 @@ namespace WarGame
                             if (posDirty)
                             {
                                 transform.position = newPos;
-                                //mousePos = guiEvent.mousePosition;
-                                //tempPos = newPos;
                             }
 
                             HandleUtility.Repaint();
@@ -195,10 +195,13 @@ namespace WarGame
                         }
                         break;
                     case EventType.MouseUp:
-                        dragingAxis = -1;
-                        mousePos = Vector2.zero;
-                        GUIUtility.hotControl = 0;
-                        guiEvent.Use();
+                        if (dragingAxis >= 0)
+                        {
+                            dragingAxis = -1;
+                            mousePos = Vector2.zero;
+                            GUIUtility.hotControl = 0;
+                            guiEvent.Use();
+                        }
                         break;
                 }
             }
@@ -243,6 +246,16 @@ namespace WarGame
                 if (enemys[i].transform.parent != roleRootObj)
                 {
                     enemys[i].transform.SetParent(roleRootObj.transform);
+                }
+            }
+
+            var fireRootObj = GameObject.Find("BonfireRoot");
+            GameObject[] bonfires = GameObject.FindGameObjectsWithTag(Enum.Tag.Bonfire.ToString());
+            for (int i = 0; i < bonfires.Length; i++)
+            {
+                if (bonfires[i].transform.parent != fireRootObj)
+                {
+                    bonfires[i].transform.SetParent(fireRootObj.transform);
                 }
             }
         }

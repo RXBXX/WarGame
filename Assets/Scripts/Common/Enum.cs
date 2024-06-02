@@ -25,6 +25,7 @@ namespace WarGame
             Hexagon = 0,
             Hero = 1,
             Enemy = 2,
+            Bonfire = 3,
         }
 
         //UI²ã¼¶

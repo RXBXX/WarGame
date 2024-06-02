@@ -332,6 +332,7 @@ namespace WarGame
     public class LevelData
     {
         public int configId;
+        public bool isEnter;
         public bool isRead;
         public bool isReady;
         public bool pass;
@@ -343,9 +344,20 @@ namespace WarGame
             this.configId = configId;
         }
 
+        public void Clear()
+        {
+            isEnter = false;
+            isRead = false;
+            isReady = false;
+            pass = false;
+            heros.Clear();
+            enemys.Clear();
+    }
+
         public LevelData Clone()
         {
             var clone = new LevelData(configId);
+            clone.isEnter = isEnter;
             clone.isRead = isRead;
             clone.pass = pass;
             clone.isReady = isReady;
@@ -376,13 +388,10 @@ namespace WarGame
         {
             this.title = title;
             this.time = time;
-            var skillDic = new Dictionary<int, int>();
-            skillDic.Add(10001, 1);
-            skillDic.Add(10002, 1);
-            roleDataDic.Add(1, new RoleData(1, 10001, 1));
-            roleDataDic.Add(2, new RoleData(2, 10002, 1));
-            roleDataDic.Add(3, new RoleData(3, 10003, 1));
-            roleDataDic.Add(4, new RoleData(4, 10004, 1));
+            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 1, new RoleData(1, 10001, 1));
+            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 2, new RoleData(2, 10002, 1));
+            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 3, new RoleData(3, 10003, 1));
+            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 4, new RoleData(4, 10004, 1));
 
             equipDataDic.Add(1, new EquipmentData(1, 10001));
             equipDataDic.Add(2, new EquipmentData(2, 10002));

@@ -6,8 +6,8 @@ Shader "Custom/HexagonToonShader"
 		_Outline("Outline", Range(0,1)) = 0.1
 		_OutlineColor("Outline Color", Color) = (0,0,0,0)
 		_HighLight("HighLight", Range(0,1)) = 1
-		_ToonEffect("Toon Effect",range(0,1)) = 0.5//��ͨ���̶ȣ�����Ԫ������Ԫ�Ľ����ߣ�
-		_Steps("Steps of toon",range(0,9)) = 3//ɫ�ײ���
+		_ToonEffect("Toon Effect",range(0,1)) = 0.5
+		_Steps("Steps of toon",range(0,9)) = 3
 	}
 	SubShader
 	{
@@ -74,29 +74,29 @@ Shader "Custom/HexagonToonShader"
 				float toonSpec = floor(specular * toon * 2) / 2;
 				specular = lerp(specular, toonSpec, _ToonEffect);
 
-				fixed shadow = SHADOW_ATTENUATION(i);
+				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 
 				fixed4 col = tex2D(_MainTex, i.uv);
 
-				return fixed4((ambient + (diffuse + specular) * _LightColor0.rgb * shadow) * col, 1.0);
+				return fixed4((ambient + (diffuse + specular) * _LightColor0.rgb * atten) * col, 1.0);
 			}
 			ENDCG
 		}
 		Pass {
 			// Pass for other pixel lights
 			Tags { "LightMode" = "ForwardAdd" }
-
 			Blend One One
-
 			CGPROGRAM
-
 			// Apparently need to add this declaration
-			#pragma multi_compile_fwdadd
-
+			#pragma multi_compile_fwdadd_fullshadows
 			#pragma vertex vert
 			#pragma fragment frag
-
+			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
+
+			// 将着色器编译成多个有阴影和没有阴影的变体
+			//（我们还不关心任何光照贴图，所以跳过这些变体）
+			// 阴影 helper 函数和宏
 			#include "AutoLight.cginc"
 
 			float _Steps;
@@ -111,16 +111,16 @@ Shader "Custom/HexagonToonShader"
 				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD0;
 				float3 worldPos : TEXCOORD1;
+				LIGHTING_COORDS(2, 3)//包含光照衰减以及阴影
 			};
 
 			v2f vert(a2v v) {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
-
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
-
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-
+				// 计算阴影数据
+				TRANSFER_VERTEX_TO_FRAGMENT(o);//包含光照衰减以及阴影
 				return o;
 			}
 
@@ -147,52 +147,60 @@ Shader "Custom/HexagonToonShader"
 				float toonSpec = floor(specular * toon * 2) / 2;
 				specular = lerp(specular, toonSpec, _ToonEffect);
 
-				//判断是否是平行光，处理衰减
-				#ifdef USING_DIRECTIONAL_LIGHT
-					fixed atten = 1.0;
-				#else
-					#if defined (POINT)
-						float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
-						fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-					#elif defined (SPOT)
-						float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
-						fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-					#else
-						fixed atten = 1.0;
-					#endif
-				#endif
+
+				////判断是否是平行光，处理衰减
+				//#ifdef USING_DIRECTIONAL_LIGHT
+				//	fixed atten = 1.0;
+				//#else
+				//	#if defined (POINT)
+				//		float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
+				//		fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				//	#elif defined (SPOT)
+				//		float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
+				//		fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				//	#else
+				//		fixed atten = 1.0;
+				//	#endif
+				//#endif
+
+				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 
 				return fixed4((diffuse + specular) * _LightColor0.rgb * atten, 1.0);
 			}
 
 			ENDCG
 		}
-		Pass
-		{
-			Tags {"LightMode" = "ShadowCaster"}
-
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
-			#pragma multi_compile_shadowcaster
-			#include "UnityCG.cginc"
-
-			struct v2f {
-				V2F_SHADOW_CASTER;
-			};
-
-			v2f vert(appdata_base v)
+			Pass//产生阴影的通道(物体透明也产生阴影)
 			{
-				v2f o;
-				TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
-				return o;
-			}
+				Tags { "LightMode" = "ShadowCaster" }
 
-			float4 frag(v2f i) : SV_Target
-			{
-				SHADOW_CASTER_FRAGMENT(i)
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma fragment frag
+				#pragma target 2.0
+				#pragma multi_compile_shadowcaster
+				#pragma multi_compile_instancing // allow instanced shadow pass for most of the shaders
+				#include "UnityCG.cginc"
+
+				struct v2f {
+					V2F_SHADOW_CASTER;
+					UNITY_VERTEX_OUTPUT_STEREO
+				};
+
+				v2f vert(appdata_base v)
+				{
+					v2f o;
+					UNITY_SETUP_INSTANCE_ID(v);
+					UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+					TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+					return o;
+				}
+
+				float4 frag(v2f i) : SV_Target
+				{
+					SHADOW_CASTER_FRAGMENT(i)
+				}
+				ENDCG
 			}
-			ENDCG
-		}
 	}
 }

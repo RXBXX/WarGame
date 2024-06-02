@@ -9,6 +9,18 @@ namespace WarGame
         private Dictionary<string, GameData> _dataDic;
         private string _curData;
         private string _path = Application.dataPath + "/Datas/GameData.json";
+        private int _heroStartUID = 10000;
+        private int _enemyStartUID = 20000;
+
+        public int HeroStartUID
+        {
+            get { return _heroStartUID; }
+        }
+
+        public int EnemyStartUID
+        {
+            get { return _enemyStartUID; }
+        }
 
         public override bool Init()
         {

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Bonfires
+  m_EditorClassIdentifier: 
+  m_GroupName: Bonfires
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3ab77162dbd52414fa5b9faf4acb9aa4
+  m_SerializeEntries:
+  - m_GUID: d2feef44cc7bafc40b9e0ccb378d52ca
+    m_Address: Assets/Prefabs/Fires/Blue-FireWood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94f9e8b0f63bbe6458e6420de94dcf78
+    m_Address: Assets/Prefabs/Fires/Green-FireWood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f6a700f975f0db45a84508ac66d2d97
+    m_Address: Assets/Prefabs/Fires/Pink-FireWood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9fd8ef14a38cc9468b0eaf7cad6c694
+    m_Address: Assets/Prefabs/Fires/Purple-FireWood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 321228204f454e6428d15bdc6850fe66
+    m_Address: Assets/Prefabs/Fires/Yellow-FireWood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8a98b1b38538b9a4a956e890e5d31280, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8f2bbd6c114c0f64fa15048cd372a2d0, type: 2}
+    - {fileID: 11400000, guid: f6f18a88e87dd7a4f90bbd3ccd741b65, type: 2}

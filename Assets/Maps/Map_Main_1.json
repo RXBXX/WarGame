@@ -754,31 +754,6 @@
       }
     },
     {
-      "ID": "1_0_3",
-      "configId": 9,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.948683262,
-          "normalized": {
-            "x": 0.3162278,
-            "y": 0.0,
-            "z": 0.9486833,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 3.1622777,
-        "sqrMagnitude": 10.0
-      }
-    },
-    {
       "ID": "1_0_4",
       "configId": 6,
       "coor": {
@@ -1526,6 +1501,31 @@
       }
     },
     {
+      "ID": "1_0_3",
+      "configId": 6,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.316227764,
+          "y": 0.0,
+          "z": 0.948683262,
+          "normalized": {
+            "x": 0.3162278,
+            "y": 0.0,
+            "z": 0.9486833,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 3.1622777,
+        "sqrMagnitude": 10.0
+      }
+    },
+    {
       "ID": "2_0_3",
       "configId": 6,
       "coor": {
@@ -2246,7 +2246,7 @@
     },
     {
       "ID": "3_0_1",
-      "configId": 9,
+      "configId": 6,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -3061,7 +3061,7 @@
     },
     {
       "ID": "4_0_3",
-      "configId": 9,
+      "configId": 6,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -3969,24 +3969,6 @@
       }
     },
     {
-      "ID": "5_0_11",
-      "configId": 8,
-      "coor": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.413802952,
-          "y": 0.0,
-          "z": 0.9103665,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 12.083046,
-        "sqrMagnitude": 146.0
-      }
-    },
-    {
       "ID": "5_0_12",
       "configId": 6,
       "coor": {
@@ -4683,49 +4665,6 @@
       }
     },
     {
-      "ID": "6_0_6",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 6.0,
-        "normalized": {
-          "x": 0.7071068,
-          "y": 0.0,
-          "z": 0.7071068,
-          "normalized": {
-            "x": 0.707106769,
-            "y": 0.0,
-            "z": 0.707106769,
-            "magnitude": 1.0,
-            "sqrMagnitude": 0.99999994
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 8.485281,
-        "sqrMagnitude": 72.0
-      }
-    },
-    {
-      "ID": "6_0_7",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 7.0,
-        "normalized": {
-          "x": 0.650791347,
-          "y": 0.0,
-          "z": 0.7592566,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 9.219544,
-        "sqrMagnitude": 85.0
-      }
-    },
-    {
       "ID": "6_0_8",
       "configId": 6,
       "coor": {
@@ -4759,106 +4698,6 @@
         },
         "magnitude": 10.8166542,
         "sqrMagnitude": 117.0
-      }
-    },
-    {
-      "ID": "6_0_10",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.5144958,
-          "y": 0.0,
-          "z": 0.857493,
-          "normalized": {
-            "x": 0.51449573,
-            "y": 0.0,
-            "z": 0.857492864,
-            "normalized": {
-              "x": 0.5144958,
-              "y": 0.0,
-              "z": 0.8574929,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.0
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 11.6619034,
-        "sqrMagnitude": 136.0
-      }
-    },
-    {
-      "ID": "6_0_11",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.478852123,
-          "y": 0.0,
-          "z": 0.877895534,
-          "normalized": {
-            "x": 0.478852153,
-            "y": 0.0,
-            "z": 0.8778956,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 12.5299644,
-        "sqrMagnitude": 157.0
-      }
-    },
-    {
-      "ID": "6_0_12",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 12.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 13.4164076,
-        "sqrMagnitude": 180.0
-      }
-    },
-    {
-      "ID": "6_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.419058174,
-          "y": 0.0,
-          "z": 0.907959342,
-          "normalized": {
-            "x": 0.4190582,
-            "y": 0.0,
-            "z": 0.9079594,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 14.3178215,
-        "sqrMagnitude": 205.0
       }
     },
     {
@@ -5462,168 +5301,6 @@
       }
     },
     {
-      "ID": "7_0_5",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.813733459,
-          "y": 0.0,
-          "z": 0.5812382,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 8.602325,
-        "sqrMagnitude": 74.0
-      }
-    },
-    {
-      "ID": "7_0_6",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 6.0,
-        "normalized": {
-          "x": 0.7592566,
-          "y": 0.0,
-          "z": 0.650791347,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 9.219544,
-        "sqrMagnitude": 85.0
-      }
-    },
-    {
-      "ID": "7_0_7",
-      "configId": 9,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 7.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 9.899495,
-        "sqrMagnitude": 98.0
-      }
-    },
-    {
-      "ID": "7_0_8",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 8.0,
-        "normalized": {
-          "x": 0.6585046,
-          "y": 0.0,
-          "z": 0.7525767,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.630146,
-        "sqrMagnitude": 113.0
-      }
-    },
-    {
-      "ID": "7_0_9",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.6139406,
-          "y": 0.0,
-          "z": 0.789352238,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 11.4017544,
-        "sqrMagnitude": 130.0
-      }
-    },
-    {
-      "ID": "7_0_10",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.573462367,
-          "y": 0.0,
-          "z": 0.8192319,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 12.2065554,
-        "sqrMagnitude": 149.0
-      }
-    },
-    {
-      "ID": "7_0_11",
-      "configId": 9,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.5368755,
-          "y": 0.0,
-          "z": 0.8436615,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 13.0384045,
-        "sqrMagnitude": 170.0
-      }
-    },
-    {
-      "ID": "7_0_12",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 12.0,
-        "normalized": {
-          "x": 0.503871,
-          "y": 0.0,
-          "z": 0.863778949,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 13.8924437,
-        "sqrMagnitude": 193.0
-      }
-    },
-    {
-      "ID": "7_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.4740998,
-          "y": 0.0,
-          "z": 0.8804711,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.764823,
-        "sqrMagnitude": 218.0
-      }
-    },
-    {
       "ID": "7_0_14",
       "configId": 6,
       "coor": {
@@ -5782,42 +5459,6 @@
       }
     },
     {
-      "ID": "7_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.303203672,
-          "y": 0.0,
-          "z": 0.9529258,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 23.086792,
-        "sqrMagnitude": 533.0
-      }
-    },
-    {
-      "ID": "7_0_23",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 23.0,
-        "normalized": {
-          "x": 0.291161627,
-          "y": 0.0,
-          "z": 0.9566739,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 24.04163,
-        "sqrMagnitude": 578.0
-      }
-    },
-    {
       "ID": "7_0_24",
       "configId": 6,
       "coor": {
@@ -5941,85 +5582,6 @@
         },
         "magnitude": 30.8058434,
         "sqrMagnitude": 949.0
-      }
-    },
-    {
-      "ID": "7_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.220260873,
-          "y": 0.0,
-          "z": 0.975441039,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 31.7804966,
-        "sqrMagnitude": 1010.0
-      }
-    },
-    {
-      "ID": "7_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.213696867,
-          "y": 0.0,
-          "z": 0.9769,
-          "normalized": {
-            "x": 0.213696882,
-            "y": 0.0,
-            "z": 0.976900041,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 32.75668,
-        "sqrMagnitude": 1073.0
-      }
-    },
-    {
-      "ID": "7_0_33",
-      "configId": 8,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.2075042,
-          "y": 0.0,
-          "z": 0.9782341,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 33.7342567,
-        "sqrMagnitude": 1138.0
-      }
-    },
-    {
-      "ID": "7_0_34",
-      "configId": 8,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 34.0,
-        "normalized": {
-          "x": 0.201652929,
-          "y": 0.0,
-          "z": 0.9794571,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 34.7131081,
-        "sqrMagnitude": 1205.0
       }
     },
     {
@@ -6206,186 +5768,6 @@
       }
     },
     {
-      "ID": "8_0_4",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 8.944272,
-        "sqrMagnitude": 80.0
-      }
-    },
-    {
-      "ID": "8_0_5",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.8479983,
-          "y": 0.0,
-          "z": 0.529998958,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 9.433981,
-        "sqrMagnitude": 89.0
-      }
-    },
-    {
-      "ID": "8_0_6",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 6.0,
-        "normalized": {
-          "x": 0.8,
-          "y": 0.0,
-          "z": 0.6,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.0,
-        "sqrMagnitude": 100.0
-      }
-    },
-    {
-      "ID": "8_0_7",
-      "configId": 9,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 7.0,
-        "normalized": {
-          "x": 0.7525767,
-          "y": 0.0,
-          "z": 0.6585046,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.630146,
-        "sqrMagnitude": 113.0
-      }
-    },
-    {
-      "ID": "8_0_8",
-      "configId": 9,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 8.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 11.3137083,
-        "sqrMagnitude": 128.0
-      }
-    },
-    {
-      "ID": "8_0_9",
-      "configId": 8,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.664363861,
-          "y": 0.0,
-          "z": 0.747409344,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 12.0415945,
-        "sqrMagnitude": 145.0
-      }
-    },
-    {
-      "ID": "8_0_10",
-      "configId": 9,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.624695063,
-          "y": 0.0,
-          "z": 0.780868769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 12.8062487,
-        "sqrMagnitude": 164.0
-      }
-    },
-    {
-      "ID": "8_0_11",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.588171661,
-          "y": 0.0,
-          "z": 0.8087361,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 13.6014709,
-        "sqrMagnitude": 185.0
-      }
-    },
-    {
-      "ID": "8_0_12",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 12.0,
-        "normalized": {
-          "x": 0.5547002,
-          "y": 0.0,
-          "z": 0.8320503,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.422205,
-        "sqrMagnitude": 208.0
-      }
-    },
-    {
-      "ID": "8_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.524097443,
-          "y": 0.0,
-          "z": 0.851658344,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 15.2643375,
-        "sqrMagnitude": 233.0
-      }
-    },
-    {
       "ID": "8_0_14",
       "configId": 6,
       "coor": {
@@ -6458,42 +5840,6 @@
       }
     },
     {
-      "ID": "8_0_18",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 18.0,
-        "normalized": {
-          "x": 0.40613845,
-          "y": 0.0,
-          "z": 0.913811564,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 19.6977158,
-        "sqrMagnitude": 388.0
-      }
-    },
-    {
-      "ID": "8_0_19",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 19.0,
-        "normalized": {
-          "x": 0.388057,
-          "y": 0.0,
-          "z": 0.9216354,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 20.6155281,
-        "sqrMagnitude": 425.0
-      }
-    },
-    {
       "ID": "8_0_20",
       "configId": 9,
       "coor": {
@@ -6509,85 +5855,6 @@
         },
         "magnitude": 21.540659,
         "sqrMagnitude": 464.0
-      }
-    },
-    {
-      "ID": "8_0_21",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 21.0,
-        "normalized": {
-          "x": 0.355995327,
-          "y": 0.0,
-          "z": 0.93448776,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 22.4722042,
-        "sqrMagnitude": 505.0
-      }
-    },
-    {
-      "ID": "8_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.341743082,
-          "y": 0.0,
-          "z": 0.939793468,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 23.409399,
-        "sqrMagnitude": 548.0
-      }
-    },
-    {
-      "ID": "8_0_23",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 23.0,
-        "normalized": {
-          "x": 0.328520626,
-          "y": 0.0,
-          "z": 0.9444968,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 24.3515911,
-        "sqrMagnitude": 593.0
-      }
-    },
-    {
-      "ID": "8_0_24",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 24.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.948683262,
-          "normalized": {
-            "x": 0.3162278,
-            "y": 0.0,
-            "z": 0.9486833,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 25.2982216,
-        "sqrMagnitude": 640.0
       }
     },
     {
@@ -6616,64 +5883,21 @@
       }
     },
     {
-      "ID": "8_0_26",
+      "ID": "8_1_28",
       "configId": 6,
       "coor": {
         "x": 8.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.29408583,
-          "y": 0.0,
-          "z": 0.955778956,
-          "normalized": {
-            "x": 0.29408586,
-            "y": 0.0,
-            "z": 0.955779,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 27.2029419,
-        "sqrMagnitude": 740.0
-      }
-    },
-    {
-      "ID": "8_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.284088343,
-          "y": 0.0,
-          "z": 0.9587981,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 28.1602554,
-        "sqrMagnitude": 793.0
-      }
-    },
-    {
-      "ID": "8_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
+        "y": 1.0,
         "z": 28.0,
         "normalized": {
-          "x": 0.274721116,
-          "y": 0.0,
-          "z": 0.96152395,
+          "x": 0.2745593,
+          "y": 0.03431991,
+          "z": 0.9609575,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 29.12044,
-        "sqrMagnitude": 848.0
+        "magnitude": 29.1376038,
+        "sqrMagnitude": 849.0
       }
     },
     {
@@ -6695,93 +5919,129 @@
       }
     },
     {
-      "ID": "8_0_30",
+      "ID": "9_1_28",
       "configId": 6,
       "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 30.0,
+        "x": 9.0,
+        "y": 1.0,
+        "z": 28.0,
         "normalized": {
-          "x": 0.257662654,
-          "y": 0.0,
-          "z": 0.9662349,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 31.04835,
-        "sqrMagnitude": 964.0
-      }
-    },
-    {
-      "ID": "8_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.249878019,
-          "y": 0.0,
-          "z": 0.968277335,
+          "x": 0.305832446,
+          "y": 0.0339813828,
+          "z": 0.9514787,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 32.01562,
-        "sqrMagnitude": 1025.0
+        "magnitude": 29.4278774,
+        "sqrMagnitude": 866.0
       }
     },
     {
-      "ID": "8_0_32",
+      "ID": "10_2_27",
       "configId": 6,
       "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 32.0,
+        "x": 10.0,
+        "y": 2.0,
+        "z": 27.0,
         "normalized": {
-          "x": 0.242535636,
-          "y": 0.0,
-          "z": 0.970142543,
+          "x": 0.346479446,
+          "y": 0.06929589,
+          "z": 0.935494542,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 32.9848442,
-        "sqrMagnitude": 1088.0
+        "magnitude": 28.86174,
+        "sqrMagnitude": 833.0
       }
     },
     {
-      "ID": "8_0_33",
+      "ID": "11_3_26",
       "configId": 6,
       "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 33.0,
+        "x": 11.0,
+        "y": 3.0,
+        "z": 26.0,
         "normalized": {
-          "x": 0.235600039,
-          "y": 0.0,
-          "z": 0.971850157,
+          "x": 0.387458473,
+          "y": 0.1056705,
+          "z": 0.915810943,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 33.9558525,
-        "sqrMagnitude": 1153.0
+        "magnitude": 28.3901386,
+        "sqrMagnitude": 806.0
       }
     },
     {
-      "ID": "8_0_34",
-      "configId": 8,
+      "ID": "11_2_25",
+      "configId": 6,
       "coor": {
-        "x": 8.0,
-        "y": 0.0,
-        "z": 34.0,
+        "x": 11.0,
+        "y": 2.0,
+        "z": 25.0,
         "normalized": {
-          "x": 0.229039341,
-          "y": 0.0,
-          "z": 0.9734172,
+          "x": 0.4016632,
+          "y": 0.0730296746,
+          "z": 0.912870944,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 27.3861275,
+        "sqrMagnitude": 750.0
+      }
+    },
+    {
+      "ID": "12_2_25",
+      "configId": 6,
+      "coor": {
+        "x": 12.0,
+        "y": 2.0,
+        "z": 25.0,
+        "normalized": {
+          "x": 0.43161,
+          "y": 0.071935,
+          "z": 0.8991875,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 27.8028774,
+        "sqrMagnitude": 773.0
+      }
+    },
+    {
+      "ID": "9_2_27",
+      "configId": 6,
+      "coor": {
+        "x": 9.0,
+        "y": 2.0,
+        "z": 27.0,
+        "normalized": {
+          "x": 0.315449834,
+          "y": 0.0700999647,
+          "z": 0.9463495,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 28.5306854,
+        "sqrMagnitude": 814.0
+      }
+    },
+    {
+      "ID": "10_3_26",
+      "configId": 6,
+      "coor": {
+        "x": 10.0,
+        "y": 3.0,
+        "z": 26.0,
+        "normalized": {
+          "x": 0.356915325,
+          "y": 0.107074596,
+          "z": 0.9279798,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 34.9284973,
-        "sqrMagnitude": 1220.0
+        "magnitude": 28.01785,
+        "sqrMagnitude": 785.0
       }
     },
     {
@@ -6889,103 +6149,6 @@
       }
     },
     {
-      "ID": "9_0_0",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 0.0,
-        "normalized": {
-          "x": 1.0,
-          "y": 0.0,
-          "z": 0.0,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 9.0,
-        "sqrMagnitude": 81.0
-      }
-    },
-    {
-      "ID": "9_0_1",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 1.0,
-        "normalized": {
-          "x": 0.993883669,
-          "y": 0.0,
-          "z": 0.110431522,
-          "normalized": {
-            "x": 0.9938837,
-            "y": 0.0,
-            "z": 0.11043153,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 9.055386,
-        "sqrMagnitude": 82.0
-      }
-    },
-    {
-      "ID": "9_0_2",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.97618705,
-          "y": 0.0,
-          "z": 0.216930464,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 9.219544,
-        "sqrMagnitude": 85.0
-      }
-    },
-    {
-      "ID": "9_0_3",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.9486833,
-          "y": 0.0,
-          "z": 0.316227764,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 9.486833,
-        "sqrMagnitude": 90.0
-      }
-    },
-    {
-      "ID": "9_0_4",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.913811564,
-          "y": 0.0,
-          "z": 0.40613845,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 9.848858,
-        "sqrMagnitude": 97.0
-      }
-    },
-    {
       "ID": "9_0_5",
       "configId": 6,
       "coor": {
@@ -7029,182 +6192,6 @@
       }
     },
     {
-      "ID": "9_0_7",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 7.0,
-        "normalized": {
-          "x": 0.789352238,
-          "y": 0.0,
-          "z": 0.6139406,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 11.4017544,
-        "sqrMagnitude": 130.0
-      }
-    },
-    {
-      "ID": "9_0_8",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 8.0,
-        "normalized": {
-          "x": 0.747409344,
-          "y": 0.0,
-          "z": 0.664363861,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 12.0415945,
-        "sqrMagnitude": 145.0
-      }
-    },
-    {
-      "ID": "9_0_9",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 12.7279224,
-        "sqrMagnitude": 162.0
-      }
-    },
-    {
-      "ID": "9_0_10",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.668964744,
-          "y": 0.0,
-          "z": 0.7432942,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 13.4536238,
-        "sqrMagnitude": 181.0
-      }
-    },
-    {
-      "ID": "9_0_11",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.6332378,
-          "y": 0.0,
-          "z": 0.7739573,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.21267,
-        "sqrMagnitude": 202.0
-      }
-    },
-    {
-      "ID": "9_0_12",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 12.0,
-        "normalized": {
-          "x": 0.6,
-          "y": 0.0,
-          "z": 0.8,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 15.0,
-        "sqrMagnitude": 225.0
-      }
-    },
-    {
-      "ID": "9_0_13",
-      "configId": 8,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.56921,
-          "y": 0.0,
-          "z": 0.8221922,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 15.811388,
-        "sqrMagnitude": 250.0
-      }
-    },
-    {
-      "ID": "9_0_14",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 14.0,
-        "normalized": {
-          "x": 0.5407576,
-          "y": 0.0,
-          "z": 0.841178536,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 16.6433163,
-        "sqrMagnitude": 277.0
-      }
-    },
-    {
-      "ID": "9_0_15",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.5144958,
-          "y": 0.0,
-          "z": 0.857493,
-          "normalized": {
-            "x": 0.51449573,
-            "y": 0.0,
-            "z": 0.857492864,
-            "normalized": {
-              "x": 0.5144958,
-              "y": 0.0,
-              "z": 0.8574929,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.0
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 17.4928551,
-        "sqrMagnitude": 306.0
-      }
-    },
-    {
       "ID": "9_0_16",
       "configId": 6,
       "coor": {
@@ -7220,344 +6207,6 @@
         },
         "magnitude": 18.35756,
         "sqrMagnitude": 337.0
-      }
-    },
-    {
-      "ID": "9_0_17",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 17.0,
-        "normalized": {
-          "x": 0.467887729,
-          "y": 0.0,
-          "z": 0.88378793,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 19.235384,
-        "sqrMagnitude": 370.0
-      }
-    },
-    {
-      "ID": "9_0_18",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 18.0,
-        "normalized": {
-          "x": 0.44721362,
-          "y": 0.0,
-          "z": 0.89442724,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 20.12461,
-        "sqrMagnitude": 405.0
-      }
-    },
-    {
-      "ID": "9_0_19",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 19.0,
-        "normalized": {
-          "x": 0.42808634,
-          "y": 0.0,
-          "z": 0.903737843,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 21.0237961,
-        "sqrMagnitude": 442.0
-      }
-    },
-    {
-      "ID": "9_0_20",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 20.0,
-        "normalized": {
-          "x": 0.410364658,
-          "y": 0.0,
-          "z": 0.911921442,
-          "normalized": {
-            "x": 0.4103647,
-            "y": 0.0,
-            "z": 0.9119215,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 21.9317131,
-        "sqrMagnitude": 481.0
-      }
-    },
-    {
-      "ID": "9_0_21",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 21.0,
-        "normalized": {
-          "x": 0.393919319,
-          "y": 0.0,
-          "z": 0.919145048,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 22.8473186,
-        "sqrMagnitude": 522.0
-      }
-    },
-    {
-      "ID": "9_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.378632873,
-          "y": 0.0,
-          "z": 0.925547,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 23.7697277,
-        "sqrMagnitude": 565.0
-      }
-    },
-    {
-      "ID": "9_0_23",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 23.0,
-        "normalized": {
-          "x": 0.364399374,
-          "y": 0.0,
-          "z": 0.9312428,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 24.6981773,
-        "sqrMagnitude": 610.0
-      }
-    },
-    {
-      "ID": "9_0_24",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 24.0,
-        "normalized": {
-          "x": 0.351123452,
-          "y": 0.0,
-          "z": 0.9363292,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 25.6320114,
-        "sqrMagnitude": 657.0
-      }
-    },
-    {
-      "ID": "9_0_25",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 25.0,
-        "normalized": {
-          "x": 0.3387195,
-          "y": 0.0,
-          "z": 0.940887451,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 26.57066,
-        "sqrMagnitude": 706.0
-      }
-    },
-    {
-      "ID": "9_0_26",
-      "configId": 8,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.327110559,
-          "y": 0.0,
-          "z": 0.944986045,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 27.5136337,
-        "sqrMagnitude": 757.0
-      }
-    },
-    {
-      "ID": "9_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.9486833,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 28.4604988,
-        "sqrMagnitude": 810.0
-      }
-    },
-    {
-      "ID": "9_0_28",
-      "configId": 9,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.306009173,
-          "y": 0.0,
-          "z": 0.9520285,
-          "normalized": {
-            "x": 0.3060092,
-            "y": 0.0,
-            "z": 0.9520286,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 29.4108829,
-        "sqrMagnitude": 865.0
-      }
-    },
-    {
-      "ID": "9_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.2963992,
-          "y": 0.0,
-          "z": 0.9550642,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 30.3644524,
-        "sqrMagnitude": 922.0
-      }
-    },
-    {
-      "ID": "9_0_30",
-      "configId": 8,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.287347883,
-          "y": 0.0,
-          "z": 0.9578263,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 31.320919,
-        "sqrMagnitude": 981.0
-      }
-    },
-    {
-      "ID": "9_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.2788102,
-          "y": 0.0,
-          "z": 0.9603462,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 32.2800255,
-        "sqrMagnitude": 1042.0
-      }
-    },
-    {
-      "ID": "9_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.270745575,
-          "y": 0.0,
-          "z": 0.962650955,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 33.24154,
-        "sqrMagnitude": 1105.0
-      }
-    },
-    {
-      "ID": "9_0_33",
-      "configId": 8,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.2631174,
-          "y": 0.0,
-          "z": 0.9647639,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 34.20526,
-        "sqrMagnitude": 1170.0
-      }
-    },
-    {
-      "ID": "9_0_34",
-      "configId": 6,
-      "coor": {
-        "x": 9.0,
-        "y": 0.0,
-        "z": 34.0,
-        "normalized": {
-          "x": 0.255892575,
-          "y": 0.0,
-          "z": 0.966705263,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 35.17101,
-        "sqrMagnitude": 1237.0
       }
     },
     {
@@ -7658,78 +6307,6 @@
       }
     },
     {
-      "ID": "10_0_0",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 0.0,
-        "normalized": {
-          "x": 1.0,
-          "y": 0.0,
-          "z": 0.0,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.0,
-        "sqrMagnitude": 100.0
-      }
-    },
-    {
-      "ID": "10_0_1",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 1.0,
-        "normalized": {
-          "x": 0.9950372,
-          "y": 0.0,
-          "z": 0.0995037258,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.0498753,
-        "sqrMagnitude": 101.0
-      }
-    },
-    {
-      "ID": "10_0_2",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.9805807,
-          "y": 0.0,
-          "z": 0.196116135,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 10.1980391,
-        "sqrMagnitude": 104.0
-      }
-    },
-    {
-      "ID": "10_0_3",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.957826257,
-          "y": 0.0,
-          "z": 0.287347883,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 10.4403067,
-        "sqrMagnitude": 109.0
-      }
-    },
-    {
       "ID": "10_0_4",
       "configId": 9,
       "coor": {
@@ -7795,218 +6372,6 @@
         },
         "magnitude": 11.6619034,
         "sqrMagnitude": 136.0
-      }
-    },
-    {
-      "ID": "10_0_7",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 7.0,
-        "normalized": {
-          "x": 0.8192319,
-          "y": 0.0,
-          "z": 0.573462367,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 12.2065554,
-        "sqrMagnitude": 149.0
-      }
-    },
-    {
-      "ID": "10_0_8",
-      "configId": 8,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 8.0,
-        "normalized": {
-          "x": 0.780868769,
-          "y": 0.0,
-          "z": 0.624695063,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 12.8062487,
-        "sqrMagnitude": 164.0
-      }
-    },
-    {
-      "ID": "10_0_9",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.7432942,
-          "y": 0.0,
-          "z": 0.668964744,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 13.4536238,
-        "sqrMagnitude": 181.0
-      }
-    },
-    {
-      "ID": "10_0_10",
-      "configId": 9,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 14.1421356,
-        "sqrMagnitude": 200.0
-      }
-    },
-    {
-      "ID": "10_0_11",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 11.0,
-        "normalized": {
-          "x": 0.6726728,
-          "y": 0.0,
-          "z": 0.739940047,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.8660688,
-        "sqrMagnitude": 221.0
-      }
-    },
-    {
-      "ID": "10_0_12",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 12.0,
-        "normalized": {
-          "x": 0.6401844,
-          "y": 0.0,
-          "z": 0.768221259,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 15.6205,
-        "sqrMagnitude": 244.0
-      }
-    },
-    {
-      "ID": "10_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.609710753,
-          "y": 0.0,
-          "z": 0.792623937,
-          "normalized": {
-            "x": 0.6097108,
-            "y": 0.0,
-            "z": 0.792624,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 16.40122,
-        "sqrMagnitude": 269.0
-      }
-    },
-    {
-      "ID": "10_0_14",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 14.0,
-        "normalized": {
-          "x": 0.5812382,
-          "y": 0.0,
-          "z": 0.813733459,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 17.20465,
-        "sqrMagnitude": 296.0
-      }
-    },
-    {
-      "ID": "10_0_15",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.5547002,
-          "y": 0.0,
-          "z": 0.8320503,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 18.0277557,
-        "sqrMagnitude": 325.0
-      }
-    },
-    {
-      "ID": "10_0_16",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 16.0,
-        "normalized": {
-          "x": 0.529998958,
-          "y": 0.0,
-          "z": 0.8479983,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 18.8679619,
-        "sqrMagnitude": 356.0
-      }
-    },
-    {
-      "ID": "10_0_17",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 17.0,
-        "normalized": {
-          "x": 0.5070201,
-          "y": 0.0,
-          "z": 0.8619342,
-          "normalized": {
-            "x": 0.5070202,
-            "y": 0.0,
-            "z": 0.861934245,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 19.7230835,
-        "sqrMagnitude": 389.0
       }
     },
     {
@@ -8086,254 +6451,6 @@
         },
         "magnitude": 23.259407,
         "sqrMagnitude": 541.0
-      }
-    },
-    {
-      "ID": "10_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.413802952,
-          "y": 0.0,
-          "z": 0.9103665,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 24.1660919,
-        "sqrMagnitude": 584.0
-      }
-    },
-    {
-      "ID": "10_0_23",
-      "configId": 8,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 23.0,
-        "normalized": {
-          "x": 0.3987261,
-          "y": 0.0,
-          "z": 0.9170701,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 25.0798721,
-        "sqrMagnitude": 629.0
-      }
-    },
-    {
-      "ID": "10_0_24",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 24.0,
-        "normalized": {
-          "x": 0.3846154,
-          "y": 0.0,
-          "z": 0.9230769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 26.0,
-        "sqrMagnitude": 676.0
-      }
-    },
-    {
-      "ID": "10_0_25",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 25.0,
-        "normalized": {
-          "x": 0.3713907,
-          "y": 0.0,
-          "z": 0.9284767,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 26.9258232,
-        "sqrMagnitude": 725.0
-      }
-    },
-    {
-      "ID": "10_0_26",
-      "configId": 9,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.358979076,
-          "y": 0.0,
-          "z": 0.933345556,
-          "normalized": {
-            "x": 0.3589791,
-            "y": 0.0,
-            "z": 0.9333456,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 27.8567772,
-        "sqrMagnitude": 776.0
-      }
-    },
-    {
-      "ID": "10_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.347314358,
-          "y": 0.0,
-          "z": 0.93774873,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 28.79236,
-        "sqrMagnitude": 829.0
-      }
-    },
-    {
-      "ID": "10_0_28",
-      "configId": 9,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.3363364,
-          "y": 0.0,
-          "z": 0.9417419,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 29.7321377,
-        "sqrMagnitude": 884.0
-      }
-    },
-    {
-      "ID": "10_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.325990677,
-          "y": 0.0,
-          "z": 0.945372939,
-          "normalized": {
-            "x": 0.3259907,
-            "y": 0.0,
-            "z": 0.945373,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 30.675724,
-        "sqrMagnitude": 941.0
-      }
-    },
-    {
-      "ID": "10_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.9486833,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 31.622776,
-        "sqrMagnitude": 1000.0
-      }
-    },
-    {
-      "ID": "10_0_31",
-      "configId": 8,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.307002783,
-          "y": 0.0,
-          "z": 0.9517086,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 32.5729942,
-        "sqrMagnitude": 1061.0
-      }
-    },
-    {
-      "ID": "10_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.298275,
-          "y": 0.0,
-          "z": 0.95448,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 33.5261078,
-        "sqrMagnitude": 1124.0
-      }
-    },
-    {
-      "ID": "10_0_33",
-      "configId": 8,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.290007383,
-          "y": 0.0,
-          "z": 0.9570244,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 34.48188,
-        "sqrMagnitude": 1189.0
-      }
-    },
-    {
-      "ID": "10_0_34",
-      "configId": 6,
-      "coor": {
-        "x": 10.0,
-        "y": 0.0,
-        "z": 34.0,
-        "normalized": {
-          "x": 0.282166332,
-          "y": 0.0,
-          "z": 0.9593655,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 35.44009,
-        "sqrMagnitude": 1256.0
       }
     },
     {
@@ -8606,60 +6723,6 @@
       }
     },
     {
-      "ID": "11_0_8",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 8.0,
-        "normalized": {
-          "x": 0.8087361,
-          "y": 0.0,
-          "z": 0.588171661,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 13.6014709,
-        "sqrMagnitude": 185.0
-      }
-    },
-    {
-      "ID": "11_0_9",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.7739573,
-          "y": 0.0,
-          "z": 0.6332378,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.21267,
-        "sqrMagnitude": 202.0
-      }
-    },
-    {
-      "ID": "11_0_10",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 10.0,
-        "normalized": {
-          "x": 0.739940047,
-          "y": 0.0,
-          "z": 0.6726728,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 14.8660688,
-        "sqrMagnitude": 221.0
-      }
-    },
-    {
       "ID": "11_0_11",
       "configId": 6,
       "coor": {
@@ -8693,99 +6756,6 @@
         },
         "magnitude": 16.27882,
         "sqrMagnitude": 265.0
-      }
-    },
-    {
-      "ID": "11_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.6459422,
-          "y": 0.0,
-          "z": 0.76338625,
-          "normalized": {
-            "x": 0.6459423,
-            "y": 0.0,
-            "z": 0.7633863,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 17.0293865,
-        "sqrMagnitude": 290.0
-      }
-    },
-    {
-      "ID": "11_0_14",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 14.0,
-        "normalized": {
-          "x": 0.6178216,
-          "y": 0.0,
-          "z": 0.786318362,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 17.804493,
-        "sqrMagnitude": 317.0
-      }
-    },
-    {
-      "ID": "11_0_15",
-      "configId": 9,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.5913636,
-          "y": 0.0,
-          "z": 0.806404948,
-          "normalized": {
-            "x": 0.591363668,
-            "y": 0.0,
-            "z": 0.806405,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 18.6010761,
-        "sqrMagnitude": 346.0
-      }
-    },
-    {
-      "ID": "11_0_16",
-      "configId": 8,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 16.0,
-        "normalized": {
-          "x": 0.5665288,
-          "y": 0.0,
-          "z": 0.8240419,
-          "normalized": {
-            "x": 0.566528857,
-            "y": 0.0,
-            "z": 0.824041963,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 19.4164886,
-        "sqrMagnitude": 377.0
       }
     },
     {
@@ -8937,193 +6907,6 @@
         },
         "magnitude": 26.4007568,
         "sqrMagnitude": 697.0
-      }
-    },
-    {
-      "ID": "11_0_25",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 25.0,
-        "normalized": {
-          "x": 0.402738631,
-          "y": 0.0,
-          "z": 0.915315032,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 27.313,
-        "sqrMagnitude": 746.0
-      }
-    },
-    {
-      "ID": "11_0_26",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.38964,
-          "y": 0.0,
-          "z": 0.9209673,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 28.2311878,
-        "sqrMagnitude": 797.0
-      }
-    },
-    {
-      "ID": "11_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.377296865,
-          "y": 0.0,
-          "z": 0.9260923,
-          "normalized": {
-            "x": 0.3772969,
-            "y": 0.0,
-            "z": 0.9260924,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 29.15476,
-        "sqrMagnitude": 850.0
-      }
-    },
-    {
-      "ID": "11_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.365652382,
-          "y": 0.0,
-          "z": 0.9307515,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 30.0832176,
-        "sqrMagnitude": 905.0
-      }
-    },
-    {
-      "ID": "11_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.354654223,
-          "y": 0.0,
-          "z": 0.934997559,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 31.0161247,
-        "sqrMagnitude": 962.0
-      }
-    },
-    {
-      "ID": "11_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.344254643,
-          "y": 0.0,
-          "z": 0.938876331,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 31.95309,
-        "sqrMagnitude": 1021.0
-      }
-    },
-    {
-      "ID": "11_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.334409833,
-          "y": 0.0,
-          "z": 0.942427754,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 32.89377,
-        "sqrMagnitude": 1082.0
-      }
-    },
-    {
-      "ID": "11_0_32",
-      "configId": 8,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.325079769,
-          "y": 0.0,
-          "z": 0.9456866,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 33.83785,
-        "sqrMagnitude": 1145.0
-      }
-    },
-    {
-      "ID": "11_0_33",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.9486833,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 34.7850533,
-        "sqrMagnitude": 1210.0
-      }
-    },
-    {
-      "ID": "11_0_34",
-      "configId": 6,
-      "coor": {
-        "x": 11.0,
-        "y": 0.0,
-        "z": 34.0,
-        "normalized": {
-          "x": 0.307820261,
-          "y": 0.0,
-          "z": 0.9514445,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 35.7351379,
-        "sqrMagnitude": 1277.0
       }
     },
     {
@@ -9518,49 +7301,6 @@
       }
     },
     {
-      "ID": "12_0_14",
-      "configId": 9,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 14.0,
-        "normalized": {
-          "x": 0.650791347,
-          "y": 0.0,
-          "z": 0.7592566,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 18.4390888,
-        "sqrMagnitude": 340.0
-      }
-    },
-    {
-      "ID": "12_0_15",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.624695,
-          "y": 0.0,
-          "z": 0.780868769,
-          "normalized": {
-            "x": 0.624695063,
-            "y": 0.0,
-            "z": 0.7808688,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 19.2093735,
-        "sqrMagnitude": 369.0
-      }
-    },
-    {
       "ID": "12_0_16",
       "configId": 6,
       "coor": {
@@ -9730,189 +7470,6 @@
         },
         "magnitude": 25.9422436,
         "sqrMagnitude": 673.0
-      }
-    },
-    {
-      "ID": "12_0_24",
-      "configId": 8,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 24.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 26.8328152,
-        "sqrMagnitude": 720.0
-      }
-    },
-    {
-      "ID": "12_0_25",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 25.0,
-        "normalized": {
-          "x": 0.4327311,
-          "y": 0.0,
-          "z": 0.9015231,
-          "normalized": {
-            "x": 0.432731032,
-            "y": 0.0,
-            "z": 0.901523,
-            "normalized": {
-              "x": 0.432731062,
-              "y": 0.0,
-              "z": 0.901523054,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.0
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 27.7308483,
-        "sqrMagnitude": 769.0
-      }
-    },
-    {
-      "ID": "12_0_26",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.419058174,
-          "y": 0.0,
-          "z": 0.907959342,
-          "normalized": {
-            "x": 0.4190582,
-            "y": 0.0,
-            "z": 0.9079594,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 28.635643,
-        "sqrMagnitude": 820.0
-      }
-    },
-    {
-      "ID": "12_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.40613845,
-          "y": 0.0,
-          "z": 0.913811564,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 29.5465736,
-        "sqrMagnitude": 873.0
-      }
-    },
-    {
-      "ID": "12_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.3939193,
-          "y": 0.0,
-          "z": 0.919145048,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 30.4630928,
-        "sqrMagnitude": 928.0
-      }
-    },
-    {
-      "ID": "12_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.3823518,
-          "y": 0.0,
-          "z": 0.924016833,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 31.38471,
-        "sqrMagnitude": 985.0
-      }
-    },
-    {
-      "ID": "12_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.371390671,
-          "y": 0.0,
-          "z": 0.9284767,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 32.31099,
-        "sqrMagnitude": 1044.0
-      }
-    },
-    {
-      "ID": "12_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.36099413,
-          "y": 0.0,
-          "z": 0.932568133,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 33.24154,
-        "sqrMagnitude": 1105.0
-      }
-    },
-    {
-      "ID": "12_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 12.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.351123452,
-          "y": 0.0,
-          "z": 0.9363292,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 34.1760139,
-        "sqrMagnitude": 1168.0
       }
     },
     {
@@ -10558,21 +8115,39 @@
       }
     },
     {
-      "ID": "13_0_24",
+      "ID": "12_1_24",
       "configId": 6,
       "coor": {
-        "x": 13.0,
-        "y": 0.0,
+        "x": 12.0,
+        "y": 1.0,
         "z": 24.0,
         "normalized": {
-          "x": 0.476283163,
-          "y": 0.0,
-          "z": 0.879292,
+          "x": 0.446903378,
+          "y": 0.0372419469,
+          "z": 0.893806756,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 27.2946873,
-        "sqrMagnitude": 745.0
+        "magnitude": 26.8514423,
+        "sqrMagnitude": 721.0
+      }
+    },
+    {
+      "ID": "13_1_24",
+      "configId": 6,
+      "coor": {
+        "x": 13.0,
+        "y": 1.0,
+        "z": 24.0,
+        "normalized": {
+          "x": 0.475963831,
+          "y": 0.0366126038,
+          "z": 0.878702462,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 27.313,
+        "sqrMagnitude": 746.0
       }
     },
     {
@@ -10609,42 +8184,6 @@
         },
         "magnitude": 29.0688839,
         "sqrMagnitude": 845.0
-      }
-    },
-    {
-      "ID": "13_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 13.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.433815628,
-          "y": 0.0,
-          "z": 0.9010017,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 29.9666481,
-        "sqrMagnitude": 898.0
-      }
-    },
-    {
-      "ID": "13_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 13.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.4211113,
-          "y": 0.0,
-          "z": 0.907008946,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 30.8706989,
-        "sqrMagnitude": 953.0
       }
     },
     {
@@ -21512,93 +19051,114 @@
       }
     },
     {
-      "ID": "27_0_29",
+      "ID": "27_14_29",
       "configId": 6,
       "coor": {
         "x": 27.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 29.0,
         "normalized": {
-          "x": 0.681418538,
-          "y": 0.0,
-          "z": 0.731893957,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "x": 0.642493,
+          "y": 0.333144516,
+          "z": 0.690085053,
+          "normalized": {
+            "x": 0.642493069,
+            "y": 0.333144546,
+            "z": 0.6900851,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 39.6232262,
-        "sqrMagnitude": 1570.0
+        "magnitude": 42.0238037,
+        "sqrMagnitude": 1766.0
       }
     },
     {
-      "ID": "27_0_30",
+      "ID": "27_14_30",
       "configId": 6,
       "coor": {
         "x": 27.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 30.0,
         "normalized": {
-          "x": 0.668964744,
-          "y": 0.0,
-          "z": 0.7432942,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "x": 0.632022142,
+          "y": 0.3277152,
+          "z": 0.702246845,
+          "normalized": {
+            "x": 0.6320222,
+            "y": 0.327715218,
+            "z": 0.7022469,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
         },
-        "magnitude": 40.36087,
-        "sqrMagnitude": 1629.0
+        "magnitude": 42.72002,
+        "sqrMagnitude": 1825.0
       }
     },
     {
-      "ID": "27_0_31",
+      "ID": "27_14_31",
       "configId": 9,
       "coor": {
         "x": 27.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 31.0,
         "normalized": {
-          "x": 0.6567808,
-          "y": 0.0,
-          "z": 0.7540816,
+          "x": 0.6217173,
+          "y": 0.32237193,
+          "z": 0.713823557,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 41.1096077,
-        "sqrMagnitude": 1690.0
+        "magnitude": 43.4281,
+        "sqrMagnitude": 1886.0
       }
     },
     {
-      "ID": "27_0_32",
+      "ID": "27_14_32",
       "configId": 6,
       "coor": {
         "x": 27.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 32.0,
         "normalized": {
-          "x": 0.644870937,
-          "y": 0.0,
-          "z": 0.764291465,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 41.8688431,
-        "sqrMagnitude": 1753.0
-      }
-    },
-    {
-      "ID": "27_0_33",
-      "configId": 6,
-      "coor": {
-        "x": 27.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.6332378,
-          "y": 0.0,
-          "z": 0.7739573,
+          "x": 0.611586452,
+          "y": 0.317118883,
+          "z": 0.7248432,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 42.6380119,
-        "sqrMagnitude": 1818.0
+        "magnitude": 44.14748,
+        "sqrMagnitude": 1949.0
+      }
+    },
+    {
+      "ID": "27_14_33",
+      "configId": 6,
+      "coor": {
+        "x": 27.0,
+        "y": 14.0,
+        "z": 33.0,
+        "normalized": {
+          "x": 0.6016363,
+          "y": 0.311959565,
+          "z": 0.7353332,
+          "normalized": {
+            "x": 0.60163635,
+            "y": 0.3119596,
+            "z": 0.735333264,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 44.8776131,
+        "sqrMagnitude": 2014.0
       }
     },
     {
@@ -22235,118 +19795,118 @@
       }
     },
     {
-      "ID": "28_0_28",
+      "ID": "28_14_28",
       "configId": 6,
       "coor": {
         "x": 28.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 28.0,
         "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
+          "x": 0.6666667,
+          "y": 0.333333343,
+          "z": 0.6666667,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.00000012
         },
-        "magnitude": 39.59798,
-        "sqrMagnitude": 1568.0
+        "magnitude": 42.0,
+        "sqrMagnitude": 1764.0
       }
     },
     {
-      "ID": "28_0_29",
+      "ID": "28_15_29",
       "configId": 8,
       "coor": {
         "x": 28.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 29.0,
         "normalized": {
-          "x": 0.694594562,
-          "y": 0.0,
-          "z": 0.7194015,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 40.3112869,
-        "sqrMagnitude": 1625.0
-      }
-    },
-    {
-      "ID": "28_0_30",
-      "configId": 9,
-      "coor": {
-        "x": 28.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.6823183,
-          "y": 0.0,
-          "z": 0.7310553,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 41.0365677,
-        "sqrMagnitude": 1684.0
-      }
-    },
-    {
-      "ID": "28_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 28.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.670286238,
-          "y": 0.0,
-          "z": 0.7421026,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 41.7731972,
-        "sqrMagnitude": 1745.0
-      }
-    },
-    {
-      "ID": "28_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 28.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.6585046,
-          "y": 0.0,
-          "z": 0.7525767,
+          "x": 0.6509868,
+          "y": 0.3487429,
+          "z": 0.6742363,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 42.5205841,
-        "sqrMagnitude": 1808.0
+        "magnitude": 43.0116272,
+        "sqrMagnitude": 1850.0
       }
     },
     {
-      "ID": "28_0_33",
+      "ID": "28_15_30",
+      "configId": 9,
+      "coor": {
+        "x": 28.0,
+        "y": 15.0,
+        "z": 30.0,
+        "normalized": {
+          "x": 0.640848041,
+          "y": 0.343311459,
+          "z": 0.6866229,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 43.6921043,
+        "sqrMagnitude": 1909.0
+      }
+    },
+    {
+      "ID": "28_15_31",
       "configId": 6,
       "coor": {
         "x": 28.0,
-        "y": 0.0,
+        "y": 15.0,
+        "z": 31.0,
+        "normalized": {
+          "x": 0.6308483,
+          "y": 0.337954432,
+          "z": 0.6984392,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 44.38468,
+        "sqrMagnitude": 1970.0
+      }
+    },
+    {
+      "ID": "28_15_32",
+      "configId": 6,
+      "coor": {
+        "x": 28.0,
+        "y": 15.0,
+        "z": 32.0,
+        "normalized": {
+          "x": 0.6209968,
+          "y": 0.332676828,
+          "z": 0.7097106,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 45.0888023,
+        "sqrMagnitude": 2033.0
+      }
+    },
+    {
+      "ID": "28_14_33",
+      "configId": 6,
+      "coor": {
+        "x": 28.0,
+        "y": 14.0,
         "z": 33.0,
         "normalized": {
-          "x": 0.6469774,
-          "y": 0.0,
-          "z": 0.7625091,
+          "x": 0.6155705,
+          "y": 0.307785243,
+          "z": 0.7254937,
           "normalized": {
-            "x": 0.6469775,
-            "y": 0.0,
-            "z": 0.762509167,
+            "x": 0.615570545,
+            "y": 0.307785273,
+            "z": 0.7254938,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.99999994
         },
-        "magnitude": 43.27817,
-        "sqrMagnitude": 1873.0
+        "magnitude": 45.4862633,
+        "sqrMagnitude": 2069.0
       }
     },
     {
@@ -22731,412 +20291,384 @@
       }
     },
     {
-      "ID": "29_0_14",
+      "ID": "29_1_14",
       "configId": 9,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 1.0,
         "z": 14.0,
         "normalized": {
-          "x": 0.9005516,
-          "y": 0.0,
-          "z": 0.434749067,
+          "x": 0.900117755,
+          "y": 0.0310385432,
+          "z": 0.434539616,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 32.2024841,
-        "sqrMagnitude": 1037.0
+        "magnitude": 32.2180061,
+        "sqrMagnitude": 1038.0
       }
     },
     {
-      "ID": "29_0_15",
+      "ID": "29_2_15",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 2.0,
         "z": 15.0,
         "normalized": {
-          "x": 0.8882177,
-          "y": 0.0,
-          "z": 0.459422946,
+          "x": 0.8865559,
+          "y": 0.0611417852,
+          "z": 0.4585634,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 32.6496544,
-        "sqrMagnitude": 1066.0
+        "magnitude": 32.7108536,
+        "sqrMagnitude": 1070.0
       }
     },
     {
-      "ID": "29_0_16",
+      "ID": "29_3_16",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 3.0,
         "z": 16.0,
         "normalized": {
-          "x": 0.8755777,
-          "y": 0.0,
-          "z": 0.483077347,
+          "x": 0.872007966,
+          "y": 0.09020772,
+          "z": 0.481107861,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "sqrMagnitude": 1.00000012
         },
-        "magnitude": 33.12099,
-        "sqrMagnitude": 1097.0
+        "magnitude": 33.2565765,
+        "sqrMagnitude": 1106.0
       }
     },
     {
-      "ID": "29_0_17",
+      "ID": "29_4_17",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 4.0,
         "z": 17.0,
         "normalized": {
-          "x": 0.862698,
-          "y": 0.0,
-          "z": 0.505719543,
-          "normalized": {
-            "x": 0.8626979,
-            "y": 0.0,
-            "z": 0.5057195,
-            "normalized": {
-              "x": 0.862697959,
-              "y": 0.0,
-              "z": 0.505719543,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.0
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
+          "x": 0.856654465,
+          "y": 0.118159235,
+          "z": 0.502176762,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 33.61547,
-        "sqrMagnitude": 1130.0
+        "magnitude": 33.852623,
+        "sqrMagnitude": 1146.0
       }
     },
     {
-      "ID": "29_0_18",
+      "ID": "29_5_18",
       "configId": 9,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 5.0,
         "z": 18.0,
         "normalized": {
-          "x": 0.8496402,
-          "y": 0.0,
-          "z": 0.5273629,
+          "x": 0.840668,
+          "y": 0.14494276,
+          "z": 0.521793962,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 34.1320953,
-        "sqrMagnitude": 1165.0
+        "magnitude": 34.496376,
+        "sqrMagnitude": 1190.0
       }
     },
     {
-      "ID": "29_0_19",
+      "ID": "29_6_19",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 6.0,
         "z": 19.0,
         "normalized": {
-          "x": 0.8364611,
-          "y": 0.0,
-          "z": 0.548026264,
+          "x": 0.82420963,
+          "y": 0.170526132,
+          "z": 0.5399994,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 34.6698723,
-        "sqrMagnitude": 1202.0
+        "magnitude": 35.1852226,
+        "sqrMagnitude": 1238.0
       }
     },
     {
-      "ID": "29_0_20",
+      "ID": "29_7_20",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 7.0,
         "z": 20.0,
         "normalized": {
-          "x": 0.8232128,
-          "y": 0.0,
-          "z": 0.567733,
+          "x": 0.8074268,
+          "y": 0.194896117,
+          "z": 0.5568461,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 35.22783,
-        "sqrMagnitude": 1241.0
+        "magnitude": 35.91657,
+        "sqrMagnitude": 1290.0
       }
     },
     {
-      "ID": "29_0_21",
+      "ID": "29_8_21",
       "configId": 8,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 8.0,
         "z": 21.0,
         "normalized": {
-          "x": 0.8099421,
-          "y": 0.0,
-          "z": 0.5865098,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 35.805027,
-        "sqrMagnitude": 1282.0
-      }
-    },
-    {
-      "ID": "29_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 29.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.796691239,
-          "y": 0.0,
-          "z": 0.604386449,
+          "x": 0.7904519,
+          "y": 0.2180557,
+          "z": 0.5723962,
           "normalized": {
-            "x": 0.7966913,
-            "y": 0.0,
-            "z": 0.6043865,
+            "x": 0.790451944,
+            "y": 0.21805571,
+            "z": 0.5723963,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.9999999
         },
-        "magnitude": 36.40055,
-        "sqrMagnitude": 1325.0
+        "magnitude": 36.6878738,
+        "sqrMagnitude": 1346.0
       }
     },
     {
-      "ID": "29_0_23",
+      "ID": "29_9_22",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 9.0,
+        "z": 22.0,
+        "normalized": {
+          "x": 0.7734021,
+          "y": 0.240021333,
+          "z": 0.586718857,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 37.496666,
+        "sqrMagnitude": 1406.0
+      }
+    },
+    {
+      "ID": "29_10_23",
+      "configId": 6,
+      "coor": {
+        "x": 29.0,
+        "y": 10.0,
         "z": 23.0,
         "normalized": {
-          "x": 0.7834977,
-          "y": 0.0,
-          "z": 0.6213947,
+          "x": 0.75637877,
+          "y": 0.26082027,
+          "z": 0.5998866,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 37.01351,
-        "sqrMagnitude": 1370.0
+        "magnitude": 38.34058,
+        "sqrMagnitude": 1470.0
       }
     },
     {
-      "ID": "29_0_24",
+      "ID": "29_11_24",
       "configId": 8,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 11.0,
         "z": 24.0,
         "normalized": {
-          "x": 0.7703944,
-          "y": 0.0,
-          "z": 0.637567759,
-          "normalized": {
-            "x": 0.770394266,
-            "y": 0.0,
-            "z": 0.6375677,
-            "normalized": {
-              "x": 0.7703943,
-              "y": 0.0,
-              "z": 0.637567759,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.00000012
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
+          "x": 0.739468753,
+          "y": 0.280488163,
+          "z": 0.6119742,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 37.64306,
-        "sqrMagnitude": 1417.0
+        "magnitude": 39.2173424,
+        "sqrMagnitude": 1538.0
       }
     },
     {
-      "ID": "29_0_25",
+      "ID": "29_12_25",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 12.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.75740993,
-          "y": 0.0,
-          "z": 0.6529396,
+          "x": 0.722744942,
+          "y": 0.299066871,
+          "z": 0.623056,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 38.28838,
-        "sqrMagnitude": 1466.0
+        "magnitude": 40.1248055,
+        "sqrMagnitude": 1610.0
       }
     },
     {
-      "ID": "29_0_26",
+      "ID": "29_13_26",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 13.0,
         "z": 26.0,
         "normalized": {
-          "x": 0.7445694,
-          "y": 0.0,
-          "z": 0.667545,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "x": 0.7062675,
+          "y": 0.316602647,
+          "z": 0.6332053,
+          "normalized": {
+            "x": 0.706267536,
+            "y": 0.316602677,
+            "z": 0.633205354,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 38.9486847,
-        "sqrMagnitude": 1517.0
+        "magnitude": 41.0609322,
+        "sqrMagnitude": 1686.0
       }
     },
     {
-      "ID": "29_0_27",
+      "ID": "29_14_27",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 27.0,
         "normalized": {
-          "x": 0.731893957,
-          "y": 0.0,
-          "z": 0.681418538,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "x": 0.690085053,
+          "y": 0.333144516,
+          "z": 0.642493,
+          "normalized": {
+            "x": 0.6900851,
+            "y": 0.333144546,
+            "z": 0.642493069,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 39.6232262,
-        "sqrMagnitude": 1570.0
+        "magnitude": 42.0238037,
+        "sqrMagnitude": 1766.0
       }
     },
     {
-      "ID": "29_0_28",
+      "ID": "29_15_28",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 28.0,
         "normalized": {
-          "x": 0.7194015,
-          "y": 0.0,
-          "z": 0.694594562,
+          "x": 0.6742363,
+          "y": 0.3487429,
+          "z": 0.6509868,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 40.3112869,
-        "sqrMagnitude": 1625.0
+        "magnitude": 43.0116272,
+        "sqrMagnitude": 1850.0
       }
     },
     {
-      "ID": "29_0_29",
+      "ID": "29_16_29",
       "configId": 8,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 16.0,
         "z": 29.0,
         "normalized": {
-          "x": 0.7071068,
-          "y": 0.0,
-          "z": 0.7071068,
-          "normalized": {
-            "x": 0.707106769,
-            "y": 0.0,
-            "z": 0.707106769,
-            "magnitude": 1.0,
-            "sqrMagnitude": 0.99999994
-          },
-          "magnitude": 1.00000012,
+          "x": 0.6587508,
+          "y": 0.363448679,
+          "z": 0.6587508,
+          "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 41.01219,
-        "sqrMagnitude": 1682.0
+        "magnitude": 44.02272,
+        "sqrMagnitude": 1938.0
       }
     },
     {
-      "ID": "29_0_30",
+      "ID": "29_16_30",
       "configId": 9,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 16.0,
         "z": 30.0,
         "normalized": {
-          "x": 0.6950221,
-          "y": 0.0,
-          "z": 0.718988359,
+          "x": 0.648946643,
+          "y": 0.3580395,
+          "z": 0.6713241,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 41.7252922,
-        "sqrMagnitude": 1741.0
+        "magnitude": 44.6878052,
+        "sqrMagnitude": 1997.0
       }
     },
     {
-      "ID": "29_0_31",
+      "ID": "29_16_31",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 16.0,
         "z": 31.0,
         "normalized": {
-          "x": 0.683157146,
-          "y": 0.0,
-          "z": 0.7302714,
+          "x": 0.6392567,
+          "y": 0.352693379,
+          "z": 0.6833434,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 42.44997,
-        "sqrMagnitude": 1802.0
+        "magnitude": 45.3651848,
+        "sqrMagnitude": 2058.0
       }
     },
     {
-      "ID": "29_0_32",
+      "ID": "29_15_32",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 32.0,
         "normalized": {
-          "x": 0.6715194,
-          "y": 0.0,
-          "z": 0.740986943,
+          "x": 0.634344041,
+          "y": 0.328108966,
+          "z": 0.699965835,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 43.1856461,
-        "sqrMagnitude": 1865.0
+        "magnitude": 45.71652,
+        "sqrMagnitude": 2090.0
       }
     },
     {
-      "ID": "29_0_33",
+      "ID": "29_14_33",
       "configId": 6,
       "coor": {
         "x": 29.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 33.0,
         "normalized": {
-          "x": 0.6601146,
-          "y": 0.0,
-          "z": 0.751164854,
-          "normalized": {
-            "x": 0.660114646,
-            "y": 0.0,
-            "z": 0.7511649,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
+          "x": 0.628950357,
+          "y": 0.303631216,
+          "z": 0.7157022,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
         },
-        "magnitude": 43.9317665,
-        "sqrMagnitude": 1930.0
+        "magnitude": 46.1085663,
+        "sqrMagnitude": 2126.0
       }
     },
     {
@@ -23489,416 +21021,423 @@
       }
     },
     {
-      "ID": "30_0_13",
+      "ID": "30_1_13",
       "configId": 9,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 1.0,
         "z": 13.0,
         "normalized": {
-          "x": 0.91755563,
-          "y": 0.0,
-          "z": 0.397607446,
+          "x": 0.9171268,
+          "y": 0.0305708926,
+          "z": 0.3974216,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 32.6955643,
-        "sqrMagnitude": 1069.0
+        "magnitude": 32.7108536,
+        "sqrMagnitude": 1070.0
       }
     },
     {
-      "ID": "30_0_14",
+      "ID": "30_2_14",
       "configId": 6,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 2.0,
         "z": 14.0,
         "normalized": {
-          "x": 0.9061831,
-          "y": 0.0,
-          "z": 0.422885448,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 33.1058922,
-        "sqrMagnitude": 1096.0
-      }
-    },
-    {
-      "ID": "30_0_15",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
+          "x": 0.904534042,
+          "y": 0.06030227,
+          "z": 0.422115862,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 33.54102,
-        "sqrMagnitude": 1125.0
+        "magnitude": 33.16625,
+        "sqrMagnitude": 1100.0
       }
     },
     {
-      "ID": "30_0_16",
+      "ID": "30_3_15",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 3.0,
+        "z": 15.0,
+        "normalized": {
+          "x": 0.8908708,
+          "y": 0.0890870839,
+          "z": 0.4454354,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 33.6749153,
+        "sqrMagnitude": 1134.0
+      }
+    },
+    {
+      "ID": "30_4_16",
       "configId": 9,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 4.0,
         "z": 16.0,
         "normalized": {
-          "x": 0.882352948,
-          "y": 0.0,
-          "z": 0.470588237,
+          "x": 0.876309335,
+          "y": 0.116841249,
+          "z": 0.467365,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 34.0,
-        "sqrMagnitude": 1156.0
+        "magnitude": 34.2344856,
+        "sqrMagnitude": 1172.0
       }
     },
     {
-      "ID": "30_0_17",
+      "ID": "30_5_17",
       "configId": 6,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 5.0,
         "z": 17.0,
         "normalized": {
-          "x": 0.8700222,
-          "y": 0.0,
-          "z": 0.493012547,
+          "x": 0.861017346,
+          "y": 0.143502891,
+          "z": 0.487909853,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 34.48188,
-        "sqrMagnitude": 1189.0
+        "magnitude": 34.8425026,
+        "sqrMagnitude": 1214.0
       }
     },
     {
-      "ID": "30_0_18",
+      "ID": "30_6_18",
       "configId": 6,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 6.0,
         "z": 18.0,
         "normalized": {
-          "x": 0.857493,
-          "y": 0.0,
-          "z": 0.5144958,
+          "x": 0.8451542,
+          "y": 0.169030845,
+          "z": 0.507092535,
           "normalized": {
-            "x": 0.857492864,
-            "y": 0.0,
-            "z": 0.51449573,
-            "normalized": {
-              "x": 0.8574929,
-              "y": 0.0,
-              "z": 0.5144958,
-              "magnitude": 1.0,
-              "sqrMagnitude": 1.0
-            },
-            "magnitude": 0.99999994,
-            "sqrMagnitude": 0.9999999
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 34.98571,
-        "sqrMagnitude": 1224.0
-      }
-    },
-    {
-      "ID": "30_0_19",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 19.0,
-        "normalized": {
-          "x": 0.844819069,
-          "y": 0.0,
-          "z": 0.535052061,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 35.5105629,
-        "sqrMagnitude": 1261.0
-      }
-    },
-    {
-      "ID": "30_0_20",
-      "configId": 8,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 20.0,
-        "normalized": {
-          "x": 0.8320503,
-          "y": 0.0,
-          "z": 0.5547002,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 36.05551,
-        "sqrMagnitude": 1300.0
-      }
-    },
-    {
-      "ID": "30_0_21",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 21.0,
-        "normalized": {
-          "x": 0.8192319,
-          "y": 0.0,
-          "z": 0.573462367,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 36.6196671,
-        "sqrMagnitude": 1341.0
-      }
-    },
-    {
-      "ID": "30_0_22",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 22.0,
-        "normalized": {
-          "x": 0.806404948,
-          "y": 0.0,
-          "z": 0.5913636,
-          "normalized": {
-            "x": 0.806405,
-            "y": 0.0,
-            "z": 0.591363668,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 37.2021523,
-        "sqrMagnitude": 1384.0
-      }
-    },
-    {
-      "ID": "30_0_23",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 23.0,
-        "normalized": {
-          "x": 0.793606341,
-          "y": 0.0,
-          "z": 0.6084315,
-          "normalized": {
-            "x": 0.7936064,
-            "y": 0.0,
-            "z": 0.6084316,
+            "x": 0.8451543,
+            "y": 0.16903086,
+            "z": 0.5070926,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.99999994
         },
-        "magnitude": 37.8021164,
-        "sqrMagnitude": 1429.0
+        "magnitude": 35.49648,
+        "sqrMagnitude": 1260.0
       }
     },
     {
-      "ID": "30_0_24",
+      "ID": "30_7_19",
       "configId": 6,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
-        "z": 24.0,
+        "y": 7.0,
+        "z": 19.0,
         "normalized": {
-          "x": 0.780868769,
-          "y": 0.0,
-          "z": 0.624695,
+          "x": 0.8288684,
+          "y": 0.193402633,
+          "z": 0.524949968,
           "normalized": {
-            "x": 0.7808688,
-            "y": 0.0,
-            "z": 0.624695063,
+            "x": 0.828868449,
+            "y": 0.193402648,
+            "z": 0.52495,
             "magnitude": 1.0,
             "sqrMagnitude": 1.0
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.9999999
         },
-        "magnitude": 38.4187469,
-        "sqrMagnitude": 1476.0
+        "magnitude": 36.193924,
+        "sqrMagnitude": 1310.0
       }
     },
     {
-      "ID": "30_0_25",
+      "ID": "30_8_20",
+      "configId": 8,
+      "coor": {
+        "x": 30.0,
+        "y": 8.0,
+        "z": 20.0,
+        "normalized": {
+          "x": 0.812295556,
+          "y": 0.216612145,
+          "z": 0.5415304,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 36.93237,
+        "sqrMagnitude": 1364.0
+      }
+    },
+    {
+      "ID": "30_9_21",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 9.0,
+        "z": 21.0,
+        "normalized": {
+          "x": 0.795557261,
+          "y": 0.23866719,
+          "z": 0.5568901,
+          "normalized": {
+            "x": 0.7955573,
+            "y": 0.2386672,
+            "z": 0.55689013,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 37.7094154,
+        "sqrMagnitude": 1422.0
+      }
+    },
+    {
+      "ID": "30_10_22",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 10.0,
+        "z": 22.0,
+        "normalized": {
+          "x": 0.7787612,
+          "y": 0.259587079,
+          "z": 0.571091533,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 38.52272,
+        "sqrMagnitude": 1484.0
+      }
+    },
+    {
+      "ID": "30_11_23",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 11.0,
+        "z": 23.0,
+        "normalized": {
+          "x": 0.76200074,
+          "y": 0.279400259,
+          "z": 0.584200561,
+          "normalized": {
+            "x": 0.7620008,
+            "y": 0.2794003,
+            "z": 0.5842006,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 39.37004,
+        "sqrMagnitude": 1550.0
+      }
+    },
+    {
+      "ID": "30_12_24",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 12.0,
+        "z": 24.0,
+        "normalized": {
+          "x": 0.745356,
+          "y": 0.2981424,
+          "z": 0.5962848,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 40.24922,
+        "sqrMagnitude": 1620.0
+      }
+    },
+    {
+      "ID": "30_13_25",
       "configId": 9,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 13.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.7682213,
-          "y": 0.0,
-          "z": 0.6401844,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 39.0512466,
-        "sqrMagnitude": 1525.0
-      }
-    },
-    {
-      "ID": "30_0_26",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.7556891,
-          "y": 0.0,
-          "z": 0.654930532,
+          "x": 0.7288943,
+          "y": 0.3158542,
+          "z": 0.6074119,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 39.6988678,
-        "sqrMagnitude": 1576.0
+        "magnitude": 41.15823,
+        "sqrMagnitude": 1694.0
       }
     },
     {
-      "ID": "30_0_27",
+      "ID": "30_14_26",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 14.0,
+        "z": 26.0,
+        "normalized": {
+          "x": 0.7126715,
+          "y": 0.33258003,
+          "z": 0.617648661,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 42.09513,
+        "sqrMagnitude": 1772.0
+      }
+    },
+    {
+      "ID": "30_15_27",
       "configId": 9,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 27.0,
         "normalized": {
-          "x": 0.7432942,
-          "y": 0.0,
-          "z": 0.668964744,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 40.36087,
-        "sqrMagnitude": 1629.0
-      }
-    },
-    {
-      "ID": "30_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.7310553,
-          "y": 0.0,
-          "z": 0.6823183,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 41.0365677,
-        "sqrMagnitude": 1684.0
-      }
-    },
-    {
-      "ID": "30_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.718988359,
-          "y": 0.0,
-          "z": 0.6950221,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 41.7252922,
-        "sqrMagnitude": 1741.0
-      }
-    },
-    {
-      "ID": "30_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
+          "x": 0.696733,
+          "y": 0.3483665,
+          "z": 0.6270597,
           "magnitude": 1.0,
           "sqrMagnitude": 0.99999994
         },
-        "magnitude": 42.4264069,
-        "sqrMagnitude": 1800.0
+        "magnitude": 43.0581,
+        "sqrMagnitude": 1854.0
       }
     },
     {
-      "ID": "30_0_31",
+      "ID": "30_16_28",
       "configId": 6,
       "coor": {
         "x": 30.0,
-        "y": 0.0,
-        "z": 31.0,
+        "y": 16.0,
+        "z": 28.0,
         "normalized": {
-          "x": 0.695421457,
-          "y": 0.0,
-          "z": 0.7186021,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 43.13931,
-        "sqrMagnitude": 1861.0
-      }
-    },
-    {
-      "ID": "30_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.6839411,
-          "y": 0.0,
-          "z": 0.7295372,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 43.8634262,
-        "sqrMagnitude": 1924.0
-      }
-    },
-    {
-      "ID": "30_0_33",
-      "configId": 9,
-      "coor": {
-        "x": 30.0,
-        "y": 0.0,
-        "z": 33.0,
-        "normalized": {
-          "x": 0.6726728,
-          "y": 0.0,
-          "z": 0.7399401,
+          "x": 0.681115,
+          "y": 0.3632613,
+          "z": 0.635707259,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 44.5982056,
-        "sqrMagnitude": 1989.0
+        "magnitude": 44.04543,
+        "sqrMagnitude": 1940.0
+      }
+    },
+    {
+      "ID": "30_17_29",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 17.0,
+        "z": 29.0,
+        "normalized": {
+          "x": 0.6658451,
+          "y": 0.377312243,
+          "z": 0.6436503,
+          "normalized": {
+            "x": 0.665845156,
+            "y": 0.377312273,
+            "z": 0.643650353,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 45.0555229,
+        "sqrMagnitude": 2030.0
+      }
+    },
+    {
+      "ID": "30_17_30",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 17.0,
+        "z": 30.0,
+        "normalized": {
+          "x": 0.656375051,
+          "y": 0.371945858,
+          "z": 0.656375051,
+          "normalized": {
+            "x": 0.656375,
+            "y": 0.371945828,
+            "z": 0.656375,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 1.00000012,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 45.7055779,
+        "sqrMagnitude": 2089.0
+      }
+    },
+    {
+      "ID": "30_16_31",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 16.0,
+        "z": 31.0,
+        "normalized": {
+          "x": 0.652019858,
+          "y": 0.347743928,
+          "z": 0.673753858,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 46.0108681,
+        "sqrMagnitude": 2117.0
+      }
+    },
+    {
+      "ID": "30_15_32",
+      "configId": 6,
+      "coor": {
+        "x": 30.0,
+        "y": 15.0,
+        "z": 32.0,
+        "normalized": {
+          "x": 0.6471472,
+          "y": 0.3235736,
+          "z": 0.690290332,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 46.3573074,
+        "sqrMagnitude": 2149.0
+      }
+    },
+    {
+      "ID": "30_14_33",
+      "configId": 9,
+      "coor": {
+        "x": 30.0,
+        "y": 14.0,
+        "z": 33.0,
+        "normalized": {
+          "x": 0.6417938,
+          "y": 0.299503773,
+          "z": 0.7059732,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 46.7439842,
+        "sqrMagnitude": 2185.0
       }
     },
     {
@@ -24233,402 +21772,409 @@
       }
     },
     {
-      "ID": "31_0_12",
+      "ID": "31_1_12",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 1.0,
         "z": 12.0,
         "normalized": {
-          "x": 0.932568133,
-          "y": 0.0,
-          "z": 0.36099413,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 33.24154,
-        "sqrMagnitude": 1105.0
-      }
-    },
-    {
-      "ID": "31_0_13",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 13.0,
-        "normalized": {
-          "x": 0.9221944,
-          "y": 0.0,
-          "z": 0.3867267,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 33.61547,
-        "sqrMagnitude": 1130.0
-      }
-    },
-    {
-      "ID": "31_0_14",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 14.0,
-        "normalized": {
-          "x": 0.911370635,
-          "y": 0.0,
-          "z": 0.411586732,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 34.0147,
-        "sqrMagnitude": 1157.0
-      }
-    },
-    {
-      "ID": "31_0_15",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 15.0,
-        "normalized": {
-          "x": 0.90015924,
-          "y": 0.0,
-          "z": 0.435560942,
+          "x": 0.93214643,
+          "y": 0.0300692413,
+          "z": 0.360830873,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 34.43835,
-        "sqrMagnitude": 1186.0
+        "magnitude": 33.2565765,
+        "sqrMagnitude": 1106.0
       }
     },
     {
-      "ID": "31_0_16",
+      "ID": "31_2_13",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 2.0,
+        "z": 13.0,
+        "normalized": {
+          "x": 0.920566559,
+          "y": 0.05939139,
+          "z": 0.386044025,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 33.6749153,
+        "sqrMagnitude": 1134.0
+      }
+    },
+    {
+      "ID": "31_3_14",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 3.0,
+        "z": 14.0,
+        "normalized": {
+          "x": 0.907846451,
+          "y": 0.08785611,
+          "z": 0.409995168,
+          "normalized": {
+            "x": 0.9078465,
+            "y": 0.0878561139,
+            "z": 0.4099952,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 34.1467438,
+        "sqrMagnitude": 1166.0
+      }
+    },
+    {
+      "ID": "31_4_15",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 4.0,
+        "z": 15.0,
+        "normalized": {
+          "x": 0.8941481,
+          "y": 0.115373947,
+          "z": 0.4326523,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 34.6698723,
+        "sqrMagnitude": 1202.0
+      }
+    },
+    {
+      "ID": "31_5_16",
       "configId": 9,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 5.0,
         "z": 16.0,
         "normalized": {
-          "x": 0.8886206,
-          "y": 0.0,
-          "z": 0.4586429,
+          "x": 0.879631758,
+          "y": 0.141876087,
+          "z": 0.454003483,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 35.24202,
+        "sqrMagnitude": 1242.0
+      }
+    },
+    {
+      "ID": "31_6_17",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 6.0,
+        "z": 17.0,
+        "normalized": {
+          "x": 0.8644526,
+          "y": 0.167313412,
+          "z": 0.474054664,
           "normalized": {
-            "x": 0.8886207,
-            "y": 0.0,
-            "z": 0.45864293,
+            "x": 0.86445266,
+            "y": 0.167313427,
+            "z": 0.4740547,
             "magnitude": 1.0,
             "sqrMagnitude": 1.0
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.9999999
         },
-        "magnitude": 34.88553,
-        "sqrMagnitude": 1217.0
+        "magnitude": 35.8608437,
+        "sqrMagnitude": 1286.0
       }
     },
     {
-      "ID": "31_0_17",
+      "ID": "31_7_18",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
-        "z": 17.0,
-        "normalized": {
-          "x": 0.8768124,
-          "y": 0.0,
-          "z": 0.4808326,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 35.35534,
-        "sqrMagnitude": 1250.0
-      }
-    },
-    {
-      "ID": "31_0_18",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
+        "y": 7.0,
         "z": 18.0,
         "normalized": {
-          "x": 0.864788949,
-          "y": 0.0,
-          "z": 0.5021355,
+          "x": 0.8487578,
+          "y": 0.191655,
+          "z": 0.492827117,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 35.8468971,
-        "sqrMagnitude": 1285.0
+        "magnitude": 36.5239639,
+        "sqrMagnitude": 1334.0
       }
     },
     {
-      "ID": "31_0_19",
+      "ID": "31_8_19",
       "configId": 8,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 8.0,
         "z": 19.0,
         "normalized": {
-          "x": 0.85260123,
-          "y": 0.0,
-          "z": 0.5225621,
+          "x": 0.832683742,
+          "y": 0.214886129,
+          "z": 0.5103546,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 36.3593178,
-        "sqrMagnitude": 1322.0
+        "magnitude": 37.22902,
+        "sqrMagnitude": 1386.0
       }
     },
     {
-      "ID": "31_0_20",
+      "ID": "31_9_20",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 9.0,
         "z": 20.0,
         "normalized": {
-          "x": 0.8402966,
-          "y": 0.0,
-          "z": 0.542126834,
-          "normalized": {
-            "x": 0.8402967,
-            "y": 0.0,
-            "z": 0.5421269,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
+          "x": 0.816355,
+          "y": 0.237006292,
+          "z": 0.526680648,
+          "magnitude": 1.0,
           "sqrMagnitude": 0.99999994
         },
-        "magnitude": 36.8917351,
-        "sqrMagnitude": 1361.0
+        "magnitude": 37.9736748,
+        "sqrMagnitude": 1442.0
       }
     },
     {
-      "ID": "31_0_21",
+      "ID": "31_10_21",
       "configId": 9,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 10.0,
         "z": 21.0,
         "normalized": {
-          "x": 0.8279187,
-          "y": 0.0,
-          "z": 0.5608481,
+          "x": 0.7998835,
+          "y": 0.258026928,
+          "z": 0.5418565,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 37.44329,
-        "sqrMagnitude": 1402.0
+        "magnitude": 38.7556458,
+        "sqrMagnitude": 1502.0
       }
     },
     {
-      "ID": "31_0_22",
+      "ID": "31_11_22",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 11.0,
         "z": 22.0,
         "normalized": {
-          "x": 0.8155071,
-          "y": 0.0,
-          "z": 0.578747,
+          "x": 0.783367932,
+          "y": 0.277969271,
+          "z": 0.555938542,
           "normalized": {
-            "x": 0.8155072,
-            "y": 0.0,
-            "z": 0.578747034,
+            "x": 0.783368,
+            "y": 0.2779693,
+            "z": 0.5559386,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 0.9999999
         },
-        "magnitude": 38.0131569,
-        "sqrMagnitude": 1445.0
+        "magnitude": 39.57272,
+        "sqrMagnitude": 1566.0
       }
     },
     {
-      "ID": "31_0_23",
+      "ID": "31_12_23",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 12.0,
         "z": 23.0,
         "normalized": {
-          "x": 0.803098,
-          "y": 0.0,
-          "z": 0.595846951,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "x": 0.7668945,
+          "y": 0.2968624,
+          "z": 0.5689863,
+          "normalized": {
+            "x": 0.7668946,
+            "y": 0.296862423,
+            "z": 0.568986356,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
         },
-        "magnitude": 38.6005173,
-        "sqrMagnitude": 1490.0
+        "magnitude": 40.4227676,
+        "sqrMagnitude": 1634.0
       }
     },
     {
-      "ID": "31_0_24",
+      "ID": "31_13_24",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 13.0,
         "z": 24.0,
         "normalized": {
-          "x": 0.790723741,
-          "y": 0.0,
-          "z": 0.6121732,
+          "x": 0.7505371,
+          "y": 0.314741373,
+          "z": 0.581061,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 39.20459,
-        "sqrMagnitude": 1537.0
+        "magnitude": 41.3037529,
+        "sqrMagnitude": 1706.0
       }
     },
     {
-      "ID": "31_0_25",
+      "ID": "31_14_25",
       "configId": 8,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.778413057,
-          "y": 0.0,
-          "z": 0.6277524,
+          "x": 0.734358,
+          "y": 0.331645548,
+          "z": 0.59222424,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 39.8246155,
-        "sqrMagnitude": 1586.0
+        "magnitude": 42.21374,
+        "sqrMagnitude": 1782.0
       }
     },
     {
-      "ID": "31_0_26",
+      "ID": "31_15_26",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 26.0,
         "normalized": {
-          "x": 0.766191542,
-          "y": 0.0,
-          "z": 0.6426122,
+          "x": 0.7184092,
+          "y": 0.347617328,
+          "z": 0.6025367,
           "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 40.4598579,
-        "sqrMagnitude": 1637.0
+        "magnitude": 43.150898,
+        "sqrMagnitude": 1862.0
       }
     },
     {
-      "ID": "31_0_27",
+      "ID": "31_16_27",
       "configId": 8,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 16.0,
         "z": 27.0,
         "normalized": {
-          "x": 0.7540816,
-          "y": 0.0,
-          "z": 0.6567808,
+          "x": 0.702732861,
+          "y": 0.36270082,
+          "z": 0.6120577,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 41.1096077,
-        "sqrMagnitude": 1690.0
+        "magnitude": 44.11349,
+        "sqrMagnitude": 1946.0
       }
     },
     {
-      "ID": "31_0_28",
+      "ID": "31_17_28",
       "configId": 6,
       "coor": {
         "x": 31.0,
-        "y": 0.0,
+        "y": 17.0,
         "z": 28.0,
         "normalized": {
-          "x": 0.7421026,
-          "y": 0.0,
-          "z": 0.670286238,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 41.7731972,
-        "sqrMagnitude": 1745.0
-      }
-    },
-    {
-      "ID": "31_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.7302714,
-          "y": 0.0,
-          "z": 0.683157146,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 42.44997,
-        "sqrMagnitude": 1802.0
-      }
-    },
-    {
-      "ID": "31_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.7186021,
-          "y": 0.0,
-          "z": 0.695421457,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 43.13931,
-        "sqrMagnitude": 1861.0
-      }
-    },
-    {
-      "ID": "31_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 43.8406219,
-        "sqrMagnitude": 1922.0
-      }
-    },
-    {
-      "ID": "31_0_32",
-      "configId": 6,
-      "coor": {
-        "x": 31.0,
-        "y": 0.0,
-        "z": 32.0,
-        "normalized": {
-          "x": 0.695795238,
-          "y": 0.0,
-          "z": 0.718240261,
+          "x": 0.687363148,
+          "y": 0.376941085,
+          "z": 0.6208441,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 44.5533371,
-        "sqrMagnitude": 1985.0
+        "magnitude": 45.0998878,
+        "sqrMagnitude": 2034.0
+      }
+    },
+    {
+      "ID": "31_18_29",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 18.0,
+        "z": 29.0,
+        "normalized": {
+          "x": 0.672326267,
+          "y": 0.390383,
+          "z": 0.628950357,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 46.1085663,
+        "sqrMagnitude": 2126.0
+      }
+    },
+    {
+      "ID": "31_17_30",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 17.0,
+        "z": 30.0,
+        "normalized": {
+          "x": 0.6685632,
+          "y": 0.366631448,
+          "z": 0.6469967,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 46.36809,
+        "sqrMagnitude": 2150.0
+      }
+    },
+    {
+      "ID": "31_16_31",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 16.0,
+        "z": 31.0,
+        "normalized": {
+          "x": 0.6642518,
+          "y": 0.342839658,
+          "z": 0.6642518,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 46.66905,
+        "sqrMagnitude": 2178.0
+      }
+    },
+    {
+      "ID": "31_15_32",
+      "configId": 6,
+      "coor": {
+        "x": 31.0,
+        "y": 15.0,
+        "z": 32.0,
+        "normalized": {
+          "x": 0.659425259,
+          "y": 0.319076747,
+          "z": 0.680697,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 47.0106354,
+        "sqrMagnitude": 2210.0
       }
     },
     {
@@ -25027,6 +22573,24 @@
       }
     },
     {
+      "ID": "32_1_12",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 1.0,
+        "z": 12.0,
+        "normalized": {
+          "x": 0.9359286,
+          "y": 0.0292477682,
+          "z": 0.350973219,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 34.1906433,
+        "sqrMagnitude": 1169.0
+      }
+    },
+    {
       "ID": "32_0_13",
       "configId": 6,
       "coor": {
@@ -25049,6 +22613,103 @@
         },
         "magnitude": 34.5398331,
         "sqrMagnitude": 1193.0
+      }
+    },
+    {
+      "ID": "32_1_13",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 1.0,
+        "z": 13.0,
+        "normalized": {
+          "x": 0.9260785,
+          "y": 0.0289399531,
+          "z": 0.3762194,
+          "normalized": {
+            "x": 0.926078558,
+            "y": 0.0289399549,
+            "z": 0.376219422,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 34.554306,
+        "sqrMagnitude": 1194.0
+      }
+    },
+    {
+      "ID": "32_2_13",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 2.0,
+        "z": 13.0,
+        "normalized": {
+          "x": 0.92491734,
+          "y": 0.0578073338,
+          "z": 0.375747651,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 34.5976868,
+        "sqrMagnitude": 1197.0
+      }
+    },
+    {
+      "ID": "32_2_14",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 2.0,
+        "z": 14.0,
+        "normalized": {
+          "x": 0.914659142,
+          "y": 0.0571661964,
+          "z": 0.400163382,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 34.98571,
+        "sqrMagnitude": 1224.0
+      }
+    },
+    {
+      "ID": "32_1_14",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 1.0,
+        "z": 14.0,
+        "normalized": {
+          "x": 0.9157821,
+          "y": 0.02861819,
+          "z": 0.400654674,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 34.94281,
+        "sqrMagnitude": 1221.0
+      }
+    },
+    {
+      "ID": "32_3_14",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 3.0,
+        "z": 14.0,
+        "normalized": {
+          "x": 0.9127967,
+          "y": 0.08557469,
+          "z": 0.399348557,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 35.0570946,
+        "sqrMagnitude": 1229.0
       }
     },
     {
@@ -25239,147 +22900,154 @@
       }
     },
     {
-      "ID": "32_0_24",
+      "ID": "32_13_24",
       "configId": 6,
       "coor": {
         "x": 32.0,
-        "y": 0.0,
+        "y": 13.0,
         "z": 24.0,
         "normalized": {
-          "x": 0.8,
-          "y": 0.0,
-          "z": 0.6,
+          "x": 0.760827243,
+          "y": 0.309086055,
+          "z": 0.5706204,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 40.0,
-        "sqrMagnitude": 1600.0
+        "magnitude": 42.0594826,
+        "sqrMagnitude": 1769.0
       }
     },
     {
-      "ID": "32_0_25",
+      "ID": "32_14_25",
       "configId": 6,
       "coor": {
         "x": 32.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.7880244,
-          "y": 0.0,
-          "z": 0.615644038,
+          "x": 0.7449923,
+          "y": 0.325934142,
+          "z": 0.58202523,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 40.60788,
-        "sqrMagnitude": 1649.0
+        "magnitude": 42.9534645,
+        "sqrMagnitude": 1845.0
       }
     },
     {
-      "ID": "32_0_26",
+      "ID": "32_15_26",
       "configId": 6,
       "coor": {
         "x": 32.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 26.0,
         "normalized": {
-          "x": 0.776114,
-          "y": 0.0,
-          "z": 0.630592644,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 41.2310562,
-        "sqrMagnitude": 1700.0
-      }
-    },
-    {
-      "ID": "32_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 32.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.764291465,
-          "y": 0.0,
-          "z": 0.644870937,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 41.8688431,
-        "sqrMagnitude": 1753.0
-      }
-    },
-    {
-      "ID": "32_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 32.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.7525767,
-          "y": 0.0,
-          "z": 0.6585046,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 42.5205841,
-        "sqrMagnitude": 1808.0
-      }
-    },
-    {
-      "ID": "32_0_29",
-      "configId": 6,
-      "coor": {
-        "x": 32.0,
-        "y": 0.0,
-        "z": 29.0,
-        "normalized": {
-          "x": 0.740986943,
-          "y": 0.0,
-          "z": 0.6715194,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 43.1856461,
-        "sqrMagnitude": 1865.0
-      }
-    },
-    {
-      "ID": "32_0_30",
-      "configId": 6,
-      "coor": {
-        "x": 32.0,
-        "y": 0.0,
-        "z": 30.0,
-        "normalized": {
-          "x": 0.7295372,
-          "y": 0.0,
-          "z": 0.6839411,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 43.8634262,
-        "sqrMagnitude": 1924.0
-      }
-    },
-    {
-      "ID": "32_0_31",
-      "configId": 6,
-      "coor": {
-        "x": 32.0,
-        "y": 0.0,
-        "z": 31.0,
-        "normalized": {
-          "x": 0.718240261,
-          "y": 0.0,
-          "z": 0.695795238,
+          "x": 0.7293477,
+          "y": 0.341881752,
+          "z": 0.592595041,
           "magnitude": 1.0,
           "sqrMagnitude": 1.00000012
         },
-        "magnitude": 44.5533371,
-        "sqrMagnitude": 1985.0
+        "magnitude": 43.87482,
+        "sqrMagnitude": 1925.0
+      }
+    },
+    {
+      "ID": "32_16_27",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 16.0,
+        "z": 27.0,
+        "normalized": {
+          "x": 0.7139372,
+          "y": 0.3569686,
+          "z": 0.6023845,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 44.82187,
+        "sqrMagnitude": 2009.0
+      }
+    },
+    {
+      "ID": "32_17_28",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 17.0,
+        "z": 28.0,
+        "normalized": {
+          "x": 0.6987966,
+          "y": 0.3712357,
+          "z": 0.611447036,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 45.79301,
+        "sqrMagnitude": 2097.0
+      }
+    },
+    {
+      "ID": "32_17_29",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 17.0,
+        "z": 29.0,
+        "normalized": {
+          "x": 0.689488649,
+          "y": 0.366290867,
+          "z": 0.6248491,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 46.4112053,
+        "sqrMagnitude": 2154.0
+      }
+    },
+    {
+      "ID": "32_16_30",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 16.0,
+        "z": 30.0,
+        "normalized": {
+          "x": 0.685364664,
+          "y": 0.342682332,
+          "z": 0.642529368,
+          "normalized": {
+            "x": 0.6853647,
+            "y": 0.342682362,
+            "z": 0.6425294,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 46.69047,
+        "sqrMagnitude": 2180.0
+      }
+    },
+    {
+      "ID": "32_15_31",
+      "configId": 6,
+      "coor": {
+        "x": 32.0,
+        "y": 15.0,
+        "z": 31.0,
+        "normalized": {
+          "x": 0.680697,
+          "y": 0.319076747,
+          "z": 0.659425259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 47.0106354,
+        "sqrMagnitude": 2210.0
       }
     },
     {
@@ -26012,125 +23680,132 @@
       }
     },
     {
-      "ID": "33_0_25",
+      "ID": "33_14_25",
       "configId": 8,
       "coor": {
         "x": 33.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.79709214,
-          "y": 0.0,
-          "z": 0.6038577,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 41.4004822,
-        "sqrMagnitude": 1714.0
-      }
-    },
-    {
-      "ID": "33_0_26",
-      "configId": 8,
-      "coor": {
-        "x": 33.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.7854917,
-          "y": 0.0,
-          "z": 0.6188722,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 42.0119,
-        "sqrMagnitude": 1765.0
-      }
-    },
-    {
-      "ID": "33_0_27",
-      "configId": 6,
-      "coor": {
-        "x": 33.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.7739573,
-          "y": 0.0,
-          "z": 0.6332378,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 42.6380119,
-        "sqrMagnitude": 1818.0
-      }
-    },
-    {
-      "ID": "33_0_28",
-      "configId": 6,
-      "coor": {
-        "x": 33.0,
-        "y": 0.0,
-        "z": 28.0,
-        "normalized": {
-          "x": 0.7625091,
-          "y": 0.0,
-          "z": 0.6469774,
+          "x": 0.755087435,
+          "y": 0.320340127,
+          "z": 0.5720359,
           "normalized": {
-            "x": 0.762509167,
-            "y": 0.0,
-            "z": 0.6469775,
+            "x": 0.7550875,
+            "y": 0.320340157,
+            "z": 0.572035968,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.99999994
         },
-        "magnitude": 43.27817,
-        "sqrMagnitude": 1873.0
+        "magnitude": 43.70355,
+        "sqrMagnitude": 1910.0
       }
     },
     {
-      "ID": "33_0_29",
+      "ID": "33_15_26",
+      "configId": 8,
+      "coor": {
+        "x": 33.0,
+        "y": 15.0,
+        "z": 26.0,
+        "normalized": {
+          "x": 0.73975414,
+          "y": 0.336251885,
+          "z": 0.582836568,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 44.609417,
+        "sqrMagnitude": 1990.0
+      }
+    },
+    {
+      "ID": "33_16_27",
       "configId": 6,
       "coor": {
         "x": 33.0,
-        "y": 0.0,
+        "y": 16.0,
+        "z": 27.0,
+        "normalized": {
+          "x": 0.724618733,
+          "y": 0.35133028,
+          "z": 0.5928699,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 45.54119,
+        "sqrMagnitude": 2074.0
+      }
+    },
+    {
+      "ID": "33_16_28",
+      "configId": 6,
+      "coor": {
+        "x": 33.0,
+        "y": 16.0,
+        "z": 28.0,
+        "normalized": {
+          "x": 0.715197742,
+          "y": 0.346762538,
+          "z": 0.6068344,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 46.1410866,
+        "sqrMagnitude": 2129.0
+      }
+    },
+    {
+      "ID": "33_16_29",
+      "configId": 6,
+      "coor": {
+        "x": 33.0,
+        "y": 16.0,
         "z": 29.0,
         "normalized": {
-          "x": 0.751164854,
-          "y": 0.0,
-          "z": 0.6601146,
+          "x": 0.7058117,
+          "y": 0.342211723,
+          "z": 0.620258749,
           "normalized": {
-            "x": 0.7511649,
-            "y": 0.0,
-            "z": 0.660114646,
+            "x": 0.705811739,
+            "y": 0.342211753,
+            "z": 0.6202588,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
           "sqrMagnitude": 0.9999999
         },
-        "magnitude": 43.9317665,
-        "sqrMagnitude": 1930.0
+        "magnitude": 46.75468,
+        "sqrMagnitude": 2186.0
       }
     },
     {
-      "ID": "33_0_30",
+      "ID": "33_15_30",
       "configId": 8,
       "coor": {
         "x": 33.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 30.0,
         "normalized": {
-          "x": 0.7399401,
-          "y": 0.0,
-          "z": 0.6726728,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "x": 0.701334357,
+          "y": 0.31878835,
+          "z": 0.6375767,
+          "normalized": {
+            "x": 0.7013344,
+            "y": 0.318788379,
+            "z": 0.637576759,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
         },
-        "magnitude": 44.5982056,
-        "sqrMagnitude": 1989.0
+        "magnitude": 47.05316,
+        "sqrMagnitude": 2214.0
       }
     },
     {
@@ -26767,100 +24442,100 @@
       }
     },
     {
-      "ID": "34_0_25",
+      "ID": "34_14_25",
       "configId": 6,
       "coor": {
         "x": 34.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.805651,
-          "y": 0.0,
-          "z": 0.5923904,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 42.2018967,
-        "sqrMagnitude": 1781.0
-      }
-    },
-    {
-      "ID": "34_0_26",
-      "configId": 6,
-      "coor": {
-        "x": 34.0,
-        "y": 0.0,
-        "z": 26.0,
-        "normalized": {
-          "x": 0.794357836,
-          "y": 0.0,
-          "z": 0.6074501,
+          "x": 0.7646727,
+          "y": 0.314865232,
+          "z": 0.5622594,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 42.80187,
-        "sqrMagnitude": 1832.0
+        "magnitude": 44.4634666,
+        "sqrMagnitude": 1977.0
       }
     },
     {
-      "ID": "34_0_27",
+      "ID": "34_15_26",
       "configId": 6,
       "coor": {
         "x": 34.0,
-        "y": 0.0,
+        "y": 15.0,
+        "z": 26.0,
+        "normalized": {
+          "x": 0.7496556,
+          "y": 0.3307304,
+          "z": 0.573266,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 45.35416,
+        "sqrMagnitude": 2057.0
+      }
+    },
+    {
+      "ID": "34_15_27",
+      "configId": 6,
+      "coor": {
+        "x": 34.0,
+        "y": 15.0,
         "z": 27.0,
         "normalized": {
-          "x": 0.7831108,
-          "y": 0.0,
-          "z": 0.621882141,
+          "x": 0.740180552,
+          "y": 0.326550245,
+          "z": 0.5877904,
           "normalized": {
-            "x": 0.783110857,
-            "y": 0.0,
-            "z": 0.6218822,
+            "x": 0.7401806,
+            "y": 0.326550275,
+            "z": 0.5877905,
             "magnitude": 1.0,
             "sqrMagnitude": 1.00000012
           },
           "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
+          "sqrMagnitude": 0.9999999
         },
-        "magnitude": 43.4165878,
-        "sqrMagnitude": 1885.0
+        "magnitude": 45.93474,
+        "sqrMagnitude": 2110.0
       }
     },
     {
-      "ID": "34_0_28",
+      "ID": "34_15_28",
       "configId": 6,
       "coor": {
         "x": 34.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 28.0,
         "normalized": {
-          "x": 0.7719303,
-          "y": 0.0,
-          "z": 0.635707259,
+          "x": 0.730718255,
+          "y": 0.3223757,
+          "z": 0.601768,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 44.04543,
-        "sqrMagnitude": 1940.0
+        "magnitude": 46.52956,
+        "sqrMagnitude": 2165.0
       }
     },
     {
-      "ID": "34_0_29",
+      "ID": "34_15_29",
       "configId": 6,
       "coor": {
         "x": 34.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 29.0,
         "normalized": {
-          "x": 0.760834,
-          "y": 0.0,
-          "z": 0.648946643,
+          "x": 0.721285,
+          "y": 0.318213969,
+          "z": 0.615213633,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
+          "sqrMagnitude": 1.0
         },
-        "magnitude": 44.6878052,
-        "sqrMagnitude": 1997.0
+        "magnitude": 47.1380959,
+        "sqrMagnitude": 2222.0
       }
     },
     {
@@ -27578,57 +25253,57 @@
       }
     },
     {
-      "ID": "35_0_25",
+      "ID": "35_14_25",
       "configId": 8,
       "coor": {
         "x": 35.0,
-        "y": 0.0,
+        "y": 14.0,
         "z": 25.0,
         "normalized": {
-          "x": 0.813733459,
-          "y": 0.0,
-          "z": 0.5812382,
+          "x": 0.773776,
+          "y": 0.30951038,
+          "z": 0.5526971,
           "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "sqrMagnitude": 1.00000012
         },
-        "magnitude": 43.0116272,
-        "sqrMagnitude": 1850.0
+        "magnitude": 45.23273,
+        "sqrMagnitude": 2046.0
       }
     },
     {
-      "ID": "35_0_26",
+      "ID": "35_15_26",
       "configId": 6,
       "coor": {
         "x": 35.0,
-        "y": 0.0,
+        "y": 15.0,
         "z": 26.0,
         "normalized": {
-          "x": 0.802743852,
-          "y": 0.0,
-          "z": 0.596323967,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 43.60046,
-        "sqrMagnitude": 1901.0
-      }
-    },
-    {
-      "ID": "35_0_27",
-      "configId": 8,
-      "coor": {
-        "x": 35.0,
-        "y": 0.0,
-        "z": 27.0,
-        "normalized": {
-          "x": 0.79178226,
-          "y": 0.0,
-          "z": 0.6108035,
+          "x": 0.759078,
+          "y": 0.325319171,
+          "z": 0.5638865,
           "magnitude": 1.0,
           "sqrMagnitude": 1.0
         },
-        "magnitude": 44.20407,
-        "sqrMagnitude": 1954.0
+        "magnitude": 46.1085663,
+        "sqrMagnitude": 2126.0
+      }
+    },
+    {
+      "ID": "35_14_27",
+      "configId": 8,
+      "coor": {
+        "x": 35.0,
+        "y": 14.0,
+        "z": 27.0,
+        "normalized": {
+          "x": 0.7548294,
+          "y": 0.301931769,
+          "z": 0.582296968,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 46.36809,
+        "sqrMagnitude": 2150.0
       }
     },
     {
@@ -31009,7 +28684,29 @@
   "enemys": [
     {
       "configId": 100003,
-      "hexagonID": "6_0_5"
+      "hexagonID": "4_0_14"
+    }
+  ],
+  "bonfires": [
+    {
+      "configId": 1,
+      "hexagonID": "0_0_10"
+    },
+    {
+      "configId": 2,
+      "hexagonID": "4_0_0"
+    },
+    {
+      "configId": 3,
+      "hexagonID": "0_0_8"
+    },
+    {
+      "configId": 4,
+      "hexagonID": "0_0_3"
+    },
+    {
+      "configId": 5,
+      "hexagonID": "0_0_0"
     }
   ]
 }

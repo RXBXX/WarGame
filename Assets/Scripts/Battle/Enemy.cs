@@ -64,8 +64,6 @@ namespace WarGame
                 }
             }
 
-            DebugManager.Instance.Log("TargetID:" + targetID);
-
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, GetConfig().CommonSkill});
             yield return new WaitForSeconds(1.0F);
             if (targetID <= 0)

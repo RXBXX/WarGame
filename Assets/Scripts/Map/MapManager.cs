@@ -9,6 +9,7 @@ namespace WarGame
     public class MapManager : Singeton<MapManager>
     {
         private Dictionary<string, Hexagon> _map = new Dictionary<string, Hexagon>();
+        private Dictionary<int, Bonfire> _bonfiresDic = new Dictionary<int, Bonfire>();
 
         private List<string> _markedRegion = new List<string>();
 
@@ -61,9 +62,16 @@ namespace WarGame
             return true;
         }
 
-        public void CreateMap(HexagonMapPlugin[] hexagons)
+        public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires)
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
+            _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("Root"));
+        }
+
+        public void UpdateRound(int round)
+        {
+            foreach (var v in _bonfiresDic)
+                v.Value.UpdateRound(round);
         }
 
         public float GetLoadingProgress()
@@ -84,6 +92,12 @@ namespace WarGame
                 pair.Value.Dispose();
             }
             _map.Clear();
+
+            foreach (var pair in _bonfiresDic)
+            {
+                pair.Value.Dispose();
+            }
+            _bonfiresDic.Clear();
         }
 
         public bool ContainHexagon(string key)

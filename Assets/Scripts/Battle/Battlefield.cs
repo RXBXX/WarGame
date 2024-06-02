@@ -43,11 +43,15 @@ namespace WarGame
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
 
-            MapManager.Instance.CreateMap(levelPlugin.hexagons);
-
-            var heroDatas = DatasMgr.Instance.GetAllRoles();
-            if (_levelData.heros.Count <= 0 || restart)
+            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
+            if (restart)
             {
+                _levelData.Clear();
+            }
+
+            if (!_levelData.isEnter)
+            {
+                var heroDatas = DatasMgr.Instance.GetAllRoles();
                 var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
                 var index = 0;
                 foreach (var p in bornPoints)
@@ -75,17 +79,7 @@ namespace WarGame
 
                     index += 1;
                 }
-            }
-            else
-            {
-                foreach (var v in _levelData.heros)
-                {
-                    RoleManager.Instance.CreateHero(v);
-                }
-            }
 
-            if (_levelData.enemys.Count <= 0 || restart)
-            {
                 for (int i = 0; i < levelPlugin.enemys.Length; i++)
                 {
                     var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", levelPlugin.enemys[i].configId);
@@ -106,11 +100,31 @@ namespace WarGame
             }
             else
             {
+                var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
+                foreach (var p in bornPoints)
+                {
+                    _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                    {
+                        DebugManager.Instance.Log(prefab.name);
+                        var go = GameObject.Instantiate<GameObject>(prefab);
+                        go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
+
+                        _bornEffectGOs.Add(go);
+                    }));
+                }
+
+                foreach (var v in _levelData.heros)
+                {
+                    RoleManager.Instance.CreateHero(v);
+                }
+
                 foreach (var v in _levelData.enemys)
                 {
                     RoleManager.Instance.CreateEnemy(v);
                 }
             }
+            _levelData.isEnter = true;
+
             _weather = new Weather();
             _arrow = new LocatingArrow();
         }
@@ -411,11 +425,8 @@ namespace WarGame
 
                 RoundFunc callback = () =>
                 {
-                    var roles = RoleManager.Instance.GetAllRoles();
-                    for (int i = 0; i < roles.Count; i++)
-                    {
-                        roles[i].UpdateRound();
-                    }
+                    MapManager.Instance.UpdateRound(_roundIndex + 1);
+                    RoleManager.Instance.UpdateRound(_roundIndex + 1);
                     isHeroTurn = true;
                     _action = new HeroBattleAction(GetActionID());
                 };

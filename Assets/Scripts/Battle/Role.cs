@@ -130,7 +130,9 @@ namespace WarGame
             _gameObject.transform.position = _position;
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
-            _gameObject.GetComponent<RoleBehaviour>().ID = _id;
+
+            _gameObject.GetComponent<RoleBehaviour>().ID = _id; ;
+
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
@@ -317,7 +319,7 @@ namespace WarGame
 
             EnterState("Attacked");
 
-            UpdateHP(-deltaHP);
+            UpdateAttr(Enum.AttrType.HP, -deltaHP);
         }
 
         public virtual void Cure()
@@ -329,7 +331,7 @@ namespace WarGame
         {
             EnterState("Cured");
 
-            UpdateHP(deltaHP);
+            UpdateAttr(Enum.AttrType.HP, deltaHP);
         }
 
         public virtual float GetCurePower()
@@ -399,21 +401,23 @@ namespace WarGame
             });
         }
 
-        protected virtual void UpdateHP(float deltaHP)
+        protected virtual void UpdateAttr(Enum.AttrType type, float delta)
         {
-            _data.UpdateAttr(Enum.AttrType.HP, deltaHP);
+            _data.UpdateAttr(type, delta);
 
-            HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.UpdateHP(GetHP());
-
-            AddFloatHUD(deltaHP.ToString());
-
-            if (IsDead())
+            if (type == Enum.AttrType.HP)
             {
-                Dead();
-            }
+                HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.UpdateHP(GetHP());
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _id});
+                AddFloatHUD(delta.ToString());
+
+                if (IsDead())
+                {
+                    Dead();
+                }
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _id });
+            }
         }
 
         public float GetHP()
@@ -654,6 +658,14 @@ namespace WarGame
         public GameObject GetEffectPoint()
         {
             return _gameObject.transform.Find("root/pelvis/spine_01/spine_02/spine_03/neck_01/head").gameObject;
+        }
+
+        public void AddEffects(List<Pair> effects)
+        {
+            foreach (var v in effects)
+            {
+                UpdateAttr((Enum.AttrType)v.id, v.value);
+            }
         }
 
         public override void Dispose()

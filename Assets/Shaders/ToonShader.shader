@@ -100,7 +100,7 @@ Shader "Custom/ToonShader"
 			CGPROGRAM
 
 			// Apparently need to add this declaration
-			#pragma multi_compile_fwdadd
+			#pragma multi_compile_fwdadd_fullshadows
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -120,16 +120,15 @@ Shader "Custom/ToonShader"
 				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD0;
 				float3 worldPos : TEXCOORD1;
+				LIGHTING_COORDS(2, 3)//包含光照衰减以及阴影
 			};
 
 			v2f vert(a2v v) {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
-
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
-
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-
+				TRANSFER_VERTEX_TO_FRAGMENT(o);//包含光照衰减以及阴影
 				return o;
 			}
 
@@ -156,22 +155,23 @@ Shader "Custom/ToonShader"
 				float toonSpec = floor(specular * toon * 2) / 2;
 				specular = lerp(specular, toonSpec, _ToonEffect);
 
-				//判断是否是平行光，处理衰减
-				#ifdef USING_DIRECTIONAL_LIGHT
-					fixed atten = 1.0;
-				#else
-					#if defined (POINT)
-						float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
-						fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-					#elif defined (SPOT)
-						float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
-						fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-					#else
-						fixed atten = 1.0;
-					#endif
-				#endif
+				////判断是否是平行光，处理衰减
+				//#ifdef USING_DIRECTIONAL_LIGHT
+				//	fixed atten = 1.0;
+				//#else
+				//	#if defined (POINT)
+				//		float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
+				//		fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				//	#elif defined (SPOT)
+				//		float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
+				//		fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				//	#else
+				//		fixed atten = 1.0;
+				//	#endif
+				//#endif
 
-				return fixed4((diffuse + specular) * _LightColor0.rgb * atten, 1.0);
+				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
+				return fixed4((diffuse + specular) * _LightColor0.rgb * atten * atten, 1.0);
 			}
 
 			ENDCG

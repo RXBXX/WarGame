@@ -32,7 +32,7 @@ namespace WarGame
 
     //角色表
     [Serializable]
-    public class RoleConfig: Config
+    public class RoleConfig : Config
     {
         public int Job;
         public string Name;
@@ -110,7 +110,7 @@ namespace WarGame
     {
         public string ID;
 
-        public int configId; 
+        public int configId;
 
         public Vector3 coor;
 
@@ -137,21 +137,37 @@ namespace WarGame
     }
 
     [Serializable]
+    public class BonfireMapPlugin
+    {
+        public int configId;
+
+        public string hexagonID;
+
+        public BonfireMapPlugin(int configId, string hexagonID)
+        {
+            this.configId = configId;
+            this.hexagonID = hexagonID;
+        }
+    }
+
+    [Serializable]
     public class LevelMapPlugin
     {
         public HexagonMapPlugin[] hexagons;
         public EnemyMapPlugin[] enemys;
+        public BonfireMapPlugin[] bonfires;
 
-        public LevelMapPlugin(HexagonMapPlugin[] hexagons, EnemyMapPlugin[] enemys)
+        public LevelMapPlugin(HexagonMapPlugin[] hexagons, EnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires)
         {
             this.hexagons = hexagons;
             this.enemys = enemys;
+            this.bonfires = bonfires;
         }
     }
 
     //属性表
     [Serializable]
-    public class AttrConfig:Config
+    public class AttrConfig : Config
     {
         public string Name;
         public int TargetAttr;
@@ -162,7 +178,7 @@ namespace WarGame
 
     //Buff表
     [Serializable]
-    public class BufferConfig:Config
+    public class BufferConfig : Config
     {
         public Pair Attr;
         public int Duration;
@@ -181,7 +197,7 @@ namespace WarGame
 
     //动画状态机表
     [Serializable]
-    public class AnimatorConfig : Config 
+    public class AnimatorConfig : Config
     {
         public string Controller;
         public string Jump;
@@ -212,7 +228,7 @@ namespace WarGame
 
     //关卡表
     [Serializable]
-    public class LevelConfig : Config 
+    public class LevelConfig : Config
     {
         public string Name;
         public Vector2 UIPos;
@@ -226,7 +242,7 @@ namespace WarGame
     }
 
     [Serializable]
-    public class LevelEnemyConfig : Config 
+    public class LevelEnemyConfig : Config
     {
         public int RoleID;
         public int Level;
@@ -236,7 +252,7 @@ namespace WarGame
 
     //天赋表
     [Serializable]
-    public class TalentConfig : Config 
+    public class TalentConfig : Config
     {
         public int Group;
         public string Name;
@@ -244,5 +260,13 @@ namespace WarGame
         public List<Pair> Attrs;
         public int LastTalent;
         public int Place;
+    }
+
+    //篝火表
+    [Serializable]
+    public class BonfireConfig : Config
+    {
+        public string Prefab;
+        public List<Pair> Effects;
     }
 }

@@ -51,6 +51,7 @@ namespace WarGame.UI
                 _skipBtn.visible = true;
             });
 
+            DebugManager.Instance.Log("isReady:" + (bool)args[0]);
             if ((bool)args[0])
             {
                 startBtn.visible = false;

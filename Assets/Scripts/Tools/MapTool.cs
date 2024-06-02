@@ -77,6 +77,18 @@ namespace WarGame
             return hexagonDic;
         }
 
+        public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
+        {
+            Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
+            for (int i = 0; i < bonfires.Length; i++)
+            {
+                var bonfire = new Bonfire(i, bonfires[i].configId, bonfires[i].hexagonID);
+                bonfire.SetParent(root.transform);
+                bonfireDic[i] = bonfire;
+            }
+            return bonfireDic;
+        }
+
 #if UNITY_EDITOR
 
         /// <summary>
@@ -120,7 +132,6 @@ namespace WarGame
                 var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
                 var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.configId, coor);
-                //DebugManager.Instance.Log(coor);
                 hexagons[i] = hexagonCell;
             }
 
@@ -134,7 +145,17 @@ namespace WarGame
                 enemys[i] = new EnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position)));
             }
 
-            var levelPlugin = new LevelMapPlugin(hexagons, enemys);
+            var fireRootObj = GameObject.Find("BonfireRoot");
+            var bonfireCount = fireRootObj.transform.childCount;
+            BonfireMapPlugin[] bonfires = new BonfireMapPlugin[bonfireCount];
+            for (int i = 0; i < bonfireCount; i++)
+            {
+                var bonfireTra = fireRootObj.transform.GetChild(i);
+                var data = bonfireTra.GetComponent<BonfireBehaviour>();
+                bonfires[i] = new BonfireMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(bonfireTra.position)));
+            }
+
+            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires);
 
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
             Tool.Instance.WriteJson<LevelMapPlugin>(dir, levelPlugin);
@@ -153,25 +174,9 @@ namespace WarGame
             var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
-            var rootObj = GameObject.Find("Root");
-            MapManager.Instance.CreateMap(levelPlugin.hexagons);
-            //for (int i = 0; i < levelPlugin.hexagons.Length; i++)
-            //{
-            //    var hexagon = new Hexagon(levelPlugin.hexagons[i].ID, levelPlugin.hexagons[i].configId, levelPlugin.hexagons[i].coor);
-            //    //hexagon.CreateGO();
-            //    hexagon.SetParent(rootObj.transform);
-            //}
-
-            var enemyRootObj = GameObject.Find("RoleRoot");
+            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
 
             RoleManager.Instance.InitEnemys(levelPlugin.enemys);
-            //for (int i = 0; i < levelPlugin.enemys.Length; i++)
-            //{
-            //    var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", levelPlugin.enemys[i].configId);
-            //    Debug.Log(enemyConfig.ID);
-            //    var enemy = new Enemy(new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, enemyConfig.EquipDic, null));
-            //    enemy.SetParent(enemyRootObj.transform);
-            //}
         }
 
         /// <summary>
@@ -214,7 +219,7 @@ namespace WarGame
                                 type = pair.Value;
                             }
                         }
-                        Debug.Log(type);
+
                         string assetPath = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", (int)type).Prefab;
                         AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab) =>
                         {
@@ -247,6 +252,13 @@ namespace WarGame
             for (int i = enemyCount - 1; i >= 0; i--)
             {
                 GameObject.DestroyImmediate(roleRootObj.transform.GetChild(i).gameObject);
+            }
+
+            var fireRootObj = GameObject.Find("BonfireRoot");
+            var bonfireCount = fireRootObj.transform.childCount;
+            for (int i = bonfireCount - 1; i >= 0; i--)
+            {
+                GameObject.DestroyImmediate(fireRootObj.transform.GetChild(i).gameObject);
             }
         }
 #endif

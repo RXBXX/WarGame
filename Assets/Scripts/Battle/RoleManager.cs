@@ -17,6 +17,14 @@ namespace WarGame
             }
         }
 
+        public void UpdateRound(int round)
+        {
+            for (int i = 0; i < _roleList.Count; i++)
+            {
+                _roleList[i].UpdateRound();
+            }
+        }
+
         public override bool Dispose()
         {
             base.Dispose();
@@ -38,7 +46,7 @@ namespace WarGame
                     var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
                     equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
                 }
-                var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
+                var levelRoleData = new LevelRoleData(enemys[i].configId, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
                 levelRoleData.HP = enemyConfig.HP;
                 levelRoleData.hexagonID = enemys[i].hexagonID;
                 CreateEnemy(levelRoleData);
