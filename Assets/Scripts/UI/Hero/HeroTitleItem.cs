@@ -11,9 +11,9 @@ namespace WarGame.UI
 
         public HeroTitleItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _title = GetUIChild<GTextField>("title");
+            _title = GetGObjectChild<GTextField>("title");
             _stateC = GetController("state");
-            GetUIChild<GButton>("btn").onClick.Add(OnClickBtn);
+            GetGObjectChild<GButton>("btn").onClick.Add(OnClickBtn);
         }
 
         public void Init(string title, int state, WGArgsCallback callback)

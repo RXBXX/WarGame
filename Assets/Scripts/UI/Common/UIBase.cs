@@ -27,11 +27,13 @@ namespace WarGame.UI
                 var childGCom = gCom.GetChildAt(i);
                 if (null == childGCom.packageItem)
                     continue;
-                var type = Type.GetType("WarGame.UI." + childGCom.packageItem.name);
-                if (null == type)
+
+                if (childGCom.packageItem.type != PackageItemType.Component)
                     continue;
-                UIBase child = (UIBase)Activator.CreateInstance(type, new[] { childGCom, (object)childGCom.name, null });
-                childDic[childGCom.name] = child;
+
+                var childUI = UIManager.Instance.CreateUI<UIBase>(childGCom.packageItem.name, childGCom);
+                if (null != childUI)
+                    childDic[childGCom.name] = childUI;
             }
         }
 
@@ -68,7 +70,7 @@ namespace WarGame.UI
                 return default(T);
         }
 
-        protected T GetUIChild<T>(string name) where T: GObject
+        protected T GetGObjectChild<T>(string name) where T: GObject
         {
             return (T)_gCom.GetChild(name);
         }

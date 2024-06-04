@@ -13,9 +13,9 @@ namespace WarGame.UI
 
         public CommonSkillItem(GComponent gCom, string customName = null, params object[] args) : base(gCom, customName, args)
         {
-            _icon = GetUIChild<GButton>("icon");
-            _name = GetUIChild<GTextField>("name");
-            _desc = GetUIChild<GTextField>("desc");
+            _icon = GetGObjectChild<GButton>("icon");
+            _name = GetGObjectChild<GTextField>("name");
+            _desc = GetGObjectChild<GTextField>("desc");
 
             _icon.onClick.Add(OnClickIcon);
         }

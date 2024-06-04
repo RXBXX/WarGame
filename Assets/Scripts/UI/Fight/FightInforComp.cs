@@ -13,7 +13,7 @@ namespace WarGame.UI
         public FightInforComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _vsC = GetTransition("show");
-            _attrs = GetUIChild<GTextField>("attrs");
+            _attrs = GetGObjectChild<GTextField>("attrs");
         }
 
         public void Show(int id, Vector3 pos)

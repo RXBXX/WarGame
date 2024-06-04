@@ -29,8 +29,6 @@ namespace WarGame
 
         protected List<string> _numberHUDList = new List<string>();
 
-        private Vector3 _offset = new Vector3(0.0f, 0.224f, 0.0f);
-
         private Quaternion _rotation;
 
         protected Enum.RoleType _type = Enum.RoleType.None;
@@ -88,11 +86,6 @@ namespace WarGame
             set { _lerpStep = value; }
         }
 
-        public Vector3 Offset
-        {
-            get { return _offset; }
-        }
-
         public Quaternion Rotation
         {
             get { return _rotation; }
@@ -113,7 +106,7 @@ namespace WarGame
         {
             this._id = data.UID;
             this._data = data;
-            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
 
             CreateGO();
         }
@@ -200,10 +193,6 @@ namespace WarGame
 
         protected virtual void CreateHUD()
         {
-            _hpHUDKey = _id + "_HP";
-            var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id });
-            hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
-            hud.SetFollowing(_isFollowing);
         }
 
         public AnimatorConfig GetAnimatorConfig()
@@ -223,7 +212,7 @@ namespace WarGame
         public void UpdateHexagonID(string id)
         {
             Hexagon = id;
-            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + _offset;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
             _gameObject.transform.position = _position;
         }
 
@@ -346,6 +335,18 @@ namespace WarGame
             AddFloatHUD("Miss");
         }
 
+        public virtual void Inspire()
+        {
+            EnterState("Cure");
+        }
+
+        public virtual void Inspired(float delta)
+        {
+            EnterState("Cured");
+
+            UpdateAttr(Enum.AttrType.Rage, delta);
+        }
+
         public virtual void Dead()
         {
             EnterState("Dead");
@@ -392,32 +393,49 @@ namespace WarGame
         private void AddFloatHUD(string str)
         {
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
-            var numberHUD = (HUDNumber)HUDManager.Instance.AddHUD("HUD", "HUDNumber", numberID, _gameObject.transform.Find("hudPoint").gameObject);
+            var target = _gameObject.transform.Find("hudPoint").gameObject;
+            var numberHUD = HUDManager.Instance.AddHUD<HUDNumber>("HUD", "HUDNumber", numberID, target);
             _numberHUDList.Add(numberID);
-            numberHUD.Show(str, () =>
+            numberHUD.Show((_numberHUDList.Count - 1) / 3.0f, str, () =>
             {
-                HUDManager.Instance.RemoveHUD(numberID);
-                _numberHUDList.Remove(numberID);
+                onNumberHUDRemove(numberID);
             });
+        }
+
+        private void onNumberHUDRemove(string id)
+        {
+            HUDManager.Instance.RemoveHUD(id);
+            _numberHUDList.Remove(id);
         }
 
         protected virtual void UpdateAttr(Enum.AttrType type, float delta)
         {
+            if (0 == delta)
+                return;
+
             _data.UpdateAttr(type, delta);
 
             if (type == Enum.AttrType.HP)
             {
                 HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
                 hud.UpdateHP(GetHP());
-
-                AddFloatHUD(delta.ToString());
-
                 if (IsDead())
                 {
                     Dead();
                 }
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _id });
             }
+            else if (type == Enum.AttrType.Rage)
+            {
+                HUDRole hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.UpdateRage(GetRage());
+            }
+
+            var format = "";
+            if (delta > 0)
+                format = "[color={0}]+{1}[/color]";
+            else
+                format = "[color={0}]-{1}[/color]";
+            AddFloatHUD(string.Format(format, CommonParams.GetAttrColor(type), delta));
         }
 
         public float GetHP()
@@ -560,6 +578,7 @@ namespace WarGame
 
         public virtual void UpdateRound()
         {
+            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
             ExcuteBuffs();
         }
 
@@ -578,7 +597,7 @@ namespace WarGame
             base.ChangeToMapSpace();
 
             var hexagon = MapManager.Instance.GetHexagon(Hexagon);
-            var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + _offset;
+            var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + CommonParams.Offset;
             UpdatePosition(pos);
             //_gameObject.transform.position = pos;
         }
@@ -666,6 +685,21 @@ namespace WarGame
             {
                 UpdateAttr((Enum.AttrType)v.id, v.value);
             }
+        }
+
+        public void ClearRage()
+        {
+            UpdateAttr(Enum.AttrType.Rage, -GetRage());
+        }
+
+        public Enum.Element GetElement()
+        {
+            return GetConfig().Element;
+        }
+
+        public ElementConfig GetElementConfig()
+        {
+            return _data.GetElementConfig();
         }
 
         public override void Dispose()

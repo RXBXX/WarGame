@@ -77,7 +77,7 @@ namespace WarGame.UI
                         }
                         else
                         {
-                            ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHexagonItem");
+                            ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHero");
                             GCom.AddChild(ui);
                             ui.asButton.title = coor.x + "_" + coor.y;
 

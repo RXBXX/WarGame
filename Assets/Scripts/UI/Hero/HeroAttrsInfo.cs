@@ -12,7 +12,7 @@ namespace WarGame.UI
 
         public HeroAttrsInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
-            _attrList = GetUIChild<GList>("attrList");
+            _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Show_Attrs, OnShowAttrs);

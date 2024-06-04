@@ -19,14 +19,14 @@ namespace WarGame.UI
 
         public MapMark(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _name = GetUIChild<GTextField>("title");
-            _desc = GetUIChild<GTextField>("desc");
+            _name = GetGObjectChild<GTextField>("title");
+            _desc = GetGObjectChild<GTextField>("desc");
             _typeC = GetController("type");
-            _lock = GetUIChild<GObject>("lock");
+            _lock = GetGObjectChild<GObject>("lock");
             _showBtnC = GetController("showBtn");
-            _goOnBtn = GetUIChild<GButton>("goOnBtn");
+            _goOnBtn = GetGObjectChild<GButton>("goOnBtn");
             _goOnBtn.onClick.Add(OnClickGoOn);
-            _restartBtn = GetUIChild<GButton>("restartBtn");
+            _restartBtn = GetGObjectChild<GButton>("restartBtn");
             _restartBtn.onClick.Add(OnClickRestart);
             _gCom.onClick.Add(OnClick);
             Stage.inst.onTouchBegin.Add(OnTouchBegin);

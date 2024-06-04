@@ -27,9 +27,27 @@
     <image id="pfj8p" name="HeroMask.png" path="/Images/" exported="true"/>
     <image id="h53uc" name="SelectedHexagon.png" path="/Images/" exported="true"/>
     <image id="e05zq" name="Selected_02.png" path="/Images/" exported="true"/>
-    <component id="pfj84" name="CommonHexagonItem.xml" path="/Components/" exported="true"/>
+    <component id="pfj84" name="CommonHero.xml" path="/Components/" exported="true"/>
     <component id="gy0sg" name="CommonSkillItem.xml" path="/Components/" exported="true"/>
     <component id="gy0sr" name="CommonAttrItem.xml" path="/Components/" exported="true"/>
+    <image id="c2cws" name="Common_Frame.png" path="/Images/" exported="true"/>
+    <image id="c2cwt" name="Common_Mask.png" path="/Images/" exported="true"/>
+    <image id="c2cwu" name="Common_Selected_Frame.png" path="/Images/" exported="true"/>
+    <image id="c2cww" name="Skill_BG.png" path="/Images/" exported="true"/>
+    <image id="c2cwx" name="Skill_Frame.png" path="/Images/" exported="true"/>
+    <image id="c2cwy" name="Skill_Mask.png" path="/Images/" exported="true"/>
+    <component id="c2cw10" name="CommonSkill.xml" path="/Components/" exported="true"/>
+    <image id="c2cw11" name="Equip.png" path="/Images/"/>
+    <component id="c2cw12" name="CommonEquip.xml" path="/Components/" exported="true"/>
+    <image id="c2cw13" name="Equip_BG.png" path="/Images/"/>
+    <image id="c2cw14" name="Equip_Mask.png" path="/Images/"/>
+    <image id="c2cw15" name="MenuBG.png" path="/Images/" exported="true" scale="9grid" scale9grid="193,268,11,27"/>
+    <image id="c2cw16" name="MenuItem.png" path="/Images/" exported="true" scale="9grid" scale9grid="63,15,126,30"/>
+    <image id="yiew17" name="Earth.png" path="/Images/" exported="true"/>
+    <image id="yiew18" name="Fire.png" path="/Images/" exported="true"/>
+    <image id="yiew19" name="Metal.png" path="/Images/" exported="true"/>
+    <image id="yiew1a" name="Water.png" path="/Images/" exported="true"/>
+    <image id="yiew1b" name="Wood.png" path="/Images/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

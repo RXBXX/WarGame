@@ -2,14 +2,10 @@
 <component size="1000,120">
   <controller name="type" pages="0,,1," selected="0"/>
   <displayList>
-    <graph id="n7_e05z" name="n7" xy="13,49" size="152,0" group="n8_e05z" scale="1.04,1.04" type="polygon" lineSize="0" points="-50,-349,152,-349,51,-49"/>
-    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="66,-10" group="n8_e05z"/>
-    <group id="n8_e05z" name="n8" xy="-34,-310" size="200,359" advanced="true">
-      <gearXY controller="type" pages="0,1" values="-34,-310|833,-310"/>
-    </group>
-    <graph id="n0_a4gr" name="n0" xy="500,60" pivot="0.5,0.5" anchor="true" size="1000,120" alpha="0.9" type="polygon" lineSize="2" lineColor="#ffffffff" fillColor="#ff000000" points="67,0,999,-1,939,120,0,120">
-      <gearSize controller="type" pages="0,1" values="1000,120,1,1|999,120,-1,1"/>
-    </graph>
-    <text id="n1_a4gr" name="context" xy="71,10" size="863,96" font="ui://hd0z4dz5omu90" fontSize="24" color="#cccccc" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
+    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="99,13">
+      <gearXY controller="type" pages="1" values="889,13" default="99,13"/>
+    </component>
+    <image id="n10_yiew" name="n10" src="c2cwb" fileName="Images/DialogBox.png" xy="0,-1" size="1002,135"/>
+    <text id="n1_a4gr" name="context" xy="21,10" size="948,96" font="ui://hd0z4dz5omu90" fontSize="24" color="#cccccc" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
   </displayList>
 </component>

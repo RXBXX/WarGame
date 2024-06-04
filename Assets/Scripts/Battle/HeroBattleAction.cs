@@ -69,7 +69,7 @@ namespace WarGame
                 _touchingHexagon = touchingHexagonID;
                 MapManager.Instance.MarkingPath(initiator.Hexagon, touchingHexagonID, initiator.GetMoveDis());
             }
-            else if(null != _touchingHexagon && _touchingHexagon != touchingHexagonID)
+            else if (null != _touchingHexagon && _touchingHexagon != touchingHexagonID)
             {
                 _touchingHexagon = null;
                 MapManager.Instance.ClearMarkedPath();
@@ -192,9 +192,10 @@ namespace WarGame
         private void OpenInstruct(Enum.InstructType[] orders = null)
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
-            HUDManager.Instance.AddHUD("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
+            HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
             role.GetConfig().CommonSkill,
             role.GetConfig().SpecialSkill,
+            role.GetRage() >= role.GetAttribute(Enum.AttrType.Rage)
             });
         }
 

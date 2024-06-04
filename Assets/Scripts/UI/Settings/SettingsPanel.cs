@@ -9,7 +9,7 @@ namespace WarGame.UI
         {
             UILayer = Enum.UILayer.PopLayer;
 
-            var saveBtn = GetUIChild<GButton>("saveBtn");
+            var saveBtn = GetGObjectChild<GButton>("saveBtn");
             saveBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Save_Data);
@@ -18,13 +18,13 @@ namespace WarGame.UI
                 DatasMgr.Instance.SaveGameData();
             });
 
-            var returnBtn = GetUIChild<GButton>("returnBtn");
+            var returnBtn = GetGObjectChild<GButton>("returnBtn");
             returnBtn.onClick.Add(() => {
                 UIManager.Instance.ClosePanel(this.name);
                 SceneMgr.Instance.DestroyBattleFiled();
             });
 
-            var cancelBtn = GetUIChild<GButton>("cancelBtn");
+            var cancelBtn = GetGObjectChild<GButton>("cancelBtn");
             cancelBtn.onClick.Add(() => {
                 UIManager.Instance.ClosePanel(this.name);
             });

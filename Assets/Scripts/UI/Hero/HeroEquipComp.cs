@@ -42,7 +42,7 @@ namespace WarGame.UI
 
         public HeroEquipComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _equipList = GetUIChild<GList>("equipList");
+            _equipList = GetGObjectChild<GList>("equipList");
             _equipList.itemRenderer = OnEquipRender;
             //_equipList.onClickItem.Add(OnClickEquip);
 

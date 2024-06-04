@@ -8,6 +8,7 @@ Shader "Custom/HexagonToonShader"
 		_HighLight("HighLight", Range(0,1)) = 1
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
 		_Steps("Steps of toon",range(0,9)) = 3
+		_AmbientStrength("AmbientStrength", Range(0, 30)) = 1
 	}
 	SubShader
 	{
@@ -29,6 +30,7 @@ Shader "Custom/HexagonToonShader"
 			float _ToonEffect;
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float _AmbientStrength;
 
 			struct appdata
 			{
@@ -61,24 +63,15 @@ Shader "Custom/HexagonToonShader"
 				fixed3 worldNormal = normalize(i.worldNormal);
 				fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
 
-				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz *10;
+				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * (1 + _AmbientStrength);
 
 				fixed diffuse = max(0, dot(worldNormal, worldLightDir));
-
-				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
-				fixed3 halfDir = normalize(worldLightDir + viewDir);
-
-				float nh = max(0, dot(i.worldNormal, halfDir));
-				float toon = floor(max(0, diffuse) * _Steps) / _Steps;
-				float specular = pow(nh, 32.0);
-				float toonSpec = floor(specular * toon * 2) / 2;
-				specular = lerp(specular, toonSpec, _ToonEffect);
 
 				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 
 				fixed4 col = tex2D(_MainTex, i.uv);
 
-				return fixed4((ambient + (diffuse + specular) * _LightColor0.rgb * atten) * col, 1.0);
+				return fixed4((ambient + diffuse * _LightColor0.rgb * atten) * col, 1.0);
 			}
 			ENDCG
 		}
@@ -101,6 +94,7 @@ Shader "Custom/HexagonToonShader"
 
 			float _Steps;
 			float _ToonEffect;
+			float _AmbientStrength;
 
 			struct a2v {
 				float4 vertex : POSITION;
@@ -125,7 +119,7 @@ Shader "Custom/HexagonToonShader"
 			}
 
 			fixed4 frag(v2f i) : SV_Target {
-				fixed3 worldNormal = normalize(i.worldNormal);
+				fixed3 worldNormal = normalize(i.worldNormal); 
 
 				//判断是否是平行光，获得世界坐标下光线方向
 				#ifdef USING_DIRECTIONAL_LIGHT
@@ -134,38 +128,11 @@ Shader "Custom/HexagonToonShader"
 					fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz - i.worldPos.xyz);
 				#endif
 
-				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
-
 				fixed diffuse = max(0, dot(worldNormal, worldLightDir));
-
-				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
-				fixed3 halfDir = normalize(worldLightDir + viewDir);
-
-				float nh = max(0, dot(i.worldNormal, halfDir));
-				float toon = floor(max(0, diffuse) * _Steps) / _Steps;
-				float specular = pow(nh, 32.0);
-				float toonSpec = floor(specular * toon * 2) / 2;
-				specular = lerp(specular, toonSpec, _ToonEffect);
-
-
-				////判断是否是平行光，处理衰减
-				//#ifdef USING_DIRECTIONAL_LIGHT
-				//	fixed atten = 1.0;
-				//#else
-				//	#if defined (POINT)
-				//		float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
-				//		fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-				//	#elif defined (SPOT)
-				//		float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
-				//		fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
-				//	#else
-				//		fixed atten = 1.0;
-				//	#endif
-				//#endif
 
 				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 
-				return fixed4((diffuse + specular) * _LightColor0.rgb * atten, 1.0);
+				return fixed4(diffuse * _LightColor0.rgb * atten, 1.0);
 			}
 
 			ENDCG

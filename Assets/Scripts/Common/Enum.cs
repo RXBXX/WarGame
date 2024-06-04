@@ -121,6 +121,7 @@ namespace WarGame
             Cure = 10002,
             AttackRetreat = 10003,
             GroupAttack = 10004,
+            Inspire = 10005,
         }
 
         //属性类型
@@ -141,6 +142,7 @@ namespace WarGame
             MagicPenetrateRatio = 12, //魔法穿透
             PhysicalAttackRatio = 13, //物理增伤
             MagicAttackRatio = 14, //魔法增伤
+            RageRecover = 15, //怒气回复
         }
 
         //数值类型
@@ -200,6 +202,17 @@ namespace WarGame
             Display = 9,
         }
 
+        //五行
+        [Serializable]
+        public enum Element
+        {
+            Metal = 1, //金
+            Wood = 2, //木
+            Water = 3, //水
+            Fire = 4, //火
+            Earth = 5, //土
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,
@@ -221,7 +234,7 @@ namespace WarGame
             Scene_Load_Progress = 18, //更新场景加载进度
             Fight_Show_HP = 20,
             Fight_Close_HP = 21,
-            Fight_HP_Change = 22,
+            Role_Attr_Change = 22,
             Hero_Unwear_Equip = 23,
             Fight_Action_Over = 24,
             Fight_AI_Move = 25,

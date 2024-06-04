@@ -16,15 +16,15 @@ namespace WarGame.UI
 
         public HeroTalentInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
-            _title = GetUIChild<GTextField>("title");
-            _desc = GetUIChild<GTextField>("desc");
-            _attrList = GetUIChild<GList>("attrList");
+            _title = GetGObjectChild<GTextField>("title");
+            _desc = GetGObjectChild<GTextField>("desc");
+            _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Show_Talent, OnShowTalent);
 
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
-            GetUIChild<GButton>("btn").onClick.Add(OnClick);
+            GetGObjectChild<GButton>("btn").onClick.Add(OnClick);
         }
 
         private void OnAttrRenderer(int index, GObject item)

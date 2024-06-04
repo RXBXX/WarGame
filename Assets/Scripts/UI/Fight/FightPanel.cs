@@ -16,8 +16,8 @@ namespace WarGame.UI
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            _initiatorHP = GetUIChild<GProgressBar>("initiatorHP");
-            _targetHP = GetUIChild<GProgressBar>("targetHP");
+            _initiatorHP = GetGObjectChild<GProgressBar>("initiatorHP");
+            _targetHP = GetGObjectChild<GProgressBar>("targetHP");
             _showHP = GetTransition("showHP");
             _round = (GTextField)_gCom.GetChild("round");
             _round.text = "0";
@@ -37,13 +37,13 @@ namespace WarGame.UI
                 SceneMgr.Instance.DestroyBattleFiled();
             });
 
-            _skipBtn = GetUIChild<GButton>("skipBtn");
+            _skipBtn = GetGObjectChild<GButton>("skipBtn");
             _skipBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
             });
 
-            var startBtn = GetUIChild<GButton>("startBtn");
+            var startBtn = GetGObjectChild<GButton>("startBtn");
             startBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Start);

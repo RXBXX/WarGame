@@ -26,20 +26,20 @@ namespace WarGame.UI
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            GetUIChild<GLoader>("BG").url = "UI/Background/HeroBG";
+            GetGObjectChild<GLoader>("BG").url = "UI/Background/HeroBG";
             _touchArena = (GGraph)_gCom.GetChild("touchArena");
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
             _gCom.onTouchBegin.Add(OnTouchBegin);
             _gCom.onTouchMove.Add(OnTouchMove);
             _gCom.onTouchEnd.Add(OnTouchEnd);
             _proComp = GetChild<HeroProComp>("proComp");
-            _name = GetUIChild<GTextField>("name");
-            GetUIChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
+            _name = GetGObjectChild<GTextField>("name");
+            GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
             EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
 
-            _heroList = GetUIChild<GList>("heroList");
+            _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
             _heroList.onClickItem.Add(ClickHeroItem);
 

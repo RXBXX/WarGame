@@ -43,6 +43,7 @@ namespace WarGame
         public string DialogIcon;
         public int TalentGroup;
         public string Icon;
+        public Enum.Element Element;
     }
 
     //µØ¿é±í
@@ -170,10 +171,7 @@ namespace WarGame
     public class AttrConfig : Config
     {
         public string Name;
-        public int TargetAttr;
         public Enum.ValueType ValueType;
-        public int OppositeAttr;
-        public Enum.AttrTargetType TargetType;
     }
 
     //Buff±í
@@ -268,5 +266,15 @@ namespace WarGame
     {
         public string Prefab;
         public List<Pair> Effects;
+    }
+
+    //
+    [Serializable]
+    public class ElementConfig : Config 
+    {
+        public string Name;
+        public Enum.Element Restrain;
+        public Enum.Element Reinforce;
+        public string Icon;
     }
 }

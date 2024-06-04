@@ -91,8 +91,8 @@ namespace WarGame
             _lerpStep = 0;
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
             _speed = Vector3.Distance(endPos, startPos) / duration;
         }
 
@@ -116,8 +116,8 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
 
             _lerpStep += (Time.deltaTime * _speed);
 
@@ -144,8 +144,8 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + _role.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + _role.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
 
             _lerpStep += (Time.deltaTime * _speed);
 

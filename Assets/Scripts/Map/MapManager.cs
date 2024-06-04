@@ -65,7 +65,7 @@ namespace WarGame
         public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires)
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
-            _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("Root"));
+            _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
         }
 
         public void UpdateRound(int round)

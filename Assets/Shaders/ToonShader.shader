@@ -56,7 +56,7 @@ Shader "Custom/ToonShader"
 
 			v2f vert(appdata v) {
 				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);//�л�����������
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);

@@ -87,5 +87,35 @@ namespace WarGame
         { 
         
         }
+
+        ///计算元素克制加成
+        public float GetElementAdd(int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            var add = 0.0f;
+            var initiatorElement = initiator.GetElement();
+            if (target.GetElementConfig().Restrain == initiatorElement)
+            {
+                add -= 0.1F;
+            }
+
+            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
+            foreach (var v in MapManager.Instance.Dicections)
+            {
+                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(MapTool.Instance.GetHexagonKey(hexagon.coor + v));
+                if (0 == roleID || roleID == _initiatorID)
+                    continue;
+
+                var role = RoleManager.Instance.GetRole(roleID);
+                if (initiator.Type == role.Type && role.GetElementConfig().Reinforce == initiatorElement)
+                {
+                    add += 0.1F;
+                }
+            }
+
+            return add;
+        }
     }
 }

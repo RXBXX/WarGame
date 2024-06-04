@@ -65,6 +65,7 @@ namespace WarGame
 
         private void OnChangeHero(params object[] args)
         {
+            DebugManager.Instance.Log("OnChangeHero");
             var oldRoleID = _selectedHero;
             var _selectedHexagon = RoleManager.Instance.GetRole(oldRoleID).Hexagon;
             if (null == args[0] || 0 == (int)args[0])

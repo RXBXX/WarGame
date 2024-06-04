@@ -2,7 +2,9 @@
 <component size="1334,750" overflow="hidden">
   <displayList>
     <loader id="n4_ez9s" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1800,1000" url="ui://ngubhyc3ez9s6" autoSize="true" clearOnPublish="true"/>
-    <list id="n2_nw17" name="recordList" xy="417,125" size="500,533" overflow="scroll" lineGap="30" defaultItem="ui://hx02grrprquy0" autoClearItems="true">
+    <component id="n5_ez9s" name="n5" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="212,174" pivot="0.5,0.5" anchor="true"/>
+    <image id="n6_c2cw" name="n6" src="c2cw15" fileName="Images/MenuBG.png" pkg="hx02grrp" xy="667,374" pivot="0.5,0.5" anchor="true" size="460,551"/>
+    <list id="n2_nw17" name="recordList" xy="512,233" size="320,312" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrprquy0" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -10,6 +12,6 @@
       <item/>
       <item/>
     </list>
-    <component id="n5_ez9s" name="n5" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true"/>
+    <text id="n7_c2cw" name="title" xy="663,183" pivot="0.5,0.5" anchor="true" size="160,64" font="ui://hd0z4dz5omu90" fontSize="48" letterSpacing="2" strokeColor="#ffffff" strokeSize="2" text="Records"/>
   </displayList>
 </component>

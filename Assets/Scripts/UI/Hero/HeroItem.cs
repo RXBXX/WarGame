@@ -8,7 +8,7 @@ namespace WarGame.UI
 
         public HeroItem(GComponent gCom, string customName = null, params object[] args) : base(gCom, customName, args)
         {
-            _icon = GetUIChild<GButton>("icon");
+            _icon = GetGObjectChild<GButton>("icon");
         }
 
         public void Update(string icon)

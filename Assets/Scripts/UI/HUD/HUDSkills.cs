@@ -13,10 +13,10 @@ namespace WarGame.UI
 
         public HUDSkills(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
-            _skill1 = GetUIChild<GButton>("skill 1");
+            _skill1 = GetGObjectChild<GButton>("skill 1");
             _skill1.onClick.Add(()=> { ClickSkill(_commonSkill); });
 
-            _skill2 = GetUIChild<GButton>("skill 2");
+            _skill2 = GetGObjectChild<GButton>("skill 2");
             _skill2.onClick.Add(() => { ClickSkill(_specialSkill); });
         }
 
@@ -27,6 +27,10 @@ namespace WarGame.UI
 
             _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).Name;
             _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).Name;
+
+            var rageFilled = (bool)args[2];
+            _skill2.grayed = !rageFilled;
+            _skill2.touchable = rageFilled;
         }
 
         private void ClickSkill(int skillId)

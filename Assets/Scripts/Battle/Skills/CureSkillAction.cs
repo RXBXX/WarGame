@@ -76,7 +76,8 @@ namespace WarGame
             if ("Cure" == stateName && "Take" == secondStateName)
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
-                target.Cured(initiator.GetAttribute(Enum.AttrType.Cure));
+                var add = GetElementAdd(_targetID);
+                target.Cured(initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add));
                 target.AddBuffs(initiator.GetAttackBuffs());
                 //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
@@ -149,8 +150,6 @@ namespace WarGame
                 return;
 
             var target = RoleManager.Instance.GetRole(targetID);
-            if (target.IsDead())
-                return;
 
             if (null != _coroutine)
                 return;

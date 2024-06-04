@@ -31,8 +31,8 @@ namespace WarGame.UI
 
         public HeroEquipsPool(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _title = GetUIChild<GTextField>("title");
-            _list = GetUIChild<GList>("list");
+            _title = GetGObjectChild<GTextField>("title");
+            _list = GetGObjectChild<GList>("list");
             _list.itemRenderer = OnForcedEquipRender;
             _list.onClickItem.Add(OnClickForcedEquip);
 

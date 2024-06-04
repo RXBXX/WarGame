@@ -3,6 +3,9 @@ import json
 import os
 
 def parse_Dic(object_str):
+    if '{' not in object_str:
+        raise ValueError;
+        
     # 去除大括号并根据逗号分割字符串
     parts = object_str.strip('{}').split(',')
     
@@ -25,7 +28,7 @@ def parse_Array(object_str):
     # 初始化一个空数组
     obj_array = []
     
-    # 遍历分割后的字符串，解析每个键值对并添加到字典中
+    # 遍历分割后的字符串，解析每个键值对并添加到数组中
     for part in parts:
         if part == "":
             continue
@@ -58,10 +61,14 @@ def parse_cell_value(cell):
             return float(cell.value)
     elif cell.ctype == xlrd.XL_CELL_TEXT:
         # 如果是文本类型，尝试解析为对象字符串，否则直接返回文本
+        # if '{' not in cell.value.strip():
+            # return cell.value.strip()
         try:
             return parse_object_string(cell.value)
         except ValueError:
             return cell.value.strip()
+        # except FError:
+            # return cell.value.strip()
     elif cell.ctype == xlrd.XL_CELL_EMPTY:
         # 如果是空单元格，返回 None
         return None

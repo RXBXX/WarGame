@@ -41,7 +41,7 @@ namespace WarGame.UI
                 GButton ui = null;
                 if (_queue.Count < i + 1)
                 {
-                    ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHexagonItem");
+                    ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHero");
                     GCom.AddChild(ui);
                     ui.xy = new Vector2(startPosX - 90 * i - 90, 0);
                     _queue.Add(ui);

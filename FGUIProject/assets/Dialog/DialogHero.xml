@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="200,300" pivot="0.5,1" anchor="true" overflow="hidden" extention="Button" mask="n2_e05z">
   <displayList>
-    <graph id="n2_e05z" name="n2" xy="49,349" size="152,0" type="polygon" lineSize="0" fillColor="#ff000000" points="-50,-349,152,-349,51,-49"/>
+    <image id="n2_e05z" name="n2" src="c2cwd" fileName="Images/DialogHeroBox_Mask.png" xy="-28,22"/>
     <loader id="n1_e05z" name="icon" xy="-68,-18" size="336,336" url="ui://flul1mo7e05za" fill="scale" clearOnPublish="true"/>
+    <image id="n3_c2cw" name="n3" src="c2cwc" fileName="Images/DialogHeroBox_Frame.png" xy="-30,20" size="260,260"/>
   </displayList>
   <Button/>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">

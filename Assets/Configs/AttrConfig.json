@@ -2,113 +2,76 @@
     {
         "ID": 1,
         "Name": "生命",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 2,
         "Name": "怒气",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 3,
         "Name": "物理攻击",
-        "TargetAttr": 1,
-        "ValueType": 1,
-        "OppositeAttr": 6,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 4,
         "Name": "魔法攻击",
-        "TargetAttr": 1,
-        "ValueType": 1,
-        "OppositeAttr": 7,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 5,
         "Name": "治疗",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 6,
         "Name": "物理防御",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 7,
         "Name": "魔法防御",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 8,
         "Name": "移动距离",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 9,
         "Name": "攻击距离",
-        "TargetAttr": 0,
-        "ValueType": 1,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 1
     },
     {
         "ID": 10,
         "Name": "闪避",
-        "TargetAttr": 0,
-        "ValueType": 2,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 2
     },
     {
         "ID": 11,
         "Name": "物理穿透",
-        "TargetAttr": 0,
-        "ValueType": 2,
-        "OppositeAttr": 6,
-        "TargetType": 1
+        "ValueType": 2
     },
     {
         "ID": 12,
         "Name": "魔法穿透",
-        "TargetAttr": 0,
-        "ValueType": 2,
-        "OppositeAttr": 7,
-        "TargetType": 1
+        "ValueType": 2
     },
     {
         "ID": 13,
         "Name": "物理增伤",
-        "TargetAttr": 3,
-        "ValueType": 2,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 2
     },
     {
         "ID": 14,
         "Name": "魔法增伤",
-        "TargetAttr": 4,
-        "ValueType": 2,
-        "OppositeAttr": 0,
-        "TargetType": 0
+        "ValueType": 2
+    },
+    {
+        "ID": 15,
+        "Name": "怒气恢复",
+        "ValueType": 1
     }
 ]

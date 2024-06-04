@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using FairyGUI;
-using DG.Tweening;
 
 namespace WarGame.UI
 {
@@ -20,8 +16,8 @@ namespace WarGame.UI
         
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            _context = GetUIChild<GTextField>("context");
-            _role = GetUIChild<GButton>("role");
+            _context = GetGObjectChild<GTextField>("context");
+            _role = GetGObjectChild<GButton>("role");
             _type = GetController("type");
             _te = new TypingEffect(_context);
         }

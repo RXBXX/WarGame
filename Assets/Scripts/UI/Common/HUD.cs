@@ -8,6 +8,7 @@ namespace WarGame.UI
     public class HUD : UIBase
     {
         private GameObject _gameObject;
+        private Vector2 _offset;
         //public HUD(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         //{
         //    UILayer = Enum.UILayer.HUDLayer;
@@ -33,7 +34,8 @@ namespace WarGame.UI
         private void UpdatePosition()
         {
             var pos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(_gameObject.transform.position);
-            pos = new Vector2(pos.x / Screen.width * GRoot.inst.width, (Screen.height - pos.y) / Screen.height * GRoot.inst.height);
+            pos.y = Screen.height - pos.y;
+            pos = GRoot.inst.GlobalToLocal(pos) + _offset;// new Vector2(pos.x / Screen.width * GRoot.inst.width, (Screen.height - pos.y) / Screen.height * GRoot.inst.height) + _offset;
             if (_gCom.position != pos)
                 _gCom.position = pos;
 
@@ -41,6 +43,11 @@ namespace WarGame.UI
             var scale = 8.0f / dis * Vector2.one;
             if (scale != _gCom.scale)
                 _gCom.scale = scale;
+        }
+
+        public void UpdateOffset(Vector2 offset)
+        {
+            _offset = offset;
         }
 
         public override void Dispose(bool disposeGComp = false)

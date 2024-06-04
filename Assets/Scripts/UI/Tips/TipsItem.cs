@@ -13,7 +13,7 @@ namespace WarGame.UI
         public TipsItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.AlertLayer;
-            _desc = GetUIChild<GTextField>("desc");
+            _desc = GetGObjectChild<GTextField>("desc");
             _show = GetTransition("show");
         }
 

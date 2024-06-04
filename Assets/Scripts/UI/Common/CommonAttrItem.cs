@@ -10,8 +10,8 @@ namespace WarGame.UI
 
         public CommonAttrItem(GComponent gCom, string customName = null, params object[] args) : base(gCom, customName, args)
         {
-            _name = GetUIChild<GTextField>("name");
-            _value = GetUIChild<GTextField>("value");
+            _name = GetGObjectChild<GTextField>("name");
+            _value = GetGObjectChild<GTextField>("value");
         }
 
         public void Update(string name, string value)

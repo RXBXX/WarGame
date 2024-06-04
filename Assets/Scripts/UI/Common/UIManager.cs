@@ -137,29 +137,28 @@ namespace WarGame.UI
             return _uiLayerDic[layerIndex];
         }
 
-        public UIBase CreateUI(string packageName, string compName, object[] args = null)
+        public T CreateUI<T>(string packageName, string compName, object[] args = null) where T : UIBase
         {
-
             Type classType = Type.GetType("WarGame.UI." + compName);
             if (null == classType)
             {
-                UnityEngine.Debug.LogError("没有找到脚本：" + classType);
+                DebugManager.Instance.LogError("没有找到脚本：" + classType);
                 return null;
             }
 
             var comp = CreateObject<GComponent>(packageName, compName);
             if (null == comp)
             {
-                UnityEngine.Debug.LogError("创建失败：" + classType);
+                DebugManager.Instance.LogError("创建失败：" + compName);
                 return null;
             }
 
-            var ui = (UIBase)Activator.CreateInstance(classType, new[] { comp, (object)compName, args });
+            var ui = (T)Activator.CreateInstance(classType, new[] { comp, (object)compName, args });
 
             var layer = GetUILayer(ui.UILayer);
-            if (null == comp)
+            if (null == layer)
             {
-                UnityEngine.Debug.LogError("未找到对应层级：" + classType);
+                DebugManager.Instance.LogError("未找到对应层级：" + compName);
                 return null;
             }
 
@@ -167,29 +166,18 @@ namespace WarGame.UI
             return ui;
         }
 
-        public T CreateUI<T>(string packageName, string compName, object[] args = null) where T : UIBase
+        public T CreateUI<T>(string compName, GObject gObj, object[] args = null) where T : UIBase
         {
-            var comp = CreateObject<GComponent>(packageName, compName);
-            if (null == comp)
+            Type classType = Type.GetType("WarGame.UI." + compName);
+            if (null == classType)
             {
-                UnityEngine.Debug.LogError("创建失败：" + compName);
                 return null;
             }
 
-            var ui = (T)Activator.CreateInstance(typeof(T), new[] { comp, (object)compName, args });
-
-            var layer = GetUILayer(ui.UILayer);
-            if (null == comp)
-            {
-                UnityEngine.Debug.LogError("未找到对应层级：" + compName);
-                return null;
-            }
-
-            ui.SetParent(layer);
-            return ui;
+            return (T)Activator.CreateInstance(classType, new[] { gObj, (object)compName, args });
         }
 
-        public T CreateObject<T>(string packageName, string compName) where T:GComponent
+        public T CreateObject<T>(string packageName, string compName) where T:GObject
         {
             AddPackage(packageName);
             return (T)UIPackage.CreateObject(packageName, compName);
@@ -225,7 +213,7 @@ namespace WarGame.UI
             }
 
             if (null == panel)
-                panel = CreateUI(packageName, panelName, args);
+                panel = CreateUI<UIBase>(packageName, panelName, args);
             else
                 _panelDic[panel.UILayer].Remove(panel);
 
@@ -276,13 +264,12 @@ namespace WarGame.UI
         //打开UI组件
         public UIBase OpenComponent(string packageName, string compName, string customName, bool touchEmptyClose = false, Enum.UILayer layerIndex = Enum.UILayer.HUDLayer)
         {
-            var comp = CreateUI(packageName, compName);
+            var comp = CreateUI<UIBase>(packageName, compName);
             comp.name = customName;
 
             _panelDic[comp.UILayer].Add(comp);
 
             //触摸空白处关闭组件
-
             if (touchEmptyClose)
             {
                 EventCallback1 callback = null;
@@ -319,7 +306,6 @@ namespace WarGame.UI
         //触摸空白区域关闭组件
         private void TouchEmptyClose(GComponent gCom, string customName, EventCallback0 callback)
         {
-            Debug.Log("Execute TouchEmptyClose");
             var hitTarget = Stage.inst.touchTarget;
             while (null != hitTarget && hitTarget != gCom.displayObject)
             {

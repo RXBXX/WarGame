@@ -13,10 +13,10 @@ namespace WarGame.UI
         private DialogBox _dialogBox;
         private bool _isAutoPlay = false;
         private WGArgsCallback _callback;
+        private int _blurID;
 
         public DialogPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            UILayer = Enum.UILayer.PopLayer;
             _dialogBox = GetChild<DialogBox>("dialogBox");
             _dialogGroup = (int)args[0];
             _callback = (WGArgsCallback)args[1];
@@ -26,7 +26,9 @@ namespace WarGame.UI
             _curIndex = 0;
 
             _gCom.onClick.Add(OnClick);
-            GetUIChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
+            GetGObjectChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
+
+            _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
             NextDialog();
         }
 
@@ -79,6 +81,16 @@ namespace WarGame.UI
         {
             if (_isAutoPlay)
                 NextDialog();
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            if (0 != _blurID)
+            {
+                RenderMgr.Instance.ReleaseBlurBG(_blurID);
+                _blurID = 0;
+            }
+            base.Dispose(disposeGCom);
         }
     }
 }

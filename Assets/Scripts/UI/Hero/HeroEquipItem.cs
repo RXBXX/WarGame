@@ -13,9 +13,9 @@ namespace WarGame.UI
         
         public HeroEquipItem(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
-            _title = GetUIChild<GTextField>("title");
-            _ownerIcon = GetUIChild<GLoader>("ownerIcon");
-            _icon = GetUIChild<GButton>("icon");
+            _title = GetGObjectChild<GTextField>("title");
+            _ownerIcon = GetGObjectChild<GLoader>("ownerIcon");
+            _icon = GetGObjectChild<GButton>("icon");
 
             _icon.onClick.Add(OnClickIcon);
         }

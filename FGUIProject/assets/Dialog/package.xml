@@ -2,12 +2,14 @@
 <packageDescription id="flul1mo7">
   <resources>
     <component id="a4gr0" name="DialogPanel.xml" path="/" exported="true"/>
-    <image id="a4gr1" name="DialogueBox.png" path="/Images/"/>
     <component id="a4gr2" name="DialogBox.xml" path="/" exported="true"/>
     <image id="a4gr3" name="10001.png" path="/Previews/"/>
     <image id="e05za" name="10001(1).png" path="/Previews/"/>
     <component id="e05z6" name="DialogHero.xml" path="/"/>
     <component id="a4gr5" name="DialogBtn.xml" path="/"/>
+    <image id="c2cwb" name="DialogBox_BG.png" path="/Images/" scale="9grid" scale9grid="62,29,5,5"/>
+    <image id="c2cwc" name="DialogHeroBox_Frame.png" path="/Images/"/>
+    <image id="c2cwd" name="DialogHeroBox_Mask.png" path="/Images/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

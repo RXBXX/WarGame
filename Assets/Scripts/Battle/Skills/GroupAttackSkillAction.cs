@@ -188,12 +188,13 @@ namespace WarGame
                 }
                 else
                 {
-                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack);
-                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio);
-                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack);
-                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio);
-                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio);
-                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio);
+                    var add = GetElementAdd(_targetID);
+                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack) * (1 + add);
+                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio) * (1 + add);
+                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack) * (1 + add);
+                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio) * (1 + add);
+                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio) * (1 + add);
+                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio) * (1 + add);
 
                     var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
                     var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);

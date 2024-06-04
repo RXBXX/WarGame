@@ -22,14 +22,14 @@ namespace WarGame.UI
             GetChild<HeroTitleItem>("attrTitle").Init("Attrs", 1, OnClickAttr);
             GetChild<HeroTitleItem>("equipTitle").Init("Equips", 0, OnClickEquip);
 
-            _attrList = GetUIChild<GList>("attrList");
+            _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
             _attrList.visible = true;
 
             _talentComp = GetChild<HeroTalentComp>("talentComp");
             _talentComp.SetVisible(false);
 
-            _skillList = GetUIChild<GList>("skillList");
+            _skillList = GetGObjectChild<GList>("skillList");
             _skillList.itemRenderer = OnSkillRenderer;
             _skillList.visible = false;
 

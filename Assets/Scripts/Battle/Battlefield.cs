@@ -180,6 +180,7 @@ namespace WarGame
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             CameraMgr.Instance.SetTarget(heros[0].ID);
+            yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
             UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.isReady});
 

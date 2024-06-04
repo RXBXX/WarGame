@@ -125,7 +125,6 @@
     <Compile Include="Assets\FairyGUI\Examples\ScrollPane\ScrollPaneMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\PullToRefreshMain.cs" />
     <Compile Include="Assets\Scripts\Common\ConfigMgr.cs" />
-    <Compile Include="Assets\Scripts\Common\LoadAssetCB.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTreeNode.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTitleItem.cs" />
@@ -171,6 +170,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventDispatcher.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapPanel.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\InspireSkillAction.cs" />
     <Compile Include="Assets\Scripts\Weapon\Wand.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ColliderHitTest.cs" />
@@ -191,6 +191,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\ScrollPane.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window1.cs" />
+    <Compile Include="Assets\Scripts\Common\CommonInterface.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\SkillFactory.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
@@ -338,8 +339,8 @@
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\TurnCardMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParser.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\AttackSkillAction.cs" />
     <Compile Include="Assets\Scripts\Map\Bonfire.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\AttackSkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
@@ -399,13 +400,13 @@
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\Scripts\SRP\SimpleUnlitColor.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Glow.shader" />
+    <None Include="Assets\Shaders\BlurShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Ubershader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
     <None Include="Assets\FairyGUI\Examples\Resources\RenderTexture\FullScreen.shader" />
     <None Include="Assets\FairyGUI\Examples\Resources\Role\Materials\Role-Diffuse.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
     <None Include="Assets\Shaders\BloomShader.shader" />
-    <None Include="Assets\Shaders\MarkShader.shader" />
     <None Include="Assets\Test\NewUnlitShader.shader" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader.shader" />
     <None Include="Assets\Scripts\SRP\NewUnlitShader.shader" />

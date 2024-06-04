@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="500,80" pivot="0.5,0.5" extention="Button">
+<component size="320,60" pivot="0.5,0.5" extention="Button">
   <displayList>
-    <graph id="n1_rquy" name="n1" xy="0,0" size="499,79" type="polygon" lineSize="5" fillColor="#ffff0000" points="31,11,499,1,475,79,13,78">
-      <relation target="" sidePair="rightext-right"/>
-    </graph>
-    <image id="n3_ez9s" name="n3" src="ez9s9" fileName="Images/Common_Item_BG.png" xy="0,0" size="500,80"/>
-    <text id="n0_rquy" name="title" xy="250,40" pivot="0.5,0.5" anchor="true" size="197,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#333333" align="center" vAlign="middle" letterSpacing="5" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="111111111111"/>
+    <image id="n4_c2cw" name="n4" src="c2cw16" fileName="Images/MenuItem.png" xy="0,-1" size="320,60"/>
+    <text id="n0_rquy" name="title" xy="159,26" pivot="0.5,0.5" anchor="true" size="151,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#333333" align="center" vAlign="middle" letterSpacing="5" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="111111111111"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

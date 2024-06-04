@@ -18,6 +18,8 @@ namespace WarGame
                     return new AttackRetreatSkillAction(skillID, initiatorID);
                 case Enum.Skill.GroupAttack:
                     return new GroupAttackSkillAction(skillID, initiatorID);
+                case Enum.Skill.Inspire:
+                    return new InspireSkillAction(skillID, initiatorID);
             }
             return null;
         }

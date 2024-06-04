@@ -20,7 +20,7 @@ namespace WarGame
         private const float _radian = 30.0F / 180.0F * Mathf.PI;
 
         //¸ß¶È
-        private const float _height = 0.23F;
+        private const float _height = 0.2F;
 
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace WarGame
             {
                 var enemyTra = roleRootObj.transform.GetChild(i);
                 var data = enemyTra.GetComponent<RoleBehaviour>();
-                enemys[i] = new EnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position)));
+                enemys[i] = new EnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position - CommonParams.Offset)));
             }
 
             var fireRootObj = GameObject.Find("BonfireRoot");
@@ -152,7 +152,7 @@ namespace WarGame
             {
                 var bonfireTra = fireRootObj.transform.GetChild(i);
                 var data = bonfireTra.GetComponent<BonfireBehaviour>();
-                bonfires[i] = new BonfireMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(bonfireTra.position)));
+                bonfires[i] = new BonfireMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(bonfireTra.position - CommonParams.Offset)));
             }
 
             var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires);

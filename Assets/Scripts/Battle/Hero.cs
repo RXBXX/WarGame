@@ -20,8 +20,9 @@ namespace WarGame
         protected override void CreateHUD()
         {
             _hpHUDKey = _id + "_HP";
-            var hud = (HUDRole)HUDManager.Instance.AddHUD("HUD", "HUDRole", _hpHUDKey, _hudPoint, new object[] { _id, 0 });
-            hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
+            var args = new object[] { _id, 0, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
+            HUDManager.Instance.AddHUD<HUDRole>("HUD", "HUDRole", _hpHUDKey, _hudPoint, args);
+            //hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
         }
 
         public override void UpdateRound()

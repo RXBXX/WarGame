@@ -119,6 +119,11 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<RoleJobConfig>("RoleJobConfig", GetConfig().Job);
         }
 
+        public ElementConfig GetElementConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)GetConfig().Element);
+        }
+
         public virtual float GetAttribute(Enum.AttrType attrType)
         {
             var value = 0.0F;
@@ -211,41 +216,7 @@ namespace WarGame
             this.level = level;
             this.equipDataDic = equipDataDic;
             this.state = state;
-
-            //InitAttrs();
         }
-
-        ///// <summary>
-        ///// 初始化所有属性
-        ///// </summary>
-        //private void InitAttrs()
-        //{
-        //    ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
-        //    {
-        //        var attrType = (Enum.AttrType)config.ID;
-
-        //        var value = base.GetAttribute(attrType);
-        //        if (null != equipDataDic)
-        //        {
-        //            foreach (var v in equipDataDic)
-        //            {
-        //                var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
-        //                if (null != equipConfig.Attrs)
-        //                {
-        //                    foreach (var v1 in equipConfig.Attrs)
-        //                    {
-        //                        if ((Enum.AttrType)v1.id == attrType)
-        //                        {
-        //                            value += v1.value;
-        //                            break;
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        attrDic[attrType] = value;
-        //    });
-        //}
 
         public override float GetAttribute(Enum.AttrType attrType)
         {
@@ -291,15 +262,22 @@ namespace WarGame
 
         public void UpdateAttr(Enum.AttrType type, float deltaValue)
         {
+            if (0 == deltaValue)
+                return;
+
             switch (type)
             {
                 case Enum.AttrType.HP:
                     HP += deltaValue;
+                    HP = MathF.Max(MathF.Min(0, HP), GetAttribute(type));
                     break;
                 case Enum.AttrType.Rage:
                     Rage += deltaValue;
+                    Rage = MathF.Max(MathF.Min(0, Rage), GetAttribute(type));
                     break;
             }
+
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Role_Attr_Change, new object[] { UID, type, deltaValue });
         }
 
         public new LevelRoleData Clone()

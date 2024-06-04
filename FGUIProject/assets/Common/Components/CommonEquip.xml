@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="256,256" extention="Button" mask="n24_c2cw">
+  <displayList>
+    <image id="n24_c2cw" name="n24" src="c2cw14" fileName="Images/Equip_Mask.png" xy="0,0"/>
+    <image id="n23_c2cw" name="n23" src="c2cw13" fileName="Images/Equip_BG.png" xy="0,0"/>
+    <loader id="n20_c2cw" name="icon" xy="0,0" size="256,256" align="center" vAlign="middle" fill="scale"/>
+    <image id="n21_c2cw" name="n21" src="c2cw11" fileName="Images/Equip.png" xy="0,0"/>
+  </displayList>
+  <Button/>
+</component>

@@ -13,6 +13,7 @@ namespace WarGame.UI
         private float _hpChangeDuration = 0.2F;
         private Controller _stateC;
         private Controller _followingC;
+        private GLoader _elementLoader;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -22,22 +23,25 @@ namespace WarGame.UI
             _rage = (GProgressBar)_gCom.GetChild("rage");
             _stateC = GetController("state");
             _followingC = GetController("following");
-            _buffList = (GList)_gCom.GetChild("buffList");
+            _buffList = GetGObjectChild<GList>("buffList");
             _buffList.itemRenderer = OnItemRenderer;
+            _elementLoader = GetGObjectChild<GLoader>("element");
 
             ((GTextField)_gCom.GetChild("id")).text = args[0].ToString();
+            _hp.GetController("style").SetSelectedIndex((int)args[1]);
 
-            if (null != args[1])
-                _hp.GetController("style").SetSelectedIndex((int)args[1]);
+            Init((float)args[2], (float)args[3], (float)args[4], (float)args[5], (Enum.Element)args[6]);
         }
 
-        public void Init(float HP, float totalHP, float rage, float totalRage)
+        private void Init(float HP, float totalHP, float rage, float totalRage, Enum.Element element)
         {
             _rage.max = totalHP;
             _rage.value = HP;
 
             _rage.max = totalRage;
             _rage.value = rage;
+
+            _elementLoader.url = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)element).Icon;
         }
 
         public override void Update(float deltaTime)
@@ -52,8 +56,14 @@ namespace WarGame.UI
         {
             if (hp == _hp.value)
                 return;
-
             _hp.TweenValue(hp, _hpChangeDuration);
+        }
+
+        public void UpdateRage(float rage)
+        {
+            if (rage == _rage.value)
+                return;
+            _rage.TweenValue(rage, _hpChangeDuration);
         }
 
         public void UpdateBuffs(List<Pair> buffs)
