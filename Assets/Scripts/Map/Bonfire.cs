@@ -52,7 +52,6 @@ namespace WarGame
 
         public void UpdateRound(int round)
         {
-            DebugManager.Instance.Log("UpdateRound");
             var hexagon = MapManager.Instance.GetHexagon(_hexagonID);
             foreach (var v in MapManager.Instance.Dicections)
             {
@@ -60,7 +59,6 @@ namespace WarGame
                 var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonKey);
                 if (0 != roleID)
                 {
-                    DebugManager.Instance.Log(roleID);
                     var role = RoleManager.Instance.GetRole(roleID);
                     role.AddEffects(GetConfig().Effects);
                 }

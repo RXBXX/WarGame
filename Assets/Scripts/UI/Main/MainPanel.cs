@@ -6,7 +6,6 @@ namespace WarGame.UI
     {
         public MainPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            DebugManager.Instance.Log("MainPanel");
             var mainBtn = (GButton)_gCom.GetChild("mainBtn");
             mainBtn.title = "PLAY";
             mainBtn.onClick.Add(OnClickMainBtn);
