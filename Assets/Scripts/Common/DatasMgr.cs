@@ -11,6 +11,7 @@ namespace WarGame
         private string _path = Application.dataPath + "/Datas/GameData.json";
         private int _heroStartUID = 10000;
         private int _enemyStartUID = 20000;
+        private int _equipStartUID = 30000;
 
         public int HeroStartUID
         {
@@ -20,6 +21,11 @@ namespace WarGame
         public int EnemyStartUID
         {
             get { return _enemyStartUID; }
+        }
+
+        public int EquipStartUID
+        {
+            get{ return _equipStartUID; }
         }
 
         public override bool Init()
@@ -36,7 +42,7 @@ namespace WarGame
         public void NewGameData(string name)
         {
             _curData = name;
-            var gd = new GameData(name, Time.time);
+            var gd = new GameData(name, TimeMgr.Instance.GetUnixTimestamp());
             _dataDic[_curData] = gd;
 
             SaveGameData();
@@ -62,7 +68,7 @@ namespace WarGame
             {
                 gd = _dataDic[_curData];
             }
-            gd.time = Time.time;
+            gd.time = TimeMgr.Instance.GetUnixTimestamp();
 
             Tool.Instance.WriteJson<Dictionary<string, GameData>>(_path, _dataDic);
 
@@ -151,8 +157,51 @@ namespace WarGame
             gd.levelDataDic[levelData.configId] = levelData;
         }
 
-        /// region 协议部分----------------------------------------------------------
+        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID)
+        {
+            if (type == Enum.RoleType.Hero)
+            {
+                var roleData = GetRoleData(UID);
+                var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+                foreach (var v in roleData.equipmentDic)
+                {
+                    equipDataDic.Add(v.Key, GetEquipmentData(v.Value));
+                }
+                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
+            }
+            else if (type == Enum.RoleType.Enemy)
+            {
 
+                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", UID);
+                var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
+                for (int j = 0; j < enemyConfig.Equips.Length; j++)
+                {
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
+                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
+                    equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
+                }
+                return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
+            }
+            return null;
+        }
+
+        public bool IsNewGameData()
+        {
+            return _dataDic[_curData].isNew;
+        }
+
+        public void SetGameDataDirty()
+        {
+            _dataDic[_curData].isNew = false;
+            SaveGameData();
+        }
+
+        public void AddHero(int configID, int level)
+        {
+            _dataDic[_curData].AddHero(configID, level);
+        }
+
+        /// region 协议部分----------------------------------------------------------
 
         /// <summary>
         /// 卸掉装备

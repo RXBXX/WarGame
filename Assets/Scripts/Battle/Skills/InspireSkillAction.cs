@@ -82,8 +82,7 @@ namespace WarGame
                 foreach (var v in _targets)
                 {
                     var target = RoleManager.Instance.GetRole(v);
-                    var add = GetElementAdd(v);
-                    target.Inspired(20 * (1 + add));
+                    target.Inspired(AttributeMgr.Instance.GetInspirePower(_initiatorID, v));
                 }
             }
         }
@@ -123,7 +122,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
-            CameraMgr.Instance.Lock();
+            LockCamera();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
@@ -180,7 +179,7 @@ namespace WarGame
             }
 
             CameraMgr.Instance.CloseGray();
-            CameraMgr.Instance.Unlock();
+            UnlockCamera();
         }
     }
 }

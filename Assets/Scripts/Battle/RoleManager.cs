@@ -34,23 +34,18 @@ namespace WarGame
             return true;
         }
 
-        public void InitEnemys(EnemyMapPlugin[] enemys)
+        public List<LevelRoleData> InitLevelRoles(EnemyMapPlugin[] roles)
         {
-            for (int i = 0; i < enemys.Length; i++)
+            var enemys = new List<LevelRoleData>();
+            for (int i = 0; i < roles.Length; i++)
             {
-                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", enemys[i].configId);
-                var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                for (int j = 0; j < enemyConfig.Equips.Length; j++)
-                {
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
-                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                    equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
-                }
-                var levelRoleData = new LevelRoleData(enemys[i].configId, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
-                levelRoleData.HP = enemyConfig.HP;
-                levelRoleData.hexagonID = enemys[i].hexagonID;
+                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", roles[i].configId);
+                var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, enemyConfig.ID);
+                levelRoleData.hexagonID = roles[i].hexagonID;
                 CreateEnemy(levelRoleData);
+                enemys.Add(levelRoleData);
             }
+            return enemys;
         }
 
         public Role CreateHero(LevelRoleData data)
@@ -80,9 +75,31 @@ namespace WarGame
                 if (id == _roleList[i].ID)
                 {
                     var role = _roleList[i];
-                    _roleList.RemoveAt(i);
-                    role.Dispose();
+                    if (role.Dispose())
+                    {
+                        _roleList.RemoveAt(i);
+                    }
                     return;
+                }
+            }
+        }
+
+        public void ClearDeadRole()
+        {
+            for (int i = _roleList.Count - 1; i >= 0; i--)
+            {
+                var role = _roleList[i];
+                if (role.DeadFlag)
+                {
+                    if (role.HaveNextStage())
+                    {
+                        role.NextStage();
+                    }
+                    else
+                    {
+                        role.Dispose();
+                        _roleList.RemoveAt(i);
+                    }
                 }
             }
         }

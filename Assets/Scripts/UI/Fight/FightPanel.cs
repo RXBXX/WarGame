@@ -13,6 +13,7 @@ namespace WarGame.UI
         private FightHeroGroup _heroGroup;
         private FightEnemyQueue _enemyQueue;
         private GButton _skipBtn;
+        private FightRoleInfo _roleInfo;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -25,12 +26,16 @@ namespace WarGame.UI
             _vsComp = GetChild<FightInforComp>("vsComp");
             _heroGroup = GetChild<FightHeroGroup>("heroGroup");
             _enemyQueue = GetChild<FightEnemyQueue>("enemyQueue");
+            _roleInfo = GetChild<FightRoleInfo>("roleInfo");
 
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Hide_HeroGroup, OnHideHeroGroup);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_RoleInfo, OnShowRoleInfo);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Hide_RoleInfo, OnHideRoleInfo);
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
             {
@@ -51,7 +56,6 @@ namespace WarGame.UI
                 _skipBtn.visible = true;
             });
 
-            DebugManager.Instance.Log("isReady:" + (bool)args[0]);
             if ((bool)args[0])
             {
                 startBtn.visible = false;
@@ -74,12 +78,12 @@ namespace WarGame.UI
             if ((Enum.FightTurn)args[0] == Enum.FightTurn.HeroTurn)
             {
                 _skipBtn.visible = true;
-                GetChild<FightTips>("tips").ShowTips("Hero Turn", (RoundFunc)args[1]);
+                GetChild<FightTips>("tips").ShowTips("Hero Turn", (BattleRoundFunc)args[1]);
             }
             else
             {
                 _skipBtn.visible = false;
-                GetChild<FightTips>("tips").ShowTips("EnemyTurn", (RoundFunc)args[1]);
+                GetChild<FightTips>("tips").ShowTips("EnemyTurn", (BattleRoundFunc)args[1]);
             }
         }
 
@@ -98,14 +102,32 @@ namespace WarGame.UI
             _heroGroup.Show((Vector2)args[0], (int[])args[1]);
         }
 
+        private void OnHideHeroGroup(params object[] args)
+        {
+            _heroGroup.Hide();
+        }
+
+        private void OnShowRoleInfo(params object[] args)
+        {
+            _roleInfo.Show((Vector2)args[0], (int)args[1]);
+        }
+
+        private void OnHideRoleInfo(params object[] args)
+        {
+            _roleInfo.Hide();
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
-            base.Dispose(disposeGCom);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_RoleInfo, OnShowRoleInfo);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Hide_RoleInfo, OnHideRoleInfo);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Hide_HeroGroup, OnHideHeroGroup);
+            base.Dispose(disposeGCom);
         }
     }
 }

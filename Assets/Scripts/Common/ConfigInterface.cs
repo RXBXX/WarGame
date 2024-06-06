@@ -5,12 +5,25 @@ using System.Collections.Generic;
 namespace WarGame
 {
     [Serializable]
-    public struct Pair
+    public struct IntFloatPair
     {
         public int id;
-        public int value;
+        public float value;
 
-        public Pair(int id, int value)
+        public IntFloatPair(int id, float value)
+        {
+            this.id = id;
+            this.value = value;
+        }
+    }
+
+    [Serializable]
+    public struct StringStringPair
+    {
+        public string id;
+        public string value;
+
+        public StringStringPair(string id, string value)
         {
             this.id = id;
             this.value = value;
@@ -59,8 +72,7 @@ namespace WarGame
     [Serializable]
     public class RoleStarConfig : Config
     {
-        public float HP;
-        public List<Pair> Attrs;
+        public List<IntFloatPair> Attrs;
     }
 
     ////技能等级表
@@ -91,8 +103,8 @@ namespace WarGame
         public string Prefab;
         public string Name;
         public Vector3 Rotation;
-        public List<Pair> Attrs;
-        public List<Pair> Buffs;
+        public List<IntFloatPair> Attrs;
+        public List<IntFloatPair> Buffs;
     }
 
     //装备类型表
@@ -178,7 +190,7 @@ namespace WarGame
     [Serializable]
     public class BufferConfig : Config
     {
-        public Pair Attr;
+        public IntFloatPair Attr;
         public int Duration;
         public string Name;
         public string Desc;
@@ -239,13 +251,14 @@ namespace WarGame
         public int FailedDialog;
     }
 
+    //角色生成表
     [Serializable]
     public class LevelEnemyConfig : Config
     {
         public int RoleID;
         public int Level;
-        public float HP;
         public int[] Equips;
+        public int NextStage;
     }
 
     //天赋表
@@ -255,7 +268,7 @@ namespace WarGame
         public int Group;
         public string Name;
         public string Desc;
-        public List<Pair> Attrs;
+        public List<IntFloatPair> Attrs;
         public int LastTalent;
         public int Place;
     }
@@ -265,10 +278,10 @@ namespace WarGame
     public class BonfireConfig : Config
     {
         public string Prefab;
-        public List<Pair> Effects;
+        public List<IntFloatPair> Effects;
     }
 
-    //
+    //元素表
     [Serializable]
     public class ElementConfig : Config 
     {
@@ -276,5 +289,20 @@ namespace WarGame
         public Enum.Element Restrain;
         public Enum.Element Reinforce;
         public string Icon;
+    }
+
+    //故事组表
+    [Serializable]
+    public class StoryGroupConfig : Config
+    {
+        public int Count;
+    }
+
+    //故事表
+    [Serializable]
+    public class StoryConfig : Config
+    {
+        public string Context;
+        public string Pic;
     }
 }

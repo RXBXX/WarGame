@@ -14,8 +14,19 @@ namespace WarGame
         private Tweener _tweener;
         private int _targetID;
         private float _cameraDis;
-        private bool _isLocking = false;
-        private bool _isLockingTarget = false;
+        private int _lockCount = 0;
+        private bool _isLocking
+        {
+            get { return _lockCount > 0; }
+            set { _lockCount += (value ? 1 : -1); }
+        }
+
+        private int _lockTargetCount = 0;
+        private bool _isLockingTarget
+        {
+            get { return _lockTargetCount > 0; }
+            set { _lockTargetCount += (value ? 1 : -1); }
+        }
 
         public Camera MainCamera
         {
@@ -166,6 +177,9 @@ namespace WarGame
 
         public void SetTarget(int targetID)
         {
+            if (_isLocking)
+                return;
+
             if (_isLockingTarget)
                 return;
 
@@ -207,22 +221,25 @@ namespace WarGame
             ClearTarget();
 
             var roles = RoleManager.Instance.GetAllRoles();
-            var minRole = roles[0];
-            var viewCenter = MainCamera.transform.position + MainCamera.transform.forward * _cameraDis;
+            var minRoleID = roles[0].ID;
+            var minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[0].GetPosition());
             for (int i = 1; i < roles.Count; i++)
             {
-                if (Vector3.Distance(roles[i].GetPosition(), viewCenter) < Vector3.Distance(minRole.GetPosition(), viewCenter))
+                var roleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[i].GetPosition());
+                if (roleToViewCenterDirDistance < minRoleToViewCenterDirDistance)
                 {
-                    minRole = roles[i];
+                    minRoleID = roles[i].ID;
+                    minRoleToViewCenterDirDistance = roleToViewCenterDirDistance;
                 }
             }
 
-            SetTarget(minRole.ID);
+            SetTarget(minRoleID);
         }
 
-        public void Lock()
+        public bool Lock()
         {
             _isLocking = true;
+            return _isLocking;
         }
 
         public void Unlock()
@@ -230,9 +247,10 @@ namespace WarGame
             _isLocking = false;
         }
 
-        public void LockTarget()
+        public bool LockTarget()
         {
             _isLockingTarget = true;
+            return _isLockingTarget;
         }
 
         public void UnlockTarget()

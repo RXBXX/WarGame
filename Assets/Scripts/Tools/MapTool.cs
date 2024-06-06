@@ -176,7 +176,7 @@ namespace WarGame
 
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
 
-            RoleManager.Instance.InitEnemys(levelPlugin.enemys);
+            RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
         }
 
         /// <summary>

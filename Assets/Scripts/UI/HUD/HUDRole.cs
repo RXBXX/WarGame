@@ -8,7 +8,7 @@ namespace WarGame.UI
         private GProgressBar _hp;
         private GProgressBar _rage;
         private GList _buffList;
-        private List<Pair> _buffs;
+        private List<IntFloatPair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
         private float _hpChangeDuration = 0.2F;
         private Controller _stateC;
@@ -35,8 +35,8 @@ namespace WarGame.UI
 
         private void Init(float HP, float totalHP, float rage, float totalRage, Enum.Element element)
         {
-            _rage.max = totalHP;
-            _rage.value = HP;
+            _hp.max = totalHP;
+            _hp.value = HP;
 
             _rage.max = totalRage;
             _rage.value = rage;
@@ -56,6 +56,7 @@ namespace WarGame.UI
         {
             if (hp == _hp.value)
                 return;
+            GTween.Kill(_hp);
             _hp.TweenValue(hp, _hpChangeDuration);
         }
 
@@ -63,10 +64,11 @@ namespace WarGame.UI
         {
             if (rage == _rage.value)
                 return;
+            GTween.Kill(_rage);
             _rage.TweenValue(rage, _hpChangeDuration);
         }
 
-        public void UpdateBuffs(List<Pair> buffs)
+        public void UpdateBuffs(List<IntFloatPair> buffs)
         {
             _buffs = buffs;
             _buffList.numItems = buffs.Count;
@@ -93,6 +95,8 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGComp = false)
         {
+            GTween.Kill(_hp);
+            GTween.Kill(_rage);
             foreach (var v in _hudBuffDic)
                 v.Value.Dispose(false);
             _hudBuffDic.Clear();

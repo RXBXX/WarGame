@@ -20,19 +20,21 @@ public class NewBehaviourScript : MonoBehaviour
         //_colorCamera.gameObject.SetActive(true);
         //_colorCamera.GetComponent<Camera>().targetTexture = _colorRT;
 
-        mat.SetTexture("_ExclusionMap", _colorRT);
-        mat.SetTexture("_ExclusionMapDepth", _depthRT);
-        mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
+        //mat.SetTexture("_ExclusionMap", _colorRT);
+        //mat.SetTexture("_ExclusionMapDepth", _depthRT);
+        //mat.SetFloat("_StartTime", TimeMgr.Instance.GetTimeSinceLevelLoad());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var unixTimestamp = TimeMgr.Instance.GetUnixTimestamp();
+        Debug.Log(unixTimestamp);
+        Debug.Log(TimeMgr.Instance.GetFormatDateTime(unixTimestamp));
     }
 
-    private void OnRenderImage(RenderTexture source, RenderTexture destination)
-    {
-        Graphics.Blit(source, destination, mat);
-    }
+    //private void OnRenderImage(RenderTexture source, RenderTexture destination)
+    //{
+    //    Graphics.Blit(source, destination, mat);
+    //}
 }

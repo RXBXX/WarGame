@@ -28,17 +28,8 @@ namespace WarGame.UI
 
         private void OnClick(EventContext context)
         {
-            var pos = context.inputEvent.position;
-            //pos.y = Screen.height - pos.y;
-            pos = GRoot.inst.GlobalToLocal(pos);
-            DebugManager.Instance.Log("ONClick");
+            var pos = GRoot.inst.GlobalToLocal(context.inputEvent.position);
             EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Show_Talent, new object[] {_heroUID, _id, pos });
-            //if (_isActive)
-            //    return;
-
-            //_isActive = true;
-            //_gCom.grayed = false;
-            //EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Talent_Active, new object[] { _id });
         }
 
         public int GetID()

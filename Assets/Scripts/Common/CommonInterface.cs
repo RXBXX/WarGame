@@ -22,6 +22,8 @@ namespace WarGame
         }
     }
 
+    public delegate void BattleRoundFunc();
+
     public class CommonParams
     {
         public static Vector3 Offset

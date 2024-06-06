@@ -14,6 +14,7 @@ namespace WarGame
         protected bool _skipBattleShow = false;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected SkillAction _skillAction;
+        protected bool _isLockingCamera;
 
         public BattleAction(int id)
         {
@@ -59,26 +60,43 @@ namespace WarGame
 
         protected virtual void OnActionOver(params object[] args)
         {
+            if (_initiatorID > 0)
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                _initiatorID = 0;
+                _targetID = 0;
+                initiator.SetState(Enum.RoleState.Over);
+            }
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
+            //float delay = 1.0f;
+            //if (null != args && args.Length > 0)
+            //{
+            //    delay = (int)(args[0]);
+            //}
+            //    CoroutineMgr.Instance.StartCoroutine(PlayActionOver(delay));
+        }
+
+        protected virtual IEnumerator PlayActionOver(float delay)
+        {
+            yield return new WaitForSeconds(delay);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
-
-            CoroutineMgr.Instance.StartCoroutine(PlayActionOver());
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
         }
 
-        protected virtual IEnumerator PlayActionOver()
-        {
-            yield return new WaitForSeconds(1.0F);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] {ID});
-        }
-
-        public virtual void OnTouch(GameObject obj)
+        public virtual void FocusIn(GameObject obj)
         {
 
         }
 
         public virtual void OnClickBegin(GameObject obg)
+        {
+
+        }
+
+        public virtual void OnClickEnd()
         {
 
         }
@@ -92,6 +110,19 @@ namespace WarGame
         {
             if (null != _skillAction)
                 _skillAction.Update(deltaTime);
+        }
+
+        protected void LockCamera()
+        {
+            _isLockingCamera = CameraMgr.Instance.Lock();
+        }
+
+        protected void UnlockCamera()
+        {
+            if (!_isLockingCamera)
+                return;
+            CameraMgr.Instance.Unlock();
+            _isLockingCamera = false;
         }
     }
 }

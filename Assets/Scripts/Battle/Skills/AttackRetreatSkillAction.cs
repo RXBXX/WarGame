@@ -102,10 +102,10 @@ namespace WarGame
                 CloseBattleArena();
             }
 
-            if (isKill)
-            {
-                RoleManager.Instance.RemoveRole(_targetID);
-            }
+            //if (isKill)
+            //{
+            //    RoleManager.Instance.RemoveRole(_targetID);
+            //}
 
             _stage += 1;
 
@@ -116,7 +116,7 @@ namespace WarGame
 
         protected override IEnumerator Over(float waitingTime = 0, bool isKill = false)
         {
-            yield return null;
+            yield return new WaitForSeconds(waitingTime);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;

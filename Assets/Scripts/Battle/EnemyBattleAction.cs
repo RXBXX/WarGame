@@ -49,7 +49,7 @@ namespace WarGame
             }
             else
             {
-                OnActionOver();
+                OnActionOver(new object[] { 0});
             }
         }
 

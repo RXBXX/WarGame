@@ -11,6 +11,7 @@ namespace WarGame
         protected int _targetID;
         protected IEnumerator _coroutine;
         protected bool _skipBattleShow = false;
+        protected bool _isLockingCamera;
 
         public SkillAction(int id, int initiatorID)
         {
@@ -50,6 +51,7 @@ namespace WarGame
         public virtual void Dispose()
         {
             RemoveListeners();
+            CameraMgr.Instance.UnlockTarget();
         }
 
         protected bool IsTarget(Enum.RoleType type)
@@ -88,34 +90,61 @@ namespace WarGame
         
         }
 
-        ///计算元素克制加成
-        public float GetElementAdd(int targetID)
+        protected void LockCamera()
         {
+            _isLockingCamera = CameraMgr.Instance.Lock();
+        }
+
+        protected void UnlockCamera()
+        {
+            if (!_isLockingCamera)
+                return;
+            CameraMgr.Instance.Unlock();
+            _isLockingCamera = false;
+        }
+
+        protected virtual void EnterGrayedMode()
+        {
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var target = RoleManager.Instance.GetRole(targetID);
+            var region = MapManager.Instance.FindingRegion(hexagonID, 0, initiator.GetAttackDis(), Enum.RoleType.Hero);
+            var regionDic = new Dictionary<string, bool>();
+            foreach (var v in region)
+                regionDic[v.id] = true;
 
-            var add = 0.0f;
-            var initiatorElement = initiator.GetElement();
-            if (target.GetElementConfig().Restrain == initiatorElement)
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
             {
-                add -= 0.1F;
-            }
-
-            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
-            foreach (var v in MapManager.Instance.Dicections)
-            {
-                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(MapTool.Instance.GetHexagonKey(hexagon.coor + v));
-                if (0 == roleID || roleID == _initiatorID)
-                    continue;
-
-                var role = RoleManager.Instance.GetRole(roleID);
-                if (initiator.Type == role.Type && role.GetElementConfig().Reinforce == initiatorElement)
+                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
                 {
-                    add += 0.1F;
+                    roles[i].SetLayer(Enum.Layer.Gray);
                 }
+                else
+                {
+                    roles[i].SetColliderEnable(false);
+                }
+
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(false);
+            }
+            initiator.SetState(Enum.RoleState.WatingTarget);
+
+            CameraMgr.Instance.OpenGray();
+        }
+
+        protected virtual void ExitGrayedMode()
+        {
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roles[i].RecoverLayer();
+                roles[i].SetColliderEnable(true);
+
+                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
+                    roles[i].SetHPVisible(true);
             }
 
-            return add;
+            CameraMgr.Instance.CloseGray();
         }
     }
 }

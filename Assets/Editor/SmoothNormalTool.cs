@@ -55,6 +55,8 @@ namespace WarGame
                 WriteAverageNormalToTangent(mesh, name);
                 return;
             }
+
+            DebugManager.Instance.Log("成功写入切线数据："+ go.name);
         }
 
         public static void WriteAverageNormalToTangent(Mesh mesh, string name)

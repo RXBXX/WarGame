@@ -54,6 +54,8 @@ namespace WarGame.UI
 
         public void SetVisible(bool visible)
         {
+            if (_gCom.visible = visible)
+                return;
             _gCom.visible = visible;
         }
 

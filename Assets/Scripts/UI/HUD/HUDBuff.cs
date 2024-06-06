@@ -32,7 +32,7 @@ namespace WarGame.UI
         //    }
         //}
 
-        public void UpdateBuff(int id, int leftDuration)
+        public void UpdateBuff(int id, float leftDuration)
         {
             var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", id);
             _title.text = buffConfig.Name;

@@ -57,6 +57,7 @@ namespace WarGame.UI
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+            UIManager.Instance.OpenPanel("Record", "RecordPanel");
         }
 
         public override void Update(float deltaTime)

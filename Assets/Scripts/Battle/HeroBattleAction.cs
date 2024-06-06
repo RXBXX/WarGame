@@ -41,7 +41,7 @@ namespace WarGame
         }
 
 
-        public override void OnTouch(GameObject obj)
+        public override void FocusIn(GameObject obj)
         {
             string touchingHexagonID = null;
             if (null != obj)
@@ -260,14 +260,13 @@ namespace WarGame
 
         private void OnIdle(params object[] args)
         {
-            //DebugManager.Instance.Log("OnIdle");
             if (_initiatorID <= 0)
                 return;
 
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
-            OnActionOver();
+            OnActionOver(new object[] { 0});
 
             _path = null;
         }
@@ -336,11 +335,6 @@ namespace WarGame
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
-        }
-
-        protected override void OnActionOver(params object[] args)
-        {
-            base.OnActionOver(args);
         }
     }
 }

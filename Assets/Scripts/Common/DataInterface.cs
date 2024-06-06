@@ -55,7 +55,7 @@ namespace WarGame
             return GetTypeConfig().ForcedCombination;
         }
 
-        public List<Pair> GetAttrs()
+        public List<IntFloatPair> GetAttrs()
         {
             return GetConfig().Attrs;
         }
@@ -193,6 +193,11 @@ namespace WarGame
             }
             return new RoleData(this.UID, this.configId, this.level, talentDic, cloneEquipDic, cloneSkillDic);
         }
+
+        public void Dispose()
+        { 
+        
+        }
     }
 
     /// <summary>
@@ -204,18 +209,17 @@ namespace WarGame
         public float HP;
         public float Rage;
         public string hexagonID;
-        public List<Pair> buffs = new List<Pair>();
+        public List<IntFloatPair> buffs = new List<IntFloatPair>();
         //public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
 
         public LevelRoleData(int UID, int configId, int level, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, Dictionary<int, int> talentDic) : base(UID, configId, level, talentDic, null)
         {
-            this.UID = UID;
-            this.configId = configId;
-            this.level = level;
             this.equipDataDic = equipDataDic;
             this.state = state;
+            this.HP = GetAttribute(Enum.AttrType.HP);
+            this.Rage = 0;
         }
 
         public override float GetAttribute(Enum.AttrType attrType)
@@ -237,7 +241,7 @@ namespace WarGame
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
-                this.buffs.Add(new Pair(buffs[i], buffConfig.Duration));
+                this.buffs.Add(new IntFloatPair(buffs[i], buffConfig.Duration));
             }
         }
 
@@ -255,7 +259,7 @@ namespace WarGame
                 }
                 else
                 {
-                    buffs[i] = new Pair(buffs[i].id, buffs[i].value - 1);
+                    buffs[i] = new IntFloatPair(buffs[i].id, buffs[i].value - 1);
                 }
             }
         }
@@ -269,11 +273,11 @@ namespace WarGame
             {
                 case Enum.AttrType.HP:
                     HP += deltaValue;
-                    HP = MathF.Max(MathF.Min(0, HP), GetAttribute(type));
+                    HP = MathF.Min(MathF.Max(0, HP), GetAttribute(type));
                     break;
                 case Enum.AttrType.Rage:
                     Rage += deltaValue;
-                    Rage = MathF.Max(MathF.Min(0, Rage), GetAttribute(type));
+                    Rage = MathF.Min(MathF.Max(0, Rage), GetAttribute(type));
                     break;
             }
 
@@ -294,12 +298,17 @@ namespace WarGame
             clone.Rage = Rage;
             clone.state = state;
 
-            var cloneBuffs = new List<Pair>();
+            var cloneBuffs = new List<IntFloatPair>();
             foreach (var v in buffs)
                 cloneBuffs.Add(v);
             clone.buffs = cloneBuffs;
 
             return clone;
+        }
+
+        public void Dispose()
+        { 
+        
         }
     }
 
@@ -356,35 +365,52 @@ namespace WarGame
     [Serializable]
     public class GameData
     {
+        public bool isNew = true;
         public string title;
         public float time;
         public Dictionary<int, RoleData> roleDataDic = new Dictionary<int, RoleData>();
         public Dictionary<int, EquipmentData> equipDataDic = new Dictionary<int, EquipmentData>();
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
+        private int _heroStartUID = 10000;
+        private int _equipStartUID = 30000;
 
         public GameData(string title, float time)
         {
             this.title = title;
             this.time = time;
-            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 1, new RoleData(1, 10001, 1));
-            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 2, new RoleData(2, 10002, 1));
-            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 3, new RoleData(3, 10003, 1));
-            roleDataDic.Add(DatasMgr.Instance.HeroStartUID + 4, new RoleData(4, 10004, 1));
 
-            equipDataDic.Add(1, new EquipmentData(1, 10001));
-            equipDataDic.Add(2, new EquipmentData(2, 10002));
-            equipDataDic.Add(3, new EquipmentData(3, 10003));
-            equipDataDic.Add(4, new EquipmentData(4, 10004));
-            equipDataDic.Add(5, new EquipmentData(5, 10005));
-            equipDataDic.Add(6, new EquipmentData(6, 10006));
-            equipDataDic.Add(7, new EquipmentData(7, 10007));
-            equipDataDic.Add(8, new EquipmentData(8, 10008));
-            equipDataDic.Add(9, new EquipmentData(9, 10009));
-            equipDataDic.Add(10, new EquipmentData(10, 10010));
-            equipDataDic.Add(11, new EquipmentData(11, 10011));
-            equipDataDic.Add(12, new EquipmentData(12, 10012));
-            equipDataDic.Add(13, new EquipmentData(13, 10013));
+            AddHero(10001, 1);
+            AddHero(10002, 1);
+            AddHero(10003, 1);
+            AddHero(10004, 1);
+
+            AddEquip(10001);
+            AddEquip(10002);
+            AddEquip(10003);
+            AddEquip(10004);
+            AddEquip(10005);
+            AddEquip(10006);
+            AddEquip(10007);
+            AddEquip(10008);
+            AddEquip(10009);
+            AddEquip(10010);
+            AddEquip(10011);
+            AddEquip(10012);
+            AddEquip(10013);
         }
+
+        public void AddHero(int configID, int level)
+        {
+            var roleData = new RoleData(_heroStartUID + roleDataDic.Count + 1, configID, level);
+            roleDataDic.Add(roleData.UID, roleData);
+        }
+
+        public void AddEquip(int configId)
+        {
+            var equipData = new EquipmentData(_equipStartUID + equipDataDic.Count + 1, configId);
+            equipDataDic.Add(equipData.UID, equipData);
+        }
+
 
         public GameData Clone()
         {
@@ -406,7 +432,7 @@ namespace WarGame
         public string title;
         public float time;
 
-        public SampleGameData(string title, float time)
+        public SampleGameData(string title, float time = 0)
         {
             this.title = title;
             this.time = time;

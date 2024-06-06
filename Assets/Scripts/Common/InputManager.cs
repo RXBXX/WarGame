@@ -17,7 +17,7 @@ namespace WarGame
 
             if (null != Stage.inst.touchTarget)
             {
-                SceneMgr.Instance.Touch(null);
+                SceneMgr.Instance.FocusIn(null);
                 if (Input.GetMouseButtonUp(0))
                 {
                     _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
@@ -29,6 +29,13 @@ namespace WarGame
                         }
                     }
                     _downCollider = null;
+
+                    SceneMgr.Instance.ClickEnd();
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+                    SceneMgr.Instance.RightClickEnd();
                 }
                 return;
             }
@@ -37,11 +44,11 @@ namespace WarGame
             var raycast = Physics.Raycast(_ray, out _hitInfo);
             if (raycast)
             {
-                SceneMgr.Instance.Touch(_hitInfo.collider.gameObject);
+                SceneMgr.Instance.FocusIn(_hitInfo.collider.gameObject);
             }
             else
             {
-                SceneMgr.Instance.Touch(null);
+                SceneMgr.Instance.FocusIn(null);
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -64,6 +71,21 @@ namespace WarGame
                     }
                 }
                 _downCollider = null;
+
+                SceneMgr.Instance.ClickEnd();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(_ray, out _hitInfo))
+                {
+                    SceneMgr.Instance.RightClickBegin(_hitInfo.collider.gameObject);
+                }
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                SceneMgr.Instance.RightClickEnd();
             }
         }
 

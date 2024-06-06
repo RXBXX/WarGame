@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
+using FairyGUI;
 
 namespace WarGame
 {
-    public delegate void RoundFunc();
-
     public class BattleField
     {
         private bool _loaded = false;
@@ -23,6 +22,7 @@ namespace WarGame
         private LevelData _levelData = null;
         private int _battleActionID = -1;
         private Weather _weather;
+        private bool _isLockingCamera;
 
         public BattleField(int levelID, bool restart)
         {
@@ -64,39 +64,14 @@ namespace WarGame
 
                         _bornEffectGOs.Add(go);
                     }));
-
-                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
-                    var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                    foreach (var v in roleData.equipmentDic)
-                    {
-                        equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
-                    }
-                    var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                    levelRoleData.HP = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
+                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index++]);
+                    var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID);
                     levelRoleData.hexagonID = p;
                     RoleManager.Instance.CreateHero(levelRoleData);
                     _levelData.heros.Add(levelRoleData);
-
-                    index += 1;
                 }
 
-                for (int i = 0; i < levelPlugin.enemys.Length; i++)
-                {
-                    var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", levelPlugin.enemys[i].configId);
-                    var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                    for (int j = 0; j < enemyConfig.Equips.Length; j++)
-                    {
-                        var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
-                        var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                        equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
-                    }
-
-                    var levelRoleData = new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
-                    levelRoleData.HP = enemyConfig.HP;
-                    levelRoleData.hexagonID = levelPlugin.enemys[i].hexagonID;
-                    RoleManager.Instance.CreateEnemy(levelRoleData);
-                    _levelData.enemys.Add(levelRoleData);
-                }
+                _levelData.enemys = RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
             }
             else
             {
@@ -154,6 +129,7 @@ namespace WarGame
 
         public void Dispose()
         {
+            UIManager.Instance.ClosePanel("FightPanel");
             _weather.Dispose();
             _weather = null;
 
@@ -182,7 +158,7 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.isReady});
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.isReady });
 
             if (!_levelData.isRead)
             {
@@ -204,21 +180,11 @@ namespace WarGame
             }
         }
 
-        public void Touch(GameObject obj)
+        public void FocusIn(GameObject obj)
         {
             if (!_loaded)
                 return;
 
-            OnTouch(obj);
-
-            if (null != _action)
-            {
-                _action.OnTouch(obj);
-            }
-        }
-
-        private void OnTouch(GameObject obj)
-        {
             var touchingID = 0;
             string touchingHexagonID = null;
             if (null != obj)
@@ -282,6 +248,11 @@ namespace WarGame
                 _arrow.Active = true;
                 _arrow.Position = MapManager.Instance.GetHexagon(touchingHexagonID).GetPosition() + new Vector3(0, 0.24F, 0);
             }
+
+            if (null != _action)
+            {
+                _action.FocusIn(obj);
+            }
         }
 
         public void ClickBegin(GameObject obj)
@@ -289,16 +260,28 @@ namespace WarGame
             if (!_loaded)
                 return;
 
-            //OnClickBegin(obj);
-
             if (null != _action)
             {
                 _action.OnClickBegin(obj);
             }
         }
 
-        public void OnClickBegin(GameObject obj)
+        public void ClickEnd()
         {
+            if (!_loaded)
+                return;
+
+            if (null != _action)
+            {
+                _action.OnClickEnd();
+            }
+        }
+
+        public void Click(GameObject obj)
+        {
+            if (!_loaded)
+                return;
+
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString())
             {
@@ -318,18 +301,34 @@ namespace WarGame
                     CameraMgr.Instance.SetTarget(roleID);
                 }
             }
-        }
-
-        public void Click(GameObject obj)
-        {
-            if (!_loaded)
-                return;
-
-            OnClickBegin(obj);
 
             if (null != _action)
             {
                 _action.OnClick(obj);
+            }
+        }
+
+        public void RightClickBegin(GameObject obj)
+        {
+            var tag = obj.tag;
+            if (tag == Enum.Tag.Hero.ToString() || tag == Enum.Tag.Enemy.ToString())
+            {
+                _isLockingCamera = CameraMgr.Instance.Lock();
+
+                var screenPos = InputManager.Instance.GetMousePos();
+                screenPos.y = Screen.height - screenPos.y;
+                var uiPos = GRoot.inst.GlobalToLocal(screenPos);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID });
+            }
+        }
+
+        public void RightClickEnd()
+        {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Hide_RoleInfo);
+            if (_isLockingCamera)
+            {
+                CameraMgr.Instance.Unlock();
+                _isLockingCamera = false;
             }
         }
 
@@ -350,6 +349,8 @@ namespace WarGame
 
         private void OnFinishAction(params object[] args)
         {
+            RoleManager.Instance.ClearDeadRole();
+
             DisposeAction((int)args[0]);
 
             if ((int)args[0] == 0)
@@ -393,7 +394,7 @@ namespace WarGame
 
             if (isHeroTurn)
             {
-                RoundFunc callback = () =>
+                BattleRoundFunc callback = () =>
                 {
                     //查找到下一个应该行动的敌人
                     for (int i = enemys.Count - 1; i >= 0; i--)
@@ -424,7 +425,7 @@ namespace WarGame
                     }
                 }
 
-                RoundFunc callback = () =>
+                BattleRoundFunc callback = () =>
                 {
                     MapManager.Instance.UpdateRound(_roundIndex + 1);
                     RoleManager.Instance.UpdateRound(_roundIndex + 1);

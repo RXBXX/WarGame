@@ -15,7 +15,7 @@ namespace WarGame.UI
             _tipsT = _gCom.GetTransition("tips");
         }
 
-        public void ShowTips(string title, RoundFunc callback)
+        public void ShowTips(string title, BattleRoundFunc callback)
         {
             _gCom.visible = true;
             _title.text = title;

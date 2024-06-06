@@ -154,6 +154,7 @@
     <Compile Include="Assets\Scripts\UI\Dialog\DialogPanel.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenManager.cs" />
+    <Compile Include="Assets\Scripts\Common\TimeMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\UpdateContext.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPackage.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\Scripts\Weapon\Arrow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
+    <Compile Include="Assets\Scripts\Common\StoryMgr.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\CureSkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
@@ -252,6 +254,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrsInfo.cs" />
+    <Compile Include="Assets\Scripts\Battle\AttributeMgr.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapMark.cs" />
@@ -303,6 +306,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\Test\NewBehaviourScript.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPainter.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightRoleInfo.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParseOptions.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PopupMenu.cs" />
@@ -369,6 +373,7 @@
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\BookPage.cs" />
     <Compile Include="Assets\Scripts\Common\AssetMgr.cs" />
     <Compile Include="Assets\Test\VisualEffectTest.cs" />
+    <Compile Include="Assets\Scripts\UI\Story\StoryPanel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\ModalWaitingMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\IFilter.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />

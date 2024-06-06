@@ -9,7 +9,7 @@ namespace WarGame
     {
         private GameObject _go;
         private Mesh _mesh;
-        private float _width = 0.22F;
+        private float _width = 0.16F;
         private float _arrowWidth = 0.38F;
         private float _arrowLength = 0.48F;
 

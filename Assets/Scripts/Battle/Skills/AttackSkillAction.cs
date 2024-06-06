@@ -51,10 +51,10 @@ namespace WarGame
                 CloseBattleArena();
             }
 
-            if (isKill)
-            {
-                RoleManager.Instance.RemoveRole(_targetID);
-            }
+            //if (isKill)
+            //{
+            //    RoleManager.Instance.RemoveRole(_targetID);
+            //}
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
@@ -68,8 +68,7 @@ namespace WarGame
         public override void Dispose()
         {
             ExitGrayedMode();
-            CameraMgr.Instance.UnlockTarget();
-            RemoveListeners();
+            base.Dispose();
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -89,20 +88,8 @@ namespace WarGame
                 }
                 else
                 {
-                    var add = GetElementAdd(_targetID);
-                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack) * (1+add);
-                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio) * (1 + add);
-                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack) * (1 + add);
-                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio) * (1 + add);
-                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio) * (1 + add);
-                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio) * (1 + add);
-
-                    var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
-                    var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
-
-                    var physicalHurt = initiatorPhysicalAttack * (1 + initiatorPhysicalAttackRatio) - (1 - initiatorPhysicalPenetrateRatio) * targetPhysicalDefense;
-                    var magicHurt = initiatorMagicAttack * (1 + initiatorMagicAttackRatio) - (1 - initiatorMagicPenetrateRatio) * targetMagicDefense;
-                    target.Hit(physicalHurt + magicHurt);
+                    var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
+                    target.Hit(hurt);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }
@@ -139,50 +126,6 @@ namespace WarGame
             //        initiator.Cure();
             //        break;
             //}
-        }
-
-        protected virtual void EnterGrayedMode()
-        {
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var region = MapManager.Instance.FindingRegion(hexagonID, 0, initiator.GetAttackDis(), Enum.RoleType.Hero);
-            var regionDic = new Dictionary<string, bool>();
-            foreach (var v in region)
-                regionDic[v.id] = true;
-
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
-                {
-                    roles[i].SetLayer(Enum.Layer.Gray);
-                }
-                else
-                {
-                    roles[i].SetColliderEnable(false);
-                }
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(false);
-            }
-            initiator.SetState(Enum.RoleState.WatingTarget);
-
-            CameraMgr.Instance.OpenGray();
-        }
-
-        protected virtual void ExitGrayedMode()
-        {
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].RecoverLayer();
-                roles[i].SetColliderEnable(true);
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(true);
-            }
-
-            CameraMgr.Instance.CloseGray();
         }
 
         protected virtual void OnAttackedEnd(object[] args)
@@ -236,7 +179,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
-            CameraMgr.Instance.Lock();
+            LockCamera();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
@@ -283,7 +226,7 @@ namespace WarGame
             }
 
             CameraMgr.Instance.CloseGray();
-            CameraMgr.Instance.Unlock();
+            UnlockCamera();
         }
 
         public override void ClickHero(int id)

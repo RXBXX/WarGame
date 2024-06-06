@@ -257,6 +257,9 @@ namespace WarGame
             Hero_Show_Attrs = 42,
             Hero_Show_Talent = 43,
             Fight_Dodge_End = 44,
+            Fight_Hide_HeroGroup = 45,
+            Fight_Show_RoleInfo = 46,
+            Fight_Hide_RoleInfo = 47,
             HeroTalentActiveS2C = 10001,
         }
     }

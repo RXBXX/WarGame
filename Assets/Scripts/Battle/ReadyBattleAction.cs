@@ -54,18 +54,20 @@ namespace WarGame
                         index += 1;
                     }
                 }
+
+                LockCamera();
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HeroGroup, new object[] { uiPos, heros });
             }
         }
 
-        protected override void OnActionOver(params object[] args)
+        public override void OnClickEnd()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Hide_HeroGroup);
+            UnlockCamera();
         }
 
         private void OnChangeHero(params object[] args)
         {
-            DebugManager.Instance.Log("OnChangeHero");
             var oldRoleID = _selectedHero;
             var _selectedHexagon = RoleManager.Instance.GetRole(oldRoleID).Hexagon;
             if (null == args[0] || 0 == (int)args[0])
@@ -95,7 +97,6 @@ namespace WarGame
                         equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
                     }
                     var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
-                    levelRoleData.HP = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + roleData.level).HP;
                     levelRoleData.hexagonID = _selectedHexagon;
                     newRole = RoleManager.Instance.CreateHero(levelRoleData);
 
@@ -132,7 +133,7 @@ namespace WarGame
         private void OnReadyOver(params object[] args)
         {
             _levelData.isReady = true;
-            OnActionOver();
+            OnActionOver(new object[] {0});
         }
     }
 }

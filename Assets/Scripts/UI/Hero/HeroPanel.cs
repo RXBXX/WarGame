@@ -23,6 +23,7 @@ namespace WarGame.UI
         private GList _heroList;
         private Dictionary<string, HeroItem> _herosDic = new Dictionary<string, HeroItem>();
         private GTextField _name;
+        private List<Sequence> _seqList = new List<Sequence>();
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -78,7 +79,7 @@ namespace WarGame.UI
             context.CaptureTouch();
             _dragingPower = 0;
             _touchPos = context.inputEvent.position;
-            _lastDragTime = Time.time;
+            _lastDragTime = TimeMgr.Instance.GetTime();
             _draging = true;
         }
 
@@ -87,12 +88,12 @@ namespace WarGame.UI
             _dragingPower = _touchPos.x - context.inputEvent.position.x;
             _rolesGO[_roles[_roleIndex]].transform.Rotate(Vector3.up, _rotateSpeed * _dragingPower * (Time.time - _lastDragTime));
             _touchPos = context.inputEvent.position;
-            _lastDragTime = Time.time;
+            _lastDragTime = TimeMgr.Instance.GetTime();
         }
 
         public void OnTouchEnd(EventContext context)
         {
-            _lastDragTime = Time.time;
+            _lastDragTime = TimeMgr.Instance.GetTime();
             _draging = false;
         }
 
@@ -120,8 +121,6 @@ namespace WarGame.UI
                     Tool.SetLayer(hero.transform, Enum.Layer.Display);
                     Tool.Instance.ApplyProcessingFotOutLine(hero, new List<string> { "Body", "Hair", "Head", "Hat", "AC" });
                     _rolesGO.Add(uid, hero);
-
-                    Jump(uid, hero, 0);
 
                     UpdateEquips(uid);
                     UpdateAnimator(uid);
@@ -188,6 +187,7 @@ namespace WarGame.UI
             AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
+                Jump(uid, _rolesGO[uid], 0);
             });
         }
 
@@ -310,12 +310,20 @@ namespace WarGame.UI
             {
                 animator.SetBool("Jump", false);
                 animator.SetBool("Idle", true);
+
+                _seqList.Remove(seq);
             });
+
+            _seqList.Add(seq);
         }
 
         public override void Dispose(bool disposeGCom = false)
         {
-            base.Dispose(disposeGCom);
+            foreach (var v in _seqList)
+            {
+                v.Kill();
+            }
+            _seqList.Clear();
 
             foreach (var v in _rolesGO)
             {
@@ -332,6 +340,8 @@ namespace WarGame.UI
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
+
+            base.Dispose(disposeGCom);
         }
     }
 }

@@ -54,30 +54,6 @@ namespace WarGame
 
         public virtual void ResetHighLight() { }
 
-        //public virtual void SetGrayed(bool isGray, Transform tran = null)
-        //{
-        //    if (null == tran)
-        //        tran = _gameObject.transform;
-
-        //    var childCount = tran.childCount;
-        //    for (int i = 0; i < childCount; i++)
-        //    {
-        //        SetGrayed(isGray, tran.GetChild(i));
-        //    }
-        //    SkinnedMeshRenderer smr;
-        //    if (tran.TryGetComponent<SkinnedMeshRenderer>(out smr))
-        //    {
-        //        smr.material.SetFloat("_Gray", isGray ? 1 : 0);
-        //        return;
-        //    }
-        //    MeshRenderer mr;
-        //    if (tran.TryGetComponent<MeshRenderer>(out mr))
-        //    {
-        //        mr.material.SetFloat("_Gray", isGray ? 1 : 0);
-        //        return;
-        //    }
-        //}
-
         public virtual float GetLoadingProgress()
         {
             if (_assetID <= 0)
@@ -91,7 +67,7 @@ namespace WarGame
             //_gameObject.transform.SetParent(transform);
         }
 
-        public virtual void Dispose()
+        public virtual bool Dispose()
         {
             if (null != _gameObject)
             {
@@ -99,6 +75,7 @@ namespace WarGame
                 _gameObject = null;
             }
             AssetMgr.Instance.ReleaseAsset(_assetID);
+            return true;
         }
     }
 }

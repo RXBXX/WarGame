@@ -27,6 +27,7 @@ namespace WarGame
             MapManager.Instance.Init();
             LineMgr.Instance.Init();
             RoleManager.Instance.Init();
+            AttributeMgr.Instance.Init();
 
             DOTween.Init(true, true);
 
@@ -78,6 +79,7 @@ namespace WarGame
         {
             base.Dispose();
 
+            AttributeMgr.Instance.Dispose();
             CameraMgr.Instance.Dispose();
             InputManager.Instance.Dispose();
             MapTool.Instance.Dispose();

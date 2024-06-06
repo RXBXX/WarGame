@@ -19,7 +19,7 @@ namespace WarGame.UI
             _recordList.itemRenderer = ItemRenderer;    
             _recordList.onClickItem.Add(OnClickItem);
 
-            _listDatas.Add(new SampleGameData("新游戏", Time.time));
+            _listDatas.Add(new SampleGameData("新游戏"));
   
             var gameDatas = DatasMgr.Instance.GetGameDatas();
             foreach (var v in gameDatas)
@@ -35,12 +35,17 @@ namespace WarGame.UI
 
         private void OnClickItem(EventContext context)
         {
+            UIManager.Instance.ClosePanel(name);
+
             var index = _recordList.GetChildIndex((GObject)context.data);
             if (0 == index)
-                DatasMgr.Instance.NewGameData("存档_" + Time.time);
+            {
+                DatasMgr.Instance.NewGameData("存档_" + TimeMgr.Instance.GetNowFormatDateTime());
+            }
             else
                 DatasMgr.Instance.ReadGameData(_listDatas[index].title);
-            SceneMgr.Instance.OpenMapScene();
+
+            SceneMgr.Instance.StartGame();
         }
 
     }

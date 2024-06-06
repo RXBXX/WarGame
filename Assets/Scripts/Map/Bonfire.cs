@@ -64,10 +64,5 @@ namespace WarGame
                 }
             }
         }
-
-        public override void Dispose()
-        {
-            base.Dispose();
-        }
     }
 }

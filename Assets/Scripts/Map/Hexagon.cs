@@ -130,7 +130,7 @@ namespace WarGame
             //return _gameObject.transform.position;
         }
 
-        public override void Dispose()
+        public override bool Dispose()
         {
             if (null != _tween)
             {
@@ -138,7 +138,7 @@ namespace WarGame
                 _tween = null;
             }
 
-            base.Dispose();
+            return base.Dispose();
         }
     }
 }

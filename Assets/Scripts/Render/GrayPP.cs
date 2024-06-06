@@ -17,7 +17,7 @@ namespace WarGame
                 _mat = mat;
                 _mat.SetTexture("_ExclusionMap", _colorRT);
                 _mat.SetTexture("_ExclusionMapDepth", _depthRT);
-                _mat.SetFloat("_StartTime", Time.timeSinceLevelLoad);
+                _mat.SetFloat("_StartTime", TimeMgr.Instance.GetTimeSinceLevelLoad());
             });
             var mainCamera = CameraMgr.Instance.MainCamera;
             _depthCamera = mainCamera.transform.Find("DepthCamera").GetComponent<Camera>();

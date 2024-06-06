@@ -7,6 +7,8 @@ namespace WarGame
 {
     public class Enemy : Role
     {
+        private int _stage;
+
         public Enemy(LevelRoleData data) : base(data)
         {
             _type = Enum.RoleType.Enemy;
@@ -21,8 +23,8 @@ namespace WarGame
 
         protected override void CreateHUD()
         {
-            _hpHUDKey = _id + "_HP";
-            var args = new object[] { _id, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
+            _hpHUDKey = ID + "_HP";
+            var args = new object[] { ID, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
             HUDManager.Instance.AddHUD<HUDRole>("HUD", "HUDRole", _hpHUDKey, _hudPoint, args);
             //hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
         }
@@ -44,7 +46,7 @@ namespace WarGame
             for (int i = 0; i < heros.Count; i++)
             {
                 var tempPath = MapManager.Instance.FindingAIPath(Hexagon, heros[i].Hexagon, GetMoveDis(), GetAttackDis());
-                if (null!= tempPath && tempPath.Count > 0)
+                if (null != tempPath && tempPath.Count > 0)
                 {
                     if (Hexagon == tempPath[tempPath.Count - 1])
                     {
@@ -64,11 +66,11 @@ namespace WarGame
                 }
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { _id, targetID, GetConfig().CommonSkill});
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { ID, targetID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
             if (targetID <= 0)
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Over, new object[] { _id, targetID, GetConfig().CommonSkill });
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Over, new object[] { 0 });
             }
             else
             {
@@ -85,7 +87,7 @@ namespace WarGame
 
         public override void Move(List<string> hexagons)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_MoveStart, new object[] { _id });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_MoveStart, new object[] { ID });
             base.Move(hexagons);
         }
 
@@ -93,6 +95,35 @@ namespace WarGame
         {
             base.UpdateRound();
             SetState(Enum.RoleState.Locked);
+        }
+
+        protected override int GetNextStage()
+        {
+            if (_stage > 0)
+                return 0;
+
+            return ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", ID).NextStage;
+        }
+
+        public override bool HaveNextStage()
+        {
+            return 0 != GetNextStage();
+        }
+
+        public override void NextStage()
+        {
+            var UID = _data.UID;
+            var hexagon = _data.hexagonID;
+
+            base.Dispose();
+
+            _data = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, GetNextStage());
+            _data.UID = UID;
+            _data.hexagonID = hexagon;
+            _stage++;
+            DeadFlag = false;
+
+            CreateGO();
         }
     }
 }

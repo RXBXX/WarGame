@@ -27,6 +27,12 @@ namespace WarGame
             EnterGrayedMode();
         }
 
+        public override void Dispose()
+        {
+            ExitGrayedMode();
+            base.Dispose();
+        }
+
         public override void Play()
         {
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Battle);
@@ -47,24 +53,12 @@ namespace WarGame
                 CloseBattleArena();
             }
 
-            if (isKill)
-            {
-                RoleManager.Instance.RemoveRole(_targetID);
-            }
-
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
-            //initiator.SetGrayed(true);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skill_Over);
-        }
-
-        public override void Dispose()
-        {
-            ExitGrayedMode();
-            RemoveListeners();
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -76,8 +70,9 @@ namespace WarGame
             if ("Cure" == stateName && "Take" == secondStateName)
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var add = GetElementAdd(_targetID);
-                target.Cured(initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add));
+
+                var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
+                target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
                 target.AddBuffs(initiator.GetAttackBuffs());
                 //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
@@ -99,48 +94,6 @@ namespace WarGame
 
             //yield return new WaitForSeconds(1.0f);
             initiator.Cure();
-        }
-
-        private void EnterGrayedMode()
-        {
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var region = MapManager.Instance.FindingRegion(hexagonID, 0, initiator.GetAttackDis(), Enum.RoleType.Hero);
-            var regionDic = new Dictionary<string, bool>();
-            foreach (var v in region)
-                regionDic[v.id] = true;
-
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
-                    roles[i].SetLayer(Enum.Layer.Gray);
-                else
-                {
-                    roles[i].SetColliderEnable(false);
-                }
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(false);
-            }
-            initiator.SetState(Enum.RoleState.WatingTarget);
-
-            CameraMgr.Instance.OpenGray();
-        }
-
-        private void ExitGrayedMode()
-        {
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].RecoverLayer();
-                roles[i].SetColliderEnable(true);
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(true);
-            }
-
-            CameraMgr.Instance.CloseGray();
         }
 
         private void OnCuredEnd(object[] args)
@@ -165,7 +118,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
-            CameraMgr.Instance.Lock();
+            LockCamera();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 5;
@@ -211,7 +164,7 @@ namespace WarGame
             }
 
             CameraMgr.Instance.CloseGray();
-            CameraMgr.Instance.Unlock();
+            UnlockCamera();
         }
 
         public override void ClickHero(int id)

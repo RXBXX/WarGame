@@ -24,17 +24,6 @@ namespace WarGame.UI
 
         public FightHeroGroup(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            GCom.onTouchBegin.Add((EventContext context) =>
-            {
-                context.CaptureTouch();
-                DebugManager.Instance.Log("OnTouchBegin");
-            });
-
-            GCom.onTouchMove.Add(() =>
-            {
-                DebugManager.Instance.Log("OnTouchBegin");
-            });
-
             GCom.onTouchEnd.Add(() =>
             {
                 foreach (var v in _heroUIDic)
@@ -45,7 +34,6 @@ namespace WarGame.UI
                         break;
                     }
                 }
-                SetVisible(false);
             });
         }
 
@@ -53,6 +41,8 @@ namespace WarGame.UI
         {
             if (GCom.visible)
                 return;
+            SetPosition(centerPos);
+
             _heroDic.Clear();
 
             var openList = new List<Vector2> { Vector2.zero};
@@ -83,9 +73,9 @@ namespace WarGame.UI
 
                             _heroUIDic.Add(coor.x + "_" + coor.y, ui);
                         }
-                        var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) + centerPos.x - _outsideDiameter / 2;
-                        var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) + centerPos.y - _outsideDiameter / 2;
-                        ui.xy = centerPos - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
+                        var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) - _outsideDiameter / 2;
+                        var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) - _outsideDiameter / 2;
+                        ui.xy = - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
                         ui.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
 
                         var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
@@ -113,7 +103,7 @@ namespace WarGame.UI
 
         public void Hide()
         {
-
+            SetVisible(false);
         }
     }
 }

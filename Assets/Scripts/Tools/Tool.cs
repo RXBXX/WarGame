@@ -195,5 +195,19 @@ namespace WarGame
             }
             tran.gameObject.layer = (int)layer;
         }
+
+        /// <summary>
+        /// 获取点到支线的距离
+        /// </summary>
+        /// <param name="linePoint"></param>
+        /// <param name="lintDir"></param>
+        /// <param name="point"></param>
+        public static float GetDistancePointToLine(Vector3 linePoint, Vector3 lineDir, Vector3 point)
+        {
+            Vector3 pointToLinePoint = point - linePoint;
+            float angle = Vector3.Angle(lineDir.normalized, pointToLinePoint.normalized);
+            float dis = pointToLinePoint.magnitude * Mathf.Sin(angle / 180 * Mathf.PI);
+            return dis;
+        }
     }
 }

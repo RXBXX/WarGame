@@ -32,6 +32,12 @@ namespace WarGame.UI
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
         }
 
+        public override void Dispose(bool disposeGCom = false)
+        {
+            Stage.inst.onTouchBegin.Remove(OnTouchBegin);
+            base.Dispose(disposeGCom);
+        }
+
         public void Init(int levelID, bool isOpen, Enum.LevelType type, string name, string desc)
         {
             _levelType = type;

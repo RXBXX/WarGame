@@ -7,8 +7,6 @@ namespace WarGame
 {
     public class Role : MapObject
     {
-        protected int _id;
-
         protected LevelRoleData _data;
 
         protected int _starConfigId = 1;
@@ -33,7 +31,7 @@ namespace WarGame
 
         protected Enum.RoleType _type = Enum.RoleType.None;
 
-        private Dictionary<string, State> _stateDic = new Dictionary<string, State>();
+        protected Dictionary<string, State> _stateDic = new Dictionary<string, State>();
 
         private string _curAnimState = null;
 
@@ -43,10 +41,11 @@ namespace WarGame
 
         private bool _isFollowing = false;
 
+        public bool DeadFlag = false;
+
         public int ID
         {
-            set { }
-            get { return _id; }
+            get { return _data.UID; }
         }
 
         public Enum.RoleType Type
@@ -104,7 +103,6 @@ namespace WarGame
 
         public Role(LevelRoleData data)
         {
-            this._id = data.UID;
             this._data = data;
             _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
 
@@ -124,7 +122,7 @@ namespace WarGame
             _gameObject.transform.localScale = Vector3.one * 0.6F;
             _animator = _gameObject.GetComponent<Animator>();
 
-            _gameObject.GetComponent<RoleBehaviour>().ID = _id; ;
+            _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
 
             _rotation = _gameObject.transform.rotation;
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
@@ -330,7 +328,6 @@ namespace WarGame
 
         public virtual void Dodge()
         {
-            DebugManager.Instance.Log("Dodge");
             EnterState("Dodge");
             AddFloatHUD("Miss");
         }
@@ -349,6 +346,7 @@ namespace WarGame
 
         public virtual void Dead()
         {
+            DeadFlag = true;
             EnterState("Dead");
         }
 
@@ -679,7 +677,7 @@ namespace WarGame
             return _gameObject.transform.Find("root/pelvis/spine_01/spine_02/spine_03/neck_01/head").gameObject;
         }
 
-        public void AddEffects(List<Pair> effects)
+        public void AddEffects(List<IntFloatPair> effects)
         {
             foreach (var v in effects)
             {
@@ -702,9 +700,29 @@ namespace WarGame
             return _data.GetElementConfig();
         }
 
-        public override void Dispose()
+        protected virtual int GetNextStage()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Role_Dispose, new object[] { _id });
+            return 0;
+        }
+
+        public virtual bool HaveNextStage()
+        {
+            return false;
+        }
+
+        public virtual void NextStage()
+        {
+        
+        }
+
+        public override bool Dispose()
+        {
+            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Role_Dispose, new object[] { ID });
+
+            foreach (var v in _stateDic)
+                v.Value.Dispose();
+            _stateDic.Clear();
+
             if (null != _hpHUDKey)
             {
                 HUDManager.Instance.RemoveHUD(_hpHUDKey);
@@ -722,7 +740,9 @@ namespace WarGame
             }
             _equipDic.Clear();
 
-            base.Dispose();
+            _data.Dispose();
+
+            return base.Dispose();
         }
     }
 }

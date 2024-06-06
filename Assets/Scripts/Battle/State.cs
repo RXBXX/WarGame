@@ -71,6 +71,12 @@ namespace WarGame
         public virtual void Update()
         {
         }
+
+        public virtual void Dispose()
+        {
+            _role = null;
+            _last = null;
+        }
     }
 
     public class JumpState : State
@@ -200,7 +206,6 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dead_End, new object[] { _role.ID });
         }
     }

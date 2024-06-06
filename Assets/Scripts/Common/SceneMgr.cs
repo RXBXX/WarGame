@@ -6,10 +6,9 @@ namespace WarGame
 {
     public class SceneMgr : Singeton<SceneMgr>
     {
-        private int _levelID;
         private BattleField _battleField = null;
         private GameObject _heroScene;
-        private AsyncOperation _asyncOperation;
+        //private AsyncOperation _asyncOperation;
         private int _heroSceneID = 0;
 
         public override bool Init()
@@ -21,10 +20,10 @@ namespace WarGame
 
         public override void Update(float deltaTime)
         {
-            if (null != _asyncOperation)
-            {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { _asyncOperation.progress });
-            }
+            //if (null != _asyncOperation)
+            //{
+            //    EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { _asyncOperation.progress });
+            //}
 
             if (null != _battleField)
             {
@@ -44,11 +43,11 @@ namespace WarGame
             return true;
         }
 
-        public void Touch(GameObject obj)
+        public void FocusIn(GameObject obj)
         {
             if (null == _battleField)
                 return;
-            _battleField.Touch(obj);
+            _battleField.FocusIn(obj);
         }
 
         public void ClickBegin(GameObject obj)
@@ -65,28 +64,63 @@ namespace WarGame
             _battleField.Click(obj);
         }
 
-        public void OpenBattleField(int levelID, bool restart)
+        public void ClickEnd()
         {
-            _levelID = levelID;
-            OpenScene("Assets/Scenes/MapScene.unity", restart);
+            if (null == _battleField)
+                return;
+            _battleField.ClickEnd();
         }
 
-        //private void SceneLoaded(Scene scene, LoadSceneMode mode)
-        //{
-        //    _asyncOperation = null;
-        //    UIManager.Instance.ClosePanel("LoadPanel");
+        public void RightClickBegin(GameObject obj)
+        {
+            if (null == _battleField)
+                return;
+            _battleField.RightClickBegin(obj);
+        }
 
-        //    switch (scene.name)
-        //    {
-        //        case "MapScene":
-        //            _battleField = new BattleField(_levelID);
-        //            _battleField.Start();
-        //            break;
-        //        case "TransitionScene":
-        //            UIManager.Instance.OpenPanel("Map", "MapPanel");
-        //            break;
-        //    }
-        //}
+        public void RightClickEnd()
+        {
+            if (null == _battleField)
+                return;
+            _battleField.RightClickEnd();
+        }
+
+        private void OpenScene(string scene, System.Action<string> callback)
+        {
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
+            AssetMgr.Instance.LoadSceneAsync(scene, (string name) =>
+            {
+                UIManager.Instance.ClosePanel("LoadPanel");
+                callback(name);
+            });
+        }
+
+        public void StartGame()
+        {
+            if (DatasMgr.Instance.IsNewGameData())
+            {
+                StoryMgr.Instance.PlayStory(10001, true, (args) =>
+                {
+                    DatasMgr.Instance.SetGameDataDirty();
+                    OpenScene("Assets/Scenes/TransitionScene.unity", (name)=> {
+                        UIManager.Instance.OpenPanel("Map", "MapPanel");
+                    });
+                });
+            }
+            else
+            {
+                OpenScene("Assets/Scenes/TransitionScene.unity", (name) => {
+                    UIManager.Instance.OpenPanel("Map", "MapPanel");
+                });
+            }
+        }
+
+        public void OpenBattleField(int levelID, bool restart)
+        {
+            OpenScene("Assets/Scenes/MapScene.unity", (name) => {
+                _battleField = new BattleField(levelID, restart);
+            });
+        }
 
         public void DestroyBattleFiled()
         {
@@ -95,8 +129,8 @@ namespace WarGame
 
             _battleField.Dispose();
             _battleField = null;
-            UIManager.Instance.ClosePanel("FightPanel");
-            OpenScene("Assets/Scenes/TransitionScene.unity");
+
+            StartGame();
         }
 
         public void OpenHeroScene(params object[] args)
@@ -123,30 +157,6 @@ namespace WarGame
         public Transform GetHeroRoot()
         {
             return _heroScene.transform.Find("HeroRoot");
-        }
-
-        public void OpenMapScene()
-        {
-            OpenScene("Assets/Scenes/TransitionScene.unity");
-        }
-
-        public void OpenScene(string scene, bool restart = false)
-        {
-            UIManager.Instance.OpenPanel("Load", "LoadPanel");
-
-            AssetMgr.Instance.LoadSceneAsync(scene, (string name) =>
-            {
-                UIManager.Instance.ClosePanel("LoadPanel");
-                switch (name)
-                {
-                    case "MapScene":
-                        _battleField = new BattleField(_levelID, restart);
-                        break;
-                    case "TransitionScene":
-                        UIManager.Instance.OpenPanel("Map", "MapPanel");
-                        break;
-                }
-            });
         }
     }
 }

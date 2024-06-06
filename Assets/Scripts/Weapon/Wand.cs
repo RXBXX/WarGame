@@ -29,7 +29,7 @@ namespace WarGame
             AssetMgr.Instance.Destroy(_prefab);
         }
 
-        public override void Dispose()
+        public override bool Dispose()
         {
             if (null != _tweener)
             {
@@ -37,6 +37,7 @@ namespace WarGame
                 _tweener = null;
             }
             AssetMgr.Instance.Destroy(_prefab);
+            return true;
         }
     }
 }

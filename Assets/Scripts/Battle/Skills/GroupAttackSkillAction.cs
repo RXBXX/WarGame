@@ -40,7 +40,7 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
-            CameraMgr.Instance.Lock();
+            LockCamera();
             CameraMgr.Instance.OpenGray();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
@@ -176,7 +176,7 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(sender);
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
                 var target = RoleManager.Instance.GetRole(_targetID);
@@ -188,24 +188,10 @@ namespace WarGame
                 }
                 else
                 {
-                    var add = GetElementAdd(_targetID);
-                    var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack) * (1 + add);
-                    var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio) * (1 + add);
-                    var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack) * (1 + add);
-                    var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio) * (1 + add);
-                    var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio) * (1 + add);
-                    var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio) * (1 + add);
-
-                    var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
-                    var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
-
-                    var physicalHurt = initiatorPhysicalAttack * (1 + initiatorPhysicalAttackRatio) - (1 - initiatorPhysicalPenetrateRatio) * targetPhysicalDefense;
-                    var magicHurt = initiatorMagicAttack * (1 + initiatorMagicAttackRatio) - (1 - initiatorMagicPenetrateRatio) * targetMagicDefense;
-                    target.Hit(physicalHurt + magicHurt);
+                    _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
+                    target.Hit(_hurt);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
-
-                    _hurt = physicalHurt + magicHurt;
                 }
             }
         }
