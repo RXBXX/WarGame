@@ -319,10 +319,8 @@ namespace WarGame
     public class LevelData
     {
         public int configId;
-        public bool isEnter;
-        public bool isRead;
-        public bool isReady;
-        public bool pass;
+        public Enum.LevelStage Stage = Enum.LevelStage.None;
+        public int Round;
         public List<LevelRoleData> heros = new List<LevelRoleData>();
         public List<LevelRoleData> enemys = new List<LevelRoleData>();
 
@@ -333,10 +331,8 @@ namespace WarGame
 
         public void Clear()
         {
-            isEnter = false;
-            isRead = false;
-            isReady = false;
-            pass = false;
+            Stage = Enum.LevelStage.None;
+            Round = 0;
             heros.Clear();
             enemys.Clear();
     }
@@ -344,10 +340,8 @@ namespace WarGame
         public LevelData Clone()
         {
             var clone = new LevelData(configId);
-            clone.isEnter = isEnter;
-            clone.isRead = isRead;
-            clone.pass = pass;
-            clone.isReady = isReady;
+            clone.Stage = Stage;
+            clone.Round = Round;
             var cloneHeros = new List<LevelRoleData>();
             foreach (var v in heros)
                 cloneHeros.Add(v.Clone());

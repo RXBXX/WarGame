@@ -96,7 +96,7 @@
   "存档_2024-06-07 04:00:15": {
     "isNew": false,
     "title": "存档_2024-06-07 04:00:15",
-    "time": 1.71770406E+09,
+    "time": 1.7177495E+09,
     "roleDataDic": {
       "10001": {
         "UID": 10001,
@@ -185,6 +185,77 @@
         "configId": 10013
       }
     },
-    "levelDataDic": {}
+    "levelDataDic": {
+      "10001": {
+        "configId": 10001,
+        "Stage": 3,
+        "Round": 1,
+        "heros": [
+          {
+            "HP": 100.0,
+            "Rage": 60.0,
+            "hexagonID": "3_0_4",
+            "buffs": [],
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 10001,
+            "configId": 10001,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "HP": 100.0,
+            "Rage": 60.0,
+            "hexagonID": "4_0_1",
+            "buffs": [],
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 10002,
+            "configId": 10002,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          },
+          {
+            "HP": 100.0,
+            "Rage": 60.0,
+            "hexagonID": "5_0_0",
+            "buffs": [],
+            "equipDataDic": {},
+            "state": 1,
+            "UID": 10003,
+            "configId": 10003,
+            "level": 1,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          }
+        ],
+        "enemys": [
+          {
+            "HP": 300.0,
+            "Rage": 0.0,
+            "hexagonID": "1_0_11",
+            "buffs": [],
+            "equipDataDic": {
+              "Right": {
+                "UID": 0,
+                "configId": 10011
+              }
+            },
+            "state": 0,
+            "UID": 20002,
+            "configId": 20002,
+            "level": 5,
+            "equipmentDic": {},
+            "skillDic": {},
+            "talentDic": {}
+          }
+        ]
+      }
+    }
   }
 }

@@ -26,13 +26,6 @@ namespace WarGame
 
         public BattleField(int levelID, bool restart)
         {
-            UIManager.Instance.OpenPanel("Load", "LoadPanel");
-
-            _levelID = levelID;
-            _levelData = DatasMgr.Instance.GetLevelData(_levelID).Clone();
-
-            DatasMgr.Instance.StartLevel(levelID);
-
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
@@ -40,16 +33,27 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
 
-            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Map;
-            LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
-
-            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
+            _levelID = levelID;
+            _levelData = DatasMgr.Instance.GetLevelData(_levelID).Clone();
             if (restart)
             {
                 _levelData.Clear();
             }
 
-            if (!_levelData.isEnter)
+            Init();
+        }
+
+        private void Init()
+        {
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
+
+            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
+            LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
+
+            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
+
+            DebugManager.Instance.Log(_levelData.Stage);
+            if (_levelData.Stage < Enum.LevelStage.Entered)
             {
                 var heroDatas = DatasMgr.Instance.GetAllRoles();
                 var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
@@ -72,20 +76,25 @@ namespace WarGame
                 }
 
                 _levelData.enemys = RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
+
+                _levelData.Stage = Enum.LevelStage.Entered;
             }
             else
             {
-                var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
-                foreach (var p in bornPoints)
+                if (_levelData.Stage < Enum.LevelStage.Readyed)
                 {
-                    _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                    var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
+                    foreach (var p in bornPoints)
                     {
-                        DebugManager.Instance.Log(prefab.name);
-                        var go = GameObject.Instantiate<GameObject>(prefab);
-                        go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
+                        _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                        {
+                            DebugManager.Instance.Log(prefab.name);
+                            var go = GameObject.Instantiate<GameObject>(prefab);
+                            go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
 
-                        _bornEffectGOs.Add(go);
-                    }));
+                            _bornEffectGOs.Add(go);
+                        }));
+                    }
                 }
 
                 foreach (var v in _levelData.heros)
@@ -98,7 +107,6 @@ namespace WarGame
                     RoleManager.Instance.CreateEnemy(v);
                 }
             }
-            _levelData.isEnter = true;
 
             _weather = new Weather();
             _arrow = new LocatingArrow();
@@ -158,19 +166,20 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.isReady });
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round});
 
-            if (!_levelData.isRead)
+            DebugManager.Instance.Log(_levelData.Stage);
+            DebugManager.Instance.Log(_levelData.Stage < Enum.LevelStage.Talked);
+            if (_levelData.Stage < Enum.LevelStage.Talked)
             {
                 var dialogGroup = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartDialog;
                 DialogMgr.Instance.OpenDialog(dialogGroup, (args) =>
                 {
-                    _levelData.isRead = true;
-                    if (!_levelData.isReady)
-                        _action = new ReadyBattleAction(GetActionID(), _levelData);
+                    _levelData.Stage = Enum.LevelStage.Talked;
+                    _action = new ReadyBattleAction(GetActionID(), _levelData);
                 });
             }
-            else if (!_levelData.isReady)
+            else if (_levelData.Stage < Enum.LevelStage.Readyed)
             {
                 _action = new ReadyBattleAction(GetActionID(), _levelData);
             }
@@ -363,7 +372,7 @@ namespace WarGame
             {
                 DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog, (args) =>
                 {
-                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false });
+                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID});
                 });
                 return;
             }
@@ -371,10 +380,11 @@ namespace WarGame
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             if (enemys.Count <= 0)
             {
-                DatasMgr.Instance.CompleteLevel(_levelID);
+                _levelData.Stage = Enum.LevelStage.Passed;
+                OnSave();
                 DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog, (args) =>
                 {
-                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true });
+                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID});
                 });
                 return;
             }
@@ -425,18 +435,18 @@ namespace WarGame
                     }
                 }
 
+                _levelData.Round++;
                 BattleRoundFunc callback = () =>
                 {
-                    MapManager.Instance.UpdateRound(_roundIndex + 1);
-                    RoleManager.Instance.UpdateRound(_roundIndex + 1);
+                    MapManager.Instance.UpdateRound(_levelData.Round);
+                    RoleManager.Instance.UpdateRound(_levelData.Round);
                     isHeroTurn = true;
                     _action = new HeroBattleAction(GetActionID());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
 
-                _roundIndex += 1;
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _roundIndex, callback });
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] {_levelData.Round, callback });
             }
         }
 

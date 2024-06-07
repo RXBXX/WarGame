@@ -213,6 +213,17 @@ namespace WarGame
             Earth = 5, //土
         }
 
+        //关卡阶段
+        [Serializable]
+        public enum LevelStage
+        {
+            None = 0,
+            Entered = 1, //进入
+            Talked = 2, //对话结束
+            Readyed = 3, //准备完成
+            Passed = 4, //成功通关
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,

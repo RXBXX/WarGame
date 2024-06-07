@@ -6,9 +6,6 @@ namespace WarGame.UI
     public class FightPanel : UIBase
     {
         private GTextField _round;
-        private GProgressBar _initiatorHP;
-        private GProgressBar _targetHP;
-        private Transition _showHP;
         private FightInforComp _vsComp;
         private FightHeroGroup _heroGroup;
         private FightEnemyQueue _enemyQueue;
@@ -17,12 +14,7 @@ namespace WarGame.UI
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            _initiatorHP = GetGObjectChild<GProgressBar>("initiatorHP");
-            _targetHP = GetGObjectChild<GProgressBar>("targetHP");
-            _showHP = GetTransition("showHP");
             _round = (GTextField)_gCom.GetChild("round");
-            _round.text = "0";
-
             _vsComp = GetChild<FightInforComp>("vsComp");
             _heroGroup = GetChild<FightHeroGroup>("heroGroup");
             _enemyQueue = GetChild<FightEnemyQueue>("enemyQueue");
@@ -61,6 +53,8 @@ namespace WarGame.UI
                 startBtn.visible = false;
                 _skipBtn.visible = true;
             }
+
+            _round.text = args[1].ToString();
 
             _gCom.GetChild("settingsBtn").onClick.Add(() =>
             {

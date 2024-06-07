@@ -126,13 +126,11 @@ namespace WarGame
                     }
                 }
             }
-
-            _selectedHexagon = null;
         }
 
         private void OnReadyOver(params object[] args)
         {
-            _levelData.isReady = true;
+            _levelData.Stage = Enum.LevelStage.Readyed;
             OnActionOver(new object[] {0});
         }
     }

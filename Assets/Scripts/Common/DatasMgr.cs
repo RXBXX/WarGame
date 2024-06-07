@@ -71,7 +71,6 @@ namespace WarGame
             gd.time = TimeMgr.Instance.GetUnixTimestamp();
 
             Tool.Instance.WriteJson<Dictionary<string, GameData>>(_path, _dataDic);
-
             TipsMgr.Instance.Add("´æ´¢³É¹¦£¡");
         }
 
@@ -137,7 +136,7 @@ namespace WarGame
             var gd = _dataDic[_curData];
             if (!gd.levelDataDic.ContainsKey(levelID))
                 return false;
-            return gd.levelDataDic[levelID].pass;
+            return gd.levelDataDic[levelID].Stage >= Enum.LevelStage.Passed;
         }
 
 
@@ -324,21 +323,6 @@ namespace WarGame
             roleData.talentDic.Add(config.Place, talentID);
 
             EventDispatcher.Instance.PostEvent(Enum.EventType.HeroTalentActiveS2C, new object[] { roleUID, talentID });
-        }
-
-        public void StartLevel(int levelID)
-        {
-            var gd = _dataDic[_curData];
-            if (!gd.levelDataDic.ContainsKey(levelID))
-            {
-                gd.levelDataDic[levelID] = new LevelData(levelID);
-            }
-        }
-
-        public void CompleteLevel(int levelID)
-        {
-            var gd = _dataDic[_curData];
-            gd.levelDataDic[levelID].pass = true;
         }
 
         /// endregion -----------------------------------------------------------------------------------------------------
