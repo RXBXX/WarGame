@@ -34,6 +34,7 @@ namespace WarGame
         {
             if (null == name)
                 name = go.name;
+
             for (int i = 0; i < go.transform.childCount; i++)
             {
                 var child = go.transform.GetChild(i).gameObject;
@@ -44,7 +45,7 @@ namespace WarGame
             if (go.TryGetComponent<SkinnedMeshRenderer>(out meshRenderer))
             {
                 var mesh = meshRenderer.sharedMesh;
-                WriteAverageNormalToTangent(mesh, name);
+                WriteAverageNormalToTangent(mesh);
                 return;
             }
 
@@ -52,14 +53,12 @@ namespace WarGame
             if (go.TryGetComponent<MeshFilter>(out meshFilter))
             {
                 var mesh = meshFilter.sharedMesh;
-                WriteAverageNormalToTangent(mesh, name);
+                WriteAverageNormalToTangent(mesh);
                 return;
             }
-
-            DebugManager.Instance.Log("成功写入切线数据："+ go.name);
         }
 
-        public static void WriteAverageNormalToTangent(Mesh mesh, string name)
+        public static void WriteAverageNormalToTangent(Mesh mesh)
         {
             var averageNormalHash = new Dictionary<Vector3, Vector3>();
             for (var j = 0; j < mesh.vertices.Length; j++)
@@ -102,9 +101,11 @@ namespace WarGame
             texture.Apply();
 
             var bytes = texture.EncodeToPNG();
-            File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png", bytes);
+            File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.GetInstanceID() + ".png", bytes);
 
             GameObject.DestroyImmediate(texture);
+
+            DebugManager.Instance.Log("成功写入切线数据：" + mesh.name);
         }
-}
+    }
 }

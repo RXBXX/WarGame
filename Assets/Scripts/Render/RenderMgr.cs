@@ -183,13 +183,33 @@ namespace WarGame
             //Graphics.DrawMeshInstancedIndirect(_instacedMesh, 0, _instanceMat, new Bounds(Vector3.zero, new Vector3(1000, 1000, 1000)), argsBuffer);
         }
 
-        public void AddMeshInstanced(string prefab, Vector3 pos)
+
+        /// <summary>
+        /// Ìí¼Ógpu intancedÊµÀý
+        /// </summary>
+        /// <param name="prefab"></param>
+        /// <param name="pos"></param>
+        /// <param name="callback"></param>
+        public void AddMeshInstanced(string prefab, Vector3 pos, LoadAssetCB<GameObject> callback = null)
         {
             if (!_GPUInstancedDic.ContainsKey(prefab))
             {
-                _GPUInstancedDic[prefab] = new GPUInstancedGroup(prefab);
+                _GPUInstancedDic[prefab] = new GPUInstancedGroup(prefab, callback);
             }
             _GPUInstancedDic[prefab].AddInstance(pos);
+        }
+
+        /// <summary>
+        /// É¾³ýgpu intancedÊµÀý
+        /// </summary>
+        /// <param name="prefab"></param>
+        /// <param name="pos"></param>
+        /// <param name="callback"></param>
+        public void RemoveMeshInstance(string prefab)
+        {
+            if (!_GPUInstancedDic.ContainsKey(prefab))
+                return;
+            _GPUInstancedDic.Remove(prefab);
         }
 
         public override void Update(float deltaTime)

@@ -45,8 +45,7 @@ namespace WarGame
 
         protected override void OnCreate(GameObject prefab)
         {
-            _gameObject = GameObject.Instantiate(prefab);
-            _gameObject.transform.SetParent(_parent);
+            base.OnCreate(prefab);
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + _offset;
             _gameObject.GetComponent<BonfireBehaviour>().ID = _configId;
             _pointLight = _gameObject.transform.Find("Point Light").GetComponent<Light>();

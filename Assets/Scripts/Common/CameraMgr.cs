@@ -9,7 +9,7 @@ namespace WarGame
         private float _moveSpeed = 0.5F;
         private float _zoomSpeed = 5.0f;
         private float _rotateSpeed = 2.0f;
-        private float _maxDistance = 25.0f;
+        private float _maxDistance = 18.0f;
         private float _minDistance = 8.0f;
         private Tweener _tweener;
         private int _targetID;

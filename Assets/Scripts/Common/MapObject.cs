@@ -26,7 +26,7 @@ namespace WarGame
 
         protected virtual void SmoothNormal()
         {
-
+            Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
         }
 
         public virtual Tweener ChangeToArenaSpace(Vector3 pos, float duration)

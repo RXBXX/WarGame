@@ -47,11 +47,14 @@ namespace WarGame
         private List<Vector3> _positions = new List<Vector3>();
         private Dictionary<int, GPUInstanced> _childInstanceds = new Dictionary<int, GPUInstanced>();
 
-        public GPUInstancedGroup(string prefab)
+        public GPUInstancedGroup(string prefab, LoadAssetCB<GameObject> callback = null)
         {
             _prefab = prefab;
             _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(_prefab, (prefab) =>
             {
+                if (null != callback)
+                    callback(prefab);
+
                 FindingGPUInstanced(prefab);
 
                 OnChange();
@@ -103,8 +106,6 @@ namespace WarGame
             {
                 OnChange();
             }
-
-            DebugManager.Instance.Log(_childInstanceds.Count);
 
             foreach (var v in _childInstanceds)
                 v.Value.Draw();

@@ -33,21 +33,22 @@ namespace WarGame
         }
         protected override void CreateGO()
         {
-            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+            var config = GetConfig();
             if (IsReachable() || !Application.isPlaying)
             {
                 _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
             }
             else
             {
-                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition());
+                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition(), (prefab)=> {
+                    Tool.Instance.ApplyProcessingFotOutLine(prefab);
+                });
             }
         }
 
         protected override void OnCreate(GameObject prefab)
         {
-            _gameObject = GameObject.Instantiate(prefab);
-            _gameObject.transform.SetParent(_parent);
+            base.OnCreate(prefab);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
         }
@@ -73,14 +74,18 @@ namespace WarGame
                   };
         }
 
+        public HexagonConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
+        }
+
         /// <summary>
         /// ÊÇ·ñ¿É´ï
         /// </summary>
         /// <returns></returns>
         public bool IsReachable()
         {
-            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
-            return config.Reachable;
+            return GetConfig().Reachable;
         }
 
         /// <summary>
@@ -89,14 +94,12 @@ namespace WarGame
         /// <returns></returns>
         public float GetCost()
         {
-            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
-            return config.Resistance;
+            return GetConfig().Resistance;
         }
 
         public float GetVerticalCost()
         {
-            var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
-            return config.Resistance;
+            return GetConfig().Resistance;
         }
 
         public void Marking(Enum.MarkType type)
@@ -153,6 +156,11 @@ namespace WarGame
             {
                 _tween.Kill();
                 _tween = null;
+            }
+
+            if (!IsReachable())
+            {
+                RenderMgr.Instance.RemoveMeshInstance(GetConfig().Prefab);
             }
 
             return base.Dispose();
