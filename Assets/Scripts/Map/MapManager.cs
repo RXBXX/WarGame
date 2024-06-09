@@ -41,6 +41,7 @@ namespace WarGame
             new Vector3(0, 1, 0),
             };
 
+
         public Vector3[] Dicections
         {
             get { return _directions; }
@@ -51,6 +52,14 @@ namespace WarGame
             base.Init();
 
             return true;
+        }
+
+        public override void Update(float deltaTime)
+        {
+            foreach (var v in _bonfiresDic)
+            {
+                v.Value.Update(deltaTime);
+            }
         }
 
         public override bool Dispose()
@@ -124,6 +133,17 @@ namespace WarGame
                 }
             }
             return hexagons;
+        }
+
+        public void UpdateHexagon(float intensity)
+        {
+            Hexagon hexagon = null;
+            foreach (var v in _map)
+            {
+                hexagon = v.Value;
+                break;
+            }
+            //hexagon.GameObject.GetComponent<MeshRenderer>().sharedMaterial.SetFloat("MainLightIntensity");
         }
 
         /// <summary>

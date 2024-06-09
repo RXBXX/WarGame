@@ -11,6 +11,7 @@ namespace WarGame
             //DebugManager.Instance.Log("Game.Init");
             base.Init();
 
+            TimeMgr.Instance.Init();
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
             DatasMgr.Instance.Init();
@@ -36,7 +37,7 @@ namespace WarGame
 
         public bool Start()
         {
-            UIManager.Instance.OpenPanel("Main", "MainPanel");
+            UIManager.Instance.OpenPanel("Login", "LoginPanel");
             return true;
         }
 
@@ -53,6 +54,7 @@ namespace WarGame
             MapManager.Instance.Update(deltaTime);
             LineMgr.Instance.Update(deltaTime);
             RoleManager.Instance.Update(deltaTime);
+            RenderMgr.Instance.Update(deltaTime);
         }
 
         public override void LateUpdate()
@@ -96,7 +98,13 @@ namespace WarGame
             DatasMgr.Instance.Dispose();
             EventDispatcher.Instance.Dispose();
             DebugManager.Instance.Dispose();
+            TimeMgr.Instance.Dispose();
             return true;
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
         }
     }
 }

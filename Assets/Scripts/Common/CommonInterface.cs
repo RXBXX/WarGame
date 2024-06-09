@@ -11,6 +11,8 @@ namespace WarGame
 
     public delegate void WGConfigCallback(Config config);
 
+    public delegate void WGCallback();
+
     public struct AttrStruct
     {
         public string name;
@@ -23,6 +25,18 @@ namespace WarGame
     }
 
     public delegate void BattleRoundFunc();
+
+    public struct StringCallbackStruct
+    {
+        public string title;
+        public WGCallback callback;
+
+        public StringCallbackStruct(string title, WGCallback callback)
+        {
+            this.title = title;
+            this.callback = callback;
+        }
+    }
 
     public class CommonParams
     {

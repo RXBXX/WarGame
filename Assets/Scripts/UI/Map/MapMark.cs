@@ -55,6 +55,7 @@ namespace WarGame.UI
                 TipsMgr.Instance.Add("关卡没有开启！");
                 return;
             }
+
             _showBtnC.SetSelectedIndex(1);
         }
 

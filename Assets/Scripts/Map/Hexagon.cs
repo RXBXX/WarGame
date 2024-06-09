@@ -3,7 +3,7 @@ using DG.Tweening;
 
 namespace WarGame
 {
-    public class Hexagon:MapObject
+    public class Hexagon : MapObject
     {
         public string ID;
 
@@ -34,7 +34,14 @@ namespace WarGame
         protected override void CreateGO()
         {
             var config = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", _configId);
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
+            if (IsReachable() || !Application.isPlaying)
+            {
+                _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
+            }
+            else
+            {
+                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition());
+            }
         }
 
         protected override void OnCreate(GameObject prefab)
@@ -94,6 +101,9 @@ namespace WarGame
 
         public void Marking(Enum.MarkType type)
         {
+            if (!IsReachable())
+                return;
+
             switch (type)
             {
                 case Enum.MarkType.Selected:
@@ -128,6 +138,13 @@ namespace WarGame
         {
             return MapTool.Instance.GetPosFromCoor(coor);
             //return _gameObject.transform.position;
+        }
+
+        public override float GetLoadingProgress()
+        {
+            if (!IsReachable())
+                return 1;
+            return base.GetLoadingProgress();
         }
 
         public override bool Dispose()

@@ -249,6 +249,7 @@ namespace WarGame
         public int StartDialog;
         public int WinDialog;
         public int FailedDialog;
+        public SourcePair[] Rewards;
     }
 
     //角色生成表
@@ -304,5 +305,14 @@ namespace WarGame
     {
         public string Context;
         public string Pic;
+    }
+
+    //资源类型
+    [Serializable]
+    public class SourcePair 
+    {
+        public Enum.SourceType Type;
+        public int id;
+        public int value;
     }
 }

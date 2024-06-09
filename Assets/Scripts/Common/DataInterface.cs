@@ -195,8 +195,8 @@ namespace WarGame
         }
 
         public void Dispose()
-        { 
-        
+        {
+
         }
     }
 
@@ -307,8 +307,8 @@ namespace WarGame
         }
 
         public void Dispose()
-        { 
-        
+        {
+
         }
     }
 
@@ -335,7 +335,7 @@ namespace WarGame
             Round = 0;
             heros.Clear();
             enemys.Clear();
-    }
+        }
 
         public LevelData Clone()
         {
@@ -357,40 +357,25 @@ namespace WarGame
     }
 
     [Serializable]
-    public class GameData
+    public class RecordData
     {
-        public bool isNew = true;
+        public string ID;
         public string title;
-        public float time;
+        public long createTime;
+        public long saveTime;
+        public long duration;
+        public bool isNew = true;
         public Dictionary<int, RoleData> roleDataDic = new Dictionary<int, RoleData>();
         public Dictionary<int, EquipmentData> equipDataDic = new Dictionary<int, EquipmentData>();
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
         private int _heroStartUID = 10000;
         private int _equipStartUID = 30000;
 
-        public GameData(string title, float time)
+        public RecordData(string ID, string title)
         {
+            this.ID = ID;
             this.title = title;
-            this.time = time;
-
-            AddHero(10001, 1);
-            AddHero(10002, 1);
-            AddHero(10003, 1);
-            AddHero(10004, 1);
-
-            AddEquip(10001);
-            AddEquip(10002);
-            AddEquip(10003);
-            AddEquip(10004);
-            AddEquip(10005);
-            AddEquip(10006);
-            AddEquip(10007);
-            AddEquip(10008);
-            AddEquip(10009);
-            AddEquip(10010);
-            AddEquip(10011);
-            AddEquip(10012);
-            AddEquip(10013);
+            this.createTime = TimeMgr.Instance.GetUnixTimestamp();
         }
 
         public void AddHero(int configID, int level)
@@ -406,9 +391,24 @@ namespace WarGame
         }
 
 
-        public GameData Clone()
+        public void Save()
         {
-            var gd = new GameData(this.title, this.time);
+            duration += Math.Min(TimeMgr.Instance.GetUnixTimestamp() - saveTime, TimeMgr.Instance.GetGameDuration());
+            saveTime = TimeMgr.Instance.GetUnixTimestamp();
+        }
+
+        public float GetDuration()
+        {
+            return duration + TimeMgr.Instance.GetGameDuration();
+        }
+
+        public RecordData Clone()
+        {
+            var gd = new RecordData(this.ID, this.title);
+            gd.duration = duration;
+            gd.saveTime = saveTime;
+            gd.isNew = isNew;
+
             foreach (var v in roleDataDic)
             {
                 gd.roleDataDic.Add(v.Key, v.Value.Clone());
@@ -417,22 +417,120 @@ namespace WarGame
             {
                 gd.equipDataDic.Add(v.Key, v.Value.Clone());
             }
+            foreach (var v in levelDataDic)
+            {
+                gd.levelDataDic.Add(v.Key, v.Value.Clone());
+            }
             return gd;
         }
     }
 
-    public class SampleGameData
+    [Serializable]
+    public class GameData
     {
-        public string title;
-        public float time;
+        public string Version = "0.0.0.01";
+        private string _usingDataID;
+        public Dictionary<string, RecordData> _customRecordDic = new Dictionary<string, RecordData>();
 
-        public SampleGameData(string title, float time = 0)
+        public GameData()
         {
-            this.title = title;
-            this.time = time;
+
+        }
+
+        public RecordData GetUsingRecord()
+        {
+            return _customRecordDic[_usingDataID];
+        }
+
+        public string GetID()
+        {
+            return "Record_" + (_customRecordDic.Count + 1);
+        }
+
+        public string GetTitle()
+        {
+            return "存档_" + (_customRecordDic.Count + 1);
+        }
+
+        public void StartNewGame()
+        {
+            var rd = new RecordData(GetID(), GetTitle());
+
+            rd.AddHero(10001, 1);
+            rd.AddHero(10002, 1);
+            rd.AddHero(10003, 1);
+            rd.AddHero(10004, 1);
+
+            rd.AddEquip(10001);
+            rd.AddEquip(10002);
+            rd.AddEquip(10003);
+            rd.AddEquip(10004);
+            rd.AddEquip(10005);
+            rd.AddEquip(10006);
+            rd.AddEquip(10007);
+            rd.AddEquip(10008);
+            rd.AddEquip(10009);
+            rd.AddEquip(10010);
+            rd.AddEquip(10011);
+            rd.AddEquip(10012);
+            rd.AddEquip(10013);
+
+            _customRecordDic.Add(rd.ID, rd);
+            _usingDataID = rd.ID;
+        }
+
+        public void Save()
+        {
+            if (null == _usingDataID)
+                return;
+            _customRecordDic[_usingDataID].Save();
+        }
+
+        public void Start(string id)
+        {
+            _usingDataID = id;
+        }
+
+        public void SaveRecord(string id = null)
+        {
+            if (id == _usingDataID)
+            {
+                _customRecordDic[_usingDataID].Save();
+                return;
+            }
+
+            var rd = _customRecordDic[_usingDataID].Clone();
+            rd.Save();
+
+            if (null != id)
+            {
+                rd.ID = _customRecordDic[id].ID;
+                rd.title = _customRecordDic[id].title;
+                _customRecordDic[id] = rd;
+            }
+            else
+            {
+                rd.ID = GetID();
+                rd.title = GetTitle();
+                _customRecordDic.Add(rd.ID, rd);
+            }
+        }
+
+        public RecordData GetRecordData(string id)
+        {
+            return _customRecordDic[id];
+        }
+
+        public List<string> GetAllRecordDatas()
+        {
+            List<string> gameDatas = new List<string>();
+            foreach (var v in _customRecordDic)
+            {
+                gameDatas.Add(v.Value.ID);
+            }
+            return gameDatas;
         }
     }
-
 
     //region 协议部分 -------------------------------------------------------------------------------------------
     public struct UnwearEquipNDPU

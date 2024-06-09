@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <component id="n1_h53u" name="saveBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="138,135">
-      <Button title="Save"/>
-    </component>
-    <component id="n2_h53u" name="cancelBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="141,361">
-      <Button title="Cancel"/>
-    </component>
-    <component id="n3_h53u" name="returnBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="139,246">
-      <Button title="Return "/>
-    </component>
+    <graph id="n4_bc04" name="n4" xy="0,0" size="547,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <list id="n5_bc04" name="recordList" xy="122,95" size="300,530" overflow="scroll" lineGap="10" defaultItem="ui://hx02grrpomu92" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
   </displayList>
 </component>

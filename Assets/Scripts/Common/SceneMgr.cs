@@ -11,6 +11,11 @@ namespace WarGame
         //private AsyncOperation _asyncOperation;
         private int _heroSceneID = 0;
 
+        public BattleField BattleField
+        {
+            get { return _battleField; }
+        }
+
         public override bool Init()
         {
             base.Init();
@@ -41,6 +46,11 @@ namespace WarGame
             base.Dispose();
 
             return true;
+        }
+
+        public bool IsInBattleField()
+        {
+            return null != _battleField;
         }
 
         public void FocusIn(GameObject obj)
@@ -95,7 +105,7 @@ namespace WarGame
             });
         }
 
-        public void StartGame()
+        public void StartGame(string id = null)
         {
             if (DatasMgr.Instance.IsNewGameData())
             {

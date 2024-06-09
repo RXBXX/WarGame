@@ -7,8 +7,7 @@ namespace WarGame
     public class Weather
     {
         private float _time = 0;
-        private float day = 1800f;
-        private  Light _light;
+        private float day = 60f;
 
         public Weather(float time = 0)
         {
@@ -16,7 +15,6 @@ namespace WarGame
                 _time = day / 4;
             else
                 _time = time;
-            _light = GameObject.FindObjectsOfType<Light>()[0];
         }
 
         // Update is called once per frame
@@ -28,8 +26,13 @@ namespace WarGame
             RenderSettings.skybox.SetFloat("_Exposure", 0.7F + Mathf.Sin(dayTime * 2 * Mathf.PI) * 0.3F);
             RenderSettings.skybox.SetFloat("_Rotation", dayTime * 360);
 
-            _light.transform.rotation = Quaternion.Euler(new Vector3(45, dayTime * 360, 180));
-            _light.intensity = 0.7F + Mathf.Sin(_time % day / day * 2 * Mathf.PI) * 0.3F;
+            SceneMgr.Instance.BattleField.mainLight.transform.rotation = Quaternion.Euler(new Vector3(45, dayTime * 360, 180));
+            SceneMgr.Instance.BattleField.mainLight.intensity = 0.7F + Mathf.Sin(_time % day / day * 2 * Mathf.PI) * 0.3F;
+        }
+
+        public float GetLightIntensity()
+        {
+            return 0.7F + Mathf.Sin(_time % day / day * 2 * Mathf.PI) * 0.3F;
         }
 
         public void Dispose()

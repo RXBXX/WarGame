@@ -224,6 +224,20 @@ namespace WarGame
             Passed = 4, //成功通关
         }
 
+        //游戏内资源类型
+        [Serializable]
+        public enum SourceType
+        {
+            Hero = 1,
+            Equip = 2,
+        }
+
+        public enum RecordMode
+        {
+            Read = 1,
+            Write = 2,
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,

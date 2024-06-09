@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,120" pivot="0.5,0.5" extention="Button">
+  <controller name="Empty" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n5_bc04" name="n5" xy="0,0" size="500,120" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <text id="n0_rquy" name="title" xy="33,21" size="151,34" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="24" color="#333333" align="center" vAlign="middle" letterSpacing="5" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="111111111111"/>
+    <text id="n10_bc04" name="duration" xy="471,63" pivot="1,0.5" anchor="true" size="142,31" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="22" color="#333333" align="center" vAlign="middle" letterSpacing="5" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="111111111111"/>
+    <text id="n6_bc04" name="time" xy="470,101" pivot="1,0.5" anchor="true" size="142,32" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="22" color="#333333" align="center" vAlign="middle" letterSpacing="5" strokeColor="#ffffff" strokeSize="2" autoClearText="true" text="111111111111"/>
+    <group id="n7_bc04" name="n7" xy="33,21" size="438,96" advanced="true">
+      <gearDisplay controller="Empty" pages="0"/>
+    </group>
+    <text id="n8_bc04" name="newGame" xy="176,28" size="148,64" fontSize="48" color="#cccccc" text="新游戏">
+      <gearDisplay controller="Empty" pages="1"/>
+    </text>
+  </displayList>
+  <Button downEffect="scale" downEffectValue=".8"/>
+</component>

@@ -5,6 +5,24 @@ using System;
 
 public class TimeMgr : Singeton<TimeMgr>
 {
+    private long _startTime;
+
+    public override bool Init()
+    {
+        _startTime = GetUnixTimestamp();
+        return true;
+    }
+
+    public long GetStartTime()
+    {
+        return _startTime;
+    }
+
+    public long GetGameDuration()
+    {
+        return GetUnixTimestamp() - _startTime;
+    }
+
     /// <summary>
     /// 获取Unix时间戳
     /// 和时区无关，不同时区在同一刻获取的时间戳一致
@@ -15,7 +33,7 @@ public class TimeMgr : Singeton<TimeMgr>
         //获取当前时间
         DateTime now = DateTime.Now;
 
-        return ((DateTimeOffset)now).ToUnixTimeSeconds();
+        return ((DateTimeOffset)now).ToUnixTimeMilliseconds();
     }
 
     /// <summary>
@@ -26,7 +44,7 @@ public class TimeMgr : Singeton<TimeMgr>
     public string GetFormatDateTime(long unixTimestamp)
     {
         // 从Unix时间戳创建DateTimeOffset对象
-        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp);
+        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp);
 
         // 将DateTimeOffset对象转换为本地时间
         DateTime localDateTime = dateTimeOffset.ToLocalTime().DateTime;
@@ -42,7 +60,7 @@ public class TimeMgr : Singeton<TimeMgr>
     {
         long unixTimestamp = GetUnixTimestamp();
         // 从Unix时间戳创建DateTimeOffset对象
-        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp);
+        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp);
 
         // 将DateTimeOffset对象转换为本地时间
         DateTime localDateTime = dateTimeOffset.ToLocalTime().DateTime;

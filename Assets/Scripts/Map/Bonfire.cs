@@ -13,6 +13,12 @@ namespace WarGame
 
         private Vector3 _offset = new Vector3(0, 0.4F, 0);
 
+        private Light _pointLight;
+
+        private Vector3 _pointLightPos;
+
+        private float _pointShakeInterval;
+
         public GameObject GameObject
         {
             get { return _gameObject; }
@@ -43,6 +49,32 @@ namespace WarGame
             _gameObject.transform.SetParent(_parent);
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + _offset;
             _gameObject.GetComponent<BonfireBehaviour>().ID = _configId;
+            _pointLight = _gameObject.transform.Find("Point Light").GetComponent<Light>();
+            _pointLightPos = _pointLight.transform.position;
+        }
+
+        public void Update(float deltaTime)
+        {
+            if (null == _pointLight)
+                return;
+
+            var intensity = 1 - SceneMgr.Instance.BattleField.weather.GetLightIntensity() + 1F;
+            _pointLight.intensity = intensity;
+            _pointLight.range = intensity * 2;
+
+            if (_pointShakeInterval <= 0)
+            {
+                _pointShakeInterval = Random.Range(0, 0.3F);
+                if (_pointLight.transform.position == _pointLightPos)
+                {
+                    _pointLight.transform.DOMove(_pointLight.transform.position + new Vector3(Random.Range(-0.1F, 0.1F), Random.Range(-0.1F, 0.1F), Random.Range(-0.1F, 0.1F)), _pointShakeInterval);
+                }
+                else
+                {
+                    _pointLight.transform.DOMove(_pointLightPos, _pointShakeInterval);
+                }
+                }
+                _pointShakeInterval -= deltaTime;
         }
 
         public BonfireConfig GetConfig()

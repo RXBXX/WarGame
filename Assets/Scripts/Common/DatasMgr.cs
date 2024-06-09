@@ -6,99 +6,68 @@ namespace WarGame
 {
     public class DatasMgr : Singeton<DatasMgr>
     {
-        private Dictionary<string, GameData> _dataDic;
-        private string _curData;
+        private GameData _data = null;
         private string _path = Application.dataPath + "/Datas/GameData.json";
-        private int _heroStartUID = 10000;
-        private int _enemyStartUID = 20000;
-        private int _equipStartUID = 30000;
-
-        public int HeroStartUID
-        {
-            get { return _heroStartUID; }
-        }
-
-        public int EnemyStartUID
-        {
-            get { return _enemyStartUID; }
-        }
-
-        public int EquipStartUID
-        {
-            get{ return _equipStartUID; }
-        }
 
         public override bool Init()
         {
             base.Init();
 
-            _dataDic = Tool.Instance.ReadJson<Dictionary<string, GameData>>(_path);
-            if (null == _dataDic)
-                _dataDic = new Dictionary<string, GameData>();
+            _data = Tool.Instance.ReadJson<GameData>(_path);
+            if (null == _data)
+                _data = new GameData();
 
             return true;
         }
 
-        public void NewGameData(string name)
-        {
-            _curData = name;
-            var gd = new GameData(name, TimeMgr.Instance.GetUnixTimestamp());
-            _dataDic[_curData] = gd;
 
-            SaveGameData();
+        public override bool Dispose()
+        {
+            _data.Save();
+            Tool.Instance.WriteJson<GameData>(_path, _data);
+            return base.Dispose();
         }
 
-        public void ReadGameData(string name)
+        public void StartNewGame()
         {
-            _curData = name;
+            _data.StartNewGame();
         }
 
-        public void SaveGameData(string name = null)
+        public void StartGame(string id)
         {
-            if (null == _curData)
-                return;
-
-            GameData gd = null;
-            if (null != name)
-            {
-                gd = _dataDic[_curData].Clone();
-                _dataDic[name] = gd;
-            }
-            else
-            {
-                gd = _dataDic[_curData];
-            }
-            gd.time = TimeMgr.Instance.GetUnixTimestamp();
-
-            Tool.Instance.WriteJson<Dictionary<string, GameData>>(_path, _dataDic);
-            TipsMgr.Instance.Add("存储成功！");
+            _data.Start(id);
         }
 
-        public List<SampleGameData> GetGameDatas()
+        public void SaveGame(string id = null)
         {
-            List<SampleGameData> gameDatas = new List<SampleGameData>();
-            foreach (var v in _dataDic)
-            {
-                gameDatas.Add(new SampleGameData(v.Value.title, v.Value.time));
-            }
-            return gameDatas;
+            _data.SaveRecord(id);
+        }
+
+        public RecordData GetRecord(string id)
+        {
+            return _data.GetRecordData(id);
+        }
+
+        public List<string> GetAllRecord()
+        {
+            return _data.GetAllRecordDatas();
         }
 
         public RoleData GetRoleData(int id)
         {
-            return _dataDic[_curData].roleDataDic[id];
+            return _data.GetUsingRecord().roleDataDic[id];
         }
 
         public EquipmentData GetEquipmentData(int id)
         {
-            return _dataDic[_curData].equipDataDic[id];
+            return _data.GetUsingRecord().equipDataDic[id];
         }
 
         public int[] GetAllEquipments()
         {
-            var equipments = new int[_dataDic[_curData].equipDataDic.Count];
+            var equipments = new int[_data.GetUsingRecord().equipDataDic.Count];
             var index = 0;
-            foreach (var v in _dataDic[_curData].equipDataDic)
+            foreach (var v in _data.GetUsingRecord().equipDataDic)
             {
                 equipments[index] = v.Value.UID;
                 index += 1;
@@ -108,9 +77,9 @@ namespace WarGame
 
         public int[] GetAllRoles()
         {
-            var roles = new int[_dataDic[_curData].roleDataDic.Count];
+            var roles = new int[_data.GetUsingRecord().roleDataDic.Count];
             var index = 0;
-            foreach (var v in _dataDic[_curData].roleDataDic)
+            foreach (var v in _data.GetUsingRecord().roleDataDic)
             {
                 roles[index] = v.Value.UID;
                 index += 1;
@@ -120,7 +89,7 @@ namespace WarGame
 
         public bool IsLevelOpen(int levelID)
         {
-            var gd = _dataDic[_curData];
+            var gd = _data.GetUsingRecord();
             if (gd.levelDataDic.ContainsKey(levelID))
                 return true;
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
@@ -133,7 +102,7 @@ namespace WarGame
 
         public bool IsLevelPass(int levelID)
         {
-            var gd = _dataDic[_curData];
+            var gd = _data.GetUsingRecord();
             if (!gd.levelDataDic.ContainsKey(levelID))
                 return false;
             return gd.levelDataDic[levelID].Stage >= Enum.LevelStage.Passed;
@@ -142,17 +111,17 @@ namespace WarGame
 
         public LevelData GetLevelData(int levelID)
         {
-            var gd = _dataDic[_curData];
+            var gd = _data.GetUsingRecord();
             if (!gd.levelDataDic.ContainsKey(levelID))
             {
-                _dataDic[_curData].levelDataDic[levelID] = new LevelData(levelID);
+                _data.GetUsingRecord().levelDataDic[levelID] = new LevelData(levelID);
             }
             return gd.levelDataDic[levelID];
         }
 
         public void SetLevelData(LevelData levelData)
         {
-            var gd = _dataDic[_curData];
+            var gd = _data.GetUsingRecord();
             gd.levelDataDic[levelData.configId] = levelData;
         }
 
@@ -186,18 +155,31 @@ namespace WarGame
 
         public bool IsNewGameData()
         {
-            return _dataDic[_curData].isNew;
+            return _data.GetUsingRecord().isNew;
         }
 
         public void SetGameDataDirty()
         {
-            _dataDic[_curData].isNew = false;
-            SaveGameData();
+            _data.GetUsingRecord().isNew = false;
         }
 
         public void AddHero(int configID, int level)
         {
-            _dataDic[_curData].AddHero(configID, level);
+            _data.GetUsingRecord().AddHero(configID, level);
+        }
+
+        public void AddItem(SourcePair source)
+        {
+            if (Enum.SourceType.Hero == source.Type)
+                _data.GetUsingRecord().AddHero(source.id, source.value);
+            else if (Enum.SourceType.Equip == source.Type)
+                _data.GetUsingRecord().AddEquip(source.id);
+        }
+
+        public void AddItems(SourcePair[] sources)
+        {
+            foreach (var v in sources)
+                AddItem(v);
         }
 
         /// region 协议部分----------------------------------------------------------
@@ -326,12 +308,5 @@ namespace WarGame
         }
 
         /// endregion -----------------------------------------------------------------------------------------------------
-
-        public override bool Dispose()
-        {
-            _dataDic.Clear();
-            base.Dispose();
-            return true;
-        }
     }
 }

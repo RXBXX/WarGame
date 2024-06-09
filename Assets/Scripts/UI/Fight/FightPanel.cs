@@ -55,11 +55,6 @@ namespace WarGame.UI
             }
 
             _round.text = args[1].ToString();
-
-            _gCom.GetChild("settingsBtn").onClick.Add(() =>
-            {
-                UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
-            });
         }
 
         private void OnUpdateRound(object[] args)

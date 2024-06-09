@@ -96,6 +96,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\BitmapFont.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\ScrollPaneHeader.cs" />
+    <Compile Include="Assets\Scripts\UI\Login\LoginPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\Scripts\Common\InputManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitManager.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\TweenManager.cs" />
     <Compile Include="Assets\Scripts\Common\TimeMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\CommonSettingBtn.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IColorGear.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\UpdateContext.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPackage.cs" />
@@ -294,7 +296,6 @@
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\MainBtn.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GImage.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Filter\FilterMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Record\RecordItem.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\Test\NewBehaviourScript.cs" />
@@ -336,6 +338,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
+    <Compile Include="Assets\Scripts\Render\GPUInstancedGroup.cs" />
     <Compile Include="Assets\Scripts\SRP\WGRenderPipeline.cs" />
     <Compile Include="Assets\FairyGUI\Examples\BundleUsage\BundleUsageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTweener.cs" />
@@ -388,12 +391,14 @@
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroProComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextField.cs" />
+    <Compile Include="Assets\Scripts\UI\Login\MainBtn.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\Window4.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightArenaPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlPageContext.cs" />
     <Compile Include="Assets\Scripts\Battle\RoleManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\MeshColliderHitTest.cs" />
+    <Compile Include="Assets\Test\FIshEffect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\HitTestContext.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Emoji\EmojiParser.cs" />
@@ -402,9 +407,11 @@
   <ItemGroup>
     <None Include="Assets\Shaders\ChainShader.shader" />
     <None Include="Assets\Shaders\OutlineProcessing.shader" />
+    <None Include="Assets\Shaders\HexagonInstancedToonShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\Scripts\SRP\SimpleUnlitColor.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Glow.shader" />
+    <None Include="Assets\Test\LightProbeShader.shader" />
     <None Include="Assets\Shaders\BlurShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Ubershader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
@@ -415,10 +422,12 @@
     <None Include="Assets\Test\NewUnlitShader.shader" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader.shader" />
     <None Include="Assets\Scripts\SRP\NewUnlitShader.shader" />
+    <None Include="Assets\Test\NewSurfaceShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
     <None Include="Assets\Shaders\HexagonToonShader.shader" />
     <None Include="Assets\Shaders\GlowShader.shader" />
     <None Include="Assets\RPGTinyHeroWavePolyart\HowToTestHDRP_URP.txt" />
+    <None Include="Assets\Shaders\WaterShader.shader" />
     <None Include="Assets\Scripts\SRP\Unlit.shader" />
     <None Include="Assets\Shaders\ToonShader.shader" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
@@ -426,11 +435,14 @@
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
     <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
+    <None Include="Assets\Test\NewSurfaceShader 1.shader" />
     <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
+    <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader 1.shader" />
+    <None Include="Assets\Test\FishShader.shader" />
     <None Include="Assets\Shaders\LineShader_V2.shader" />
     <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
@@ -438,6 +450,7 @@
     <None Include="Assets\Shaders\WhetherShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
+    <None Include="Assets\Test\InstancedShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
     <None Include="Assets\Shaders\ParticleShader.shader" />
     <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />

@@ -1,33 +1,63 @@
-using WarGame.UI;
 using FairyGUI;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace WarGame.UI
 {
     public class SettingsPanel : UIBase
     {
+        private GList _optionList;
+        private List<StringCallbackStruct> _optionDatas = new List<StringCallbackStruct>();
+
         public SettingsPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
 
-            var saveBtn = GetGObjectChild<GButton>("saveBtn");
-            saveBtn.onClick.Add(() =>
+            _optionList = (GList)_gCom.GetChild("recordList");
+            _optionList.itemRenderer = ItemRenderer;
+            _optionList.onClickItem.Add(OnClickItem);
+
+            Init();
+        }
+
+        private void Init()
+        {
+            _optionDatas.Add(new StringCallbackStruct("保存", ()=> {
+                UIManager.Instance.OpenPanel("Record", "RecordPanel", new object[] { Enum.RecordMode.Write });
+            }));
+
+            if (SceneMgr.Instance.IsInBattleField())
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Save_Data);
+                _optionDatas.Add(new StringCallbackStruct("退出战场", () =>
+                {
+                    UIManager.Instance.ClosePanel(this.name);
+                    SceneMgr.Instance.DestroyBattleFiled();
+                }));
+            }
 
+            _optionDatas.Add(new StringCallbackStruct("退出游戏", () =>
+            {
                 UIManager.Instance.ClosePanel(this.name);
-                DatasMgr.Instance.SaveGameData();
-            });
+                Game.Instance.Quit();
+            }));
 
-            var returnBtn = GetGObjectChild<GButton>("returnBtn");
-            returnBtn.onClick.Add(() => {
+            _optionDatas.Add(new StringCallbackStruct("取消", () =>
+            {
                 UIManager.Instance.ClosePanel(this.name);
-                SceneMgr.Instance.DestroyBattleFiled();
-            });
+            }));
 
-            var cancelBtn = GetGObjectChild<GButton>("cancelBtn");
-            cancelBtn.onClick.Add(() => {
-                UIManager.Instance.ClosePanel(this.name);
-            });
+            _optionList.numItems = _optionDatas.Count;
+        }
+
+        private void ItemRenderer(int index, GObject item)
+        {
+            ((GButton)item).title = _optionDatas[index].title;
+        }
+
+        private void OnClickItem(EventContext context)
+        {
+            var index = _optionList.GetChildIndex((GObject)context.data);
+            _optionDatas[index].callback();
         }
     }
 }

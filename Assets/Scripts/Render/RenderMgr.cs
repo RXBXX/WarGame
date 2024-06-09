@@ -77,10 +77,15 @@ namespace WarGame
 
     public class RenderMgr : Singeton<RenderMgr>
     {
-
-
         private PostProcessing _pp;
         private Dictionary<int, BlurStruct> _blurDic = new Dictionary<int, BlurStruct>();
+        private Dictionary<string, GPUInstancedGroup> _GPUInstancedDic = new Dictionary<string, GPUInstancedGroup>();
+
+        //private Mesh _instacedMesh;
+        //private Material _instanceMat;
+        //private ComputeBuffer argsBuffer;
+        //private ComputeBuffer positionBuffer;
+        //private const int INSTANCE_COUNT = 100;
 
         public void OpenPostProcessiong(Enum.PostProcessingType type)
         {
@@ -126,6 +131,80 @@ namespace WarGame
                 return;
             _blurDic[id].Dispose();
             _blurDic.Remove(id);
+        }
+
+        private void InitializeBuffers()
+        {
+            //// 初始化实例位置数据
+            //List<Vector3> positions = new List<Vector3>();
+            //for (int i = 0; i < INSTANCE_COUNT; i++)
+            //{
+            //    for (int j = 0; j < INSTANCE_COUNT; j++)
+            //    {
+            //        var coor = new Vector3(i - INSTANCE_COUNT / 2 + 20, 0, j - INSTANCE_COUNT / 2 + 20);
+            //        if (!ContainHexagon(MapTool.Instance.GetHexagonKey(coor)))
+            //            positions.Add(MapTool.Instance.GetPosFromCoor(coor));
+            //    }
+            //}
+
+            //// 创建 ComputeBuffer
+            //positionBuffer = new ComputeBuffer(positions.Count, sizeof(float) * 3);
+            //positionBuffer.SetData(positions);
+
+            //// 为材质设置 ComputeBuffer
+            //_instanceMat.SetBuffer("_PositionBuffer", positionBuffer);
+
+            //// 初始化绘制参数
+            //uint[] args = new uint[5] { _instacedMesh.GetIndexCount(0), (uint)positions.Count, 0, 0, 0 };
+            //argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
+            //argsBuffer.SetData(args);
+        }
+
+        void ClearBuffers()
+        {
+            //if (positionBuffer != null) positionBuffer.Release();
+            //if (argsBuffer != null) argsBuffer.Release();
+
+            //_instacedMesh = null;
+            //_instanceMat = null;
+        }
+
+        public void DrawMap()
+        {
+            //foreach (var v in _instancedDic)
+            //    v.Value.Draw();
+
+            //return;
+            //if (null == _instanceMat)
+            //    return;
+            //if (null == _instacedMesh)
+            //    return;
+
+            //Graphics.DrawMeshInstancedIndirect(_instacedMesh, 0, _instanceMat, new Bounds(Vector3.zero, new Vector3(1000, 1000, 1000)), argsBuffer);
+        }
+
+        public void AddMeshInstanced(string prefab, Vector3 pos)
+        {
+            if (!_GPUInstancedDic.ContainsKey(prefab))
+            {
+                _GPUInstancedDic[prefab] = new GPUInstancedGroup(prefab);
+            }
+            _GPUInstancedDic[prefab].AddInstance(pos);
+        }
+
+        public override void Update(float deltaTime)
+        {
+            foreach (var v in _GPUInstancedDic)
+                v.Value.Draw();
+        }
+
+        public override bool Dispose()
+        {
+            foreach (var v in _GPUInstancedDic)
+                v.Value.Dispose();
+            _GPUInstancedDic.Clear();
+
+            return base.Dispose();
         }
     }
 }

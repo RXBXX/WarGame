@@ -18,6 +18,7 @@ Shader "Custom/HexagonToonShader"
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma multi_compile_instancing
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			// 将着色器编译成多个有阴影和没有阴影的变体
@@ -32,11 +33,14 @@ Shader "Custom/HexagonToonShader"
 			float4 _MainTex_ST;
 			float _AmbientStrength;
 
+
 			struct appdata
 			{
 				float4 vertex : POSITION;
 				float2 uv : TEXCOORD0;
 				float3 normal : NORMAL;
+
+				UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
 			};
 
 			struct v2f {
@@ -49,7 +53,10 @@ Shader "Custom/HexagonToonShader"
 
 			v2f vert(appdata v) {
 				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);//�л�����������
+
+				UNITY_SETUP_INSTANCE_ID(v);
+
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
@@ -84,6 +91,7 @@ Shader "Custom/HexagonToonShader"
 			#pragma multi_compile_fwdadd_fullshadows
 			#pragma vertex vert
 			#pragma fragment frag
+		    #pragma multi_compile_instancing
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 
@@ -99,6 +107,7 @@ Shader "Custom/HexagonToonShader"
 			struct a2v {
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
+				UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
 			};
 
 			struct v2f {
@@ -110,6 +119,7 @@ Shader "Custom/HexagonToonShader"
 
 			v2f vert(a2v v) {
 				v2f o;
+				UNITY_SETUP_INSTANCE_ID(v);
 				o.pos = UnityObjectToClipPos(v.vertex);
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;

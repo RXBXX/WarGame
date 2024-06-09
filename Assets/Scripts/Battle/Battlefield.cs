@@ -8,9 +8,9 @@ namespace WarGame
 {
     public class BattleField
     {
+        private bool _loading = false;
         private bool _loaded = false;
         private int _levelID;
-        private int _roundIndex = 0;
         private bool isHeroTurn = true;
         private BattleAction _action;
         private LocatingArrow _arrow;
@@ -21,8 +21,9 @@ namespace WarGame
         private List<GameObject> _bornEffectGOs = new List<GameObject>();
         private LevelData _levelData = null;
         private int _battleActionID = -1;
-        private Weather _weather;
+        public Weather weather;
         private bool _isLockingCamera;
+        public Light mainLight;
 
         public BattleField(int levelID, bool restart)
         {
@@ -34,7 +35,7 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
 
             _levelID = levelID;
-            _levelData = DatasMgr.Instance.GetLevelData(_levelID).Clone();
+            _levelData = DatasMgr.Instance.GetLevelData(_levelID);
             if (restart)
             {
                 _levelData.Clear();
@@ -47,12 +48,16 @@ namespace WarGame
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
 
+            if (_levelData.Stage == Enum.LevelStage.Passed)
+            {
+                OnSuccess();
+                return;
+            }
+
+            _loading = true;
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
-
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
-
-            DebugManager.Instance.Log(_levelData.Stage);
             if (_levelData.Stage < Enum.LevelStage.Entered)
             {
                 var heroDatas = DatasMgr.Instance.GetAllRoles();
@@ -108,38 +113,52 @@ namespace WarGame
                 }
             }
 
-            _weather = new Weather();
+            weather = new Weather();
             _arrow = new LocatingArrow();
+            mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         }
 
         public void Update(float deltaTime)
         {
-            if (_loaded)
-            {
-                if (null != _action)
-                    _action.Update(deltaTime);
-
-                if (null != _weather)
-                    _weather.Update(deltaTime);
-            }
-            else
+            if (_loading)
             {
                 var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
 
                 if (progress >= 1 && null == _coroutine)
                 {
+                    _loading = false;
                     //延迟一帧开始，防止场景内对象没有初始化完成
                     _coroutine = CoroutineMgr.Instance.StartCoroutine(OnLoad());
                 }
+            }
+
+            if (_loaded)
+            {
+                if (null != _action)
+                    _action.Update(deltaTime);
+
+                if (null != weather)
+                    weather.Update(deltaTime);
+
+                MapManager.Instance.UpdateHexagon(weather.GetLightIntensity());
             }
         }
 
         public void Dispose()
         {
             UIManager.Instance.ClosePanel("FightPanel");
-            _weather.Dispose();
-            _weather = null;
+            if (null != weather)
+            {
+                weather.Dispose();
+                weather = null;
+            }
+
+            if (null != _arrow)
+            {
+                _arrow.Dispose();
+                _arrow = null;
+            }
 
             ClearBornEffects();
             CameraMgr.Instance.SetTarget(0);
@@ -166,7 +185,7 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round});
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
 
             DebugManager.Instance.Log(_levelData.Stage);
             DebugManager.Instance.Log(_levelData.Stage < Enum.LevelStage.Talked);
@@ -372,7 +391,7 @@ namespace WarGame
             {
                 DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog, (args) =>
                 {
-                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID});
+                    OnFailed();
                 });
                 return;
             }
@@ -380,11 +399,9 @@ namespace WarGame
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             if (enemys.Count <= 0)
             {
-                _levelData.Stage = Enum.LevelStage.Passed;
-                OnSave();
                 DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog, (args) =>
                 {
-                    UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID});
+                    OnSuccess();
                 });
                 return;
             }
@@ -446,7 +463,7 @@ namespace WarGame
 
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] {_levelData.Round, callback });
+                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _levelData.Round, callback });
             }
         }
 
@@ -502,25 +519,26 @@ namespace WarGame
         private void OnShowHP(params object[] args)
         {
             UIManager.Instance.OpenPanel("Fight", "FightArenaPanel", args);
-            //var initiator = RoleManager.Instance.GetRole((int)args[0]);
-            //var target = RoleManager.Instance.GetRole((int)args[1]);
-            //_initiatorHP.GetController("style").SetSelectedIndex(initiator.Type == Enum.RoleType.Hero ? 0 : 1);
-            //_targetHP.GetController("style").SetSelectedIndex(target.Type == Enum.RoleType.Hero ? 0 : 1);
-            //_initiatorHP.value = initiator.GetHP();
-            //_targetHP.value = target.GetHP();
-            //_initiatorHP.visible = true;
-            //_targetHP.visible = true;
-            //_showHP.Play();
         }
 
         private void OnCloseHP(params object[] args)
         {
             UIManager.Instance.ClosePanel("FightArenaPanel");
-            //_showHP.PlayReverse(() =>
-            //{
-            //    _initiatorHP.visible = false;
-            //    _targetHP.visible = false;
-            //});
+        }
+
+        private void OnSuccess()
+        {
+            _levelData.Stage = Enum.LevelStage.Passed;
+
+            DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
+
+            OnSave();
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID });
+        }
+
+        private void OnFailed()
+        {
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID });
         }
     }
 }
