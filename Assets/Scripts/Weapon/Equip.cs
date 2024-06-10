@@ -8,6 +8,7 @@ namespace WarGame
     {
         protected EquipmentData _data;
         protected Transform _spinePoint;
+        protected Trail _trail;
 
         public Equip(EquipmentData data)
         {
@@ -27,6 +28,11 @@ namespace WarGame
             _gameObject.transform.SetParent(_spinePoint, false);
             _gameObject.transform.localEulerAngles = config.Rotation;
             Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
+
+            if (_gameObject.TryGetComponent(out _trail))
+            {
+                _trail.enabled = false;
+            }
         }
 
         public virtual void Attack(Vector3 targetPos)
@@ -50,12 +56,18 @@ namespace WarGame
             return GetTypeConfig().Place;
         }
 
-        protected virtual void SpawnBullet()
+        public virtual void Attack()
+        { }
+
+        public virtual void AttackEnd()
+        { }
+
+        protected virtual void Shoot()
         { 
         
         }
 
-        protected virtual void DestroyBullet()
+        protected virtual void ShootOver()
         {
 
         }
@@ -65,9 +77,13 @@ namespace WarGame
             if ("Bullet" == firstName)
             {
                 if ("Take" == secondName)
-                    SpawnBullet();
+                {
+                    Shoot();
+                }
                 else if ("End" == secondName)
-                    DestroyBullet();
+                {
+                    ShootOver();
+                }
             }
         }
     }

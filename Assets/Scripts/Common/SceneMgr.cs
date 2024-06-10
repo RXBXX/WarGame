@@ -97,6 +97,9 @@ namespace WarGame
 
         private void OpenScene(string scene, System.Action<string> callback)
         {
+            System.GC.Collect();
+            AssetMgr.Instance.UnloadUnusedAssets();
+
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
             AssetMgr.Instance.LoadSceneAsync(scene, (string name) =>
             {

@@ -1,4 +1,4 @@
 @echo off
 cd /d %~dp0
 
-mklink /j ..\Assets\Configs Configs
+mklink /j ..\Assets\StreamingAssets\Configs Configs

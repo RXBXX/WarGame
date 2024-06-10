@@ -4,7 +4,6 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 namespace WarGame
 {
@@ -36,12 +35,14 @@ namespace WarGame
         /// <param name="path"></param>
         /// <param name="callback"></param>
         /// <returns></returns>
-        public int LoadAssetAsync<T>(string path, LoadAssetCB<T> callback) where T:Object
+        public int LoadAssetAsync<T>(string path, LoadAssetCB<T> callback, LoadAssetCB<T> faildCallback = null) where T : Object
         {
             if (!Application.isPlaying)
             {
+#if UNITY_EDITOR
                 var obj = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
                 callback((T)obj);
+#endif
                 return 0;
             }
 
@@ -67,13 +68,25 @@ namespace WarGame
             _operationDic.Remove(id);
         }
 
-        private IEnumerator Load<T>(AsyncOperationHandle<Object> handle, LoadAssetCB<T> callback) where T: Object
+        private IEnumerator Load<T>(AsyncOperationHandle<Object> handle, LoadAssetCB<T> callback) where T : Object
         {
+            //try
+            //{
             yield return handle;
+
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 callback((T)handle.Result);
             }
+            else
+            {
+                DebugManager.Instance.LogError($"Failed to load addressable asset at address: , error: {handle.OperationException}");
+            }
+            //}
+            //catch (System.Exception e)
+            //{
+
+            //}
         }
 
         public float GetLoadingProgress(int id)
@@ -88,7 +101,8 @@ namespace WarGame
         public AsyncOperationHandle LoadSceneAsync(string scene, System.Action<string> callback)
         {
             var handle = Addressables.LoadSceneAsync(scene);
-            handle.Completed += (AsyncOperationHandle<SceneInstance> scene) => {
+            handle.Completed += (AsyncOperationHandle<SceneInstance> scene) =>
+            {
                 callback(scene.Result.Scene.name);
             };
             return handle;
@@ -102,7 +116,7 @@ namespace WarGame
             Addressables.UnloadSceneAsync(handle);
         }
 
-        public void Destroy<T>(T go) where T:Object
+        public void Destroy<T>(T go) where T : Object
         {
             GameObject.Destroy(go);
         }

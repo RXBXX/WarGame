@@ -210,7 +210,6 @@ namespace WarGame
         public float Rage;
         public string hexagonID;
         public List<IntFloatPair> buffs = new List<IntFloatPair>();
-        //public Dictionary<Enum.AttrType, float> attrDic = new Dictionary<Enum.AttrType, float>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
 
@@ -321,6 +320,7 @@ namespace WarGame
         public int configId;
         public Enum.LevelStage Stage = Enum.LevelStage.None;
         public int Round;
+        public Enum.ActionType actionType;
         public List<LevelRoleData> heros = new List<LevelRoleData>();
         public List<LevelRoleData> enemys = new List<LevelRoleData>();
 

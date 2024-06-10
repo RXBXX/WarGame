@@ -22,8 +22,28 @@ namespace WarGame
             AddListeners();
         }
 
-        public virtual void Dispose()
+        public virtual void Dispose(bool save = false)
         {
+            if (_initiatorID > 0)
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                if (initiator.GetState() > Enum.RoleState.Locked && initiator.GetState() < Enum.RoleState.Over)
+                {
+                    initiator.SetState(Enum.RoleState.Waiting, true);
+                    switch (initiator.GetState())
+                    {
+                        case Enum.RoleState.Moving:
+                        case Enum.RoleState.WaitingOrder:
+                        case Enum.RoleState.WatingTarget:
+                        case Enum.RoleState.Attacking:
+                            initiator.UpdateHexagonID(_path[0]);
+                            break;
+                        case Enum.RoleState.ReturnMoving:
+                            initiator.UpdateHexagonID(_path[_path.Count - 1]);
+                            break;
+                    }
+                }
+            }
             RemoveListeners();
         }
 
@@ -68,12 +88,6 @@ namespace WarGame
                 initiator.SetState(Enum.RoleState.Over);
             }
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
-            //float delay = 1.0f;
-            //if (null != args && args.Length > 0)
-            //{
-            //    delay = (int)(args[0]);
-            //}
-            //    CoroutineMgr.Instance.StartCoroutine(PlayActionOver(delay));
         }
 
         protected virtual IEnumerator PlayActionOver(float delay)

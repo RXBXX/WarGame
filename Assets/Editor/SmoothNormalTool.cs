@@ -10,19 +10,24 @@ namespace WarGame
         [MenuItem("Tools/平滑法线、写入切线数据")]
         public static void WriteAverageNormalToTangentToos()
         {
-            if (null == Selection.activeGameObject)
+            //if (null == Selection.activeGameObject)
+            //    return;
+            if (null == Selection.gameObjects || Selection.gameObjects.Length <= 0)
                 return;
 
-            PreProcessingFotOutLine(Selection.activeGameObject);
+            foreach (var v in Selection.gameObjects)
+                PreProcessingFotOutLine(v);
         }
 
         [MenuItem("Tools/平滑法线、应用切线数据")]
         public static void ApplyAverageNormalToTangentToos()
         {
-            if (null == Selection.activeGameObject)
+            //if (null == Selection.activeGameObject)
+            //    return;
+            if (null == Selection.gameObjects || Selection.gameObjects.Length <= 0)
                 return;
-
-            Tool.Instance.ApplyProcessingFotOutLine(Selection.activeGameObject);
+            foreach (var v in Selection.gameObjects)
+                Tool.Instance.ApplyProcessingFotOutLine(v);
         }
 
 
@@ -95,13 +100,13 @@ namespace WarGame
                     var index = i * sqrt + j;
                     if (index >= tangents.Length)
                         break;
-                    texture.SetPixel(i, j, new Color((tangents[index].x + 1)/2, (tangents[index].y+1)/2, (tangents[index].z+1)/2, (tangents[index].w+1)/2)); ;
+                    texture.SetPixel(i, j, new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2)); ;
                 }
             }
             texture.Apply();
 
             var bytes = texture.EncodeToPNG();
-            File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.GetInstanceID() + ".png", bytes);
+            File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png", bytes);
 
             GameObject.DestroyImmediate(texture);
 

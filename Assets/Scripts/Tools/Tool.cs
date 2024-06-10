@@ -7,7 +7,7 @@ namespace WarGame
 {
     public class Tool : Singeton<Tool>
     {
-        private static List<int> _appliedProcessingFotOutLine = new List<int>();
+        private static List<string> _appliedProcessingFotOutLine = new List<string>();
 
         [System.Serializable]
         private class Pack<T>
@@ -169,30 +169,59 @@ namespace WarGame
 
         public static void ReadAverageNormalToTangent(Mesh mesh)
         {
-            if (_appliedProcessingFotOutLine.Contains(mesh.GetInstanceID()))
+            if (_appliedProcessingFotOutLine.Contains(mesh.name))
                 return;
 
-            var bytes = File.ReadAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.GetInstanceID() + ".png");
-            Texture2D texture = new Texture2D(2, 2);
-            texture.LoadImage(bytes);
-            Vector4[] tangents = new Vector4[mesh.vertices.Length];
-            for (int i = 0; i < texture.width; i++)
+            _appliedProcessingFotOutLine.Add(mesh.name);
+
+            int assetID = 0;
+            assetID = AssetMgr.Instance.LoadAssetAsync<Texture2D>("Assets/Textures/MeshTagentTex/" + mesh.name + ".png", (texture) =>
             {
-                for (int j = 0; j < texture.height; j++)
+                DebugManager.Instance.Log("LoadSuccess");
+                Vector4[] tangents = new Vector4[mesh.vertices.Length];
+                for (int i = 0; i < texture.width; i++)
                 {
-                    var index = i * texture.width + j;
-                    if (index >= mesh.vertices.Length)
-                        break;
-                    var color = texture.GetPixel(i, j);
-                    tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
+                    for (int j = 0; j < texture.height; j++)
+                    {
+                        var index = i * texture.width + j;
+                        if (index >= mesh.vertices.Length)
+                            break;
+                        var color = texture.GetPixel(i, j);
+                        tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
+                    }
                 }
-            }
-            mesh.tangents = tangents;
 
-            _appliedProcessingFotOutLine.Add(mesh.GetInstanceID());
+                AssetMgr.Instance.ReleaseAsset(assetID);
+                mesh.tangents = tangents;
 
-            if (!Application.isPlaying)
-                DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
+
+                if (!Application.isPlaying)
+                    DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
+            });
+            //var bytes = File.ReadAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png");
+            //Texture2D texture = new Texture2D(2, 2);
+            //texture.LoadImage(bytes);
+            //Vector4[] tangents = new Vector4[mesh.vertices.Length];
+            //for (int i = 0; i < texture.width; i++)
+            //{
+            //    for (int j = 0; j < texture.height; j++)
+            //    {
+            //        var index = i * texture.width + j;
+            //        if (index >= mesh.vertices.Length)
+            //            break;
+            //        var color = texture.GetPixel(i, j);
+            //        tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
+            //    }
+            //}
+
+            //AssetMgr.Instance.Destroy<Texture2D>(texture);
+
+            //mesh.tangents = tangents;
+
+            //_appliedProcessingFotOutLine.Add(mesh.name);
+
+            //if (!Application.isPlaying)
+            //    DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
         }
 
         public static void SetLayer(Transform tran, Enum.Layer layer)

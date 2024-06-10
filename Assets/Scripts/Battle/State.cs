@@ -180,6 +180,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
+            _role.AttackEnd();
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _role.ID });
         }
     }
@@ -192,8 +193,9 @@ namespace WarGame
 
         public override void End(bool reverse)
         {
+            DebugManager.Instance.Log("AttackEnd");
+
             base.End(reverse);
-            //DebugManager.Instance.Log("Enum.EventType.Fight_Attacked_End");
             EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID});
         }
     }

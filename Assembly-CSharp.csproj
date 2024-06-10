@@ -182,6 +182,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Transition\TransitionMain.cs" />
     <Compile Include="Assets\Scripts\UI\Dialog\DialogBox.cs" />
     <Compile Include="Assets\Test\WeatheTest.cs" />
+    <Compile Include="Assets\Scripts\Battle\Trail.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Particles\CoolComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Load\LoadPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GSlider.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
     <Compile Include="Assets\Scripts\Map\Bonfire.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\AttackSkillAction.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Sword.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
@@ -446,6 +448,7 @@
     <None Include="Assets\Shaders\LineShader_V2.shader" />
     <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
+    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Shaders\WhetherShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />

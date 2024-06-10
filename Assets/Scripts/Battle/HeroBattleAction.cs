@@ -14,11 +14,6 @@ namespace WarGame
         {
         }
 
-        public override void Dispose()
-        {
-            base.Dispose();
-        }
-
         protected override void AddListeners()
         {
             base.AddListeners();
@@ -248,7 +243,7 @@ namespace WarGame
             _path.Reverse();
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.Move(_path);
-            _path = null;
+            //_path = null;
         }
 
         private void Battle(params object[] args)

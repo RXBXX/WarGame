@@ -1,0 +1,179 @@
+{
+  "Version": "0.0.0.01",
+  "_customRecordDic": {
+    "Record_1": {
+      "ID": "Record_1",
+      "title": "存档_1",
+      "createTime": 1718007706078,
+      "saveTime": 1718025546537,
+      "duration": 1983355,
+      "isNew": false,
+      "roleDataDic": {
+        "10001": {
+          "UID": 10001,
+          "configId": 10001,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talentDic": {}
+        },
+        "10002": {
+          "UID": 10002,
+          "configId": 10002,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talentDic": {}
+        },
+        "10003": {
+          "UID": 10003,
+          "configId": 10003,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talentDic": {}
+        },
+        "10004": {
+          "UID": 10004,
+          "configId": 10004,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talentDic": {}
+        }
+      },
+      "equipDataDic": {
+        "30001": {
+          "UID": 30001,
+          "configId": 10001
+        },
+        "30002": {
+          "UID": 30002,
+          "configId": 10002
+        },
+        "30003": {
+          "UID": 30003,
+          "configId": 10003
+        },
+        "30004": {
+          "UID": 30004,
+          "configId": 10004
+        },
+        "30005": {
+          "UID": 30005,
+          "configId": 10005
+        },
+        "30006": {
+          "UID": 30006,
+          "configId": 10006
+        },
+        "30007": {
+          "UID": 30007,
+          "configId": 10007
+        },
+        "30008": {
+          "UID": 30008,
+          "configId": 10008
+        },
+        "30009": {
+          "UID": 30009,
+          "configId": 10009
+        },
+        "30010": {
+          "UID": 30010,
+          "configId": 10010
+        },
+        "30011": {
+          "UID": 30011,
+          "configId": 10011
+        },
+        "30012": {
+          "UID": 30012,
+          "configId": 10012
+        },
+        "30013": {
+          "UID": 30013,
+          "configId": 10013
+        }
+      },
+      "levelDataDic": {
+        "10001": {
+          "configId": 10001,
+          "Stage": 3,
+          "Round": 3,
+          "actionType": 0,
+          "heros": [
+            {
+              "HP": 100.0,
+              "Rage": 90.0,
+              "hexagonID": "2_0_1",
+              "buffs": [],
+              "equipDataDic": {},
+              "state": 1,
+              "UID": 10001,
+              "configId": 10001,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 90.0,
+              "hexagonID": "4_0_5",
+              "buffs": [],
+              "equipDataDic": {},
+              "state": 1,
+              "UID": 10002,
+              "configId": 10002,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 54.0,
+              "Rage": 90.0,
+              "hexagonID": "2_0_10",
+              "buffs": [
+                {
+                  "id": 1,
+                  "value": 1.0
+                }
+              ],
+              "equipDataDic": {},
+              "state": 1,
+              "UID": 10003,
+              "configId": 10003,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ],
+          "enemys": [
+            {
+              "HP": 300.0,
+              "Rage": 0.0,
+              "hexagonID": "1_0_11",
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "configId": 10011
+                }
+              },
+              "state": 0,
+              "UID": 20002,
+              "configId": 20002,
+              "level": 5,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

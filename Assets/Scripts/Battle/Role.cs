@@ -145,6 +145,7 @@ namespace WarGame
 
         protected virtual void InitEquips()
         {
+            DebugManager.Instance.Log(_data.equipDataDic);
             if (null == _data.equipDataDic)
                 return;
 
@@ -295,6 +296,15 @@ namespace WarGame
             }
         }
 
+        public virtual void AttackEnd()
+        {
+            DebugManager.Instance.Log("AttackEnd" + _equipDic.Count);
+            foreach (var e in _equipDic)
+            {
+                e.Value.AttackEnd();
+            }
+        }
+
         public virtual void Hit(float deltaHP)
         {
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
@@ -365,13 +375,14 @@ namespace WarGame
             return _data.state;
         }
 
-        public void SetState(Enum.RoleState state)
+        public void SetState(Enum.RoleState state, bool ingoreStateChange = false)
         {
             if (state == _data.state)
                 return;
             _data.state = state;
 
-            OnStateChanged();
+            if (!ingoreStateChange)
+                OnStateChanged();
         }
 
         protected virtual void OnStateChanged()
@@ -712,7 +723,7 @@ namespace WarGame
 
         public virtual void NextStage()
         {
-        
+
         }
 
         public override bool Dispose()

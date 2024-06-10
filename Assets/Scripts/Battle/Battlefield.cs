@@ -11,7 +11,6 @@ namespace WarGame
         private bool _loading = false;
         private bool _loaded = false;
         private int _levelID;
-        private bool isHeroTurn = true;
         private BattleAction _action;
         private LocatingArrow _arrow;
         private Coroutine _coroutine;
@@ -55,7 +54,7 @@ namespace WarGame
             }
 
             _loading = true;
-            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
+            var mapDir = Application.streamingAssetsPath + ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
             if (_levelData.Stage < Enum.LevelStage.Entered)
@@ -163,7 +162,7 @@ namespace WarGame
             ClearBornEffects();
             CameraMgr.Instance.SetTarget(0);
 
-            DisposeAction(_battleActionID);
+            DisposeAction(_battleActionID, true);
 
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
@@ -187,8 +186,6 @@ namespace WarGame
             UIManager.Instance.ClosePanel("LoadPanel");
             UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
 
-            DebugManager.Instance.Log(_levelData.Stage);
-            DebugManager.Instance.Log(_levelData.Stage < Enum.LevelStage.Talked);
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {
                 var dialogGroup = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartDialog;
@@ -204,7 +201,37 @@ namespace WarGame
             }
             else
             {
-                _action = new HeroBattleAction(GetActionID());
+                //isHeroTurn = false;
+                ////检测所有英雄是否行动结束
+                //for (int i = heros.Count - 1; i >= 0; i--)
+                //{
+                //    if (heros[i].GetState() != Enum.RoleState.Over)
+                //    {
+                //        isHeroTurn = true;
+                //        break;
+                //    }
+                //}
+
+                //if (!isHeroTurn)
+                //{
+                //    isHeroTurn = true;
+                //    var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+                //    //查找到下一个应该行动的敌人
+                //    for (int i = enemys.Count - 1; i >= 0; i--)
+                //    {
+                //        if (enemys[i].GetState() != Enum.RoleState.Over)
+                //        {
+                //            isHeroTurn = false;
+                //        }
+                //    }
+
+                //    _levelData.Round++;
+                //    RoleManager.Instance.UpdateRound(_levelData.Round);
+                //}
+
+                DebugManager.Instance.Log(_levelData.actionType);
+
+                OnFinishAction();
             }
         }
 
@@ -365,13 +392,13 @@ namespace WarGame
             return ++_battleActionID;
         }
 
-        private void DisposeAction(int actionID)
+        private void DisposeAction(int actionID, bool save= false)
         {
             if (null == _action)
                 return;
             if (_action.ID != actionID)
                 return;
-            _action.Dispose();
+            _action.Dispose(save);
             _action = null;
         }
 
@@ -379,11 +406,14 @@ namespace WarGame
         {
             RoleManager.Instance.ClearDeadRole();
 
-            DisposeAction((int)args[0]);
-
-            if ((int)args[0] == 0)
+            if (null != args && args.Length > 0)
             {
-                ClearBornEffects();
+                DisposeAction((int)args[0]);
+
+                if ((int)args[0] == 0)
+                {
+                    ClearBornEffects();
+                }
             }
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
@@ -406,7 +436,7 @@ namespace WarGame
                 return;
             }
 
-            if (isHeroTurn)
+            if (_levelData.actionType == Enum.ActionType.HeroAction)
             {
                 //检测所有英雄是否行动结束
                 for (int i = heros.Count - 1; i >= 0; i--)
@@ -417,10 +447,7 @@ namespace WarGame
                         return;
                     }
                 }
-            }
 
-            if (isHeroTurn)
-            {
                 BattleRoundFunc callback = () =>
                 {
                     //查找到下一个应该行动的敌人
@@ -433,13 +460,13 @@ namespace WarGame
                             break;
                         }
                     }
-                    isHeroTurn = false;
+                    _levelData.actionType = Enum.ActionType.EnemyAction;
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
             }
 
-            if (!isHeroTurn)
+            if (_levelData.actionType == Enum.ActionType.EnemyAction)
             {
                 //查找到下一个应该行动的敌人
                 for (int i = enemys.Count - 1; i >= 0; i--)
@@ -457,12 +484,11 @@ namespace WarGame
                 {
                     MapManager.Instance.UpdateRound(_levelData.Round);
                     RoleManager.Instance.UpdateRound(_levelData.Round);
-                    isHeroTurn = true;
+                    _levelData.actionType = Enum.ActionType.HeroAction;
                     _action = new HeroBattleAction(GetActionID());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
-
                 EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _levelData.Round, callback });
             }
         }

@@ -238,6 +238,13 @@ namespace WarGame
             Write = 2,
         }
 
+        [Serializable]
+        public enum ActionType
+        {
+            HeroAction = 0,
+            EnemyAction = 1,
+        }
+
         public enum EventType
         {
             HUDInstruct_Idle_Event = 0,

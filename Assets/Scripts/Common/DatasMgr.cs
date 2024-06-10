@@ -7,7 +7,7 @@ namespace WarGame
     public class DatasMgr : Singeton<DatasMgr>
     {
         private GameData _data = null;
-        private string _path = Application.dataPath + "/Datas/GameData.json";
+        private string _path = Application.streamingAssetsPath + "/Datas/GameData.json";
 
         public override bool Init()
         {

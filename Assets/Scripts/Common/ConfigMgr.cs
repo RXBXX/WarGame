@@ -11,7 +11,7 @@ namespace WarGame
 
         private bool InitConfig<T>(string jsonName) where T : Config
         {
-            var configs = Tool.Instance.ReadJson<T[]>(Application.dataPath + "/Configs/" + jsonName + ".json");
+            var configs = Tool.Instance.ReadJson<T[]>(Application.dataPath + "/StreamingAssets/Configs/" + jsonName + ".json");
             _configDic[jsonName] = new Dictionary<int, Config>();
             foreach (var v in configs)
             {

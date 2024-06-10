@@ -6,6 +6,7 @@ namespace WarGame
 {
     public class GrayPP :PostProcessing
     {
+        private int _assetID;
         private Camera _depthCamera;
         private Camera _colorCamera;
         private RenderTexture _depthRT;
@@ -13,7 +14,7 @@ namespace WarGame
 
         public override void Setup()
         {
-            AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/GrayMat.mat", (Material mat)=> {
+            _assetID = AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/GrayMat.mat", (Material mat)=> {
                 _mat = mat;
                 _mat.SetTexture("_ExclusionMap", _colorRT);
                 _mat.SetTexture("_ExclusionMapDepth", _depthRT);
@@ -42,8 +43,7 @@ namespace WarGame
 
         public override void Clear()
         {
-            base.Clear();
-
+            DebugManager.Instance.Log("GrayPP Clear");
             _depthCamera.gameObject.SetActive(false);
             _depthCamera.targetTexture = null;
             RenderTexture.ReleaseTemporary(_depthRT);
@@ -51,6 +51,10 @@ namespace WarGame
             _colorCamera.gameObject.SetActive(false);
             _colorCamera.targetTexture = null;
             RenderTexture.ReleaseTemporary(_colorRT);
+
+            AssetMgr.Instance.ReleaseAsset(_assetID);
+            _assetID = 0;
+            base.Clear();
         }
     }
 }

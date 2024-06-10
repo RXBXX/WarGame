@@ -17,6 +17,8 @@ namespace WarGame
                     return new Bow(data);
                 case Enum.EquipType.Arrow:
                     return new Arrow(data);
+                case Enum.EquipType.Sword:
+                    return new Sword(data);
                 default:
                     return new Equip(data);
             }

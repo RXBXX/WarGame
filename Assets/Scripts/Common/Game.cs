@@ -73,14 +73,12 @@ namespace WarGame
         }
 
         public void OnRenderImage(RenderTexture source, RenderTexture destination)
-        { 
+        {
             RenderMgr.Instance.OnRenderImage(source, destination);
         }
 
         public override bool Dispose()
         {
-            base.Dispose();
-
             AttributeMgr.Instance.Dispose();
             CameraMgr.Instance.Dispose();
             InputManager.Instance.Dispose();
@@ -99,7 +97,9 @@ namespace WarGame
             EventDispatcher.Instance.Dispose();
             DebugManager.Instance.Dispose();
             TimeMgr.Instance.Dispose();
-            return true;
+
+            System.GC.Collect();
+            return base.Dispose();
         }
 
         public void Quit()
