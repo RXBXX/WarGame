@@ -56,33 +56,33 @@ namespace WarGame
             return GetTypeConfig().Place;
         }
 
-        public virtual void Attack()
-        { }
+        //public virtual void Attack()
+        //{ }
 
-        public virtual void AttackEnd()
-        { }
+        //public virtual void AttackEnd()
+        //{ }
 
-        protected virtual void Shoot()
+        protected virtual void EffectTake()
         { 
         
         }
 
-        protected virtual void ShootOver()
+        protected virtual void EffectEnd()
         {
 
         }
 
         public virtual void HandleEvent(string firstName, string secondName)
         {
-            if ("Bullet" == firstName)
+            if ("Effect" == firstName)
             {
                 if ("Take" == secondName)
                 {
-                    Shoot();
+                    EffectTake();
                 }
                 else if ("End" == secondName)
                 {
-                    ShootOver();
+                    EffectEnd();
                 }
             }
         }

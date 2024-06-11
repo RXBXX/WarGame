@@ -5,8 +5,8 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1718093304418,
-      "saveTime": 1718093387068,
-      "duration": 67357,
+      "saveTime": 1718122948269,
+      "duration": 943476,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -100,17 +100,34 @@
         "10001": {
           "configId": 10001,
           "Stage": 3,
-          "Round": 1,
+          "Round": 12,
           "actionType": 0,
           "heros": [
             {
-              "HP": 100.0,
-              "Rage": 30.0,
-              "hexagonID": "2_0_1",
+              "HP": 0.0,
+              "Rage": 100.0,
+              "hexagonID": "3_0_9",
               "bornHexagonID": "2_0_1",
-              "buffs": [],
+              "buffs": [
+                {
+                  "id": 1,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 2.0
+                }
+              ],
               "equipDataDic": {},
-              "state": 1,
+              "state": 7,
               "UID": 10001,
               "configId": 10001,
               "level": 1,
@@ -120,7 +137,7 @@
             },
             {
               "HP": 100.0,
-              "Rage": 30.0,
+              "Rage": 100.0,
               "hexagonID": "4_0_1",
               "bornHexagonID": "4_0_1",
               "buffs": [],
@@ -135,7 +152,7 @@
             },
             {
               "HP": 100.0,
-              "Rage": 30.0,
+              "Rage": 100.0,
               "hexagonID": "5_0_0",
               "bornHexagonID": "5_0_0",
               "buffs": [],
@@ -153,7 +170,7 @@
             {
               "HP": 300.0,
               "Rage": 0.0,
-              "hexagonID": "1_0_11",
+              "hexagonID": "3_0_10",
               "bornHexagonID": "1_0_11",
               "buffs": [],
               "equipDataDic": {

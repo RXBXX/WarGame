@@ -57,9 +57,9 @@ namespace WarGame
             if (null == _pointLight)
                 return;
 
-            var intensity = 1 - SceneMgr.Instance.BattleField.weather.GetLightIntensity() + 1F; ///Error Trace
+            var intensity = 1 - SceneMgr.Instance.BattleField.weather.GetLightIntensity() + 3F; ///Error Trace
             _pointLight.intensity = intensity;
-            _pointLight.range = intensity * 2;
+            _pointLight.range = intensity;
 
             if (_pointShakeInterval <= 0)
             {

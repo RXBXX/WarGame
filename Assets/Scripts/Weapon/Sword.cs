@@ -11,15 +11,14 @@ namespace WarGame
         
         }
 
-        public override void Attack(Vector3 targetPos)
+        protected override void EffectTake()
         {
             if (null != _trail)
                 _trail.enabled = true;
         }
 
-        public override void AttackEnd()
+        protected override void EffectEnd()
         {
-            DebugManager.Instance.Log("AttackEnd");
             if (null != _trail)
                 _trail.enabled = false;
         }

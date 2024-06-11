@@ -60,9 +60,23 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.17202376
+        functionName: PlayEvent
+        data: Effect_Take
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4002315
         functionName: PlayEvent
         data: Attack_Take
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9696425
+        functionName: PlayEvent
+        data: Effect_End
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

@@ -26,7 +26,7 @@ namespace WarGame
             _animator.Play("Attack");
         }
 
-        protected override void Shoot()
+        protected override void EffectTake()
         {
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_animator, "Attack01_Combo0102_Arrow");
             var duration = timeDic["Bullet_End"] - timeDic["Bullet_Take"];
@@ -44,7 +44,7 @@ namespace WarGame
             _bullet.transform.DOMove(tp, duration);
         }
 
-        protected override void ShootOver()
+        protected override void EffectEnd()
         {
             DOTween.Kill(_bullet.transform);
             GameObject.Destroy(_bullet);

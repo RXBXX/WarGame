@@ -295,15 +295,6 @@ namespace WarGame
             }
         }
 
-        public virtual void AttackEnd()
-        {
-            DebugManager.Instance.Log("AttackEnd" + _equipDic.Count);
-            foreach (var e in _equipDic)
-            {
-                e.Value.AttackEnd();
-            }
-        }
-
         public virtual void Hit(float deltaHP)
         {
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
