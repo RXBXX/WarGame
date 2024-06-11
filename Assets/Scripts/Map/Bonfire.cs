@@ -40,7 +40,7 @@ namespace WarGame
         protected override void CreateGO()
         {
             var config = ConfigMgr.Instance.GetConfig<BonfireConfig>("BonfireConfig", _configId);
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
         }
 
         protected override void OnCreate(GameObject prefab)

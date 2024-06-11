@@ -13,6 +13,10 @@ namespace WarGame
 
         private Tween _tween;
 
+        private bool isReachable;
+
+        private bool _useDrawMeshInstanced = false;
+
         public GameObject GameObject
         {
             get { return _gameObject; }
@@ -23,10 +27,11 @@ namespace WarGame
             get { return _configId; }
         }
 
-        public Hexagon(string id, int configId, Vector3 coor)
+        public Hexagon(string id, int configId, bool isReachable, Vector3 coor)
         {
             this.ID = id;
             this._configId = configId;
+            this.isReachable = isReachable;
             this.coor = coor;
 
             CreateGO();
@@ -34,15 +39,16 @@ namespace WarGame
         protected override void CreateGO()
         {
             var config = GetConfig();
-            if (IsReachable() || !Application.isPlaying)
+            if (IsUseDrawMeshInstanced())
             {
-                _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
+                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition(), (prefab) =>
+                {
+                    Tool.Instance.ApplyProcessingFotOutLine(prefab);
+                });
             }
             else
             {
-                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition(), (prefab)=> {
-                    Tool.Instance.ApplyProcessingFotOutLine(prefab);
-                });
+                _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
             }
         }
 
@@ -51,6 +57,17 @@ namespace WarGame
             base.OnCreate(prefab);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
             _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
+            _gameObject.GetComponent<HexagonBehaviour>().enabled = false;
+        }
+
+        public void Update(float deltaTime)
+        {
+
+        }
+
+        private bool IsUseDrawMeshInstanced()
+        {
+            return _useDrawMeshInstanced && !IsReachable() && Application.isPlaying;
         }
 
         public void OnClick()
@@ -85,7 +102,8 @@ namespace WarGame
         /// <returns></returns>
         public bool IsReachable()
         {
-            return GetConfig().Reachable;
+            return isReachable;
+            //return GetConfig().Reachable;
         }
 
         /// <summary>
@@ -145,7 +163,7 @@ namespace WarGame
 
         public override float GetLoadingProgress()
         {
-            if (!IsReachable())
+            if (IsUseDrawMeshInstanced())
                 return 1;
             return base.GetLoadingProgress();
         }

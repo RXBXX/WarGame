@@ -50,7 +50,7 @@ namespace WarGame
         public GPUInstancedGroup(string prefab, LoadAssetCB<GameObject> callback = null)
         {
             _prefab = prefab;
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(_prefab, (prefab) =>
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(_prefab, (prefab) =>
             {
                 if (null != callback)
                     callback(prefab);
@@ -115,7 +115,7 @@ namespace WarGame
         {
             if (_assetID > 0)
             {
-                AssetMgr.Instance.ReleaseAsset(_assetID);
+                AssetsMgr.Instance.ReleaseAsset(_assetID);
                 _assetID = 0;
             }
 

@@ -14,7 +14,7 @@ namespace WarGame
 
         public override void Setup()
         {
-            _assetID = AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/GrayMat.mat", (Material mat)=> {
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/GrayMat.mat", (Material mat)=> {
                 _mat = mat;
                 _mat.SetTexture("_ExclusionMap", _colorRT);
                 _mat.SetTexture("_ExclusionMapDepth", _depthRT);
@@ -52,7 +52,7 @@ namespace WarGame
             _colorCamera.targetTexture = null;
             RenderTexture.ReleaseTemporary(_colorRT);
 
-            AssetMgr.Instance.ReleaseAsset(_assetID);
+            AssetsMgr.Instance.ReleaseAsset(_assetID);
             _assetID = 0;
             base.Clear();
         }

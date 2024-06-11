@@ -26,7 +26,7 @@ namespace WarGame
 
         public override void Dispose()
         {
-            AssetMgr.Instance.ReleaseAsset(_chainMatID);
+            AssetsMgr.Instance.ReleaseAsset(_chainMatID);
 
             ClearChains();
 
@@ -93,7 +93,7 @@ namespace WarGame
 
             yield return new WaitForSeconds(moveDuration);
 
-            _chainMatID = AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/ChainMat.mat", (Material mat) =>
+            _chainMatID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/ChainMat.mat", (Material mat) =>
             {
                 foreach (var v in _targets)
                 {

@@ -59,7 +59,7 @@ namespace WarGame
 
         public void Dispose()
         {
-            AssetMgr.Instance.Destroy(lr);
+            AssetsMgr.Instance.Destroy(lr);
         }
     }
 }

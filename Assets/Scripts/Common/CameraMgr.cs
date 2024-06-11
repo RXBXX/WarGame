@@ -9,7 +9,7 @@ namespace WarGame
         private float _moveSpeed = 0.5F;
         private float _zoomSpeed = 5.0f;
         private float _rotateSpeed = 2.0f;
-        private float _maxDistance = 18.0f;
+        private float _maxDistance = 30.0f;
         private float _minDistance = 8.0f;
         private Tweener _tweener;
         private int _targetID;
@@ -55,7 +55,13 @@ namespace WarGame
                 return;
 
             if (null != Stage.inst.touchTarget)
+            {
+                if (Input.GetMouseButtonUp(0))
+                {
+                    FindingTarget();
+                }
                 return;
+            }
 
             if (null == MainCamera)
                 return;
@@ -221,6 +227,9 @@ namespace WarGame
             ClearTarget();
 
             var roles = RoleManager.Instance.GetAllRoles();
+            if (roles.Count <= 0)
+                return;
+
             var minRoleID = roles[0].ID;
             var minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[0].GetPosition());
             for (int i = 1; i < roles.Count; i++)

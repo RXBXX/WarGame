@@ -7,4 +7,6 @@ public class HexagonBehaviour : MonoBehaviour
     public string ID = null;
 
     public int configId = 0;
+
+    public bool IsReachable = true;
 }

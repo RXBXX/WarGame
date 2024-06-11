@@ -17,7 +17,7 @@ namespace WarGame
         {
             base.Init();
 
-            var prefab = AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Line.prefab", (GameObject prefab)=> {
+            var prefab = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Line.prefab", (GameObject prefab)=> {
                 _go = GameObject.Instantiate(prefab);
                 GameObject.DontDestroyOnLoad(_go);
                 _mesh = new Mesh();

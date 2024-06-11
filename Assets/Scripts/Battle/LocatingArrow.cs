@@ -19,7 +19,7 @@ namespace WarGame
 
         public LocatingArrow()
         {
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/Arrow.prefab", OnCreate);
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/Arrow.prefab", OnCreate);
         }
 
         protected override void SmoothNormal()

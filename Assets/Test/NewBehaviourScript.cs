@@ -16,7 +16,7 @@ public class DrawManyMeshesIndirect : MonoBehaviour
         Debug.Log(mesh.GetInstanceID());
         Debug.Log(mesh1.GetInstanceID());
 
-        AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Hexagons/Fire/Hex29.prefab", (prefab) =>
+        AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Hexagons/Fire/Hex29.prefab", (prefab) =>
         {
             Debug.Log(prefab.GetComponent<MeshFilter>().sharedMesh.GetInstanceID());
 

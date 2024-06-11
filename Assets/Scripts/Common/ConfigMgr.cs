@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Newtonsoft.Json;
 
 namespace WarGame
 {
@@ -11,7 +12,7 @@ namespace WarGame
 
         private bool InitConfig<T>(string jsonName) where T : Config
         {
-            var configs = Tool.Instance.ReadJson<T[]>(Application.dataPath + "/StreamingAssets/Configs/" + jsonName + ".json");
+            var configs = Tool.Instance.ReadJson<T[]>("Assets/StreamingAssets/Configs/" + jsonName + ".json");
             _configDic[jsonName] = new Dictionary<int, Config>();
             foreach (var v in configs)
             {
@@ -27,14 +28,14 @@ namespace WarGame
                 if (!InitConfig<T>(name))
                     return default(T);
             }
-            
+
             if (_configDic[name].ContainsKey(id))
                 return (T)_configDic[name][id];
 
             return default(T);
         }
 
-        public void ForeachConfig<T>(string name, WGConfigCallback callback) where T:Config
+        public void ForeachConfig<T>(string name, WGConfigCallback callback) where T : Config
         {
             if (!_configDic.ContainsKey(name))
             {
@@ -48,13 +49,12 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            base.Dispose();
             foreach (var pair in _configDic)
             {
                 pair.Value.Clear();
             }
             _configDic.Clear();
-            return true;
+            return base.Dispose();
         }
     }
 }

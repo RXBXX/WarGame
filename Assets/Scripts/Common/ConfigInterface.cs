@@ -64,7 +64,7 @@ namespace WarGame
     public class HexagonConfig : Config
     {
         public string Prefab;
-        public bool Reachable;
+        //public bool Reachable;
         public float Resistance;
     }
 
@@ -125,12 +125,15 @@ namespace WarGame
 
         public int configId;
 
+        public bool isReachable;
+
         public Vector3 coor;
 
-        public HexagonMapPlugin(string id, int configId, Vector3 coor)
+        public HexagonMapPlugin(string id, int configId, bool isReachable, Vector3 coor)
         {
             this.ID = id;
             this.configId = configId;
+            this.isReachable = isReachable;
             this.coor = coor;
         }
     }

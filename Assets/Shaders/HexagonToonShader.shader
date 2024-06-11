@@ -147,69 +147,69 @@ Shader "Custom/HexagonToonShader"
 
 			ENDCG
 		}
-			Pass
-			{
-				Cull Front
-				//Stencil //ģ���������
-				//{
-					//    Ref 1
-					//    Comp NotEqual
-				//}
-				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag     
-			    #pragma multi_compile_instancing
-				#include "UnityCG.cginc"  
-				#include "UnityLightingCommon.cginc"
+			//Pass
+			//{
+			//	Cull Front
+			//	//Stencil //ģ���������
+			//	//{
+			//		//    Ref 1
+			//		//    Comp NotEqual
+			//	//}
+			//	CGPROGRAM
+			//	#pragma vertex vert
+			//	#pragma fragment frag     
+			//    #pragma multi_compile_instancing
+			//	#include "UnityCG.cginc"  
+			//	#include "UnityLightingCommon.cginc"
 
-				float _Outline;
-				fixed4 _OutlineColor;
-				float _HighLight;
+			//	float _Outline;
+			//	fixed4 _OutlineColor;
+			//	float _HighLight;
 
-				struct appdata
-				{
-					float4 pos : POSITION;
-					float3 normal : NORMAL;
-					float3 tangent : TANGENT;
-					UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
-				};
-				struct v2f
-				{
-					float4 pos : SV_POSITION;
-					fixed4 diff : COLOR0;
-				};
+			//	struct appdata
+			//	{
+			//		float4 pos : POSITION;
+			//		float3 normal : NORMAL;
+			//		float3 tangent : TANGENT;
+			//		UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
+			//	};
+			//	struct v2f
+			//	{
+			//		float4 pos : SV_POSITION;
+			//		fixed4 diff : COLOR0;
+			//	};
 
-				v2f vert(appdata v)
-				{
-					v2f o;
-					UNITY_SETUP_INSTANCE_ID(v);
-					float4 pos = UnityObjectToClipPos(v.pos);
-					float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
-					float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;
-					float aspect = _ScreenParams.y / _ScreenParams.x;
-					ndcNormal.x *= aspect;
-					pos.xy += 0.1 * _Outline * ndcNormal.xy;
-					o.pos = pos;
+			//	v2f vert(appdata v)
+			//	{
+			//		v2f o;
+			//		UNITY_SETUP_INSTANCE_ID(v);
+			//		float4 pos = UnityObjectToClipPos(v.pos);
+			//		float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
+			//		float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;
+			//		float aspect = _ScreenParams.y / _ScreenParams.x;
+			//		ndcNormal.x *= aspect;
+			//		pos.xy += 0.1 * _Outline * ndcNormal.xy;
+			//		o.pos = pos;
 
-					half3 worldNormal = UnityObjectToWorldNormal(v.normal);
-					half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
-					o.diff = nl * _LightColor0;
-					return o;
-				}
+			//		half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+			//		half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
+			//		o.diff = nl * _LightColor0;
+			//		return o;
+			//	}
 
-				float4 frag(v2f i) : SV_TARGET
-				{
-					if (_HighLight > 0.5)
-					{
-						return float4(_OutlineColor.rgb, 1) * i.diff;
-					}
-					else
-					{
-						return float4(_OutlineColor.rgb, 1);
-					}
-				}
-				ENDCG
-			}
+			//	float4 frag(v2f i) : SV_TARGET
+			//	{
+			//		if (_HighLight > 0.5)
+			//		{
+			//			return float4(_OutlineColor.rgb, 1) * i.diff;
+			//		}
+			//		else
+			//		{
+			//			return float4(_OutlineColor.rgb, 1);
+			//		}
+			//	}
+			//	ENDCG
+			//}
 
 			Pass//产生阴影的通道(物体透明也产生阴影)
 			{

@@ -28,7 +28,7 @@ public class Test : MonoBehaviour
             //operation = AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Roles/Role_10001.prefab", Callback);
             
 
-            operation = AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Roles/Role_10001.prefab", Callback);
+            operation = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Roles/Role_10001.prefab", Callback);
             //AssetMgr.Instance.ReleaseAssetOperation(operation);
         }
         if (Input.GetKeyDown(KeyCode.A))

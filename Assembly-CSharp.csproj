@@ -323,6 +323,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\PinchGesture.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightInforComp.cs" />
+    <Compile Include="Assets\Scripts\Common\AssetsMgr.cs" />
     <Compile Include="Assets\Scripts\Map\MapManager.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
@@ -376,7 +377,6 @@
     <Compile Include="Assets\Scripts\UI\Common\UIBase.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\ColorFilter.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\BookPage.cs" />
-    <Compile Include="Assets\Scripts\Common\AssetMgr.cs" />
     <Compile Include="Assets\Test\VisualEffectTest.cs" />
     <Compile Include="Assets\Scripts\UI\Story\StoryPanel.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ModalWaiting\ModalWaitingMain.cs" />
@@ -448,7 +448,6 @@
     <None Include="Assets\Shaders\LineShader_V2.shader" />
     <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
-    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Shaders\WhetherShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />

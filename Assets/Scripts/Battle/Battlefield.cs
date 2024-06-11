@@ -23,10 +23,11 @@ namespace WarGame
         public Weather weather;
         private bool _isLockingCamera;
         public Light mainLight;
+        public long startTime;
 
         public BattleField(int levelID, bool restart)
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
+            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnActionEnd);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.AddListener(Enum.EventType.Save_Data, OnSave);
@@ -53,8 +54,7 @@ namespace WarGame
                 return;
             }
 
-            _loading = true;
-            var mapDir = Application.streamingAssetsPath + ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
+            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
             if (_levelData.Stage < Enum.LevelStage.Entered)
@@ -64,7 +64,7 @@ namespace WarGame
                 var index = 0;
                 foreach (var p in bornPoints)
                 {
-                    _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                    _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
                         DebugManager.Instance.Log(prefab.name);
                         var go = GameObject.Instantiate<GameObject>(prefab);
@@ -90,7 +90,7 @@ namespace WarGame
                     var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Born);
                     foreach (var p in bornPoints)
                     {
-                        _bornEffects.Add(AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
+                        _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                         {
                             DebugManager.Instance.Log(prefab.name);
                             var go = GameObject.Instantiate<GameObject>(prefab);
@@ -115,6 +115,10 @@ namespace WarGame
             weather = new Weather();
             _arrow = new LocatingArrow();
             mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+
+            _loading = true;
+            startTime = TimeMgr.Instance.GetUnixTimestamp();
+            DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
         }
 
         public void Update(float deltaTime)
@@ -167,7 +171,7 @@ namespace WarGame
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnFinishAction);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnActionEnd);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.RemoveListener(Enum.EventType.Save_Data, OnSave);
@@ -201,38 +205,12 @@ namespace WarGame
             }
             else
             {
-                //isHeroTurn = false;
-                ////检测所有英雄是否行动结束
-                //for (int i = heros.Count - 1; i >= 0; i--)
-                //{
-                //    if (heros[i].GetState() != Enum.RoleState.Over)
-                //    {
-                //        isHeroTurn = true;
-                //        break;
-                //    }
-                //}
-
-                //if (!isHeroTurn)
-                //{
-                //    isHeroTurn = true;
-                //    var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-                //    //查找到下一个应该行动的敌人
-                //    for (int i = enemys.Count - 1; i >= 0; i--)
-                //    {
-                //        if (enemys[i].GetState() != Enum.RoleState.Over)
-                //        {
-                //            isHeroTurn = false;
-                //        }
-                //    }
-
-                //    _levelData.Round++;
-                //    RoleManager.Instance.UpdateRound(_levelData.Round);
-                //}
-
-                DebugManager.Instance.Log(_levelData.actionType);
-
-                OnFinishAction();
+                NextAction();
             }
+
+            DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
+
+            DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
         }
 
         public void FocusIn(GameObject obj)
@@ -402,7 +380,7 @@ namespace WarGame
             _action = null;
         }
 
-        private void OnFinishAction(params object[] args)
+        private void OnActionEnd(params object[] args)
         {
             RoleManager.Instance.ClearDeadRole();
 
@@ -416,6 +394,11 @@ namespace WarGame
                 }
             }
 
+            NextAction();
+        }
+
+        private void NextAction()
+        {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
             {
@@ -519,20 +502,20 @@ namespace WarGame
             foreach (var v in heros)
                 v.SetState(Enum.RoleState.Over);
 
-            OnFinishAction(new object[] { _battleActionID });
+            OnActionEnd(new object[] { _battleActionID });
         }
 
         private void ClearBornEffects()
         {
             foreach (var v in _bornEffectGOs)
             {
-                AssetMgr.Instance.Destroy(v);
+                AssetsMgr.Instance.Destroy(v);
             }
             _bornEffectGOs.Clear();
 
             foreach (var v in _bornEffects)
             {
-                AssetMgr.Instance.ReleaseAsset(v);
+                AssetsMgr.Instance.ReleaseAsset(v);
             }
             _bornEffects.Clear();
         }

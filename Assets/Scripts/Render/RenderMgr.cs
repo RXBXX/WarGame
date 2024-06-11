@@ -19,7 +19,7 @@ namespace WarGame
             this.ID = id;
 
             _loader = loader;
-            _assetID = AssetMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/BlurMat.mat", (mat) =>
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/BlurMat.mat", (mat) =>
             {
                 _src = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
                 CameraMgr.Instance.MainCamera.targetTexture = _src;
@@ -48,7 +48,7 @@ namespace WarGame
 
         public void Dispose()
         {
-            AssetMgr.Instance.ReleaseAsset(_assetID);
+            AssetsMgr.Instance.ReleaseAsset(_assetID);
             _assetID = 0;
 
             if (null != _src)

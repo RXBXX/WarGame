@@ -1,56 +1,218 @@
 [
     {
         "ID": 1,
-        "Prefab": "Assets/Prefabs/Hexagons/BeachShore.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex1.prefab",
         "Reachable": true,
         "Resistance": 1
     },
     {
         "ID": 2,
-        "Prefab": "Assets/Prefabs/Hexagons/DigSite.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex2.prefab",
         "Reachable": false,
-        "Resistance": 0
+        "Resistance": 1
     },
     {
         "ID": 3,
-        "Prefab": "Assets/Prefabs/Hexagons/HellLake.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex3.prefab",
         "Reachable": false,
-        "Resistance": 0
+        "Resistance": 1
     },
     {
         "ID": 4,
-        "Prefab": "Assets/Prefabs/Hexagons/Lake.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex4.prefab",
         "Reachable": false,
-        "Resistance": 0
+        "Resistance": 1
     },
     {
         "ID": 5,
-        "Prefab": "Assets/Prefabs/Hexagons/BornHexagon.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex5.prefab",
         "Reachable": true,
         "Resistance": 1
     },
     {
         "ID": 6,
-        "Prefab": "Assets/Prefabs/Hexagons/Fire/Hex28.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex6.prefab",
         "Reachable": true,
         "Resistance": 1
     },
     {
         "ID": 7,
-        "Prefab": "Assets/Prefabs/Hexagons/Fire/Hex28.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex7.prefab",
         "Reachable": true,
         "Resistance": 1
     },
     {
         "ID": 8,
-        "Prefab": "Assets/Prefabs/Hexagons/Fire/HellSpikes.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex8.prefab",
         "Reachable": false,
-        "Resistance": 0
+        "Resistance": 1
     },
     {
         "ID": 9,
-        "Prefab": "Assets/Prefabs/Hexagons/Fire/HellTrees.prefab",
+        "Prefab": "Assets/Prefabs/Hexagons/Hex9.prefab",
         "Reachable": false,
-        "Resistance": 0
+        "Resistance": 1
+    },
+    {
+        "ID": 10,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex10.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 11,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex11.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 12,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex12.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 13,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex13.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 14,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex14.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 15,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex15.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 16,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex16.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 17,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex17.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 18,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex18.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 19,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex19.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 20,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex20.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 21,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex21.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 22,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex22.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 23,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex23.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 24,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex24.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 25,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex25.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 26,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex26.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 27,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex27.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 28,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex28.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 29,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex29.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 30,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex30.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 31,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex31.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 32,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex32.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 33,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex33.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 34,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex34.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 35,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex35.prefab",
+        "Reachable": null,
+        "Resistance": 1
+    },
+    {
+        "ID": 36,
+        "Prefab": "Assets/Prefabs/Hexagons/Hex36.prefab",
+        "Reachable": null,
+        "Resistance": 1
     }
 ]

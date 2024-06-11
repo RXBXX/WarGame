@@ -1,0 +1,403 @@
+[
+    {
+        "ID": 10001,
+        "Type": 9,
+        "Icon": "UI/Icons/Arrow_01",
+        "Prefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "Name": "Equip1",
+        "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 90
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 3
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 100
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10002,
+        "Type": 9,
+        "Icon": "UI/Icons/Arrow_02",
+        "Prefab": "Assets/Prefabs/Equipments/Arrow_02.prefab",
+        "Name": "Equip2",
+        "Rotation": {
+            "x": 0,
+            "y": 90,
+            "z": 90
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 11
+            },
+            {
+                "id": 9,
+                "value": 3
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 101
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10003,
+        "Type": 7,
+        "Icon": "UI/Icons/Axe_01",
+        "Prefab": "Assets/Prefabs/Equipments/Axe_01.prefab",
+        "Name": "Equip3",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 12
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10004,
+        "Type": 8,
+        "Icon": "UI/Icons/BigSword_02",
+        "Prefab": "Assets/Prefabs/Equipments/THS01_Sword.prefab",
+        "Name": "Equip4",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 5,
+                "value": 13
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 103
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10005,
+        "Type": 8,
+        "Icon": "UI/Icons/BogSword_01",
+        "Prefab": "Assets/Prefabs/Equipments/THS02_Sword.prefab",
+        "Name": "Equip5",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 5,
+                "value": 14
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 104
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10006,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_01",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_01.prefab",
+        "Name": "Equip6",
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 15
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 105
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10007,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_02",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_02.prefab",
+        "Name": "Equip7",
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 16
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 106
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10008,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_01",
+        "Prefab": "Assets/Prefabs/Equipments/Shield15.prefab",
+        "Name": "Equip8",
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 270
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 17
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 107
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10009,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_02",
+        "Prefab": "Assets/Prefabs/Equipments/Shield14.prefab",
+        "Name": "Equip9",
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 270
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 18
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 108
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10010,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_01",
+        "Prefab": "Assets/Prefabs/Equipments/OHS04_Sword.prefab",
+        "Name": "Equip10",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 19
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 109
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10011,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_02",
+        "Prefab": "Assets/Prefabs/Equipments/OHS03_Sword.prefab",
+        "Name": "Equip11",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 20
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 110
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10012,
+        "Type": 1,
+        "Icon": "UI/Icons/Wand_01",
+        "Prefab": "Assets/Prefabs/Equipments/Wand02.prefab",
+        "Name": "Equip12",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 21
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 111
+            }
+        ],
+        "Skill": null
+    },
+    {
+        "ID": 10013,
+        "Type": 1,
+        "Icon": "UI/Icons/Wand_02",
+        "Prefab": "Assets/Prefabs/Equipments/Wand01.prefab",
+        "Name": "Equip13",
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 5,
+                "value": 22
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 112
+            }
+        ],
+        "Skill": null
+    }
+]

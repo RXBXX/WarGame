@@ -58,7 +58,7 @@ namespace WarGame
         {
             if (_assetID <= 0)
                 return 0;
-            return AssetMgr.Instance.GetLoadingProgress(_assetID);
+            return AssetsMgr.Instance.GetLoadingProgress(_assetID);
         }
 
         public void SetParent(Transform transform)
@@ -74,7 +74,7 @@ namespace WarGame
                 GameObject.Destroy(_gameObject);
                 _gameObject = null;
             }
-            AssetMgr.Instance.ReleaseAsset(_assetID);
+            AssetsMgr.Instance.ReleaseAsset(_assetID);
             return true;
         }
     }

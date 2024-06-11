@@ -13,7 +13,7 @@ namespace WarGame
         public Equip(EquipmentData data)
         {
             this._data = data;
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
         public virtual void SetSpinePoint(Transform spinePoint)

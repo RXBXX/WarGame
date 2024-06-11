@@ -104,7 +104,6 @@ namespace WarGame
                 }
             }
             texture.Apply();
-
             var bytes = texture.EncodeToPNG();
             File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png", bytes);
 

@@ -70,7 +70,7 @@ namespace WarGame
             Dictionary<string, Hexagon> hexagonDic = new Dictionary<string, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
-                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].coor);
+                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].isReachable, hexagons[i].coor);
                 hexagon.SetParent(root.transform);
                 hexagonDic[GetHexagonKey(hexagon.coor)] = hexagon;
             }
@@ -131,7 +131,7 @@ namespace WarGame
                 var hexagonTra = rootObj.transform.GetChild(i);
                 var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
-                var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.configId, coor);
+                var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.configId, data.IsReachable, coor);
                 hexagons[i] = hexagonCell;
             }
 
@@ -184,9 +184,11 @@ namespace WarGame
         /// </summary>
         public void QuickGenerageEditorMap(int xNum, int yNum, int zNum, Dictionary<Enum.HexagonType, int> weightList)
         {
+            //DebugManager.Instance.Log("QuickGenerageEditorMap");
             if (!IsActiveMapEditor())
                 return;
 
+            //DebugManager.Instance.Log("QuickGenerageEditorMap111");
             ClearEditorMapScene();
 
             var rootObj = GameObject.Find("Root");
@@ -221,7 +223,7 @@ namespace WarGame
                         }
 
                         string assetPath = ConfigMgr.Instance.GetConfig<HexagonConfig>("HexagonConfig", (int)type).Prefab;
-                        AssetMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab) =>
+                        AssetsMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab) =>
                         {
                             var obj = GameObject.Instantiate(prefab);
                             obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));

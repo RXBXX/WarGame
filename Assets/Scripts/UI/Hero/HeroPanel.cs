@@ -110,7 +110,7 @@ namespace WarGame.UI
             GameObject hero = null;
             if (!_rolesGO.ContainsKey(uid))
             {
-                AssetMgr.Instance.LoadAssetAsync<GameObject>(heroConfing.Prefab, (GameObject prefab) =>
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(heroConfing.Prefab, (GameObject prefab) =>
                 {
                     hero = GameObject.Instantiate(prefab);
                     _heroRoot = SceneMgr.Instance.GetHeroRoot();
@@ -159,7 +159,7 @@ namespace WarGame.UI
                 var spinePoint = _rolesGO[uid].transform.Find(equipData.GetPlaceConfig().SpinePoint);
 
                 var equipConfig = equipData.GetConfig();
-                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipConfig.Prefab, (GameObject prefab) =>
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(equipConfig.Prefab, (GameObject prefab) =>
                 {
                     var weapon = GameObject.Instantiate<GameObject>(prefab);
                     Tool.Instance.ApplyProcessingFotOutLine(weapon);
@@ -184,7 +184,7 @@ namespace WarGame.UI
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
-            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
+            AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
                 Jump(uid, _rolesGO[uid], 0);
@@ -212,7 +212,7 @@ namespace WarGame.UI
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
                 var spinePoint = _rolesGO[roleUID].transform.Find(equipData.GetPlaceConfig().SpinePoint);
-                AssetMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab) =>
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab) =>
                 {
                     var equip = GameObject.Instantiate<GameObject>(prefab);
                     equip.transform.SetParent(spinePoint, false);

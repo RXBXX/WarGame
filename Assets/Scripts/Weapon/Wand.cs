@@ -15,7 +15,7 @@ namespace WarGame
 
         public override void Attack(Vector3 targetPos)
         {
-            AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/WandEffect.prefab", (GameObject prefab) =>{
+            AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/WandEffect.prefab", (GameObject prefab) =>{
                 _prefab = GameObject.Instantiate(_prefab);
                 var spinePoint = _gameObject.transform.Find("spinePoint");
                 _prefab.transform.position = spinePoint.position;
@@ -26,7 +26,7 @@ namespace WarGame
 
         public void OnAttackOver()
         {
-            AssetMgr.Instance.Destroy(_prefab);
+            AssetsMgr.Instance.Destroy(_prefab);
         }
 
         public override bool Dispose()
@@ -36,7 +36,7 @@ namespace WarGame
                 _tweener.Kill();
                 _tweener = null;
             }
-            AssetMgr.Instance.Destroy(_prefab);
+            AssetsMgr.Instance.Destroy(_prefab);
             return true;
         }
     }

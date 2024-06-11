@@ -39,7 +39,7 @@ namespace WarGame
         public override bool Dispose()
         {
             GameObject.Destroy(_heroScene);
-            AssetMgr.Instance.ReleaseAsset(_heroSceneID);
+            AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
 
             DestroyBattleFiled();
 
@@ -98,10 +98,10 @@ namespace WarGame
         private void OpenScene(string scene, System.Action<string> callback)
         {
             System.GC.Collect();
-            AssetMgr.Instance.UnloadUnusedAssets();
+            AssetsMgr.Instance.UnloadUnusedAssets();
 
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
-            AssetMgr.Instance.LoadSceneAsync(scene, (string name) =>
+            AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
             {
                 UIManager.Instance.ClosePanel("LoadPanel");
                 callback(name);
@@ -148,7 +148,7 @@ namespace WarGame
 
         public void OpenHeroScene(params object[] args)
         {
-            _heroSceneID = AssetMgr.Instance.LoadAssetAsync("Assets/Prefabs/HeroScene.prefab", (GameObject prefab) =>
+            _heroSceneID = AssetsMgr.Instance.LoadAssetAsync("Assets/Prefabs/HeroScene.prefab", (GameObject prefab) =>
             {
                 _heroScene = GameObject.Instantiate<GameObject>(prefab);
                 _heroScene.transform.position = Vector3.one * 10000;
@@ -162,7 +162,7 @@ namespace WarGame
         public void CloseHeroScene()
         {
             GameObject.Destroy(_heroScene);
-            AssetMgr.Instance.ReleaseAsset(_heroSceneID);
+            AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
             UIManager.Instance.ClosePanel("HeroPanel");
             HUDManager.Instance.SetVisible(true);
         }

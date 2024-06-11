@@ -49,6 +49,19 @@ namespace WarGame
             return JsonUtility.FromJson<T>(json);
         }
 
+        public T DeserializeObject<T>(string str)
+        {
+            return JsonConvert.DeserializeObject<T>(str);
+        }
+
+        public string SerializeObject<T>(T t)
+        {
+            return JsonConvert.SerializeObject(t, Formatting.Indented, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+        }
+
         /// <summary>
         /// 读取json文件
         /// </summary>
@@ -63,8 +76,7 @@ namespace WarGame
             {
                 return default(T);
             }
-            return JsonConvert.DeserializeObject<T>(jsonStr);
-            //return FromJson<T>(jsonStr);
+            return DeserializeObject<T>(jsonStr);
         }
 
         /// <summary>
@@ -72,10 +84,7 @@ namespace WarGame
         /// </summary>
         public void WriteJson<T>(string path, T t)
         {
-            var jsonStr = JsonConvert.SerializeObject(t, Formatting.Indented, new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
+            var jsonStr = SerializeObject<T>(t);
             try { File.WriteAllText(path, jsonStr); }
             catch (IOException exception)
             {
@@ -107,9 +116,6 @@ namespace WarGame
         /// <param name="go"></param>
         public void ApplyProcessingFotOutLine(GameObject go, List<string> names = null)
         {
-            //if (!Application.isPlaying)
-            //    return;
-
             try
             {
                 for (int i = 0; i < go.transform.childCount; i++)
@@ -142,7 +148,10 @@ namespace WarGame
                     }
                     else
                     {
-                        meshRenderer.material.SetFloat("_Outline", 0);
+                        if (Application.isPlaying)
+                        {
+                            meshRenderer.material.SetFloat("_Outline", 0);
+                        }
                     }
                     return;
                 }
@@ -156,28 +165,33 @@ namespace WarGame
                     }
                     else
                     {
-                        go.GetComponent<MeshRenderer>().material.SetFloat("_Outline", 0);
+                        if (Application.isPlaying)
+                        {
+                            go.GetComponent<MeshRenderer>().material.SetFloat("_Outline", 0);
+                        }
                     }
                     return;
                 }
             }
             catch
             {
-                DebugManager.Instance.Log("请检查模型：" + go.name + "是否已经采集描边采样");
+                DebugManager.Instance.Log("请检查模型：" + go.name + "是否已经采集描边采样||采样贴图是否设置为可读");
             }
         }
 
         public static void ReadAverageNormalToTangent(Mesh mesh)
         {
-            if (_appliedProcessingFotOutLine.Contains(mesh.name))
-                return;
+            if (Application.isPlaying)
+            {
+                if (_appliedProcessingFotOutLine.Contains(mesh.name))
+                    return;
+            }
 
             _appliedProcessingFotOutLine.Add(mesh.name);
 
             int assetID = 0;
-            assetID = AssetMgr.Instance.LoadAssetAsync<Texture2D>("Assets/Textures/MeshTagentTex/" + mesh.name + ".png", (texture) =>
+            assetID = AssetsMgr.Instance.LoadAssetAsync<Texture2D>("Assets/Textures/MeshTagentTex/" + mesh.name + ".png", (texture) =>
             {
-                DebugManager.Instance.Log("LoadSuccess");
                 Vector4[] tangents = new Vector4[mesh.vertices.Length];
                 for (int i = 0; i < texture.width; i++)
                 {
@@ -191,7 +205,7 @@ namespace WarGame
                     }
                 }
 
-                AssetMgr.Instance.ReleaseAsset(assetID);
+                AssetsMgr.Instance.ReleaseAsset(assetID);
                 mesh.tangents = tangents;
 
 

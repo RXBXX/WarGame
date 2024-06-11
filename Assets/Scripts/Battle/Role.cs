@@ -112,7 +112,7 @@ namespace WarGame
         protected override void CreateGO()
         {
             base.CreateGO();
-            _assetID = AssetMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
         protected override void OnCreate(GameObject go)
@@ -145,7 +145,6 @@ namespace WarGame
 
         protected virtual void InitEquips()
         {
-            DebugManager.Instance.Log(_data.equipDataDic);
             if (null == _data.equipDataDic)
                 return;
 
@@ -164,7 +163,7 @@ namespace WarGame
         protected virtual void InitAnimator()
         {
             var animatorConfig = GetAnimatorConfig();
-            AssetMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
+            AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _gameObject.GetComponent<Animator>().runtimeAnimatorController = controller;
                 InitStates();
@@ -308,7 +307,7 @@ namespace WarGame
         public virtual void Hit(float deltaHP)
         {
             var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
-            AssetMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab) =>
+            AssetsMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab) =>
             {
                 var hitPrefab = GameObject.Instantiate(prefab);
                 hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);

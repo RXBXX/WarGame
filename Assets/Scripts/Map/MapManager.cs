@@ -60,6 +60,8 @@ namespace WarGame
             {
                 v.Value.Update(deltaTime);
             }
+            foreach (var v in _map)
+                v.Value.Update(deltaTime);
         }
 
         public override bool Dispose()
@@ -801,24 +803,6 @@ namespace WarGame
             }
             finalPath.Reverse();
             return finalPath;
-
-            //    //DebugManager.Instance.Log(11111);
-            //    if (null == targetCell)
-            //        return null;
-            //    DebugManager.Instance.Log("TargetCell:" + targetCell.id);
-            //    var path = FindingPath(initiator, target, Enum.RoleType.Enemy);
-            //    if (null == path || path.Count <= 0)
-            //        return null;
-            //    DebugManager.Instance.Log("TargetPath:" + path.Count);
-            //    //DebugManager.Instance.Log(33333);
-            //    List<string> finalPath = new List<string>();
-            //    foreach (var v in path)
-            //    {
-            //        if (v.g > moveDis)
-            //            break;
-            //        finalPath.Add(v.id);
-            //    }
-            //    return finalPath;
         }
     }
 }
