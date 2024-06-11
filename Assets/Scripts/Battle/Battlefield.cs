@@ -73,8 +73,7 @@ namespace WarGame
                         _bornEffectGOs.Add(go);
                     }));
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index++]);
-                    var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID);
-                    levelRoleData.hexagonID = p;
+                    var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
                     RoleManager.Instance.CreateHero(levelRoleData);
                     _levelData.heros.Add(levelRoleData);
                 }

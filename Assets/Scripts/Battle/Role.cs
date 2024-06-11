@@ -23,7 +23,7 @@ namespace WarGame
 
         protected string _hpHUDKey;
 
-        protected float _moveSpeed = 0.50f, _jumpSpeed = 0.0f;
+        protected float _moveSpeed = 0.20f, _jumpSpeed = 0.0f;
 
         protected List<string> _numberHUDList = new List<string>();
 

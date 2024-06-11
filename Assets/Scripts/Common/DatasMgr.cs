@@ -125,7 +125,7 @@ namespace WarGame
             gd.levelDataDic[levelData.configId] = levelData;
         }
 
-        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID)
+        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID, string bornHexagonID)
         {
             if (type == Enum.RoleType.Hero)
             {
@@ -135,7 +135,7 @@ namespace WarGame
                 {
                     equipDataDic.Add(v.Key, GetEquipmentData(v.Value));
                 }
-                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
+                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, bornHexagonID, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
             }
             else if (type == Enum.RoleType.Enemy)
             {
@@ -148,7 +148,7 @@ namespace WarGame
                     var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
                     equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
                 }
-                return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, Enum.RoleState.Locked, equipDic, null);
+                return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, bornHexagonID, Enum.RoleState.Locked, equipDic, null);
             }
             return null;
         }

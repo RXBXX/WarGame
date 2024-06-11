@@ -4,9 +4,9 @@
     "Record_1": {
       "ID": "Record_1",
       "title": "存档_1",
-      "createTime": 1718007706078,
-      "saveTime": 1718091891606,
-      "duration": 5222248,
+      "createTime": 1718093304418,
+      "saveTime": 1718093387068,
+      "duration": 67357,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -100,16 +100,17 @@
         "10001": {
           "configId": 10001,
           "Stage": 3,
-          "Round": 7,
-          "actionType": 1,
+          "Round": 1,
+          "actionType": 0,
           "heros": [
             {
               "HP": 100.0,
-              "Rage": 100.0,
+              "Rage": 30.0,
               "hexagonID": "2_0_1",
+              "bornHexagonID": "2_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 1,
               "UID": 10001,
               "configId": 10001,
               "level": 1,
@@ -119,11 +120,12 @@
             },
             {
               "HP": 100.0,
-              "Rage": 100.0,
+              "Rage": 30.0,
               "hexagonID": "4_0_1",
+              "bornHexagonID": "4_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 1,
               "UID": 10002,
               "configId": 10002,
               "level": 1,
@@ -133,11 +135,12 @@
             },
             {
               "HP": 100.0,
-              "Rage": 100.0,
+              "Rage": 30.0,
               "hexagonID": "5_0_0",
+              "bornHexagonID": "5_0_0",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 1,
               "UID": 10003,
               "configId": 10003,
               "level": 1,
@@ -151,6 +154,7 @@
               "HP": 300.0,
               "Rage": 0.0,
               "hexagonID": "1_0_11",
+              "bornHexagonID": "1_0_11",
               "buffs": [],
               "equipDataDic": {
                 "Right": {
@@ -158,7 +162,7 @@
                   "configId": 10011
                 }
               },
-              "state": 1,
+              "state": 0,
               "UID": 20002,
               "configId": 20002,
               "level": 5,

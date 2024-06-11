@@ -8,13 +8,11 @@ namespace WarGame
     public class Enemy : Role
     {
         private int _stage;
-        private string _bornHexagon;
 
         public Enemy(LevelRoleData data) : base(data)
         {
             _type = Enum.RoleType.Enemy;
             _layer = Enum.Layer.Enemy;
-            _bornHexagon = Hexagon;
         }
 
         protected override void OnCreate(GameObject go)
@@ -76,7 +74,7 @@ namespace WarGame
                 //DebugManager.Instance.Log("MoveDis:" + GetMoveDis());
                 var rdMoveDis = Random.Range(0, GetMoveDis());
                 //DebugManager.Instance.Log("RandomMoveDis:" + rdMoveDis);
-                if (Hexagon == _bornHexagon)
+                if (Hexagon == _data.bornHexagonID)
                 {
                     var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, rdMoveDis, Type);
                     var randomHexagonIndex = Random.Range(0, moveRegion.Count);
@@ -94,7 +92,7 @@ namespace WarGame
                 }
                 else
                 {
-                    var movePath = MapManager.Instance.FindingPath(Hexagon, _bornHexagon, Type);
+                    var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
                     if (null != movePath && movePath.Count > 0)
                     {
                         for (int i = movePath.Count - 1; i > 0; i--)
@@ -156,9 +154,8 @@ namespace WarGame
 
             base.Dispose();
 
-            _data = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, GetNextStage());
+            _data = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, GetNextStage(), hexagon);
             _data.UID = UID;
-            _data.hexagonID = hexagon;
             _stage++;
             DeadFlag = false;
 

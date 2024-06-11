@@ -209,16 +209,19 @@ namespace WarGame
         public float HP;
         public float Rage;
         public string hexagonID;
+        public string bornHexagonID;
         public List<IntFloatPair> buffs = new List<IntFloatPair>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
 
-        public LevelRoleData(int UID, int configId, int level, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, Dictionary<int, int> talentDic) : base(UID, configId, level, talentDic, null)
+        public LevelRoleData(int UID, int configId, int level, string bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, Dictionary<int, int> talentDic) : base(UID, configId, level, talentDic, null)
         {
             this.equipDataDic = equipDataDic;
             this.state = state;
             this.HP = GetAttribute(Enum.AttrType.HP);
             this.Rage = 0;
+            this.bornHexagonID = bornHexagonID;
+            this.hexagonID = bornHexagonID;
         }
 
         public override float GetAttribute(Enum.AttrType attrType)
@@ -291,8 +294,9 @@ namespace WarGame
                 cloneEquipDataDic.Add(v.Key, v.Value.Clone());
             }
 
-            var clone = new LevelRoleData(this.UID, this.configId, this.level, state, cloneEquipDataDic, new Dictionary<int, int>());
+            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, new Dictionary<int, int>());
             clone.hexagonID = hexagonID;
+            clone.bornHexagonID = bornHexagonID;
             clone.HP = HP;
             clone.Rage = Rage;
             clone.state = state;
