@@ -9,7 +9,7 @@ namespace WarGame
         private GameObject _bullet;
         private Vector3 _targetPos;
 
-        public Arrow(EquipmentData data) : base(data)
+        public Arrow(EquipmentData data, Transform spineRoot) : base(data, spineRoot)
         {
            
         }

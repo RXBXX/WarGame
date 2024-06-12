@@ -10,7 +10,7 @@ namespace WarGame
         private GameObject _prefab;
         private Tweener _tweener;
 
-        public Wand(EquipmentData data) : base(data)
+        public Wand(EquipmentData data, Transform spineRoot) : base(data, spineRoot)
         { }
 
         public override void Attack(Vector3 targetPos)

@@ -167,6 +167,7 @@ namespace WarGame
 
             DisposeAction(_battleActionID, true);
 
+            Tool.ClearAppliedProcessingFotOutLine();
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
@@ -210,6 +211,9 @@ namespace WarGame
             DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
+
+            //DebugManager.Instance.Log(CameraMgr.Instance.MainCamera.name);
+            //CameraMgr.Instance.MainCamera.depthTextureMode = DepthTextureMode.Depth;
         }
 
         public void FocusIn(GameObject obj)

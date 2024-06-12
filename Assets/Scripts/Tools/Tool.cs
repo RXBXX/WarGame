@@ -238,6 +238,11 @@ namespace WarGame
             //    DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
         }
 
+        public static void ClearAppliedProcessingFotOutLine()
+        {
+            _appliedProcessingFotOutLine.Clear();
+        }
+
         public static void SetLayer(Transform tran, Enum.Layer layer)
         {
             var childCount = tran.childCount;

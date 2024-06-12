@@ -96,13 +96,12 @@ namespace WarGame
         {
             Wand = 1, //法杖
             Shield = 2, //盾牌
-            Sword = 3, //剑
-            Knife = 4, //刀
-            Bow = 5, //弓
-            Harmer = 6, //锤
-            Axe = 7, //斧
-            BigWeapon = 8, //双手武器
-            Arrow = 9, //箭
+            Sword = 3, //剑、刀
+            BowArrow = 4, //弓箭
+            Harmer = 5, //锤
+            Axe = 6, //斧
+            BigWeapon = 7, //双手武器
+            Spear = 9, //长枪
         }
 
         //装备佩戴方式
@@ -111,7 +110,8 @@ namespace WarGame
         {
             Right = 1, //右手
             Left = 2, //左手
-            BothHand = 3, //双手
+            BothHand = 3, //双手公用
+            RightAndLeft = 4, //左右手
         }
 
         [Serializable]
@@ -262,12 +262,12 @@ namespace WarGame
             Fight_AI_Start = 12,
             Map_Open_Event = 13,
             HUDInstruct_Cancel_Skill = 14,
-            Hero_Wear_Equip = 17,
+            WearEquipS2C = 17,
             Scene_Load_Progress = 18, //更新场景加载进度
             Fight_Show_HP = 20,
             Fight_Close_HP = 21,
             Role_Attr_Change = 22,
-            Hero_Unwear_Equip = 23,
+            UnwearEquipS2C = 23,
             Fight_Action_Over = 24,
             Fight_AI_Move = 25,
             Fight_AI_MoveStart = 26,
@@ -293,6 +293,13 @@ namespace WarGame
             Fight_Show_RoleInfo = 46,
             Fight_Hide_RoleInfo = 47,
             HeroTalentActiveS2C = 10001,
+        }
+
+        //负责与服务器交互的协议，目前服务器是指DatasMgr管理类
+        public enum NetProto
+        {
+            WearEquipS2C = 1, //穿戴装备
+            UnwearEquipS2C = 2, //卸载装备
         }
     }
 }

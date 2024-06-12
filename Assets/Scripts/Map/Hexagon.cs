@@ -128,21 +128,26 @@ namespace WarGame
             switch (type)
             {
                 case Enum.MarkType.Selected:
-                    _gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 20);
+                    //_gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor) + new Vector3(0, 0.1F, 0);
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.white);
+                    //_gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 20);
                     break;
                 case Enum.MarkType.Walkable:
-                    _gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 30);
+                    //_gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor) + new Vector3(0, 0.2F, 0);
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.green);
+                    //_gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 30);
                     //_gameObject.GetComponent<Renderer>().material.color = new Color(92.0f/255.0f, 135.0f / 255.0f, 153.0f / 255.0f);
                     break;
                 case Enum.MarkType.Attackable:
-                    _gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 40);
+                    //_gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor) + new Vector3(0, 0.3F, 0);
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.red);
+                    //_gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 40);
                     //_gameObject.GetComponent<Renderer>().material.color = new Color(226.0f / 255.0f, 186.0f / 255.0f, 42.0f / 255.0f);
                     break;
-                case Enum.MarkType.Target:
-                    _gameObject.GetComponent<Renderer>().material.color = Color.red;
-                    break;
                 default:
-                    _gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 0);
+                    //_gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
+                    _gameObject.GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.black);
+                    //_gameObject.GetComponent<Renderer>().material.SetFloat("_AmbientStrength", 0);
                     break;
             }
         }

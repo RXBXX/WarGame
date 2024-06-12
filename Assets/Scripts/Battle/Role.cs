@@ -154,8 +154,7 @@ namespace WarGame
                 var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
 
                 var equipData = _data.equipDataDic[v.Key];
-                var equip = EquipFactory.Instance.GetEquip(equipData);
-                equip.SetSpinePoint(spinePoint);
+                var equip = EquipFactory.Instance.GetEquip(equipData, _gameObject.transform);
                 _equipDic[equip.GetPlace()] = equip;
             }
         }
@@ -564,11 +563,14 @@ namespace WarGame
                 foreach (var v in _data.equipDataDic)
                 {
                     var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
-                    foreach (var v1 in equipConfig.Buffs)
+                    if (null != equipConfig.Buffs)
                     {
-                        var rd = Random.Range(0, 100);
-                        if (rd < v1.value)
-                            buffs.Add(v1.id);
+                        foreach (var v1 in equipConfig.Buffs)
+                        {
+                            var rd = Random.Range(0, 100);
+                            if (rd < v1.value)
+                                buffs.Add(v1.id);
+                        }
                     }
                 }
             }

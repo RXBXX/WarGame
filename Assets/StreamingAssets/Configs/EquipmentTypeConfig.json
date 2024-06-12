@@ -2,15 +2,23 @@
     {
         "ID": 1,
         "Name": "法杖",
-        "ForcedCombination": 0,
         "Combination": null,
         "Place": 1,
-        "Animator": 5
+        "Animator": 5,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 2,
         "Name": "盾牌",
-        "ForcedCombination": 0,
         "Combination": [
             3,
             4,
@@ -18,82 +26,124 @@
             7
         ],
         "Place": 2,
-        "Animator": 2
+        "Animator": 2,
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 270
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 3,
         "Name": "剑",
-        "ForcedCombination": 0,
         "Combination": [
             2
         ],
         "Place": 1,
-        "Animator": 7
+        "Animator": 7,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 4,
-        "Name": "刀",
-        "ForcedCombination": 0,
-        "Combination": [
-            2
-        ],
-        "Place": 1,
-        "Animator": 7
+        "Name": "弓箭",
+        "Combination": null,
+        "Place": 4,
+        "Animator": 3,
+        "Rotation": {
+            "x": 0,
+            "y": 270,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 90,
+            "z": 90
+        }
     },
     {
         "ID": 5,
-        "Name": "弓箭-弓",
-        "ForcedCombination": 9,
+        "Name": "锤",
         "Combination": [
-            9
+            2
         ],
-        "Place": 2,
-        "Animator": 3
+        "Place": 1,
+        "Animator": 7,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 6,
-        "Name": "锤",
-        "ForcedCombination": 0,
+        "Name": "斧",
         "Combination": [
             2
         ],
         "Place": 1,
-        "Animator": 7
+        "Animator": 7,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 7,
-        "Name": "斧",
-        "ForcedCombination": 0,
-        "Combination": [
-            2
-        ],
-        "Place": 1,
-        "Animator": 7
-    },
-    {
-        "ID": 8,
         "Name": "双手武器",
-        "ForcedCombination": 0,
         "Combination": null,
         "Place": 3,
-        "Animator": 4
+        "Animator": 4,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     {
         "ID": 9,
-        "Name": "弓箭-剑",
-        "ForcedCombination": 5,
-        "Combination": [
-            5
-        ],
-        "Place": 1,
-        "Animator": 3
-    },
-    {
-        "ID": 10,
         "Name": "长枪",
-        "ForcedCombination": 0,
         "Combination": null,
         "Place": 3,
-        "Animator": 6
+        "Animator": 6,
+        "Rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     }
 ]

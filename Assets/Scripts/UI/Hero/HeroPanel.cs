@@ -37,8 +37,8 @@ namespace WarGame.UI
             _name = GetGObjectChild<GTextField>("name");
             GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
+            EventDispatcher.Instance.AddListener(Enum.EventType.WearEquipS2C, OnWearEquip);
+            EventDispatcher.Instance.AddListener(Enum.EventType.UnwearEquipS2C, OnUnwearEquip);
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
@@ -123,7 +123,9 @@ namespace WarGame.UI
                     _rolesGO.Add(uid, hero);
 
                     UpdateEquips(uid);
-                    UpdateAnimator(uid);
+                    UpdateAnimator(uid, ()=> {
+                        Jump(uid, hero, 0);
+                    });
                 });
             }
             else
@@ -135,41 +137,53 @@ namespace WarGame.UI
                 //hero.SetActive(true);
                 Jump(uid, hero, 0);
 
-                UpdateEquips(uid);
-                UpdateAnimator(uid);
+                //UpdateEquips(uid);
+                //UpdateAnimator(uid);
             }
         }
 
         public void UpdateEquips(int uid)
         {
             var roleData = DatasMgr.Instance.GetRoleData(uid);
-            ConfigMgr.Instance.ForeachConfig<EquipPlaceConfig>("EquipPlaceConfig", (config) =>
-             {
-                 var placeConfig = (EquipPlaceConfig)config;
-                 var spinePoint = _rolesGO[uid].transform.Find(placeConfig.SpinePoint);
-                 if (spinePoint.childCount > 0)
-                 {
-                     GameObject.Destroy(spinePoint.GetChild(0).gameObject);
-                 }
-             });
+            //ConfigMgr.Instance.ForeachConfig<EquipPlaceConfig>("EquipPlaceConfig", (config) =>
+            // {
+            //     var placeConfig = (EquipPlaceConfig)config;
+            //     var spinePoint = _rolesGO[uid].transform.Find(placeConfig.SpinePoint);
+            //     if (spinePoint.childCount > 0)
+            //     {
+            //         GameObject.Destroy(spinePoint.GetChild(0).gameObject);
+            //     }
+            // });
 
             foreach (var v in roleData.equipmentDic)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                var spinePoint = _rolesGO[uid].transform.Find(equipData.GetPlaceConfig().SpinePoint);
-
                 var equipConfig = equipData.GetConfig();
+                var placeConfig = equipData.GetPlaceConfig();
                 AssetsMgr.Instance.LoadAssetAsync<GameObject>(equipConfig.Prefab, (GameObject prefab) =>
                 {
                     var weapon = GameObject.Instantiate<GameObject>(prefab);
                     Tool.Instance.ApplyProcessingFotOutLine(weapon);
-                    weapon.transform.SetParent(spinePoint, false);
-                    weapon.transform.localEulerAngles = equipConfig.Rotation;
+                    weapon.transform.SetParent(_rolesGO[uid].transform.Find(placeConfig.SpinePoint), false);
+                    weapon.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
+                    Tool.SetLayer(weapon.transform, Enum.Layer.Display);
                 });
+
+                if (null != equipConfig.VicePrefab)
+                {
+                    AssetsMgr.Instance.LoadAssetAsync<GameObject>(equipConfig.VicePrefab, (GameObject prefab) =>
+                    {
+                        var weapon = GameObject.Instantiate<GameObject>(prefab);
+                        Tool.Instance.ApplyProcessingFotOutLine(weapon);
+                        weapon.transform.SetParent(_rolesGO[uid].transform.Find(placeConfig.ViceSpinePoint), false);
+                        weapon.transform.localEulerAngles = equipData.GetTypeConfig().ViceRotation;
+                        Tool.SetLayer(weapon.transform, Enum.Layer.Display);
+                    });
+                }
             }
         }
 
-        private void UpdateAnimator(int uid)
+        private void UpdateAnimator(int uid, WGCallback callback = null)
         {
             var roleData = DatasMgr.Instance.GetRoleData(uid);
             int animatorID = 1;
@@ -187,37 +201,62 @@ namespace WarGame.UI
             AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
-                Jump(uid, _rolesGO[uid], 0);
+                if (null != callback)
+                    callback();
             });
         }
 
         private void OnWearEquip(params object[] args)
         {
             var roleUID = _roles[_roleIndex];
-            var ndpu = DatasMgr.Instance.WearEquip(roleUID, (int)args[0], args.Length <= 1 ? 0 : (int)args[1]);
+            var ndpu = (WearEquipNDPU)args[0];
             if (0 != ndpu.ret)
             {
                 TipsMgr.Instance.Add("装备穿戴失败！");
                 return;
             }
 
-            foreach (var v in ndpu.unwearEquips)
-            {
-                var unwearEquipData = DatasMgr.Instance.GetEquipmentData(v);
-                var unwearSpinePoint = _rolesGO[roleUID].transform.Find(unwearEquipData.GetPlaceConfig().SpinePoint);
-                GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
-            }
+            ////销毁英雄身上已经穿戴的装备GO
+            //foreach (var v in ndpu.unwearEquips)
+            //{
+            //    var unwearEquipData = DatasMgr.Instance.GetEquipmentData(v);
+            //    var placeConfig = unwearEquipData.GetPlaceConfig();
+            //    var unwearSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.SpinePoint);
+            //    GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
 
+            //    if (null != placeConfig.ViceSpinePoint)
+            //    {
+            //        unwearSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.ViceSpinePoint);
+            //        GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
+            //    }
+            //}
+
+            //创建装备GO
             foreach (var v in ndpu.wearEquips)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
-                var spinePoint = _rolesGO[roleUID].transform.Find(equipData.GetPlaceConfig().SpinePoint);
-                AssetsMgr.Instance.LoadAssetAsync<GameObject>(equipData.GetConfig().Prefab, (GameObject prefab) =>
+                var config = equipData.GetConfig();
+                var placeConfig = equipData.GetPlaceConfig();
+                var spinePoint = _rolesGO[roleUID].transform.Find(placeConfig.SpinePoint);
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, (GameObject prefab) =>
                 {
                     var equip = GameObject.Instantiate<GameObject>(prefab);
                     equip.transform.SetParent(spinePoint, false);
-                    equip.transform.localEulerAngles = equipData.GetConfig().Rotation;
+                    equip.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
+                    Tool.SetLayer(equip.transform, Enum.Layer.Display);
                 });
+
+                if (null != placeConfig.ViceSpinePoint)
+                {
+                    var viceSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.ViceSpinePoint);
+                    AssetsMgr.Instance.LoadAssetAsync<GameObject>(config.VicePrefab, (GameObject prefab) =>
+                    {
+                        var equip = GameObject.Instantiate<GameObject>(prefab);
+                        equip.transform.SetParent(viceSpinePoint, false);
+                        equip.transform.localEulerAngles = equipData.GetTypeConfig().ViceRotation;
+                        Tool.SetLayer(equip.transform, Enum.Layer.Display);
+                    });
+                }
             }
 
             UpdateAnimator(roleUID);
@@ -226,7 +265,7 @@ namespace WarGame.UI
         private void OnUnwearEquip(params object[] args)
         {
             var roleUID = _roles[_roleIndex];
-            var ndpu = DatasMgr.Instance.UnwearEquip(roleUID, (int)args[0]);
+            var ndpu = (UnwearEquipNDPU)args[0];
             if (0 != ndpu.ret)
             {
                 TipsMgr.Instance.Add("装备卸下失败！");
@@ -338,8 +377,8 @@ namespace WarGame.UI
 
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Wear_Equip, OnWearEquip);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Unwear_Equip, OnUnwearEquip);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.WearEquipS2C, OnWearEquip);
+            EventDispatcher.Instance.RemoveListener(Enum.EventType.UnwearEquipS2C, OnUnwearEquip);
 
             base.Dispose(disposeGCom);
         }

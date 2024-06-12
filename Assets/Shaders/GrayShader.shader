@@ -72,6 +72,7 @@ Shader "Custom/GrayShader"
 				}
 				else
 				{
+					//如果想要取到depth值，需要将摄像机的depthTextureMode = DepthTextureMode.Depth;
 					float depth = tex2D(_CameraDepthTexture, i.uv).r;
 					float exclusionDepthValue = exclusionDepth.x;
 					//float exclusionDepthValue = tex2D(_ExclusionMapDepth, i.vertex.xy / i.vertex.w).r;
@@ -81,7 +82,7 @@ Shader "Custom/GrayShader"
 #endif
 					fixed4 grayCol = dot(col.rgb, float3(0.299, 0.587, 0.114)) * _Brightness;
 					//这里的0.0001F是因为深度值有精度误差
-					if (exclusionDepthValue < 1 - 0.0001F && exclusionDepthValue - 0.0001F <= depth)
+					if (exclusionDepthValue < 1&& exclusionDepthValue <= depth)
 					{
 						fixed4 exCol = tex2D(_ExclusionMap, i.uv);
 						return exCol * exCol.a + grayCol * (1 - exCol.a);

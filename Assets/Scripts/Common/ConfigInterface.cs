@@ -101,8 +101,8 @@ namespace WarGame
         public Enum.EquipType Type;
         public string Icon;
         public string Prefab;
+        public string VicePrefab;
         public string Name;
-        public Vector3 Rotation;
         public List<IntFloatPair> Attrs;
         public List<IntFloatPair> Buffs;
     }
@@ -112,10 +112,11 @@ namespace WarGame
     public class EquipmentTypeConfig : Config
     {
         public string Name;
-        public Enum.EquipType ForcedCombination;
         public Enum.EquipType[] Combination;
         public Enum.EquipPlace Place;
         public int Animator;
+        public Vector3 Rotation;
+        public Vector3 ViceRotation;
     }
 
     [Serializable]
@@ -222,6 +223,7 @@ namespace WarGame
     public class EquipPlaceConfig : Config
     {
         public string SpinePoint;
+        public string ViceSpinePoint;
     }
 
     //对话组表

@@ -34,7 +34,7 @@ namespace WarGame.UI
         private GTextField _attrs;
         private GButton _wearBtn;
 
-        private HeroEquipsPool _forcedEquipComp;
+        //private HeroEquipsPool _forcedEquipComp;
 
         private int _roleUID;
         private Dictionary<Enum.EquipType, bool> _adeptEquipType = new Dictionary<Enum.EquipType, bool>();
@@ -102,7 +102,7 @@ namespace WarGame.UI
         {
             if (!_equipsDic.ContainsKey(item.id))
                 _equipsDic.Add(item.id, new HeroEquipItem((GComponent)item));
-            _equipsDic[item.id].UpdateItem(_equipsData[index].uid, _equipsData[index].adept, _equipsData[index].ownerUID);
+            _equipsDic[item.id].UpdateItem(_equipsData[index].uid, _equipsData[index].adept, _equipsData[index].ownerUID, _roleUID);
         }
 
 
@@ -157,64 +157,63 @@ namespace WarGame.UI
             _attrs.text = attrStr;
         }
 
-        private void OnClickBtn()
-        {
-            var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
-            var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
-            var place = equip.GetPlace();
-            if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
-            {
-                UnwearEquip(equip);
-            }
-            else
-            {
-                WearEquip(equip);
-            }
-        }
+        //private void OnClickBtn()
+        //{
+        //    var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
+        //    var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
+        //    var place = equip.GetPlace();
+        //    if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
+        //    {
+        //        UnwearEquip(equip);
+        //    }
+        //    else
+        //    {
+        //        WearEquip(equip);
+        //    }
+        //}
 
         private void UnwearEquip(EquipmentData equip)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Unwear_Equip, new object[] { _selectedEquip });
+            EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { _selectedEquip });
         }
 
         private void WearEquip(EquipmentData equip)
         {
-            if (0 == equip.GetForcedCombination())
-            {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
-            }
-            else
-            {
-                _forcedEquipComp.Show(_roleUID, _selectedEquip);
+            //if (0 == equip.GetForcedCombination())
+            //{
+            //    EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
+            //}
+            //else
+            //{
+            //    _forcedEquipComp.Show(_roleUID, _selectedEquip);
 
-                //_forcedEquipsData.Clear();
-                //int ownerUID = 0;
-                //bool adept = false;
-                ////Enum.EquipType type;
-                ////EquipmentData equipData;
-                //foreach (var v in _equipsData)
-                //{
-                //    if (equip.GetForcedCombination() == v.type)
-                //    {
-                //        ownerUID = _wearedEquipDic.ContainsKey(v.uid) ? _wearedEquipDic[v.uid] : 0;
-                //        adept = _adeptEquipType.ContainsKey(v.type) ? true : false;
-                //        _forcedEquipsData.Add(new EquipStruct(v.uid, v.type, ownerUID, adept));
-                //    }
-                //}
+            //_forcedEquipsData.Clear();
+            //int ownerUID = 0;
+            //bool adept = false;
+            ////Enum.EquipType type;
+            ////EquipmentData equipData;
+            //foreach (var v in _equipsData)
+            //{
+            //    if (equip.GetForcedCombination() == v.type)
+            //    {
+            //        ownerUID = _wearedEquipDic.ContainsKey(v.uid) ? _wearedEquipDic[v.uid] : 0;
+            //        adept = _adeptEquipType.ContainsKey(v.type) ? true : false;
+            //        _forcedEquipsData.Add(new EquipStruct(v.uid, v.type, ownerUID, adept));
+            //    }
+            //}
 
-                //_forcedEquipList.numItems = _forcedEquipsData.Count;
-                //_forcedEquipList.visible = true;
-            }
+            //_forcedEquipList.numItems = _forcedEquipsData.Count;
+            //_forcedEquipList.visible = true;
         }
-
-        //private void OnTouchBegin(EventContext context)
-        //{
-        //    var touchTarget = Stage.inst.touchTarget;
-        //    while (null != touchTarget && touchTarget != _forcedEquipList.displayObject)
-        //    {
-        //        touchTarget = touchTarget.parent;
-        //    }
-        //    _forcedEquipList.visible = false;
-        //}
     }
+
+    //private void OnTouchBegin(EventContext context)
+    //{
+    //    var touchTarget = Stage.inst.touchTarget;
+    //    while (null != touchTarget && touchTarget != _forcedEquipList.displayObject)
+    //    {
+    //        touchTarget = touchTarget.parent;
+    //    }
+    //    _forcedEquipList.visible = false;
+    //}
 }

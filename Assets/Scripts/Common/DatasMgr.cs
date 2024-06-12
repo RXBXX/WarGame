@@ -187,7 +187,7 @@ namespace WarGame
         /// <summary>
         /// 卸掉装备
         /// </summary>
-        public UnwearEquipNDPU UnwearEquip(int roleUID, int equipUID)
+        public void UnwearEquip(int roleUID, int equipUID)
         {
             try
             {
@@ -198,21 +198,11 @@ namespace WarGame
                 roleData.equipmentDic.Remove(equipData.GetPlace());
                 unwearEquips.Add(equipUID);
 
-                var forcedCom = equipData.GetForcedCombination();
-                if (0 != forcedCom)
-                {
-                    var forcedComPlace = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)forcedCom).Place;
-                    if (roleData.equipmentDic.ContainsKey(forcedComPlace))
-                    {
-                        unwearEquips.Add(roleData.equipmentDic[forcedComPlace]);
-                        roleData.equipmentDic.Remove(forcedComPlace);
-                    }
-                }
-                return new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips) });
             }
             catch
             {
-                return new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
             }
         }
 
@@ -220,7 +210,7 @@ namespace WarGame
         /// <summary>
         /// 穿戴装备
         /// </summary>
-        public WearEquipNDPU WearEquip(int roleUID, int equipUID, int forcedComEquipUID)
+        public void WearEquip(int roleUID, int equipUID)
         {
             try
             {
@@ -230,6 +220,7 @@ namespace WarGame
                 var roleData = GetRoleData(roleUID);
                 var equipData = GetEquipmentData(equipUID);
 
+                //卸载英雄身上与要穿带的装备不兼容的其他装备
                 var combinationDic = new Dictionary<Enum.EquipType, bool>();
                 var combinations = equipData.GetCombination();
                 if (null != combinations)
@@ -247,10 +238,10 @@ namespace WarGame
                         unwearEquips.Add(v.Value);
                     }
                 }
-
                 foreach (var v in unwearEquips)
                     UnwearEquip(roleUID, v);
 
+                //从装备之前的佩戴者身上卸载要穿带的装备
                 var allRoles = GetAllRoles();
                 foreach (var v in allRoles)
                 {
@@ -267,31 +258,12 @@ namespace WarGame
                 wearEquips.Add(equipUID);
                 roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
 
-                if (0 != forcedComEquipUID)
-                {
-                    foreach (var v in allRoles)
-                    {
-                        foreach (var v1 in GetRoleData(v).equipmentDic)
-                        {
-                            if (v1.Value == forcedComEquipUID)
-                            {
-                                UnwearEquip(v, forcedComEquipUID);
-                                break;
-                            }
-                        }
-                    }
-
-                    wearEquips.Add(forcedComEquipUID);
-                    var forcedComEquip = GetEquipmentData(forcedComEquipUID);
-                    roleData.equipmentDic.Add(forcedComEquip.GetPlace(), forcedComEquipUID);
-                }
-
-                return new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips, unwearEquips);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips)});
             }
             catch (Exception e)
             {
                 DebugManager.Instance.Log(e);
-                return new WearEquipNDPU(Enum.ErrorCode.Error, 0, null, null);
+                EventDispatcher.Instance.PostEvent(Enum.EventType.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
             }
         }
 

@@ -15,7 +15,7 @@ Shader "Custom/ToonShader"
 		_HighLight("HighLight", Range(0,1)) = 1
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
 		_Steps("Steps of toon",range(0,9)) = 3
-		_AmbientStrength("Outline", Range(0,20)) = 10
+		_AmbientStrength("Outline", Range(0,10)) = 10
 	}
 	SubShader
 	{

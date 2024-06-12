@@ -50,14 +50,30 @@ namespace WarGame
             return GetTypeConfig().Combination;
         }
 
-        public Enum.EquipType GetForcedCombination()
-        {
-            return GetTypeConfig().ForcedCombination;
-        }
-
         public List<IntFloatPair> GetAttrs()
         {
             return GetConfig().Attrs;
+        }
+
+        public virtual float GetAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
+
+            //英雄属性
+            var attrs = GetConfig().Attrs;
+            foreach (var v in attrs)
+            {
+                if ((Enum.AttrType)v.id == attrType)
+                {
+                    value += v.value;
+                    break;
+                }
+            }
+
+            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+                return value / 100.0f;
+            else
+                return value;
         }
 
         public Enum.EquipPlace GetPlace()
@@ -227,6 +243,11 @@ namespace WarGame
         public override float GetAttribute(Enum.AttrType attrType)
         {
             var value = base.GetAttribute(attrType);
+
+            foreach (var v in equipDataDic)
+            {
+                value += v.Value.GetAttribute(attrType);
+            }
 
             //需要找到所有临时性buff计算
             foreach (var v in buffs)
@@ -465,19 +486,23 @@ namespace WarGame
             rd.AddHero(10003, 1);
             rd.AddHero(10004, 1);
 
-            rd.AddEquip(10001);
-            rd.AddEquip(10002);
-            rd.AddEquip(10003);
-            rd.AddEquip(10004);
-            rd.AddEquip(10005);
-            rd.AddEquip(10006);
-            rd.AddEquip(10007);
-            rd.AddEquip(10008);
-            rd.AddEquip(10009);
-            rd.AddEquip(10010);
-            rd.AddEquip(10011);
-            rd.AddEquip(10012);
-            rd.AddEquip(10013);
+            ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
+            {
+                rd.AddEquip(config.ID);
+            });
+            //rd.AddEquip(10001);
+            //rd.AddEquip(10002);
+            //rd.AddEquip(10003);
+            //rd.AddEquip(10004);
+            //rd.AddEquip(10005);
+            //rd.AddEquip(10006);
+            //rd.AddEquip(10007);
+            //rd.AddEquip(10008);
+            //rd.AddEquip(10009);
+            //rd.AddEquip(10010);
+            //rd.AddEquip(10011);
+            //rd.AddEquip(10012);
+            //rd.AddEquip(10013);
 
             _customRecordDic.Add(rd.ID, rd);
             _usingDataID = rd.ID;
@@ -556,14 +581,12 @@ namespace WarGame
         public Enum.ErrorCode ret;
         public int roleUID;
         public List<int> wearEquips;
-        public List<int> unwearEquips;
 
-        public WearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> wearEquips, List<int> unwearEquips)
+        public WearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> wearEquips)
         {
             this.ret = ret;
             this.roleUID = roleUID;
             this.wearEquips = wearEquips;
-            this.unwearEquips = unwearEquips;
         }
     }
     //endregion -------------------------------------------------------------------------------------------------

@@ -280,7 +280,6 @@
     <Compile Include="Assets\Scripts\Battle\LocatingArrow.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\AsyncCreationHelper.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroEquipsPool.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GProgressBar.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\EaseType.cs" />
     <Compile Include="Assets\Scripts\Tools\MapTool.cs" />
@@ -428,6 +427,7 @@
     <None Include="Assets\Test\NewSurfaceShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
     <None Include="Assets\Shaders\HexagonToonShader.shader" />
+    <None Include="Assets\Test\FogShader.shader" />
     <None Include="Assets\Shaders\GlowShader.shader" />
     <None Include="Assets\RPGTinyHeroWavePolyart\HowToTestHDRP_URP.txt" />
     <None Include="Assets\Shaders\WaterShader.shader" />
@@ -452,6 +452,7 @@
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Shaders\WhetherShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
+    <None Include="Assets\Test\BillboardShader.shader" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
     <None Include="Assets\Test\InstancedShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
