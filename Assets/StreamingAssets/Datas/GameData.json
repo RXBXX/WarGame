@@ -5,8 +5,8 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1718207612801,
-      "saveTime": 1718217699562,
-      "duration": 2520210,
+      "saveTime": 1718298610188,
+      "duration": 4410408,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -33,7 +33,9 @@
           "UID": 10003,
           "configId": 10003,
           "level": 1,
-          "equipmentDic": {},
+          "equipmentDic": {
+            "Right": 30025
+          },
           "skillDic": {},
           "talentDic": {}
         },
@@ -307,7 +309,7 @@
                   "configId": 10052
                 }
               },
-              "state": 7,
+              "state": 1,
               "UID": 10001,
               "configId": 10001,
               "level": 1,
@@ -316,16 +318,11 @@
               "talentDic": {}
             },
             {
-              "HP": 20.0,
+              "HP": 100.0,
               "Rage": 90.0,
-              "hexagonID": "2_0_10",
+              "hexagonID": "4_0_1",
               "bornHexagonID": "4_0_1",
-              "buffs": [
-                {
-                  "id": 1,
-                  "value": 1.0
-                }
-              ],
+              "buffs": [],
               "equipDataDic": {
                 "BothHand": {
                   "UID": 30052,
@@ -341,12 +338,22 @@
               "talentDic": {}
             },
             {
-              "HP": 100.0,
+              "HP": 36.0,
               "Rage": 90.0,
-              "hexagonID": "5_0_0",
+              "hexagonID": "2_0_10",
               "bornHexagonID": "5_0_0",
-              "buffs": [],
-              "equipDataDic": {},
+              "buffs": [
+                {
+                  "id": 1,
+                  "value": 1.0
+                }
+              ],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30025,
+                  "configId": 10030
+                }
+              },
               "state": 1,
               "UID": 10003,
               "configId": 10003,
@@ -358,7 +365,7 @@
           ],
           "enemys": [
             {
-              "HP": 84.0,
+              "HP": 156.0,
               "Rage": 0.0,
               "hexagonID": "1_0_11",
               "bornHexagonID": "1_0_11",

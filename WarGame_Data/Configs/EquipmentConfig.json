@@ -22,7 +22,9 @@
                 "value": 102
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10004,
@@ -47,7 +49,9 @@
                 "value": 103
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10005,
@@ -72,7 +76,9 @@
                 "value": 104
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10006,
@@ -101,14 +107,16 @@
                 "value": 105
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10007,
         "Type": 4,
         "Icon": "UI/Icons/Bow_02",
         "Prefab": "Assets/Prefabs/Equipments/Bow_02.prefab",
-        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_02.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "Name": "弓2",
         "Attrs": [
             {
@@ -130,7 +138,9 @@
                 "value": 106
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10008,
@@ -155,7 +165,9 @@
                 "value": 107
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10009,
@@ -180,7 +192,9 @@
                 "value": 108
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10010,
@@ -205,7 +219,9 @@
                 "value": 109
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10011,
@@ -230,7 +246,9 @@
                 "value": 110
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10012,
@@ -259,7 +277,9 @@
                 "value": 111
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10013,
@@ -288,7 +308,9 @@
                 "value": 112
             }
         ],
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10017,
@@ -312,7 +334,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10018,
@@ -336,7 +360,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10019,
@@ -360,7 +386,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10020,
@@ -380,7 +408,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10021,
@@ -400,7 +430,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10022,
@@ -420,7 +452,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10023,
@@ -440,7 +474,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10024,
@@ -460,7 +496,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10025,
@@ -484,7 +522,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10026,
@@ -508,7 +548,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10027,
@@ -532,7 +574,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10028,
@@ -556,7 +600,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10029,
@@ -576,7 +622,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10030,
@@ -600,7 +648,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10031,
@@ -624,7 +674,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10032,
@@ -644,7 +696,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10033,
@@ -664,7 +718,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10034,
@@ -684,7 +740,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10035,
@@ -708,7 +766,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10036,
@@ -732,7 +792,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10037,
@@ -752,7 +814,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10038,
@@ -772,7 +836,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10039,
@@ -792,7 +858,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10040,
@@ -812,7 +880,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10041,
@@ -836,7 +906,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10042,
@@ -860,7 +932,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10043,
@@ -884,7 +958,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10044,
@@ -904,7 +980,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10045,
@@ -924,7 +1002,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10046,
@@ -944,7 +1024,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10047,
@@ -968,7 +1050,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10048,
@@ -992,7 +1076,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10049,
@@ -1012,7 +1098,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10050,
@@ -1032,7 +1120,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10051,
@@ -1052,7 +1142,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10052,
@@ -1072,7 +1164,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10053,
@@ -1096,7 +1190,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10054,
@@ -1120,7 +1216,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10055,
@@ -1144,7 +1242,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10056,
@@ -1168,7 +1268,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10057,
@@ -1188,7 +1290,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10058,
@@ -1208,7 +1312,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10059,
@@ -1228,7 +1334,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10060,
@@ -1252,7 +1360,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10061,
@@ -1276,7 +1386,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10062,
@@ -1296,7 +1408,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 4.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10063,
@@ -1316,7 +1430,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 5.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10064,
@@ -1340,7 +1456,9 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 6.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
         "ID": 10065,
@@ -1364,6 +1482,8 @@
             }
         ],
         "Buffs": null,
-        "Skill": null
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 7.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     }
 ]

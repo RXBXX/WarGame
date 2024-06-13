@@ -294,14 +294,17 @@ namespace WarGame
             }
         }
 
-        public virtual void Hit(float deltaHP)
+        public virtual void Hit(float deltaHP, string hitEffect)
         {
-            var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
-            AssetsMgr.Instance.LoadAssetAsync<GameObject>(prefabPath, (GameObject prefab) =>
+            if (null != hitEffect)
             {
-                var hitPrefab = GameObject.Instantiate(prefab);
-                hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
-            });
+                //var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(hitEffect, (GameObject prefab) =>
+                {
+                    var hitPrefab = GameObject.Instantiate(prefab);
+                    hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
+                });
+            }
 
             EnterState("Attacked");
 
@@ -716,6 +719,16 @@ namespace WarGame
         public virtual void NextStage()
         {
 
+        }
+
+        public string GetAttackEffect()
+        {
+            foreach (var v in _equipDic)
+            {
+                if (null != v.Value.GetAttackEffect())
+                    return v.Value.GetAttackEffect();
+            }
+            return null;
         }
 
         public override bool Dispose()

@@ -158,6 +158,7 @@ namespace WarGame
             base.ChangeToMapSpace();
 
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
+            _gameObject.transform.rotation = Quaternion.identity;
         }
 
         public Vector3 GetPosition()
@@ -171,6 +172,11 @@ namespace WarGame
             if (IsUseDrawMeshInstanced())
                 return 1;
             return base.GetLoadingProgress();
+        }
+
+        public void SetForward(Vector3 forward)
+        {
+            _gameObject.transform.forward = forward;
         }
 
         public override bool Dispose()

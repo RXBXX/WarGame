@@ -105,6 +105,9 @@ namespace WarGame
         public string Name;
         public List<IntFloatPair> Attrs;
         public List<IntFloatPair> Buffs;
+        public string Effect;
+        public string Bullet;
+        public string HitEffect;
     }
 
     //装备类型表

@@ -41,7 +41,7 @@ namespace WarGame
                 roles[i].SetHPVisible(false);
             }
             LockCamera();
-            CameraMgr.Instance.OpenGray();
+            CameraMgr.Instance.OpenBattleArena();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
             var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
@@ -120,11 +120,13 @@ namespace WarGame
 
             if (targetID == _targetID)
             {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                var hitEffect = initiator.GetAttackEffect();
                 foreach (var v in _targets)
                 {
                     if (v != _targetID)
                     {
-                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F);
+                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect);
                     }
                 }
             }
@@ -189,7 +191,7 @@ namespace WarGame
                 else
                 {
                     _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(_hurt);
+                    target.Hit(_hurt, initiator.GetAttackEffect());
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }

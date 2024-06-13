@@ -407,6 +407,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventBridge.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\ParticleAddShader.shader" />
     <None Include="Assets\Shaders\ChainShader.shader" />
     <None Include="Assets\Shaders\OutlineProcessing.shader" />
     <None Include="Assets\Shaders\HexagonInstancedToonShader.shader" />

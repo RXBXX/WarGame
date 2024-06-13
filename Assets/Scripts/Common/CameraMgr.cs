@@ -164,6 +164,11 @@ namespace WarGame
             return MainCamera.transform.position;
         }
 
+        public Vector3 GetMainCamRight()
+        {
+            return MainCamera.transform.right;
+        }
+
         public Vector3 GetMainCamForward()
         {
             return MainCamera.transform.forward;
@@ -265,6 +270,19 @@ namespace WarGame
         public void UnlockTarget()
         {
             _isLockingTarget = false;
+        }
+
+        public void OpenBattleArena()
+        {
+            MainCamera.transform.position = new Vector3(100, 100, 100);
+            OpenGray();
+        }
+
+        public void CloseBattleArena()
+        {
+            var target = RoleManager.Instance.GetRole(_targetID);
+            MainCamera.transform.position = target.GetPosition() - MainCamera.transform.forward * _cameraDis;
+            CloseGray();
         }
 
         public override bool Dispose()

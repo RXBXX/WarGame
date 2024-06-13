@@ -11,16 +11,15 @@ Shader "Custom/ParticleShader"
 			Tags
 			{
 				"Queue" = "Transparent"
-				"IgnoreProjector" = "True"
 				"RenderType" = "Transparent"
-				"PreviewType" = "Plane"
+				//"PreviewType" = "Plane"
 			}
 
-			Blend One One // 设置混合模式
 			ColorMask RGBA
 			Cull Off
 			Lighting Off
-			//ZWrite Off
+			Blend SrcAlpha OneMinusSrcAlpha
+			ZWrite On
 
 			Pass
 			{
@@ -57,7 +56,9 @@ Shader "Custom/ParticleShader"
 				fixed4 frag(v2f i) : SV_Target
 				{
 					fixed4 col = tex2D(_MainTex, i.uv);
-				    col.rgb *= _Color.rgb;
+				    //if (col.r == 0 && col.g == 0 && col.b == 0)
+					   // col.a = 0;
+					col.rgb *= _Color.rgb;
 					return col;
 				}
 				ENDCG

@@ -7,11 +7,15 @@ namespace WarGame
     public class Equip : MapObject
     {
         protected EquipmentData _data;
-        //protected Transform _spinePoint;
         protected Trail _trail;
         protected Transform _spineRoot;
         private int _viceAssetID;
-        protected GameObject _viceGameObject;
+        protected GameObject _viceGO;
+        protected int _effectAssetID;
+        protected GameObject _effectGO;
+        protected int _bulletAssetID;
+        protected GameObject _bulletGO;
+        protected Vector3 _targetPos;
 
         public Equip(EquipmentData data, Transform spineRoot)
         {
@@ -44,14 +48,14 @@ namespace WarGame
 
         protected virtual void OnViceCreate(GameObject prefab)
         {
-            _viceGameObject = GameObject.Instantiate(prefab);
+            _viceGO = GameObject.Instantiate(prefab);
             var equipPlaceConfig = GetPlaceConfig();
             var spinePoint = _spineRoot.transform.Find(equipPlaceConfig.ViceSpinePoint);
-            _viceGameObject.transform.SetParent(spinePoint, false);
-            _viceGameObject.transform.localEulerAngles = GetTypeConfig().ViceRotation;
-            Tool.Instance.ApplyProcessingFotOutLine(_viceGameObject);
+            _viceGO.transform.SetParent(spinePoint, false);
+            _viceGO.transform.localEulerAngles = GetTypeConfig().ViceRotation;
+            Tool.Instance.ApplyProcessingFotOutLine(_viceGO);
 
-            if (_viceGameObject.TryGetComponent(out _trail))
+            if (_viceGO.TryGetComponent(out _trail))
             {
                 _trail.enabled = false;
             }
@@ -59,18 +63,33 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            if (null != _viceGameObject)
+            if (null != _viceGO)
             {
-                GameObject.Destroy(_viceGameObject);
+                GameObject.Destroy(_viceGO);
                 _gameObject = null;
             }
             AssetsMgr.Instance.ReleaseAsset(_viceAssetID);
+
+            if (null != _effectGO)
+            {
+                GameObject.Destroy(_effectGO);
+                _effectGO = null;
+            }
+            AssetsMgr.Instance.ReleaseAsset(_effectAssetID);
+
+            if (null != _bulletGO)
+            {
+                GameObject.Destroy(_bulletGO);
+                _bulletGO = null;
+            }
+            AssetsMgr.Instance.ReleaseAsset(_bulletAssetID);
+
             return base.Dispose();
         }
 
         public virtual void Attack(Vector3 targetPos)
         {
-
+            _targetPos = targetPos;
         }
 
         public EquipmentConfig GetConfig()
@@ -93,12 +112,6 @@ namespace WarGame
             return GetTypeConfig().Place;
         }
 
-        //public virtual void Attack()
-        //{ }
-
-        //public virtual void AttackEnd()
-        //{ }
-
         protected virtual void EffectTake()
         {
             if (null != _trail)
@@ -109,13 +122,34 @@ namespace WarGame
         {
             if (null != _trail)
                 _trail.enabled = false;
+
+            if (null != _effectGO)
+            {
+                GameObject.Destroy(_effectGO);
+                _effectGO = null;
+            }
+            AssetsMgr.Instance.ReleaseAsset(_effectAssetID);
         }
 
         protected virtual void BulletTake()
-        { }
+        { 
+        
+        }
 
         protected virtual void BulletEnd()
-        { }
+        {
+            if (null != _bulletGO)
+            {
+                GameObject.Destroy(_bulletGO);
+                _bulletGO = null;
+            }
+            AssetsMgr.Instance.ReleaseAsset(_bulletAssetID);
+        }
+
+        public string GetAttackEffect()
+        {
+            return GetConfig().HitEffect;
+        }
 
         public virtual void HandleEvent(string firstName, string secondName)
         {

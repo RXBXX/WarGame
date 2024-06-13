@@ -7,7 +7,6 @@ namespace WarGame
 {
     public class Wand : Equip
     {
-        private GameObject _prefab;
         private Tweener _tweener;
 
         public Wand(EquipmentData data, Transform spineRoot) : base(data, spineRoot)
@@ -15,18 +14,50 @@ namespace WarGame
 
         public override void Attack(Vector3 targetPos)
         {
-            AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/WandEffect.prefab", (GameObject prefab) =>{
-                _prefab = GameObject.Instantiate(_prefab);
-                var spinePoint = _gameObject.transform.Find("spinePoint");
-                _prefab.transform.position = spinePoint.position;
-                _tweener = _prefab.transform.DOMove(targetPos, 0.5f);
-                _tweener.OnComplete(() => { OnAttackOver(); });
-            });
+
         }
 
         public void OnAttackOver()
         {
-            AssetsMgr.Instance.Destroy(_prefab);
+        }
+
+        protected override void EffectTake()
+        {
+            _effectAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Effect, (prefab) =>
+            {
+                _effectGO = GameObject.Instantiate(prefab);
+                _effectGO.transform.position = _gameObject.transform.Find("spinePoint").position;
+            });
+        }
+
+        protected override void EffectEnd()
+        {
+            if (null != _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+            base.EffectEnd();
+        }
+
+        protected override void BulletTake()
+        {
+            _bulletAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Bullet, (GameObject prefab) => {
+                _bulletGO = GameObject.Instantiate(prefab);
+                var spinePoint = _gameObject.transform.Find("spinePoint");
+                _bulletGO.transform.position = _gameObject.transform.Find("spinePoint").position;
+                _tweener = _bulletGO.transform.DOMove(_targetPos, 0.5f);
+            });
+        }
+
+        protected override void BulletEnd()
+        {
+            if (null != _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+            base.BulletEnd();
         }
 
         public override bool Dispose()
@@ -36,8 +67,8 @@ namespace WarGame
                 _tweener.Kill();
                 _tweener = null;
             }
-            AssetsMgr.Instance.Destroy(_prefab);
-            return true;
+
+            return base.Dispose();
         }
     }
 }

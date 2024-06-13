@@ -7,8 +7,7 @@ namespace WarGame
     {
         private Animator _bowAnimator;
         private Animator _arrowAnimator;
-        private GameObject _bullet;
-        private Vector3 _targetPos;
+        private Tween _tweener;
 
         public Bow(EquipmentData data, Transform spineRoot) : base(data, spineRoot)
         { }
@@ -22,12 +21,12 @@ namespace WarGame
         protected override void OnViceCreate(GameObject prefab)
         {
             base.OnViceCreate(prefab);
-            _arrowAnimator = _viceGameObject.GetComponent<Animator>();
+            _arrowAnimator = _viceGO.GetComponent<Animator>();
         }
 
         public override void Attack(Vector3 targetPos)
         {
-            DebugManager.Instance.Log("Attack");
+            //DebugManager.Instance.Log("Attack");
             _targetPos = targetPos;
             if (null != _bowAnimator)
                 _bowAnimator.Play("Attack");
@@ -37,29 +36,33 @@ namespace WarGame
 
         protected override void BulletTake()
         {
-            DebugManager.Instance.Log("EffectTake");
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_arrowAnimator, "Attack01_Combo0102_Arrow");
             var duration = timeDic["Bullet_End"] - timeDic["Bullet_Take"];
 
-            _bullet = GameObject.Instantiate(_viceGameObject);
-            Trail trail;
-            if (_bullet.TryGetComponent<Trail>(out trail))
+            _bulletAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Bullet, (prefab) =>
             {
-                trail.enabled = true;
-            }
-            _bullet.transform.position = _gameObject.transform.position;
-            var forward = _targetPos - _gameObject.transform.position;
-            _bullet.transform.forward = forward;
-            var tp = _targetPos - forward.normalized;
-            _bullet.transform.DOMove(tp, duration);
+                _bulletGO = GameObject.Instantiate(prefab);
+                Trail trail;
+                if (_bulletGO.TryGetComponent<Trail>(out trail))
+                {
+                    trail.enabled = true;
+                }
+                _bulletGO.transform.position = _gameObject.transform.position;
+                var forward = _targetPos - _gameObject.transform.position;
+                _bulletGO.transform.forward = forward;
+                var tp = _targetPos - forward.normalized;
+                _tweener = _bulletGO.transform.DOMove(tp, duration);
+            });
         }
 
         protected override void BulletEnd()
         {
-            DebugManager.Instance.Log("EffectEnd");
-            DOTween.Kill(_bullet.transform);
-            GameObject.Destroy(_bullet);
-            _bullet = null;
+            if (null != _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+            base.BulletEnd();
         }
     }
 }

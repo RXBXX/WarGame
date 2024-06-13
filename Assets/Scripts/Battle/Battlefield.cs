@@ -102,12 +102,14 @@ namespace WarGame
 
                 foreach (var v in _levelData.heros)
                 {
-                    RoleManager.Instance.CreateHero(v);
+                    if (v.HP > 0)
+                        RoleManager.Instance.CreateHero(v);
                 }
 
                 foreach (var v in _levelData.enemys)
                 {
-                    RoleManager.Instance.CreateEnemy(v);
+                    if (v.HP > 0)
+                        RoleManager.Instance.CreateEnemy(v);
                 }
             }
 
@@ -373,7 +375,7 @@ namespace WarGame
             return ++_battleActionID;
         }
 
-        private void DisposeAction(int actionID, bool save= false)
+        private void DisposeAction(int actionID, bool save = false)
         {
             if (null == _action)
                 return;

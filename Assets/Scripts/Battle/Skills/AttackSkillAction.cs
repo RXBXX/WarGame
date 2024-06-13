@@ -89,7 +89,7 @@ namespace WarGame
                 else
                 {
                     var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(hurt);
+                    target.Hit(hurt, initiator.GetAttackEffect());
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }
@@ -179,29 +179,35 @@ namespace WarGame
             {
                 roles[i].SetHPVisible(false);
             }
+
             LockCamera();
-            CameraMgr.Instance.OpenGray();
-
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
-            var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
-            var deltaVec = arenaCenter - pathCenter;
-
+            CameraMgr.Instance.OpenBattleArena();
             var moveDuration = 0.2F;
 
+            var camForward = CameraMgr.Instance.GetMainCamForward();
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + camForward * 10;
+            var initiatorToTargetDis = Vector3.Distance(target.GetPosition(), initiator.GetPosition());
+            var rightDir = CameraMgr.Instance.GetMainCamRight();
+            var initiatorPos = arenaCenter - rightDir * initiatorToTargetDis / 2;
+            var targetPos = arenaCenter + rightDir * initiatorToTargetDis / 2;
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
-            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            hexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
+            hexagon.ChangeToArenaSpace(arenaCenter - rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
             _arenaObjects.Add(hexagon);
 
-            initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
+            initiator.SetForward(targetPos - initiatorPos);
+            initiator.ChangeToArenaSpace(initiatorPos, moveDuration);
             _arenaObjects.Add(initiator);
 
             yield return new WaitForSeconds(moveDuration);
 
             hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
-            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            hexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
+            hexagon.ChangeToArenaSpace(arenaCenter + rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
             _arenaObjects.Add(hexagon);
 
-            target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+            target.SetForward(initiatorPos - targetPos);
+            target.ChangeToArenaSpace(targetPos, moveDuration);
             _arenaObjects.Add(target);
             yield return new WaitForSeconds(moveDuration);
 
@@ -225,7 +231,7 @@ namespace WarGame
                 roles[i].SetHPVisible(true);
             }
 
-            CameraMgr.Instance.CloseGray();
+            CameraMgr.Instance.CloseBattleArena();
             UnlockCamera();
         }
 
