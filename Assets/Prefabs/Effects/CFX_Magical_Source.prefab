@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8916099616776811689}
   - component: {fileID: 556589385808334152}
   - component: {fileID: 7724831104256930309}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4546,7 +4546,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 503ba37627ac18c4ebe9bbe73d6ea9ad, type: 2}
+  - {fileID: 2100000, guid: 565ce9a2edfd2d04888039fff91b29f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4611,7 +4611,7 @@ GameObject:
   - component: {fileID: 2007625471588314890}
   - component: {fileID: 3149058033595498833}
   - component: {fileID: 2452903849201723450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX_Magical_Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4626,15 +4626,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4118314074988664828}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0035028213, y: 0.0034784519, z: 0.0034784519, w: 0.9999818}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8916099616776811689}
   - {fileID: 3771502271062135424}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.4, y: 0.4, z: 0.4}
 --- !u!198 &2007625471588314890
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9310,7 +9310,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7cd73ef8e5a31a244a672ae32c0f6ddb, type: 2}
+  - {fileID: 2100000, guid: 0e39f1f40d9a6e04695c51f6974da3b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9370,7 +9370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4118314074988664828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
   m_Name: 
@@ -9387,7 +9387,7 @@ GameObject:
   - component: {fileID: 3771502271062135424}
   - component: {fileID: 1266970828907556036}
   - component: {fileID: 1801539434850431968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14057,7 +14057,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fdeac39b28b45742b821b6c8acff998, type: 2}
+  - {fileID: 2100000, guid: 276a20f62d9a4c04d86a765d1476126c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

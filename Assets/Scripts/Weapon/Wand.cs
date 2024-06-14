@@ -23,10 +23,12 @@ namespace WarGame
 
         protected override void EffectTake()
         {
+            DebugManager.Instance.Log(GetConfig().Effect);
             _effectAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Effect, (prefab) =>
             {
                 _effectGO = GameObject.Instantiate(prefab);
-                _effectGO.transform.position = _gameObject.transform.Find("spinePoint").position;
+                _effectGO.transform.SetParent(_gameObject.transform.Find("spinePoint"));
+                _effectGO.transform.localPosition = Vector3.zero;
             });
         }
 

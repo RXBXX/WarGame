@@ -9,7 +9,7 @@ namespace WarGame
 
     public delegate void WGArgsCallback(params object[] args);
 
-    public delegate void WGConfigCallback(Config config);
+    public delegate void WGConfigCallback<T>(T config) where T:Config;
 
     public delegate void WGCallback();
 

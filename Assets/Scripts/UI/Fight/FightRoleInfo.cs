@@ -39,7 +39,7 @@ namespace WarGame.UI
                 if (value > 0)
                 {
                     var valueStr = string.Format("{0}  +{1}", value, value * AttributeMgr.Instance.GetElementAdd(roleID));
-                    _attrsData.Add(new StringStringPair(((AttrConfig)config).Name, valueStr));
+                    _attrsData.Add(new StringStringPair(config.Name, valueStr));
                 }
             });
 

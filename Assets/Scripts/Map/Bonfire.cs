@@ -37,6 +37,14 @@ namespace WarGame
 
             CreateGO();
         }
+
+        public override bool Dispose()
+        {
+            DOTween.Kill(_pointLight.transform);
+
+            return base.Dispose();
+        }
+
         protected override void CreateGO()
         {
             var config = ConfigMgr.Instance.GetConfig<BonfireConfig>("BonfireConfig", _configId);

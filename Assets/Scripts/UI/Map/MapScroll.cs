@@ -9,6 +9,7 @@ namespace WarGame.UI
     {
         private int _lod = 0;
         private List<MapMark> _levels = new List<MapMark>();
+        private GTweener _tweener = null;
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -65,14 +66,14 @@ namespace WarGame.UI
             _gCom.xy = pos;
         }
 
-        public void Move(Vector2 pos)
+        public void Move(Vector2 deltaPos)
         {
-            pos.x = -pos.x;
-            pos = _gCom.xy - pos;
-            if (IsMoveCrossBorder(ref pos, _gCom.scale))
+            deltaPos.x = -deltaPos.x;
+            deltaPos = _gCom.xy - deltaPos;
+            if (IsMoveCrossBorder(ref deltaPos, _gCom.scale))
                 return;
 
-            _gCom.xy = pos;
+            _gCom.xy = deltaPos;
         }
 
         private bool IsZoomCrossBorder(ref Vector2 pos, ref Vector2 scale)
@@ -144,14 +145,37 @@ namespace WarGame.UI
             }
         }
 
+
+        public void ScrollToLevel(int levelID)
+        {
+            if (null != _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+
+            var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
+            var pos = config.UIPos;
+            pos = _gCom.xy - pos + GRoot.inst.size / 2;
+            if (IsMoveCrossBorder(ref pos, _gCom.scale))
+                return;
+            _tweener = _gCom.TweenMove(pos, 0.5F);
+            //_gCom.xy = pos;
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
-            base.Dispose(disposeGCom);
+            if (null == _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
             foreach (var v in _levels)
             {
                 v.Dispose();
             }
             _levels.Clear();
+            base.Dispose(disposeGCom);
         }
     }
 }

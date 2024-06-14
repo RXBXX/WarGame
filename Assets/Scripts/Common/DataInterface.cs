@@ -210,7 +210,7 @@ namespace WarGame
             return new RoleData(this.UID, this.configId, this.level, talentDic, cloneEquipDic, cloneSkillDic);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
 
         }
@@ -252,7 +252,14 @@ namespace WarGame
             //需要找到所有临时性buff计算
             foreach (var v in buffs)
             {
-
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
+                if ((Enum.AttrType)buffConfig.Attr.id == attrType)
+                {
+                    if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", buffConfig.Attr.id).ValueType == Enum.ValueType.Percentage)
+                        value += v.value / 100.0f;
+                    else
+                        value += v.value;
+                }
             }
 
             return value;
@@ -330,9 +337,9 @@ namespace WarGame
             return clone;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
-
+            base.Dispose();
         }
     }
 

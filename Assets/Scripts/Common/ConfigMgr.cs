@@ -35,7 +35,7 @@ namespace WarGame
             return default(T);
         }
 
-        public void ForeachConfig<T>(string name, WGConfigCallback callback) where T : Config
+        public void ForeachConfig<T>(string name, WGConfigCallback<T> callback) where T : Config
         {
             if (!_configDic.ContainsKey(name))
             {
@@ -43,7 +43,7 @@ namespace WarGame
             }
             foreach (var v in _configDic[name])
             {
-                callback(v.Value);
+                callback((T)v.Value);
             }
         }
 

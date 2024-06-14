@@ -39,12 +39,31 @@ namespace WarGame.UI
             InitMap();
         }
 
+        public override void OnEnable()
+        {
+            var lastMainLevel = 0;
+            ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
+            {
+                var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
+                if (config.Type == Enum.LevelType.Main && isOpen && !DatasMgr.Instance.IsLevelPass(config.ID))
+                {
+                    lastMainLevel = config.ID;
+                }
+            });
+
+            DebugManager.Instance.Log("LastMainLevel:" + lastMainLevel);
+
+            if (0 != lastMainLevel)
+                _map.ScrollToLevel(lastMainLevel);
+        }
+
         private void InitMap()
         {
             List<MapLevelPair> levels = new List<MapLevelPair>();
             ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
             {
-                levels.Add(new MapLevelPair(config.ID, DatasMgr.Instance.IsLevelOpen(config.ID)));
+                var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
+                levels.Add(new MapLevelPair(config.ID, isOpen));
             });
             _map.Init("UI/Background/Map", levels);
         }
@@ -57,7 +76,7 @@ namespace WarGame.UI
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
-            UIManager.Instance.OpenPanel("Record", "RecordPanel");
+            UIManager.Instance.OpenPanel("Main", "MainPanel");
         }
 
         public override void Update(float deltaTime)

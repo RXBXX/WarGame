@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="50,30" extention="Label">
+<component size="30,20" extention="Label">
   <displayList>
-    <graph id="n1_kugj" name="n1" xy="0,0" size="50,30" touchable="false" type="rect" lineSize="0"/>
-    <text id="n0_kugj" name="title" xy="25,15" pivot="0.5,0.5" anchor="true" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" align="center" vAlign="middle" letterSpacing="2" autoSize="none" strokeColor="#000000" strokeSize="2" autoClearText="true" text="1111"/>
+    <graph id="n1_kugj" name="n1" xy="0,0" size="30,20" alpha="0.7" touchable="false" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <text id="n0_kugj" name="title" xy="15,10" pivot="0.5,0.5" anchor="true" size="30,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#e2ba2a" align="center" vAlign="middle" letterSpacing="2" autoSize="none" autoClearText="true" text="1111"/>
   </displayList>
 </component>

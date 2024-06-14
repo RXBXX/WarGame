@@ -217,6 +217,8 @@ namespace WarGame.UI
             else
                 _panelDic[panel.UILayer].Remove(panel);
 
+            panel.OnEnable();
+
             if (panel.UILayer == Enum.UILayer.PanelLayer)
             {
                 if (_panelDic[panel.UILayer].Count > 0)
@@ -255,7 +257,10 @@ namespace WarGame.UI
             {
                 var lastIndex = _panelDic[panel.UILayer].Count - 1;
                 if (lastIndex >= 0)
+                {
                     _panelDic[panel.UILayer][lastIndex].SetVisible(true);
+                    _panelDic[panel.UILayer][lastIndex].OnEnable();
+                }
             }
 
             DestroyUI(panel, true);

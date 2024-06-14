@@ -31,6 +31,7 @@ namespace WarGame
             AttributeMgr.Instance.Init();
 
             DOTween.Init(true, true);
+            DOTween.debugMode = true;
 
             return true;
         }

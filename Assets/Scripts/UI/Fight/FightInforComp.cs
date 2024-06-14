@@ -27,7 +27,7 @@ namespace WarGame.UI
             var attrs = "";
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
-                attrs += ((AttrConfig)config).Name + ":" + role.GetAttribute((Enum.AttrType)config.ID) + "\n";
+                attrs += config.Name + ":" + role.GetAttribute((Enum.AttrType)config.ID) + "\n";
             });
             _attrs.text = attrs;
 

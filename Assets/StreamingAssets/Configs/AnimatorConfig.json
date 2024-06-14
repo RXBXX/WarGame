@@ -2,49 +2,49 @@
     {
         "ID": 1,
         "Name": "空手",
-        "Controller": "Assets/Animators/DController.controller",
+        "Controller": "Assets/Animators/EmptyHandController.controller",
         "Jump": "JumpFull_RM_NoWeapon",
         "Priority": 0
     },
     {
         "ID": 2,
         "Name": "盾",
-        "Controller": "Assets/Animators/WSController.controller",
+        "Controller": "Assets/Animators/SwordShieldController.controller",
         "Jump": "JumpFull_Normal_RM_SwordAndShield",
         "Priority": 2
     },
     {
         "ID": 3,
         "Name": "弓箭",
-        "Controller": "Assets/Animators/BAController.controller",
+        "Controller": "Assets/Animators/BowArrowController.controller",
         "Jump": "JumpFull_RM_BowAndArrow",
         "Priority": 1
     },
     {
         "ID": 4,
         "Name": "双手武器",
-        "Controller": "Assets/Animators/BHController.controller",
+        "Controller": "Assets/Animators/BothHandController.controller",
         "Jump": "JumpFull_RM_THS",
         "Priority": 1
     },
     {
         "ID": 5,
         "Name": "法杖",
-        "Controller": "Assets/Animators/WController.controller",
-        "Jump": "JumpFull_RM_MagicWand",
+        "Controller": "Assets/Animators/WandController.controller",
+        "Jump": "JumpFull_RM_SingleSword",
         "Priority": 1
     },
     {
         "ID": 6,
         "Name": "长枪",
-        "Controller": "Assets/Animators/SController.controller",
+        "Controller": "Assets/Animators/SpearController.controller",
         "Jump": "JumpFull_RM_Spear",
         "Priority": 1
     },
     {
         "ID": 7,
         "Name": "刀剑锤斧",
-        "Controller": "Assets/Animators/WController.controller",
+        "Controller": "Assets/Animators/SwordController.controller",
         "Jump": "JumpFull_RM_SingleSword",
         "Priority": 1
     }

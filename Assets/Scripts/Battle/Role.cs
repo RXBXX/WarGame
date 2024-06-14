@@ -433,9 +433,9 @@ namespace WarGame
 
             var format = "";
             if (delta > 0)
-                format = "[color={0}]+{1}[/color]";
+                format = "[color={0}]{1}[/color]";
             else
-                format = "[color={0}]-{1}[/color]";
+                format = "[color={0}]{1}[/color]";
             AddFloatHUD(string.Format(format, CommonParams.GetAttrColor(type), delta));
         }
 
@@ -553,7 +553,6 @@ namespace WarGame
             _data.ExcuteBuffs();
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            //if (null != hud)
             hud.UpdateBuffs(_data.buffs);
         }
 
@@ -583,6 +582,7 @@ namespace WarGame
         public virtual void UpdateRound()
         {
             UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
+
             ExcuteBuffs();
         }
 

@@ -37,6 +37,11 @@ namespace WarGame.UI
             }
         }
 
+        public virtual void OnEnable()
+        {
+
+        }
+
         public virtual void Update(float deltaTime)
         {
 

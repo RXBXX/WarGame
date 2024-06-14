@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6388220292580433273}
   - component: {fileID: 6388220292580467929}
   - component: {fileID: 6388220292605489661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX3_MagicAura_B_Runic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6388220292595794969}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.0035028213, y: 0.0034784519, z: 0.0034784519, w: 0.9999818}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 6388220292595636285}
   - {fileID: 6388220292595636287}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.4, y: 0.4, z: 0.4}
 --- !u!198 &6388220292580433273
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4820,7 +4820,7 @@ GameObject:
   - component: {fileID: 6388220292595636283}
   - component: {fileID: 6388220292580433275}
   - component: {fileID: 6388220292580467931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX3 Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9626,7 +9626,7 @@ GameObject:
   - component: {fileID: 6388220292595636285}
   - component: {fileID: 6388220292580433277}
   - component: {fileID: 6388220292580467933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX3 Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14343,7 +14343,7 @@ GameObject:
   - component: {fileID: 6388220292580433279}
   - component: {fileID: 6388220292580467935}
   - component: {fileID: 6388220292605489663}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CFX3 Small Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

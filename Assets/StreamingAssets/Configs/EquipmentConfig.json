@@ -20,6 +20,14 @@
             {
                 "id": 1,
                 "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
@@ -46,12 +54,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 103
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_Blood.prefab"
     },
     {
         "ID": 10005,
@@ -73,12 +89,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 104
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_EnemyDeathSkull.prefab"
     },
     {
         "ID": 10006,
@@ -104,12 +128,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 105
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab"
     },
     {
         "ID": 10007,
@@ -135,12 +167,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 106
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab"
     },
     {
         "ID": 10008,
@@ -159,15 +199,10 @@
                 "value": 17
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 107
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10009,
@@ -186,15 +221,10 @@
                 "value": 18
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 108
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10010,
@@ -216,12 +246,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 109
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_WWExplosion_C.prefab"
     },
     {
         "ID": 10011,
@@ -243,12 +281,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 110
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Fire_Explosion.prefab"
     },
     {
         "ID": 10012,
@@ -274,12 +320,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 111
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
-        "Effect": null,
-        "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_A_Ground.prefab"
     },
     {
         "ID": 10013,
@@ -305,12 +359,20 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 112
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
             }
         ],
-        "Effect": null,
-        "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_C_Air.prefab"
     },
     {
         "ID": 10017,
@@ -333,10 +395,23 @@
                 "value": 5
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab"
     },
     {
         "ID": 10018,
@@ -359,10 +434,23 @@
                 "value": 5
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab"
     },
     {
         "ID": 10019,
@@ -385,10 +473,23 @@
                 "value": 5
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab"
     },
     {
         "ID": 10020,
@@ -407,10 +508,23 @@
                 "value": 16
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab"
     },
     {
         "ID": 10021,
@@ -429,10 +543,23 @@
                 "value": 21
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab"
     },
     {
         "ID": 10022,
@@ -451,10 +578,23 @@
                 "value": 22
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab"
     },
     {
         "ID": 10023,
@@ -473,10 +613,23 @@
                 "value": 23
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab"
     },
     {
         "ID": 10024,
@@ -495,10 +648,23 @@
                 "value": 24
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab"
     },
     {
         "ID": 10025,
@@ -521,10 +687,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab"
     },
     {
         "ID": 10026,
@@ -547,10 +726,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab"
     },
     {
         "ID": 10027,
@@ -573,10 +765,23 @@
                 "value": 5
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab"
     },
     {
         "ID": 10028,
@@ -599,10 +804,23 @@
                 "value": 5
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab"
     },
     {
         "ID": 10029,
@@ -621,10 +839,23 @@
                 "value": 14
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab"
     },
     {
         "ID": 10030,
@@ -647,10 +878,23 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab"
     },
     {
         "ID": 10031,
@@ -673,10 +917,23 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab"
     },
     {
         "ID": 10032,
@@ -695,10 +952,23 @@
                 "value": 13
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab"
     },
     {
         "ID": 10033,
@@ -720,7 +990,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10034,
@@ -742,7 +1012,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10035,
@@ -768,7 +1038,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10036,
@@ -794,7 +1064,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10037,
@@ -816,7 +1086,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10038,
@@ -838,7 +1108,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10039,
@@ -860,7 +1130,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10040,
@@ -882,7 +1152,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10041,
@@ -908,7 +1178,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10042,
@@ -934,7 +1204,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10043,
@@ -960,7 +1230,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10044,
@@ -982,7 +1252,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10045,
@@ -1004,7 +1274,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10046,
@@ -1026,7 +1296,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10047,
@@ -1052,7 +1322,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10048,
@@ -1078,7 +1348,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10049,
@@ -1100,7 +1370,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10050,
@@ -1122,7 +1392,7 @@
         "Buffs": null,
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": null
     },
     {
         "ID": 10051,
@@ -1141,10 +1411,23 @@
                 "value": 23
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab"
     },
     {
         "ID": 10052,
@@ -1163,10 +1446,23 @@
                 "value": 24
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab"
     },
     {
         "ID": 10053,
@@ -1189,10 +1485,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab"
     },
     {
         "ID": 10054,
@@ -1215,10 +1524,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab"
     },
     {
         "ID": 10055,
@@ -1241,10 +1563,23 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab"
     },
     {
         "ID": 10056,
@@ -1267,10 +1602,23 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab"
     },
     {
         "ID": 10057,
@@ -1289,10 +1637,23 @@
                 "value": 13
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab"
     },
     {
         "ID": 10058,
@@ -1311,10 +1672,23 @@
                 "value": 15
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab"
     },
     {
         "ID": 10059,
@@ -1333,10 +1707,23 @@
                 "value": 16
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab"
     },
     {
         "ID": 10060,
@@ -1359,10 +1746,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": null,
         "Bullet": null,
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab"
     },
     {
         "ID": 10061,
@@ -1385,10 +1785,23 @@
                 "value": 3
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
-        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 3.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab"
     },
     {
         "ID": 10062,
@@ -1407,10 +1820,23 @@
                 "value": 21
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
-        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 4.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab"
     },
     {
         "ID": 10063,
@@ -1429,10 +1855,23 @@
                 "value": 22
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
-        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 5.prefab",
-        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab"
     },
     {
         "ID": 10064,
@@ -1455,9 +1894,22 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
-        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 6.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     },
     {
@@ -1481,9 +1933,22 @@
                 "value": 4
             }
         ],
-        "Buffs": null,
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 102
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
-        "Bullet": "Assets/Prefabs/Effects/CFXR Electrified 7.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab"
     }
 ]

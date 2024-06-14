@@ -234,8 +234,8 @@ namespace WarGame
 
         public enum RecordMode
         {
-            Read = 1,
-            Write = 2,
+            Read = 0,
+            Write = 1,
         }
 
         [Serializable]
@@ -244,6 +244,13 @@ namespace WarGame
             HeroAction = 0,
             EnemyAction = 1,
         }
+
+        //[Serializable]
+        //public enum ChangeType
+        //{
+        //    Overlay = 1,
+        //    Const = 2,
+        //}
 
         public enum EventType
         {

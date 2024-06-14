@@ -68,7 +68,7 @@ namespace WarGame.UI
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
                 if (value != 0)
                 {
-                    _attrsData.Add(new AttrStruct(((AttrConfig)config).Name, value.ToString()));
+                    _attrsData.Add(new AttrStruct(config.Name, value.ToString()));
                 }
             });
             _attrList.numItems = _attrsData.Count;

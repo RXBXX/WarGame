@@ -40,7 +40,7 @@ namespace WarGame.UI
                 _gCom.position = pos;
 
             var dis = Vector3.Distance(CameraMgr.Instance.MainCamera.transform.position, _gameObject.transform.position);
-            var scale = 8.0f / dis * Vector2.one;
+            var scale = 10.0F / dis * Vector2.one;
             if (scale != _gCom.scale)
                 _gCom.scale = scale;
         }

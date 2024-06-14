@@ -17,54 +17,51 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0008757d77b108e4ab1ca8e039d224e3
   m_SerializeEntries:
-  - m_GUID: c23679cec83fed5419f96e3270e23c0a
-    m_Address: Assets/Animators/WSController.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 3c259c9fb10131d4ba07603405a4d14f
-    m_Address: Assets/Animators/ArrowController.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 8b270dc7f32de3347be83d1d9aecc490
-    m_Address: Assets/Animators/BAController.controller
+    m_Address: Assets/Animators/BowArrowController.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 65907be177ff1af4b90ae0b954c54523
-    m_Address: Assets/Animators/BHController.controller
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c23679cec83fed5419f96e3270e23c0a
+    m_Address: Assets/Animators/SwordShieldController.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4099a1febe692bf42ba0e85ca7376d08
+    m_Address: Assets/Animators/WandController.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3293341f92d4c64ea47de889ac6d7a8
+    m_Address: Assets/Animators/SwordController.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bea804303d7afbe42a8bf2082baea580
+    m_Address: Assets/Animators/SpearController.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13d1a81ddea21ba4dac906eb68f2e659
+    m_Address: Assets/Animators/EmptyHandController.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e34ad8af170f8674a8edf68160904906
     m_Address: Assets/Animators/BowController.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 13d1a81ddea21ba4dac906eb68f2e659
-    m_Address: Assets/Animators/DController.controller
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65907be177ff1af4b90ae0b954c54523
+    m_Address: Assets/Animators/BothHandController.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: bea804303d7afbe42a8bf2082baea580
-    m_Address: Assets/Animators/SController.controller
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c259c9fb10131d4ba07603405a4d14f
+    m_Address: Assets/Animators/ArrowController.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: e3293341f92d4c64ea47de889ac6d7a8
-    m_Address: Assets/Animators/WController.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8a98b1b38538b9a4a956e890e5d31280, type: 2}
   m_SchemaSet:

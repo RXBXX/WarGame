@@ -407,7 +407,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventBridge.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\ParticleAddShader.shader" />
+    <None Include="Assets\Shaders\ParticleS\ParticleAddShader.shader" />
     <None Include="Assets\Shaders\ChainShader.shader" />
     <None Include="Assets\Shaders\OutlineProcessing.shader" />
     <None Include="Assets\Shaders\HexagonInstancedToonShader.shader" />
@@ -434,6 +434,7 @@
     <None Include="Assets\Shaders\WaterShader.shader" />
     <None Include="Assets\Scripts\SRP\Unlit.shader" />
     <None Include="Assets\Shaders\ToonShader.shader" />
+    <None Include="Assets\Shaders\ParticleS\Additive Soft.shader" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Text.shader" />
     <None Include="Assets\Shaders\GrayShader.shader" />
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
@@ -442,13 +443,16 @@
     <None Include="Assets\Test\NewSurfaceShader 1.shader" />
     <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
+    <None Include="Assets\Shaders\ParticleS\Additive.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
+    <None Include="Assets\Shaders\ParticleS\Multiply.shader" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader 1.shader" />
     <None Include="Assets\Test\FishShader.shader" />
     <None Include="Assets\Shaders\LineShader_V2.shader" />
     <None Include="Assets\FairyGUI\ReadMe - 5.0.0.txt" />
+    <None Include="Assets\Shaders\ParticleS\AlphaBlend.shader" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Shaders\WhetherShader.shader" />
@@ -457,7 +461,7 @@
     <None Include="Assets\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
     <None Include="Assets\Test\InstancedShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
-    <None Include="Assets\Shaders\ParticleShader.shader" />
+    <None Include="Assets\Shaders\ParticleS\ParticleShader.shader" />
     <None Include="Assets\FairyGUI\Scripts\Extensions\TextMeshPro\Shaders\FairyGUI-TMP.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Distortion.shader" />
   </ItemGroup>
