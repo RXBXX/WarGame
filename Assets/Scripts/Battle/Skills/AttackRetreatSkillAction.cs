@@ -122,7 +122,7 @@ namespace WarGame
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skill_Over);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
         }
 
     }

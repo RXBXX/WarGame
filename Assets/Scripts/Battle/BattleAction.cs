@@ -49,14 +49,14 @@ namespace WarGame
 
         protected virtual void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skill_Over, OnSkillOver);
+            EventDispatcher.Instance.AddListener(Enum.Event.Role_MoveEnd_Event, OnMoveEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Skill_Over, OnSkillOver);
         }
 
         protected virtual void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_MoveEnd_Event, OnMoveEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skill_Over, OnSkillOver);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Role_MoveEnd_Event, OnMoveEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Skill_Over, OnSkillOver);
         }
 
         public void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -87,7 +87,7 @@ namespace WarGame
                 _targetID = 0;
                 initiator.SetState(Enum.RoleState.Over);
             }
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Action_Over, new object[] { ID });
         }
 
         protected virtual IEnumerator PlayActionOver(float delay)
@@ -97,7 +97,7 @@ namespace WarGame
             _initiatorID = 0;
             _targetID = 0;
             initiator.SetState(Enum.RoleState.Over);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Action_Over, new object[] { ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Action_Over, new object[] { ID });
         }
 
         public virtual void FocusIn(GameObject obj)

@@ -42,7 +42,7 @@ namespace WarGame
         {
             base.Init();
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Role_Dispose, OnRoleDispose);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Role_Dispose, OnRoleDispose);
 
             _cameraDis = _maxDistance;
 
@@ -287,7 +287,7 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Role_Dispose, OnRoleDispose);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Role_Dispose, OnRoleDispose);
 
             ClearTarget();
 

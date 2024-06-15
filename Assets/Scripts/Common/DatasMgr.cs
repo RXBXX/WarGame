@@ -92,11 +92,11 @@ namespace WarGame
             var gd = _data.GetUsingRecord();
             if (gd.levelDataDic.ContainsKey(levelID))
                 return true;
-            var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
-            if (0 == levelConfig.LastLevel)
-                return true;
-            if (IsLevelPass(levelConfig.LastLevel))
-                return true;
+            //var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
+            //if (0 == levelConfig.LastLevel)
+            //    return true;
+            //if (IsLevelPass(levelConfig.LastLevel))
+            //    return true;
             return false;
         }
 
@@ -182,12 +182,22 @@ namespace WarGame
                 AddItem(v);
         }
 
+        public List<int> GetOpenedLevels()
+        {
+            List<int> levels = new List<int>();
+            foreach (var v in _data.GetUsingRecord().levelDataDic)
+            {
+                levels.Add(v.Value.configId);
+            }
+            return levels;
+        }
+
         /// region 协议部分----------------------------------------------------------
 
         /// <summary>
         /// 卸掉装备
         /// </summary>
-        public void UnwearEquip(int roleUID, int equipUID)
+        public void UnwearEquipC2S(int roleUID, int equipUID)
         {
             try
             {
@@ -198,11 +208,11 @@ namespace WarGame
                 roleData.equipmentDic.Remove(equipData.GetPlace());
                 unwearEquips.Add(equipUID);
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips) });
+                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips) });
             }
             catch
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
+                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
             }
         }
 
@@ -210,7 +220,7 @@ namespace WarGame
         /// <summary>
         /// 穿戴装备
         /// </summary>
-        public void WearEquip(int roleUID, int equipUID)
+        public void WearEquipC2S(int roleUID, int equipUID)
         {
             try
             {
@@ -239,7 +249,7 @@ namespace WarGame
                     }
                 }
                 foreach (var v in unwearEquips)
-                    UnwearEquip(roleUID, v);
+                    UnwearEquipC2S(roleUID, v);
 
                 //从装备之前的佩戴者身上卸载要穿带的装备
                 var allRoles = GetAllRoles();
@@ -249,7 +259,7 @@ namespace WarGame
                     {
                         if (v1.Value == equipUID)
                         {
-                            UnwearEquip(v, equipUID);
+                            UnwearEquipC2S(v, equipUID);
                             break;
                         }
                     }
@@ -258,12 +268,12 @@ namespace WarGame
                 wearEquips.Add(equipUID);
                 roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips)});
+                EventDispatcher.Instance.PostEvent(Enum.Event.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips)});
             }
             catch (Exception e)
             {
                 DebugManager.Instance.Log(e);
-                EventDispatcher.Instance.PostEvent(Enum.EventType.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
+                EventDispatcher.Instance.PostEvent(Enum.Event.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
             }
         }
 
@@ -276,7 +286,13 @@ namespace WarGame
                 roleData.talentDic = new Dictionary<int, int>();
             roleData.talentDic.Add(config.Place, talentID);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.HeroTalentActiveS2C, new object[] { roleUID, talentID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.HeroTalentActiveS2C, new object[] { roleUID, talentID });
+        }
+
+        public void ActiveLevelC2S(int levelID)
+        {
+            var levelData = new LevelData(levelID);
+            _data.GetUsingRecord().levelDataDic.Add(levelData.configId, levelData);
         }
 
         /// endregion -----------------------------------------------------------------------------------------------------

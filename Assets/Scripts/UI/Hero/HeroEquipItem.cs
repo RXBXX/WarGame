@@ -69,15 +69,15 @@ namespace WarGame.UI
             {
                 attrs.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name, v.value.ToString()));
             }
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Show_Attrs, new object[] { attrs, pos });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Attrs, new object[] { attrs, pos });
         }
 
         private void OnClickWearBtn()
         {
             if (_owner == _selectedRoleUID)
-                DatasMgr.Instance.UnwearEquip(_selectedRoleUID, _UID);
+                DatasMgr.Instance.UnwearEquipC2S(_selectedRoleUID, _UID);
             else
-                DatasMgr.Instance.WearEquip(_selectedRoleUID, _UID);
+                DatasMgr.Instance.WearEquipC2S(_selectedRoleUID, _UID);
         }
     }
 }

@@ -18,14 +18,14 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Start, OnReadyOver);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Change_Hero, OnChangeHero);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Start, OnReadyOver);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Change_Hero, OnChangeHero);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Start, OnReadyOver);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Change_Hero, OnChangeHero);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Start, OnReadyOver);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Change_Hero, OnChangeHero);
         }
 
         public override void OnClickBegin(GameObject obj)
@@ -56,13 +56,13 @@ namespace WarGame
                 }
 
                 LockCamera();
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HeroGroup, new object[] { uiPos, heros });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HeroGroup, new object[] { uiPos, heros });
             }
         }
 
         public override void OnClickEnd()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Hide_HeroGroup);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_HeroGroup);
             UnlockCamera();
         }
 

@@ -37,8 +37,8 @@ namespace WarGame.UI
             _name = GetGObjectChild<GTextField>("name");
             GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.WearEquipS2C, OnWearEquip);
-            EventDispatcher.Instance.AddListener(Enum.EventType.UnwearEquipS2C, OnUnwearEquip);
+            EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
+            EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
@@ -165,6 +165,7 @@ namespace WarGame.UI
                     var weapon = GameObject.Instantiate<GameObject>(prefab);
                     Tool.Instance.ApplyProcessingFotOutLine(weapon);
                     weapon.transform.SetParent(_rolesGO[uid].transform.Find(placeConfig.SpinePoint), false);
+                    weapon.transform.localPosition = Vector3.zero;
                     weapon.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
                     Tool.SetLayer(weapon.transform, Enum.Layer.Display);
                 });
@@ -176,6 +177,7 @@ namespace WarGame.UI
                         var weapon = GameObject.Instantiate<GameObject>(prefab);
                         Tool.Instance.ApplyProcessingFotOutLine(weapon);
                         weapon.transform.SetParent(_rolesGO[uid].transform.Find(placeConfig.ViceSpinePoint), false);
+                        weapon.transform.localPosition = Vector3.zero;
                         weapon.transform.localEulerAngles = equipData.GetTypeConfig().ViceRotation;
                         Tool.SetLayer(weapon.transform, Enum.Layer.Display);
                     });
@@ -243,6 +245,7 @@ namespace WarGame.UI
                     var equip = GameObject.Instantiate<GameObject>(prefab);
                     equip.transform.SetParent(spinePoint, false);
                     equip.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
+                    equip.transform.localPosition = Vector3.zero;
                     Tool.SetLayer(equip.transform, Enum.Layer.Display);
                 });
 
@@ -254,6 +257,7 @@ namespace WarGame.UI
                         var equip = GameObject.Instantiate<GameObject>(prefab);
                         equip.transform.SetParent(viceSpinePoint, false);
                         equip.transform.localEulerAngles = equipData.GetTypeConfig().ViceRotation;
+                        equip.transform.localPosition = Vector3.zero;
                         Tool.SetLayer(equip.transform, Enum.Layer.Display);
                     });
                 }
@@ -377,8 +381,8 @@ namespace WarGame.UI
 
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.WearEquipS2C, OnWearEquip);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.UnwearEquipS2C, OnUnwearEquip);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.WearEquipS2C, OnWearEquip);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
 
             base.Dispose(disposeGCom);
         }

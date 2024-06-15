@@ -21,7 +21,7 @@ namespace WarGame
                     id = rd.ID;
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Event, new object[] { eventName, id});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Event, new object[] { eventName, id});
         }
     }
 }

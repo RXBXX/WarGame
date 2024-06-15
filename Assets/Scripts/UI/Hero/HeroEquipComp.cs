@@ -174,7 +174,7 @@ namespace WarGame.UI
 
         private void UnwearEquip(EquipmentData equip)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.UnwearEquipS2C, new object[] { _selectedEquip });
+            EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { _selectedEquip });
         }
 
         private void WearEquip(EquipmentData equip)

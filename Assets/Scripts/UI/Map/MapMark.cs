@@ -79,16 +79,20 @@ namespace WarGame.UI
             }
         }
 
-        private void OnClickGoOn()
+        private void OnClickGoOn(EventContext context)
         {
+            context.StopPropagation();
+
             _showBtnC.SetSelectedIndex(0);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Map_Open_Event, new object[] { _levelID, false});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
         }
 
-        private void OnClickRestart()
+        private void OnClickRestart(EventContext context)
         {
+            context.StopPropagation();
+
             _showBtnC.SetSelectedIndex(0);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Map_Open_Event, new object[] { _levelID, true});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, true});
         }
 
         private void OnTouchBegin()

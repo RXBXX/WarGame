@@ -102,7 +102,7 @@ namespace WarGame
                 }
             });
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets });
             yield return new WaitForSeconds(1.5F);
         }
 
@@ -126,7 +126,7 @@ namespace WarGame
                 {
                     if (v != _targetID)
                     {
-                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect);
+                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, initiator.Hexagon);
                     }
                 }
             }
@@ -191,7 +191,7 @@ namespace WarGame
                 else
                 {
                     _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(_hurt, initiator.GetAttackEffect());
+                    target.Hit(_hurt, initiator.GetAttackEffect(), initiator.Hexagon);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }

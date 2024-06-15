@@ -12,16 +12,16 @@ namespace WarGame.UI
 
         public FightEnemyQueue(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AIAction_Start, OnEnemyStart);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_AIAction_Over, OnEnemyOver);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_AIAction_Start, OnEnemyStart);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_AIAction_Over, OnEnemyOver);
 
             Init();
         }
 
         public override void Dispose(bool disposeGCom = false)
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AIAction_Start, OnEnemyStart);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_AIAction_Over, OnEnemyOver);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Start, OnEnemyStart);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Over, OnEnemyOver);
             base.Dispose(disposeGCom);
         }
 

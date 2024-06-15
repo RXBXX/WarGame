@@ -14,6 +14,8 @@ namespace WarGame.UI
         private bool _isAutoPlay = false;
         private WGArgsCallback _callback;
         private int _blurID;
+        private GList _optionList;
+        private List<int> _optionsData;
 
         public DialogPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -29,6 +31,10 @@ namespace WarGame.UI
             GetGObjectChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
 
             _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
+            _optionList = GetGObjectChild<GList>("optionList");
+            _optionList.itemRenderer = OnOptionRenderer;
+            _optionList.onClickItem.Add(OnOptionClick);
+
             NextDialog();
         }
 
@@ -42,20 +48,33 @@ namespace WarGame.UI
             _curIndex += 1;
             if (_curIndex > _max)
             {
-                DialogMgr.Instance.CloseDialog();
-                if (null != _callback)
-                    _callback();
-                return;
+                var groupConfig = ConfigMgr.Instance.GetConfig<DialogGroupConfig>("DialogGroupConfig", _dialogGroup);
+                if (null != groupConfig.Options)
+                {
+                    _optionsData = groupConfig.Options;
+                    _optionList.visible = true;
+                    _optionList.numItems = _optionsData.Count;
+                }
+                else
+                {
+                    OnDialogGroupEnd(groupConfig.Event);
+                }
             }
-
-            var dialogConfig = ConfigMgr.Instance.GetConfig<DialogConfig>("DialogConfig", _dialogGroup * 1000 + _curIndex);
-            _dialogBox.Play(dialogConfig.Context, dialogConfig.Role, OnDialogEnd);
+            else
+            {
+                var dialogConfig = ConfigMgr.Instance.GetConfig<DialogConfig>("DialogConfig", _dialogGroup * 1000 + _curIndex);
+                _dialogBox.Play(dialogConfig.Context, dialogConfig.Role, OnDialogEnd);
+            }
         }
 
         private void OnClick(EventContext context)
         {
+            if (null != _optionsData && _optionsData.Count > 0)
+                return;
+
             if (_isAutoPlay)
                 return;
+
             if (_dialogBox.IsPlaying())
             {
                 _dialogBox.Complete();
@@ -81,6 +100,33 @@ namespace WarGame.UI
         {
             if (_isAutoPlay)
                 NextDialog();
+        }
+
+        private void OnOptionRenderer(int index, GObject item)
+        {
+            ((GButton)item).title = ConfigMgr.Instance.GetConfig<DialogOptionConfig>("DialogOptionConfig", _optionsData[index]).Title;
+        }
+
+        private void OnOptionClick(EventContext context)
+        {
+            var index = _optionList.GetChildIndex((GObject)context.data);
+            DebugManager.Instance.Log(index);
+            OnDialogGroupEnd(ConfigMgr.Instance.GetConfig<DialogOptionConfig>("DialogOptionConfig", _optionsData[index]).Event);
+        }
+
+        private void OnDialogGroupEnd(int nextEvent)
+        {
+            DialogMgr.Instance.CloseDialog();
+
+            if (0 == nextEvent)
+            {
+                if (null != _callback)
+                    _callback();
+            }
+            else
+            {
+                EventMgr.Instance.TriggerEvent(nextEvent, _callback);
+            }
         }
 
         public override void Dispose(bool disposeGCom = false)

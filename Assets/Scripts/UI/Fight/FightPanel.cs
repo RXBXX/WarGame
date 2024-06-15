@@ -20,14 +20,14 @@ namespace WarGame.UI
             _enemyQueue = GetChild<FightEnemyQueue>("enemyQueue");
             _roleInfo = GetChild<FightRoleInfo>("roleInfo");
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Hide_HeroGroup, OnHideHeroGroup);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_RoleInfo, OnShowRoleInfo);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Hide_RoleInfo, OnHideRoleInfo);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_RoundOver_Event, OnUpdateRound);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_RoundChange_Event, OnStartEnemyTurn);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Infor_Show, OnVSShow);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Infor_Hide, OnVSHide);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_HeroGroup, OnShowHeroGroup);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Hide_HeroGroup, OnHideHeroGroup);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_RoleInfo, OnShowRoleInfo);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Hide_RoleInfo, OnHideRoleInfo);
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
             {
@@ -37,13 +37,13 @@ namespace WarGame.UI
             _skipBtn = GetGObjectChild<GButton>("skipBtn");
             _skipBtn.onClick.Add(() =>
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skip_Rount);
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 
             var startBtn = GetGObjectChild<GButton>("startBtn");
             startBtn.onClick.Add(() =>
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Start);
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Start);
                 startBtn.visible = false;
                 _skipBtn.visible = true;
             });
@@ -108,14 +108,14 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_RoleInfo, OnShowRoleInfo);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Hide_RoleInfo, OnHideRoleInfo);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundOver_Event, OnUpdateRound);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_RoundChange_Event, OnStartEnemyTurn);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Show, OnVSShow);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Infor_Hide, OnVSHide);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HeroGroup, OnShowHeroGroup);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Hide_HeroGroup, OnHideHeroGroup);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_RoleInfo, OnShowRoleInfo);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Hide_RoleInfo, OnHideRoleInfo);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_RoundOver_Event, OnUpdateRound);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_RoundChange_Event, OnStartEnemyTurn);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Infor_Show, OnVSShow);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Infor_Hide, OnVSHide);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HeroGroup, OnShowHeroGroup);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Hide_HeroGroup, OnHideHeroGroup);
             base.Dispose(disposeGCom);
         }
     }

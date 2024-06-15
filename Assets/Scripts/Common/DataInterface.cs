@@ -311,7 +311,7 @@ namespace WarGame
                     break;
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Role_Attr_Change, new object[] { UID, type, deltaValue });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Role_Attr_Change, new object[] { UID, type, deltaValue });
         }
 
         public new LevelRoleData Clone()
@@ -487,6 +487,8 @@ namespace WarGame
         public void StartNewGame()
         {
             var rd = new RecordData(GetID(), GetTitle());
+
+            rd.levelDataDic.Add(10001, new LevelData(10001));
 
             rd.AddHero(10001, 1);
             rd.AddHero(10002, 1);

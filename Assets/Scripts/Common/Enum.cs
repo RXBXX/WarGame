@@ -245,14 +245,15 @@ namespace WarGame
             EnemyAction = 1,
         }
 
-        //[Serializable]
-        //public enum ChangeType
-        //{
-        //    Overlay = 1,
-        //    Const = 2,
-        //}
-
+        [Serializable]
         public enum EventType
+        {
+            Dialog = 1, //对话
+            Level = 2, //关卡
+            Source = 3, //道具
+        }
+
+        public enum Event
         {
             HUDInstruct_Idle_Event = 0,
             HUDInstruct_Click_Skill = 1,

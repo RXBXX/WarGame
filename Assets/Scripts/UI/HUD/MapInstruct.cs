@@ -17,20 +17,20 @@ namespace WarGame.UI
             attackBtn.onClick.Add(Attack);
 
             GetChild<HUDSkills>("skills").UpdateComp(args);
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Click_Skill, OnAttackEvent);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Click_Skill, OnAttackEvent);
         }
 
 
         private void Idle()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Idle_Event);
+            EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Idle_Event);
         }
 
         private void Cancel()
         {
             if (0 == _stateC.selectedIndex)
             {
-                EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Cancel_Event);
+                EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Cancel_Event);
             }
             else if (1 == _stateC.selectedIndex)
             {
@@ -39,7 +39,7 @@ namespace WarGame.UI
             else
             {
                 _stateC.SetSelectedIndex(1);
-                EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Cancel_Skill);
+                EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Cancel_Skill);
             }
         }
 
@@ -56,7 +56,7 @@ namespace WarGame.UI
         public override void Dispose(bool disposeGComp = false)
         {
             base.Dispose(disposeGComp);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Click_Skill, OnAttackEvent);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HUDInstruct_Click_Skill, OnAttackEvent);
         }
     }
 }

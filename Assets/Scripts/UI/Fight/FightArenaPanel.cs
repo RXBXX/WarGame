@@ -27,7 +27,7 @@ namespace WarGame.UI
 
         public FightArenaPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Role_Attr_Change, OnAttrChange);
+            EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
 
             var initiators = (List<int>)args[0];
             for (int i = 0; i < initiators.Count; i++)
@@ -114,7 +114,7 @@ namespace WarGame.UI
             }
             _roleDic.Clear();
 
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Role_Attr_Change, OnAttrChange);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Role_Attr_Change, OnAttrChange);
             base.Dispose(disposeGCom);
         }
     }

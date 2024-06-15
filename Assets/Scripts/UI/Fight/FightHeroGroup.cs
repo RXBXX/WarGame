@@ -30,7 +30,7 @@ namespace WarGame.UI
                 {
                     if (v.Value.displayObject == Stage.inst.touchTarget)
                     {
-                        EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Change_Hero, new object[] {_heroDic[v.Key]});
+                        EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Change_Hero, new object[] {_heroDic[v.Key]});
                         break;
                     }
                 }

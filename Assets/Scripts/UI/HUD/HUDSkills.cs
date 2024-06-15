@@ -35,7 +35,7 @@ namespace WarGame.UI
 
         private void ClickSkill(int skillId)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.HUDInstruct_Click_Skill, new object[] { skillId});
+            EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Click_Skill, new object[] { skillId});
         }
     }
 }

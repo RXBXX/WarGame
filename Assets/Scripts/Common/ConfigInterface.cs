@@ -234,6 +234,8 @@ namespace WarGame
     public class DialogGroupConfig : Config
     {
         public int MaxIndex;
+        public List<int> Options;
+        public int Event;
     }
 
     //对话表
@@ -244,6 +246,14 @@ namespace WarGame
         public int Role;
     }
 
+    //对话选项表
+    [Serializable]
+    public class DialogOptionConfig : Config
+    {
+        public string Title;
+        public int Event;
+    }
+
     //关卡表
     [Serializable]
     public class LevelConfig : Config
@@ -251,13 +261,12 @@ namespace WarGame
         public string Name;
         public Vector2 UIPos;
         public string Desc;
-        public int LastLevel;
         public Enum.LevelType Type;
         public string Map;
-        public int StartDialog;
-        public int WinDialog;
-        public int FailedDialog;
-        public SourcePair[] Rewards;
+        public int StartEvent;
+        public int WinEvent;
+        public int FailedEvent;
+        //public SourcePair[] Rewards;
     }
 
     //角色生成表
@@ -268,6 +277,7 @@ namespace WarGame
         public int Level;
         public int[] Equips;
         public int NextStage;
+        public int DefeatEvent;
     }
 
     //天赋表
@@ -292,7 +302,7 @@ namespace WarGame
 
     //元素表
     [Serializable]
-    public class ElementConfig : Config 
+    public class ElementConfig : Config
     {
         public string Name;
         public Enum.Element Restrain;
@@ -317,10 +327,19 @@ namespace WarGame
 
     //资源类型
     [Serializable]
-    public class SourcePair 
+    public class SourcePair
     {
         public Enum.SourceType Type;
         public int id;
         public int value;
+    }
+
+    //事件表
+    [Serializable]
+    public class EventConfig : Config
+    {
+        public Enum.EventType Type;
+        public string Name;
+        public int Value;
     }
 }

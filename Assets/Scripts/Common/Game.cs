@@ -29,6 +29,7 @@ namespace WarGame
             LineMgr.Instance.Init();
             RoleManager.Instance.Init();
             AttributeMgr.Instance.Init();
+            EventMgr.Instance.Init();
 
             DOTween.Init(true, true);
             DOTween.debugMode = true;
@@ -80,6 +81,7 @@ namespace WarGame
 
         public override bool Dispose()
         {
+            EventMgr.Instance.Dispose();
             AttributeMgr.Instance.Dispose();
             CameraMgr.Instance.Dispose();
             InputManager.Instance.Dispose();

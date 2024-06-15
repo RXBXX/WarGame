@@ -108,8 +108,6 @@ namespace WarGame
                 return;
 
             base.End(reverse);
-            _role.LerpStep = 0;
-
             _role.NextPath();
         }
 
@@ -180,7 +178,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attack_End, new object[] { _role.ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Attack_End, new object[] { _role.ID });
         }
     }
 
@@ -195,7 +193,7 @@ namespace WarGame
             DebugManager.Instance.Log("AttackEnd");
 
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Attacked_End, new object[] { _role.ID});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Attacked_End, new object[] { _role.ID});
         }
     }
 
@@ -207,7 +205,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dead_End, new object[] { _role.ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Dead_End, new object[] { _role.ID });
         }
     }
 
@@ -231,7 +229,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Cured_End, new object[] { _role.ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Cured_End, new object[] { _role.ID });
         }
     }
 
@@ -250,7 +248,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Dodge_End, new object[] { _role.ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Dodge_End, new object[] { _role.ID });
         }
     }
 }

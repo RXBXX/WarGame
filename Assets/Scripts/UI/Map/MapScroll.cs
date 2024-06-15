@@ -155,12 +155,10 @@ namespace WarGame.UI
             }
 
             var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
-            var pos = config.UIPos;
-            pos = _gCom.xy - pos + GRoot.inst.size / 2;
+            var pos = GRoot.inst.size / 2 - config.UIPos;
             if (IsMoveCrossBorder(ref pos, _gCom.scale))
                 return;
             _tweener = _gCom.TweenMove(pos, 0.5F);
-            //_gCom.xy = pos;
         }
 
         public override void Dispose(bool disposeGCom = false)

@@ -21,7 +21,7 @@ namespace WarGame.UI
             _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Hero_Show_Talent, OnShowTalent);
+            EventDispatcher.Instance.AddListener(Enum.Event.Hero_Show_Talent, OnShowTalent);
 
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
             GetGObjectChild<GButton>("btn").onClick.Add(OnClick);
@@ -84,7 +84,7 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Show_Talent, OnShowTalent);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Hero_Show_Talent, OnShowTalent);
             Stage.inst.onTouchBegin.Remove(OnTouchBegin);
             foreach (var v in _attrItemsDic)
                 v.Value.Dispose();

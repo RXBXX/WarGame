@@ -40,6 +40,34 @@ namespace WarGame
         protected virtual IEnumerator StartAI()
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+
+            ////遍历在视野范围内的敌人
+            //foreach (var v in heros)
+            //{
+            //    var tempPath = MapManager.Instance.FindingAIPath(Hexagon, v.Hexagon, GetMoveDis(), GetAttackDis());
+            //    if (null == tempPath)
+            //        continue;
+            //    if (tempPath.Count <= 0)
+            //        continue;
+
+
+            //        if (Hexagon == tempPath[tempPath.Count - 1])
+            //        {
+            //            targetID = heros[i].ID;
+            //            break;
+            //        }
+            //        else if (RoleManager.Instance.GetRoleIDByHexagonID(tempPath[tempPath.Count - 1]) > 0)
+            //        {
+            //            //SetState(Enum.RoleState.Over);
+            //        }
+            //        else
+            //        {
+            //            path = tempPath;
+            //            targetID = heros[i].ID;
+            //            break;
+            //        }
+            //}
+
             var targetID = 0;
             List<string> path = new List<string>();
 
@@ -66,7 +94,7 @@ namespace WarGame
                 }
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Start, new object[] { ID, targetID, GetConfig().CommonSkill });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, targetID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
 
             if (targetID <= 0)
@@ -117,12 +145,12 @@ namespace WarGame
             else if (targetID > 0)
                 MoveEnd();
             else
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_Over, new object[] { 0 });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Over, new object[] { 0 });
         }
 
         public override void Move(List<string> hexagons)
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_AI_MoveStart, new object[] { ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_MoveStart, new object[] { ID });
             //foreach (var v in hexagons)
             //    DebugManager.Instance.Log(v);
             base.Move(hexagons);

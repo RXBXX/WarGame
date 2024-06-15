@@ -7,17 +7,19 @@
             10010
         ],
         "IsBoss": true,
-        "NextStage": 0
+        "NextStage": 0,
+        "DefeatEvent": 0
     },
     {
         "ID": 20002,
         "RoleID": 20002,
-        "Level": 5,
+        "Level": 1,
         "Equips": [
             10011
         ],
         "IsBoss": false,
-        "NextStage": 0
+        "NextStage": 0,
+        "DefeatEvent": 5
     },
     {
         "ID": 20003,
@@ -27,6 +29,7 @@
             10011
         ],
         "IsBoss": false,
-        "NextStage": 0
+        "NextStage": 0,
+        "DefeatEvent": 0
     }
 ]

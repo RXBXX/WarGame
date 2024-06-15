@@ -9,13 +9,9 @@ namespace WarGame
     {
         protected LevelRoleData _data;
 
-        protected int _starConfigId = 1;
-
         private List<string> _path;
 
-        private int _pathIndex;
-
-        private float _lerpStep = 0;
+        public int PathIndex;
 
         protected GameObject _hudPoint;
 
@@ -42,6 +38,8 @@ namespace WarGame
         private bool _isFollowing = false;
 
         public bool DeadFlag = false;
+
+        protected List<string> _enemyHexagon = new List<string>();
 
         public int ID
         {
@@ -71,18 +69,6 @@ namespace WarGame
         public List<string> Path
         {
             get { return _path; }
-        }
-
-        public int PathIndex
-        {
-            get { return _pathIndex; }
-            set { _pathIndex = value; }
-        }
-
-        public float LerpStep
-        {
-            get { return _lerpStep; }
-            set { _lerpStep = value; }
         }
 
         public Quaternion Rotation
@@ -222,8 +208,8 @@ namespace WarGame
             if (null == _path || _path.Count <= 0)
                 return;
 
-            var startHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex]);
-            var endHexagon = MapManager.Instance.GetHexagon(_path[_pathIndex + 1]);
+            var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
+            var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
 
             if (startHexagon.coor.y != endHexagon.coor.y)
             {
@@ -270,7 +256,7 @@ namespace WarGame
         public virtual void MoveEnd()
         {
             EnterState("Idle");
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Role_MoveEnd_Event);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Role_MoveEnd_Event);
         }
 
         public virtual void Move(List<string> hexagons)
@@ -294,7 +280,7 @@ namespace WarGame
             }
         }
 
-        public virtual void Hit(float deltaHP, string hitEffect)
+        public virtual void Hit(float deltaHP, string hitEffect, string enemyHexagon)
         {
             if (null != hitEffect)
             {
@@ -309,6 +295,9 @@ namespace WarGame
             EnterState("Attacked");
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
+
+            if (!_enemyHexagon.Contains(enemyHexagon))
+                _enemyHexagon.Add(enemyHexagon);
         }
 
         public virtual void Cure()
@@ -500,13 +489,13 @@ namespace WarGame
 
         public void NextPath()
         {
-            _pathIndex++;
+            PathIndex++;
             _rotation = _gameObject.transform.rotation;
-            UpdateHexagonID(_path[_pathIndex]);
-            if (_pathIndex >= _path.Count - 1)
+            UpdateHexagonID(_path[PathIndex]);
+            if (PathIndex >= _path.Count - 1)
             {
                 _path = null;
-                _pathIndex = 0;
+                PathIndex = 0;
                 MoveEnd();
             }
         }
@@ -733,7 +722,7 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Role_Dispose, new object[] { ID });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Role_Dispose, new object[] { ID });
 
             foreach (var v in _stateDic)
                 v.Value.Dispose();

@@ -83,7 +83,7 @@ namespace WarGame
             }
         }
 
-        public void ClearDeadRole()
+        public int ClearDeadRole()
         {
             for (int i = _roleList.Count - 1; i >= 0; i--)
             {
@@ -99,8 +99,10 @@ namespace WarGame
                         role.Dispose();
                         _roleList.RemoveAt(i);
                     }
+                    return role.ID;
                 }
             }
+            return 0;
         }
 
         public float GetLoadingProgress()

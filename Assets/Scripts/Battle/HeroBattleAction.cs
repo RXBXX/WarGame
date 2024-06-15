@@ -18,20 +18,20 @@ namespace WarGame
         {
             base.AddListeners();
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
-            EventDispatcher.Instance.AddListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Battle, Battle);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Idle_Event, OnIdle);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Click_Skill, OnClickSkill);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Cancel_Event, OnCancel);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Cancel_Skill, OnCancelSkill);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Battle, Battle);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Idle_Event, OnIdle);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Click_Skill, OnClickSkill);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Event, OnCancel);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HUDInstruct_Cancel_Skill, OnCancelSkill);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Battle, Battle);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HUDInstruct_Idle_Event, OnIdle);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HUDInstruct_Click_Skill, OnClickSkill);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HUDInstruct_Cancel_Event, OnCancel);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HUDInstruct_Cancel_Skill, OnCancelSkill);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Battle, Battle);
             base.RemoveListeners();
         }
 

@@ -34,27 +34,9 @@ namespace WarGame.UI
 
             _map = GetChild<MapScroll>("mapScroll");
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.Map_Open_Event, OnMapOpen);
+            EventDispatcher.Instance.AddListener(Enum.Event.Map_Open_Event, OnMapOpen);
 
             InitMap();
-        }
-
-        public override void OnEnable()
-        {
-            var lastMainLevel = 0;
-            ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
-            {
-                var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
-                if (config.Type == Enum.LevelType.Main && isOpen && !DatasMgr.Instance.IsLevelPass(config.ID))
-                {
-                    lastMainLevel = config.ID;
-                }
-            });
-
-            DebugManager.Instance.Log("LastMainLevel:" + lastMainLevel);
-
-            if (0 != lastMainLevel)
-                _map.ScrollToLevel(lastMainLevel);
         }
 
         private void InitMap()
@@ -63,9 +45,29 @@ namespace WarGame.UI
             ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
             {
                 var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
-                levels.Add(new MapLevelPair(config.ID, isOpen));
+                if (config.Type == Enum.LevelType.Main || isOpen)
+                {
+                    levels.Add(new MapLevelPair(config.ID, isOpen));
+                }
             });
             _map.Init("UI/Background/Map", levels);
+        }
+
+        public override void OnEnable()
+        {
+            var lastMainLevel = 0;
+            foreach (var v in DatasMgr.Instance.GetOpenedLevels())
+            {
+                var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", v);
+                if (config.Type == Enum.LevelType.Main && config.ID > lastMainLevel)
+                {
+                    lastMainLevel = config.ID;
+                }
+            }
+
+            DebugManager.Instance.Log(lastMainLevel);
+            if (0 != lastMainLevel)
+                _map.ScrollToLevel(lastMainLevel);
         }
 
         private void OnClickHero()
@@ -108,6 +110,8 @@ namespace WarGame.UI
                 TipsMgr.Instance.Add("关卡没有开启！");
                 return;
             }
+
+            UIManager.Instance.ClosePanel(name);
             SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);
         }
 
@@ -115,7 +119,7 @@ namespace WarGame.UI
         {
             _map.Dispose();
             base.Dispose(disposeGCom);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Map_Open_Event, OnMapOpen);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Map_Open_Event, OnMapOpen);
         }
     }
 }

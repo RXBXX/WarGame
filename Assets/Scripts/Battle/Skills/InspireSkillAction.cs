@@ -15,12 +15,12 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
         }
 
         public override void Start()
@@ -40,7 +40,7 @@ namespace WarGame
 
         public override void Play()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Battle);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             initiator.SetState(Enum.RoleState.Attacking);
@@ -62,7 +62,7 @@ namespace WarGame
 
             initiator.SetState(Enum.RoleState.Over);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skill_Over);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
         }
 
         public override void Dispose()
@@ -158,13 +158,13 @@ namespace WarGame
 
             yield return new WaitForSeconds(moveDuration);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets});
             yield return new WaitForSeconds(1.0f);
         }
 
         private void CloseBattleArena()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Close_HP);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Close_HP);
 
             foreach (var v in _arenaObjects)
             {

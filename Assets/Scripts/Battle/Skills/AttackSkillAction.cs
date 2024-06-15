@@ -14,16 +14,16 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dodge_End, OnDodgeEnd);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Attacked_End, OnAttackedEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dead_End, OnDeadEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Dodge_End, OnDodgeEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
         }
 
         public override void Start()
@@ -33,7 +33,7 @@ namespace WarGame
 
         public override void Play()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Battle);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
 
             ExitGrayedMode();
 
@@ -62,7 +62,7 @@ namespace WarGame
             initiator.SetState(Enum.RoleState.Over);
             //initiator.SetGrayed(true);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Skill_Over);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
         }
 
         public override void Dispose()
@@ -89,7 +89,7 @@ namespace WarGame
                 else
                 {
                     var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(hurt, initiator.GetAttackEffect());
+                    target.Hit(hurt, initiator.GetAttackEffect(), initiator.Hexagon);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }
@@ -211,13 +211,13 @@ namespace WarGame
             _arenaObjects.Add(target);
             yield return new WaitForSeconds(moveDuration);
 
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, new List<int> { _targetID } });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, new List<int> { _targetID } });
             yield return new WaitForSeconds(1);
         }
 
         protected virtual void CloseBattleArena()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Close_HP);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Close_HP);
 
             foreach (var v in _arenaObjects)
             {

@@ -36,7 +36,7 @@ namespace WarGame.UI
             _equipComp = GetChild<HeroEquipComp>("equipComp");
             _equipComp.SetVisible(false);
 
-            EventDispatcher.Instance.AddListener(Enum.EventType.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
         }
 
         public void UpdateComp(int UID)
@@ -125,7 +125,7 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
 
             foreach (var v in _attrItemsDic)
                 v.Value.Dispose();

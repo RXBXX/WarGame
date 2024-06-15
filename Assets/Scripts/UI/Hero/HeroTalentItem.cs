@@ -29,7 +29,7 @@ namespace WarGame.UI
         private void OnClick(EventContext context)
         {
             var pos = GRoot.inst.GlobalToLocal(context.inputEvent.position);
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Show_Talent, new object[] {_heroUID, _id, pos });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Talent, new object[] {_heroUID, _id, pos });
         }
 
         public int GetID()

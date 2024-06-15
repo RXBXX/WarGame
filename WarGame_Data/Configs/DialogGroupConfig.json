@@ -1,14 +1,35 @@
 [
     {
         "ID": 10001,
-        "MaxIndex": 8
+        "MaxIndex": 8,
+        "Options": null,
+        "Event": 0
     },
     {
         "ID": 10002,
-        "MaxIndex": 12
+        "MaxIndex": 12,
+        "Options": null,
+        "Event": 4
     },
     {
         "ID": 10003,
-        "MaxIndex": 11
+        "MaxIndex": 11,
+        "Options": null,
+        "Event": 0
+    },
+    {
+        "ID": 10004,
+        "MaxIndex": 1,
+        "Options": [
+            1,
+            2
+        ],
+        "Event": 0
+    },
+    {
+        "ID": 10005,
+        "MaxIndex": 1,
+        "Options": null,
+        "Event": 0
     }
 ]

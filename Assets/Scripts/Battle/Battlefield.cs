@@ -27,12 +27,12 @@ namespace WarGame
 
         public BattleField(int levelID, bool restart)
         {
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Action_Over, OnActionEnd);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Event, HandleFightEvents);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Save_Data, OnSave);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Show_HP, OnShowHP);
-            EventDispatcher.Instance.AddListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Action_Over, OnActionEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Event, HandleFightEvents);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Skip_Rount, OnSkipRound);
+            EventDispatcher.Instance.AddListener(Enum.Event.Save_Data, OnSave);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_HP, OnShowHP);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Close_HP, OnCloseHP);
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
@@ -127,7 +127,7 @@ namespace WarGame
             if (_loading)
             {
                 var progress = (RoleManager.Instance.GetLoadingProgress() + MapManager.Instance.GetLoadingProgress() + _arrow.GetLoadingProgress()) / 3;
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Scene_Load_Progress, new object[] { progress });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Scene_Load_Progress, new object[] { progress });
 
                 if (progress >= 1 && null == _coroutine)
                 {
@@ -173,12 +173,12 @@ namespace WarGame
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Action_Over, OnActionEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Event, HandleFightEvents);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Skip_Rount, OnSkipRound);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Save_Data, OnSave);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Show_HP, OnShowHP);
-            EventDispatcher.Instance.RemoveListener(Enum.EventType.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Action_Over, OnActionEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Event, HandleFightEvents);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Skip_Rount, OnSkipRound);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Save_Data, OnSave);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HP, OnShowHP);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Close_HP, OnCloseHP);
         }
 
         private IEnumerator OnLoad()
@@ -194,8 +194,7 @@ namespace WarGame
 
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {
-                var dialogGroup = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartDialog;
-                DialogMgr.Instance.OpenDialog(dialogGroup, (args) =>
+                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartEvent, (args) =>
                 {
                     _levelData.Stage = Enum.LevelStage.Talked;
                     _action = new ReadyBattleAction(GetActionID(), _levelData);
@@ -356,13 +355,13 @@ namespace WarGame
                 var screenPos = InputManager.Instance.GetMousePos();
                 screenPos.y = Screen.height - screenPos.y;
                 var uiPos = GRoot.inst.GlobalToLocal(screenPos);
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID });
             }
         }
 
         public void RightClickEnd()
         {
-            EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_Hide_RoleInfo);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_RoleInfo);
             if (_isLockingCamera)
             {
                 CameraMgr.Instance.Unlock();
@@ -387,7 +386,7 @@ namespace WarGame
 
         private void OnActionEnd(params object[] args)
         {
-            RoleManager.Instance.ClearDeadRole();
+            var roleID = RoleManager.Instance.ClearDeadRole();
 
             if (null != args && args.Length > 0)
             {
@@ -399,15 +398,23 @@ namespace WarGame
                 }
             }
 
-            NextAction();
+            var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", roleID);
+            if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
+            {
+                EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);
+            }
+            else
+            {
+                NextAction();
+            }
         }
 
-        private void NextAction()
+        private void NextAction(params object[] args)
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             if (heros.Count <= 0)
             {
-                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedDialog, (args) =>
+                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedEvent, (args) =>
                 {
                     OnFailed();
                 });
@@ -417,7 +424,7 @@ namespace WarGame
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             if (enemys.Count <= 0)
             {
-                DialogMgr.Instance.OpenDialog(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinDialog, (args) =>
+                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
                 {
                     OnSuccess();
                 });
@@ -451,7 +458,7 @@ namespace WarGame
                     _levelData.actionType = Enum.ActionType.EnemyAction;
                 };
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
             }
 
             if (_levelData.actionType == Enum.ActionType.EnemyAction)
@@ -476,8 +483,8 @@ namespace WarGame
                     _action = new HeroBattleAction(GetActionID());
                 };
 
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
-                EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_RoundOver_Event, new object[] { _levelData.Round, callback });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round, callback });
             }
         }
 
@@ -544,7 +551,7 @@ namespace WarGame
         {
             _levelData.Stage = Enum.LevelStage.Passed;
 
-            DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
+            //DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
 
             OnSave();
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID });

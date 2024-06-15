@@ -7,7 +7,7 @@ namespace WarGame
 {
     public class EventDispatcher : Singeton<EventDispatcher>
     {
-        private Dictionary<Enum.EventType, List<WGArgsCallback>> _eventDic = new Dictionary<Enum.EventType, List<WGArgsCallback>>();
+        private Dictionary<Enum.Event, List<WGArgsCallback>> _eventDic = new Dictionary<Enum.Event, List<WGArgsCallback>>();
 
         public override bool Init()
         {
@@ -27,7 +27,7 @@ namespace WarGame
             return true;
         }
 
-        public void AddListener(Enum.EventType eventName, WGArgsCallback callback)
+        public void AddListener(Enum.Event eventName, WGArgsCallback callback)
         {
             if (!_eventDic.ContainsKey(eventName))
             {
@@ -36,7 +36,7 @@ namespace WarGame
             _eventDic[eventName].Add(callback);
         }
 
-        public void RemoveListener(Enum.EventType eventName, WGArgsCallback callback)
+        public void RemoveListener(Enum.Event eventName, WGArgsCallback callback)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;
@@ -51,7 +51,7 @@ namespace WarGame
             }
         }
 
-        public void PostEvent(Enum.EventType eventName, object[] args = null)
+        public void PostEvent(Enum.Event eventName, object[] args = null)
         {
             if (!_eventDic.ContainsKey(eventName))
                 return;
