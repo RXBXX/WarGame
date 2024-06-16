@@ -9,12 +9,16 @@ namespace WarGame.UI
     {
         private GTextField _name;
         private GList _attrList;
+        private GProgressBar _hp;
+        private GProgressBar _rage;
         private List<StringStringPair> _attrsData = new List<StringStringPair>();
         private Dictionary<string, CommonAttrItem> _attrsItemDic = new Dictionary<string, CommonAttrItem>();
 
         public FightRoleInfo(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _name = GetGObjectChild<GTextField>("name");
+            _hp = GetGObjectChild<GProgressBar>("hp");
+            _rage = GetGObjectChild<GProgressBar>("rage");
             _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnItemRenderer;
         }
@@ -34,7 +38,19 @@ namespace WarGame.UI
                 return;
 
             var role = RoleManager.Instance.GetRole(roleID);
-            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config)=> {
+
+            _hp.max = role.GetAttribute(Enum.AttrType.HP);
+            _hp.value = role.GetHP();
+
+            _rage.max = role.GetAttribute(Enum.AttrType.Rage);
+            _rage.value = role.GetRage();
+
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+            {
+                if ((Enum.AttrType)config.ID == Enum.AttrType.HP || (Enum.AttrType)config.ID == Enum.AttrType.Rage)
+                {
+                    return;
+                }
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
                 if (value > 0)
                 {

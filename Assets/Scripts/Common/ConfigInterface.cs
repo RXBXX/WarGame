@@ -278,6 +278,7 @@ namespace WarGame
         public int[] Equips;
         public int NextStage;
         public int DefeatEvent;
+        public float ViewDis;
     }
 
     //Ìì¸³±í

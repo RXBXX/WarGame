@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="228,215">
+<component size="228,249">
   <displayList>
-    <text id="n1_dd4m" name="name" xy="14,4" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="11111"/>
-    <list id="n0_dd4m" name="attrList" xy="13,38" size="210,154" overflow="scroll" lineGap="-5" defaultItem="ui://hx02grrpgy0sr">
+    <text id="n1_dd4m" name="name" xy="9,4" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="11111"/>
+    <list id="n0_dd4m" name="attrList" xy="9,72" size="210,154" overflow="scroll" lineGap="-5" defaultItem="ui://hx02grrpgy0sr">
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
+    <component id="n2_cwzy" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="9,42" size="209,14">
+      <ProgressBar value="50" max="100"/>
+    </component>
+    <component id="n3_cwzy" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="9,56" size="209,11" controller="style,2">
+      <ProgressBar value="50" max="100"/>
+    </component>
   </displayList>
   <relation target="n0_dd4m" sidePair="bottomext-bottom"/>
 </component>

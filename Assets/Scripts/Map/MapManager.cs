@@ -24,21 +24,21 @@ namespace WarGame
             new Vector3(0, 0, -1),
             new Vector3(1, 0, -1),
 
-            new Vector3(1, -1, 0),
-            new Vector3(0, -1, 1),
-            new Vector3(-1, -1, 1),
-            new Vector3(-1, -1, 0),
-            new Vector3(0, -1, -1),
-            new Vector3(1, -1, -1),
-            new Vector3(0, -1, 0),
+            //new Vector3(1, -1, 0),
+            //new Vector3(0, -1, 1),
+            //new Vector3(-1, -1, 1),
+            //new Vector3(-1, -1, 0),
+            //new Vector3(0, -1, -1),
+            //new Vector3(1, -1, -1),
+            //new Vector3(0, -1, 0),
 
-            new Vector3(1, 1, 0),
-            new Vector3(0, 1, 1),
-            new Vector3(-1, 1, 1),
-            new Vector3(-1, 1, 0),
-            new Vector3(0, 1, -1),
-            new Vector3(1, 1, -1),
-            new Vector3(0, 1, 0),
+            //new Vector3(1, 1, 0),
+            //new Vector3(0, 1, 1),
+            //new Vector3(-1, 1, 1),
+            //new Vector3(-1, 1, 0),
+            //new Vector3(0, 1, -1),
+            //new Vector3(1, 1, -1),
+            //new Vector3(0, 1, 0),
             };
 
 
@@ -155,15 +155,30 @@ namespace WarGame
         {
             ClearMarkedRegion();
 
-            var region = FindingRegion(hexagonID, moveDis, attackDis, roleType);
-            for (int i = 0; i < region.Count; i++)
+            var closeDic = new Dictionary<string, Cell>();
+            FindingMoveRegion(hexagonID, moveDis, roleType, null, closeDic);
+
+            var moveRegion = new List<string>();
+            foreach (var v in closeDic)
             {
-                _markedRegion.Add(region[i].id);
-                var hexagon = GetHexagon(region[i].id);
-                if (null != hexagon)
-                    hexagon.Marking(region[i].type);
+                moveRegion.Add(v.Key);
+            }
+
+            foreach (var v in closeDic)
+            {
+                if (null != v.Value.parent && moveRegion.Contains(v.Value.parent.id))
+                    moveRegion.Remove(v.Value.parent.id);
+            }
+
+            FindingAttackRegion(moveRegion, attackDis, null, closeDic);
+
+            foreach (var v in closeDic)
+            { 
+                _markedRegion.Add(v.Key);
+                GetHexagon(v.Key)?.Marking(v.Value.type);
             }
         }
+
         public void ClearMarkedRegion()
         {
             foreach (var key1 in _markedRegion)
@@ -211,7 +226,7 @@ namespace WarGame
         {
             public string id;
             public float g; //移动代价
-            public float h;
+            public float h; //曼哈顿距离
             public Vector3 coor;
             public Cell parent;
             public Enum.MarkType type;
@@ -597,6 +612,7 @@ namespace WarGame
         private Cell HandleAttackRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
+            //DebugManager.Instance.Log(key +"_"+ closeDic.ContainsKey(key));
             if (closeDic.ContainsKey(key))
                 return null;
 
@@ -625,6 +641,7 @@ namespace WarGame
                 cost += parent.g;
             }
 
+            //DebugManager.Instance.Log(cost > dis);
             if (cost > dis)
                 return null;
 
@@ -664,17 +681,18 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public List<Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType)
+        public Dictionary<string, Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<string, Cell> openDic = null, Dictionary<string, Cell> closeDic = null)
         {
-            List<Cell> region = new List<Cell>();
+            if (null == openDic)
+                openDic = new Dictionary<string, Cell>();
 
-            Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
-            Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
+            if (null == closeDic)
+                closeDic = new Dictionary<string, Cell>();
 
             var startPos = GetHexagon(hexagonID).coor;
             var cell = HandleMoveRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType);
             if (null == cell)
-                return region;
+                return closeDic;
 
             while (openDic.Count > 0)
             {
@@ -696,15 +714,9 @@ namespace WarGame
                 }
             }
 
-            foreach (var pair in closeDic)
-            {
-                region.Add(pair.Value);
-            }
-
             openDic.Clear();
-            closeDic.Clear();
 
-            return region;
+            return closeDic;
         }
 
         /// <summary>
@@ -712,22 +724,20 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public List<Cell> FindingAttackRegion(List<Cell> cells, float attackDis)
+        public Dictionary<string, Cell> FindingAttackRegion(List<string> hexagonIDs, float attackDis, Dictionary<string, Cell> openDic = null, Dictionary<string, Cell> closeDic = null)
         {
-            Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
-            Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
+            if (null == openDic)
+                openDic = new Dictionary<string, Cell>();
 
-            for (int i = 0; i < cells.Count; i++)
-            {
-                closeDic.Add(cells[i].id, cells[i]);
-            }
+            //DebugManager.Instance.Log(null == closeDic);
+            if (null == closeDic)
+                closeDic = new Dictionary<string, Cell>();
 
-            for (int i = 0; i < cells.Count; i++)
+            foreach (var v in hexagonIDs)
             {
                 for (int q = 0; q < _directions.Length; q++)
                 {
-                    var pos2 = cells[i].coor + _directions[q];
-                    HandleAttackRegionCell(pos2, cells[i], attackDis, openDic, closeDic);
+                    HandleAttackRegionCell(GetHexagon(v).coor + _directions[q], null, attackDis, openDic, closeDic);
                 }
             }
 
@@ -746,63 +756,55 @@ namespace WarGame
                         var pos2 = cell2.coor + _directions[j];
                         HandleAttackRegionCell(pos2, cell2, attackDis, openDic, closeDic);
                     }
+                }
+                foreach (var v in allKeys)
+                {
+                    closeDic.Add(v, openDic[v]);
+                    openDic.Remove(v);
+                }
+            }
+
+            openDic.Clear();
+
+            return closeDic;
+        }
+
+        public Dictionary<string, Cell> FindingViewRegion(string hexagonID, float viewDis)
+        {
+            var openDic = new Dictionary<string, Cell>();
+            var closeDic = new Dictionary<string, Cell>();
+
+            for (int q = 0; q < _directions.Length; q++)
+            {
+                var pos2 = GetHexagon(hexagonID).coor + _directions[q];
+                HandleAttackRegionCell(pos2, null, viewDis, openDic, closeDic);
+            }
+
+            //DebugManager.Instance.Log(openDic.Count);
+
+            while (openDic.Count > 0)
+            {
+                var allKeys = new List<string>();
+                foreach (var pair in openDic)
+                {
+                    allKeys.Add(pair.Key);
+                }
+                foreach (var key in allKeys)
+                {
+                    var cell2 = openDic[key];
+                    for (int j = 0; j < _directions.Length; j++)
+                    {
+                        var pos2 = cell2.coor + _directions[j];
+                        HandleAttackRegionCell(pos2, cell2, viewDis, openDic, closeDic);
+                    }
                     openDic.Remove(key);
                     closeDic.Add(key, cell2);
                 }
             }
 
-            List<Cell> region = new List<Cell>();
-            foreach (var pair in closeDic)
-            {
-                region.Add(pair.Value);
-            }
-
             openDic.Clear();
-            closeDic.Clear();
 
-            return region;
-        }
-
-        public List<Cell> FindingRegion(string hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
-        {
-            //缓存所有的父节点
-            var region = FindingMoveRegion(hexagonID, moveDis, roleType);
-            var attackRegion = FindingAttackRegion(region, attackDis);
-            for (int i = 0; i < attackRegion.Count; i++)
-            {
-                region.Add(attackRegion[i]);
-            }
-            return region;
-        }
-
-        public List<string> FindingAIPath(string initiator, string target, float moveDis, float attackDis)
-        {
-            var region = FindingRegion(initiator, moveDis, attackDis, Enum.RoleType.Enemy);
-            Cell targetCell = null;
-            for (int i = 0; i < region.Count; i++)
-            {
-                //DebugManager.Instance.Log(region[i].id);
-                if (region[i].id == target)
-                {
-                    targetCell = region[i];
-                    break;
-                }
-            }
-            if (null == targetCell)
-                return null;
-
-            List<string> finalPath = new List<string>();
-            targetCell = targetCell.parent;
-            while (null != targetCell)
-            {
-                if (targetCell.type == Enum.MarkType.Walkable)
-                {
-                    finalPath.Add(targetCell.id);
-                }
-                targetCell = targetCell.parent;
-            }
-            finalPath.Reverse();
-            return finalPath;
+            return closeDic;
         }
     }
 }

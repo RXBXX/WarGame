@@ -77,10 +77,10 @@ namespace WarGame.UI
                 DatasMgr.Instance.StartGame(_listDatas[index]);
             }
 
-            DebugManager.Instance.Log(_mode);
+            //DebugManager.Instance.Log(_mode);
             if (_mode == Enum.RecordMode.Read)
             {
-                DebugManager.Instance.Log("OpenScene:" + "StartGame");
+                //DebugManager.Instance.Log("OpenScene:" + "StartGame");
                 SceneMgr.Instance.StartGame();
             }
         }

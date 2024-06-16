@@ -107,10 +107,7 @@ namespace WarGame
         {
             var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var region = MapManager.Instance.FindingRegion(hexagonID, 0, initiator.GetAttackDis(), Enum.RoleType.Hero);
-            var regionDic = new Dictionary<string, bool>();
-            foreach (var v in region)
-                regionDic[v.id] = true;
+            var regionDic = MapManager.Instance.FindingAttackRegion(new List<string> { hexagonID }, initiator.GetAttackDis());
 
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)

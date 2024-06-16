@@ -190,7 +190,7 @@ namespace WarGame
 
         public override void End(bool reverse)
         {
-            DebugManager.Instance.Log("AttackEnd");
+            //DebugManager.Instance.Log("AttackEnd");
 
             base.End(reverse);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Attacked_End, new object[] { _role.ID});

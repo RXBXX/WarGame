@@ -249,16 +249,19 @@ namespace WarGame
                 value += v.Value.GetAttribute(attrType);
             }
 
-            //需要找到所有临时性buff计算
-            foreach (var v in buffs)
+            if (attrType != Enum.AttrType.HP && attrType != Enum.AttrType.Rage)
             {
-                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
-                if ((Enum.AttrType)buffConfig.Attr.id == attrType)
+                //需要找到所有临时性buff计算
+                foreach (var v in buffs)
                 {
-                    if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", buffConfig.Attr.id).ValueType == Enum.ValueType.Percentage)
-                        value += v.value / 100.0f;
-                    else
-                        value += v.value;
+                    var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
+                    if ((Enum.AttrType)buffConfig.Attr.id == attrType)
+                    {
+                        if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", buffConfig.Attr.id).ValueType == Enum.ValueType.Percentage)
+                            value += buffConfig.Attr.value / 100.0f;
+                        else
+                            value += buffConfig.Attr.value;
+                    }
                 }
             }
 
@@ -275,13 +278,15 @@ namespace WarGame
             }
         }
 
-        public void ExcuteBuffs()
+        public void ExcuteBuffs(WGArgsCallback callback)
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
                 var attrType = (Enum.AttrType)buffConfig.Attr.id;
                 UpdateAttr(attrType, buffConfig.Attr.value);
+
+                callback(new object[] { attrType, buffConfig.Attr.value});
 
                 if (buffs[i].value - 1 <= 0)
                 {

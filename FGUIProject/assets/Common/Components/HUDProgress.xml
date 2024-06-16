@@ -9,6 +9,9 @@
       <gearColor controller="style" pages="0,1,2" values="#5c8799|#ce4a35|#e2ba2a"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
+    <text id="n2_cwzy" name="title" xy="80,10" pivot="0.5,0.5" anchor="true" size="38,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#f6f2f2" autoClearText="true" text="99/100">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
   </displayList>
-  <ProgressBar/>
+  <ProgressBar titleType="valueAndmax"/>
 </component>

@@ -97,15 +97,15 @@ namespace WarGame
 
         private void OpenScene(string scene, System.Action<string> callback)
         {
-            DebugManager.Instance.Log("OpenScene");
+            //DebugManager.Instance.Log("OpenScene");
 
             System.GC.Collect();
             AssetsMgr.Instance.UnloadUnusedAssets();
 
-            UIManager.Instance.OpenPanel("Load", "LoadPanel");
+            //UIManager.Instance.OpenPanel("Load", "LoadPanel");
             AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
             {
-                DebugManager.Instance.Log("OpenScene 1111");
+                //DebugManager.Instance.Log("OpenScene 1111");
                 UIManager.Instance.ClosePanel("LoadPanel");
                 callback(name);
             });
@@ -113,7 +113,7 @@ namespace WarGame
 
         public void StartGame(string id = null)
         {
-            DebugManager.Instance.Log("OpenScene:" + DatasMgr.Instance.IsNewGameData());
+            //DebugManager.Instance.Log("OpenScene:" + DatasMgr.Instance.IsNewGameData());
             if (DatasMgr.Instance.IsNewGameData())
             {
                 StoryMgr.Instance.PlayStory(10001, true, (args) =>

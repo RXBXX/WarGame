@@ -23,7 +23,7 @@ namespace WarGame
         public Weather weather;
         private bool _isLockingCamera;
         public Light mainLight;
-        public long startTime;
+        //public long startTime;
 
         public BattleField(int levelID, bool restart)
         {
@@ -66,7 +66,7 @@ namespace WarGame
                 {
                     _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
-                        DebugManager.Instance.Log(prefab.name);
+                        //DebugManager.Instance.Log(prefab.name);
                         var go = GameObject.Instantiate<GameObject>(prefab);
                         go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
 
@@ -91,7 +91,7 @@ namespace WarGame
                     {
                         _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                         {
-                            DebugManager.Instance.Log(prefab.name);
+                            //DebugManager.Instance.Log(prefab.name);
                             var go = GameObject.Instantiate<GameObject>(prefab);
                             go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
 
@@ -118,8 +118,8 @@ namespace WarGame
             mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
             _loading = true;
-            startTime = TimeMgr.Instance.GetUnixTimestamp();
-            DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
+            //startTime = TimeMgr.Instance.GetUnixTimestamp();
+            //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
         }
 
         public void Update(float deltaTime)
@@ -209,9 +209,9 @@ namespace WarGame
                 NextAction();
             }
 
-            DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
+            //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
-            DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
+            //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
 
             //DebugManager.Instance.Log(CameraMgr.Instance.MainCamera.name);
             //CameraMgr.Instance.MainCamera.depthTextureMode = DepthTextureMode.Depth;
@@ -319,24 +319,25 @@ namespace WarGame
             if (!_loaded)
                 return;
 
+            //点击角色时，如何切换摄像机目标在视觉上会扰乱操作，目前调整为按下鼠标左键拖拽切换目标
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString())
             {
-                CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
+                //CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
             }
             else if (tag == Enum.Tag.Enemy.ToString())
             {
-                CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
+                //CameraMgr.Instance.SetTarget(obj.GetComponent<RoleBehaviour>().ID);
             }
             else if (tag == Enum.Tag.Hexagon.ToString())
             {
-                var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
+                //var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
 
-                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
-                if (roleID > 0)
-                {
-                    CameraMgr.Instance.SetTarget(roleID);
-                }
+                //var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
+                //if (roleID > 0)
+                //{
+                //    CameraMgr.Instance.SetTarget(roleID);
+                //}
             }
 
             if (null != _action)

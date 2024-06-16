@@ -39,7 +39,7 @@ namespace WarGame
 
         public bool DeadFlag = false;
 
-        protected List<string> _enemyHexagon = new List<string>();
+        protected int _attacker;
 
         public int ID
         {
@@ -280,7 +280,7 @@ namespace WarGame
             }
         }
 
-        public virtual void Hit(float deltaHP, string hitEffect, string enemyHexagon)
+        public virtual void Hit(float deltaHP, string hitEffect, int attacker)
         {
             if (null != hitEffect)
             {
@@ -296,8 +296,7 @@ namespace WarGame
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
 
-            if (!_enemyHexagon.Contains(enemyHexagon))
-                _enemyHexagon.Add(enemyHexagon);
+            _attacker = attacker;
         }
 
         public virtual void Cure()
@@ -404,6 +403,13 @@ namespace WarGame
                 return;
 
             _data.UpdateAttr(type, delta);
+            OnUpdateAttr(new object[] { type, delta });
+        }
+
+        private void OnUpdateAttr(params object[] args)
+        {
+            Enum.AttrType type = (Enum.AttrType)args[0];
+            float delta = (float)args[1];
 
             if (type == Enum.AttrType.HP)
             {
@@ -451,15 +457,6 @@ namespace WarGame
         public float GetAttribute(Enum.AttrType type)
         {
             return _data.GetAttribute(type);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public virtual float GetViewDis()
-        {
-            return 0;
         }
 
         public void HandleEvent(string stateName, string secondStateName)
@@ -539,7 +536,7 @@ namespace WarGame
 
         protected virtual void ExcuteBuffs()
         {
-            _data.ExcuteBuffs();
+            _data.ExcuteBuffs(OnUpdateAttr);
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_data.buffs);

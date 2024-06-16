@@ -126,7 +126,7 @@ namespace WarGame
                 {
                     if (v != _targetID)
                     {
-                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, initiator.Hexagon);
+                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, _initiatorID);
                     }
                 }
             }
@@ -191,7 +191,7 @@ namespace WarGame
                 else
                 {
                     _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(_hurt, initiator.GetAttackEffect(), initiator.Hexagon);
+                    target.Hit(_hurt, initiator.GetAttackEffect(), _initiatorID);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }

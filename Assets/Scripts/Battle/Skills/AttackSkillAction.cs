@@ -89,7 +89,7 @@ namespace WarGame
                 else
                 {
                     var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(hurt, initiator.GetAttackEffect(), initiator.Hexagon);
+                    target.Hit(hurt, initiator.GetAttackEffect(), _initiatorID);
                     target.AddBuffs(initiator.GetAttackBuffs());
                     CameraMgr.Instance.ShakePosition();
                 }

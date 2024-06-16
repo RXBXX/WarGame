@@ -43,7 +43,7 @@ namespace WarGame
 
         public override void Clear()
         {
-            DebugManager.Instance.Log("GrayPP Clear");
+            //DebugManager.Instance.Log("GrayPP Clear");
             _depthCamera.gameObject.SetActive(false);
             _depthCamera.targetTexture = null;
             RenderTexture.ReleaseTemporary(_depthRT);

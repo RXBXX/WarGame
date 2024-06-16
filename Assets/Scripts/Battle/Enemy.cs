@@ -37,80 +37,141 @@ namespace WarGame
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private float GetViewDis()
+        {
+            return ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", _data.UID).ViewDis;
+        }
+
         protected virtual IEnumerator StartAI()
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
 
-            ////遍历在视野范围内的敌人
-            //foreach (var v in heros)
-            //{
-            //    var tempPath = MapManager.Instance.FindingAIPath(Hexagon, v.Hexagon, GetMoveDis(), GetAttackDis());
-            //    if (null == tempPath)
-            //        continue;
-            //    if (tempPath.Count <= 0)
-            //        continue;
-
-
-            //        if (Hexagon == tempPath[tempPath.Count - 1])
-            //        {
-            //            targetID = heros[i].ID;
-            //            break;
-            //        }
-            //        else if (RoleManager.Instance.GetRoleIDByHexagonID(tempPath[tempPath.Count - 1]) > 0)
-            //        {
-            //            //SetState(Enum.RoleState.Over);
-            //        }
-            //        else
-            //        {
-            //            path = tempPath;
-            //            targetID = heros[i].ID;
-            //            break;
-            //        }
-            //}
-
-            var targetID = 0;
-            List<string> path = new List<string>();
-
-            for (int i = 0; i < heros.Count; i++)
+            //查找所有视野目标
+            //将最后一次攻击自己的敌人也加入队列
+            var targets = new List<Role>() { };
+            if (0 != _attacker)
             {
-                var tempPath = MapManager.Instance.FindingAIPath(Hexagon, heros[i].Hexagon, GetMoveDis(), GetAttackDis());
-                if (null != tempPath && tempPath.Count > 0)
+                var attacker = RoleManager.Instance.GetRole(_attacker);
+                targets.Add(attacker);
+            }
+
+            var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
+            //DebugManager.Instance.Log("FindingView"+viewRegionDic.Count);
+
+            //foreach (var v in viewRegionDic)
+            //    DebugManager.Instance.Log(v.Key);
+            foreach (var v in heros)
+            {
+                if (!viewRegionDic.ContainsKey(v.Hexagon))
+                    continue;
+                //DebugManager.Instance.Log(v.ID);
+                targets.Add(v);
+            }
+
+            //DebugManager.Instance.Log("FilterTarget");
+            //筛选出攻击目标
+            Role target = null;
+            foreach (var v in targets)
+            {
+                foreach (var v1 in moveRegion)
                 {
-                    if (Hexagon == tempPath[tempPath.Count - 1])
+                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v1.Key);
+                    if (0 != hexagonRoleID && ID != hexagonRoleID)
+                        continue;
+
+                    var attachPath = MapManager.Instance.FindingAttackPathForStr(v1.Key, v.Hexagon, GetAttackDis());
+                    if (null != attachPath && attachPath.Count > 0 && (null == target || target.GetHP() > v.GetHP()))
                     {
-                        targetID = heros[i].ID;
-                        break;
-                    }
-                    else if (RoleManager.Instance.GetRoleIDByHexagonID(tempPath[tempPath.Count - 1]) > 0)
-                    {
-                        //SetState(Enum.RoleState.Over);
-                    }
-                    else
-                    {
-                        path = tempPath;
-                        targetID = heros[i].ID;
+                        DebugManager.Instance.Log(v.ID);
+                        target = v;
                         break;
                     }
                 }
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, targetID, GetConfig().CommonSkill });
-            yield return new WaitForSeconds(1.0F);
-
-            if (targetID <= 0)
+            List<string> path = null;
+            if (null != target)
             {
-                //DebugManager.Instance.Log("MoveDis:" + GetMoveDis());
-                var rdMoveDis = Random.Range(0, GetMoveDis());
-                //DebugManager.Instance.Log("RandomMoveDis:" + rdMoveDis);
+                MapManager.Cell destCell = null;
+                foreach (var v in moveRegion)
+                {
+                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                    if (0 != hexagonRoleID && hexagonRoleID != ID)
+                        continue;
+
+                    var attachPath = MapManager.Instance.FindingAttackPathForStr(v.Key, target.Hexagon, GetAttackDis());
+                    if (null != attachPath && attachPath.Count > 0 && (null == destCell || destCell.g > v.Value.g))
+                    {
+                        //DebugManager.Instance.Log(v.Key);
+                        destCell = v.Value;
+                    }
+                    }
+                if (null != destCell)
+                {
+                    path = new List<string>();
+                    while (null != destCell)
+                    {
+                        path.Insert(0, destCell.id);
+                        destCell = destCell.parent;
+                    }
+                }
+            }
+            else if (targets.Count > 0)
+            {
+                //DebugManager.Instance.Log("Targets.Count > 0");
+                Role hero = targets[0];
+                foreach (var v in targets)
+                {
+                    if (hero.GetHP() > v.GetHP())
+                    {
+                        hero = v;
+                    }
+                }
+
+                var targetHexagon = MapManager.Instance.GetHexagon(hero.Hexagon);
+                MapManager.Cell destCell = null;
+                foreach (var v in moveRegion)
+                {
+                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                    if (0 != hexagonRoleID && hexagonRoleID != ID)
+                        continue;
+
+                    if (null == destCell || Vector3.Distance(targetHexagon.coor, destCell.coor) > Vector3.Distance(targetHexagon.coor, v.Value.coor))
+                        destCell = v.Value;
+                }
+                if (null != destCell)
+                {
+                    path = new List<string>();
+                    while (null != destCell)
+                    {
+                        path.Insert(0, destCell.id);
+                        destCell = destCell.parent;
+                    }
+                    //DebugManager.Instance.Log("Path:"+path.Count);
+                }
+            }
+            else
+            {
                 if (Hexagon == _data.bornHexagonID)
                 {
-                    var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, rdMoveDis, Type);
-                    var randomHexagonIndex = Random.Range(0, moveRegion.Count);
-                    //DebugManager.Instance.Log("RandomHexagon:" + randomHexagonIndex);
-                    var rdHexagon = moveRegion[randomHexagonIndex];
-                    //DebugManager.Instance.Log("RandomTargetHexagon:" + rdHexagon.id);
+                    var emptyMoveRegions = new List<MapManager.Cell>();
+                    foreach (var v in moveRegion)
+                    {
+                        var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                        if (0 != hexagonRoleID && hexagonRoleID != ID)
+                            continue;
+                        emptyMoveRegions.Add(v.Value);
+                    }
+                    var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
+                    var rdHexagon = emptyMoveRegions[randomHexagonIndex];
                     if (rdHexagon.id != Hexagon)
                     {
+                        path = new List<string>();
                         while (null != rdHexagon)
                         {
                             path.Insert(0, rdHexagon.id);
@@ -132,17 +193,21 @@ namespace WarGame
                             }
                             break;
                         }
-                    }
 
-                    for (int i = 0; i < movePath.Count; i++)
-                        path.Add(movePath[i].id);
+                        path = new List<string>();
+                        for (int i = 0; i < movePath.Count; i++)
+                            path.Add(movePath[i].id);
+                    }
                 }
             }
 
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target?0:target.ID, GetConfig().CommonSkill });
+            yield return new WaitForSeconds(1.0F);
+
             //DebugManager.Instance.Log(path.Count);
-            if (path.Count > 0)
+            if (null!= path && path.Count > 1)
                 Move(path);
-            else if (targetID > 0)
+            else if (null != target)
                 MoveEnd();
             else
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Over, new object[] { 0 });
@@ -151,8 +216,6 @@ namespace WarGame
         public override void Move(List<string> hexagons)
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_MoveStart, new object[] { ID });
-            //foreach (var v in hexagons)
-            //    DebugManager.Instance.Log(v);
             base.Move(hexagons);
         }
 
@@ -160,6 +223,7 @@ namespace WarGame
         {
             base.UpdateRound();
             SetState(Enum.RoleState.Locked);
+            _attacker = 0;
         }
 
         protected override int GetNextStage()
