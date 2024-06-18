@@ -2,28 +2,27 @@
 <component size="1334,750" opaque="false">
   <displayList>
     <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightInforComp.xml" xy="667,355" touchable="false"/>
-    <image id="n31_c2cw" name="n31" src="c2cwc" fileName="Images/FightRoundTitle.png" xy="666,104" pivot="0.5,0.5" anchor="true" size="559,179" group="n11_tsk1" scale="0.6,0.6"/>
-    <text id="n4_p3n5" name="round" xy="666,86" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
-    <group id="n11_tsk1" name="n11" xy="387,14" size="559,179" advanced="true">
+    <text id="n4_p3n5" name="round" xy="667,56" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
+    <group id="n11_tsk1" name="n11" xy="659,31" size="16,49" advanced="true">
       <relation target="" sidePair="center-center,top-top"/>
     </group>
-    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1190,124" pivot="0.5,0.5" anchor="true">
-      <relation target="" sidePair="right-right,top-top"/>
-    </component>
     <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="943,634" visible="false">
+    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="880,640" scale="0.5,0.5" visible="false">
       <Button title="SKIP"/>
     </component>
-    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="943,636">
+    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="900,640" scale="0.5,0.5">
       <Button title="START"/>
     </component>
-    <component id="n30_pfj8" name="enemyQueue" src="pfj87" fileName="FightEnemyQueue.xml" xy="143,636"/>
+    <component id="n30_pfj8" name="enemyQueue" src="pfj87" fileName="FightEnemyQueue.xml" xy="-2,660"/>
     <component id="n22_pfj8" name="heroGroup" src="pfj86" fileName="FightHeroGroup.xml" xy="0,0" visible="false">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
     <component id="n33_dd4m" name="roleInfo" src="dd4md" fileName="FightRoleInfo.xml" xy="389,446" visible="false"/>
+    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="40,20">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
   </displayList>
   <transition name="showHP"/>
 </component>

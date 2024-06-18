@@ -65,7 +65,6 @@ namespace WarGame.UI
                 }
             }
 
-            DebugManager.Instance.Log(lastMainLevel);
             if (0 != lastMainLevel)
                 _map.ScrollToLevel(lastMainLevel);
         }

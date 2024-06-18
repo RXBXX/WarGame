@@ -43,7 +43,7 @@ namespace WarGame
         /// <returns></returns>
         private float GetViewDis()
         {
-            return ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", _data.UID).ViewDis;
+            return ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", _data.UID).ViewDis;
         }
 
         protected virtual IEnumerator StartAI()
@@ -231,7 +231,7 @@ namespace WarGame
             if (_stage > 0)
                 return 0;
 
-            return ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", ID).NextStage;
+            return ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", ID).NextStage;
         }
 
         public override bool HaveNextStage()

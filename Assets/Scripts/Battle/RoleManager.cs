@@ -39,7 +39,7 @@ namespace WarGame
             var enemys = new List<LevelRoleData>();
             for (int i = 0; i < roles.Length; i++)
             {
-                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", roles[i].configId);
+                var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", roles[i].configId);
                 var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, enemyConfig.ID, roles[i].hexagonID);
                 CreateEnemy(levelRoleData);
                 enemys.Add(levelRoleData);

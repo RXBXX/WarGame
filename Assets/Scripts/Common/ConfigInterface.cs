@@ -269,9 +269,9 @@ namespace WarGame
         //public SourcePair[] Rewards;
     }
 
-    //角色生成表
+    //敌人表
     [Serializable]
-    public class LevelEnemyConfig : Config
+    public class EnemyConfig : Config
     {
         public int RoleID;
         public int Level;
@@ -279,6 +279,14 @@ namespace WarGame
         public int NextStage;
         public int DefeatEvent;
         public float ViewDis;
+    }
+
+    //敌人表
+    [Serializable]
+    public class HeroConfig : Config
+    {
+        public int RoleID;
+        public int Level;
     }
 
     //天赋表

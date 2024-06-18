@@ -11,7 +11,6 @@ namespace Map
         public UI_MapScroll m_mapScroll;
         public GButton m_closeBtn;
         public GButton m_heroBtn;
-        public GButton m_settingsBtn;
         public const string URL = "ui://p7jlxbp3rquy2";
 
         public static UI_MapPanel CreateInstance()
@@ -27,7 +26,6 @@ namespace Map
             m_mapScroll = (UI_MapScroll)GetChildAt(1);
             m_closeBtn = (GButton)GetChildAt(2);
             m_heroBtn = (GButton)GetChildAt(3);
-            m_settingsBtn = (GButton)GetChildAt(4);
         }
     }
 }

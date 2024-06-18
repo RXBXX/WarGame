@@ -38,6 +38,7 @@ namespace WarGame.UI
                 return;
 
             var role = RoleManager.Instance.GetRole(roleID);
+            _name.text = role.GetName();
 
             _hp.max = role.GetAttribute(Enum.AttrType.HP);
             _hp.value = role.GetHP();

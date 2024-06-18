@@ -399,7 +399,7 @@ namespace WarGame
                 }
             }
 
-            var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", roleID);
+            var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", roleID);
             if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
             {
                 EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);

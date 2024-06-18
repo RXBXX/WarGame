@@ -415,9 +415,10 @@ namespace WarGame
             this.createTime = TimeMgr.Instance.GetUnixTimestamp();
         }
 
-        public void AddHero(int configID, int level)
+        public void AddHero(int heroID)
         {
-            var roleData = new RoleData(_heroStartUID + roleDataDic.Count + 1, configID, level);
+            var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", heroID);
+            var roleData = new RoleData(heroID, heroConfig.RoleID, heroConfig.Level);
             roleDataDic.Add(roleData.UID, roleData);
         }
 
@@ -495,10 +496,10 @@ namespace WarGame
 
             rd.levelDataDic.Add(10001, new LevelData(10001));
 
-            rd.AddHero(10001, 1);
-            rd.AddHero(10002, 1);
-            rd.AddHero(10003, 1);
-            rd.AddHero(10004, 1);
+            rd.AddHero(10001);
+            rd.AddHero(10002);
+            rd.AddHero(10003);
+            rd.AddHero(10004);
 
             ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
             {

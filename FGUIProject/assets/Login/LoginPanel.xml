@@ -8,13 +8,12 @@
     <text id="n0_rquy" name="title" xy="954,410" pivot="0.5,0.5" anchor="true" size="486,179" font="ui://hd0z4dz5omu90" fontSize="140" color="#333333" autoClearText="true" text="KA KA KILL">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
-    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="811,509" controller="style,1">
+    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="711,539" controller="style,1">
       <Button title="play"/>
     </component>
   </displayList>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
     <item time="0" type="XY" target="n6_ez9s" tween="true" startValue="-,419" endValue="416,430" duration="48" ease="Cubic.In"/>
     <item time="48" type="XY" target="n6_ez9s" tween="true" startValue="416,430" endValue="416,419" duration="48" ease="Cubic.Out"/>
-    <item time="96" type="XY" target="n6_ez9s" value="416,419"/>
   </transition>
 </component>

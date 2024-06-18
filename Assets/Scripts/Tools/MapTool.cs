@@ -80,11 +80,14 @@ namespace WarGame
         public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
         {
             Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
-            for (int i = 0; i < bonfires.Length; i++)
+            if (null != bonfireDic)
             {
-                var bonfire = new Bonfire(i, bonfires[i].configId, bonfires[i].hexagonID);
-                bonfire.SetParent(root.transform);
-                bonfireDic[i] = bonfire;
+                for (int i = 0; i < bonfires.Length; i++)
+                {
+                    var bonfire = new Bonfire(i, bonfires[i].configId, bonfires[i].hexagonID);
+                    bonfire.SetParent(root.transform);
+                    bonfireDic[i] = bonfire;
+                }
             }
             return bonfireDic;
         }

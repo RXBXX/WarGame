@@ -140,7 +140,7 @@ namespace WarGame
             else if (type == Enum.RoleType.Enemy)
             {
 
-                var enemyConfig = ConfigMgr.Instance.GetConfig<LevelEnemyConfig>("LevelEnemyConfig", UID);
+                var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", UID);
                 var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
                 for (int j = 0; j < enemyConfig.Equips.Length; j++)
                 {
@@ -163,15 +163,15 @@ namespace WarGame
             _data.GetUsingRecord().isNew = false;
         }
 
-        public void AddHero(int configID, int level)
+        public void AddHero(int heroID)
         {
-            _data.GetUsingRecord().AddHero(configID, level);
+            _data.GetUsingRecord().AddHero(heroID);
         }
 
         public void AddItem(SourcePair source)
         {
             if (Enum.SourceType.Hero == source.Type)
-                _data.GetUsingRecord().AddHero(source.id, source.value);
+                _data.GetUsingRecord().AddHero(source.id);
             else if (Enum.SourceType.Equip == source.Type)
                 _data.GetUsingRecord().AddEquip(source.id);
         }

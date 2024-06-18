@@ -102,7 +102,7 @@ namespace WarGame
             System.GC.Collect();
             AssetsMgr.Instance.UnloadUnusedAssets();
 
-            //UIManager.Instance.OpenPanel("Load", "LoadPanel");
+            UIManager.Instance.OpenPanel("Load", "LoadPanel");
             AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
             {
                 //DebugManager.Instance.Log("OpenScene 1111");

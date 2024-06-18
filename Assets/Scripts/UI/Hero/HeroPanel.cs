@@ -310,8 +310,9 @@ namespace WarGame.UI
             {
                 _herosDic.Add(item.id, new HeroItem((GComponent)item));
             }
-            var roleData = DatasMgr.Instance.GetRoleData(_roles[index]);
-            _herosDic[item.id].Update(roleData.GetConfig().Icon);
+
+            var roleConfig = DatasMgr.Instance.GetRoleData(_roles[index]).GetConfig();
+            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.Name);
         }
 
         private void ClickHeroItem(EventContext context)

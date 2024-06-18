@@ -5,8 +5,9 @@
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
     <component id="n8_nw17" name="mapScroll" src="nw174" fileName="MapScroll.xml" xy="0,0"/>
-    <component id="n3_nw17" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="1126,60"/>
-    <component id="n9_ez9s" name="heroBtn" src="ez9sb" fileName="Components/CommonHeroBtn.xml" pkg="hx02grrp" xy="1190,633" pivot="0.5,0.5" anchor="true"/>
-    <component id="n10_ez9s" name="settingsBtn" src="ez9sd" fileName="Components/CommonSettingBtn.xml" pkg="hx02grrp" xy="160,124" pivot="0.5,0.5" anchor="true"/>
+    <component id="n3_nw17" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="40,20"/>
+    <component id="n11_ovai" name="heroBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="900,623" scale="0.5,0.5">
+      <Button title="HERO"/>
+    </component>
   </displayList>
 </component>
