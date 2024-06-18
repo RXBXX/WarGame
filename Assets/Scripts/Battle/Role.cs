@@ -471,9 +471,13 @@ namespace WarGame
                     {
                         method.Invoke(state, new object[] { true });
                     }
+                    else if (secondStateName == "Start")
+                    {
+                        method.Invoke(state, new object[] { null });
+                    }
                     else
                     {
-                        method.Invoke(state, null);
+                        method.Invoke(state, new object[] { });
                     }
                 }
             }

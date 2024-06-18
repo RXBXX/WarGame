@@ -387,8 +387,6 @@ namespace WarGame
 
         private void OnActionEnd(params object[] args)
         {
-            var roleID = RoleManager.Instance.ClearDeadRole();
-
             if (null != args && args.Length > 0)
             {
                 DisposeAction((int)args[0]);
@@ -399,38 +397,49 @@ namespace WarGame
                 }
             }
 
-            var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", roleID);
-            if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
+            ClearDeadRole((args) =>
             {
-                EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);
-            }
-            else
-            {
+                if (IsOver())
+                    return;
+
                 NextAction();
-            }
+            });
+            //ClearDeadRole(NextAction);
+            //var roleID = RoleManager.Instance.ClearDeadRole();
+            //var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", roleID);
+            //if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
+            //{
+            //    EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);
+            //}
+            //else
+            //{
+            //    NextAction();
+            //}
         }
 
         private void NextAction(params object[] args)
         {
+            //if (IsOver())
+            //    return;
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            if (heros.Count <= 0)
-            {
-                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedEvent, (args) =>
-                {
-                    OnFailed();
-                });
-                return;
-            }
+            //if (heros.Count <= 0)
+            //{
+            //    EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedEvent, (args) =>
+            //    {
+            //        OnFailed();
+            //    });
+            //    return;
+            //}
 
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            if (enemys.Count <= 0)
-            {
-                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
-                {
-                    OnSuccess();
-                });
-                return;
-            }
+            //if (enemys.Count <= 0)
+            //{
+            //    EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
+            //    {
+            //        OnSuccess();
+            //    });
+            //    return;
+            //}
 
             if (_levelData.actionType == Enum.ActionType.HeroAction)
             {
@@ -480,8 +489,7 @@ namespace WarGame
                 {
                     MapManager.Instance.UpdateRound(_levelData.Round);
                     RoleManager.Instance.UpdateRound(_levelData.Round);
-                    _levelData.actionType = Enum.ActionType.HeroAction;
-                    _action = new HeroBattleAction(GetActionID());
+                    CoroutineMgr.Instance.StartCoroutine(OnUpdateRound());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
@@ -503,6 +511,7 @@ namespace WarGame
 
             var sender = RoleManager.Instance.GetRole(senderID);
             string stateName = strs[0], secondStateName = strs[1];
+            DebugManager.Instance.Log(stateName + "+" + secondStateName);
             sender.HandleEvent(stateName, secondStateName);
 
             if (null != _action)
@@ -561,6 +570,96 @@ namespace WarGame
         private void OnFailed()
         {
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID });
+        }
+
+        //回合结束，清理死亡的角色
+        private void ClearDeadRole(WGArgsCallback callback = null)
+        {
+            var deadRoles = RoleManager.Instance.ClearDeadRole();
+            var events = new List<int>();
+            if (deadRoles.Count > 0)
+            {
+                for (int i = deadRoles.Count - 1; i < 0; i--)
+                {
+                    var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", deadRoles[i]);
+                    if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
+                    {
+                        events.Add(enemyConfig.DefeatEvent);
+                    }
+                }
+            }
+
+            HandleDefeatEvent(events, callback);
+        }
+
+        //执行死亡角色事件
+        private void HandleDefeatEvent(List<int> events, WGArgsCallback callback = null)
+        {
+            if (events.Count > 0)
+            {
+                EventMgr.Instance.TriggerEvent(events[0], (args) =>
+                {
+                    HandleDefeatEvent(events, callback);
+                });
+                events.RemoveAt(0);
+            }
+            else if (null != callback)
+            {
+                callback();
+            }
+        }
+
+        //判断关卡是否结束
+        private bool IsOver()
+        {
+            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            if (heros.Count <= 0)
+            {
+                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedEvent, (args) =>
+                {
+                    OnFailed();
+                });
+                return true;
+            }
+
+            var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            if (enemys.Count <= 0)
+            {
+                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
+                {
+                    OnSuccess();
+                });
+                return true;
+            }
+
+            return false;
+        }
+
+        private IEnumerator OnUpdateRound()
+        {
+            var haveDead = false;
+            foreach (var v in RoleManager.Instance.GetAllRoles())
+            {
+                if (v.IsDead())
+                {
+                    haveDead = true;
+                    break;
+                }
+            }
+
+            if (haveDead)
+                yield return new WaitForSeconds(1.5f);
+            else
+                yield return null;
+
+            ClearDeadRole((args) =>
+            {
+                if (IsOver())
+                    return;
+
+                _levelData.actionType = Enum.ActionType.HeroAction;
+                _action = new HeroBattleAction(GetActionID());
+            });
         }
     }
 }
