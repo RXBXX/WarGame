@@ -140,13 +140,16 @@ namespace WarGame
             else if (type == Enum.RoleType.Enemy)
             {
 
-                var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", UID);
+                var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", UID);
                 var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                for (int j = 0; j < enemyConfig.Equips.Length; j++)
+                if (null != enemyConfig.Equips)
                 {
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
-                    var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                    equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
+                    for (int j = 0; j < enemyConfig.Equips.Length; j++)
+                    {
+                        var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
+                        var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
+                        equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
+                    }
                 }
                 return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, bornHexagonID, Enum.RoleState.Locked, equipDic, null);
             }

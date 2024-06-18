@@ -60,7 +60,7 @@ namespace WarGame
             if (_levelData.Stage < Enum.LevelStage.Entered)
             {
                 var heroDatas = DatasMgr.Instance.GetAllRoles();
-                var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Hex5);
+                var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Hex22);
                 var index = 0;
                 foreach (var p in bornPoints)
                 {
@@ -86,7 +86,7 @@ namespace WarGame
             {
                 if (_levelData.Stage < Enum.LevelStage.Readyed)
                 {
-                    var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Hex5);
+                    var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Hex22);
                     foreach (var p in bornPoints)
                     {
                         _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
@@ -399,7 +399,7 @@ namespace WarGame
                 }
             }
 
-            var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", roleID);
+            var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", roleID);
             if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
             {
                 EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);

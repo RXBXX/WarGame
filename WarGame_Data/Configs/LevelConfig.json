@@ -13,7 +13,10 @@
         "StartEvent": 1,
         "WinEvent": 2,
         "FailedEvent": 3,
-        "WinCond": null,
+        "WinCond": [
+            1,
+            0
+        ],
         "FailedCond": null
     },
     {

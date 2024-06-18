@@ -178,6 +178,7 @@ Shader "Custom/ToonShader"
 		}
 		Pass
 		{
+							Tags{"LightMode" = "ForwardBase"}
 			Cull Front
 			//Stencil //ģ���������
 			//{

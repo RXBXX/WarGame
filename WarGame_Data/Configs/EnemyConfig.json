@@ -2,14 +2,13 @@
     {
         "ID": 20001,
         "RoleID": 20001,
-        "Level": 10,
-        "Equips": [
-            10010
-        ],
+        "Level": 1,
+        "Equips": null,
         "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
-        "ViewDis": 5
+        "ViewDis": 7,
+        "Remarks": "关卡1"
     },
     {
         "ID": 20002,
@@ -21,18 +20,117 @@
         "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 5,
-        "ViewDis": 5
+        "ViewDis": 7,
+        "Remarks": "关卡1"
     },
     {
         "ID": 20003,
-        "RoleID": 20002,
-        "Level": 5,
-        "Equips": [
-            10011
-        ],
-        "IsBoss": false,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
-        "ViewDis": 5
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20004,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20005,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20006,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20007,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20008,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20009,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20010,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20011,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20012,
+        "RoleID": 20001,
+        "Level": 1,
+        "Equips": null,
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "ViewDis": 7,
+        "Remarks": "关卡1"
     }
 ]

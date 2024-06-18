@@ -14,14 +14,23 @@ namespace WarGame.UI
         {
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_AIAction_Start, OnEnemyStart);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_AIAction_Over, OnEnemyOver);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Role_Dispose, OnEnemyDispose);
 
             Init();
         }
 
         public override void Dispose(bool disposeGCom = false)
         {
+            foreach (var v in _queue)
+            {
+                GTween.Kill(v);
+                v.Dispose();
+            }
+            _queue.Clear();
+
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Start, OnEnemyStart);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Over, OnEnemyOver);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Role_Dispose, OnEnemyDispose);
             base.Dispose(disposeGCom);
         }
 
@@ -78,7 +87,8 @@ namespace WarGame.UI
             var startPosX = GCom.width;
             var ui = _queue[index];
             var tweener = ui.TweenMoveY(-90, 0.2F);
-            tweener.OnComplete(()=> {
+            tweener.OnComplete(() =>
+            {
                 for (int i = index - 1; i >= 0; i--)
                 {
                     _queue[i].TweenMoveX(_queue[i].x - 90, 0.2F);
@@ -99,6 +109,28 @@ namespace WarGame.UI
         private void OnEnemyOver(params object[] args)
         {
             _queue[0].TweenMoveY((GCom.height - _queue[0].height) / 2, 0.2F);
+        }
+
+        private void OnEnemyDispose(params object[] args)
+        {
+            var index = 0;
+            var enemyUID = (int)args[0];
+            for (int i = 0; i < _enemys.Count; i++)
+            {
+                if (enemyUID == _enemys[i])
+                {
+                    index = i;
+                    break;
+                }
+            }
+            _enemys.RemoveAt(index);
+            _queue[index].Dispose();
+            _queue.RemoveAt(index);
+
+            for (int i = index; i < _enemys.Count; i++)
+            {
+                _queue[i].TweenMoveX(_queue[i].x + 90, 0.2F);
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace WarGame
             else
                 hexMapZ = (int)((pos.z / Mathf.Cos(_radian) + _insideDiameter / 2.0f) / _insideDiameter);
 
-            var hexMapY = (int)((pos.y + 0.01F) / _height);
+            var hexMapY = (int)((pos.y ) / _height);
 
             return new Vector3(hexMapX, hexMapY, hexMapZ);
         }

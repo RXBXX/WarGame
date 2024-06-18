@@ -12,7 +12,7 @@ Shader "Custom/GrayShader"
 
 		SubShader
 		{
-			Tags { "RenderType" = "Opaque" }
+			Tags { "RenderType" = "Opaque" "LightMode" = "ForwardBase"}
 
 			Pass
 			{
@@ -89,7 +89,7 @@ Shader "Custom/GrayShader"
 						//这是应该使用叠加算法，目前先暂时简单处理
 						if (exCol.g <= 0 && exCol.b <= 0 && exCol.r <= 0)
 							exCol.a = 0;
-						return exCol * exCol.a + grayCol * (1 - exCol.a);
+						return fixed4(exCol.rgb * exCol.a + grayCol.rgb * (1 - exCol.a), 1);
 					}
 					else
 					{
