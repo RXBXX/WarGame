@@ -55,7 +55,7 @@ namespace WarGame.UI
             else
             {
                 var gd = DatasMgr.Instance.GetRecord(_listDatas[index]);
-                _recordItemDic[item.id].Update(0, gd.title, gd.duration.ToString(), TimeMgr.Instance.GetFormatDateTime(gd.saveTime));
+                _recordItemDic[item.id].Update(0, gd.title, TimeMgr.Instance.GetFormatLeftTime(gd.duration), TimeMgr.Instance.GetFormatDateTime(gd.saveTime));
             }
         }
 

@@ -215,7 +215,7 @@ namespace WarGame
                     {
                         var rd = Random.Range(0, weightBase);
                         var minKey = weightBase;
-                        Enum.HexagonType type = Enum.HexagonType.BeachShore;
+                        Enum.HexagonType type = Enum.HexagonType.Hex1;
                         foreach (var pair in castDic)
                         {
                             if (rd < pair.Key && pair.Key <= minKey)

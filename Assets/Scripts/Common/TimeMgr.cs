@@ -68,6 +68,14 @@ public class TimeMgr : Singeton<TimeMgr>
         return localDateTime.ToString("yyyy-MM-dd HH:mm:ss");
     }
 
+    public string GetFormatLeftTime(long leftTime)
+    {
+        var hours = Mathf.Floor(leftTime / 3600000);
+        var minus = Mathf.Floor((leftTime - hours * 3600000)/60000);
+        var seconds = MathF.Floor((leftTime - hours * 3600000 - minus * 60000) / 1000);
+        return string.Format("{0}:{1}:{2}", hours, minus, seconds);
+    }
+
     //游戏开始时间
     public float GetTime()
     {

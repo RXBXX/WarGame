@@ -37,7 +37,7 @@ namespace WarGame
 
                 var hexagonID = RoleManager.Instance.GetRole(_selectedHero).Hexagon;
                 var hexagon = MapManager.Instance.GetHexagon(hexagonID);
-                if ((Enum.HexagonType)hexagon.ConfigID != Enum.HexagonType.Born)
+                if ((Enum.HexagonType)hexagon.ConfigID != Enum.HexagonType.Hex5)
                     return;
 
                 var screenPos = InputManager.Instance.GetMousePos();

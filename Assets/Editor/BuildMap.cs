@@ -76,6 +76,7 @@ namespace WarGame
 
             foreach (var v in System.Enum.GetValues(typeof(Enum.HexagonType)))
             {
+                GUILayout.BeginHorizontal();
                 var type = (Enum.HexagonType)v;
                 GUILayout.Label(type + " 权重：");
                 int a = 0;
@@ -86,6 +87,7 @@ namespace WarGame
                 }
                 int.TryParse(GUILayout.TextField(weight), out a);
                 weights[type] = a;
+                GUILayout.EndHorizontal();
             }
             if (GUILayout.Button("快速生成地图"))
             {

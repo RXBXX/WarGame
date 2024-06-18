@@ -129,7 +129,7 @@ namespace WarGame
             var hexagons = new List<string>();
             foreach (var v in _map)
             {
-                if ((Enum.HexagonType)v.Value.ConfigID == Enum.HexagonType.Born)
+                if ((Enum.HexagonType)v.Value.ConfigID == Enum.HexagonType.Hex5)
                 {
                     hexagons.Add(v.Key);
                 }
