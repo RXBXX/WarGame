@@ -108,7 +108,7 @@ namespace WarGame
                 var side1 = (targetPos - MainCamera.transform.position).normalized;
                 var side2 = side1 - new Vector3(0, side1.y, 0);
                 var angle = Mathf.Acos(Vector3.Distance(side2, Vector3.zero) / Vector3.Distance(side1, Vector3.zero)) * 180 / Mathf.PI;
-                if (angle + yAxis > 10 && angle + yAxis < 60)
+                if (angle + yAxis > 20 && angle + yAxis < 50)
                 {
                     MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
                 }
@@ -248,7 +248,6 @@ namespace WarGame
                 }
             }
 
-            DebugManager.Instance.Log(minRoleID);
             SetTarget(minRoleID);
         }
 

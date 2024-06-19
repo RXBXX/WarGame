@@ -279,6 +279,7 @@ namespace WarGame
         public int NextStage;
         public int DefeatEvent;
         public float ViewDis;
+        public string Group;
     }
 
     //µ–»À±Ì

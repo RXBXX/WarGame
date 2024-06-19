@@ -39,8 +39,6 @@ namespace WarGame
 
         public bool DeadFlag = false;
 
-        protected int _attacker;
-
         public int ID
         {
             get { return _data.UID; }
@@ -295,8 +293,6 @@ namespace WarGame
             EnterState("Attacked");
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
-
-            _attacker = attacker;
         }
 
         public virtual void Cure()

@@ -8,6 +8,8 @@ namespace WarGame
     public class Enemy : Role
     {
         private int _stage;
+        //记录当前回合攻击过自己的角色
+        private List<int> _attackers = new List<int>();
 
         public Enemy(LevelRoleData data) : base(data)
         {
@@ -37,44 +39,45 @@ namespace WarGame
             }
         }
 
+        public override void Hit(float deltaHP, string hitEffect, int attacker)
+        {
+            _attackers.Add(attacker);
+            base.Hit(deltaHP, hitEffect, attacker);
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         private float GetViewDis()
         {
-            return ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", _data.UID).ViewDis;
+            return GetEnemyConfig().ViewDis;
         }
 
         protected virtual IEnumerator StartAI()
         {
-            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            //查找所有视野目标
+            var targets = FindingHeros();
+
+            //检测同组队友是否有发现敌人
+            var allEnemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+            for (int i = 0; i < allEnemys.Count; i++)
+            {
+                var enemy = (Enemy)allEnemys[i];
+                if (enemy.ID == ID || !enemy.GetGroup().Equals(GetGroup()))
+                    continue;
+                var tempTargets = enemy.FindingHeros();
+                foreach (var v in tempTargets)
+                {
+                    if (targets.Contains(v))
+                        continue;
+                    targets.Add(v);
+                }
+            }
+             
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
 
-            //查找所有视野目标
-            //将最后一次攻击自己的敌人也加入队列
-            var targets = new List<Role>() { };
-            if (0 != _attacker)
-            {
-                var attacker = RoleManager.Instance.GetRole(_attacker);
-                targets.Add(attacker);
-            }
-
-            var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
-            //DebugManager.Instance.Log("FindingView"+viewRegionDic.Count);
-
-            //foreach (var v in viewRegionDic)
-            //    DebugManager.Instance.Log(v.Key);
-            foreach (var v in heros)
-            {
-                if (!viewRegionDic.ContainsKey(v.Hexagon))
-                    continue;
-                //DebugManager.Instance.Log(v.ID);
-                targets.Add(v);
-            }
-
-            //DebugManager.Instance.Log("FilterTarget");
-            //筛选出攻击目标
+            //筛选出在攻击范围内的目标
             Role target = null;
             foreach (var v in targets)
             {
@@ -85,18 +88,24 @@ namespace WarGame
                         continue;
 
                     var attachPath = MapManager.Instance.FindingAttackPathForStr(v1.Key, v.Hexagon, GetAttackDis());
-                    if (null != attachPath && attachPath.Count > 0 && (null == target || target.GetHP() > v.GetHP()))
+                    if (null == attachPath || attachPath.Count <=  0)
+                        continue;
+
+                    if ((null == target || target.GetHP() > v.GetHP()))
                     {
-                        DebugManager.Instance.Log(v.ID);
                         target = v;
                         break;
                     }
                 }
             }
 
+            if (null != target)
+                DebugManager.Instance.Log("target:" +target.ID);
+
             List<string> path = null;
             if (null != target)
             {
+                //计算处移动代价最小的路径选择
                 MapManager.Cell destCell = null;
                 foreach (var v in moveRegion)
                 {
@@ -110,7 +119,7 @@ namespace WarGame
                         //DebugManager.Instance.Log(v.Key);
                         destCell = v.Value;
                     }
-                    }
+                }
                 if (null != destCell)
                 {
                     path = new List<string>();
@@ -123,7 +132,7 @@ namespace WarGame
             }
             else if (targets.Count > 0)
             {
-                //DebugManager.Instance.Log("Targets.Count > 0");
+                //找出最近的敌人，并向其靠近
                 Role hero = targets[0];
                 foreach (var v in targets)
                 {
@@ -144,6 +153,7 @@ namespace WarGame
                     if (null == destCell || Vector3.Distance(targetHexagon.coor, destCell.coor) > Vector3.Distance(targetHexagon.coor, v.Value.coor))
                         destCell = v.Value;
                 }
+                DebugManager.Instance.Log(destCell.id);
                 if (null != destCell)
                 {
                     path = new List<string>();
@@ -154,9 +164,11 @@ namespace WarGame
                     }
                     //DebugManager.Instance.Log("Path:"+path.Count);
                 }
+                DebugManager.Instance.Log(path.Count);
             }
             else
             {
+                //在出生点和随机点之间移动
                 if (Hexagon == _data.bornHexagonID)
                 {
                     var emptyMoveRegions = new List<MapManager.Cell>();
@@ -201,11 +213,11 @@ namespace WarGame
                 }
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target?0:target.ID, GetConfig().CommonSkill });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
 
             //DebugManager.Instance.Log(path.Count);
-            if (null!= path && path.Count > 1)
+            if (null != path && path.Count > 1)
                 Move(path);
             else if (null != target)
                 MoveEnd();
@@ -223,7 +235,7 @@ namespace WarGame
         {
             base.UpdateRound();
             SetState(Enum.RoleState.Locked);
-            _attacker = 0;
+            _attackers.Clear();
         }
 
         protected override int GetNextStage()
@@ -231,7 +243,7 @@ namespace WarGame
             if (_stage > 0)
                 return 0;
 
-            return ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", ID).NextStage;
+            return ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", ID).NextStage;
         }
 
         public override bool HaveNextStage()
@@ -252,6 +264,42 @@ namespace WarGame
             DeadFlag = false;
 
             CreateGO();
+        }
+
+        public List<Role> FindingHeros()
+        {
+            //查找所有视野目标
+            var targets = new List<Role>() { };
+            foreach (var v in _attackers)
+            {
+                var role = RoleManager.Instance.GetRole(v);
+                if (null == role)
+                    continue;
+
+                targets.Add(RoleManager.Instance.GetRole(v));
+            }
+
+            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+            var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
+            foreach (var v in heros)
+            {
+                if (targets.Contains(v))
+                    continue;
+                if (!viewRegionDic.ContainsKey(v.Hexagon))
+                    continue;
+                targets.Add(v);
+            }
+            return targets;
+        }
+
+        public EnemyConfig GetEnemyConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", _data.UID);
+        }
+
+        public string GetGroup()
+        {
+            return GetEnemyConfig().Group;
         }
     }
 }
