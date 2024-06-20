@@ -28,7 +28,8 @@ namespace WarGame.UI
         {
             _state = _state == 0 ? 1 : 0;
             _stateC.SetSelectedIndex(_state);
-            _callback(new object[] { _state == 1});
+            if (null != _callback)
+                _callback(new object[] { _state == 1 });
         }
     }
 }

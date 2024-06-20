@@ -106,11 +106,11 @@ namespace WarGame.UI
         }
 
 
-        private void OnClickEquip(EventContext context)
-        {
-            var index = _equipList.GetChildIndex((GObject)context.data);
-            SelectEquip(_equipsData[index].uid);
-        }
+        //private void OnClickEquip(EventContext context)
+        //{
+        //    var index = _equipList.GetChildIndex((GObject)context.data);
+        //    SelectEquip(_equipsData[index].uid);
+        //}
 
         //private void OnForcedEquipRender(int index, GObject item)
         //{
@@ -126,36 +126,36 @@ namespace WarGame.UI
         //}
 
 
-        private void SelectEquip(int equipUID)
-        {
-            _selectedEquip = equipUID;
-            var attrStr = "";
-            if (0 != _selectedEquip)
-            {
-                var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
-                foreach (var v in equip.GetAttrs())
-                {
-                    attrStr += ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name + ":+" + v.value + "\n";
-                }
-                _wearBtn.visible = true;
+        //private void SelectEquip(int equipUID)
+        //{
+        //    _selectedEquip = equipUID;
+        //    var attrStr = "";
+        //    if (0 != _selectedEquip)
+        //    {
+        //        var equip = DatasMgr.Instance.GetEquipmentData(_selectedEquip);
+        //        foreach (var v in equip.GetAttrs())
+        //        {
+        //            attrStr += ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name + ":+" + v.value + "\n";
+        //        }
+        //        _wearBtn.visible = true;
 
-                var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
-                var place = equip.GetPlace();
-                if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
-                {
-                    _wearBtn.title = "Unwear";
-                }
-                else
-                {
-                    _wearBtn.title = "Wear";
-                }
-            }
-            else
-            {
-                _wearBtn.visible = false;
-            }
-            _attrs.text = attrStr;
-        }
+        //        var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
+        //        var place = equip.GetPlace();
+        //        if (roleData.equipmentDic.ContainsKey(place) && roleData.equipmentDic[place] == _selectedEquip)
+        //        {
+        //            _wearBtn.title = "Unwear";
+        //        }
+        //        else
+        //        {
+        //            _wearBtn.title = "Wear";
+        //        }
+        //    }
+        //    else
+        //    {
+        //        _wearBtn.visible = false;
+        //    }
+        //    _attrs.text = attrStr;
+        //}
 
         //private void OnClickBtn()
         //{
@@ -172,48 +172,49 @@ namespace WarGame.UI
         //    }
         //}
 
-        private void UnwearEquip(EquipmentData equip)
-        {
-            EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { _selectedEquip });
-        }
+        //private void UnwearEquip(EquipmentData equip)
+        //{
+        //    EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { _selectedEquip });
+        //}
 
-        private void WearEquip(EquipmentData equip)
-        {
-            //if (0 == equip.GetForcedCombination())
-            //{
-            //    EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
-            //}
-            //else
-            //{
-            //    _forcedEquipComp.Show(_roleUID, _selectedEquip);
+        //private void WearEquip(EquipmentData equip)
+        //{
+        //if (0 == equip.GetForcedCombination())
+        //{
+        //    EventDispatcher.Instance.PostEvent(Enum.EventType.Hero_Wear_Equip, new object[] { _selectedEquip });
+        //}
+        //else
+        //{
+        //    _forcedEquipComp.Show(_roleUID, _selectedEquip);
 
-            //_forcedEquipsData.Clear();
-            //int ownerUID = 0;
-            //bool adept = false;
-            ////Enum.EquipType type;
-            ////EquipmentData equipData;
-            //foreach (var v in _equipsData)
-            //{
-            //    if (equip.GetForcedCombination() == v.type)
-            //    {
-            //        ownerUID = _wearedEquipDic.ContainsKey(v.uid) ? _wearedEquipDic[v.uid] : 0;
-            //        adept = _adeptEquipType.ContainsKey(v.type) ? true : false;
-            //        _forcedEquipsData.Add(new EquipStruct(v.uid, v.type, ownerUID, adept));
-            //    }
-            //}
+        //_forcedEquipsData.Clear();
+        //int ownerUID = 0;
+        //bool adept = false;
+        ////Enum.EquipType type;
+        ////EquipmentData equipData;
+        //foreach (var v in _equipsData)
+        //{
+        //    if (equip.GetForcedCombination() == v.type)
+        //    {
+        //        ownerUID = _wearedEquipDic.ContainsKey(v.uid) ? _wearedEquipDic[v.uid] : 0;
+        //        adept = _adeptEquipType.ContainsKey(v.type) ? true : false;
+        //        _forcedEquipsData.Add(new EquipStruct(v.uid, v.type, ownerUID, adept));
+        //    }
+        //}
 
-            //_forcedEquipList.numItems = _forcedEquipsData.Count;
-            //_forcedEquipList.visible = true;
-        }
+        //_forcedEquipList.numItems = _forcedEquipsData.Count;
+        //_forcedEquipList.visible = true;
+        //    }
+        //}
+
+        //private void OnTouchBegin(EventContext context)
+        //{
+        //    var touchTarget = Stage.inst.touchTarget;
+        //    while (null != touchTarget && touchTarget != _forcedEquipList.displayObject)
+        //    {
+        //        touchTarget = touchTarget.parent;
+        //    }
+        //    _forcedEquipList.visible = false;
+        //}
     }
-
-    //private void OnTouchBegin(EventContext context)
-    //{
-    //    var touchTarget = Stage.inst.touchTarget;
-    //    while (null != touchTarget && touchTarget != _forcedEquipList.displayObject)
-    //    {
-    //        touchTarget = touchTarget.parent;
-    //    }
-    //    _forcedEquipList.visible = false;
-    //}
 }

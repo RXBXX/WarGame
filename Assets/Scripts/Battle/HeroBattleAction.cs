@@ -211,11 +211,8 @@ namespace WarGame
         {
             List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
 
-            DebugManager.Instance.Log(hexagons == null);
             if (null == hexagons || hexagons.Count <= 0)
                 return;
-
-            DebugManager.Instance.Log(hexagons.Count);
 
             var cost = 0.0f;
             for (int i = 1; i < hexagons.Count; i++)
@@ -225,8 +222,6 @@ namespace WarGame
             var hero = RoleManager.Instance.GetRole(_initiatorID);
             if (cost > hero.GetMoveDis())
                 return;
-
-            DebugManager.Instance.Log(cost);
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.Moving);

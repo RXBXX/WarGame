@@ -328,6 +328,7 @@ namespace WarGame
             Fight_Show_RoleInfo = 46,
             Fight_Hide_RoleInfo = 47,
             HeroTalentActiveS2C = 10001,
+            HeroLevelUpS2C = 10002,
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类

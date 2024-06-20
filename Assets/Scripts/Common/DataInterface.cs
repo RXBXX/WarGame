@@ -120,6 +120,11 @@ namespace WarGame
                 this.skillDic = skillDic;
         }
 
+        public int GetLevel()
+        {
+            return level;
+        }
+
         public RoleConfig GetConfig()
         {
             return ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", configId);

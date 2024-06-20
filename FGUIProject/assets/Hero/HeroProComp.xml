@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="500,650" overflow="scroll">
+  <controller name="type" pages="0,info,1,level,2,talent,3,equip" selected="1"/>
   <displayList>
-    <component id="n14_gy0s" name="talentTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,0" group="n11_gy0s"/>
-    <component id="n10_gy0s" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="0,355" size="500,500" group="n11_gy0s" visible="false"/>
-    <component id="n15_gy0s" name="skillTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,63" group="n11_gy0s"/>
+    <component id="n19_ovai" name="levelTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,0" group="n11_gy0s">
+      <gearDisplay controller="type" pages="0,1"/>
+    </component>
+    <component id="n21_ovai" name="levelComp" src="ovaiq" fileName="HeroLevelComp.xml" xy="0,63" size="500,600" group="n11_gy0s">
+      <gearDisplay controller="type" pages="1"/>
+    </component>
+    <component id="n14_gy0s" name="talentTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,63" group="n11_gy0s">
+      <gearDisplay controller="type" pages="0,2"/>
+    </component>
+    <component id="n10_gy0s" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="0,63" size="500,500" group="n11_gy0s">
+      <gearDisplay controller="type" pages="2"/>
+    </component>
+    <component id="n15_gy0s" name="skillTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,126" group="n11_gy0s">
+      <gearDisplay controller="type" pages="0"/>
+    </component>
     <list id="n12_gy0s" name="skillList" xy="20,124" size="460,259" group="n11_gy0s" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://hx02grrpgy0sg">
+      <gearDisplay controller="type" pages="0"/>
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n17_gy0s" name="equipTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,126" group="n11_gy0s"/>
-    <component id="n18_gy0s" name="equipComp" src="tsk15" fileName="HeroEquipComp.xml" xy="20,456" size="460,207" group="n11_gy0s" visible="false"/>
-    <component id="n16_gy0s" name="attrTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,189" group="n11_gy0s"/>
-    <list id="n13_gy0s" name="attrList" xy="20,252" size="460,196" group="n11_gy0s" overflow="hidden" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+    <component id="n17_gy0s" name="equipTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,189" group="n11_gy0s">
+      <gearDisplay controller="type" pages="0,3"/>
+    </component>
+    <component id="n18_gy0s" name="equipComp" src="tsk15" fileName="HeroEquipComp.xml" xy="0,63" size="500,207" group="n11_gy0s">
+      <gearDisplay controller="type" pages="3"/>
+    </component>
+    <component id="n16_gy0s" name="attrTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,252" group="n11_gy0s">
+      <gearDisplay controller="type" pages="0"/>
+    </component>
+    <list id="n13_gy0s" name="attrList" xy="20,315" size="460,196" group="n11_gy0s" overflow="hidden" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+      <gearDisplay controller="type" pages="0"/>
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
-    <group id="n11_gy0s" name="n11" xy="0,0" size="500,448" advanced="true" layout="vt" lineGap="10" excludeInvisibles="true"/>
+    <group id="n11_gy0s" name="n11" xy="0,0" size="500,663" advanced="true" layout="vt" lineGap="10" excludeInvisibles="true"/>
   </displayList>
 </component>

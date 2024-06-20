@@ -14,9 +14,13 @@ namespace WarGame.UI
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
         private List<int> _skillsData = new List<int>();
+        private Controller _type;
+        private HeroLevelComp _levelComp;
 
         public HeroProComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+            _type = GetController("type");
+            GetChild<HeroTitleItem>("levelTitle").Init("Level", 0, OnClickLevel);
             GetChild<HeroTitleItem>("talentTitle").Init("Talents", 0, OnClickTalent);
             GetChild<HeroTitleItem>("skillTitle").Init("Skills", 0, OnClickSkill);
             GetChild<HeroTitleItem>("attrTitle").Init("Attrs", 1, OnClickAttr);
@@ -24,19 +28,22 @@ namespace WarGame.UI
 
             _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
-            _attrList.visible = true;
+            //_attrList.visible = true;
 
             _talentComp = GetChild<HeroTalentComp>("talentComp");
-            _talentComp.SetVisible(false);
+            //_talentComp.SetVisible(false);
 
             _skillList = GetGObjectChild<GList>("skillList");
             _skillList.itemRenderer = OnSkillRenderer;
-            _skillList.visible = false;
+            //_skillList.visible = false;
 
             _equipComp = GetChild<HeroEquipComp>("equipComp");
-            _equipComp.SetVisible(false);
+            //_equipComp.SetVisible(false);
+
+            _levelComp = GetChild<HeroLevelComp>("levelComp");
 
             EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
         }
 
         public void UpdateComp(int UID)
@@ -54,6 +61,7 @@ namespace WarGame.UI
             _skillList.numItems = _skillsData.Count;
             _skillList.ResizeToFit();
 
+            _levelComp.UpdateComp(UID);
             _equipComp.UpdateComp(UID);
 
             _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
@@ -75,9 +83,14 @@ namespace WarGame.UI
             _attrList.ResizeToFit();
         }
 
+        private void OnClickLevel(params object[] args)
+        {
+            _type.SetSelectedIndex((bool)args[0] ? 1 : 0);
+        }
+
         private void OnClickTalent(params object[] args)
         {
-            _talentComp.SetVisible((bool)args[0]);
+            _type.SetSelectedIndex((bool)args[0] ? 2 : 0);
         }
 
         private void OnClickSkill(params object[] args)
@@ -92,7 +105,7 @@ namespace WarGame.UI
 
         private void OnClickEquip(params object[] args)
         {
-            _equipComp.SetVisible((bool)args[0]);
+            _type.SetSelectedIndex((bool)args[0] ? 3 : 0);
         }
 
         private void OnSkillRenderer(int index, GObject item)
@@ -123,9 +136,17 @@ namespace WarGame.UI
             UpdateAttrList();
         }
 
+        private void OnHeroLevelUpS2C(params object[] args)
+        {
+            if (_heroUID != (int)args[0])
+                return;
+            _levelComp.LevelUp((int)args[1]);
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
 
             foreach (var v in _attrItemsDic)
                 v.Value.Dispose();

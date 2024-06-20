@@ -298,6 +298,14 @@ namespace WarGame
             _data.GetUsingRecord().levelDataDic.Add(levelData.configId, levelData);
         }
 
+        public void HeroLevelUpC2S(int roleUID, int level)
+        {
+            var roleData = GetRoleData(roleUID);
+            roleData.level = level;
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });
+        }
+
         /// endregion -----------------------------------------------------------------------------------------------------
     }
 }

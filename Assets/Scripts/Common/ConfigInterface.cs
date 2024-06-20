@@ -57,6 +57,7 @@ namespace WarGame
         public int TalentGroup;
         public string Icon;
         public Enum.Element Element;
+        public int MaxLevel;
     }
 
     //µØ¿é±í
