@@ -267,7 +267,6 @@ namespace WarGame
         public int StartEvent;
         public int WinEvent;
         public int FailedEvent;
-        //public SourcePair[] Rewards;
     }
 
     //µ–»À±Ì

@@ -5,8 +5,8 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1718731049017,
-      "saveTime": 1718905306873,
-      "duration": 6920590,
+      "saveTime": 1718905720149,
+      "duration": 6959695,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -301,13 +301,13 @@
         "10001": {
           "configId": 10001,
           "Stage": 3,
-          "Round": 3,
+          "Round": 0,
           "actionType": 0,
           "heros": [
             {
-              "HP": 100.0,
-              "Rage": 60.0,
-              "hexagonID": "7_0_13",
+              "HP": 110.0,
+              "Rage": 0.0,
+              "hexagonID": "2_0_4",
               "bornHexagonID": "2_0_4",
               "buffs": [],
               "equipDataDic": {
@@ -319,15 +319,19 @@
               "state": 1,
               "UID": 10001,
               "configId": 10001,
-              "level": 1,
+              "level": 10,
               "equipmentDic": {},
               "skillDic": {},
-              "talentDic": {}
+              "talentDic": {
+                "7": 10001007,
+                "4": 10001004,
+                "1": 10001001
+              }
             },
             {
               "HP": 100.0,
-              "Rage": 60.0,
-              "hexagonID": "9_0_6",
+              "Rage": 0.0,
+              "hexagonID": "2_0_3",
               "bornHexagonID": "2_0_3",
               "buffs": [],
               "equipDataDic": {
@@ -346,8 +350,8 @@
             },
             {
               "HP": 100.0,
-              "Rage": 60.0,
-              "hexagonID": "10_0_5",
+              "Rage": 0.0,
+              "hexagonID": "3_0_2",
               "bornHexagonID": "3_0_2",
               "buffs": [],
               "equipDataDic": {
@@ -366,8 +370,8 @@
             },
             {
               "HP": 100.0,
-              "Rage": 60.0,
-              "hexagonID": "9_0_7",
+              "Rage": 0.0,
+              "hexagonID": "4_0_2",
               "bornHexagonID": "4_0_2",
               "buffs": [],
               "equipDataDic": {
@@ -393,7 +397,7 @@
             {
               "HP": 300.0,
               "Rage": 0.0,
-              "hexagonID": "41_0_44",
+              "hexagonID": "43_0_42",
               "bornHexagonID": "43_0_42",
               "buffs": [],
               "equipDataDic": {
@@ -413,7 +417,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "44_0_37",
+              "hexagonID": "43_0_39",
               "bornHexagonID": "43_0_39",
               "buffs": [],
               "equipDataDic": {},
@@ -428,7 +432,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "40_0_29",
+              "hexagonID": "40_0_27",
               "bornHexagonID": "40_0_27",
               "buffs": [],
               "equipDataDic": {},
@@ -443,7 +447,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "36_0_28",
+              "hexagonID": "35_0_30",
               "bornHexagonID": "35_0_30",
               "buffs": [],
               "equipDataDic": {},
@@ -458,7 +462,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "16_0_35",
+              "hexagonID": "16_0_38",
               "bornHexagonID": "16_0_38",
               "buffs": [],
               "equipDataDic": {},
@@ -473,7 +477,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "15_0_35",
+              "hexagonID": "13_0_35",
               "bornHexagonID": "13_0_35",
               "buffs": [],
               "equipDataDic": {},
@@ -488,7 +492,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "11_0_15",
+              "hexagonID": "13_0_15",
               "bornHexagonID": "13_0_15",
               "buffs": [],
               "equipDataDic": {},
@@ -503,7 +507,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "13_0_13",
+              "hexagonID": "16_0_12",
               "bornHexagonID": "16_0_12",
               "buffs": [],
               "equipDataDic": {},
@@ -518,7 +522,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "46_0_5",
+              "hexagonID": "43_0_8",
               "bornHexagonID": "43_0_8",
               "buffs": [],
               "equipDataDic": {},
@@ -533,7 +537,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "40_0_11",
+              "hexagonID": "39_0_11",
               "bornHexagonID": "39_0_11",
               "buffs": [],
               "equipDataDic": {},
@@ -548,7 +552,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "37_0_44",
+              "hexagonID": "40_0_42",
               "bornHexagonID": "40_0_42",
               "buffs": [],
               "equipDataDic": {},
