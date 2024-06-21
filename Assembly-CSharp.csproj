@@ -164,6 +164,7 @@
     <Compile Include="Assets\FairyGUI\Examples\CutScene\LevelManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
+    <Compile Include="Assets\Scripts\Battle\ElementLine.cs" />
     <Compile Include="Assets\Scripts\Battle\Weather.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\IEventDispatcher.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightPanel.cs" />
@@ -390,6 +391,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComboBox.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\FairyBook.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Window.cs" />
+    <Compile Include="Assets\Scripts\UI\Reward\RewardPanel.cs" />
     <Compile Include="Assets\Scripts\SRP\WGRenderPipelineAsset.cs" />
     <Compile Include="Assets\Scripts\UI\Tips\TipsItem.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />
@@ -444,6 +446,7 @@
     <None Include="Assets\RPGTinyHeroWavePolyart\Shader\PolyartMaskTint.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
     <None Include="Assets\Test\NewSurfaceShader 1.shader" />
+    <None Include="Assets\Shaders\PowerLineShader.shader" />
     <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
     <None Include="Assets\Shaders\ParticleS\Additive.shader" />

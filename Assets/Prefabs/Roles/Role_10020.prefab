@@ -1424,6 +1424,7 @@ GameObject:
   - component: {fileID: -1329597387799866735}
   - component: {fileID: -2187408719318358020}
   - component: {fileID: -8321227289065073728}
+  - component: {fileID: 3500740385857961399}
   m_Layer: 0
   m_Name: Role_10020
   m_TagString: Untagged
@@ -1517,6 +1518,27 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.69, y: 1.5083821, z: 0.43695313}
+  m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
+--- !u!65 &3500740385857961399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568907838746861237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7, y: 1.5083821, z: 0.43695313}
   m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
 --- !u!1 &7623829371006849436
 GameObject:
@@ -1737,7 +1759,7 @@ Transform:
   m_GameObject: {fileID: 9083733020866710562}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

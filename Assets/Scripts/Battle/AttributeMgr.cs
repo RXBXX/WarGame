@@ -17,9 +17,10 @@ namespace WarGame
             if (0 != targetID)
             {
                 var target = RoleManager.Instance.GetRole(targetID);
-                if (target.GetElementConfig().Restrain == initiatorElement)
+                var elementConfig = target.GetElementConfig();
+                if (elementConfig.Restrain == initiatorElement)
                 {
-                    add -= 0.1F;
+                    add -= elementConfig.RestrainValue;
                 }
             }
 
@@ -31,9 +32,10 @@ namespace WarGame
                     continue;
 
                 var role = RoleManager.Instance.GetRole(roleID);
-                if (initiator.Type == role.Type && role.GetElementConfig().Reinforce == initiatorElement)
+                var elementConfig = role.GetElementConfig();
+                if (initiator.Type == role.Type && elementConfig.Reinforce == initiatorElement)
                 {
-                    add += 0.1F;
+                    add += elementConfig.ReinforceValue;
                 }
             }
 

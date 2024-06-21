@@ -1,44 +1,457 @@
 [
     {
         "ID": 1,
-        "Name": "挑战主场景1开始对话",
         "Type": 1,
-        "Value": 10001
+        "Value": 10001,
+        "NextEvent": 0,
+        "Desc": "关卡10001开始对话"
     },
     {
         "ID": 2,
-        "Name": "主场景1挑战成功对话",
         "Type": 1,
-        "Value": 10002
+        "Value": 10002,
+        "NextEvent": 53,
+        "Desc": "关卡10001成功对话"
     },
     {
         "ID": 3,
-        "Name": "主场景1挑战失败对话",
         "Type": 1,
-        "Value": 10003
+        "Value": 10003,
+        "NextEvent": 0,
+        "Desc": "关卡10001失败对话"
     },
     {
         "ID": 4,
-        "Name": "主场景1挑战成功激活关卡",
         "Type": 2,
-        "Value": 10002
+        "Value": 10002,
+        "NextEvent": 0,
+        "Desc": "关卡10001成功对话结束激活关卡10002"
     },
     {
         "ID": 5,
-        "Name": "主场景1敌人20001击败事件",
         "Type": 1,
-        "Value": 10004
+        "Value": 20001,
+        "NextEvent": 0,
+        "Desc": "关卡10002开始对话"
     },
     {
         "ID": 6,
-        "Name": "放过主场景1敌人20001，激活支线",
-        "Type": 2,
-        "Value": 10006
+        "Type": 1,
+        "Value": 20002,
+        "NextEvent": 54,
+        "Desc": "关卡10002成功对话"
     },
     {
         "ID": 7,
-        "Name": "杀死主场景1敌人20001",
         "Type": 1,
-        "Value": 10005
+        "Value": 20003,
+        "NextEvent": 0,
+        "Desc": "关卡10002失败对话"
+    },
+    {
+        "ID": 8,
+        "Type": 2,
+        "Value": 10003,
+        "NextEvent": 0,
+        "Desc": "关卡10002成功对话结束激活关卡10003"
+    },
+    {
+        "ID": 9,
+        "Type": 1,
+        "Value": 30001,
+        "NextEvent": 0,
+        "Desc": "关卡10003开始对话"
+    },
+    {
+        "ID": 10,
+        "Type": 1,
+        "Value": 30002,
+        "NextEvent": 55,
+        "Desc": "关卡10003成功对话"
+    },
+    {
+        "ID": 11,
+        "Type": 1,
+        "Value": 30003,
+        "NextEvent": 0,
+        "Desc": "关卡10003失败对话"
+    },
+    {
+        "ID": 12,
+        "Type": 2,
+        "Value": 10004,
+        "NextEvent": 0,
+        "Desc": "关卡10003成功对话结束激活关卡10004"
+    },
+    {
+        "ID": 13,
+        "Type": 1,
+        "Value": 40001,
+        "NextEvent": 0,
+        "Desc": "关卡10004开始对话"
+    },
+    {
+        "ID": 14,
+        "Type": 1,
+        "Value": 40002,
+        "NextEvent": 56,
+        "Desc": "关卡10004成功对话"
+    },
+    {
+        "ID": 15,
+        "Type": 1,
+        "Value": 40003,
+        "NextEvent": 0,
+        "Desc": "关卡10004失败对话"
+    },
+    {
+        "ID": 16,
+        "Type": 2,
+        "Value": 10005,
+        "NextEvent": 0,
+        "Desc": "关卡10004成功对话结束激活关卡10005"
+    },
+    {
+        "ID": 17,
+        "Type": 1,
+        "Value": 50001,
+        "NextEvent": 0,
+        "Desc": "关卡10005开始对话"
+    },
+    {
+        "ID": 18,
+        "Type": 1,
+        "Value": 50002,
+        "NextEvent": 57,
+        "Desc": "关卡10005成功对话"
+    },
+    {
+        "ID": 19,
+        "Type": 1,
+        "Value": 50003,
+        "NextEvent": 0,
+        "Desc": "关卡10005失败对话"
+    },
+    {
+        "ID": 20,
+        "Type": 2,
+        "Value": 10006,
+        "NextEvent": 0,
+        "Desc": "关卡10005成功对话结束激活关卡10006"
+    },
+    {
+        "ID": 21,
+        "Type": 1,
+        "Value": 60001,
+        "NextEvent": 0,
+        "Desc": "关卡10006开始对话"
+    },
+    {
+        "ID": 22,
+        "Type": 1,
+        "Value": 60002,
+        "NextEvent": 58,
+        "Desc": "关卡10006成功对话"
+    },
+    {
+        "ID": 23,
+        "Type": 1,
+        "Value": 60003,
+        "NextEvent": 0,
+        "Desc": "关卡10006失败对话"
+    },
+    {
+        "ID": 24,
+        "Type": 2,
+        "Value": 10007,
+        "NextEvent": 0,
+        "Desc": "关卡10006成功对话结束激活关卡10007"
+    },
+    {
+        "ID": 25,
+        "Type": 1,
+        "Value": 70002,
+        "NextEvent": 0,
+        "Desc": "关卡10007开始对话"
+    },
+    {
+        "ID": 26,
+        "Type": 1,
+        "Value": 70003,
+        "NextEvent": 59,
+        "Desc": "关卡10007成功对话"
+    },
+    {
+        "ID": 27,
+        "Type": 1,
+        "Value": 70004,
+        "NextEvent": 0,
+        "Desc": "关卡10007失败对话"
+    },
+    {
+        "ID": 28,
+        "Type": 2,
+        "Value": 10008,
+        "NextEvent": 0,
+        "Desc": "关卡10007成功对话结束激活关卡10008"
+    },
+    {
+        "ID": 29,
+        "Type": 1,
+        "Value": 80002,
+        "NextEvent": 0,
+        "Desc": "关卡10008开始对话"
+    },
+    {
+        "ID": 30,
+        "Type": 1,
+        "Value": 80003,
+        "NextEvent": 60,
+        "Desc": "关卡10008成功对话"
+    },
+    {
+        "ID": 31,
+        "Type": 1,
+        "Value": 80004,
+        "NextEvent": 0,
+        "Desc": "关卡10008失败对话"
+    },
+    {
+        "ID": 32,
+        "Type": 2,
+        "Value": 10009,
+        "NextEvent": 0,
+        "Desc": "关卡10008成功对话结束激活关卡10009"
+    },
+    {
+        "ID": 33,
+        "Type": 1,
+        "Value": 90001,
+        "NextEvent": 0,
+        "Desc": "关卡10009开始对话"
+    },
+    {
+        "ID": 34,
+        "Type": 1,
+        "Value": 90002,
+        "NextEvent": 61,
+        "Desc": "关卡10009成功对话"
+    },
+    {
+        "ID": 35,
+        "Type": 1,
+        "Value": 90003,
+        "NextEvent": 0,
+        "Desc": "关卡10009失败对话"
+    },
+    {
+        "ID": 36,
+        "Type": 2,
+        "Value": 10010,
+        "NextEvent": 0,
+        "Desc": "关卡10009成功对话结束激活关卡10010"
+    },
+    {
+        "ID": 37,
+        "Type": 1,
+        "Value": 100001,
+        "NextEvent": 0,
+        "Desc": "关卡10010开始对话"
+    },
+    {
+        "ID": 38,
+        "Type": 1,
+        "Value": 100002,
+        "NextEvent": 62,
+        "Desc": "关卡10010成功对话"
+    },
+    {
+        "ID": 39,
+        "Type": 1,
+        "Value": 100003,
+        "NextEvent": 0,
+        "Desc": "关卡10010失败对话"
+    },
+    {
+        "ID": 40,
+        "Type": 2,
+        "Value": 10011,
+        "NextEvent": 0,
+        "Desc": "关卡10010成功对话结束激活关卡10011"
+    },
+    {
+        "ID": 41,
+        "Type": 1,
+        "Value": 110001,
+        "NextEvent": 0,
+        "Desc": "关卡10011开始对话"
+    },
+    {
+        "ID": 42,
+        "Type": 1,
+        "Value": 110002,
+        "NextEvent": 63,
+        "Desc": "关卡10011成功对话"
+    },
+    {
+        "ID": 43,
+        "Type": 1,
+        "Value": 110003,
+        "NextEvent": 0,
+        "Desc": "关卡10011失败对话"
+    },
+    {
+        "ID": 44,
+        "Type": 2,
+        "Value": 10012,
+        "NextEvent": 0,
+        "Desc": "关卡10011成功对话结束激活关卡10012"
+    },
+    {
+        "ID": 45,
+        "Type": 1,
+        "Value": 120001,
+        "NextEvent": 0,
+        "Desc": "关卡10012开始对话"
+    },
+    {
+        "ID": 46,
+        "Type": 1,
+        "Value": 120002,
+        "NextEvent": 64,
+        "Desc": "关卡10012成功对话"
+    },
+    {
+        "ID": 47,
+        "Type": 1,
+        "Value": 120003,
+        "NextEvent": 0,
+        "Desc": "关卡10012失败对话"
+    },
+    {
+        "ID": 48,
+        "Type": 2,
+        "Value": 10013,
+        "NextEvent": 0,
+        "Desc": "关卡10012成功对话结束激活关卡10013"
+    },
+    {
+        "ID": 49,
+        "Type": 1,
+        "Value": 130001,
+        "NextEvent": 0,
+        "Desc": "关卡10013开始对话"
+    },
+    {
+        "ID": 50,
+        "Type": 1,
+        "Value": 130002,
+        "NextEvent": 65,
+        "Desc": "关卡10013成功对话"
+    },
+    {
+        "ID": 51,
+        "Type": 1,
+        "Value": 130003,
+        "NextEvent": 0,
+        "Desc": "关卡10013失败对话"
+    },
+    {
+        "ID": 52,
+        "Type": 1,
+        "Value": 0,
+        "NextEvent": 0,
+        "Desc": "通关对话"
+    },
+    {
+        "ID": 53,
+        "Type": 3,
+        "Value": 10005,
+        "NextEvent": 0,
+        "Desc": "激活英雄10005"
+    },
+    {
+        "ID": 54,
+        "Type": 3,
+        "Value": 10006,
+        "NextEvent": 0,
+        "Desc": "激活英雄10006"
+    },
+    {
+        "ID": 55,
+        "Type": 3,
+        "Value": 10007,
+        "NextEvent": 0,
+        "Desc": "激活英雄10007"
+    },
+    {
+        "ID": 56,
+        "Type": 3,
+        "Value": 10008,
+        "NextEvent": 0,
+        "Desc": "激活英雄10008"
+    },
+    {
+        "ID": 57,
+        "Type": 3,
+        "Value": 10009,
+        "NextEvent": 0,
+        "Desc": "激活英雄10009"
+    },
+    {
+        "ID": 58,
+        "Type": 3,
+        "Value": 10010,
+        "NextEvent": 0,
+        "Desc": "激活英雄10010"
+    },
+    {
+        "ID": 59,
+        "Type": 3,
+        "Value": 10011,
+        "NextEvent": 0,
+        "Desc": "激活英雄10011"
+    },
+    {
+        "ID": 60,
+        "Type": 3,
+        "Value": 10012,
+        "NextEvent": 0,
+        "Desc": "激活英雄10012"
+    },
+    {
+        "ID": 61,
+        "Type": 3,
+        "Value": 10013,
+        "NextEvent": 0,
+        "Desc": "激活英雄10013"
+    },
+    {
+        "ID": 62,
+        "Type": 3,
+        "Value": 10014,
+        "NextEvent": 0,
+        "Desc": "激活英雄10014"
+    },
+    {
+        "ID": 63,
+        "Type": 3,
+        "Value": 10015,
+        "NextEvent": 0,
+        "Desc": "激活英雄10015"
+    },
+    {
+        "ID": 64,
+        "Type": 3,
+        "Value": 10016,
+        "NextEvent": 0,
+        "Desc": "激活英雄10016"
+    },
+    {
+        "ID": 65,
+        "Type": 3,
+        "Value": 10017,
+        "NextEvent": 0,
+        "Desc": "激活英雄10017"
     }
 ]

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WarGame.UI;
 
 namespace WarGame
 {
@@ -8,22 +9,41 @@ namespace WarGame
     {
         public void TriggerEvent(int id, WGArgsCallback callback = null)
         {
-            DebugManager.Instance.Log("TriggerEvent:" + id);
+            if (id == 0)
+            {
+                if (null != callback)
+                    callback();
+                return;
+            }
             var eventConfig = ConfigMgr.Instance.GetConfig<EventConfig>("EventConfig", id);
             switch (eventConfig.Type)
             {
                 case Enum.EventType.Dialog:
-                    DialogMgr.Instance.OpenDialog(eventConfig.Value, callback);
+                    DialogMgr.Instance.OpenDialog(eventConfig.Value, (args) =>
+                    {
+                        TriggerEvent(eventConfig.NextEvent, callback);
+                    });
                     break;
                 case Enum.EventType.Level:
                     DatasMgr.Instance.ActiveLevelC2S(eventConfig.Value);
-                    if (null != callback)
-                        callback();
+                    TriggerEvent(eventConfig.NextEvent, callback);
                     break;
-                case Enum.EventType.Source:
-                    //DatasMgr.Instance.AddItems();
-                    if (null != callback)
-                        callback();
+                case Enum.EventType.Hero:
+                    var sp = new SourcePair();
+                    sp.Type = Enum.SourceType.Hero;
+                    sp.id = eventConfig.Value;
+                    DatasMgr.Instance.AddItem(sp);
+                    WGArgsCallback cb = (args) =>
+                    {
+                        TriggerEvent(eventConfig.NextEvent, callback);
+                    };
+                    UIManager.Instance.OpenPanel("Reward", "RewardPanel", new object[] { sp, cb });
+                    break;
+                case Enum.EventType.Story:
+                    StoryMgr.Instance.PlayStory(eventConfig.Value, true, (args) =>
+                    {
+                        TriggerEvent(eventConfig.NextEvent, callback);
+                    });
                     break;
             }
         }

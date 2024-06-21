@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="0"/>
-  <controller name="following" pages="0,,1," selected="1"/>
+  <controller name="following" pages="0,,1," selected="0"/>
   <displayList>
+    <loader id="n14_yiew" name="element" xy="-46,-12" size="40,40" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
     <component id="n11_o8z3" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0">
       <ProgressBar value="49" max="100"/>
     </component>
@@ -25,7 +26,6 @@
     <loader id="n13_tg9e" name="n13" xy="194,-13" size="40,40" group="n15_cfrs" url="ui://dvt5l4zvtg9ea" align="center" vAlign="middle" fill="scale" color="#5c8799">
       <gearDisplay controller="following" pages="1"/>
     </loader>
-    <loader id="n14_yiew" name="element" xy="229,-13" size="40,40" group="n15_cfrs" visible="false" align="center" vAlign="middle" fill="scale"/>
-    <group id="n15_cfrs" name="n15" xy="159,-13" size="75,40" advanced="true" layout="hz" colGap="-5" excludeInvisibles="true"/>
+    <group id="n15_cfrs" name="n15" xy="159,-13" size="40,40" advanced="true" layout="hz" colGap="-5" excludeInvisibles="true"/>
   </displayList>
 </component>

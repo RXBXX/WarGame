@@ -39,6 +39,8 @@ namespace WarGame
 
         public bool DeadFlag = false;
 
+        private Dictionary<int, ElementLine> _elementEffectDic = new Dictionary<int, ElementLine>();
+
         public int ID
         {
             get { return _data.UID; }
@@ -120,6 +122,8 @@ namespace WarGame
             CreateHUD();
 
             OnStateChanged();
+
+            UpdateElementEffects();
         }
 
         protected override void SmoothNormal()
@@ -190,11 +194,17 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
         }
 
-        public void UpdateHexagonID(string id)
+        public void UpdateHexagonID(string id, bool showElements = false)
         {
+            if (showElements)
+                ClearElementEffects();
+
             Hexagon = id;
             _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
             _gameObject.transform.position = _position;
+
+            if (showElements)
+                UpdateElementEffects();
         }
 
 
@@ -253,7 +263,11 @@ namespace WarGame
 
         public virtual void MoveEnd()
         {
+            DebugManager.Instance.Log("MoveEnd");
             EnterState("Idle");
+
+            UpdateElementEffects();
+
             EventDispatcher.Instance.PostEvent(Enum.Event.Role_MoveEnd_Event);
         }
 
@@ -264,6 +278,8 @@ namespace WarGame
                 return;
 
             this._path = hexagons;
+
+            ClearElementEffects();
 
             EnterState("Move");
         }
@@ -722,9 +738,86 @@ namespace WarGame
             return _data.GetConfig().Name;
         }
 
+        /// <summary>
+        ///检查是否有元素加成
+        /// </summary>
+        private void UpdateElementEffects()
+        {
+            var hexagon = MapManager.Instance.GetHexagon(Hexagon);
+            foreach (var v in MapManager.Instance.Dicections)
+            {
+                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(MapTool.Instance.GetHexagonKey(hexagon.coor + v));
+                if (0 == roleID || roleID == ID)
+                    continue;
+
+                var role = RoleManager.Instance.GetRole(roleID);
+                if (Type != role.Type)
+                    continue;
+
+                if (role.GetElementConfig().Reinforce == GetElement())
+                {
+                    AddElementEffect(roleID, role.GetElement());
+                }
+                if (GetElementConfig().Reinforce == role.GetElement())
+                {
+                    role.AddElementEffect(ID, GetElement());
+                }
+            }
+        }
+
+        public void AddElementEffect(int roleUID, Enum.Element element)
+        {
+            if (_elementEffectDic.ContainsKey(roleUID))
+                return;
+
+            var el = new ElementLine(GetEffectPos(), RoleManager.Instance.GetRole(roleUID).GetEffectPos(), CommonParams.GetElementColor(element));
+            _elementEffectDic.Add(roleUID, el);
+        }
+
+        public void RemoveElementEffect(int roleUID)
+        {
+            if (!_elementEffectDic.ContainsKey(roleUID))
+                return;
+
+            _elementEffectDic[roleUID].Dispose();
+            _elementEffectDic.Remove(roleUID);
+        }
+
+        /// <summary>
+        ///清除元素加成特效
+        /// </summary>
+        private void ClearElementEffects()
+        {
+            var hexagon = MapManager.Instance.GetHexagon(Hexagon);
+            foreach (var v in MapManager.Instance.Dicections)
+            {
+                var roleID = RoleManager.Instance.GetRoleIDByHexagonID(MapTool.Instance.GetHexagonKey(hexagon.coor + v));
+                if (0 == roleID || roleID == ID)
+                    continue;
+
+                var role = RoleManager.Instance.GetRole(roleID);
+                if (Type != role.Type)
+                    continue;
+
+                if (role.GetElementConfig().Reinforce == GetElement())
+                {
+                    RemoveElementEffect(roleID);
+                }
+
+                if (GetElementConfig().Reinforce == role.GetElement())
+                {
+                    role.RemoveElementEffect(ID);
+                }
+            }
+        }
+
         public override bool Dispose()
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Role_Dispose, new object[] { ID });
+
+            foreach (var v in _elementEffectDic)
+                v.Value.Dispose();
+            _elementEffectDic.Clear();
 
             foreach (var v in _stateDic)
                 v.Value.Dispose();

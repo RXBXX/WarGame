@@ -648,7 +648,7 @@ namespace WarGame
             }
 
             if (haveDead)
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(0.8f);
             else
                 yield return null;
 

@@ -277,7 +277,8 @@ namespace WarGame
         {
             Dialog = 1, //对话
             Level = 2, //关卡
-            Source = 3, //道具
+            Hero = 3, //激活英雄
+            Story = 4, //故事
         }
 
         public enum Event

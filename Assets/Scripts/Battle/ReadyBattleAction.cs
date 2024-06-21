@@ -109,8 +109,8 @@ namespace WarGame
                     if (newRole.Hexagon != oldRole.Hexagon)
                     {
                         var newRoleHexagon = newRole.Hexagon;
-                        newRole.UpdateHexagonID(oldRole.Hexagon);
-                        oldRole.UpdateHexagonID(newRoleHexagon);
+                        newRole.UpdateHexagonID(oldRole.Hexagon, true);
+                        oldRole.UpdateHexagonID(newRoleHexagon, true);
                     }
                     else
                     {

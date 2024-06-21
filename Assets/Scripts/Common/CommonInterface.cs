@@ -9,7 +9,7 @@ namespace WarGame
 
     public delegate void WGArgsCallback(params object[] args);
 
-    public delegate void WGConfigCallback<T>(T config) where T:Config;
+    public delegate void WGConfigCallback<T>(T config) where T : Config;
 
     public delegate void WGCallback();
 
@@ -55,6 +55,25 @@ namespace WarGame
                     return "#FFB500";
                 default:
                     return "#5c8799";
+            }
+        }
+
+        public static Color GetElementColor(Enum.Element element)
+        {
+            switch (element)
+            {
+                case Enum.Element.Metal:
+                    return new Color(1, 0.9378F, 0);
+                case Enum.Element.Wood:
+                    return new Color(0, 1, 0.0638F);
+                case Enum.Element.Water:
+                    return new Color(0, 0.8846F, 1);
+                case Enum.Element.Fire:
+                    return new Color(1, 0.8150F, 0);
+                case Enum.Element.Earth:
+                    return new Color(0.7529F, 0.4941F, 0.0588F);
+                default:
+                    return Color.white;
             }
         }
     }

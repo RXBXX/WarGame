@@ -113,7 +113,7 @@ namespace WarGame.UI
 
         private void OnEnemyDispose(params object[] args)
         {
-            var index = 0;
+            var index = -1;
             var enemyUID = (int)args[0];
             for (int i = 0; i < _enemys.Count; i++)
             {
@@ -123,6 +123,9 @@ namespace WarGame.UI
                     break;
                 }
             }
+            if (index < 0)
+                return;
+
             _enemys.RemoveAt(index);
             _queue[index].Dispose();
             _queue.RemoveAt(index);

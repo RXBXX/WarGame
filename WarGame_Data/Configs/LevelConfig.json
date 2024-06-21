@@ -1,8 +1,7 @@
 [
     {
         "ID": 10001,
-        "Name": "主线1",
-        "LastLevel": 0,
+        "Name": "青木-翠荫区",
         "UIPos": {
             "x": 2515,
             "y": 1351
@@ -13,16 +12,12 @@
         "StartEvent": 1,
         "WinEvent": 2,
         "FailedEvent": 3,
-        "WinCond": [
-            1,
-            0
-        ],
+        "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10002,
-        "Name": "主线2",
-        "LastLevel": 10001,
+        "Name": "青木-林溪区",
         "UIPos": {
             "x": 1718,
             "y": 332
@@ -31,15 +26,14 @@
         "Map": "Assets/StreamingAssets/Maps/Map_Main_2.json",
         "Desc": "222222222222222222",
         "StartEvent": 1,
-        "WinEvent": 3,
-        "FailedEvent": 3,
+        "WinEvent": 6,
+        "FailedEvent": 7,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10003,
-        "Name": "主线3",
-        "LastLevel": 10002,
+        "Name": "澜海-潮汐区",
         "UIPos": {
             "x": 980,
             "y": 662
@@ -48,15 +42,14 @@
         "Map": "Assets/StreamingAssets/Maps/Map_Main_3.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 4,
-        "FailedEvent": 3,
+        "WinEvent": 10,
+        "FailedEvent": 11,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10004,
-        "Name": "主线4",
-        "LastLevel": 10003,
+        "Name": "澜海-海韵区",
         "UIPos": {
             "x": 1330,
             "y": 1700
@@ -65,15 +58,14 @@
         "Map": "Assets/StreamingAssets/Maps/Map_Main_4.json",
         "Desc": "222222222222222222",
         "StartEvent": 1,
-        "WinEvent": 5,
-        "FailedEvent": 3,
+        "WinEvent": 14,
+        "FailedEvent": 15,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10005,
-        "Name": "主线5",
-        "LastLevel": 10004,
+        "Name": "石城-磐石区",
         "UIPos": {
             "x": 471,
             "y": 2479
@@ -82,178 +74,136 @@
         "Map": "Assets/StreamingAssets/Maps/Map_Main_5.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 6,
-        "FailedEvent": 3,
+        "WinEvent": 18,
+        "FailedEvent": 19,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10006,
-        "Name": "支线1",
-        "LastLevel": 10001,
+        "Name": "石城-厚土区",
         "UIPos": {
             "x": 2464,
             "y": 1064
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_1.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_6.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 7,
-        "FailedEvent": 3,
+        "WinEvent": 22,
+        "FailedEvent": 23,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10007,
-        "Name": "支线2",
-        "LastLevel": 10001,
+        "Name": "焱都-烈焰区",
         "UIPos": {
             "x": 2278,
             "y": 1902
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_2.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_7.json",
         "Desc": "222222222222222222",
         "StartEvent": 1,
-        "WinEvent": 8,
-        "FailedEvent": 3,
+        "WinEvent": 26,
+        "FailedEvent": 27,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10008,
-        "Name": "支线1",
-        "LastLevel": 10002,
+        "Name": "焱都-赤光区",
         "UIPos": {
             "x": 1995,
             "y": 590
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_3.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_8.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 9,
-        "FailedEvent": 3,
+        "WinEvent": 30,
+        "FailedEvent": 31,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10009,
-        "Name": "支线2",
-        "LastLevel": 10002,
+        "Name": "耀都-辉煌区",
         "UIPos": {
             "x": 1322,
             "y": 504
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_4.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_9.json",
         "Desc": "222222222222222222",
         "StartEvent": 1,
-        "WinEvent": 10,
-        "FailedEvent": 3,
+        "WinEvent": 34,
+        "FailedEvent": 35,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10010,
-        "Name": "支线1",
-        "LastLevel": 10003,
+        "Name": "耀都-铸造区",
         "UIPos": {
             "x": 966,
             "y": 500
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_5.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_10.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 11,
-        "FailedEvent": 3,
+        "WinEvent": 38,
+        "FailedEvent": 39,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10011,
-        "Name": "支线2",
-        "LastLevel": 10003,
+        "Name": "寂渊-暗影区",
         "UIPos": {
             "x": 408,
             "y": 946
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_6.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_11.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 12,
-        "FailedEvent": 3,
+        "WinEvent": 42,
+        "FailedEvent": 43,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10012,
-        "Name": "支线1",
-        "LastLevel": 10004,
+        "Name": "寂渊-幽谷区",
         "UIPos": {
             "x": 374,
             "y": 1557
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_7.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_12.json",
         "Desc": "222222222222222222",
         "StartEvent": 1,
-        "WinEvent": 13,
-        "FailedEvent": 3,
+        "WinEvent": 46,
+        "FailedEvent": 47,
         "WinCond": null,
         "FailedCond": null
     },
     {
         "ID": 10013,
-        "Name": "支线2",
-        "LastLevel": 10004,
+        "Name": "寂渊-深渊区",
         "UIPos": {
             "x": 723,
             "y": 2097
         },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_8.json",
+        "Type": 1,
+        "Map": "Assets/StreamingAssets/Maps/Map_Main_13.json",
         "Desc": "1111111111111111111",
         "StartEvent": 1,
-        "WinEvent": 14,
-        "FailedEvent": 3,
-        "WinCond": null,
-        "FailedCond": null
-    },
-    {
-        "ID": 10014,
-        "Name": "支线1",
-        "LastLevel": 10005,
-        "UIPos": {
-            "x": 1243,
-            "y": 2297
-        },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_9.json",
-        "Desc": "222222222222222222",
-        "StartEvent": 1,
-        "WinEvent": 15,
-        "FailedEvent": 3,
-        "WinCond": null,
-        "FailedCond": null
-    },
-    {
-        "ID": 10015,
-        "Name": "支线2",
-        "LastLevel": 10005,
-        "UIPos": {
-            "x": 1957,
-            "y": 2121
-        },
-        "Type": 2,
-        "Map": "Assets/StreamingAssets/Maps/Map_Branch_10.json",
-        "Desc": "1111111111111111111",
-        "StartEvent": 1,
-        "WinEvent": 16,
-        "FailedEvent": 3,
+        "WinEvent": 50,
+        "FailedEvent": 51,
         "WinCond": null,
         "FailedCond": null
     }

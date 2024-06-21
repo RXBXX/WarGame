@@ -242,7 +242,7 @@ namespace WarGame
         public override void Take()
         {
             base.Take();
-            _role.GameObject.transform.DOMove(_role.GetPosition() - _role.GameObject.transform.forward * 0.2F, 0.2F);
+            //_role.GameObject.transform.DOMove(_role.GetPosition() - _role.GameObject.transform.forward * 0.2F, 0.2F);
         }
 
         public override void End(bool reverse)

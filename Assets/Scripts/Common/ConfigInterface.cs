@@ -316,7 +316,9 @@ namespace WarGame
     {
         public string Name;
         public Enum.Element Restrain;
+        public float RestrainValue;
         public Enum.Element Reinforce;
+        public float ReinforceValue;
         public string Icon;
     }
 
@@ -351,5 +353,6 @@ namespace WarGame
         public Enum.EventType Type;
         public string Name;
         public int Value;
+        public int NextEvent;
     }
 }
