@@ -8,7 +8,9 @@ namespace WarGame
 {
     public class ConfigMgr : Singeton<ConfigMgr>
     {
+        private string _language = "zh";
         private Dictionary<string, Dictionary<int, Config>> _configDic = new Dictionary<string, Dictionary<int, Config>>();
+        private Dictionary<string, TranslationConfig> _TranslationDic;
 
         private bool InitConfig<T>(string jsonName) where T : Config
         {
@@ -45,6 +47,28 @@ namespace WarGame
             {
                 callback((T)v.Value);
             }
+        }
+
+        private bool InitTranslation()
+        {
+            _TranslationDic = new Dictionary<string, TranslationConfig>();
+            var configs = Tool.Instance.ReadJson<TranslationConfig[]>("Assets/StreamingAssets/Configs/Translation_" + _language + ".json");
+            foreach (var v in configs)
+            {
+                _TranslationDic[v.ID] = v;
+            }
+            return true;
+        }
+
+        public string GetTranslation(string configName, int id, string key)
+        {
+            if (null == _TranslationDic)
+                InitTranslation();
+
+            key = configName + "_" + id + "_" + key;
+            if (!_TranslationDic.ContainsKey(key))
+                return "";
+            return _TranslationDic[key].Str;
         }
 
         public override bool Dispose()

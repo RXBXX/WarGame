@@ -34,6 +34,12 @@ namespace WarGame
     public class Config
     {
         public int ID;
+
+        public string GetTranslation(string key)
+        {
+            var configName = GetType().ToString().Split('.')[1];
+            return ConfigMgr.Instance.GetTranslation(configName, ID, key);
+        }
     }
 
     //[Serializable]
@@ -354,5 +360,13 @@ namespace WarGame
         public string Name;
         public int Value;
         public int NextEvent;
+    }
+
+    //∑≠“Î±Ìª˘¿‡
+    [Serializable]
+    public class TranslationConfig
+    {
+        public string ID;
+        public string Str;
     }
 }

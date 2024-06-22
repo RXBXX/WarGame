@@ -50,7 +50,6 @@ namespace WarGame.UI
             _heroList.selectedIndex = 0;
             SelectHero(0);
 
-            //LoadHero(_roles[_roleIndex]);
         }
 
         public override void Update(float deltaTime)
@@ -313,7 +312,7 @@ namespace WarGame.UI
             }
 
             var roleConfig = DatasMgr.Instance.GetRoleData(_roles[index]).GetConfig();
-            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.Name);
+            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.GetTranslation("Name")) ;
         }
 
         private void ClickHeroItem(EventContext context)
