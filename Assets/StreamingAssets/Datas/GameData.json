@@ -5,9 +5,9 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1718998576805,
-      "saveTime": 1718998592344,
-      "duration": 20666,
-      "isNew": true,
+      "saveTime": 1719034976321,
+      "duration": 105399,
+      "isNew": false,
       "roleDataDic": {
         "10001": {
           "UID": 10001,
@@ -299,8 +299,8 @@
       "ID": "Record_2",
       "title": "存档_2",
       "createTime": 1718998743869,
-      "saveTime": 1719032445031,
-      "duration": 1942501,
+      "saveTime": 1719163062027,
+      "duration": 10120963,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -336,7 +336,7 @@
         "10004": {
           "UID": 10004,
           "configId": 10004,
-          "level": 1,
+          "level": 4,
           "equipmentDic": {
             "RightAndLeft": 30004
           },
@@ -369,6 +369,24 @@
           "level": 1,
           "equipmentDic": {
             "Left": 30007
+          },
+          "skillDic": {},
+          "talentDic": {}
+        },
+        "10008": {
+          "UID": 10008,
+          "configId": 10008,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talentDic": {}
+        },
+        "10009": {
+          "UID": 10009,
+          "configId": 10009,
+          "level": 1,
+          "equipmentDic": {
+            "Right": 30021
           },
           "skillDic": {},
           "talentDic": {}
@@ -1188,6 +1206,366 @@
         },
         "10004": {
           "configId": 10004,
+          "Stage": 4,
+          "Round": 8,
+          "actionType": 0,
+          "heros": [
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "16_0_16",
+              "bornHexagonID": "2_0_1",
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 30005,
+                  "configId": 10007
+                }
+              },
+              "state": 1,
+              "UID": 10001,
+              "configId": 10001,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "12_0_14",
+              "bornHexagonID": "1_0_1",
+              "buffs": [],
+              "equipDataDic": {
+                "BothHand": {
+                  "UID": 30003,
+                  "configId": 10005
+                }
+              },
+              "state": 1,
+              "UID": 10002,
+              "configId": 10002,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "15_0_17",
+              "bornHexagonID": "3_0_1",
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30001,
+                  "configId": 10003
+                }
+              },
+              "state": 1,
+              "UID": 10003,
+              "configId": 10003,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "13_0_17",
+              "bornHexagonID": "3_0_2",
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 30004,
+                  "configId": 10006
+                }
+              },
+              "state": 1,
+              "UID": 10004,
+              "configId": 10004,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "14_0_18",
+              "bornHexagonID": "2_0_2",
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30008,
+                  "configId": 10010
+                }
+              },
+              "state": 1,
+              "UID": 10005,
+              "configId": 10005,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 0.0,
+              "Rage": 100.0,
+              "hexagonID": "14_0_16",
+              "bornHexagonID": "1_0_2",
+              "buffs": [
+                {
+                  "id": 2,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 2.0
+                },
+                {
+                  "id": 2,
+                  "value": 3.0
+                },
+                {
+                  "id": 1,
+                  "value": 2.0
+                }
+              ],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30010,
+                  "configId": 10012
+                }
+              },
+              "state": 7,
+              "UID": 10006,
+              "configId": 10006,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ],
+          "enemys": [
+            {
+              "HP": 0.0,
+              "Rage": 0.0,
+              "hexagonID": "14_0_17",
+              "bornHexagonID": "16_0_17",
+              "buffs": [
+                {
+                  "id": 2,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                }
+              ],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "configId": 10006
+                }
+              },
+              "state": 0,
+              "UID": 20002,
+              "configId": 20002,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ]
+        },
+        "10005": {
+          "configId": 10005,
+          "Stage": 4,
+          "Round": 6,
+          "actionType": 0,
+          "heros": [
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "13_0_14",
+              "bornHexagonID": "2_0_1",
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 30005,
+                  "configId": 10007
+                }
+              },
+              "state": 1,
+              "UID": 10001,
+              "configId": 10001,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 100.0,
+              "Rage": 100.0,
+              "hexagonID": "14_0_12",
+              "bornHexagonID": "1_0_1",
+              "buffs": [],
+              "equipDataDic": {
+                "BothHand": {
+                  "UID": 30003,
+                  "configId": 10005
+                }
+              },
+              "state": 1,
+              "UID": 10002,
+              "configId": 10002,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            },
+            {
+              "HP": 0.0,
+              "Rage": 90.0,
+              "hexagonID": "16_0_11",
+              "bornHexagonID": "3_0_1",
+              "buffs": [
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                }
+              ],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30001,
+                  "configId": 10003
+                }
+              },
+              "state": 1,
+              "UID": 10003,
+              "configId": 10003,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ],
+          "enemys": [
+            {
+              "HP": 0.0,
+              "Rage": 0.0,
+              "hexagonID": "15_0_12",
+              "bornHexagonID": "16_0_17",
+              "buffs": [
+                {
+                  "id": 2,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                },
+                {
+                  "id": 3,
+                  "value": 1.0
+                },
+                {
+                  "id": 2,
+                  "value": 2.0
+                },
+                {
+                  "id": 1,
+                  "value": 1.0
+                }
+              ],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "configId": 10006
+                }
+              },
+              "state": 0,
+              "UID": 20002,
+              "configId": 20002,
+              "level": 1,
+              "equipmentDic": {},
+              "skillDic": {},
+              "talentDic": {}
+            }
+          ]
+        },
+        "10006": {
+          "configId": 10006,
           "Stage": 0,
           "Round": 0,
           "actionType": 0,

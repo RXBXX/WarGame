@@ -54,9 +54,9 @@ Shader "Custom/PowerLineShader"
 			}
 			float4 frag(v2f i) :COLOR
 			{
-				float2 uv = i.uv + float2(_Time.y, 0);
+				float2 uv = i.uv + float2(_Time.y/2, 0);
 				fixed4 col = tex2D(_MainTex, uv) * _Color;
-			    return col;
+				return col;
 			}
 			ENDCG
 		}

@@ -37,7 +37,7 @@ namespace WarGame
                     {
                         TriggerEvent(eventConfig.NextEvent, callback);
                     };
-                    UIManager.Instance.OpenPanel("Reward", "RewardPanel", new object[] { sp, cb });
+                    UIManager.Instance.OpenPanel("Hero", "HeroShowPanel", new object[] { eventConfig.Value, cb });
                     break;
                 case Enum.EventType.Story:
                     StoryMgr.Instance.PlayStory(eventConfig.Value, true, (args) =>

@@ -41,7 +41,7 @@ namespace WarGame
             var config = GetConfig();
             if (IsUseDrawMeshInstanced())
             {
-                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition(), (prefab) =>
+                RenderMgr.Instance.AddMeshInstanced(config.Prefab, GetPosition(), Vector3.one, "", 0, (prefab) =>
                 {
                     Tool.Instance.ApplyProcessingFotOutLine(prefab);
                 });
@@ -189,7 +189,7 @@ namespace WarGame
 
             if (!IsReachable())
             {
-                RenderMgr.Instance.RemoveMeshInstance(GetConfig().Prefab);
+                RenderMgr.Instance.RemoveMeshInstanced(GetConfig().Prefab);
             }
 
             return base.Dispose();

@@ -45,11 +45,9 @@ namespace WarGame.UI
             _heroList.onClickItem.Add(ClickHeroItem);
 
             _roles = DatasMgr.Instance.GetAllRoles();
-            DebugManager.Instance.Log(_roles.Length);
             _heroList.numItems = _roles.Length;
             _heroList.selectedIndex = 0;
             SelectHero(0);
-
         }
 
         public override void Update(float deltaTime)

@@ -166,6 +166,7 @@ namespace WarGame.UI
             return ui;
         }
 
+        //之所以没通过T直接来创建实例，是因为有些地方传入的泛型类型是UIBase，但是实际创建的需要是其派生类
         public T CreateUI<T>(string compName, GObject gObj, object[] args = null) where T : UIBase
         {
             Type classType = Type.GetType("WarGame.UI." + compName);

@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using System;
 
 namespace WarGame
 {
-    public delegate void LoadAssetCB<T>(T obj) where T : Object;
+    public delegate void LoadAssetCB<T>(T obj) where T : UnityEngine.Object;
 
     public delegate void LoadSceneCB(SceneInstance obj);
 
@@ -35,6 +36,61 @@ namespace WarGame
         {
             this.title = title;
             this.callback = callback;
+        }
+    }
+
+    [Serializable]
+    public struct IntFloatPair
+    {
+        public int id;
+        public float value;
+
+        public IntFloatPair(int id, float value)
+        {
+            this.id = id;
+            this.value = value;
+        }
+    }
+
+    [Serializable]
+    public struct TwoStrPair
+    {
+        public string id;
+        public string value;
+
+        public TwoStrPair(string id, string value)
+        {
+            this.id = id;
+            this.value = value;
+        }
+    }
+
+    public struct ThreeStrPair
+    {
+        public string name;
+        public string value1;
+        public string value2;
+        public ThreeStrPair(string name, string value1, string value2)
+        {
+            this.name = name;
+            this.value1 = value1;
+            this.value2 = value2;
+        }
+    }
+
+    public struct FourStrPair
+    {
+        public string name;
+        public string value1;
+        public string value2;
+        public string value3;
+
+        public FourStrPair(string name, string value1, string value2, string value3)
+        {
+            this.name = name;
+            this.value1 = value1;
+            this.value2 = value2;
+            this.value3 = value3;
         }
     }
 

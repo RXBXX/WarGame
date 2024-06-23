@@ -105,7 +105,7 @@ namespace WarGame
         {
             base.OnCreate(go);
             _gameObject.transform.position = _position;
-            _gameObject.transform.localScale = Vector3.one * 0.6F;
+            _gameObject.transform.localScale = Vector3.one * 0.5F;
             _animator = _gameObject.GetComponent<Animator>();
 
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
@@ -545,6 +545,11 @@ namespace WarGame
         public void AddBuffs(List<int> buffs)
         {
             _data.AddBuffs(buffs);
+
+            foreach (var v in buffs)
+            {
+                AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
+            }
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_data.buffs);

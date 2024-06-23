@@ -190,13 +190,13 @@ namespace WarGame
         /// <param name="prefab"></param>
         /// <param name="pos"></param>
         /// <param name="callback"></param>
-        public void AddMeshInstanced(string prefab, Vector3 pos, LoadAssetCB<GameObject> callback = null)
+        public void AddMeshInstanced(string prefab, Vector3 pos, Vector3 scale, string blockName = null, float blockParams = 0, LoadAssetCB<GameObject> callback = null)
         {
             if (!_GPUInstancedDic.ContainsKey(prefab))
             {
                 _GPUInstancedDic[prefab] = new GPUInstancedGroup(prefab, callback);
             }
-            _GPUInstancedDic[prefab].AddInstance(pos);
+            _GPUInstancedDic[prefab].AddInstance(pos, scale, blockName, blockParams);
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace WarGame
         /// <param name="prefab"></param>
         /// <param name="pos"></param>
         /// <param name="callback"></param>
-        public void RemoveMeshInstance(string prefab)
+        public void RemoveMeshInstanced(string prefab)
         {
             if (!_GPUInstancedDic.ContainsKey(prefab))
                 return;

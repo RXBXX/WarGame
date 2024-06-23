@@ -44,7 +44,7 @@ namespace WarGame.UI
             _levelID = levelID;
             _name.text = name;
             _desc.text = desc;
-            _typeC.SetSelectedIndex((int)type - 1);
+            //_typeC.SetSelectedIndex((int)type - 1);
             _lock.visible = !isOpen;
         }
 

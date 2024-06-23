@@ -11,8 +11,8 @@ namespace WarGame.UI
         private GList _attrList;
         private GProgressBar _hp;
         private GProgressBar _rage;
-        private List<StringStringPair> _attrsData = new List<StringStringPair>();
-        private Dictionary<string, CommonAttrItem> _attrsItemDic = new Dictionary<string, CommonAttrItem>();
+        private List<ThreeStrPair> _attrsData = new List<ThreeStrPair>();
+        private Dictionary<string, FightAttrItem> _attrsItemDic = new Dictionary<string, FightAttrItem>();
 
         public FightRoleInfo(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -27,9 +27,9 @@ namespace WarGame.UI
         {
             if (!_attrsItemDic.ContainsKey(item.id))
             {
-                _attrsItemDic[item.id] = UIManager.Instance.CreateUI<CommonAttrItem>("CommonAttrItem", item);
+                _attrsItemDic[item.id] = UIManager.Instance.CreateUI<FightAttrItem>("FightAttrItem", item);
             }
-            _attrsItemDic[item.id].Update(_attrsData[index].id, _attrsData[index].value);
+            _attrsItemDic[item.id].UpdateItem(_attrsData[index]);
         }
 
         public void Show(Vector2 centerPos, int roleID)
@@ -52,11 +52,11 @@ namespace WarGame.UI
                 {
                     return;
                 }
+
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
                 if (value > 0)
                 {
-                    var valueStr = string.Format("{0}  +{1}", value, value * AttributeMgr.Instance.GetElementAdd(roleID));
-                    _attrsData.Add(new StringStringPair(config.Name, valueStr));
+                    _attrsData.Add(new ThreeStrPair(config.Name, value.ToString(), (value * AttributeMgr.Instance.GetElementAdd(roleID)).ToString()));
                 }
             });
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="30,20" extention="Label">
+<component size="32,32" extention="Label">
   <displayList>
-    <graph id="n1_kugj" name="n1" xy="0,0" size="30,20" alpha="0.7" touchable="false" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <text id="n0_kugj" name="title" xy="15,10" pivot="0.5,0.5" anchor="true" size="30,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#e2ba2a" align="center" vAlign="middle" letterSpacing="2" autoSize="none" autoClearText="true" text="1111"/>
+    <graph id="n1_kugj" name="n1" xy="0,0" size="32,32" alpha="0.7" touchable="false" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <loader id="n4_czz8" name="icon" xy="0,0" size="32,32" url="ui://hx02grrpczz81k" align="center" vAlign="middle" fill="scale"/>
+    <text id="n0_kugj" name="title" xy="24,26" pivot="0.5,0.5" anchor="true" size="16,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#f7f7f7" align="right" vAlign="middle" letterSpacing="2" autoClearText="true" text="10"/>
   </displayList>
 </component>

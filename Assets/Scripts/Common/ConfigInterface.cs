@@ -5,32 +5,6 @@ using System.Collections.Generic;
 namespace WarGame
 {
     [Serializable]
-    public struct IntFloatPair
-    {
-        public int id;
-        public float value;
-
-        public IntFloatPair(int id, float value)
-        {
-            this.id = id;
-            this.value = value;
-        }
-    }
-
-    [Serializable]
-    public struct StringStringPair
-    {
-        public string id;
-        public string value;
-
-        public StringStringPair(string id, string value)
-        {
-            this.id = id;
-            this.value = value;
-        }
-    }
-
-    [Serializable]
     public class Config
     {
         public int ID;
@@ -62,6 +36,7 @@ namespace WarGame
         public string DialogIcon;
         public int TalentGroup;
         public string Icon;
+        public string FullLengthIcon;
         public Enum.Element Element;
         public int MaxLevel;
     }
@@ -208,6 +183,7 @@ namespace WarGame
         public int Duration;
         public string Name;
         public string Desc;
+        public string Icon;
     }
 
     //角色职业表

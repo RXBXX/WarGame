@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <loader id="n2_czz8" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1334,750" url="ui://ubnp7phxovain" align="center" vAlign="middle" clearOnPublish="true"/>
+    <loader id="n0_czz8" name="hero" xy="356,467" pivot="0.5,0.5" anchor="true" size="523,895" scale="-1,1" url="ui://ubnp7phxczz81l" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
+    <text id="n3_czz8" name="name" xy="622,160" size="276,179" font="ui://hd0z4dz5omu90" fontSize="140" color="#f9f9f9" letterSpacing="2" bold="true" strokeColor="#000000" autoClearText="true" text="Peter"/>
+  </displayList>
+  <transition name="fadeIn" autoPlay="true">
+    <item time="0" type="XY" target="n0_czz8" tween="true" startValue="-467,467.5" endValue="356.5,467.5" duration="6"/>
+    <item time="0" type="XY" target="n3_czz8" tween="true" startValue="1462,160" endValue="622,160" duration="6"/>
+  </transition>
+</component>

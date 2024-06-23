@@ -172,22 +172,33 @@ namespace WarGame
 
             FindingAttackRegion(moveRegion, attackDis, null, closeDic);
 
+            //foreach (var v in closeDic)
+            //{ 
+            //    _markedRegion.Add(v.Key);
+            //    GetHexagon(v.Key)?.Marking(v.Value.type);
+            //}
+
             foreach (var v in closeDic)
-            { 
-                _markedRegion.Add(v.Key);
-                GetHexagon(v.Key)?.Marking(v.Value.type);
+            {
+                if (ContainHexagon(v.Key))
+                {
+                    var hexagon = GetHexagon(v.Key);
+                    var blockParam = v.Value.type == Enum.MarkType.Walkable ? 1 : 0;
+                    RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(-0.3F, 0.4F, 0.2F), Vector3.one / 3.0F, "_TexIndex", blockParam);
+                }
             }
         }
 
         public void ClearMarkedRegion()
         {
-            foreach (var key1 in _markedRegion)
-            {
-                var hexagon = GetHexagon(key1);
-                if (null != hexagon)
-                    hexagon.Marking(Enum.MarkType.None);
-            }
-            _markedRegion.Clear();
+            RenderMgr.Instance.RemoveMeshInstanced("Assets/Prefabs/Mark.prefab");
+            //foreach (var key1 in _markedRegion)
+            //{
+            //    var hexagon = GetHexagon(key1);
+            //    if (null != hexagon)
+            //        hexagon.Marking(Enum.MarkType.None);
+            //}
+            //_markedRegion.Clear();
         }
 
         /// <summary>

@@ -145,22 +145,31 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)GetConfig().Element);
         }
 
-        public virtual float GetAttribute(Enum.AttrType attrType)
+        //英雄等级属性
+        public float GetStarAttribute(Enum.AttrType attrType)
         {
             var value = 0.0F;
-
-            //英雄属性
             var attrs = GetStarConfig().Attrs;
             foreach (var v in attrs)
             {
                 if ((Enum.AttrType)v.id == attrType)
                 {
-                    value += v.value;
+                    value = v.value;
                     break;
                 }
             }
 
-            //天赋属性
+            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+                return value / 100.0f;
+            else
+                return value;
+        }
+
+        //天赋属性
+        public float GetTalentAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
+
             foreach (var v in talentDic)
             {
                 var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", v.Value);
@@ -172,6 +181,17 @@ namespace WarGame
                     }
                 }
             }
+
+            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+                return value / 100.0f;
+            else
+                return value;
+        }
+
+        //获取装备属性
+        public float GetEquipAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
 
             //装备属性
             if (null != equipmentDic)
@@ -198,6 +218,17 @@ namespace WarGame
                 return value / 100.0f;
             else
                 return value;
+        }
+
+        public virtual float GetAttribute(Enum.AttrType attrType)
+        {
+            var value = 0.0F;
+
+            value += GetStarAttribute(attrType);
+            value += GetTalentAttribute(attrType);
+            value += GetEquipAttribute(attrType);
+
+            return value;
         }
 
         public RoleData Clone()
@@ -422,6 +453,8 @@ namespace WarGame
 
         public void AddHero(int heroID)
         {
+            if (roleDataDic.ContainsKey(heroID))
+                return;
             var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", heroID);
             var roleData = new RoleData(heroID, heroConfig.RoleID, heroConfig.Level);
             roleDataDic.Add(roleData.UID, roleData);

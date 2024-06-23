@@ -3,8 +3,9 @@ Shader "Unlit/BillboardShader"
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
-	_MainTex1("Texture1", 2D) = "white" {}
+	    _MainTex1("Texture1", 2D) = "white" {}
 		[MaterialToggle]_Verical("Vercial",Range(0,1)) = 1
+			//_TexIndex("TexIndex", Range(0,1)) = 0
 	}
 		SubShader
 	{
@@ -18,19 +19,18 @@ Shader "Unlit/BillboardShader"
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-		#pragma multi_compile_instancing
-		// make fog work
-		//#pragma multi_compile_fog
+		    #pragma multi_compile_instancing
 
 		#include "UnityCG.cginc"
 
 		sampler2D _MainTex;
 		float4 _MainTex_ST;
+
 		sampler2D _MainTex1;
 		float4 _MainTex1_ST;
+
 		fixed _Verical;
-		//float4 _Color;
-		//float _TexIndex;
+
 
 		struct appdata
 		{
@@ -45,7 +45,7 @@ Shader "Unlit/BillboardShader"
 			float2 uv : TEXCOORD0;
 			//UNITY_FOG_COORDS(1)
 			float4 vertex : SV_POSITION;
-			float texIndex : TEXCOORD1;
+			//float texIndex : TEXCOORD1;
 			UNITY_VERTEX_INPUT_INSTANCE_ID
 		};
 
@@ -81,12 +81,12 @@ Shader "Unlit/BillboardShader"
 			float3 localPos = center + rightDir * centerOffs.x + upDir * centerOffs.y + centerOffs.z;
 			o.vertex = UnityObjectToClipPos(localPos);
 			//o.vertex = UnityObjectToClipPos(v.vertex);
-			o.texIndex = UNITY_ACCESS_INSTANCED_PROP(Props, _TexIndex);
+			//o.texIndex = UNITY_ACCESS_INSTANCED_PROP(Props, _TexIndex);
 
-			if (o.texIndex < 1)
+			//if (o.texIndex < 1)
 			    o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-			else
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex1);
+			//else
+			//	o.uv = TRANSFORM_TEX(v.uv, _MainTex1);
 				//UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 
@@ -97,8 +97,9 @@ Shader "Unlit/BillboardShader"
 			//return fixed4(i.texIndex, i.texIndex, i.texIndex, 1);
 				// sample the texture
 				fixed4 col;
-				sampler2D tex;
-				if (i.texIndex < 1)
+				float tex = UNITY_ACCESS_INSTANCED_PROP(Props, _TexIndex);
+
+				if (tex < 1)
 					col = tex2D(_MainTex, i.uv);
 				else
 					col = tex2D(_MainTex1, i.uv);// *UNITY_ACCESS_INSTANCED_PROP(Props, _Color);

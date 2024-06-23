@@ -14,7 +14,7 @@ Shader "Custom/LineShader"
             Pass
             {
                 Name "Simple"
-                Cull off //Ë«Ãæ
+                //Cull off //Ë«Ãæ
 
                 CGPROGRAM
                 #pragma vertex vert

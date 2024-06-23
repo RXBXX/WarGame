@@ -6,13 +6,14 @@ namespace WarGame.UI
     public class HeroProComp : UIBase
     {
         private int _heroUID;
-        private GList _attrList;
+        //private GList _attrList;
         private HeroTalentComp _talentComp;
         private GList _skillList;
         private HeroEquipComp _equipComp;
+        private HeroAttrComp _attrComp;
         private Dictionary<string, CommonSkillItem> _skillItemsDic = new Dictionary<string, CommonSkillItem>();
-        private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
-        private List<AttrStruct> _attrsData = new List<AttrStruct>();
+        //private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
+        //private List<AttrStruct> _attrsData = new List<AttrStruct>();
         private List<int> _skillsData = new List<int>();
         private Controller _type;
         private HeroLevelComp _levelComp;
@@ -26,8 +27,8 @@ namespace WarGame.UI
             GetChild<HeroTitleItem>("attrTitle").Init("Attrs", 1, OnClickAttr);
             GetChild<HeroTitleItem>("equipTitle").Init("Equips", 0, OnClickEquip);
 
-            _attrList = GetGObjectChild<GList>("attrList");
-            _attrList.itemRenderer = OnAttrRenderer;
+            //_attrList = GetGObjectChild<GList>("attrList");
+            //_attrList.itemRenderer = OnAttrRenderer;
             //_attrList.visible = true;
 
             _talentComp = GetChild<HeroTalentComp>("talentComp");
@@ -42,6 +43,8 @@ namespace WarGame.UI
 
             _levelComp = GetChild<HeroLevelComp>("levelComp");
 
+            _attrComp = GetChild<HeroAttrComp>("attrComp");
+
             EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
         }
@@ -50,10 +53,11 @@ namespace WarGame.UI
         {
             _heroUID = UID;
 
-            _attrsData.Clear();
+            //_attrsData.Clear();
             _skillsData.Clear();
 
-            UpdateAttrList();
+            //UpdateAttrList();
+            _attrComp.UpdateComp(UID);
 
             var role = DatasMgr.Instance.GetRoleData(UID);
             _skillsData.Add(role.GetConfig().CommonSkill);
@@ -67,21 +71,21 @@ namespace WarGame.UI
             _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
         }
 
-        private void UpdateAttrList()
-        {
-            _attrsData.Clear();
-            var role = DatasMgr.Instance.GetRoleData(_heroUID);
-            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
-            {
-                var value = role.GetAttribute((Enum.AttrType)config.ID);
-                if (value != 0)
-                {
-                    _attrsData.Add(new AttrStruct(config.Name, value.ToString()));
-                }
-            });
-            _attrList.numItems = _attrsData.Count;
-            _attrList.ResizeToFit();
-        }
+        //private void UpdateAttrList()
+        //{
+        //    _attrsData.Clear();
+        //    var role = DatasMgr.Instance.GetRoleData(_heroUID);
+        //    ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+        //    {
+        //        var value = role.GetAttribute((Enum.AttrType)config.ID);
+        //        if (value != 0)
+        //        {
+        //            _attrsData.Add(new AttrStruct(config.Name, value.ToString()));
+        //        }
+        //    });
+        //    _attrList.numItems = _attrsData.Count;
+        //    _attrList.ResizeToFit();
+        //}
 
         private void OnClickLevel(params object[] args)
         {
@@ -100,7 +104,7 @@ namespace WarGame.UI
 
         private void OnClickAttr(params object[] args)
         {
-            _attrList.visible = (bool)args[0];
+            _attrComp.SetVisible((bool)args[0]);
         }
 
         private void OnClickEquip(params object[] args)
@@ -117,14 +121,14 @@ namespace WarGame.UI
             _skillItemsDic[item.id].Update(_skillsData[index]);
         }
 
-        private void OnAttrRenderer(int index, GObject item)
-        {
-            if (!_attrItemsDic.ContainsKey(item.id))
-            {
-                _attrItemsDic[item.id] = new CommonAttrItem((GComponent)item);
-            }
-            _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
-        }
+        //private void OnAttrRenderer(int index, GObject item)
+        //{
+        //    if (!_attrItemsDic.ContainsKey(item.id))
+        //    {
+        //        _attrItemsDic[item.id] = new CommonAttrItem((GComponent)item);
+        //    }
+        //    _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
+        //}
 
 
         private void OnHeroTalentActiveS2C(params object[] args)
@@ -133,7 +137,7 @@ namespace WarGame.UI
                 return;
             _talentComp.ActiveTalent((int)args[1]);
 
-            UpdateAttrList();
+            _attrComp.UpdateComp(_heroUID);
         }
 
         private void OnHeroLevelUpS2C(params object[] args)
@@ -148,9 +152,10 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
 
-            foreach (var v in _attrItemsDic)
-                v.Value.Dispose();
-            _attrItemsDic.Clear();
+            //foreach (var v in _attrItemsDic)
+            //    v.Value.Dispose();
+            //_attrItemsDic.Clear();
+            _attrComp.Dispose();
 
             foreach (var v in _skillItemsDic)
                 v.Value.Dispose();

@@ -96,6 +96,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\BitmapFont.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\ScrollPaneHeader.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroShowPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Login\LoginPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\Scripts\Common\InputManager.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Assets\Test\ChainTest.cs" />
     <Compile Include="Assets\Scripts\Common\Chain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Timers.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightAttrItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\IAnimationGear.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\ChangePageAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\InputTextField.cs" />
@@ -341,6 +343,7 @@
     <Compile Include="Assets\Scripts\Common\CameraMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\EMRenderSupport.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroAttrComp.cs" />
     <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
     <Compile Include="Assets\Scripts\Render\GPUInstancedGroup.cs" />
@@ -367,6 +370,7 @@
     <Compile Include="Assets\Scripts\Battle\Skills\SkillAction.cs" />
     <Compile Include="Assets\Scripts\Battle\Hero.cs" />
     <Compile Include="Assets\Scripts\SRP\CameraRenderer.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroAttrItem.cs" />
     <Compile Include="Assets\Scripts\UI\Common\CommonAttrItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />

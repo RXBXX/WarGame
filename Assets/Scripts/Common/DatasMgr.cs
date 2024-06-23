@@ -166,11 +166,6 @@ namespace WarGame
             _data.GetUsingRecord().isNew = false;
         }
 
-        public void AddHero(int heroID)
-        {
-            _data.GetUsingRecord().AddHero(heroID);
-        }
-
         public void AddItem(SourcePair source)
         {
             if (Enum.SourceType.Hero == source.Type)
@@ -294,6 +289,9 @@ namespace WarGame
 
         public void ActiveLevelC2S(int levelID)
         {
+            if (_data.GetUsingRecord().levelDataDic.ContainsKey(levelID))
+                return;
+
             var levelData = new LevelData(levelID);
             _data.GetUsingRecord().levelDataDic.Add(levelData.configId, levelData);
         }

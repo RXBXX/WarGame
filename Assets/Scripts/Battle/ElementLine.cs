@@ -13,7 +13,7 @@ namespace WarGame
         private GameObject _go;
         //private Material _elementMat;
 
-        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 20, float droop = 0.3f)
+        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.5f)
         {
             _go = new GameObject();
             _lr = _go.AddComponent<LineRenderer>();
@@ -43,7 +43,10 @@ namespace WarGame
             for (int i = 1; i < _lr.positionCount - 1; i++)
             {
                 float index = i;
-                var tempDroop = Mathf.Sqrt(_droop * (1 - Mathf.Abs((index - _segment / 2.0F) / (_segment / 2.0F)))) * lerp;
+                var tempDroop = (index - _segment / 2.0F) / (_segment / 2.0F);
+                tempDroop *= tempDroop;
+                tempDroop *= -_droop;
+                tempDroop += _droop;
                 var frontPart = (_segment - index) / _segment;
                 var backPart = index / _segment;
                 var posY = _startPos.y * frontPart + _endPos.y * backPart + tempDroop;

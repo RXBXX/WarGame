@@ -221,7 +221,7 @@ namespace WarGame
 
         private void OnRoleDispose(params object[] args)
         {
-            DebugManager.Instance.Log(args[0]);
+            //DebugManager.Instance.Log(args[0]);
             if ((int)args[0] != _targetID)
                 return;
             ClearTarget();

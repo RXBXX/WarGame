@@ -10,7 +10,7 @@ namespace WarGame.UI
         private GList _buffList;
         private List<IntFloatPair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
-        private float _hpChangeDuration = 0.2F;
+        private float _hpChangeDuration = 1F;
         private Controller _stateC;
         private Controller _followingC;
         private GLoader _elementLoader;

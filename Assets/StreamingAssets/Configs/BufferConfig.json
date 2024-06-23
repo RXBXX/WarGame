@@ -7,6 +7,7 @@
         },
         "Duration": 2,
         "Name": "流血",
+        "Icon": "ui://Common/Buff_Blood",
         "Desc": "每回合减少10血量，剩余%s回合",
         "Type": 1
     },
@@ -18,6 +19,7 @@
         },
         "Duration": 3,
         "Name": "中毒",
+        "Icon": "ui://Common/Buff_Blood",
         "Desc": "每回合减少15血量，剩余%s回合",
         "Type": 1
     },
@@ -29,6 +31,7 @@
         },
         "Duration": 2,
         "Name": "减怒",
+        "Icon": "ui://Common/Buff_Blood",
         "Desc": "每回合较少怒气回复，剩余%s回合",
         "Type": 2
     }
