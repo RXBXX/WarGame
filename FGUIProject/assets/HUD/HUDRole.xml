@@ -10,7 +10,7 @@
     <component id="n0_kugj" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="0,14" size="160,7" touchable="false" controller="style,2">
       <ProgressBar value="39" max="100"/>
     </component>
-    <list id="n2_kugj" name="buffList" xy="0,-33" size="160,32" touchable="false" layout="flow_hz" overflow="scroll" colGap="2" lineItemCount="3" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
+    <list id="n2_kugj" name="buffList" xy="80,-1" pivot="0.5,1" anchor="true" size="160,32" touchable="false" layout="flow_hz" overflow="scroll" lineItemCount="5" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
       <item/>
       <item/>
       <item/>

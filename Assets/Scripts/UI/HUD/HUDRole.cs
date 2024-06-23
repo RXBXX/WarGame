@@ -72,6 +72,7 @@ namespace WarGame.UI
         {
             _buffs = buffs;
             _buffList.numItems = buffs.Count;
+            _buffList.ResizeToFit();
         }
 
         private void OnItemRenderer(int index, GObject item)

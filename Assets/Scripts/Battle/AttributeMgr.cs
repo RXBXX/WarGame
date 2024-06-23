@@ -76,5 +76,11 @@ namespace WarGame
             var add = GetElementAdd(initiatorID, targetID);
             return 20 * (1 + add);
         }
+
+        public string GetAttributeStr(int id, float value)
+        {
+            var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", id);
+            return attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
+        }
     }
 }

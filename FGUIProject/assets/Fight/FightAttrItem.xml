@@ -5,11 +5,7 @@
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <text id="n13_gy0s" name="name" xy="20,-1" size="38,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#f8f8f8" strokeColor="#000000" autoClearText="true" text="Attack"/>
-    <text id="n19_czz8" name="baseValue" xy="124,10" pivot="1,0.5" anchor="true" size="19,21" font="ui://hd0z4dz5omu90" fontSize="14" color="#f8f8f8" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
-      <relation target="" sidePair="right-right"/>
-    </text>
-    <text id="n14_gy0s" name="elementValue" xy="184,10" pivot="1,0.5" anchor="true" size="19,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#f8f8f8" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
-      <relation target="" sidePair="right-right"/>
-    </text>
+    <text id="n19_czz8" name="baseValue" xy="114,10" pivot="0.5,0.5" anchor="true" size="19,21" font="ui://hd0z4dz5omu90" fontSize="14" color="#f8f8f8" align="center" leading="0" strokeColor="#000000" autoClearText="true" text="+10"/>
+    <text id="n14_gy0s" name="elementValue" xy="174,10" pivot="0.5,0.5" anchor="true" size="19,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#f8f8f8" align="center" leading="0" strokeColor="#000000" autoClearText="true" text="+10"/>
   </displayList>
 </component>

@@ -29,13 +29,13 @@ namespace WarGame.UI
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
                 var attrType = (Enum.AttrType)config.ID;
-                _attrsData.Add(new FourStrPair(config.Name, role.GetStarAttribute(attrType).ToString(), role.GetTalentAttribute(attrType).ToString(), role.GetEquipAttribute(attrType).ToString()));
+                var starAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetStarAttribute(attrType));
+                var talentAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetTalentAttribute(attrType));
+                var equipAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetEquipAttribute(attrType));
+                _attrsData.Add(new FourStrPair(config.Name, starAttr, talentAttr, equipAttr));
             });
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();
-
-            DebugManager.Instance.Log(_attrList.height);
-            DebugManager.Instance.Log(GCom.height);
         }
 
         private void OnAttrRenderer(int index, GObject item)

@@ -82,7 +82,7 @@ Shader "Custom/GrayShader"
 #endif
 					fixed4 grayCol = dot(col.rgb, float3(0.299, 0.587, 0.114)) * _Brightness;
 					//这里的0.0001F是因为深度值有精度误差
-					if (exclusionDepthValue < 1&& exclusionDepthValue <= depth)
+					if (exclusionDepthValue < 1&& exclusionDepthValue-0.0001F <= depth)
 					{
 						fixed4 exCol = tex2D(_ExclusionMap, i.uv);
 						//当像素为黑色，剔除，这里是为了处理应用了叠加模式的特效，如果特效贴图有黑色部分，这里不处理的话，特效就会遮挡背景
