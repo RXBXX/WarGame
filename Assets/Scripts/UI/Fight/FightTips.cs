@@ -20,8 +20,11 @@ namespace WarGame.UI
             _gCom.visible = true;
             _title.text = title;
             _tipsT.Play(() => {
-                _gCom.visible = false;
-                callback.Invoke(); 
+                _tipsT.PlayReverse(() =>
+                {
+                    _gCom.visible = false;
+                    callback.Invoke();
+                });
             });
         }
     }

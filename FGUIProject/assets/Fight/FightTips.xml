@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="882,204">
+<component size="1500,200" overflow="hidden">
   <displayList>
-    <text id="n0_o8z3" name="title" xy="441,102" pivot="0.5,0.5" anchor="true" size="882,204" alpha="0.7" font="ui://hd0z4dz5omu90" fontSize="160" color="#ff0000" align="center" vAlign="middle" letterSpacing="10" autoSize="none" strokeColor="#000000" strokeSize="5" text="Enemy Action"/>
+    <loader id="n1_czz8" name="n1" xy="1,0" size="1500,200" group="n4_czz8" url="ui://kbw86fxtczz8g" autoSize="true"/>
+    <text id="n3_czz8" name="title" xy="711,99" pivot="1,0.5" anchor="true" size="226,129" group="n4_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="ENEMY"/>
+    <group id="n4_czz8" name="n4" xy="1,0" size="1500,200" advanced="true"/>
+    <loader id="n2_czz8" name="n2" xy="0,0" size="1500,200" group="n5_czz8" url="ui://kbw86fxtczz8f" autoSize="true"/>
+    <text id="n0_o8z3" name="title2" xy="784,35" size="250,129" group="n5_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="ACTION"/>
+    <group id="n5_czz8" name="n5" xy="0,0" size="1500,200" advanced="true"/>
   </displayList>
   <transition name="tips">
-    <item time="0" type="Scale" target="n0_o8z3" tween="true" startValue="1,0" endValue="1,1" duration="3"/>
-    <item time="3" type="Scale" target="n0_o8z3" tween="true" startValue="1,1" endValue="1,1" duration="12" ease="Cubic.Out"/>
-    <item time="15" type="Scale" target="n0_o8z3" tween="true" startValue="1,1" endValue="1,0" duration="4"/>
-    <item time="19" type="Scale" target="n0_o8z3" value="1,0"/>
+    <item time="0" type="XY" target="n4_czz8" tween="true" startValue="-850,0" endValue="0,0" duration="8"/>
+    <item time="0" type="XY" target="n5_czz8" tween="true" startValue="861,0" endValue="0,0" duration="8"/>
+    <item time="8" type="XY" target="n4_czz8" tween="true" startValue="0,0" endValue="0,0" duration="4" ease="Cubic.Out"/>
+    <item time="8" type="XY" target="n5_czz8" tween="true" startValue="0,0" endValue="0,0" duration="4" ease="Bounce.InOut"/>
   </transition>
 </component>
