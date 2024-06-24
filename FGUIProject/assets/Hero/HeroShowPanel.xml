@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750">
+<component size="1334,750" overflow="hidden">
   <displayList>
-    <loader id="n2_czz8" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1334,750" url="ui://ubnp7phxovain" align="center" vAlign="middle" clearOnPublish="true"/>
-    <loader id="n0_czz8" name="hero" xy="356,467" pivot="0.5,0.5" anchor="true" size="523,895" scale="-1,1" url="ui://ubnp7phxczz81l" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
-    <text id="n3_czz8" name="name" xy="622,160" size="276,179" font="ui://hd0z4dz5omu90" fontSize="140" color="#f9f9f9" letterSpacing="2" bold="true" strokeColor="#000000" autoClearText="true" text="Peter"/>
+    <graph id="n5_czz8" name="bg" xy="0,0" size="1334,750" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n11_mj42" name="hero" src="mj421t" fileName="HeroShowMask.xml" xy="45,0" touchable="false">
+      <Button icon="ui://ubnp7phxmj421r"/>
+    </component>
+    <text id="n13_mj42" name="name" xy="802,116" size="124,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" letterSpacing="2" text="Peter"/>
+    <text id="n14_mj42" name="desc" xy="802,197" size="469,481" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" text="PeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssss"/>
   </displayList>
-  <transition name="fadeIn" autoPlay="true">
-    <item time="0" type="XY" target="n0_czz8" tween="true" startValue="-467,467.5" endValue="356.5,467.5" duration="6"/>
-    <item time="0" type="XY" target="n3_czz8" tween="true" startValue="1462,160" endValue="622,160" duration="6"/>
-  </transition>
 </component>

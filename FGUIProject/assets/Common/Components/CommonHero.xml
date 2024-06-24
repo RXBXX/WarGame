@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="80,80" extention="Button" mask="n14_c2cw">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="2"/>
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
     <image id="n16_c2cw" name="n16" src="cwzy1c" fileName="Images/HeroBG.png" xy="0,0" size="80,80">
       <relation target="" sidePair="width-width,height-height"/>
@@ -8,7 +8,7 @@
     <image id="n14_c2cw" name="n14" src="cwzy1c" fileName="Images/HeroBG.png" xy="0,0" size="80,80">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <loader id="n15_c2cw" name="icon" xy="0,0" size="80,80" touchable="false" url="ui://flul1mo7e05za" align="center" vAlign="middle" fill="scale">
+    <loader id="n15_c2cw" name="icon" xy="0,0" size="80,80" touchable="false" url="ui://hx02grrpmj421l" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
     <image id="n7_pfj8" name="n7" src="cwzy1d" fileName="Images/HeroFrame.png" xy="0,0" size="80,80"/>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="200,300" pivot="0.5,1" anchor="true" overflow="hidden" extention="Button" mask="n2_e05z">
   <displayList>
-    <image id="n2_e05z" name="n2" src="c2cwd" fileName="Images/DialogHeroBox_Mask.png" xy="-28,22"/>
-    <loader id="n1_e05z" name="icon" xy="-68,-18" size="336,336" url="ui://flul1mo7e05za" fill="scale" clearOnPublish="true"/>
-    <image id="n3_c2cw" name="n3" src="c2cwc" fileName="Images/DialogHeroBox_Frame.png" xy="-30,20" size="260,260"/>
+    <graph id="n2_e05z" name="n2" xy="0,0" size="200,300" type="polygon" lineSize="0" points="0,0,200,0,100,300"/>
+    <loader id="n1_e05z" name="icon" xy="100,109" pivot="0.5,0.5" anchor="true" size="397,397" url="ui://flul1mo7mj42e" fill="scale" clearOnPublish="true"/>
   </displayList>
   <Button/>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
-    <item time="0" type="XY" target="n1_e05z" tween="true" startValue="-68,-18" endValue="-68,-36" duration="48"/>
-    <item time="48" type="XY" target="n1_e05z" tween="true" startValue="-68,-36" endValue="-68,-18" duration="48"/>
+    <item time="0" type="XY" target="n1_e05z" tween="true" startValue="100.5,114" endValue="100.5,147" duration="48"/>
+    <item time="48" type="XY" target="n1_e05z" tween="true" startValue="100.5,147" endValue="100.5,114" duration="48"/>
   </transition>
 </component>

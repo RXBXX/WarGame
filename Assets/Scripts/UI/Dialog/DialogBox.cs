@@ -50,7 +50,7 @@ namespace WarGame.UI
                 _type.SetSelectedIndex(type);
             }
             _lastRole = roleID;
-            _role.icon = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleID).Icon;
+            _role.icon = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleID).FullLengthIcon;
             _context.text = context;
             _te.Start();
             _te.Print();

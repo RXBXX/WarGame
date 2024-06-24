@@ -33,7 +33,6 @@ namespace WarGame
         public Enum.RoleType Type;
         public int CommonSkill;
         public int SpecialSkill;
-        public string DialogIcon;
         public int TalentGroup;
         public string Icon;
         public string FullLengthIcon;

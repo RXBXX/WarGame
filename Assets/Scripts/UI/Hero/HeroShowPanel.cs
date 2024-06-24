@@ -10,16 +10,13 @@ namespace WarGame.UI
         {
             UILayer = Enum.UILayer.PopLayer;
 
-            var bg = GetGObjectChild<GLoader>("bg");
-            bg.url = "UI/Background/HeroBG";
-            bg.onClick.Add(OnClickBG);
-
+            GetGObjectChild<GGraph>("bg").onClick.Add(OnClickBG);
 
             var heroId = (int)args[0];
             var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", heroId);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", heroConfig.RoleID);
 
-            GetGObjectChild<GLoader>("hero").url = roleConfig.FullLengthIcon;
+            GetGObjectChild<GLabel>("hero").icon = roleConfig.FullLengthIcon;
             GetGObjectChild<GTextField>("name").text = roleConfig.GetTranslation("Name");
 
             _callback = (WGArgsCallback)args[1];
