@@ -236,7 +236,7 @@ namespace WarGame
         public int Event;
     }
 
-    //关卡表
+    //关卡表  
     [Serializable]
     public class LevelConfig : Config
     {
