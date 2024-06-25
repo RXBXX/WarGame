@@ -299,8 +299,8 @@
       "ID": "Record_2",
       "title": "存档_2",
       "createTime": 1718998743869,
-      "saveTime": 1719259689419,
-      "duration": 17536361,
+      "saveTime": 1719281121578,
+      "duration": 17691268,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -308,7 +308,7 @@
           "configId": 10001,
           "level": 1,
           "equipmentDic": {
-            "Left": 30006
+            "Right": 30021
           },
           "skillDic": {},
           "talentDic": {}
@@ -383,9 +383,7 @@
           "UID": 10009,
           "configId": 10009,
           "level": 1,
-          "equipmentDic": {
-            "Right": 30021
-          },
+          "equipmentDic": {},
           "skillDic": {},
           "talentDic": {}
         },
@@ -1609,7 +1607,7 @@
         },
         "10007": {
           "configId": 10007,
-          "Stage": 2,
+          "Stage": 3,
           "Round": 0,
           "actionType": 0,
           "heros": [
@@ -1636,7 +1634,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "1_0_1",
+              "hexagonID": "2_0_4",
               "bornHexagonID": "1_0_1",
               "buffs": [],
               "equipDataDic": {
@@ -1645,7 +1643,7 @@
                   "configId": 10005
                 }
               },
-              "state": 1,
+              "state": 7,
               "UID": 10002,
               "configId": 10002,
               "level": 1,
@@ -1656,7 +1654,7 @@
             {
               "HP": 100.0,
               "Rage": 0.0,
-              "hexagonID": "3_0_1",
+              "hexagonID": "4_0_1",
               "bornHexagonID": "3_0_1",
               "buffs": [],
               "equipDataDic": {
