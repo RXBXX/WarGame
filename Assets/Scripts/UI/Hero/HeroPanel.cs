@@ -121,7 +121,8 @@ namespace WarGame.UI
                     _rolesGO.Add(uid, hero);
 
                     UpdateEquips(uid);
-                    UpdateAnimator(uid, ()=> {
+                    UpdateAnimator(uid, () =>
+                    {
                         Jump(uid, hero, 0);
                     });
                 });
@@ -262,6 +263,9 @@ namespace WarGame.UI
             }
 
             UpdateAnimator(roleUID);
+
+            if (_roles[_roleIndex] == roleUID)
+                _proComp.UpdateComp(roleUID);
         }
 
         private void OnUnwearEquip(params object[] args)
@@ -277,11 +281,25 @@ namespace WarGame.UI
             foreach (var v in ndpu.unwearEquips)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
-                var spinePoint = _rolesGO[roleUID].transform.Find(equipData.GetPlaceConfig().SpinePoint);
+                DebugManager.Instance.Log(equipData.configId);
+                var placeConfig = equipData.GetPlaceConfig();
+                var spinePoint = _rolesGO[roleUID].transform.Find(placeConfig.SpinePoint);
                 GameObject.Destroy(spinePoint.GetChild(0).gameObject);
+
+                if (null != placeConfig.ViceSpinePoint)
+                {
+                    var viceSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.ViceSpinePoint);
+                    GameObject.Destroy(viceSpinePoint.GetChild(0).gameObject);
+                }
             }
 
-            UpdateAnimator(roleUID);
+            if (!ndpu.fromWear)
+            {
+                UpdateAnimator(roleUID);
+
+                if (_roles[_roleIndex] == roleUID)
+                    _proComp.UpdateComp(roleUID);
+            }
         }
 
         private void SelectHero(int index)
@@ -310,7 +328,7 @@ namespace WarGame.UI
             }
 
             var roleConfig = DatasMgr.Instance.GetRoleData(_roles[index]).GetConfig();
-            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.GetTranslation("Name")) ;
+            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.GetTranslation("Name"));
         }
 
         private void ClickHeroItem(EventContext context)

@@ -42,6 +42,7 @@ namespace WarGame
             _bulletAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Bullet, (prefab) =>
             {
                 _bulletGO = GameObject.Instantiate(prefab);
+                Tool.SetLayer(_bulletGO.transform, Enum.Layer.Gray);
                 Trail trail;
                 if (_bulletGO.TryGetComponent<Trail>(out trail))
                 {

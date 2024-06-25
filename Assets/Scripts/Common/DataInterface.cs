@@ -621,11 +621,15 @@ namespace WarGame
         public int roleUID;
         public List<int> unwearEquips;
 
-        public UnwearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> unwearEquips)
+        //是否是从穿戴协议触发，避免ui重复刷新
+        public bool fromWear;
+
+        public UnwearEquipNDPU(Enum.ErrorCode ret, int roleUID, List<int> unwearEquips, bool fromWear)
         {
             this.ret = ret;
             this.roleUID = roleUID;
             this.unwearEquips = unwearEquips;
+            this.fromWear = fromWear;
         }
     }
 

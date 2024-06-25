@@ -16,7 +16,7 @@ namespace WarGame.UI
             var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", heroId);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", heroConfig.RoleID);
 
-            GetGObjectChild<GLabel>("hero").icon = roleConfig.FullLengthIcon;
+            GetGObjectChild<GButton>("hero").icon = roleConfig.FullLengthIcon;
             GetGObjectChild<GTextField>("name").text = roleConfig.GetTranslation("Name");
 
             _callback = (WGArgsCallback)args[1];

@@ -248,6 +248,7 @@ namespace WarGame
         public int StartEvent;
         public int WinEvent;
         public int FailedEvent;
+        public int[] WinCond;
     }
 
     //µ–»À±Ì

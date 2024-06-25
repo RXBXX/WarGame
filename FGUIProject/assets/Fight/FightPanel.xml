@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750" opaque="false">
+<component size="1334,750" overflow="hidden" opaque="false">
   <displayList>
     <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightInforComp.xml" xy="667,355" touchable="false"/>
     <text id="n4_p3n5" name="round" xy="667,56" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
@@ -20,7 +20,7 @@
       <relation target="" sidePair="width-width,height-height"/>
     </component>
     <component id="n33_dd4m" name="roleInfo" src="dd4md" fileName="FightRoleInfo.xml" xy="389,446" visible="false"/>
-    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="40,20">
+    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,0">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
     <image id="n34_e7yf" name="n34" src="e7yf1j" fileName="Images/Elements.png" pkg="hx02grrp" xy="1161,33" size="117,136" aspect="true"/>

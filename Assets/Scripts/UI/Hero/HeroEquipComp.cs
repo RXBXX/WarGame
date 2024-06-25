@@ -37,8 +37,6 @@ namespace WarGame.UI
         //private HeroEquipsPool _forcedEquipComp;
 
         private int _roleUID;
-        private Dictionary<Enum.EquipType, bool> _adeptEquipType = new Dictionary<Enum.EquipType, bool>();
-        private Dictionary<int, int> _wearedEquipDic = new Dictionary<int, int>();
 
         public HeroEquipComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -65,17 +63,19 @@ namespace WarGame.UI
 
             var roleData = DatasMgr.Instance.GetRoleData(_roleUID);
             var jobConfig = roleData.GetJobConfig();
+            var adeptEquipType = new Dictionary<Enum.EquipType, bool>();
             foreach (var v in jobConfig.AdeptEquipTypes)
             {
-                _adeptEquipType[v] = true;
+                adeptEquipType[v] = true;
             }
 
+            var wearedEquipDic = new Dictionary<int, int>();
             foreach (var v in DatasMgr.Instance.GetAllRoles())
             {
                 var rd = DatasMgr.Instance.GetRoleData(v);
                 foreach (var v1 in rd.equipmentDic)
                 {
-                    _wearedEquipDic[v1.Value] = rd.UID;
+                    wearedEquipDic[v1.Value] = rd.UID;
                 }
             }
 
@@ -86,10 +86,12 @@ namespace WarGame.UI
             EquipmentData equipData;
             foreach (var v in DatasMgr.Instance.GetAllEquipments())
             {
-                ownerUID = _wearedEquipDic.ContainsKey(v) ? _wearedEquipDic[v] : 0;
+                ownerUID = wearedEquipDic.ContainsKey(v) ? wearedEquipDic[v] : 0;
                 equipData = DatasMgr.Instance.GetEquipmentData(v);
-                type = equipData.GetConfig().Type;
-                adept = _adeptEquipType.ContainsKey(type) ? true : false;
+                if (equipData.configId == 10007)
+                    DebugManager.Instance.Log(ownerUID);
+                    type = equipData.GetConfig().Type;
+                adept = adeptEquipType.ContainsKey(type) ? true : false;
                 _equipsData.Add(new EquipStruct(v, type, ownerUID, adept));
             }
 

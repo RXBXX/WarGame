@@ -299,8 +299,8 @@
       "ID": "Record_2",
       "title": "存档_2",
       "createTime": 1718998743869,
-      "saveTime": 1719219052259,
-      "duration": 12076180,
+      "saveTime": 1719259689419,
+      "duration": 17536361,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -308,7 +308,7 @@
           "configId": 10001,
           "level": 1,
           "equipmentDic": {
-            "RightAndLeft": 30005
+            "Left": 30006
           },
           "skillDic": {},
           "talentDic": {}
@@ -367,9 +367,7 @@
           "UID": 10007,
           "configId": 10007,
           "level": 1,
-          "equipmentDic": {
-            "Left": 30007
-          },
+          "equipmentDic": {},
           "skillDic": {},
           "talentDic": {}
         },
@@ -1622,9 +1620,9 @@
               "bornHexagonID": "2_0_1",
               "buffs": [],
               "equipDataDic": {
-                "RightAndLeft": {
-                  "UID": 30005,
-                  "configId": 10007
+                "Left": {
+                  "UID": 30006,
+                  "configId": 10008
                 }
               },
               "state": 1,

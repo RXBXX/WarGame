@@ -67,12 +67,12 @@ namespace WarGame.UI
             if ((Enum.FightTurn)args[0] == Enum.FightTurn.HeroTurn)
             {
                 _skipBtn.visible = true;
-                GetChild<FightTips>("tips").ShowTips("Hero", (BattleRoundFunc)args[1]);
+                GetChild<FightTips>("tips").ShowTips(Enum.RoundType.OurTurn, (BattleRoundFunc)args[1]);
             }
             else
             {
                 _skipBtn.visible = false;
-                GetChild<FightTips>("tips").ShowTips("Enemy", (BattleRoundFunc)args[1]);
+                GetChild<FightTips>("tips").ShowTips(Enum.RoundType.EnemyTurn, (BattleRoundFunc)args[1]);
             }
         }
 

@@ -5,4 +5,8 @@
     <loader id="n0_czz8" name="icon" xy="375,375" pivot="0.5,0.5" anchor="true" size="750,750" scale="-1,1" url="ui://ubnp7phxmj421s" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
   </displayList>
   <Button/>
+  <transition name="zoom" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="Scale" target="n0_czz8" tween="true" startValue="-1,1" endValue="-1.1,1.1" duration="48"/>
+    <item time="48" type="Scale" target="n0_czz8" tween="true" startValue="-1.1,1.1" endValue="-1,1" duration="48"/>
+  </transition>
 </component>

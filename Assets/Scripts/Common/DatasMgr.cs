@@ -195,7 +195,7 @@ namespace WarGame
         /// <summary>
         /// 卸掉装备
         /// </summary>
-        public void UnwearEquipC2S(int roleUID, int equipUID)
+        public void UnwearEquipC2S(int roleUID, int equipUID, bool fromWear = false)
         {
             try
             {
@@ -206,11 +206,11 @@ namespace WarGame
                 roleData.equipmentDic.Remove(equipData.GetPlace());
                 unwearEquips.Add(equipUID);
 
-                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips) });
+                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips, fromWear) });
             }
             catch
             {
-                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null) });
+                EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null, fromWear) });
             }
         }
 
@@ -247,7 +247,7 @@ namespace WarGame
                     }
                 }
                 foreach (var v in unwearEquips)
-                    UnwearEquipC2S(roleUID, v);
+                    UnwearEquipC2S(roleUID, v, true);
 
                 //从装备之前的佩戴者身上卸载要穿带的装备
                 var allRoles = GetAllRoles();
@@ -257,7 +257,7 @@ namespace WarGame
                     {
                         if (v1.Value == equipUID)
                         {
-                            UnwearEquipC2S(v, equipUID);
+                            UnwearEquipC2S(v, equipUID, true);
                             break;
                         }
                     }

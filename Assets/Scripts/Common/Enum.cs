@@ -281,6 +281,18 @@ namespace WarGame
             Story = 4, //故事
         }
 
+        public enum RoundType
+        {
+            OurTurn = 0,
+            EnemyTurn = 1,
+        }
+
+        //关卡胜利条件类型
+        public enum LevelWinCondType
+        {
+            DefeatEnemys = 1, //击败指定敌人
+        }
+
         public enum Event
         {
             HUDInstruct_Idle_Event = 0,
