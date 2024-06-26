@@ -35,6 +35,7 @@ namespace WarGame.UI
             _map = GetChild<MapScroll>("mapScroll");
 
             EventDispatcher.Instance.AddListener(Enum.Event.Map_Open_Event, OnMapOpen);
+            EventDispatcher.Instance.AddListener(Enum.Event.ActiveLevelS2C, OnActiveLevelS2C);
 
             InitMap();
         }
@@ -67,6 +68,13 @@ namespace WarGame.UI
 
             if (0 != lastMainLevel)
                 _map.ScrollToLevel(lastMainLevel);
+
+            var homeEvent = DatasMgr.Instance.GetHomeEvent();
+            if (0 != homeEvent)
+            {
+                EventMgr.Instance.TriggerEvent(homeEvent);
+                DatasMgr.Instance.SetHomeEvent(0);
+            }
         }
 
         private void OnClickHero()
@@ -114,11 +122,19 @@ namespace WarGame.UI
             SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);
         }
 
+        private void OnActiveLevelS2C(params object[] args)
+        {
+            var level = (int)args[0];
+            _map.OpenLevel(level);
+            _map.ScrollToLevel(level);
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             _map.Dispose();
             base.Dispose(disposeGCom);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Map_Open_Event, OnMapOpen);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.ActiveLevelS2C, OnActiveLevelS2C);
         }
     }
 }

@@ -443,6 +443,7 @@ namespace WarGame
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
         private int _heroStartUID = 10000;
         private int _equipStartUID = 30000;
+        public int homeEvent;
 
         public RecordData(string ID, string title)
         {
@@ -531,18 +532,14 @@ namespace WarGame
         public void StartNewGame()
         {
             var rd = new RecordData(GetID(), GetTitle());
-
-            rd.levelDataDic.Add(10001, new LevelData(10001));
-
+            //rd.levelDataDic.Add(10001, new LevelData(10001));
             rd.AddHero(10001);
             rd.AddHero(10002);
-            rd.AddHero(10003);
-            rd.AddHero(10004);
 
-            ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
-            {
-                rd.AddEquip(config.ID);
-            });
+            //ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
+            //{
+            //    rd.AddEquip(config.ID);
+            //});
             //rd.AddEquip(10001);
             //rd.AddEquip(10002);
             //rd.AddEquip(10003);

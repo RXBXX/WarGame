@@ -379,6 +379,25 @@
       }
     },
     {
+      "ID": "1_0_1",
+      "configId": 5,
+      "isReachable": true,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 1.0,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 1.41421354,
+        "sqrMagnitude": 2.0
+      }
+    },
+    {
       "ID": "1_0_2",
       "configId": 1,
       "isReachable": true,
@@ -8081,25 +8100,6 @@
       }
     },
     {
-      "ID": "1_0_1",
-      "configId": 22,
-      "isReachable": true,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 1.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 1.41421354,
-        "sqrMagnitude": 2.0
-      }
-    },
-    {
       "ID": "3_0_1",
       "configId": 22,
       "isReachable": true,
@@ -8129,7 +8129,7 @@
   "enemys": [
     {
       "configId": 20002,
-      "hexagonID": "16_0_17"
+      "hexagonID": "5_0_7"
     }
   ],
   "bonfires": []

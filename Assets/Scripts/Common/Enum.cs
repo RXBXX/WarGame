@@ -279,6 +279,7 @@ namespace WarGame
             Level = 2, //关卡
             Hero = 3, //激活英雄
             Story = 4, //故事
+            HomeEvent = 5, //大地图事件，返回大地图界面触发
         }
 
         public enum RoundType
@@ -342,6 +343,7 @@ namespace WarGame
             Fight_Hide_RoleInfo = 47,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
+            ActiveLevelS2C = 10003,
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类

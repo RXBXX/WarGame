@@ -125,6 +125,16 @@ namespace WarGame
             gd.levelDataDic[levelData.configId] = levelData;
         }
 
+        public void SetHomeEvent(int eventID)
+        {
+            _data.GetUsingRecord().homeEvent = eventID;
+        }
+
+        public int GetHomeEvent()
+        {
+            return _data.GetUsingRecord().homeEvent;
+        }
+
         public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID, string bornHexagonID)
         {
             if (type == Enum.RoleType.Hero)
@@ -266,7 +276,7 @@ namespace WarGame
                 wearEquips.Add(equipUID);
                 roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
 
-                EventDispatcher.Instance.PostEvent(Enum.Event.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips)});
+                EventDispatcher.Instance.PostEvent(Enum.Event.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips) });
             }
             catch (Exception e)
             {
@@ -294,6 +304,8 @@ namespace WarGame
 
             var levelData = new LevelData(levelID);
             _data.GetUsingRecord().levelDataDic.Add(levelData.configId, levelData);
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.ActiveLevelS2C, new object[] { levelID });
         }
 
         public void HeroLevelUpC2S(int roleUID, int level)

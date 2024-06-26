@@ -2,8 +2,8 @@
 <component size="207,63" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <graph id="n4_omu9" name="n4" xy="0,-17" size="204,80" type="polygon" lineSize="5" fillColor="#ffff0000" points="24,30,204,19,190,79,3,80"/>
-    <text id="n3_nr69" name="title" xy="102,34" pivot="0.5,0.5" anchor="true" size="78,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#ffffff" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="Fight"/>
+    <graph id="n4_omu9" name="n4" xy="0,-17" size="207,80" type="polygon" lineSize="2" fillColor="#ffce4a35" points="22,30,207,17,190,80,0,80"/>
+    <text id="n3_nr69" name="title" xy="103,37" pivot="0.5,0.5" anchor="true" size="82,52" font="ui://hd0z4dz5omu90" fontSize="38" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="Fight"/>
   </displayList>
   <Button/>
 </component>

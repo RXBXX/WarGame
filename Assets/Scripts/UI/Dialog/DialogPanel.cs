@@ -19,6 +19,8 @@ namespace WarGame.UI
 
         public DialogPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+            UILayer = Enum.UILayer.PopLayer;
+
             _dialogBox = GetChild<DialogBox>("dialogBox");
             _dialogGroup = (int)args[0];
             _callback = (WGArgsCallback)args[1];
@@ -30,7 +32,7 @@ namespace WarGame.UI
             _gCom.onClick.Add(OnClick);
             GetGObjectChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
 
-            _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
+            //_blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
             _optionList = GetGObjectChild<GList>("optionList");
             _optionList.itemRenderer = OnOptionRenderer;
             _optionList.onClickItem.Add(OnOptionClick);
@@ -57,7 +59,7 @@ namespace WarGame.UI
                 }
                 else
                 {
-                    OnDialogGroupEnd(groupConfig.Event);
+                    OnDialogGroupEnd();
                 }
             }
             else
@@ -114,7 +116,7 @@ namespace WarGame.UI
             OnDialogGroupEnd(ConfigMgr.Instance.GetConfig<DialogOptionConfig>("DialogOptionConfig", _optionsData[index]).Event);
         }
 
-        private void OnDialogGroupEnd(int nextEvent)
+        private void OnDialogGroupEnd(int nextEvent = 0)
         {
             DialogMgr.Instance.CloseDialog();
 

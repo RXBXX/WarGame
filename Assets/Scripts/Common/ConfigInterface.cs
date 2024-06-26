@@ -217,7 +217,6 @@ namespace WarGame
     {
         public int MaxIndex;
         public List<int> Options;
-        public int Event;
     }
 
     //对话表
@@ -335,7 +334,7 @@ namespace WarGame
         public Enum.EventType Type;
         public string Name;
         public int Value;
-        public int NextEvent;
+        public List<int> NextEvents;
     }
 
     //翻译表基类

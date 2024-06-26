@@ -2,8 +2,9 @@
 <component size="1334,750" overflow="hidden" opaque="false">
   <displayList>
     <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightInforComp.xml" xy="667,355" touchable="false"/>
-    <text id="n4_p3n5" name="round" xy="667,56" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" strokeSize="2" text="1"/>
-    <group id="n11_tsk1" name="n11" xy="659,31" size="16,49" advanced="true">
+    <graph id="n35_li0q" name="n35" xy="201,-1" size="50,70" group="n11_tsk1" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,50,0,50,62,0,70"/>
+    <text id="n4_p3n5" name="round" xy="225,32" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" text="1"/>
+    <group id="n11_tsk1" name="n11" xy="201,-1" size="50,70" advanced="true">
       <relation target="" sidePair="center-center,top-top"/>
     </group>
     <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
@@ -20,7 +21,7 @@
       <relation target="" sidePair="width-width,height-height"/>
     </component>
     <component id="n33_dd4m" name="roleInfo" src="dd4md" fileName="FightRoleInfo.xml" xy="389,446" visible="false"/>
-    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,0">
+    <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,-1">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
     <image id="n34_e7yf" name="n34" src="e7yf1j" fileName="Images/Elements.png" pkg="hx02grrp" xy="1161,33" size="117,136" aspect="true"/>

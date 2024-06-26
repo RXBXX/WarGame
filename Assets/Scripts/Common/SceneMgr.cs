@@ -119,6 +119,9 @@ namespace WarGame
                 StoryMgr.Instance.PlayStory(10001, true, (args) =>
                 {
                     DatasMgr.Instance.SetGameDataDirty();
+
+                    EventMgr.Instance.TriggerEvent(66);
+
                     OpenScene("Assets/Scenes/TransitionScene.unity", (name)=> {
                         UIManager.Instance.OpenPanel("Map", "MapPanel");
                     });

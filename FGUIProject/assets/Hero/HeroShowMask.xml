@@ -6,7 +6,7 @@
   </displayList>
   <Button/>
   <transition name="zoom" autoPlay="true" autoPlayRepeat="-1">
-    <item time="0" type="Scale" target="n0_czz8" tween="true" startValue="-1,1" endValue="-1.1,1.1" duration="48"/>
-    <item time="48" type="Scale" target="n0_czz8" tween="true" startValue="-1.1,1.1" endValue="-1,1" duration="48"/>
+    <item time="0" type="Scale" target="n0_czz8" tween="true" startValue="-1,1" endValue="-1.04,1.04" duration="48"/>
+    <item time="48" type="Scale" target="n0_czz8" tween="true" startValue="-1.04,1.04" endValue="-1,1" duration="48"/>
   </transition>
 </component>

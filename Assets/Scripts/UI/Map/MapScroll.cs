@@ -8,11 +8,12 @@ namespace WarGame.UI
     public class MapScroll : UIBase
     {
         private int _lod = 0;
-        private List<MapMark> _levels = new List<MapMark>();
+        private Dictionary<int, MapMark> _levelsDic = new Dictionary<int, MapMark>();
         private GTweener _tweener = null;
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+
         }
 
         public void Init(string bg, List<MapLevelPair> levels)
@@ -25,7 +26,7 @@ namespace WarGame.UI
                 ui.Init(levels[i].configId, levels[i].open, config.Type, config.Name, config.Desc);
                 ui.SetParent(_gCom);
                 ui.SetPosition(config.UIPos);
-                _levels.Add(ui);
+                _levelsDic.Add(levels[i].configId, ui);
             }
         }
 
@@ -57,9 +58,9 @@ namespace WarGame.UI
                     OnChangeLOD(1);
             }
 
-            foreach (var v in _levels)
+            foreach (var v in _levelsDic)
             {
-                v.SetScale(Vector2.one * 1 / scale.x);
+                v.Value.SetScale(Vector2.one * 1 / scale.x);
             }
 
             _gCom.scale = scale;
@@ -131,17 +132,17 @@ namespace WarGame.UI
         private void OnChangeLOD(int lod)
         {
             _lod = lod;
-            foreach (var v in _levels)
+            foreach (var v in _levelsDic)
             {
-                v.OnChangeLOD(lod);
+                v.Value.OnChangeLOD(lod);
             }
         }
 
         public override void Update(float timeDelta)
         {
-            foreach (var v in _levels)
+            foreach (var v in _levelsDic)
             {
-                v.Update(timeDelta);
+                v.Value.Update(timeDelta);
             }
         }
 
@@ -161,6 +162,11 @@ namespace WarGame.UI
             _tweener = _gCom.TweenMove(pos, 0.5F);
         }
 
+        public void OpenLevel(int level)
+        {
+            _levelsDic[level].Active();
+    }
+
         public override void Dispose(bool disposeGCom = false)
         {
             if (null == _tweener)
@@ -168,11 +174,11 @@ namespace WarGame.UI
                 _tweener.Kill();
                 _tweener = null;
             }
-            foreach (var v in _levels)
+            foreach (var v in _levelsDic)
             {
-                v.Dispose();
+                v.Value.Dispose();
             }
-            _levels.Clear();
+            _levelsDic.Clear();
             base.Dispose(disposeGCom);
         }
     }

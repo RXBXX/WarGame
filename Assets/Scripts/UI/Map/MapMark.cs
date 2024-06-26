@@ -112,5 +112,10 @@ namespace WarGame.UI
             if (!isTouch)
                 _showBtnC.SetSelectedIndex(0);
         }
+
+        public void Active()
+        {
+            _lock.visible = false;
+        }
     }
 }

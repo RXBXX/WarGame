@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1000,120">
-  <controller name="type" pages="0,,1," selected="1"/>
+  <controller name="type" pages="0,,1," selected="0"/>
   <displayList>
-    <graph id="n12_mj42" name="n12" xy="758,-313" size="200,300" group="n13_mj42" scale="1.04,1.04" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,200,0,100,300"/>
-    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="862,-10" group="n13_mj42"/>
-    <group id="n13_mj42" name="n13" xy="758,-313" size="204,303" advanced="true">
+    <graph id="n12_mj42" name="n12" xy="38,-313" size="200,300" group="n13_mj42" scale="1.04,1.04" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,200,0,100,300"/>
+    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="142,-10" group="n13_mj42"/>
+    <group id="n13_mj42" name="n13" xy="38,-313" size="204,303" advanced="true">
       <gearXY controller="type" pages="1" values="758,-313" default="38,-313"/>
     </group>
     <graph id="n11_mj42" name="n11" xy="-1,0" size="1000,120" type="polygon" lineSize="0" fillColor="#ff000000" points="74,0,1000,0,928,120,0,120"/>
-    <text id="n1_a4gr" name="context" xy="78,10" size="830,96" font="ui://hd0z4dz5omu90" fontSize="24" color="#f5f5f5" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
+    <text id="n1_a4gr" name="context" xy="78,10" size="830,96" font="ui://hd0z4dz5omu90" fontSize="20" color="#f5f5f5" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" strokeSize="2" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
   </displayList>
 </component>

@@ -22,6 +22,12 @@ namespace WarGame
                 {
                     add -= elementConfig.RestrainValue;
                 }
+
+                var initiatorEC = initiator.GetElementConfig();
+                if (initiatorEC.Restrain == target.GetElement())
+                {
+                    add += initiatorEC.RestrainValue;
+                }
             }
 
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
