@@ -20,6 +20,7 @@ namespace WarGame
 
             EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Idle_Event, OnIdle);
             EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Click_Skill, OnClickSkill);
+            EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Attack, OnClickAttack);
             EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Cancel_Event, OnCancel);
             EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Cancel_Skill, OnCancelSkill);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Battle, Battle);
@@ -293,6 +294,8 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             initiator.SetState(Enum.RoleState.WatingTarget);
 
+            CameraMgr.Instance.SetTarget(_initiatorID);
+
             _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
         }
@@ -332,6 +335,10 @@ namespace WarGame
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
+        }
+
+        private void OnClickAttack(object[] args)
+        {
         }
     }
 }

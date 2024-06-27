@@ -12,7 +12,7 @@ Shader "Unlit/BillboardShader"
 		Tags { "Quene" = "Transparent" "RenderType" = "Transparent"}
 		Pass
 		{
-			Zwrite Off//不将此对象的像素写入深度缓冲区
+			Zwrite On
 			Blend SrcAlpha OneMinusSrcAlpha//混合要渲染像素的A通道和1-要渲染的像素的A通道
 			//禁用剔除，绘制所有面
 			Cull off

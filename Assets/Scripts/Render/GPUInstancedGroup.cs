@@ -56,7 +56,7 @@ namespace WarGame
 
         public void Draw()
         {
-            Graphics.DrawMeshInstanced(_mesh, 0, _mat, _matrixs, count, _block);
+            Graphics.DrawMeshInstanced(_mesh, 0, _mat, _matrixs, count, _block, UnityEngine.Rendering.ShadowCastingMode.Off, false, (int)Enum.Layer.Gray);
         }
 
         public void Dispose()

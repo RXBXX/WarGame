@@ -14,7 +14,7 @@ namespace WarGame
         private const string MapPath = "Assets/Scenes/MapEditorScene.unity";
 
         //Áù±ßĞÎÄÚ¾¶
-        private float _insideDiameter = 1.0f;
+        private float _insideDiameter = 1f;
 
         //zÖáÆ«ÒÆ»¡¶È
         private const float _radian = 30.0F / 180.0F * Mathf.PI;

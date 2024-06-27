@@ -311,6 +311,7 @@ namespace WarGame
             Fight_AI_Start = 12,
             Map_Open_Event = 13,
             HUDInstruct_Cancel_Skill = 14,
+            HUDInstruct_Attack = 15,
             WearEquipS2C = 17,
             Scene_Load_Progress = 18, //更新场景加载进度
             Fight_Show_HP = 20,

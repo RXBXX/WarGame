@@ -46,6 +46,7 @@ namespace WarGame.UI
         private void Attack()
         {
             _stateC.SetSelectedIndex(1);
+            EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Attack);
         }
 
         private void OnAttackEvent(object[] args)
