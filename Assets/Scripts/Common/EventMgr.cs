@@ -15,13 +15,10 @@ namespace WarGame
                     callback();
                 return;
             }
-            DebugManager.Instance.Log("TriggerEvent:"+id);
             var eventConfig = ConfigMgr.Instance.GetConfig<EventConfig>("EventConfig", id);
-            DebugManager.Instance.Log("EventType:"+eventConfig.Type);
             switch (eventConfig.Type)
             {
                 case Enum.EventType.Dialog:
-                    DebugManager.Instance.Log("Dialog:"+eventConfig.Value);
                     DialogMgr.Instance.OpenDialog(eventConfig.Value, (args) =>
                     {
                         OnNextEvent(eventConfig.NextEvents, 0, callback);

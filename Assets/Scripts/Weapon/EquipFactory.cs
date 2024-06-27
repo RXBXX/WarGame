@@ -9,8 +9,6 @@ namespace WarGame
         public Equip GetEquip(EquipmentData data, Transform spineRoot)
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", data.configId);
-            DebugManager.Instance.Log("EquipType:" + config.Type);
-            Debug.Log("EquipType:" + config.Type);
             switch ((Enum.EquipType)config.Type)
             {
                 case Enum.EquipType.Wand:
