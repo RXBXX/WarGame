@@ -98,10 +98,18 @@ namespace WarGame.UI
             }
         }
 
+        //当前文本结束
         private void OnDialogEnd(params object[] args)
         {
             if (_isAutoPlay)
-                NextDialog();
+                CoroutineMgr.Instance.StartCoroutine(OnDialogEndIEnumerator());
+        }
+
+        //每段文本之间的间隔
+        private IEnumerator OnDialogEndIEnumerator()
+        {
+            yield return new WaitForSeconds(0.5f);
+            NextDialog();
         }
 
         private void OnOptionRenderer(int index, GObject item)
@@ -112,7 +120,6 @@ namespace WarGame.UI
         private void OnOptionClick(EventContext context)
         {
             var index = _optionList.GetChildIndex((GObject)context.data);
-            DebugManager.Instance.Log(index);
             OnDialogGroupEnd(ConfigMgr.Instance.GetConfig<DialogOptionConfig>("DialogOptionConfig", _optionsData[index]).Event);
         }
 

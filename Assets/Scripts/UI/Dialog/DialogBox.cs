@@ -13,7 +13,7 @@ namespace WarGame.UI
         private float _time = 0.0f;
         private WGArgsCallback _callback;
         private int _lastRole = 0;
-        
+
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _context = GetGObjectChild<GTextField>("context");
@@ -24,20 +24,21 @@ namespace WarGame.UI
 
         public override void Update(float deltaTime)
         {
-            if (_start)
+            if (!_start)
+                return;
+
+            if (_time > _interval)
             {
-                if (_time > _interval)
+                if (!_te.Print())
                 {
-                    if (!_te.Print())
-                    {
-                        _start = false;
-                        _te.Cancel();
-                        _callback();
-                    }
-                    _time = 0;
+                    _start = false;
+                    _te.Cancel();
+                    _callback();
                 }
-                _time += deltaTime;
+                _time = 0;
             }
+
+            _time += deltaTime;
         }
 
         public void Play(string context, int roleID, WGArgsCallback callback)
@@ -55,6 +56,7 @@ namespace WarGame.UI
             _te.Start();
             _te.Print();
             _start = true;
+            _time = 0;
         }
 
         public bool IsPlaying()

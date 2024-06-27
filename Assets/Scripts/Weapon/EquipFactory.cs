@@ -10,6 +10,7 @@ namespace WarGame
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", data.configId);
             DebugManager.Instance.Log("EquipType:" + config.Type);
+            Debug.Log("EquipType:" + config.Type);
             switch ((Enum.EquipType)config.Type)
             {
                 case Enum.EquipType.Wand:

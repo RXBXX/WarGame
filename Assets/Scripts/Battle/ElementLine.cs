@@ -13,7 +13,7 @@ namespace WarGame
         private GameObject _go;
         //private Material _elementMat;
 
-        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.5f)
+        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.2f)
         {
             _go = new GameObject();
             _lr = _go.AddComponent<LineRenderer>();

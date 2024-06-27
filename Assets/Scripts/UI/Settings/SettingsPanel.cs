@@ -15,8 +15,9 @@ namespace WarGame.UI
 
             _optionList = (GList)_gCom.GetChild("recordList");
             _optionList.itemRenderer = ItemRenderer;
-            _optionList.onClickItem.Add(OnClickItem);
+            //_optionList.onClickItem.Add(OnClickItem);
 
+            _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
             Init();
         }
 
@@ -58,6 +59,11 @@ namespace WarGame.UI
         {
             var index = _optionList.GetChildIndex((GObject)context.data);
             _optionDatas[index].callback();
+        }
+
+        private void OnClickClose()
+        {
+            UIManager.Instance.ClosePanel(name);
         }
     }
 }

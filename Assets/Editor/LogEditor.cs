@@ -1,6 +1,7 @@
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using UnityEditor.Callbacks;
 
 namespace WarGame
 {
@@ -22,13 +23,14 @@ namespace WarGame
         //配置的日志
         private static LogEditorConfig[] _logEditorConfig = new LogEditorConfig[]
         {
-        new LogEditorConfig("Assets/Scripts/Common/DebugManager.cs",typeof(DebugManager))
+        new LogEditorConfig("Assets/Scripts/Common/DebugManager.cs", typeof(DebugManager))
         };
 
         //处理从ConsoleWindow双击跳转
-        [UnityEditor.Callbacks.OnOpenAssetAttribute(-1)]
+        //[OnOpenAsset(0)]
         private static bool OnOpenAsset(int instanceID, int line)
         {
+            Debug.Log("OpenAsset");
             for (int i = _logEditorConfig.Length - 1; i >= 0; --i)
             {
                 var configTmp = _logEditorConfig[i];

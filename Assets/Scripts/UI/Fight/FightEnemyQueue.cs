@@ -41,7 +41,7 @@ namespace WarGame.UI
             foreach (var v in _queue)
                 v.visible = false;
 
-            var startPosX = GCom.width - 100;
+            var startPosX = GCom.width - 90;
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
             for (int i = 0; i < enemys.Count; i++)
             {
@@ -50,9 +50,9 @@ namespace WarGame.UI
                 GButton ui = null;
                 if (_queue.Count < i + 1)
                 {
-                    ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHero");
+                    ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonVerHero");
                     GCom.AddChild(ui);
-                    ui.xy = new Vector2(startPosX - 90 * i - 90, (GCom.height - ui.height) / 2);
+                    ui.xy = new Vector2(startPosX - 76 * i, (GCom.height - ui.height) / 2);
                     _queue.Add(ui);
                 }
                 else
@@ -91,11 +91,11 @@ namespace WarGame.UI
             {
                 for (int i = index - 1; i >= 0; i--)
                 {
-                    _queue[i].TweenMoveX(_queue[i].x - 90, 0.2F);
+                    _queue[i].TweenMoveX(_queue[i].x - 76, 0.2F);
                     _queue[i + 1] = _queue[i];
                 }
                 _queue[0] = ui;
-                ui.TweenMoveX(startPosX - 190, 0.2F);
+                ui.TweenMoveX(startPosX - 90, 0.2F);
             });
 
 
@@ -132,7 +132,7 @@ namespace WarGame.UI
 
             for (int i = index; i < _enemys.Count; i++)
             {
-                _queue[i].TweenMoveX(_queue[i].x + 90, 0.2F);
+                _queue[i].TweenMoveX(_queue[i].x + 76, 0.2F);
             }
         }
     }

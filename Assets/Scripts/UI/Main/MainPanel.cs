@@ -24,6 +24,8 @@ namespace WarGame.UI
         private void Init()
         {
             _optionDatas.Add(new StringCallbackStruct("ÐÂÓÎÏ·", ()=> {
+                UIManager.Instance.ClosePanel(name);
+
                 DatasMgr.Instance.StartNewGame();
                 SceneMgr.Instance.StartGame();
             }));
@@ -50,7 +52,6 @@ namespace WarGame.UI
 
         private void OnClickItem(EventContext context)
         {
-            UIManager.Instance.ClosePanel(name);
 
             var index = _optionList.GetChildIndex((GObject)context.data);
             _optionDatas[index].callback();

@@ -248,6 +248,7 @@ namespace WarGame
         public int WinEvent;
         public int FailedEvent;
         public int[] WinCond;
+        public string Music;
     }
 
     //敌人表
@@ -261,6 +262,7 @@ namespace WarGame
         public int DefeatEvent;
         public float ViewDis;
         public string Group;
+        public bool IsBoss;
     }
 
     //敌人表

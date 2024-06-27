@@ -66,16 +66,17 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(sender);
+            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                initiator.ClearRage();
+                AttributeMgr.Instance.DoCure(_initiatorID, _targetID);
+                //initiator.ClearRage();
 
-                var target = RoleManager.Instance.GetRole(_targetID);
+                //var target = RoleManager.Instance.GetRole(_targetID);
 
-                var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
-                target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
-                target.AddBuffs(initiator.GetAttackBuffs());
+                //var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
+                //target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
+                //target.AddBuffs(initiator.GetAttackBuffs());
                 //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
             }
         }

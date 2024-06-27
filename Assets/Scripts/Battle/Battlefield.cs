@@ -152,6 +152,9 @@ namespace WarGame
         public void Dispose()
         {
             UIManager.Instance.ClosePanel("FightPanel");
+
+            AudioMgr.Instance.PlayMusic("Assets/Audios/loop521.wav");
+
             if (null != weather)
             {
                 weather.Dispose();
@@ -192,9 +195,10 @@ namespace WarGame
             UIManager.Instance.ClosePanel("LoadPanel");
             UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
 
+            var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {
-                EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId).StartEvent, (args) =>
+                EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
                 {
                     _levelData.Stage = Enum.LevelStage.Talked;
                     _action = new ReadyBattleAction(GetActionID(), _levelData);
@@ -209,6 +213,8 @@ namespace WarGame
                 NextAction();
             }
 
+            AudioMgr.Instance.PlayMusic(levelConfig.Music);
+            AttributeMgr.Instance.InitReports();
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
@@ -564,12 +570,16 @@ namespace WarGame
             //DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
 
             OnSave();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID });
+            var reportDic = AttributeMgr.Instance.GetReports();
+            AttributeMgr.Instance.ClearReports();
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID,  reportDic});
         }
 
         private void OnFailed()
         {
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID });
+            var reportDic = AttributeMgr.Instance.GetReports();
+            AttributeMgr.Instance.ClearReports();
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic});
         }
 
         //回合结束，清理死亡的角色

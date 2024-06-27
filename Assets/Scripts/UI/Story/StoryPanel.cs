@@ -36,6 +36,7 @@ namespace WarGame.UI
         {
             if (_stop)
                 return;
+
             if (_time > _wordInterval)
             {
                 if (!_te.Print())

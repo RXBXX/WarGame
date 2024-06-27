@@ -76,23 +76,24 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(sender);
+            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                var target = RoleManager.Instance.GetRole(_targetID);
-                var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
-                var rd = Random.Range(0, 1.0f);
-                if (rd < dodgeRatio)
-                {
-                    target.Dodge();
-                }
-                else
-                {
-                    var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(hurt, initiator.GetAttackEffect(), _initiatorID);
-                    target.AddBuffs(initiator.GetAttackBuffs());
-                    CameraMgr.Instance.ShakePosition();
-                }
+                AttributeMgr.Instance.DoAttack(_initiatorID, _targetID);
+                //var target = RoleManager.Instance.GetRole(_targetID);
+                //var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
+                //var rd = Random.Range(0, 1.0f);
+                //if (rd < dodgeRatio)
+                //{
+                //    target.Dodge();
+                //}
+                //else
+                //{
+                //    var hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
+                //    target.Hit(hurt, initiator.GetAttackEffect(), _initiatorID);
+                //    target.AddBuffs(initiator.GetAttackBuffs());
+                //    CameraMgr.Instance.ShakePosition();
+                //}
             }
         }
 

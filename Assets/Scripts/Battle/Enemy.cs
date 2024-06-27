@@ -20,6 +20,8 @@ namespace WarGame
         protected override void OnCreate(GameObject go)
         {
             base.OnCreate(go);
+            if (GetEnemyConfig().IsBoss)
+                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.2F;
             _gameObject.tag = Enum.Tag.Enemy.ToString();
         }
 
@@ -243,7 +245,7 @@ namespace WarGame
             if (_stage > 0)
                 return 0;
 
-            return ConfigMgr.Instance.GetConfig<EnemyConfig>("LevelEnemyConfig", ID).NextStage;
+            return ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", ID).NextStage;
         }
 
         public override bool HaveNextStage()

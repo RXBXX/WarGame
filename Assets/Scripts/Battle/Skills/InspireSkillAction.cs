@@ -75,15 +75,16 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(sender);
+            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                initiator.ClearRage();
-                foreach (var v in _targets)
-                {
-                    var target = RoleManager.Instance.GetRole(v);
-                    target.Inspired(AttributeMgr.Instance.GetInspirePower(_initiatorID, v));
-                }
+                AttributeMgr.Instance.DoInspire(_initiatorID, _targets);
+                //initiator.ClearRage();
+                //foreach (var v in _targets)
+                //{
+                //    var target = RoleManager.Instance.GetRole(v);
+                //    target.Inspired(AttributeMgr.Instance.GetInspirePower(_initiatorID, v));
+                //}
             }
         }
 

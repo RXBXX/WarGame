@@ -11,6 +11,7 @@ namespace WarGame
             //DebugManager.Instance.Log("Game.Init");
             base.Init();
 
+            AudioMgr.Instance.Init();
             TimeMgr.Instance.Init();
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
@@ -40,6 +41,8 @@ namespace WarGame
         public bool Start()
         {
             UIManager.Instance.OpenPanel("Login", "LoginPanel");
+
+            AudioMgr.Instance.PlayMusic("Assets/Audios/loop521.wav");
             return true;
         }
 
@@ -100,6 +103,7 @@ namespace WarGame
             EventDispatcher.Instance.Dispose();
             DebugManager.Instance.Dispose();
             TimeMgr.Instance.Dispose();
+            AudioMgr.Instance.Dispose();
 
             System.GC.Collect();
             return base.Dispose();

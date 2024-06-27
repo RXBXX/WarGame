@@ -121,12 +121,13 @@ namespace WarGame
             if (targetID == _targetID)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                var hitEffect = initiator.GetAttackEffect();
+                //var hitEffect = initiator.GetAttackEffect();
                 foreach (var v in _targets)
                 {
                     if (v != _targetID)
                     {
-                        RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, _initiatorID);
+                        AttributeMgr.Instance.DoAttack(_initiatorID, v);
+                        //RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, _initiatorID);
                     }
                 }
             }
@@ -178,23 +179,24 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            //var initiator = RoleManager.Instance.GetRole(_initiatorID);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                var target = RoleManager.Instance.GetRole(_targetID);
-                var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
-                var rd = Random.Range(0, 1.0f);
-                if (rd < dodgeRatio)
-                {
-                    target.Dodge();
-                }
-                else
-                {
-                    _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                    target.Hit(_hurt, initiator.GetAttackEffect(), _initiatorID);
-                    target.AddBuffs(initiator.GetAttackBuffs());
-                    CameraMgr.Instance.ShakePosition();
-                }
+                AttributeMgr.Instance.DoAttack(_initiatorID, _targetID);
+                //var target = RoleManager.Instance.GetRole(_targetID);
+                //var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
+                //var rd = Random.Range(0, 1.0f);
+                //if (rd < dodgeRatio)
+                //{
+                //    target.Dodge();
+                //}
+                //else
+                //{
+                //    _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
+                //    target.Hit(_hurt, initiator.GetAttackEffect(), _initiatorID);
+                //    target.AddBuffs(initiator.GetAttackBuffs());
+                //    CameraMgr.Instance.ShakePosition();
+                //}
             }
         }
     }

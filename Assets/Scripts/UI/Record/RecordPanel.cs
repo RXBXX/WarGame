@@ -41,6 +41,7 @@ namespace WarGame.UI
 
             _recordList.numItems = _listDatas.Count;
 
+            _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
         }
 
         private void ItemRenderer(int index, GObject item)
@@ -83,6 +84,11 @@ namespace WarGame.UI
                 //DebugManager.Instance.Log("OpenScene:" + "StartGame");
                 SceneMgr.Instance.StartGame();
             }
+        }
+
+        private void OnClickClose()
+        {
+            UIManager.Instance.ClosePanel(name);
         }
     }
 }
