@@ -267,5 +267,32 @@ namespace WarGame
             float dis = pointToLinePoint.magnitude * Mathf.Sin(angle / 180 * Mathf.PI);
             return dis;
         }
+
+        /// <summary>
+        /// 平滑发现，将平滑后的法线写入切线位置，解决描边不连续的问题
+        /// </summary>
+        /// <param name="go"></param>
+        public void SetAlpha(GameObject go, float alpha)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                var child = go.transform.GetChild(i).gameObject;
+                SetAlpha(child, alpha);
+            }
+
+            SkinnedMeshRenderer skinnedMR = null;
+            if (go.TryGetComponent<SkinnedMeshRenderer>(out skinnedMR))
+            {
+                skinnedMR.material.SetFloat("_Alpha", alpha);
+                return;
+            }
+
+            MeshRenderer MR = null;
+            if (go.TryGetComponent<MeshRenderer>(out MR))
+            {
+                MR.material.SetFloat("_Alpha", alpha);
+                return;
+            }
+        }
     }
 }

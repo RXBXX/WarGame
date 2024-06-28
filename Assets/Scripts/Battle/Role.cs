@@ -550,15 +550,34 @@ namespace WarGame
                 AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
             }
 
-            ExcuteBuffs();
+            UpdateBuffs();
         }
 
-        protected virtual void ExcuteBuffs()
+        protected virtual void UpdateBuffs()
         {
-            _data.ExcuteBuffs(OnUpdateAttr);
+            _data.UpdateBuffs(OnUpdateBuff);
 
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_data.buffs);
+        }
+
+        protected void OnUpdateBuff(params object[] args)
+        {
+            var buffType = (Enum.BuffType)args[0];
+            if (buffType == Enum.BuffType.Attribute)
+            {
+                OnUpdateAttr(new object[] { args[2], args[3] });
+            }
+            else if (buffType == Enum.BuffType.Expression)
+            {
+                DebugManager.Instance.Log(args[1]);
+                switch ((Enum.Buff)args[1])
+                {
+                    case Enum.Buff.Cloaking:
+                        SetVisible(((float)args[2]) <= 0);
+                        break;
+                }
+            }
         }
 
         public List<int> GetAttackBuffs()
@@ -586,9 +605,7 @@ namespace WarGame
 
         public virtual void UpdateRound()
         {
-            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
 
-            ExcuteBuffs();
         }
 
         public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
@@ -641,14 +658,12 @@ namespace WarGame
             SkinnedMeshRenderer smr;
             if (go.TryGetComponent(out smr))
             {
-                smr.material.SetFloat("_HighLight", highLigt);
                 smr.material.SetColor("_OutlineColor", color);
             }
 
             MeshRenderer mr;
             if (go.TryGetComponent(out mr))
             {
-                mr.material.SetFloat("_HighLight", highLigt);
                 mr.material.SetColor("_OutlineColor", color);
             }
         }
@@ -812,6 +827,34 @@ namespace WarGame
                     role.RemoveElementEffect(ID);
                 }
             }
+        }
+
+        //潜行（隐身）
+        public void Stealth()
+        {
+            AddBuffs(new List<int> { (int)Enum.Buff.Cloaking }) ;
+        }
+
+        //是否可见
+        public bool Visible()
+        {
+            foreach (var v in _data.buffs)
+            {
+                if ((Enum.Buff)v.id == Enum.Buff.Cloaking)
+                    return false;
+            }
+            return true;
+        }
+
+        //开始回合
+        public virtual void StartAction()
+        {
+            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
+            UpdateBuffs();
+        }
+
+        protected virtual void SetVisible(bool visible)
+        {
         }
 
         public override bool Dispose()

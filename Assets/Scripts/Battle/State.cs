@@ -217,6 +217,7 @@ namespace WarGame
         public override void End(bool reverse)
         {
             base.End(reverse);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Cure_End, new object[] { _role.ID });
         }
     }
 

@@ -1,7 +1,7 @@
 [
     {
         "ID": 1,
-        "Type": 1,
+        "Type": 0,
         "EffectType": 0,
         "Attr": {
             "id": 1,
@@ -14,7 +14,7 @@
     },
     {
         "ID": 2,
-        "Type": 1,
+        "Type": 0,
         "EffectType": 0,
         "Attr": {
             "id": 1,
@@ -27,7 +27,7 @@
     },
     {
         "ID": 3,
-        "Type": 2,
+        "Type": 0,
         "EffectType": 0,
         "Attr": {
             "id": 15,
@@ -40,22 +40,15 @@
     },
     {
         "ID": 4,
-        "Type": null,
+        "Type": 1,
         "EffectType": 0,
-        "Attr": null,
-        "Duration": 2,
+        "Attr": {
+            "id": 0,
+            "value": 0
+        },
+        "Duration": 1,
         "Name": "隐身",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
-    },
-    {
-        "ID": null,
-        "Type": null,
-        "EffectType": null,
-        "Attr": null,
-        "Duration": null,
-        "Name": "",
-        "Icon": null,
         "Desc": null
     }
 ]

@@ -30,5 +30,11 @@ namespace WarGame
             base.UpdateRound();
             SetState(Enum.RoleState.Waiting);
         }
+
+        protected override void SetVisible(bool visible)
+        {
+            DebugManager.Instance.Log("SetVisible:"+visible);
+            Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0.3F);
+        }
     }
 }

@@ -468,6 +468,7 @@ namespace WarGame
                         {
                             _action = new EnemyBattleAction(GetActionID());
                             enemys[i].SetState(Enum.RoleState.Waiting);
+                            enemys[i].StartAction();
                             break;
                         }
                     }
@@ -486,6 +487,7 @@ namespace WarGame
                     {
                         _action = new EnemyBattleAction(GetActionID());
                         enemys[i].SetState(Enum.RoleState.Waiting);
+                        enemys[i].StartAction();
                         return;
                     }
                 }
@@ -495,7 +497,9 @@ namespace WarGame
                 {
                     MapManager.Instance.UpdateRound(_levelData.Round);
                     RoleManager.Instance.UpdateRound(_levelData.Round);
-                    CoroutineMgr.Instance.StartCoroutine(OnUpdateRound());
+                    foreach (var v in RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero))
+                        v.StartAction();
+                    CoroutineMgr.Instance.StartCoroutine(OnUpdateRound()); 
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });

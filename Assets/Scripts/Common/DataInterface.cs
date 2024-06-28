@@ -315,35 +315,36 @@ namespace WarGame
             }
         }
 
-        public void ExcuteBuffs(WGArgsCallback callback)
+        public void UpdateBuffs(WGArgsCallback callback)
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
-                if (buffConfig.Type == Enum.BuffType.Attribute)
+                if (buffs[i].value > 0)
                 {
-                    if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
+                    var leftDuration = buffs[i].value - 1;
+                    if (buffConfig.Type == Enum.BuffType.Attribute)
                     {
-                        var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                        UpdateAttr(attrType, buffConfig.Attr.value);
-                        callback(new object[] { attrType, buffConfig.Attr.value });
+                        if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
+                        {
+                            var attrType = (Enum.AttrType)buffConfig.Attr.id;
+                            UpdateAttr(attrType, buffConfig.Attr.value);
+                            callback(new object[] { buffConfig.Type, buffConfig.EffectType, buffConfig.Attr.id, buffConfig.Attr.value });
+                        }
                     }
+                    else if (buffConfig.Type == Enum.BuffType.Expression)
+                    {
+                        callback(new object[] { buffConfig.Type, buffConfig.ID, buffs[i].value });
+                    }
+                    buffs[i] = new IntFloatPair(buffs[i].id, leftDuration);
                 }
                 else
                 {
-                    if (buffs[i].id == (int)Enum.Buff.Cloaking)
-                    { 
-                    
+                    if (buffConfig.Type == Enum.BuffType.Expression)
+                    {
+                        callback(new object[] { buffConfig.Type, buffConfig.ID, buffs[i].value });
                     }
-                }
-
-                if (buffs[i].value - 1 <= 0)
-                {
                     buffs.RemoveAt(i);
-                }
-                else
-                {
-                    buffs[i] = new IntFloatPair(buffs[i].id, buffs[i].value - 1);
                 }
             }
         }

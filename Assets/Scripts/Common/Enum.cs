@@ -378,6 +378,7 @@ namespace WarGame
             Fight_Hide_HeroGroup = 45,
             Fight_Show_RoleInfo = 46,
             Fight_Hide_RoleInfo = 47,
+            Fight_Cure_End = 48,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

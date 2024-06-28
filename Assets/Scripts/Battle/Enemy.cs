@@ -278,7 +278,10 @@ namespace WarGame
                 if (null == role)
                     continue;
 
-                targets.Add(RoleManager.Instance.GetRole(v));
+                if (!role.Visible())
+                    continue;
+
+                targets.Add(role);
             }
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
@@ -287,6 +290,10 @@ namespace WarGame
             {
                 if (targets.Contains(v))
                     continue;
+
+                if (!v.Visible())
+                    continue;
+
                 if (!viewRegionDic.ContainsKey(v.Hexagon))
                     continue;
                 targets.Add(v);
@@ -302,6 +309,13 @@ namespace WarGame
         public string GetGroup()
         {
             return GetEnemyConfig().Group;
+        }
+
+        protected override void SetVisible(bool visible)
+        {
+            SetColliderEnable(visible);
+            HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey).SetVisible(visible);
+            Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1:0);   
         }
     }
 }

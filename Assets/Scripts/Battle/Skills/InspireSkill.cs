@@ -65,11 +65,6 @@ namespace WarGame
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
         }
 
-        public override void Dispose()
-        {
-            RemoveListeners();
-        }
-
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
         {
             if (sender != _initiatorID)
@@ -124,7 +119,7 @@ namespace WarGame
                 roles[i].SetHPVisible(false);
             }
             LockCamera();
-            CameraMgr.Instance.OpenGray();
+            CameraMgr.Instance.OpenBattleArena();
 
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
             var pathCenter = initiator.GetPosition();
@@ -179,7 +174,7 @@ namespace WarGame
                 roles[i].SetHPVisible(true);
             }
 
-            CameraMgr.Instance.CloseGray();
+            CameraMgr.Instance.CloseBattleArena();
             UnlockCamera();
         }
     }

@@ -18,8 +18,8 @@ namespace WarGame.UI
             }
 
             public void Dispose()
-            { 
-            
+            {
+
             }
         }
 
@@ -35,10 +35,13 @@ namespace WarGame.UI
                 AddHPProgress(initiators[i], new Vector2(1200 - i * 50, 660), i);
             }
 
-            var targets = (List<int>)args[1];
-            for (int i = 0; i < targets.Count; i++)
+            if (args.Length > 1)
             {
-                AddHPProgress(targets[i], new Vector2(134 + i * 50, 660), i);
+                var targets = (List<int>)args[1];
+                for (int i = 0; i < targets.Count; i++)
+                {
+                    AddHPProgress(targets[i], new Vector2(134 + i * 50, 660), i);
+                }
             }
         }
 

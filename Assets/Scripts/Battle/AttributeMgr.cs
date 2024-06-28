@@ -247,6 +247,18 @@ namespace WarGame
             }
         }
 
+        /// <summary>
+        /// Ç±ÐÐ
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        public void DoStealth(int initiatorID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
+            initiator.Stealth();
+        }
+
+
         public void InitReports()
         {
             _reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();

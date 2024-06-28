@@ -300,6 +300,13 @@ namespace WarGame
 
         public void OpenBattleArena()
         {
+            if (null != _tweener)
+            {
+                _tweener.Complete();
+                _tweener.Kill();
+                _tweener = null;
+            }
+
             MainCamera.transform.position = new Vector3(100, 100, 100);
             OpenGray();
         }
