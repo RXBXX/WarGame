@@ -132,7 +132,7 @@ namespace WarGame
                     //_yAxis = Input.GetAxis("Mouse Y");
                     float xAxis = Input.GetAxis("Mouse X") * _moveSpeed;
                     float yAxis = Input.GetAxis("Mouse Y") * _moveSpeed;
-                    if (xAxis > 0 || yAxis > 0)
+                    if (xAxis != 0 || yAxis != 0)
                     {
                         _dragging = true;
                         var pos = MainCamera.transform.position - MainCamera.transform.right * xAxis - MainCamera.transform.up * yAxis;
