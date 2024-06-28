@@ -15,6 +15,8 @@ namespace WarGame
         private int _targetID;
         private float _cameraDis;
         private int _lockCount = 0;
+        private bool _dragging = false;
+
         private bool _isLocking
         {
             get { return _lockCount > 0; }
@@ -58,7 +60,11 @@ namespace WarGame
             {
                 if (Input.GetMouseButtonUp(0))
                 {
-                    FindingTarget();
+                    if (_dragging)
+                    {
+                        FindingTarget();
+                        _dragging = false;
+                    }
                 }
                 return;
             }
@@ -122,14 +128,24 @@ namespace WarGame
             {
                 if (InputManager.Instance.GetMouseButton(0))
                 {
+                    //_xAxis = Input.GetAxis("Mouse X");
+                    //_yAxis = Input.GetAxis("Mouse Y");
                     float xAxis = Input.GetAxis("Mouse X") * _moveSpeed;
                     float yAxis = Input.GetAxis("Mouse Y") * _moveSpeed;
-                    var pos = MainCamera.transform.position - MainCamera.transform.right * xAxis - MainCamera.transform.up * yAxis;
-                    MainCamera.transform.position = pos;
+                    if (xAxis > 0 || yAxis > 0)
+                    {
+                        _dragging = true;
+                        var pos = MainCamera.transform.position - MainCamera.transform.right * xAxis - MainCamera.transform.up * yAxis;
+                        MainCamera.transform.position = pos;
+                    }
                 }
                 else if (InputManager.Instance.GetMouseButtonUp(0))
                 {
-                    FindingTarget();
+                    if (_dragging)
+                    {
+                        FindingTarget();
+                        _dragging = false;
+                    }
                 }
             }
         }
@@ -192,7 +208,7 @@ namespace WarGame
         }
 
         public void SetTarget(int targetID)
-        {
+        { 
             //DebugManager.Instance.Log("SetTarget:"+targetID);
             //if (_isLocking)
             //    return;
@@ -202,7 +218,7 @@ namespace WarGame
 
             if (targetID == _targetID)
                 return;
-             
+
             KillTweener();
             ClearTarget();
 
@@ -212,7 +228,7 @@ namespace WarGame
             _targetID = targetID;
             var target = RoleManager.Instance.GetRole(_targetID);
             target.SetFollowing(true);
-            _tweener = MainCamera.transform.DOMove(target.GetPosition() - _cameraDis * MainCamera.transform.forward, 0.2F).SetEase(Ease.InOutCirc);
+            _tweener = MainCamera.transform.DOMove(target.GetPosition() - _cameraDis * MainCamera.transform.forward, 0.4F).SetEase(Ease.InOutCirc);
             _tweener.onComplete = (() => { KillTweener(); });
         }
 

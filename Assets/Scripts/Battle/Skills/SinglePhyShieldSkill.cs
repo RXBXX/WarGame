@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class CureSkillAction : SkillAction
+    public class SinglePhyShieldSkill : Skill
     {
         protected List<MapObject> _arenaObjects = new List<MapObject>();
 
-        public CureSkillAction(int id, int initiatorID) : base(id, initiatorID)
+        public SinglePhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }
 

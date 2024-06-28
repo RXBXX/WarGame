@@ -49,7 +49,8 @@ namespace WarGame.UI
 
         public void SetParent(GComponent parent, int childIndex = 0)
         {
-            parent.container.AddChild(_gCom.displayObject);
+            //parent.container.AddChild(_gCom.displayObject);
+            parent.AddChild(_gCom);
         }
 
         public void RemoveParent()

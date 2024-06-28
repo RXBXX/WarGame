@@ -144,11 +144,25 @@ namespace WarGame
         [Serializable]
         public enum Skill
         {
-            Attack = 10001,
-            Cure = 10002,
-            AttackRetreat = 10003,
-            GroupAttack = 10004,
-            Inspire = 10005,
+            FierceAttack = 10001, //猛攻
+            SingleHeal = 10002, //单体治疗
+            AtrikeAndRelocate = 10003, //攻击后撤
+            ChainAttack = 10004, //锁链攻击
+            Inspire = 10005, //鼓舞
+            Stealth = 10006,  //隐身
+            CriticalHit = 10007, //暴击
+            Clone = 10008, //分身
+            Dizzy = 10009, //眩晕
+            ExtraTurn = 10010, //增加一次行动
+            MassPhyShield = 10011, //群体物理护盾
+            Charm = 10012, //魅惑
+            Roulette = 10013, //轮盘赌
+            LifeDrain = 10014, //吸血
+            MassHeal = 10015, //全体治疗
+            SinglePhyShield = 10016, //单体物理套盾
+            RageReduction = 10017, //减怒
+            MassMagShield = 10018, //群体魔法护盾
+            SingleMagShield = 10019, //单体魔法护盾
         }
 
         //属性类型
@@ -292,6 +306,28 @@ namespace WarGame
         public enum LevelWinCondType
         {
             DefeatEnemys = 1, //击败指定敌人
+        }
+
+        public enum Buff
+        {
+            Cloaking = 4, //隐身
+        }
+
+        //Buff类型
+        [Serializable]
+        public enum BuffType
+        {
+            Attribute = 0, //属性类
+            Expression = 1, //表现类
+        }
+
+
+        // 属性类buff效果类型
+        [Serializable]
+        public enum BuffAttrEffectType
+        {
+            Overlay = 0, //叠加
+            Const = 1, //常量
         }
 
         public enum Event

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class AttackRetreatSkillAction : AttackSkillAction
+    public class AttackAndRelocateSkill : FierceAttackSkill
     {
         private int _stage = 0;
 
-        public AttackRetreatSkillAction(int id, int initiatorID) : base(id, initiatorID)
+        public AttackAndRelocateSkill(int id, int initiatorID) : base(id, initiatorID)
         {
 
         }

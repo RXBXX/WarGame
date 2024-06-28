@@ -142,7 +142,7 @@ namespace WarGame
                 var spinePoint = _gameObject.transform.Find(equipPlaceConfig.SpinePoint);
 
                 var equipData = _data.equipDataDic[v.Key];
-                var equip = EquipFactory.Instance.GetEquip(equipData, _gameObject.transform);
+                var equip = Factory.Instance.GetEquip(equipData, _gameObject.transform);
                 _equipDic[equip.GetPlace()] = equip;
             }
         }
@@ -263,7 +263,6 @@ namespace WarGame
 
         public virtual void MoveEnd()
         {
-            DebugManager.Instance.Log("MoveEnd");
             EnterState("Idle");
 
             UpdateElementEffects();
@@ -551,8 +550,7 @@ namespace WarGame
                 AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
             }
 
-            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.UpdateBuffs(_data.buffs);
+            ExcuteBuffs();
         }
 
         protected virtual void ExcuteBuffs()

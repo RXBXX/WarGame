@@ -145,7 +145,7 @@ namespace WarGame
                 {
                     equipDataDic.Add(v.Key, GetEquipmentData(v.Value));
                 }
-                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, bornHexagonID, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
+                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, bornHexagonID, Enum.RoleState.Waiting, equipDataDic, roleData.talents);
             }
             else if (type == Enum.RoleType.Enemy)
             {
@@ -198,6 +198,30 @@ namespace WarGame
                 levels.Add(v.Value.configId);
             }
             return levels;
+        }
+
+        public bool IsHeroTalentActive(int roleUID, int talentID)
+        {
+            var roleData = GetRoleData(roleUID);
+            if (null == roleData.talents)
+                return false;
+
+            return roleData.talents.Contains(talentID);
+        }
+
+        public bool CanHeroTalentActive(int roleUID, int talentID)
+        {
+            if (IsHeroTalentActive(roleUID, talentID))
+                return false;
+
+            var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
+            if (0 == talentConfig.LastTalent)
+                return true;
+
+            if (IsHeroTalentActive(roleUID, talentConfig.LastTalent))
+                return true;
+
+            return false;
         }
 
         /// region 协议部分----------------------------------------------------------
@@ -290,9 +314,14 @@ namespace WarGame
         {
             var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
             var roleData = GetRoleData(roleUID);
-            if (null == roleData.talentDic)
-                roleData.talentDic = new Dictionary<int, int>();
-            roleData.talentDic.Add(config.Place, talentID);
+
+            if (null == roleData.talents)
+                roleData.talents = new List<int>();
+
+            if (roleData.talents.Contains(talentID))
+                return;
+
+            roleData.talents.Add(talentID);
 
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroTalentActiveS2C, new object[] { roleUID, talentID });
         }

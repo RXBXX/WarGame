@@ -13,7 +13,7 @@ namespace WarGame
         protected List<string> _path; //Ó¢ÐÛÒÆ¶¯µÄÂ·¾¶
         protected bool _skipBattleShow = false;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
-        protected SkillAction _skillAction;
+        protected Skill _skillAction;
         protected bool _isLockingCamera;
 
         public BattleAction(int id)

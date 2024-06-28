@@ -54,7 +54,7 @@ namespace WarGame.UI
             _levelComp.UpdateComp(UID);
             _equipComp.UpdateComp(UID);
 
-            _talentComp.UpdateComp(UID, role.GetConfig().TalentGroup, role.talentDic);
+            _talentComp.UpdateComp(UID, role.talents);
         }
 
         private void OnClickLevel(params object[] args)

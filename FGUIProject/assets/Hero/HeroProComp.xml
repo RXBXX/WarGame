@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="500,650" overflow="scroll">
-  <controller name="type" pages="0,info,1,level,2,talent,3,equip" selected="0"/>
+  <controller name="type" pages="0,info,1,level,2,talent,3,equip" selected="2"/>
   <displayList>
     <component id="n19_ovai" name="levelTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,0" group="n11_gy0s">
       <gearDisplay controller="type" pages="0,1"/>
@@ -8,10 +8,10 @@
     <component id="n21_ovai" name="levelComp" src="ovaiq" fileName="HeroLevelComp.xml" xy="0,63" size="500,600" group="n11_gy0s">
       <gearDisplay controller="type" pages="1"/>
     </component>
-    <component id="n14_gy0s" name="talentTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,63" group="n11_gy0s">
+    <component id="n14_gy0s" name="talentTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,0" group="n11_gy0s">
       <gearDisplay controller="type" pages="0,2"/>
     </component>
-    <component id="n10_gy0s" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="0,63" size="500,500" group="n11_gy0s">
+    <component id="n10_gy0s" name="talentComp" src="tsk17" fileName="HeroTalentComp.xml" xy="0,63" size="500,580" group="n11_gy0s">
       <gearDisplay controller="type" pages="2"/>
     </component>
     <component id="n15_gy0s" name="skillTitle" src="gy0sh" fileName="HeroTitleItem.xml" xy="0,126" group="n11_gy0s">
@@ -35,6 +35,6 @@
     <component id="n13_gy0s" name="attrComp" src="czz81m" fileName="HeroAttrComp.xml" xy="20,315" group="n11_gy0s">
       <gearDisplay controller="type" pages="0"/>
     </component>
-    <group id="n11_gy0s" name="n11" xy="0,0" size="500,871" advanced="true" layout="vt" lineGap="10" excludeInvisibles="true"/>
+    <group id="n11_gy0s" name="n11" xy="0,0" size="500,643" advanced="true" layout="vt" lineGap="10" excludeInvisibles="true"/>
   </displayList>
 </component>

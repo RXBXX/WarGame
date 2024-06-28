@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace WarGame
 {
-    public class GroupAttackSkillAction : AttackSkillAction
+    public class ChainAttackSkill : FierceAttackSkill
     {
         private int _chainMatID;
         private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
         private List<int> _targets = new List<int>();
         private float _hurt;
 
-        public GroupAttackSkillAction(int id, int initiatorID) : base(id, initiatorID)
+        public ChainAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {
 
         }

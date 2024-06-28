@@ -1,6 +1,8 @@
 [
     {
         "ID": 1,
+        "Type": 1,
+        "EffectType": 0,
         "Attr": {
             "id": 1,
             "value": "-10"
@@ -8,11 +10,12 @@
         "Duration": 2,
         "Name": "流血",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合减少10血量，剩余%s回合",
-        "Type": 1
+        "Desc": "每回合减少10血量，剩余%s回合"
     },
     {
         "ID": 2,
+        "Type": 1,
+        "EffectType": 0,
         "Attr": {
             "id": 1,
             "value": "-15"
@@ -20,11 +23,12 @@
         "Duration": 3,
         "Name": "中毒",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合减少15血量，剩余%s回合",
-        "Type": 1
+        "Desc": "每回合减少15血量，剩余%s回合"
     },
     {
         "ID": 3,
+        "Type": 2,
+        "EffectType": 0,
         "Attr": {
             "id": 15,
             "value": "-10"
@@ -32,7 +36,26 @@
         "Duration": 2,
         "Name": "减怒",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合较少怒气回复，剩余%s回合",
-        "Type": 2
+        "Desc": "每回合较少怒气回复，剩余%s回合"
+    },
+    {
+        "ID": 4,
+        "Type": null,
+        "EffectType": 0,
+        "Attr": null,
+        "Duration": 2,
+        "Name": "隐身",
+        "Icon": "ui://Common/Buff_Blood",
+        "Desc": null
+    },
+    {
+        "ID": null,
+        "Type": null,
+        "EffectType": null,
+        "Attr": null,
+        "Duration": null,
+        "Name": "",
+        "Icon": null,
+        "Desc": null
     }
 ]

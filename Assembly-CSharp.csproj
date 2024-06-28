@@ -60,11 +60,12 @@
     <Analyzer Include="C:\Unity\2022.3.22f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Battle\Skills\RouletteSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearAnimation.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader3D.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearIcon.cs" />
-    <Compile Include="Assets\Scripts\Weapon\EquipFactory.cs" />
     <Compile Include="Assets\Scripts\Common\EventDispatcher.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\AttackAndRelocateSkill.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Assets\Scripts\UI\Hero\HeroTitleItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIContentScaler.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightOverPanel.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\StealthSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTree.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GPath.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\CaptureCamera.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GRichTextField.cs" />
     <Compile Include="Assets\FairyGUI\Examples\CutScene\LevelManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
+    <Compile Include="Assets\Scripts\Common\Factory.cs" />
     <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
     <Compile Include="Assets\Scripts\Battle\ElementLine.cs" />
     <Compile Include="Assets\Scripts\Battle\Weather.cs" />
@@ -175,7 +178,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventDispatcher.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapPanel.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\InspireSkillAction.cs" />
     <Compile Include="Assets\Scripts\Weapon\Wand.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\ColliderHitTest.cs" />
@@ -194,17 +196,21 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeView.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TypingEffect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XML.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\ExtraTurnSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\ScrollPane.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window1.cs" />
     <Compile Include="Assets\Scripts\Common\CommonInterface.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\SkillFactory.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\FierceAttackSkill.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\LiftDrainSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Battle\Role.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\MassMagShieldSkill.cs" />
     <Compile Include="Assets\Resources\UI\Map\MapBinder.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\SingleMagShieldSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\PlayTransitionAction.cs" />
     <Compile Include="Assets\Scripts\Common\AudioMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
@@ -212,7 +218,6 @@
     <Compile Include="Assets\Resources\UI\Map\UI_MapPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\AttackRetreatSkillAction.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\Scripts\Battle\ReadyBattleAction.cs" />
     <Compile Include="Assets\Scripts\SRP\CameraRenderer1.cs" />
@@ -233,6 +238,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComponent.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\StraightLineMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextFormat.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\SinglePhyShieldSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\RelationItem.cs" />
     <Compile Include="Assets\Test\ChainTest.cs" />
     <Compile Include="Assets\Scripts\Common\Chain.cs" />
@@ -254,7 +260,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
     <Compile Include="Assets\Scripts\Common\StoryMgr.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\CureSkillAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
     <Compile Include="Assets\Scripts\Render\BloomPP.cs" />
@@ -271,8 +276,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\Spine\SpineLoader.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Guide\GuideMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\IKeyboard.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\GroupAttackSkillAction.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDSkills.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\DizzySkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RTLSupport.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RoundedRectMesh.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
@@ -283,6 +288,7 @@
     <Compile Include="Assets\Scripts\Battle\LocatingArrow.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDLock.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\AsyncCreationHelper.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\CloneSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GProgressBar.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\EaseType.cs" />
     <Compile Include="Assets\Scripts\Tools\MapTool.cs" />
@@ -300,12 +306,14 @@
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GImage.cs" />
     <Compile Include="Assets\Scripts\UI\Common\CommonSkillItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Filter\FilterMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\Skill.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordItem.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
@@ -313,6 +321,7 @@
     <Compile Include="Assets\Test\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Common\EventMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPainter.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\MassPhyShieldSkill.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightRoleInfo.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParseOptions.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
@@ -335,12 +344,16 @@
     <Compile Include="Assets\Scripts\Battle\State.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\UBBParser.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Joystick\JoystickModule.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\InspireSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\RotationGesture.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay2.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroLevelItem.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\SingleHealSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NTexture.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\CriticalHitSkill.cs" />
     <Compile Include="Assets\Scripts\Common\CameraMgr.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\CharmSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\EMRenderSupport.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrComp.cs" />
@@ -355,11 +368,12 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParser.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TreeView\TreeViewMain.cs" />
     <Compile Include="Assets\Scripts\Map\Bonfire.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\AttackSkillAction.cs" />
     <Compile Include="Assets\Scripts\Weapon\Sword.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\MassHealSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\WebGLTextInput\WebGLTextInput.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Shape.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\RageReductionSkill.cs" />
     <Compile Include="Assets\Scripts\Common\DialogMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightReportItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderImage.cs" />
@@ -368,7 +382,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PlaneMesh.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\Window2.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitComponent.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\SkillAction.cs" />
     <Compile Include="Assets\Scripts\Battle\Hero.cs" />
     <Compile Include="Assets\Scripts\SRP\CameraRenderer.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrItem.cs" />

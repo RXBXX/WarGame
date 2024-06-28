@@ -33,7 +33,6 @@ namespace WarGame
         public Enum.RoleType Type;
         public int CommonSkill;
         public int SpecialSkill;
-        public int TalentGroup;
         public string Icon;
         public string FullLengthIcon;
         public Enum.Element Element;
@@ -72,7 +71,7 @@ namespace WarGame
         public string Name;
         public string Desc;
         public Enum.TargetType TargetType;
-        public List<Enum.AttrType> Effects;
+        public int[] Params;
     }
 
     //装备表
@@ -179,6 +178,8 @@ namespace WarGame
     public class BufferConfig : Config
     {
         public IntFloatPair Attr;
+        public Enum.BuffType Type;
+        public Enum.BuffAttrEffectType EffectType;
         public int Duration;
         public string Name;
         public string Desc;
@@ -277,12 +278,11 @@ namespace WarGame
     [Serializable]
     public class TalentConfig : Config
     {
-        public int Group;
         public string Name;
         public string Desc;
         public List<IntFloatPair> Attrs;
         public int LastTalent;
-        public int Place;
+        public string Icon;
     }
 
     //篝火表

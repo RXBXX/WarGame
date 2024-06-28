@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="80,80">
+<component size="80,80" pivot="0.5,0.5" anchor="true" mask="n3_li0q">
   <displayList>
-    <image id="n1_b0z0" name="n1" src="b0z0a" fileName="Images/Talent.png" xy="40,40" pivot="0.5,0.5" anchor="true" size="80,80"/>
+    <image id="n3_li0q" name="n3" src="cwzy1c" fileName="Images/HeroBG.png" pkg="hx02grrp" xy="40,40" pivot="0.5,0.5" anchor="true" size="80,80" rotation="30">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n4_li0q" name="icon" xy="0,0" size="80,80" touchable="false" url="ui://ubnp7phxli0q1u" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n5_li0q" name="n5" src="cwzy1d" fileName="Images/HeroFrame.png" pkg="hx02grrp" xy="0,0" pivot="0.5,0.5" size="80,80" rotation="30"/>
+    <text id="n6_li0q" name="title" xy="40,40" pivot="0.5,0.5" anchor="true" size="39,26" fontSize="18" color="#ffffff" strokeColor="#000000" autoClearText="true" text="移速"/>
   </displayList>
-  <transition name="active">
-    <item time="0" type="Scale" target="n1_b0z0" tween="true" startValue="1,1" endValue="1.2,1.2" duration="6"/>
-    <item time="6" type="Scale" target="n1_b0z0" tween="true" startValue="1.2,1.2" endValue="1,1" duration="6" ease="Elastic.InOut"/>
-    <item time="12" type="Scale" target="n1_b0z0" value="1,1"/>
-  </transition>
+  <transition name="active"/>
 </component>

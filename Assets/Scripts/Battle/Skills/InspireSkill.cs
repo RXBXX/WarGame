@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class InspireSkillAction : SkillAction
+    public class InspireSkill : Skill
     {
         private List<MapObject> _arenaObjects = new List<MapObject>();
         private List<int> _targets = new List<int>();
 
-        public InspireSkillAction(int id, int initiatorID) : base(id, initiatorID)
+        public InspireSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }
 

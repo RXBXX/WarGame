@@ -105,15 +105,15 @@ namespace WarGame
         public int level;
         public Dictionary<Enum.EquipPlace, int> equipmentDic = new Dictionary<Enum.EquipPlace, int>();
         public Dictionary<int, int> skillDic = new Dictionary<int, int>();
-        public Dictionary<int, int> talentDic = new Dictionary<int, int>();
+        public List<int> talents = new List<int>();
 
-        public RoleData(int UID, int configId, int level, Dictionary<int, int> talentDic = null, Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
+        public RoleData(int UID, int configId, int level, List<int> talents = null, Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
         {
             this.UID = UID;
             this.configId = configId;
             this.level = level;
-            if (null != talentDic)
-                this.talentDic = talentDic;
+            if (null != talents)
+                this.talents = talents;
             if (null != equipmentDic)
                 this.equipmentDic = equipmentDic;
             if (null != skillDic)
@@ -170,9 +170,9 @@ namespace WarGame
         {
             var value = 0.0F;
 
-            foreach (var v in talentDic)
+            foreach (var v in talents)
             {
-                var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", v.Value);
+                var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", v);
                 foreach (var v1 in config.Attrs)
                 {
                     if ((Enum.AttrType)v1.id == attrType)
@@ -243,7 +243,7 @@ namespace WarGame
             {
                 cloneSkillDic.Add(v.Key, v.Value);
             }
-            return new RoleData(this.UID, this.configId, this.level, talentDic, cloneEquipDic, cloneSkillDic);
+            return new RoleData(this.UID, this.configId, this.level, talents, cloneEquipDic, cloneSkillDic);
         }
 
         public virtual void Dispose()
@@ -266,7 +266,7 @@ namespace WarGame
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
 
-        public LevelRoleData(int UID, int configId, int level, string bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, Dictionary<int, int> talentDic) : base(UID, configId, level, talentDic, null)
+        public LevelRoleData(int UID, int configId, int level, string bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level, talents, null)
         {
             this.equipDataDic = equipDataDic;
             this.state = state;
@@ -285,19 +285,20 @@ namespace WarGame
                 value += v.Value.GetAttribute(attrType);
             }
 
-            if (attrType != Enum.AttrType.HP && attrType != Enum.AttrType.Rage)
+
+            //需要找到所有临时性buff计算
+            foreach (var v in buffs)
             {
-                //需要找到所有临时性buff计算
-                foreach (var v in buffs)
+                var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
+                if (buffConfig.Type != Enum.BuffType.Attribute || buffConfig.EffectType != Enum.BuffAttrEffectType.Const)
+                    continue;
+
+                if ((Enum.AttrType)buffConfig.Attr.id == attrType)
                 {
-                    var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
-                    if ((Enum.AttrType)buffConfig.Attr.id == attrType)
-                    {
-                        if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", buffConfig.Attr.id).ValueType == Enum.ValueType.Percentage)
-                            value += buffConfig.Attr.value / 100.0f;
-                        else
-                            value += buffConfig.Attr.value;
-                    }
+                    if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", buffConfig.Attr.id).ValueType == Enum.ValueType.Percentage)
+                        value += buffConfig.Attr.value / 100.0f;
+                    else
+                        value += buffConfig.Attr.value;
                 }
             }
 
@@ -319,10 +320,22 @@ namespace WarGame
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
-                var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                UpdateAttr(attrType, buffConfig.Attr.value);
-
-                callback(new object[] { attrType, buffConfig.Attr.value});
+                if (buffConfig.Type == Enum.BuffType.Attribute)
+                {
+                    if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
+                    {
+                        var attrType = (Enum.AttrType)buffConfig.Attr.id;
+                        UpdateAttr(attrType, buffConfig.Attr.value);
+                        callback(new object[] { attrType, buffConfig.Attr.value });
+                    }
+                }
+                else
+                {
+                    if (buffs[i].id == (int)Enum.Buff.Cloaking)
+                    { 
+                    
+                    }
+                }
 
                 if (buffs[i].value - 1 <= 0)
                 {
@@ -363,7 +376,7 @@ namespace WarGame
                 cloneEquipDataDic.Add(v.Key, v.Value.Clone());
             }
 
-            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, new Dictionary<int, int>());
+            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, new List<int>());
             clone.hexagonID = hexagonID;
             clone.bornHexagonID = bornHexagonID;
             clone.HP = HP;

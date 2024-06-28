@@ -96,7 +96,7 @@ namespace WarGame
                     {
                         equipDataDic.Add(v.Key, DatasMgr.Instance.GetEquipmentData(v.Value));
                     }
-                    var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, _selectedHexagon, Enum.RoleState.Waiting, equipDataDic, roleData.talentDic);
+                    var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, _selectedHexagon, Enum.RoleState.Waiting, equipDataDic, roleData.talents);
                     levelRoleData.hexagonID = _selectedHexagon;
                     newRole = RoleManager.Instance.CreateHero(levelRoleData);
 

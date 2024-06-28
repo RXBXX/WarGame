@@ -296,7 +296,7 @@ namespace WarGame
 
             CameraMgr.Instance.SetTarget(_initiatorID);
 
-            _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
         }
 

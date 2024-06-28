@@ -10,19 +10,22 @@ namespace WarGame.UI
         private int _id;
         private bool _isActive;
         private Transition _active;
+        private GLoader _icon;
 
         public HeroTalentItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+            _icon = GetGObjectChild<GLoader>("icon");
             _active = GetTransition("active");
             _gCom.onClick.Add(OnClick);
         }
 
-        public void UpdateItem(int heroUID, int id, bool isActive)
+        public void UpdateItem(int heroUID, int id, string icon)
         {
             _heroUID = heroUID;
             _id = id;
-            _isActive = isActive;
-            _gCom.grayed = !isActive;
+            _isActive = DatasMgr.Instance.IsHeroTalentActive(heroUID, id);
+            _gCom.grayed = !_isActive;
+            _icon.url = icon;
         }
 
 

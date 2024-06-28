@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace WarGame
 {
-    public class SkillAction
+    public class Skill
     {
         protected int _initiatorID;
         protected int _id;
@@ -13,7 +12,7 @@ namespace WarGame
         protected bool _skipBattleShow = false;
         protected bool _isLockingCamera;
 
-        public SkillAction(int id, int initiatorID)
+        public Skill(int id, int initiatorID)
         {
             this._id = id;
             this._initiatorID = initiatorID;

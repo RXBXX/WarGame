@@ -517,7 +517,7 @@ namespace WarGame
 
             var sender = RoleManager.Instance.GetRole(senderID);
             string stateName = strs[0], secondStateName = strs[1];
-            DebugManager.Instance.Log(stateName + "+" + secondStateName);
+            //DebugManager.Instance.Log(stateName + "+" + secondStateName);
             sender.HandleEvent(stateName, secondStateName);
 
             if (null != _action)

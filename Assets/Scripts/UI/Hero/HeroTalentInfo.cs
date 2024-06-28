@@ -13,6 +13,7 @@ namespace WarGame.UI
         private GList _attrList;
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
+        private GButton _activeBtn;
 
         public HeroTalentInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
@@ -24,7 +25,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.Hero_Show_Talent, OnShowTalent);
 
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
-            GetGObjectChild<GButton>("btn").onClick.Add(OnClick);
+            _activeBtn = GetGObjectChild<GButton>("btn");
+            _activeBtn.onClick.Add(OnClick);
         }
 
         private void OnAttrRenderer(int index, GObject item)
@@ -40,6 +42,7 @@ namespace WarGame.UI
         {
             _heroUID = (int)args[0];
             _talentID = (int)args[1];
+
             var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _talentID);
 
             _title.text = talentConfig.Name;
@@ -55,6 +58,8 @@ namespace WarGame.UI
 
             SetPosition((Vector2)args[2]);
             SetVisible(true);
+
+            _activeBtn.visible = DatasMgr.Instance.CanHeroTalentActive(_heroUID, _talentID);
         }
 
         private void OnClick()

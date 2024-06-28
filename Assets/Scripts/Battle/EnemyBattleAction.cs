@@ -57,7 +57,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             initiator.SetState(Enum.RoleState.WatingTarget);
-            _skillAction = SkillFactory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
 
             _skillAction.ClickHero(_targetID);

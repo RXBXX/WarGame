@@ -101,8 +101,8 @@ namespace WarGame
                 }
             }
 
-            if (null != target)
-                DebugManager.Instance.Log("target:" +target.ID);
+            //if (null != target)
+            //    DebugManager.Instance.Log("target:" +target.ID);
 
             List<string> path = null;
             if (null != target)
