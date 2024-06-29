@@ -124,6 +124,8 @@ namespace WarGame
             OnStateChanged();
 
             UpdateElementEffects();
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Role_Create_Success, new object[] { ID });
         }
 
         protected override void SmoothNormal()
@@ -349,6 +351,15 @@ namespace WarGame
         {
             DeadFlag = true;
             EnterState("Dead");
+
+            if (0 != _data.cloneRole)
+            {
+                var cloneRole = RoleManager.Instance.GetRole(_data.cloneRole);
+                if (null != cloneRole)
+                    cloneRole.Dead();
+
+                _data.cloneRole = 0;
+            }
         }
 
         public virtual void Idle()
@@ -414,13 +425,13 @@ namespace WarGame
                 return;
 
             _data.UpdateAttr(type, delta);
-            OnUpdateAttr(new object[] { type, delta });
+            OnUpdateAttr(type, delta);
         }
 
-        private void OnUpdateAttr(params object[] args)
+        private void OnUpdateAttr(Enum.AttrType type, float delta)
         {
-            Enum.AttrType type = (Enum.AttrType)args[0];
-            float delta = (float)args[1];
+            if (0 == delta)
+                return;
 
             if (type == Enum.AttrType.HP)
             {
@@ -556,28 +567,34 @@ namespace WarGame
         protected virtual void UpdateBuffs()
         {
             _data.UpdateBuffs(OnUpdateBuff);
-
-            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.UpdateBuffs(_data.buffs);
         }
 
+        /// <summary>
+        /// buff变化
+        /// </summary>
+        /// <param name="args">
+        /// [0] buffer ID
+        /// [1] buffer 变化类型
+        /// [2] Attribute ID
+        /// [3] Attribute ChangeValue
+        /// </param>
         protected void OnUpdateBuff(params object[] args)
         {
-            var buffType = (Enum.BuffType)args[0];
-            if (buffType == Enum.BuffType.Attribute)
+            var buffUpdate = (Enum.BuffUpdate)args[1];
+            if (buffUpdate != Enum.BuffUpdate.None)
             {
-                OnUpdateAttr(new object[] { args[2], args[3] });
-            }
-            else if (buffType == Enum.BuffType.Expression)
-            {
-                DebugManager.Instance.Log(args[1]);
-                switch ((Enum.Buff)args[1])
+                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.UpdateBuffs(_data.buffs);
+
+                switch ((Enum.Buff)args[0])
                 {
                     case Enum.Buff.Cloaking:
-                        SetVisible(((float)args[2]) <= 0);
+                        SetVisible(buffUpdate == Enum.BuffUpdate.Add);
                         break;
                 }
             }
+
+            OnUpdateAttr((Enum.AttrType)args[2], (float)args[3]);
         }
 
         public List<int> GetAttackBuffs()
@@ -832,7 +849,7 @@ namespace WarGame
         //潜行（隐身）
         public void Stealth()
         {
-            AddBuffs(new List<int> { (int)Enum.Buff.Cloaking }) ;
+            AddBuffs(new List<int> { (int)Enum.Buff.Cloaking });
         }
 
         //是否可见
@@ -855,6 +872,22 @@ namespace WarGame
 
         protected virtual void SetVisible(bool visible)
         {
+        }
+
+        /// <summary>
+        /// 克隆
+        /// </summary>
+        /// <returns></returns>
+        public virtual LevelRoleData Clone(string hexagon)
+        {
+            var data = _data.Clone();
+            data.UID = _data.UID * 10 + 1;
+            data.hexagonID = hexagon;
+            data.bornHexagonID = hexagon;
+
+            _data.cloneRole = data.UID;
+
+            return data;
         }
 
         public override bool Dispose()

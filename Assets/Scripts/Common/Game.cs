@@ -29,7 +29,7 @@ namespace WarGame
             MapManager.Instance.Init();
             LineMgr.Instance.Init();
             RoleManager.Instance.Init();
-            AttributeMgr.Instance.Init();
+            BattleMgr.Instance.Init();
             EventMgr.Instance.Init();
 
             DOTween.Init(true, true);
@@ -85,7 +85,7 @@ namespace WarGame
         public override bool Dispose()
         {
             EventMgr.Instance.Dispose();
-            AttributeMgr.Instance.Dispose();
+            BattleMgr.Instance.Dispose();
             CameraMgr.Instance.Dispose();
             InputManager.Instance.Dispose();
             MapTool.Instance.Dispose();

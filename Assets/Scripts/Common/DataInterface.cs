@@ -262,9 +262,10 @@ namespace WarGame
         public float Rage;
         public string hexagonID;
         public string bornHexagonID;
-        public List<IntFloatPair> buffs = new List<IntFloatPair>();
+        public List<TwoIntPair> buffs = new List<TwoIntPair>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
+        public int cloneRole;
 
         public LevelRoleData(int UID, int configId, int level, string bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level, talents, null)
         {
@@ -285,12 +286,11 @@ namespace WarGame
                 value += v.Value.GetAttribute(attrType);
             }
 
-
-            //需要找到所有临时性buff计算
+            //计算buff属性
             foreach (var v in buffs)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v.id);
-                if (buffConfig.Type != Enum.BuffType.Attribute || buffConfig.EffectType != Enum.BuffAttrEffectType.Const)
+                if (buffConfig.EffectType != Enum.BuffAttrEffectType.Const)
                     continue;
 
                 if ((Enum.AttrType)buffConfig.Attr.id == attrType)
@@ -311,7 +311,7 @@ namespace WarGame
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
-                this.buffs.Add(new IntFloatPair(buffs[i], buffConfig.Duration));
+                this.buffs.Add(new TwoIntPair(buffs[i], buffConfig.Duration));
             }
         }
 
@@ -319,32 +319,34 @@ namespace WarGame
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
+                bool dirty = buffs[i].value <= 0;
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
-                if (buffs[i].value > 0)
+                var attrType = (Enum.AttrType)buffConfig.Attr.id;
+                var attrUpdateValue = 0.0f;
+                if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
                 {
-                    var leftDuration = buffs[i].value - 1;
-                    if (buffConfig.Type == Enum.BuffType.Attribute)
-                    {
-                        if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
-                        {
-                            var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                            UpdateAttr(attrType, buffConfig.Attr.value);
-                            callback(new object[] { buffConfig.Type, buffConfig.EffectType, buffConfig.Attr.id, buffConfig.Attr.value });
-                        }
-                    }
-                    else if (buffConfig.Type == Enum.BuffType.Expression)
-                    {
-                        callback(new object[] { buffConfig.Type, buffConfig.ID, buffs[i].value });
-                    }
-                    buffs[i] = new IntFloatPair(buffs[i].id, leftDuration);
+                    attrUpdateValue = buffConfig.Attr.value;
+                    UpdateAttr(attrType, attrUpdateValue);
+                }
+
+                var buffUpdateType = Enum.BuffUpdate.None;
+                if (dirty)
+                {
+                    buffUpdateType = Enum.BuffUpdate.Delete;
+                }
+                else if (buffs[i].value >= buffConfig.Duration)
+                {
+                    buffUpdateType = Enum.BuffUpdate.Add;
+                }
+                callback(new object[] { buffs[i].id, buffUpdateType, attrType, attrUpdateValue });
+
+                if (dirty)
+                {
+                    buffs.RemoveAt(i);
                 }
                 else
                 {
-                    if (buffConfig.Type == Enum.BuffType.Expression)
-                    {
-                        callback(new object[] { buffConfig.Type, buffConfig.ID, buffs[i].value });
-                    }
-                    buffs.RemoveAt(i);
+                    buffs[i] = new TwoIntPair(buffs[i].id, buffs[i].value - 1);
                 }
             }
         }
@@ -384,7 +386,7 @@ namespace WarGame
             clone.Rage = Rage;
             clone.state = state;
 
-            var cloneBuffs = new List<IntFloatPair>();
+            var cloneBuffs = new List<TwoIntPair>();
             foreach (var v in buffs)
                 cloneBuffs.Add(v);
             clone.buffs = cloneBuffs;

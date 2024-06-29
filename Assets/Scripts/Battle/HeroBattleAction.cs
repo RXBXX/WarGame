@@ -116,7 +116,7 @@ namespace WarGame
             var state = hero.GetState();
             if (state != Enum.RoleState.Waiting && state != Enum.RoleState.Over)
                 return;
-
+            
             if (null != _skillAction)
             {
                 _skillAction.ClickHero(heroID);
@@ -130,7 +130,7 @@ namespace WarGame
                 {
                     MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
                     hero.SetState(Enum.RoleState.WaitingOrder);
-                    OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
+                    OpenInstruct();
                 }
                 else if (state != Enum.RoleState.Over)
                 {
@@ -185,7 +185,7 @@ namespace WarGame
         /// <summary>
         /// ÏÔÊ¾²Ù×÷Ö¸Áî
         /// </summary>
-        private void OpenInstruct(Enum.InstructType[] orders = null)
+        private void OpenInstruct()
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
             HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
@@ -262,7 +262,7 @@ namespace WarGame
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
 
-            OnActionOver(new object[] { 0});
+            OnActionOver(new object[] { 0 });
 
             _path = null;
         }
@@ -325,7 +325,7 @@ namespace WarGame
             var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
             hero.SetState(Enum.RoleState.WaitingOrder);
-            OpenInstruct(new Enum.InstructType[] { Enum.InstructType.Attack, Enum.InstructType.Idle, Enum.InstructType.Cancel });
+            OpenInstruct();
         }
 
         private void OnCancelSkill(object[] args)

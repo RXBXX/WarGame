@@ -73,7 +73,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoInspire(_initiatorID, _targets);
+                BattleMgr.Instance.DoInspire(_initiatorID, _targets);
                 //initiator.ClearRage();
                 //foreach (var v in _targets)
                 //{

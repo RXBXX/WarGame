@@ -69,7 +69,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoCure(_initiatorID, _targetID);
+                BattleMgr.Instance.DoCure(_initiatorID, _targetID);
                 //initiator.ClearRage();
 
                 //var target = RoleManager.Instance.GetRole(_targetID);

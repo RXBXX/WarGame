@@ -142,5 +142,10 @@ namespace WarGame
 
             CameraMgr.Instance.CloseGray();
         }
+
+        protected SkillConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
+        }
     }
 }

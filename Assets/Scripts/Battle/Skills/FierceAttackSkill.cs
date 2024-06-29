@@ -79,7 +79,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoAttack(_initiatorID, _targetID);
+                BattleMgr.Instance.DoAttack(_initiatorID, _targetID);
                 //var target = RoleManager.Instance.GetRole(_targetID);
                 //var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
                 //var rd = Random.Range(0, 1.0f);

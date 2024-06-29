@@ -317,5 +317,12 @@ namespace WarGame
             HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey).SetVisible(visible);
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1:0);   
         }
+
+        public override LevelRoleData Clone(string hexagon)
+        {
+            var data = base.Clone(hexagon);
+            data.state = Enum.RoleState.Locked;
+            return data;
+        }
     }
 }

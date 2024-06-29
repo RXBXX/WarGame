@@ -61,7 +61,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoStealth(_initiatorID);
+                BattleMgr.Instance.DoStealth(_initiatorID);
             }
         }
 

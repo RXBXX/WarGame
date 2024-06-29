@@ -74,7 +74,7 @@ namespace WarGame
                     }));
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index++]);
                     var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
-                    RoleManager.Instance.CreateHero(levelRoleData);
+                    RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     _levelData.heros.Add(levelRoleData);
                 }
 
@@ -103,13 +103,13 @@ namespace WarGame
                 foreach (var v in _levelData.heros)
                 {
                     if (v.HP > 0)
-                        RoleManager.Instance.CreateHero(v);
+                        RoleManager.Instance.CreateRole(Enum.RoleType.Hero, v);
                 }
 
                 foreach (var v in _levelData.enemys)
                 {
                     if (v.HP > 0)
-                        RoleManager.Instance.CreateEnemy(v);
+                        RoleManager.Instance.CreateRole(Enum.RoleType.Enemy, v);
                 }
             }
 
@@ -214,7 +214,7 @@ namespace WarGame
             }
 
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
-            AttributeMgr.Instance.InitReports();
+            BattleMgr.Instance.InitReports();
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
@@ -410,42 +410,12 @@ namespace WarGame
 
                 NextAction();
             });
-            //ClearDeadRole(NextAction);
-            //var roleID = RoleManager.Instance.ClearDeadRole();
-            //var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", roleID);
-            //if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
-            //{
-            //    EventMgr.Instance.TriggerEvent(enemyConfig.DefeatEvent, NextAction);
-            //}
-            //else
-            //{
-            //    NextAction();
-            //}
         }
 
         private void NextAction(params object[] args)
         {
-            //if (IsOver())
-            //    return;
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            //if (heros.Count <= 0)
-            //{
-            //    EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).FailedEvent, (args) =>
-            //    {
-            //        OnFailed();
-            //    });
-            //    return;
-            //}
-
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
-            //if (enemys.Count <= 0)
-            //{
-            //    EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
-            //    {
-            //        OnSuccess();
-            //    });
-            //    return;
-            //}
 
             if (_levelData.actionType == Enum.ActionType.HeroAction)
             {
@@ -497,8 +467,10 @@ namespace WarGame
                 {
                     MapManager.Instance.UpdateRound(_levelData.Round);
                     RoleManager.Instance.UpdateRound(_levelData.Round);
+
                     foreach (var v in RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero))
                         v.StartAction();
+
                     CoroutineMgr.Instance.StartCoroutine(OnUpdateRound()); 
                 };
 
@@ -574,15 +546,15 @@ namespace WarGame
             //DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
 
             OnSave();
-            var reportDic = AttributeMgr.Instance.GetReports();
-            AttributeMgr.Instance.ClearReports();
+            var reportDic = BattleMgr.Instance.GetReports();
+            BattleMgr.Instance.ClearReports();
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID,  reportDic});
         }
 
         private void OnFailed()
         {
-            var reportDic = AttributeMgr.Instance.GetReports();
-            AttributeMgr.Instance.ClearReports();
+            var reportDic = BattleMgr.Instance.GetReports();
+            BattleMgr.Instance.ClearReports();
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic});
         }
 

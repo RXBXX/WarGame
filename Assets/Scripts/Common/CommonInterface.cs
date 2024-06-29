@@ -53,6 +53,19 @@ namespace WarGame
     }
 
     [Serializable]
+    public struct TwoIntPair
+    {
+        public int id;
+        public int value;
+
+        public TwoIntPair(int id, int value)
+        {
+            this.id = id;
+            this.value = value;
+        }
+    }
+
+    [Serializable]
     public struct TwoStrPair
     {
         public string id;

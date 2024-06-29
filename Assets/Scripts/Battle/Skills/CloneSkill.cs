@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace WarGame
 {
     public class CloneSkill : Skill
     {
         protected List<MapObject> _arenaObjects = new List<MapObject>();
+        private Hexagon _targetHexagon;
+        private Vector3 _cloneTargetPos;
+        private int _lock = 0;
 
         public CloneSkill(int id, int initiatorID) : base(id, initiatorID)
         {
@@ -14,17 +18,19 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cure_End, OnCureEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Role_Create_Success, OnRoleCreate);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cure_End, OnCureEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Role_Create_Success, OnRoleCreate);
         }
 
         public override void Start()
         {
-            EnterGrayedMode();
+            Play();
         }
 
         public override void Dispose()
@@ -66,46 +72,71 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoCure(_initiatorID, _targetID);
-                //initiator.ClearRage();
-
-                //var target = RoleManager.Instance.GetRole(_targetID);
-
-                //var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
-                //target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
-                //target.AddBuffs(initiator.GetAttackBuffs());
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                _lock = 2;
+                _targetID = BattleMgr.Instance.DoClone(_initiatorID, _targetHexagon.ID);
             }
         }
 
         private IEnumerator PlayAttack()
         {
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var target = RoleManager.Instance.GetRole(_targetID);
+            var initiatorHexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
 
-            var initiatorForward = target.GetPosition() - initiator.GetPosition();
-            initiatorForward.y = 0;
-            initiator.SetForward(initiatorForward);
+            //找出距离英雄最近的空位置，为后续分身做准备，不是寻路，不必考虑最短距离
+            List<Vector3> openDic = new List<Vector3>();
+            List<Vector3> closeDic = new List<Vector3>();
+            openDic.Add(MapManager.Instance.GetHexagon(initiator.Hexagon).coor);
+            while (null == _targetHexagon)
+            {
+                var count = openDic.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    var parentHexagon = openDic[i];
+                    foreach (var v1 in MapManager.Instance.Dicections)
+                    {
+                        var hexCoor = parentHexagon + v1;
+
+                        if (openDic.Contains(hexCoor) || closeDic.Contains(hexCoor))
+                            continue;
+
+                        openDic.Add(hexCoor);
+
+                        var hexKey = MapTool.Instance.GetHexagonKey(parentHexagon + v1);
+                        if (RoleManager.Instance.GetRoleIDByHexagonID(hexKey) > 0)
+                            continue;
+
+                        var hexagon = MapManager.Instance.GetHexagon(hexKey);
+                        if (hexagon.IsReachable())
+                        {
+                            _targetHexagon = hexagon;
+                            break;
+                        }
+                    }
+                }
+
+                for (int i = count - 1; i >= 0; i--)
+                {
+                    closeDic.Add(openDic[i]);
+                    openDic.RemoveAt(i);
+                }
+            }
 
             if (!_skipBattleShow)
             {
-                yield return OpenBattleArena(initiator, target);
+                yield return OpenBattleArena(initiator, _targetHexagon);
             }
 
             //yield return new WaitForSeconds(1.0f);
             initiator.Cure();
         }
 
-        private void OnCuredEnd(object[] args)
+        private void OnCureEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targetID)
+            _lock--;
+            if (_lock > 0)
                 return;
-
-            var target = RoleManager.Instance.GetRole(targetID);
 
             if (null != _coroutine)
                 return;
@@ -114,7 +145,37 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        protected virtual IEnumerator OpenBattleArena(Role initiator, Role target)
+        private void OnRoleCreate(object[] args)
+        {
+            if ((int)args[0] != _targetID)
+                return;
+
+            var target = RoleManager.Instance.GetRole(_targetID);
+            if (!_skipBattleShow)
+            {
+                target.SetHPVisible(false);
+                target.ChangeToArenaSpace(_cloneTargetPos, 0);
+                _arenaObjects.Add(target);
+            }
+            //var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            //var targetTra = target.GameObject.transform;
+            //targetTra.position = initiator.GameObject.transform.position;
+            //targetTra.localScale = Vector3.zero;
+            //targetTra.DOMove( _cloneTargetPos, 0.5F);
+            //targetTra.DOScale(1, 0.5F);
+
+            _lock--;
+            if (_lock > 0)
+                return;
+
+            if (null != _coroutine)
+                return;
+
+            _coroutine = Over(1.5F);
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+        }
+
+        protected virtual IEnumerator OpenBattleArena(Role initiator, Hexagon targetHexagon)
         {
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
@@ -128,7 +189,7 @@ namespace WarGame
 
             var camForward = CameraMgr.Instance.GetMainCamForward();
             var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + camForward * 10;
-            var initiatorToTargetDis = Vector3.Distance(target.GetPosition(), initiator.GetPosition());
+            var initiatorToTargetDis = Vector3.Distance(targetHexagon.GetPosition(), initiator.GetPosition());
             var rightDir = CameraMgr.Instance.GetMainCamRight();
             var initiatorPos = arenaCenter - rightDir * initiatorToTargetDis / 2;
             var targetPos = arenaCenter + rightDir * initiatorToTargetDis / 2;
@@ -143,17 +204,14 @@ namespace WarGame
 
             yield return new WaitForSeconds(moveDuration);
 
-            hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
-            hexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
-            hexagon.ChangeToArenaSpace(arenaCenter + rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
-            _arenaObjects.Add(hexagon);
+            _cloneTargetPos = arenaCenter + rightDir * initiatorToTargetDis / 2;
+            targetHexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
+            targetHexagon.ChangeToArenaSpace(arenaCenter + rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
+            _arenaObjects.Add(targetHexagon);
 
-            target.SetForward(initiatorPos - targetPos);
-            target.ChangeToArenaSpace(targetPos, moveDuration);
-            _arenaObjects.Add(target);
             yield return new WaitForSeconds(moveDuration);
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, new List<int> { _targetID } });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }});
             yield return new WaitForSeconds(1);
         }
 
@@ -175,36 +233,6 @@ namespace WarGame
 
             CameraMgr.Instance.CloseBattleArena();
             UnlockCamera();
-        }
-
-        public override void ClickHero(int id)
-        {
-            if (!IsTarget(Enum.RoleType.Hero))
-                return;
-
-            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
-            if (null == hexagons)
-                return;
-
-            _targetID = id;
-            Play();
-        }
-
-        public override void ClickEnemy(int id)
-        {
-            if (!IsTarget(Enum.RoleType.Enemy))
-                return;
-
-            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
-            if (null == hexagons)
-                return;
-
-            _targetID = id;
-            Play();
         }
     }
 }

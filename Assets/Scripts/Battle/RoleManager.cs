@@ -41,10 +41,18 @@ namespace WarGame
             {
                 var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", roles[i].configId);
                 var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, enemyConfig.ID, roles[i].hexagonID);
-                CreateEnemy(levelRoleData);
+                CreateRole(Enum.RoleType.Enemy, levelRoleData);
                 enemys.Add(levelRoleData);
             }
             return enemys;
+        }
+
+        public Role CreateRole(Enum.RoleType type, LevelRoleData data)
+        {
+            var role = Factory.Instance.GetRole(type, data);
+            role.SetParent(GameObject.Find("RoleRoot").transform);
+            _roleList.Add(role);
+            return role;
         }
 
         public Role CreateHero(LevelRoleData data)
@@ -58,13 +66,15 @@ namespace WarGame
             return hero;
         }
 
-        public void CreateEnemy(LevelRoleData data)
+        public Role CreateEnemy(LevelRoleData data)
         {
             var enemy = new Enemy(data);
 
             enemy.SetParent(GameObject.Find("RoleRoot").transform);
 
             _roleList.Add(enemy);
+
+            return enemy;
         }
 
         public void RemoveRole(int id)

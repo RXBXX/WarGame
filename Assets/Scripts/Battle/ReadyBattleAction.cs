@@ -98,7 +98,7 @@ namespace WarGame
                     }
                     var levelRoleData = new LevelRoleData(roleData.UID, roleData.configId, roleData.level, _selectedHexagon, Enum.RoleState.Waiting, equipDataDic, roleData.talents);
                     levelRoleData.hexagonID = _selectedHexagon;
-                    newRole = RoleManager.Instance.CreateHero(levelRoleData);
+                    newRole = RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
 
                     _levelData.heros.Add(levelRoleData);
                 }

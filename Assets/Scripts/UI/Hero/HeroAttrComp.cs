@@ -29,9 +29,9 @@ namespace WarGame.UI
             ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
             {
                 var attrType = (Enum.AttrType)config.ID;
-                var starAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetStarAttribute(attrType));
-                var talentAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetTalentAttribute(attrType));
-                var equipAttr = AttributeMgr.Instance.GetAttributeStr(config.ID, role.GetEquipAttribute(attrType));
+                var starAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetStarAttribute(attrType));
+                var talentAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetTalentAttribute(attrType));
+                var equipAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetEquipAttribute(attrType));
                 _attrsData.Add(new FourStrPair(config.Name, starAttr, talentAttr, equipAttr));
             });
             _attrList.numItems = _attrsData.Count;

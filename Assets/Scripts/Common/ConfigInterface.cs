@@ -178,7 +178,6 @@ namespace WarGame
     public class BufferConfig : Config
     {
         public IntFloatPair Attr;
-        public Enum.BuffType Type;
         public Enum.BuffAttrEffectType EffectType;
         public int Duration;
         public string Name;

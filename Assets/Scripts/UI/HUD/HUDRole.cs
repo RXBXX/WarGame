@@ -8,7 +8,7 @@ namespace WarGame.UI
         private GProgressBar _hp;
         private GProgressBar _rage;
         private GList _buffList;
-        private List<IntFloatPair> _buffs;
+        private List<TwoIntPair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
         private float _hpChangeDuration = 1F;
         private Controller _stateC;
@@ -68,7 +68,7 @@ namespace WarGame.UI
             _rage.TweenValue(rage, _hpChangeDuration);
         }
 
-        public void UpdateBuffs(List<IntFloatPair> buffs)
+        public void UpdateBuffs(List<TwoIntPair> buffs)
         {
             _buffs = buffs;
             _buffList.numItems = buffs.Count;

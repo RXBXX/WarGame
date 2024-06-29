@@ -74,16 +74,16 @@ namespace WarGame
             Target = 4, //攻击目标
         }
 
-        //指令类型
-        public enum InstructType
-        {
-            None = 0,
-            Check = 1, //查看
-            Move = 2, //移动
-            Attack = 3, //攻击
-            Cancel = 4, //取消
-            Idle = 5, //待机
-        }
+        ////指令类型
+        //public enum InstructType
+        //{
+        //    None = 0,
+        //    Check = 1, //查看
+        //    Move = 2, //移动
+        //    Attack = 3, //攻击
+        //    Cancel = 4, //取消
+        //    Idle = 5, //待机
+        //}
 
         /// <summary>
         /// 角色行为状态
@@ -313,21 +313,20 @@ namespace WarGame
             Cloaking = 4, //隐身
         }
 
-        //Buff类型
-        [Serializable]
-        public enum BuffType
-        {
-            Attribute = 0, //属性类
-            Expression = 1, //表现类
-        }
-
-
         // 属性类buff效果类型
         [Serializable]
         public enum BuffAttrEffectType
         {
             Overlay = 0, //叠加
             Const = 1, //常量
+        }
+
+        //buff变化类型
+        public enum BuffUpdate
+        {
+            None = 0,
+            Add = 1,
+            Delete = 2,
         }
 
         public enum Event
@@ -379,6 +378,7 @@ namespace WarGame
             Fight_Show_RoleInfo = 46,
             Fight_Hide_RoleInfo = 47,
             Fight_Cure_End = 48,
+            Role_Create_Success = 49,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

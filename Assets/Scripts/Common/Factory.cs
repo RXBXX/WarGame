@@ -4,6 +4,18 @@ namespace WarGame
 {
     public class Factory : Singeton<Factory>
     {
+        public Role GetRole(Enum.RoleType type, LevelRoleData data)
+        {
+            switch (type)
+            {
+                case Enum.RoleType.Hero:
+                    return new Hero(data);
+                case Enum.RoleType.Enemy:
+                    return new Enemy(data);
+            }
+            return null;
+        }
+
         public Equip GetEquip(EquipmentData data, Transform spineRoot)
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", data.configId);

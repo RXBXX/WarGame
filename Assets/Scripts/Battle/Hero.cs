@@ -36,5 +36,12 @@ namespace WarGame
             DebugManager.Instance.Log("SetVisible:"+visible);
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0.3F);
         }
+
+        public override LevelRoleData Clone(string hexagon)
+        {
+            var data = base.Clone(hexagon);
+            data.state = Enum.RoleState.Waiting;
+            return data;
+        }
     }
 }

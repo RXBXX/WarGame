@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{3297F5B8-6720-CE85-1023-9826839C3E42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -64,8 +65,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearAnimation.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader3D.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearIcon.cs" />
-    <Compile Include="Assets\Scripts\Common\EventDispatcher.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\AttackAndRelocateSkill.cs" />
+    <Compile Include="Assets\Scripts\Common\EventDispatcher.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
@@ -266,7 +267,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrsInfo.cs" />
-    <Compile Include="Assets\Scripts\Battle\AttributeMgr.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleMgr.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapMark.cs" />
@@ -309,11 +310,12 @@
     <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
+    <Compile Include="Assets\Scripts\Battle\CloneHero.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GImage.cs" />
     <Compile Include="Assets\Scripts\UI\Common\CommonSkillItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Filter\FilterMain.cs" />
-    <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\Skill.cs" />
+    <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordItem.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
@@ -348,8 +350,8 @@
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\RotationGesture.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay2.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroLevelItem.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\SingleHealSkill.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroLevelItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NTexture.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\CriticalHitSkill.cs" />
     <Compile Include="Assets\Scripts\Common\CameraMgr.cs" />

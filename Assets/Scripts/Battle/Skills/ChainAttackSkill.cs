@@ -126,7 +126,7 @@ namespace WarGame
                 {
                     if (v != _targetID)
                     {
-                        AttributeMgr.Instance.DoAttack(_initiatorID, v);
+                        BattleMgr.Instance.DoAttack(_initiatorID, v);
                         //RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, _initiatorID);
                     }
                 }
@@ -182,7 +182,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(_initiatorID);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                AttributeMgr.Instance.DoAttack(_initiatorID, _targetID);
+                BattleMgr.Instance.DoAttack(_initiatorID, _targetID);
                 //var target = RoleManager.Instance.GetRole(_targetID);
                 //var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
                 //var rd = Random.Range(0, 1.0f);
