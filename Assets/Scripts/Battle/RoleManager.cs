@@ -17,13 +17,13 @@ namespace WarGame
             }
         }
 
-        public void UpdateRound(int round)
-        {
-            for (int i = 0; i < _roleList.Count; i++)
-            {
-                _roleList[i].UpdateRound();
-            }
-        }
+        //public void UpdateRound(int round)
+        //{
+        //    for (int i = 0; i < _roleList.Count; i++)
+        //    {
+        //        _roleList[i].UpdateRound();
+        //    }
+        //}
 
         public override bool Dispose()
         {

@@ -233,9 +233,12 @@ namespace WarGame
             base.Move(hexagons);
         }
 
-        public override void UpdateRound()
+        public override void UpdateRound(Enum.RoleType type)
         {
-            base.UpdateRound();
+            base.UpdateRound(type);
+            if (type != Type)
+                return;
+            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
             SetState(Enum.RoleState.Locked);
             _attackers.Clear();
         }
@@ -323,6 +326,17 @@ namespace WarGame
             var data = base.Clone(hexagon);
             data.state = Enum.RoleState.Locked;
             return data;
+        }
+
+        public override bool CanAction()
+        {
+            if (GetState() != Enum.RoleState.Locked)
+                return false;
+
+            //foreach (var v in _data.buffs)
+            //    DebugManager.Instance.Log(v.id);
+
+            return base.CanAction();
         }
     }
 }

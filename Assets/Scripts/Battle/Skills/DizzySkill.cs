@@ -14,12 +14,12 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         public override void Start()
@@ -66,18 +66,9 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoCure(_initiatorID, _targetID);
-                //initiator.ClearRage();
-
-                //var target = RoleManager.Instance.GetRole(_targetID);
-
-                //var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
-                //target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
-                //target.AddBuffs(initiator.GetAttackBuffs());
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                BattleMgr.Instance.DoDizzy(_initiatorID, _targetID);
             }
         }
 
@@ -99,13 +90,11 @@ namespace WarGame
             initiator.Cure();
         }
 
-        private void OnCuredEnd(object[] args)
+        private void OnCureEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targetID)
+            var initiatorID = (int)args[0];
+            if (initiatorID != _initiatorID)
                 return;
-
-            var target = RoleManager.Instance.GetRole(targetID);
 
             if (null != _coroutine)
                 return;
@@ -181,7 +170,6 @@ namespace WarGame
         {
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
@@ -196,13 +184,11 @@ namespace WarGame
         {
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-
             _targetID = id;
             Play();
         }

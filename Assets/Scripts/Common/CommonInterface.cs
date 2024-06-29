@@ -66,6 +66,21 @@ namespace WarGame
     }
 
     [Serializable]
+    public struct BuffPair
+    {
+        public int id;
+        public int value;
+        public Enum.RoleType initiatorType;
+
+        public BuffPair(int id, int value, Enum.RoleType initiatorType)
+        {
+            this.id = id;
+            this.value = value;
+            this.initiatorType = initiatorType;
+        }
+    }
+
+    [Serializable]
     public struct TwoStrPair
     {
         public string id;

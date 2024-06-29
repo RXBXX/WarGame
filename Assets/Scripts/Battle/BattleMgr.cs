@@ -208,7 +208,7 @@ namespace WarGame
 
                 var hurt = physicalHurt + magicHurt;
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
-                target.AddBuffs(initiator.GetAttackBuffs());
+                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
             }
         }
@@ -228,7 +228,7 @@ namespace WarGame
             var cure = GetCurePower(initiatorID, targetID);
             AddReport(initiatorID, Enum.AttrType.Cure, cure);
             target.Cured(cure);
-            target.AddBuffs(initiator.GetAttackBuffs());
+            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
         }
 
         /// <summary>
@@ -255,7 +255,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
-            initiator.Stealth();
+            initiator.Stealth(initiator.Type);
         }
 
         /// <summary>
@@ -291,7 +291,7 @@ namespace WarGame
                 var hurt = physicalHurt + magicHurt;
                 hurt *= Random.Range(1, multiply);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
-                target.AddBuffs(initiator.GetAttackBuffs());
+                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
             }
         }
@@ -306,6 +306,21 @@ namespace WarGame
             var data = initiator.Clone(hexagon);
             RoleManager.Instance.CreateRole(initiator.Type, data);
             return data.UID;
+        }
+
+        /// <summary>
+        /// тняё
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoDizzy(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            initiator.ClearRage();
+
+            target.Dizzy(initiator.Type);
         }
 
         public void InitReports()

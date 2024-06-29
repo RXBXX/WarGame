@@ -262,7 +262,7 @@ namespace WarGame
         public float Rage;
         public string hexagonID;
         public string bornHexagonID;
-        public List<TwoIntPair> buffs = new List<TwoIntPair>();
+        public List<BuffPair> buffs = new List<BuffPair>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
         public int cloneRole;
@@ -306,47 +306,47 @@ namespace WarGame
         }
 
         //Ìí¼Óbuff
-        public void AddBuffs(List<int> buffs)
+        public void AddBuffs(List<int> buffs, Enum.RoleType type)
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i]);
-                this.buffs.Add(new TwoIntPair(buffs[i], buffConfig.Duration));
+                this.buffs.Add(new BuffPair(buffs[i], buffConfig.Duration, type));
             }
         }
 
-        public void UpdateBuffs(WGArgsCallback callback)
+        public void UpdateBuffs(Enum.RoleType type, WGArgsCallback callback)
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
-                bool dirty = buffs[i].value <= 0;
+                DebugManager.Instance.Log(buffs[i].id+" "+ buffs[i].initiatorType +" "+ type);
+                if (buffs[i].initiatorType != type)
+                    continue;
+
                 var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
                 var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                var attrUpdateValue = 0.0f;
-                if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
+                if (buffs[i].value <= 0)
                 {
-                    attrUpdateValue = buffConfig.Attr.value;
-                    UpdateAttr(attrType, attrUpdateValue);
-                }
-
-                var buffUpdateType = Enum.BuffUpdate.None;
-                if (dirty)
-                {
-                    buffUpdateType = Enum.BuffUpdate.Delete;
-                }
-                else if (buffs[i].value >= buffConfig.Duration)
-                {
-                    buffUpdateType = Enum.BuffUpdate.Add;
-                }
-                callback(new object[] { buffs[i].id, buffUpdateType, attrType, attrUpdateValue });
-
-                if (dirty)
-                {
+                    callback(new object[] { buffs[i].id, Enum.BuffUpdate.Delete, attrType, 0.0F });
                     buffs.RemoveAt(i);
                 }
                 else
                 {
-                    buffs[i] = new TwoIntPair(buffs[i].id, buffs[i].value - 1);
+                    var attrUpdateValue = 0.0f;
+                    if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
+                    {
+                        attrUpdateValue = buffConfig.Attr.value;
+                        UpdateAttr(attrType, attrUpdateValue);
+                    }
+
+                    var buffUpdateType = Enum.BuffUpdate.None;
+                    if (buffs[i].value >= buffConfig.Duration)
+                    {
+                        buffUpdateType = Enum.BuffUpdate.Add;
+                    }
+                    callback(new object[] { buffs[i].id, buffUpdateType, attrType, attrUpdateValue });
+
+                    buffs[i] = new BuffPair(buffs[i].id, buffs[i].value - 1, buffs[i].initiatorType);
                 }
             }
         }
@@ -386,7 +386,7 @@ namespace WarGame
             clone.Rage = Rage;
             clone.state = state;
 
-            var cloneBuffs = new List<TwoIntPair>();
+            var cloneBuffs = new List<BuffPair>();
             foreach (var v in buffs)
                 cloneBuffs.Add(v);
             clone.buffs = cloneBuffs;

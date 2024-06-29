@@ -422,7 +422,7 @@ namespace WarGame
                 //检测所有英雄是否行动结束
                 for (int i = heros.Count - 1; i >= 0; i--)
                 {
-                    if (heros[i].GetState() != Enum.RoleState.Over)
+                    if (heros[i].CanAction())
                     {
                         _action = new HeroBattleAction(GetActionID());
                         return;
@@ -431,18 +431,30 @@ namespace WarGame
 
                 BattleRoundFunc callback = () =>
                 {
+                    foreach (var v in enemys)
+                    {
+                        v.UpdateRound(Enum.RoleType.Enemy);
+                    }
+                    foreach (var v in heros)
+                    {
+                        v.UpdateRound(Enum.RoleType.Enemy);
+                    }
+
                     //查找到下一个应该行动的敌人
                     for (int i = enemys.Count - 1; i >= 0; i--)
                     {
-                        if (enemys[i].GetState() == Enum.RoleState.Locked)
+                        //if (enemys[i].GetState() == Enum.RoleState.Locked)
+                        if (enemys[i].CanAction())
                         {
                             _action = new EnemyBattleAction(GetActionID());
                             enemys[i].SetState(Enum.RoleState.Waiting);
-                            enemys[i].StartAction();
                             break;
                         }
                     }
                     _levelData.actionType = Enum.ActionType.EnemyAction;
+
+                    if (null == _action)
+                        NextAction();
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
@@ -453,11 +465,11 @@ namespace WarGame
                 //查找到下一个应该行动的敌人
                 for (int i = enemys.Count - 1; i >= 0; i--)
                 {
-                    if (enemys[i].GetState() == Enum.RoleState.Locked)
+                    //if (enemys[i].GetState() == Enum.RoleState.Locked)
+                    if (enemys[i].CanAction())
                     {
                         _action = new EnemyBattleAction(GetActionID());
                         enemys[i].SetState(Enum.RoleState.Waiting);
-                        enemys[i].StartAction();
                         return;
                     }
                 }
@@ -466,12 +478,17 @@ namespace WarGame
                 BattleRoundFunc callback = () =>
                 {
                     MapManager.Instance.UpdateRound(_levelData.Round);
-                    RoleManager.Instance.UpdateRound(_levelData.Round);
 
-                    foreach (var v in RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero))
-                        v.StartAction();
+                    foreach (var v in enemys)
+                    {
+                        v.UpdateRound(Enum.RoleType.Hero);
+                    }
+                    foreach (var v in heros)
+                    {
+                        v.UpdateRound(Enum.RoleType.Hero);
+                    }
 
-                    CoroutineMgr.Instance.StartCoroutine(OnUpdateRound()); 
+                    CoroutineMgr.Instance.StartCoroutine(OnUpdateRound());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
@@ -548,14 +565,14 @@ namespace WarGame
             OnSave();
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID,  reportDic});
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID, reportDic });
         }
 
         private void OnFailed()
         {
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic});
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic });
         }
 
         //回合结束，清理死亡的角色
@@ -644,7 +661,18 @@ namespace WarGame
                     return;
 
                 _levelData.actionType = Enum.ActionType.HeroAction;
-                _action = new HeroBattleAction(GetActionID());
+
+                var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+                foreach (var v in heros)
+                {
+                    if (v.CanAction())
+                    {
+                        _action = new HeroBattleAction(GetActionID());
+                        break;
+                    }
+                }
+                if (null == _action)
+                    NextAction();
             });
         }
     }

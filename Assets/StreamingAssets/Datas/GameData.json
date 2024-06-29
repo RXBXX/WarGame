@@ -5,8 +5,8 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1719631295972,
-      "saveTime": 1719643125673,
-      "duration": 753491,
+      "saveTime": 1719661172628,
+      "duration": 1119638,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -31,18 +31,18 @@
         "10001": {
           "configId": 10001,
           "Stage": 3,
-          "Round": 0,
+          "Round": 4,
           "actionType": 0,
           "heros": [
             {
-              "HP": 100.0,
-              "Rage": 0.0,
-              "hexagonID": "2_0_4",
+              "HP": 46.4,
+              "Rage": 20.0,
+              "hexagonID": "6_0_5",
               "bornHexagonID": "2_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
-              "cloneRole": 100011,
+              "state": 1,
+              "cloneRole": 0,
               "UID": 10001,
               "configId": 10001,
               "level": 1,
@@ -52,7 +52,7 @@
             },
             {
               "HP": 100.0,
-              "Rage": 0.0,
+              "Rage": 80.0,
               "hexagonID": "3_0_1",
               "bornHexagonID": "3_0_1",
               "buffs": [],
@@ -71,7 +71,7 @@
             {
               "HP": 60.0,
               "Rage": 0.0,
-              "hexagonID": "5_0_7",
+              "hexagonID": "5_0_6",
               "bornHexagonID": "5_0_7",
               "buffs": [],
               "equipDataDic": {

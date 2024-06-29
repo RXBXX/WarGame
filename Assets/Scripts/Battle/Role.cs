@@ -552,21 +552,21 @@ namespace WarGame
 
 
         //添加buff
-        public void AddBuffs(List<int> buffs)
+        public void AddBuffs(List<int> buffs, Enum.RoleType type)
         {
-            _data.AddBuffs(buffs);
+            _data.AddBuffs(buffs, type);
 
             foreach (var v in buffs)
             {
                 AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
             }
 
-            UpdateBuffs();
+            UpdateBuffs(type);
         }
 
-        protected virtual void UpdateBuffs()
+        protected virtual void UpdateBuffs(Enum.RoleType type)
         {
-            _data.UpdateBuffs(OnUpdateBuff);
+            _data.UpdateBuffs(type, OnUpdateBuff);
         }
 
         /// <summary>
@@ -589,7 +589,8 @@ namespace WarGame
                 switch ((Enum.Buff)args[0])
                 {
                     case Enum.Buff.Cloaking:
-                        SetVisible(buffUpdate == Enum.BuffUpdate.Add);
+                        DebugManager.Instance.Log(buffUpdate);
+                        SetVisible(buffUpdate != Enum.BuffUpdate.Add);
                         break;
                 }
             }
@@ -620,9 +621,9 @@ namespace WarGame
             return buffs;
         }
 
-        public virtual void UpdateRound()
+        public virtual void UpdateRound(Enum.RoleType type)
         {
-
+            UpdateBuffs(type);
         }
 
         public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
@@ -847,9 +848,9 @@ namespace WarGame
         }
 
         //潜行（隐身）
-        public void Stealth()
+        public void Stealth(Enum.RoleType type)
         {
-            AddBuffs(new List<int> { (int)Enum.Buff.Cloaking });
+            AddBuffs(new List<int> { (int)Enum.Buff.Cloaking }, type);
         }
 
         //是否可见
@@ -861,13 +862,6 @@ namespace WarGame
                     return false;
             }
             return true;
-        }
-
-        //开始回合
-        public virtual void StartAction()
-        {
-            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
-            UpdateBuffs();
         }
 
         protected virtual void SetVisible(bool visible)
@@ -888,6 +882,23 @@ namespace WarGame
             _data.cloneRole = data.UID;
 
             return data;
+        }
+
+        //晕眩
+        public void Dizzy(Enum.RoleType type)
+        {
+            AddBuffs(new List<int> { (int)Enum.Buff.Dizzy }, type);
+        }
+
+        public virtual bool CanAction()
+        {
+            foreach (var v in _data.buffs)
+            {
+                if ((Enum.Buff)v.id == Enum.Buff.Dizzy)
+                    return false;
+            }
+
+            return true;
         }
 
         public override bool Dispose()

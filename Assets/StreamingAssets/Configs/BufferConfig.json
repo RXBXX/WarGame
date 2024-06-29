@@ -45,6 +45,18 @@
         "Duration": 1,
         "Name": "隐身",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
+        "Desc": "当前回合隐身"
+    },
+    {
+        "ID": 5,
+        "EffectType": 0,
+        "Attr": {
+            "id": 0,
+            "value": 0
+        },
+        "Duration": 1,
+        "Name": "晕眩",
+        "Icon": "ui://Common/Buff_Blood",
+        "Desc": "使敌人当前回合晕眩，无法行动"
     }
 ]

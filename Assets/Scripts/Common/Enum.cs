@@ -169,6 +169,7 @@ namespace WarGame
         [Serializable]
         public enum AttrType
         {
+            None = 0,
             HP = 1,
             Rage = 2,
             PhysicalAttack = 3, //攻击
@@ -311,6 +312,7 @@ namespace WarGame
         public enum Buff
         {
             Cloaking = 4, //隐身
+            Dizzy = 5, //晕眩
         }
 
         // 属性类buff效果类型

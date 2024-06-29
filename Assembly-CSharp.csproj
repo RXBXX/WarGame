@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{3297F5B8-6720-CE85-1023-9826839C3E42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -217,6 +216,7 @@
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
     <Compile Include="Assets\Test\DrawMesh.cs" />
     <Compile Include="Assets\Resources\UI\Map\UI_MapPanel.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
@@ -267,7 +267,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrsInfo.cs" />
-    <Compile Include="Assets\Scripts\Battle\BattleMgr.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapMark.cs" />
