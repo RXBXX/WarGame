@@ -323,6 +323,20 @@ namespace WarGame
             target.Dizzy(initiator.Type);
         }
 
+        /// <summary>
+        /// ¶îÍâÒ»»÷
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoExtraTurn(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            initiator.ClearRage();
+            target.ResetState();
+        }
+
         public void InitReports()
         {
             _reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();

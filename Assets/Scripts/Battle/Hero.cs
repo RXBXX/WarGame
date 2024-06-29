@@ -25,13 +25,18 @@ namespace WarGame
             //hud.Init(GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage));
         }
 
+        public override void ResetState()
+        {
+            SetState(Enum.RoleState.Waiting);
+        }
+
         public override void UpdateRound(Enum.RoleType type)
         {
             base.UpdateRound(type);
             if (type != Type)
                 return;
             UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
-            SetState(Enum.RoleState.Waiting);
+            ResetState();
         }
 
         protected override void SetVisible(bool visible)

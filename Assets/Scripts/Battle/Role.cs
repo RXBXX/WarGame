@@ -377,6 +377,10 @@ namespace WarGame
             return _data.state;
         }
 
+        public virtual void ResetState()
+        { 
+        }
+
         public void SetState(Enum.RoleState state, bool ingoreStateChange = false)
         {
             if (state == _data.state)

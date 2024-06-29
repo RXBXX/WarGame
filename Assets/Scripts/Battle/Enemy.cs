@@ -233,13 +233,18 @@ namespace WarGame
             base.Move(hexagons);
         }
 
+        public override void ResetState()
+        {
+            SetState(Enum.RoleState.Locked);
+        }
+
         public override void UpdateRound(Enum.RoleType type)
         {
             base.UpdateRound(type);
             if (type != Type)
                 return;
             UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
-            SetState(Enum.RoleState.Locked);
+            ResetState();
             _attackers.Clear();
         }
 
