@@ -19,6 +19,8 @@ Shader "Custom/ToonShader"
 	}
 		SubShader
 		{
+			Tags{"Queue" = "Transparent"}
+
 			pass {//ƽ�й�ĵ�pass��Ⱦ
 				Tags{"LightMode" = "ForwardBase" "Queue" = "Transparent" "RenderType" = "Transparent"}
 				Blend SrcAlpha OneMinusSrcAlpha
