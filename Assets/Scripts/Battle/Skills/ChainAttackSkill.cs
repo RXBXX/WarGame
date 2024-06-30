@@ -4,15 +4,43 @@ using System.Collections.Generic;
 
 namespace WarGame
 {
-    public class ChainAttackSkill : FierceAttackSkill
+    public class ChainAttackSkill : SingleSkill
     {
         private int _chainMatID;
         private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
-        private List<int> _targets = new List<int>();
 
         public ChainAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {
 
+        }
+
+        protected override void AddListeners()
+        {
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
+        }
+
+        protected override void RemoveListeners()
+        {
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
+        }
+
+        protected override void TriggerSkill()
+        {
+            base.TriggerSkill();
+            RoleManager.Instance.GetRole(_initiatorID).Attack(RoleManager.Instance.GetRole(_targets[0]).GetEffectPos());
+        }
+
+        public override void HandleFightEvents(int sender, string stateName, string secondStateName)
+        {
+            if (sender != _initiatorID)
+                return;
+
+            if ("Attack" == stateName && "Take" == secondStateName)
+            {
+                BattleMgr.Instance.DoChainAttack(_initiatorID, _targets[0]);
+            }
         }
 
         public override void Update(float deltaTime)
@@ -26,13 +54,36 @@ namespace WarGame
         public override void Dispose()
         {
             AssetsMgr.Instance.ReleaseAsset(_chainMatID);
-
             ClearChains();
-
             base.Dispose();
         }
 
-        protected override IEnumerator OpenBattleArena(Role initiator, Role target)
+        protected override void Prepare()
+        {
+            base.Prepare();
+
+            Role target = RoleManager.Instance.GetRole(_targets[0]);
+            var hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
+            var directions = MapManager.Instance.Dicections;
+            for (int i = 0; i < directions.Length; i++)
+            {
+                var hexagonKey = MapTool.Instance.GetHexagonKey(hexagon.coor + directions[i]);
+                if (!MapManager.Instance.ContainHexagon(hexagonKey))
+                    continue;
+
+                var neighbouringRoleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonKey);
+                if (0 == neighbouringRoleID)
+                    continue;
+
+                var neighbouringRole = RoleManager.Instance.GetRole(neighbouringRoleID);
+                if (!IsTarget(neighbouringRole.Type))
+                    continue;
+
+                _targets.Add(neighbouringRoleID);
+            }
+        }
+
+        protected override IEnumerator OpenBattleArena()
         {
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
@@ -42,12 +93,19 @@ namespace WarGame
             LockCamera();
             CameraMgr.Instance.OpenBattleArena();
 
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 10;
-            var pathCenter = (target.GetPosition() + initiator.GetPosition()) / 2.0F;
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
+            var pathCenter = initiator.GetPosition();
+            foreach (var v in _targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                pathCenter += target.GetPosition();
+            }
+            pathCenter /= _targets.Count + 1;
+
             var deltaVec = arenaCenter - pathCenter;
 
             var moveDuration = 0.2F;
-
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
             hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
             _arenaObjects.Add(hexagon);
@@ -55,39 +113,16 @@ namespace WarGame
             initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
             _arenaObjects.Add(initiator);
 
-            yield return new WaitForSeconds(moveDuration);
-
-            hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
-            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
-            _arenaObjects.Add(hexagon);
-
-            target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
-            _arenaObjects.Add(target);
-
-            _targets.Add(_targetID);
-
-            var directions = MapManager.Instance.Dicections;
-            for (int i = 0; i < directions.Length; i++)
+            foreach (var v in _targets)
             {
-                var hexagonKey = MapTool.Instance.GetHexagonKey(hexagon.coor + directions[i]);
-                if (MapManager.Instance.ContainHexagon(hexagonKey))
-                {
-                    var neighbouringRoleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonKey);
-                    if (0 != neighbouringRoleID)
-                    {
-                        var neighbouringRole = RoleManager.Instance.GetRole(neighbouringRoleID);
-                        if (IsTarget(neighbouringRole.Type))
-                        {
-                            neighbouringRole.ChangeToArenaSpace(neighbouringRole.GetPosition() + deltaVec, moveDuration);
-                            _arenaObjects.Add(neighbouringRole);
-                            _targets.Add(neighbouringRoleID);
+                yield return new WaitForSeconds(moveDuration);
+                var target = RoleManager.Instance.GetRole(v);
+                hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
+                hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(hexagon);
 
-                            var neighbouringHexagon = MapManager.Instance.GetHexagon(hexagonKey);
-                            neighbouringHexagon.ChangeToArenaSpace(neighbouringHexagon.GetPosition() + deltaVec, moveDuration);
-                            _arenaObjects.Add(neighbouringHexagon);
-                        }
-                    }
-                }
+                target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(target);
             }
 
             yield return new WaitForSeconds(moveDuration);
@@ -96,8 +131,11 @@ namespace WarGame
             {
                 foreach (var v in _targets)
                 {
-                    if (v != _targetID)
+                    if (v != _targets[0])
+                    {
+                        var target = RoleManager.Instance.GetRole(_targets[0]);
                         _chainsDic.Add(v, new Chain(target.GetEffectPoint(), RoleManager.Instance.GetRole(v).GetEffectPoint(), mat));
+                    }
                 }
             });
 
@@ -111,22 +149,19 @@ namespace WarGame
             base.CloseBattleArena();
         }
 
-        protected override void OnAttackedEnd(object[] args)
+        private void OnAttackedEnd(object[] args)
         {
             var targetID = (int)args[0];
             if (!_targets.Contains(targetID))
                 return;
 
-            if (targetID == _targetID)
+            if (targetID == _targets[0])
             {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                //var hitEffect = initiator.GetAttackEffect();
                 foreach (var v in _targets)
                 {
-                    if (v != _targetID)
+                    if (v != _targets[0])
                     {
                         BattleMgr.Instance.DoAttack(_initiatorID, v);
-                        //RoleManager.Instance.GetRole(v).Hit(_hurt * 0.5F, hitEffect, _initiatorID);
                     }
                 }
             }
@@ -146,7 +181,7 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        protected override void OnDeadEnd(object[] args)
+        private void OnDeadEnd(object[] args)
         {
             var targetID = (int)args[0];
             if (!_targets.Contains(targetID))
@@ -170,33 +205,6 @@ namespace WarGame
                 v.Value.Dispose();
             }
             _chainsDic.Clear();
-        }
-
-
-        public override void HandleFightEvents(int sender, string stateName, string secondStateName)
-        {
-            if (sender != _initiatorID)
-                return;
-
-            //var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            if ("Attack" == stateName && "Take" == secondStateName)
-            {
-                BattleMgr.Instance.DoAttack(_initiatorID, _targetID);
-                //var target = RoleManager.Instance.GetRole(_targetID);
-                //var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
-                //var rd = Random.Range(0, 1.0f);
-                //if (rd < dodgeRatio)
-                //{
-                //    target.Dodge();
-                //}
-                //else
-                //{
-                //    _hurt = AttributeMgr.Instance.GetAttackPower(_initiatorID, _targetID);
-                //    target.Hit(_hurt, initiator.GetAttackEffect(), _initiatorID);
-                //    target.AddBuffs(initiator.GetAttackBuffs());
-                //    CameraMgr.Instance.ShakePosition();
-                //}
-            }
         }
     }
 }

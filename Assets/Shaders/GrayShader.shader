@@ -85,11 +85,7 @@ Shader "Custom/GrayShader"
 					if (exclusionDepthValue < 1&& exclusionDepthValue-0.0001F <= depth)
 					{
 						fixed4 exCol = tex2D(_ExclusionMap, i.uv);
-						//当像素为黑色，剔除，这里是为了处理应用了叠加模式的特效，如果特效贴图有黑色部分，这里不处理的话，特效就会遮挡背景
-						//这是应该使用叠加算法，目前先暂时简单处理
-						if (exCol.g <= 0 && exCol.b <= 0 && exCol.r <= 0)
-							exCol.a = 0;
-						return fixed4(exCol.rgb * exCol.a + grayCol.rgb * (1 - exCol.a), 1);
+						return exCol + grayCol;
 					}
 					else
 					{

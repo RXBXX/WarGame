@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class ExtraTurnSkill : Skill
+    public class ExtraTurnSkill : SingleSkill
     {
         public ExtraTurnSkill(int id, int initiatorID) : base(id, initiatorID)
         {
@@ -12,51 +12,17 @@ namespace WarGame
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cure_End, OnCureEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cure_End, OnCureEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
         }
 
-        public override void Start()
+        protected override void TriggerSkill()
         {
-            EnterGrayedMode();
-        }
-
-        public override void Dispose()
-        {
-            ExitGrayedMode();
-            base.Dispose();
-        }
-
-        public override void Play()
-        {
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
-
-            ExitGrayedMode();
-
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            initiator.SetState(Enum.RoleState.Attacking);
-
-            CoroutineMgr.Instance.StartCoroutine(PlayAttack());
-        }
-
-        protected override IEnumerator Over(float waitingTime = 0, bool isKill = false)
-        {
-            yield return new WaitForSeconds(waitingTime);
-            if (0 != _targetID && !_skipBattleShow)
-            {
-                CloseBattleArena();
-            }
-
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            _initiatorID = 0;
-            _targetID = 0;
-            initiator.SetState(Enum.RoleState.Over);
-
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
+            RoleManager.Instance.GetRole(_initiatorID).Cure();
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -64,42 +30,16 @@ namespace WarGame
             if (sender != _initiatorID)
                 return;
 
-            //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoExtraTurn(_initiatorID, _targetID);
-                //initiator.ClearRage();
-
-                //var target = RoleManager.Instance.GetRole(_targetID);
-
-                //var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
-                //target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
-                //target.AddBuffs(initiator.GetAttackBuffs());
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                BattleMgr.Instance.DoExtraTurn(_initiatorID, _targets[0]);
             }
         }
 
-        private IEnumerator PlayAttack()
+        private void OnCuredEnd(object[] args)
         {
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var target = RoleManager.Instance.GetRole(_targetID);
-
-            var initiatorForward = target.GetPosition() - initiator.GetPosition();
-            initiatorForward.y = 0;
-            initiator.SetForward(initiatorForward);
-
-            if (!_skipBattleShow)
-            {
-                yield return OpenBattleArena(initiator, target);
-            }
-
-            initiator.Cure();
-        }
-
-        private void OnCureEnd(object[] args)
-        {
-            var initiatorID = (int)args[0];
-            if (initiatorID != _initiatorID)
+            var sender = (int)args[0];
+            if (sender != _targets[0])
                 return;
 
             if (null != _coroutine)
@@ -107,133 +47,6 @@ namespace WarGame
 
             _coroutine = Over(1.5F);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
-        }
-
-        protected virtual IEnumerator OpenBattleArena(Role initiator, Role target)
-        {
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].SetHPVisible(false);
-            }
-
-            LockCamera();
-            CameraMgr.Instance.OpenBattleArena();
-            var moveDuration = 0.2F;
-
-            var camForward = CameraMgr.Instance.GetMainCamForward();
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + camForward * 10;
-            var initiatorToTargetDis = Vector3.Distance(target.GetPosition(), initiator.GetPosition());
-            var rightDir = CameraMgr.Instance.GetMainCamRight();
-            var initiatorPos = arenaCenter - rightDir * initiatorToTargetDis / 2;
-            var targetPos = arenaCenter + rightDir * initiatorToTargetDis / 2;
-            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
-            hexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
-            hexagon.ChangeToArenaSpace(arenaCenter - rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
-            _arenaObjects.Add(hexagon);
-
-            initiator.SetForward(targetPos - initiatorPos);
-            initiator.ChangeToArenaSpace(initiatorPos, moveDuration);
-            _arenaObjects.Add(initiator);
-
-            yield return new WaitForSeconds(moveDuration);
-
-            hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
-            hexagon.SetForward(camForward - new Vector3(0, camForward.y, 0));
-            hexagon.ChangeToArenaSpace(arenaCenter + rightDir * initiatorToTargetDis / 2 - CommonParams.Offset, moveDuration);
-            _arenaObjects.Add(hexagon);
-
-            target.SetForward(initiatorPos - targetPos);
-            target.ChangeToArenaSpace(targetPos, moveDuration);
-            _arenaObjects.Add(target);
-            yield return new WaitForSeconds(moveDuration);
-
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, new List<int> { _targetID } });
-            yield return new WaitForSeconds(1);
-        }
-
-        protected virtual void CloseBattleArena()
-        {
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Close_HP);
-
-            foreach (var v in _arenaObjects)
-            {
-                v.ChangeToMapSpace();
-            }
-            _arenaObjects.Clear();
-
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].SetHPVisible(true);
-            }
-
-            CameraMgr.Instance.CloseBattleArena();
-            UnlockCamera();
-        }
-
-        public override void ClickHero(int id)
-        {
-            if (!IsTarget(Enum.RoleType.Hero))
-                return;
-
-            var hero = RoleManager.Instance.GetRole(id);
-            if (hero.GetState() != Enum.RoleState.Over)
-                return;
-
-            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
-            if (null == hexagons)
-                return;
-
-            _targetID = id;
-            Play();
-        }
-
-        public override void ClickEnemy(int id)
-        {
-            if (!IsTarget(Enum.RoleType.Enemy))
-                return;
-
-            var enmey = RoleManager.Instance.GetRole(id);
-            if (enmey.GetState() != Enum.RoleState.Over)
-                return;
-
-            var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
-            if (null == hexagons)
-                return;
-
-            _targetID = id;
-            Play();
-        }
-
-        protected override void EnterGrayedMode()
-        {
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var regionDic = MapManager.Instance.FindingAttackRegion(new List<string> { hexagonID }, initiator.GetAttackDis());
-
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon) && roles[i].GetState() == Enum.RoleState.Over)
-                {
-                    roles[i].SetLayer(Enum.Layer.Gray);
-                }
-                else
-                {
-                    roles[i].SetColliderEnable(false);
-                }
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(false);
-            }
-            initiator.SetState(Enum.RoleState.WatingTarget);
-
-            CameraMgr.Instance.OpenGray();
         }
     }
 }

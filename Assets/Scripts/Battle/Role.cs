@@ -382,6 +382,7 @@ namespace WarGame
 
         public virtual void ResetState()
         {
+            ResetState();
         }
 
         public void SetState(Enum.RoleState state, bool ingoreStateChange = false)
@@ -893,6 +894,25 @@ namespace WarGame
             _data.cloneRole = data.UID;
 
             return data;
+        }
+
+        public void ExtraTurn()
+        { 
+            EnterState("Cured");
+
+            ResetState();
+        }
+
+        public void ReduceRage(float ratio)
+        {
+            UpdateAttr(Enum.AttrType.Rage, -GetRage() * ratio);
+        }
+
+        public void AddShield(List<int> buffs, Enum.RoleType type)
+        {
+            EnterState("Cured");
+
+            AddBuffs(buffs, type);
         }
 
         public virtual bool CanAction()

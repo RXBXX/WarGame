@@ -4,13 +4,44 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class AttackAndRelocateSkill : FierceAttackSkill
+    public class AttackAndRelocateSkill : SingleSkill
     {
         private int _stage = 0;
 
         public AttackAndRelocateSkill(int id, int initiatorID) : base(id, initiatorID)
         {
 
+        }
+
+        protected override void AddListeners()
+        {
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
+        }
+
+        protected override void RemoveListeners()
+        {
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
+        }
+
+        protected override void TriggerSkill()
+        {
+            base.TriggerSkill();
+            RoleManager.Instance.GetRole(_initiatorID).Attack(RoleManager.Instance.GetRole(_targets[0]).GetEffectPos());
+        }
+
+        public override void HandleFightEvents(int sender, string stateName, string secondStateName)
+        {
+            if (sender != _initiatorID)
+                return;
+
+            if ("Attack" == stateName && "Take" == secondStateName)
+            {
+                BattleMgr.Instance.DoAttack(_initiatorID, _targets[0]);
+            }
         }
 
         public override void ClickHero(int id)
@@ -58,10 +89,10 @@ namespace WarGame
            
         }
 
-        protected override void OnAttackedEnd(object[] args)
+        private void OnAttackedEnd(object[] args)
         {
             var targetID = (int)args[0];
-            if (targetID != _targetID)
+            if (targetID != _targets[0])
                 return;
 
             var target = RoleManager.Instance.GetRole(targetID);
@@ -75,16 +106,29 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        protected override void OnDeadEnd(object[] args)
+        private void OnDeadEnd(object[] args)
         {
             var targetID = (int)args[0];
-            if (targetID != _targetID)
+            if (targetID != _targets[0])
                 return;
 
             if (null != _coroutine)
                 return;
 
             _coroutine = OnStageOver(1.5F, true);
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+        }
+
+        private void OnDodgeEnd(object[] args)
+        {
+            var targetID = (int)args[0];
+            if (targetID != _targets[0])
+                return;
+
+            if (null != _coroutine)
+                return;
+
+            _coroutine = OnStageOver(1.5F);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
@@ -97,7 +141,7 @@ namespace WarGame
         private IEnumerator OnStageOver(float waitingTime = 0, bool isKill = false)
         {
             yield return new WaitForSeconds(waitingTime);
-            if (0 != _targetID && !_skipBattleShow)
+            if (0 != _targets[0] && !_skipBattleShow)
             {
                 CloseBattleArena();
             }
@@ -108,17 +152,5 @@ namespace WarGame
             role.SetState(Enum.RoleState.Waiting);
             MapManager.Instance.MarkingRegion(role.Hexagon, role.GetMoveDis(), 0, role.Type);
         }
-
-        protected override IEnumerator Over(float waitingTime = 0, bool isKill = false)
-        {
-            yield return new WaitForSeconds(waitingTime);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            _initiatorID = 0;
-            _targetID = 0;
-            initiator.SetState(Enum.RoleState.Over);
-
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
-        }
-
     }
 }

@@ -16,7 +16,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoLefeDrain(_initiatorID, _targetID);
+                BattleMgr.Instance.DoLefeDrain(_initiatorID, _targets[0]);
             }
         }
     }

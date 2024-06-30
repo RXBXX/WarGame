@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace WarGame
 {
@@ -7,8 +8,7 @@ namespace WarGame
     {
         protected int _id;
         protected int _initiatorID;
-        protected int _targetID;
-        //protected List<int> _targets = new List<int>();
+        protected List<int> _targets = new List<int>();
         protected IEnumerator _coroutine;
         protected bool _skipBattleShow = false;
         protected bool _isLockingCamera;
@@ -36,23 +36,132 @@ namespace WarGame
         {
         }
 
-        public virtual void Play()
-        {
-        }
-
-        protected virtual IEnumerator Over(float waitingTime = 0, bool isKill = false)
-        {
-            yield return null;
-        }
-
-        public virtual void HandleFightEvents(int sender, string stateName, string secondStateName)
-        {
-        }
-
         public virtual void Dispose()
         {
             RemoveListeners();
             CameraMgr.Instance.UnlockTarget();
+        }
+
+        public virtual void Play()
+        {
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
+
+            RoleManager.Instance.GetRole(_initiatorID).SetState(Enum.RoleState.Attacking);
+
+            CoroutineMgr.Instance.StartCoroutine(DoPlay());
+        }
+
+        protected virtual IEnumerator DoPlay()
+        {
+            Prepare();
+
+            if (!_skipBattleShow)
+            {
+                yield return OpenBattleArena();
+            }
+
+            TriggerSkill();
+        }
+
+        protected virtual void Prepare()
+        {
+        }
+
+        /// <summary>
+        /// ´¥·¢¼¼ÄÜ
+        /// </summary>
+        protected virtual void TriggerSkill()
+        { }
+
+        protected virtual IEnumerator OpenBattleArena()
+        {
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roles[i].SetHPVisible(false);
+            }
+            LockCamera();
+            CameraMgr.Instance.OpenBattleArena();
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
+            var pathCenter = initiator.GetPosition();
+            foreach (var v in _targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                pathCenter += target.GetPosition();
+            }
+            pathCenter /= _targets.Count + 1;
+
+            var deltaVec = arenaCenter - pathCenter;
+
+            var moveDuration = 0.2F;
+            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
+            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(hexagon);
+
+            initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(initiator);
+
+            foreach (var v in _targets)
+            {
+                yield return new WaitForSeconds(moveDuration);
+                var target = RoleManager.Instance.GetRole(v);
+                hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
+                hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(hexagon);
+
+                target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(target);
+            }
+
+            yield return new WaitForSeconds(moveDuration);
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets });
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        protected virtual void CloseBattleArena()
+        {
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Close_HP);
+
+            foreach (var v in _arenaObjects)
+            {
+                v.ChangeToMapSpace();
+            }
+            _arenaObjects.Clear();
+
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roles[i].SetHPVisible(true);
+            }
+
+            CameraMgr.Instance.CloseBattleArena();
+            UnlockCamera();
+        }
+
+        protected virtual IEnumerator Over(float waitingTime = 0, bool isKill = false)
+        {
+            DebugManager.Instance.Log("Over");
+            yield return new WaitForSeconds(waitingTime);
+            if (!_skipBattleShow)
+            {
+                CloseBattleArena();
+            }
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            _initiatorID = 0;
+            _targets.Clear();
+
+            initiator.SetState(Enum.RoleState.Over);
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skill_Over);
+        }
+
+        public virtual void HandleFightEvents(int sender, string stateName, string secondStateName)
+        {
+
         }
 
         protected bool IsTarget(Enum.RoleType type)
@@ -68,12 +177,10 @@ namespace WarGame
 
         public virtual void ClickHero(int id)
         {
-
         }
 
         public virtual void ClickEnemy(int id)
         {
-
         }
 
         public virtual void ClickHexagon(string id)
@@ -102,41 +209,6 @@ namespace WarGame
                 return;
             CameraMgr.Instance.Unlock();
             _isLockingCamera = false;
-        }
-
-        protected virtual void EnterGrayedMode()
-        {
-            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var regionDic = MapManager.Instance.FindingAttackRegion(new List<string> { hexagonID }, initiator.GetAttackDis());
-
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
-                {
-                    roles[i].SetLayer(Enum.Layer.Gray);
-                }
-                else
-                {
-                    roles[i].SetHPVisible(false);
-                    roles[i].SetColliderEnable(false);
-                }
-            }
-            initiator.SetState(Enum.RoleState.WatingTarget);
-            CameraMgr.Instance.OpenGray();
-        }
-
-        protected virtual void ExitGrayedMode()
-        {
-            var roles = RoleManager.Instance.GetAllRoles();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                roles[i].RecoverLayer();
-                roles[i].SetColliderEnable(true);
-                roles[i].SetHPVisible(true);
-            }
-            CameraMgr.Instance.CloseGray();
         }
 
         protected SkillConfig GetConfig()

@@ -18,9 +18,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                DebugManager.Instance.Log("HandleFightEvents");
-
-                BattleMgr.Instance.DoRoulette(_initiatorID, _targetID);
+                BattleMgr.Instance.DoRoulette(_initiatorID, _targets[0]);
             }
         }
     }

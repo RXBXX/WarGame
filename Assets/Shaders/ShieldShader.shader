@@ -63,7 +63,7 @@ Shader "Custom/ShieldShader"
                 col.rgb *= _Color.rgb;
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
-                return col;
+                return col * 10;
             }
             ENDCG
         }

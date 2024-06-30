@@ -214,6 +214,34 @@ namespace WarGame
         }
 
         /// <summary>
+        /// 锁链攻击
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoChainAttack(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+
+            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+
+            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+
+            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+
+            var hurt = physicalHurt + magicHurt;
+            target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+            CameraMgr.Instance.ShakePosition();
+        }
+
+        /// <summary>
         /// 治疗
         /// </summary>
         /// <param name="initiatorID"></param>
@@ -228,7 +256,25 @@ namespace WarGame
             var cure = GetCurePower(initiatorID, targetID);
             AddReport(initiatorID, Enum.AttrType.Cure, cure);
             target.Cured(cure);
-            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+        }
+
+        /// <summary>
+        /// 群体治疗
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoMassHeal(int initiatorID, List<int> targets)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
+
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                var cure = GetCurePower(initiatorID, v);
+                AddReport(initiatorID, Enum.AttrType.Cure, cure);
+                target.Cured(cure);
+            }
         }
 
         /// <summary>
@@ -320,6 +366,22 @@ namespace WarGame
 
             initiator.ClearRage();
 
+            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+
+            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+
+            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+
+            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+
+            var hurt = physicalHurt + magicHurt;
+            target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+
             target.AddBuffs(new List<int> { (int)Enum.Buff.Dizzy }, initiator.Type);
         }
 
@@ -334,7 +396,7 @@ namespace WarGame
             var target = RoleManager.Instance.GetRole(targetID);
 
             initiator.ClearRage();
-            target.ResetState();
+            target.ExtraTurn();
         }
 
         /// <summary>
@@ -349,7 +411,7 @@ namespace WarGame
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                target.AddBuffs(new List<int> { (int)Enum.Buff.MassPhyShield }, initiator.Type);
+                target.AddShield(new List<int> { (int)Enum.Buff.MassPhyShield }, initiator.Type);
             }
         }
 
@@ -365,7 +427,7 @@ namespace WarGame
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                target.AddBuffs(new List<int> { (int)Enum.Buff.MassMagShield }, initiator.Type);
+                target.AddShield(new List<int> { (int)Enum.Buff.MassMagShield }, initiator.Type);
             }
         }
 
@@ -378,7 +440,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
-            target.AddBuffs(new List<int> { (int)Enum.Buff.SinglePhyShield }, initiator.Type);
+            target.AddShield(new List<int> { (int)Enum.Buff.SinglePhyShield }, initiator.Type);
         }
 
         /// <summary>
@@ -390,7 +452,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
-            target.AddBuffs(new List<int> { (int)Enum.Buff.SingleMagShield }, initiator.Type);
+            target.AddShield(new List<int> { (int)Enum.Buff.SingleMagShield }, initiator.Type);
         }
 
         /// <summary>
@@ -450,6 +512,22 @@ namespace WarGame
             initiator.AddHP(hurt);
 
             CameraMgr.Instance.ShakePosition();
+        }
+
+        /// <summary>
+        /// 群体减怒
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoRageReduction(int initiatorID, List<int> targets, float ratio)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                target.ReduceRage(ratio);
+            }
         }
 
         public void InitReports()
