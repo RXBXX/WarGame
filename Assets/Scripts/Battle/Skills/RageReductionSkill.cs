@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class RageReductionSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public RageReductionSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

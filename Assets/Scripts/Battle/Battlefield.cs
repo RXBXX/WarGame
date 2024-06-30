@@ -393,6 +393,7 @@ namespace WarGame
 
         private void OnActionEnd(params object[] args)
         {
+            DebugManager.Instance.Log("OnActionEnd");
             if (null != args && args.Length > 0)
             {
                 DisposeAction((int)args[0]);
@@ -509,6 +510,9 @@ namespace WarGame
                 return;
 
             var sender = RoleManager.Instance.GetRole(senderID);
+            if (null == sender)
+                return;
+
             string stateName = strs[0], secondStateName = strs[1];
             //DebugManager.Instance.Log(stateName + "+" + secondStateName);
             sender.HandleEvent(stateName, secondStateName);
@@ -582,8 +586,9 @@ namespace WarGame
             var events = new List<int>();
             if (deadRoles.Count > 0)
             {
-                for (int i = deadRoles.Count - 1; i < 0; i--)
+                for (int i = deadRoles.Count - 1; i >= 0; i--)
                 {
+                    DebugManager.Instance.Log("Dead:" + deadRoles[i]);
                     var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", deadRoles[i]);
                     if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
                     {

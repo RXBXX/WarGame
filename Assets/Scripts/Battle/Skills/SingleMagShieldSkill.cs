@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class SingleMagShieldSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public SingleMagShieldSkill(int id, int initiatorID) : base(id, initiatorID)
         { }
 

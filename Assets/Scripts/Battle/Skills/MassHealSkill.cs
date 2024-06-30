@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class MassHealSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public MassHealSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

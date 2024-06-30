@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class SinglePhyShieldSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public SinglePhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
         { }
 

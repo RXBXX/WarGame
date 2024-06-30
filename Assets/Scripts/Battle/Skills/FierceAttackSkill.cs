@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class FierceAttackSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public FierceAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }
@@ -111,22 +109,7 @@ namespace WarGame
                 yield return OpenBattleArena(initiator, target);
             }
 
-            //yield return new WaitForSeconds(1.0f);
             initiator.Attack(target.GetEffectPos());
-            //var skillConfig = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
-            ////判断是攻击还是治疗
-            ////执行攻击或治疗
-            ////如果buff生效，添加buff到目标身上
-            //DebugManager.Instance.Log(skillConfig.AttrType);
-            //switch (skillConfig.AttrType)
-            //{
-            //    case Enum.AttrType.PhysicalAttack:
-            //        initiator.Attack(target.GetPosition() + new Vector3(0, 0.6F, 0));
-            //        break;
-            //    case Enum.AttrType.Cure:
-            //        initiator.Cure();
-            //        break;
-            //}
         }
 
         protected virtual void OnAttackedEnd(object[] args)

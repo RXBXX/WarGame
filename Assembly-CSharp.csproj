@@ -204,7 +204,6 @@
     <Compile Include="Assets\Scripts\Battle\Skills\FierceAttackSkill.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
-    <Compile Include="Assets\Scripts\Battle\Skills\LiftDrainSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Battle\Role.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
@@ -213,10 +212,10 @@
     <Compile Include="Assets\Scripts\Battle\Skills\SingleMagShieldSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\PlayTransitionAction.cs" />
     <Compile Include="Assets\Scripts\Common\AudioMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleMgr.cs" />
     <Compile Include="Assets\Test\DrawMesh.cs" />
     <Compile Include="Assets\Resources\UI\Map\UI_MapPanel.cs" />
-    <Compile Include="Assets\Scripts\Battle\BattleMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroEquipComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
@@ -307,6 +306,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\LifeDrainSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
     <Compile Include="Assets\Scripts\Battle\CloneHero.cs" />

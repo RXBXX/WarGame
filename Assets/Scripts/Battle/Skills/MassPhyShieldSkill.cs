@@ -6,7 +6,6 @@ namespace WarGame
 {
     public class MassPhyShieldSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected List<int> _targets = new List<int>();
         public MassPhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
         { }

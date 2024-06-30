@@ -9,7 +9,6 @@ namespace WarGame
         private int _chainMatID;
         private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
         private List<int> _targets = new List<int>();
-        private float _hurt;
 
         public ChainAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {

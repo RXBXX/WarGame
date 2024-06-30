@@ -1017,6 +1017,11 @@ namespace WarGame
             }
         }
 
+        public void AddHP(float deltaHP)
+        {
+            UpdateAttr(Enum.AttrType.HP, deltaHP);
+        }
+
         public override bool Dispose()
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Role_Dispose, new object[] { ID });

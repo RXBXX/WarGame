@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class ExtraTurnSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public ExtraTurnSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

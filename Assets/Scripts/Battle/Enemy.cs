@@ -43,7 +43,8 @@ namespace WarGame
 
         public override void Hit(float deltaHP, string hitEffect, int attacker)
         {
-            _attackers.Add(attacker);
+            if (0 != attacker)
+                _attackers.Add(attacker);
             base.Hit(deltaHP, hitEffect, attacker);
         }
 
@@ -76,7 +77,7 @@ namespace WarGame
                     targets.Add(v);
                 }
             }
-             
+
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
 
             //筛选出在攻击范围内的目标
@@ -90,7 +91,7 @@ namespace WarGame
                         continue;
 
                     var attachPath = MapManager.Instance.FindingAttackPathForStr(v1.Key, v.Hexagon, GetAttackDis());
-                    if (null == attachPath || attachPath.Count <=  0)
+                    if (null == attachPath || attachPath.Count <= 0)
                         continue;
 
                     if ((null == target || target.GetHP() > v.GetHP()))
@@ -323,7 +324,7 @@ namespace WarGame
         {
             SetColliderEnable(visible);
             HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey).SetVisible(visible);
-            Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1:0);   
+            Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0);
         }
 
         public override LevelRoleData Clone(string hexagon)

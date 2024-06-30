@@ -30,7 +30,7 @@ namespace WarGame
                 _last = lastState;
                 lastState.End(false);
             }
-            //DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  
@@ -55,7 +55,7 @@ namespace WarGame
             if (_state == Enum.RoleAnimState.End)
                 return;
 
-            //DebugManager.Instance.Log("StateEnd" + reverse);
+            DebugManager.Instance.Log("StateEnd" + reverse);
 
             if (reverse)
             {
@@ -63,7 +63,7 @@ namespace WarGame
                 _last.Start();
                 _last = null;
             }
-            //DebugManager.Instance.Log(_name + "_End_" + _role.ID);
+            DebugManager.Instance.Log(_name + "_End_" + _role.ID);
             _state = Enum.RoleAnimState.End;
             _role.Animator.SetBool(_name, false);
         }

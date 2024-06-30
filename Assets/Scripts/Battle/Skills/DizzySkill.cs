@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class DizzySkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public DizzySkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

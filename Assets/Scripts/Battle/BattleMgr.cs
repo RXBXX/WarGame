@@ -393,6 +393,65 @@ namespace WarGame
             target.AddBuffs(new List<int> { (int)Enum.Buff.SingleMagShield }, initiator.Type);
         }
 
+        /// <summary>
+        /// ÂÖÅÌ¶Ä
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoRoulette(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            var initiatorHP = initiator.GetHP();
+            var targetHP = target.GetHP();
+            var rd = Random.Range(0, initiatorHP + targetHP);
+            if (rd < initiatorHP && false)
+            {
+                target.Hit(targetHP, initiator.GetAttackEffect(), initiator.ID);
+                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+            }
+            else
+            {
+                target.Hit(0, initiator.GetAttackEffect(), initiator.ID);
+                initiator.Hit(initiatorHP, null, 0);
+            }
+
+            DebugManager.Instance.Log(initiator.DeadFlag);
+            CameraMgr.Instance.ShakePosition();
+        }
+
+        /// <summary>
+        /// ÉúÃü¼³È¡
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoLefeDrain(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+
+            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+
+            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+
+            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+
+            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+
+            var hurt = physicalHurt + magicHurt;
+            target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+
+            initiator.AddHP(hurt);
+
+            CameraMgr.Instance.ShakePosition();
+        }
+
         public void InitReports()
         {
             _reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();

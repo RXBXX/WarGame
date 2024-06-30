@@ -7,7 +7,6 @@ namespace WarGame
 {
     public class CloneSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
         private Hexagon _targetHexagon;
         private Vector3 _cloneTargetPos;
         private int _lock = 0;

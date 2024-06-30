@@ -5,12 +5,14 @@ namespace WarGame
 {
     public class Skill
     {
-        protected int _initiatorID;
         protected int _id;
+        protected int _initiatorID;
         protected int _targetID;
+        //protected List<int> _targets = new List<int>();
         protected IEnumerator _coroutine;
         protected bool _skipBattleShow = false;
         protected bool _isLockingCamera;
+        protected List<MapObject> _arenaObjects = new List<MapObject>();
 
         public Skill(int id, int initiatorID)
         {
@@ -71,22 +73,22 @@ namespace WarGame
 
         public virtual void ClickEnemy(int id)
         {
-        
+
         }
 
         public virtual void ClickHexagon(string id)
         {
-        
+
         }
 
         public virtual void OnMoveEnd()
-        { 
+        {
 
         }
 
         public virtual void Update(float deltaTime)
-        { 
-        
+        {
+
         }
 
         protected void LockCamera()
@@ -117,14 +119,11 @@ namespace WarGame
                 }
                 else
                 {
+                    roles[i].SetHPVisible(false);
                     roles[i].SetColliderEnable(false);
                 }
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(false);
             }
             initiator.SetState(Enum.RoleState.WatingTarget);
-
             CameraMgr.Instance.OpenGray();
         }
 
@@ -135,11 +134,8 @@ namespace WarGame
             {
                 roles[i].RecoverLayer();
                 roles[i].SetColliderEnable(true);
-
-                if (roles[i].ID != _initiatorID && roles[i].ID != _targetID)
-                    roles[i].SetHPVisible(true);
+                roles[i].SetHPVisible(true);
             }
-
             CameraMgr.Instance.CloseGray();
         }
 

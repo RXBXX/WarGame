@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class StealthSkill : Skill
     {
-        private List<MapObject> _arenaObjects = new List<MapObject>();
-
         public StealthSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

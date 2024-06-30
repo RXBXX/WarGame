@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class SingleSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public SingleSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

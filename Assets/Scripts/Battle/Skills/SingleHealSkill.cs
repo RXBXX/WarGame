@@ -6,8 +6,6 @@ namespace WarGame
 {
     public class SingleHealSkill : Skill
     {
-        protected List<MapObject> _arenaObjects = new List<MapObject>();
-
         public SingleHealSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }

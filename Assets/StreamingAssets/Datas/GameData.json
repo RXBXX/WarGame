@@ -5,8 +5,8 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1719631295972,
-      "saveTime": 1719732322348,
-      "duration": 1665306,
+      "saveTime": 1719749991811,
+      "duration": 2637004,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -24,6 +24,22 @@
           "equipmentDic": {},
           "skillDic": {},
           "talents": []
+        },
+        "10003": {
+          "UID": 10003,
+          "configId": 10003,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talents": []
+        },
+        "10021": {
+          "UID": 10021,
+          "configId": 10021,
+          "level": 1,
+          "equipmentDic": {},
+          "skillDic": {},
+          "talents": []
         }
       },
       "equipDataDic": {},
@@ -31,17 +47,17 @@
         "10001": {
           "configId": 10001,
           "Stage": 3,
-          "Round": 2,
+          "Round": 1,
           "actionType": 0,
           "heros": [
             {
-              "HP": 100.0,
-              "Rage": 40.0,
-              "hexagonID": "2_0_1",
+              "HP": 0.0,
+              "Rage": 20.0,
+              "hexagonID": "4_0_6",
               "bornHexagonID": "2_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 1,
+              "state": 7,
               "cloneRole": 0,
               "UID": 10001,
               "configId": 10001,
@@ -52,7 +68,7 @@
             },
             {
               "HP": 100.0,
-              "Rage": 40.0,
+              "Rage": 20.0,
               "hexagonID": "3_0_1",
               "bornHexagonID": "3_0_1",
               "buffs": [],
@@ -71,7 +87,7 @@
             {
               "HP": 60.0,
               "Rage": 0.0,
-              "hexagonID": "5_0_7",
+              "hexagonID": "4_0_7",
               "bornHexagonID": "5_0_7",
               "buffs": [],
               "equipDataDic": {
@@ -90,6 +106,14 @@
               "talents": []
             }
           ]
+        },
+        "10002": {
+          "configId": 10002,
+          "Stage": 0,
+          "Round": 0,
+          "actionType": 0,
+          "heros": [],
+          "enemys": []
         }
       },
       "homeEvent": 0

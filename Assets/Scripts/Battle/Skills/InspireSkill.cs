@@ -6,7 +6,6 @@ namespace WarGame
 {
     public class InspireSkill : Skill
     {
-        private List<MapObject> _arenaObjects = new List<MapObject>();
         private List<int> _targets = new List<int>();
 
         public InspireSkill(int id, int initiatorID) : base(id, initiatorID)

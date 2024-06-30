@@ -63,7 +63,7 @@ namespace WarGame
                 case Enum.Skill.Roulette:
                     return new RouletteSkill(skillID, initiatorID);
                 case Enum.Skill.LifeDrain:
-                    return new LiftDrainSkill(skillID, initiatorID);
+                    return new LifeDrainSkill(skillID, initiatorID);
                 case Enum.Skill.MassHeal:
                     return new MassHealSkill(skillID, initiatorID);
                 case Enum.Skill.SinglePhyShield:
