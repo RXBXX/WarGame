@@ -69,11 +69,11 @@ namespace WarGame
 
         public virtual bool Dispose()
         {
-            if (null != _gameObject)
-            {
-                GameObject.Destroy(_gameObject);
-                _gameObject = null;
-            }
+            //if (null != _gameObject)
+            //{
+            //    GameObject.Destroy(_gameObject);
+            //    _gameObject = null;
+            //}
             AssetsMgr.Instance.ReleaseAsset(_assetID);
             return true;
         }

@@ -319,7 +319,6 @@ namespace WarGame
         {
             for (int i = buffs.Count - 1; i >= 0; i--)
             {
-                DebugManager.Instance.Log(buffs[i].id+" "+ buffs[i].initiatorType +" "+ type);
                 if (buffs[i].initiatorType != type)
                     continue;
 
@@ -327,8 +326,10 @@ namespace WarGame
                 var attrType = (Enum.AttrType)buffConfig.Attr.id;
                 if (buffs[i].value <= 0)
                 {
-                    callback(new object[] { buffs[i].id, Enum.BuffUpdate.Delete, attrType, 0.0F });
+                    var buff = buffs[i];
                     buffs.RemoveAt(i);
+
+                    callback(new object[] { buff.id, Enum.BuffUpdate.Delete, attrType, 0.0F });
                 }
                 else
                 {
@@ -344,9 +345,9 @@ namespace WarGame
                     {
                         buffUpdateType = Enum.BuffUpdate.Add;
                     }
-                    callback(new object[] { buffs[i].id, buffUpdateType, attrType, attrUpdateValue });
-
+                    var buff = buffs[i];
                     buffs[i] = new BuffPair(buffs[i].id, buffs[i].value - 1, buffs[i].initiatorType);
+                    callback(new object[] { buff.id, buffUpdateType, attrType, attrUpdateValue });
                 }
             }
         }

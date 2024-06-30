@@ -351,6 +351,7 @@
     <Compile Include="Assets\Scripts\UI\HUD\HUDBuff.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\SingleHealSkill.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroLevelItem.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\SingleSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NTexture.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\CriticalHitSkill.cs" />
     <Compile Include="Assets\Scripts\Common\CameraMgr.cs" />
@@ -362,6 +363,7 @@
     <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
     <Compile Include="Assets\Scripts\Render\GPUInstancedGroup.cs" />
     <Compile Include="Assets\Scripts\SRP\WGRenderPipeline.cs" />
+    <Compile Include="Assets\Scripts\Battle\Skills\MassSkill.cs" />
     <Compile Include="Assets\FairyGUI\Examples\BundleUsage\BundleUsageMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Tween\GTweener.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\MovieClip.cs" />
@@ -470,6 +472,7 @@
     <None Include="Assets\Scripts\SRP\UnlitPass.hlsl" />
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
     <None Include="Assets\Shaders\ParticleS\Additive.shader" />
+    <None Include="Assets\Shaders\ShieldShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />

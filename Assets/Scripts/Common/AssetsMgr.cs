@@ -22,6 +22,13 @@ namespace WarGame
                 this.handle = handle;
                 this.coroutine = coroutine;
             }
+
+            public void Dispose()
+            {
+                if (null != coroutine)
+                    CoroutineMgr.Instance.StopCoroutine(coroutine);
+                Addressables.Release(handle);
+            }
         }
 
         private int _id = 0;
@@ -29,37 +36,37 @@ namespace WarGame
         private Dictionary<int, LoadHandle> _operationDic = new Dictionary<int, LoadHandle>();
 
 
-//        /// <summary>
-//        /// 加载资源
-//        /// </summary>
-//        /// <typeparam name="T"></typeparam>
-//        /// <param name="path"></param>
-//        /// <param name="callback"></param>
-//        /// <returns></returns>
-//        public int LoadAsset<T>(string path, ref T obj) where T : Object
-//        {
-//            _id += 1;
-//#if UNITY_EDITOR
-//            if (!Application.isPlaying)
-//            {
-//                obj = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
-//                return _id;
-//            }
-//#endif
-//            var handle = Addressables.LoadAssetAsync<Object>(path);
-//            _operationDic[_id] = new LoadHandle(_id, handle, null);
-//            //这里在回调里调用WaitForCompletion,所以同步加载禁止掉
-//            //Reentering the Update method is not allowed.This can happen when calling WaitForCompletion on an operation while inside of a callback.
-//            handle.WaitForCompletion();
-//            if (handle.Status == AsyncOperationStatus.Succeeded)
-//            {
-//                DebugManager.Instance.Log(handle.Result.GetType());
-//                obj = (T)handle.Result;
-//                return _id;
-//            }
+        //        /// <summary>
+        //        /// 加载资源
+        //        /// </summary>
+        //        /// <typeparam name="T"></typeparam>
+        //        /// <param name="path"></param>
+        //        /// <param name="callback"></param>
+        //        /// <returns></returns>
+        //        public int LoadAsset<T>(string path, ref T obj) where T : Object
+        //        {
+        //            _id += 1;
+        //#if UNITY_EDITOR
+        //            if (!Application.isPlaying)
+        //            {
+        //                obj = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
+        //                return _id;
+        //            }
+        //#endif
+        //            var handle = Addressables.LoadAssetAsync<Object>(path);
+        //            _operationDic[_id] = new LoadHandle(_id, handle, null);
+        //            //这里在回调里调用WaitForCompletion,所以同步加载禁止掉
+        //            //Reentering the Update method is not allowed.This can happen when calling WaitForCompletion on an operation while inside of a callback.
+        //            handle.WaitForCompletion();
+        //            if (handle.Status == AsyncOperationStatus.Succeeded)
+        //            {
+        //                DebugManager.Instance.Log(handle.Result.GetType());
+        //                obj = (T)handle.Result;
+        //                return _id;
+        //            }
 
-//            return 0;
-//        }
+        //            return 0;
+        //        }
 
         /// <summary>
         /// 加载资源
@@ -94,10 +101,11 @@ namespace WarGame
             if (!_operationDic.ContainsKey(id))
                 return;
 
-            var loadHandle = _operationDic[id];
-            if (null != loadHandle.coroutine)
-                CoroutineMgr.Instance.StopCoroutine(loadHandle.coroutine);
-            Addressables.Release(loadHandle.handle);
+            _operationDic[id].Dispose();
+            //var loadHandle = _operationDic[id];
+            //if (null != loadHandle.coroutine)
+            //    CoroutineMgr.Instance.StopCoroutine(loadHandle.coroutine);
+            //Addressables.Release(loadHandle.handle);
             _operationDic.Remove(id);
         }
 

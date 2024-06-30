@@ -255,7 +255,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
-            initiator.Stealth(initiator.Type);
+            initiator.AddBuffs(new List<int> { (int)Enum.Buff.Cloaking }, initiator.Type);
         }
 
         /// <summary>
@@ -320,7 +320,7 @@ namespace WarGame
 
             initiator.ClearRage();
 
-            target.Dizzy(initiator.Type);
+            target.AddBuffs(new List<int> { (int)Enum.Buff.Dizzy }, initiator.Type);
         }
 
         /// <summary>
@@ -335,6 +335,62 @@ namespace WarGame
 
             initiator.ClearRage();
             target.ResetState();
+        }
+
+        /// <summary>
+        /// 群体物理护盾
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoMassPhyShiled(int initiatorID, List<int> targets)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                target.AddBuffs(new List<int> { (int)Enum.Buff.MassPhyShield }, initiator.Type);
+            }
+        }
+
+        /// <summary>
+        /// 群体魔法护盾
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoMassMagShiled(int initiatorID, List<int> targets)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                target.AddBuffs(new List<int> { (int)Enum.Buff.MassMagShield }, initiator.Type);
+            }
+        }
+
+        /// <summary>
+        /// 单体物理护盾
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoSinglePhyShiled(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+            target.AddBuffs(new List<int> { (int)Enum.Buff.SinglePhyShield }, initiator.Type);
+        }
+
+        /// <summary>
+        /// 单体魔法护盾
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targets"></param>
+        public void DoSingleMagShiled(int initiatorID, int targetID)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var target = RoleManager.Instance.GetRole(targetID);
+            target.AddBuffs(new List<int> { (int)Enum.Buff.SingleMagShield }, initiator.Type);
         }
 
         public void InitReports()

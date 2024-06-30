@@ -9,17 +9,16 @@ namespace WarGame
         protected List<MapObject> _arenaObjects = new List<MapObject>();
 
         public SingleMagShieldSkill(int id, int initiatorID) : base(id, initiatorID)
-        {
-        }
+        { }
 
         protected override void AddListeners()
         {
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         protected override void RemoveListeners()
         {
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         public override void Start()
@@ -69,15 +68,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoCure(_initiatorID, _targetID);
-                //initiator.ClearRage();
-
-                //var target = RoleManager.Instance.GetRole(_targetID);
-
-                //var add = AttributeMgr.Instance.GetElementAdd(_initiatorID, _targetID);
-                //target.Cured(AttributeMgr.Instance.GetCurePower(_initiatorID, _targetID));
-                //target.AddBuffs(initiator.GetAttackBuffs());
-                //EventDispatcher.Instance.PostEvent(Enum.EventType.Fight_HP_Change, new object[] { _targetID });
+                BattleMgr.Instance.DoSingleMagShiled(_initiatorID, _targetID);
             }
         }
 
@@ -99,13 +90,11 @@ namespace WarGame
             initiator.Cure();
         }
 
-        private void OnCuredEnd(object[] args)
+        private void OnCureEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targetID)
+            var initiatorID = (int)args[0];
+            if (initiatorID != _initiatorID)
                 return;
-
-            var target = RoleManager.Instance.GetRole(targetID);
 
             if (null != _coroutine)
                 return;

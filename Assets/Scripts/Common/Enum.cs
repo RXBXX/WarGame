@@ -313,6 +313,10 @@ namespace WarGame
         {
             Cloaking = 4, //隐身
             Dizzy = 5, //晕眩
+            MassPhyShield = 6, //群体物理护盾
+            MassMagShield = 7, //群体魔法护盾
+            SinglePhyShield = 8, //单体物理护盾
+            SingleMagShield = 9, //单体魔法护盾
         }
 
         // 属性类buff效果类型

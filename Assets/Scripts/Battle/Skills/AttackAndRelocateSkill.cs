@@ -102,11 +102,6 @@ namespace WarGame
                 CloseBattleArena();
             }
 
-            //if (isKill)
-            //{
-            //    RoleManager.Instance.RemoveRole(_targetID);
-            //}
-
             _stage += 1;
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
