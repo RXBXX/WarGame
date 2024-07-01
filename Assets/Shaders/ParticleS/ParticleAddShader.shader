@@ -10,7 +10,7 @@ Shader "Custom/ParticleAddShader"
 		{
 			Tags
 			{
-				"Queue" = "Transparent"
+				"Queue" = "Transparent+1"
 				"RenderType" = "Transparent"
 				//"PreviewType" = "Plane"
 			}
@@ -19,7 +19,7 @@ Shader "Custom/ParticleAddShader"
 			Cull Off
 			Lighting Off
 			Blend One One
-			ZWrite Off
+			//ZWrite Off
 
 			Pass
 			{

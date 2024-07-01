@@ -183,6 +183,7 @@ namespace WarGame
         public string Name;
         public string Desc;
         public string Icon;
+        public string Effect;
     }
 
     //角色职业表

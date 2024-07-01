@@ -9,7 +9,8 @@
         "Duration": 2,
         "Name": "流血",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合减少10血量，剩余%s回合"
+        "Desc": "每回合减少10血量，剩余%s回合",
+        "Effect": null
     },
     {
         "ID": 2,
@@ -21,7 +22,8 @@
         "Duration": 3,
         "Name": "中毒",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合减少15血量，剩余%s回合"
+        "Desc": "每回合减少15血量，剩余%s回合",
+        "Effect": null
     },
     {
         "ID": 3,
@@ -33,7 +35,8 @@
         "Duration": 2,
         "Name": "减怒",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "每回合较少怒气回复，剩余%s回合"
+        "Desc": "每回合较少怒气回复，剩余%s回合",
+        "Effect": null
     },
     {
         "ID": 4,
@@ -45,7 +48,8 @@
         "Duration": 1,
         "Name": "隐身",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "当前回合隐身"
+        "Desc": "当前回合隐身",
+        "Effect": null
     },
     {
         "ID": 5,
@@ -57,7 +61,8 @@
         "Duration": 1,
         "Name": "晕眩",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": "使敌人当前回合晕眩，无法行动"
+        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Effect": "Assets/Prefabs/Effects/DizzyEffect.prefab"
     },
     {
         "ID": 6,
@@ -69,7 +74,8 @@
         "Duration": 2,
         "Name": "群体物理护盾",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
+        "Desc": null,
+        "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
     {
         "ID": 7,
@@ -81,7 +87,8 @@
         "Duration": 2,
         "Name": "群体魔法护盾",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
+        "Desc": null,
+        "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     },
     {
         "ID": 8,
@@ -93,7 +100,8 @@
         "Duration": 2,
         "Name": "单体物理护盾",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
+        "Desc": null,
+        "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
     {
         "ID": 9,
@@ -105,6 +113,7 @@
         "Duration": 2,
         "Name": "单体魔法护盾",
         "Icon": "ui://Common/Buff_Blood",
-        "Desc": null
+        "Desc": null,
+        "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     }
 ]

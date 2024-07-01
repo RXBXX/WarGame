@@ -7,9 +7,9 @@ Shader "Custom/Particles/Multiply" {
     }
 
         Category{
-            Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
+            Tags { "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
             Blend Zero SrcColor
-            Cull Off Lighting Off ZWrite Off
+            Cull Off Lighting Off
 
             SubShader {
                 Pass {

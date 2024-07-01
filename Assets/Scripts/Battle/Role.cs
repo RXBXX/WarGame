@@ -41,8 +41,7 @@ namespace WarGame
 
         private Dictionary<int, ElementLine> _elementEffectDic = new Dictionary<int, ElementLine>();
 
-        private int _massPhyShieldAID = 0, _massMagShieldAID = 0, _singlePhyShieldAID = 0, _singleMagShieldAID = 0;
-        private GameObject _massPhyShieldGO, _massMagShieldGO, _singlePhyShieldGO, _singleMagShieldGO;
+        private Dictionary<Enum.Buff, List<AssetPair<GameObject>>> _buffEffectDic = new Dictionary<Enum.Buff, List<AssetPair<GameObject>>>();
 
         public int ID
         {
@@ -562,14 +561,14 @@ namespace WarGame
         //Ìí¼Óbuff
         public void AddBuffs(List<int> buffs, Enum.RoleType type)
         {
-            _data.AddBuffs(buffs, type);
+            _data.AddBuffs(buffs, type, OnUpdateBuff);
 
             foreach (var v in buffs)
             {
                 AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
             }
 
-            UpdateBuffs(type);
+            //UpdateBuffs(type);
         }
 
         protected virtual void UpdateBuffs(Enum.RoleType type)
@@ -591,27 +590,33 @@ namespace WarGame
             var buffUpdate = (Enum.BuffUpdate)args[1];
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_data.buffs);
-            if (buffUpdate != Enum.BuffUpdate.None)
+            if (buffUpdate == Enum.BuffUpdate.None)
+                return;
+
+            var buff = (Enum.Buff)args[0];
+            switch (buff)
             {
-                switch ((Enum.Buff)args[0])
-                {
-                    case Enum.Buff.Cloaking:
-                        SetVisible(buffUpdate != Enum.BuffUpdate.Add);
-                        break;
-                    case Enum.Buff.MassMagShield:
-                        OnUpdateMassMagShield(buffUpdate == Enum.BuffUpdate.Add);
-                        break;
-                    case Enum.Buff.MassPhyShield:
-                        OnUpdateMassPhyShield(buffUpdate == Enum.BuffUpdate.Add);
-                        break;
-                    case Enum.Buff.SingleMagShield:
-                        OnUpdateSingleMagShield(buffUpdate == Enum.BuffUpdate.Add);
-                        break;
-                    case Enum.Buff.SinglePhyShield:
-                        OnUpdateSinglePhyShield(buffUpdate == Enum.BuffUpdate.Add);
-                        break;
-                }
+                case Enum.Buff.Cloaking:
+                    SetVisible(buffUpdate != Enum.BuffUpdate.Add);
+                    break;
+                //case Enum.Buff.MassMagShield:
+                //    OnUpdateMassMagShield(buffUpdate == Enum.BuffUpdate.Add);
+                //    break;
+                //case Enum.Buff.MassPhyShield:
+                //    OnUpdateMassPhyShield(buffUpdate == Enum.BuffUpdate.Add);
+                //    break;
+                //case Enum.Buff.SingleMagShield:
+                //    OnUpdateSingleMagShield(buffUpdate == Enum.BuffUpdate.Add);
+                //    break;
+                //case Enum.Buff.SinglePhyShield:
+                //    OnUpdateSinglePhyShield(buffUpdate == Enum.BuffUpdate.Add);
+                //    break;
+                //case Enum.Buff.Dizzy:
+                //    OnUpdateDizzy(buffUpdate == Enum.BuffUpdate.Add);
+                //    break;
             }
+
+            OnUpdateBuffEffect(buff, buffUpdate);
 
             OnUpdateAttr((Enum.AttrType)args[2], (float)args[3]);
         }
@@ -897,7 +902,7 @@ namespace WarGame
         }
 
         public void ExtraTurn()
-        { 
+        {
             EnterState("Cured");
 
             ResetState();
@@ -926,114 +931,41 @@ namespace WarGame
             return true;
         }
 
-        private void OnUpdateMassPhyShield(bool visible)
+        private void OnUpdateBuffEffect(Enum.Buff id, Enum.BuffUpdate update)
         {
-            if (visible)
+            if (update == Enum.BuffUpdate.None)
+                return;
+
+            var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", (int)id);
+            if (buffConfig.Effect == null)
+                return;
+
+            if (update == Enum.BuffUpdate.Add)
             {
-                if (0 != _massPhyShieldAID)
-                    return;
-                _massPhyShieldAID = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/PhyShield.prefab", (go) =>
+                if (!_buffEffectDic.ContainsKey(id))
                 {
-                    _massPhyShieldGO = GameObject.Instantiate<GameObject>(go);
-                    _massPhyShieldGO.transform.SetParent(_gameObject.transform);
+                    _buffEffectDic[id] = new List<AssetPair<GameObject>>();
+                }
+
+                var newAP = new AssetPair<GameObject>();
+                newAP.ID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(buffConfig.Effect, (go) =>
+                {
+                    var GO = GameObject.Instantiate<GameObject>(go);
+                    GO.transform.SetParent(_gameObject.transform, false);
+                    newAP.Obj = GO;
                 });
+                _buffEffectDic[id].Add(newAP);
             }
             else
             {
-                if (null != _massPhyShieldGO)
-                {
-                    AssetsMgr.Instance.Destroy(_massPhyShieldGO);
-                    _massPhyShieldGO = null;
-                }
-
-                if (0 != _massPhyShieldAID)
-                {
-                    AssetsMgr.Instance.ReleaseAsset(_massPhyShieldAID);
-                    _massPhyShieldAID = 0;
-                }
-            }
-        }
-
-        private void OnUpdateMassMagShield(bool visible)
-        {
-            if (visible)
-            {
-                if (0 != _massMagShieldAID)
+                if (!_buffEffectDic.ContainsKey(id))
                     return;
-                _massMagShieldAID = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/MagShield.prefab", (go) =>
-                {
-                    _massMagShieldGO = GameObject.Instantiate<GameObject>(go);
-                    _massMagShieldGO.transform.SetParent(_gameObject.transform,false);
-                });
-            }
-            else
-            {
-                if (null != _massMagShieldGO)
-                {
-                    AssetsMgr.Instance.Destroy(_massMagShieldGO);
-                    _massMagShieldGO = null;
-                }
-
-                if (0 != _massMagShieldAID)
-                {
-                    AssetsMgr.Instance.ReleaseAsset(_massMagShieldAID);
-                    _massMagShieldAID = 0;
-                }
-            }
-        }
-
-        private void OnUpdateSinglePhyShield(bool visible)
-        {
-            if (visible)
-            {
-                if (0 != _singlePhyShieldAID)
+                if (_buffEffectDic[id].Count <= 0)
                     return;
-                _singlePhyShieldAID = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/PhyShield.prefab", (go) =>
-                {
-                    _singlePhyShieldGO = GameObject.Instantiate<GameObject>(go);
-                    _singlePhyShieldGO.transform.SetParent(_gameObject.transform,false);
-                });
-            }
-            else
-            {
-                if (null != _singlePhyShieldGO)
-                {
-                    AssetsMgr.Instance.Destroy(_singlePhyShieldGO);
-                    _singlePhyShieldGO = null;
-                }
-                if (0 != _singlePhyShieldAID)
-                {
-                    AssetsMgr.Instance.ReleaseAsset(_singlePhyShieldAID);
-                    _singlePhyShieldAID = 0;
-                }
-            }
-        }
 
-        private void OnUpdateSingleMagShield(bool visible)
-        {
-            if (visible)
-            {
-                if (0 != _singleMagShieldAID)
-                    return;
-                _singleMagShieldAID = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/MagShield.prefab", (go) =>
-                {
-                    _singleMagShieldGO = GameObject.Instantiate<GameObject>(go);
-                    _singleMagShieldGO.transform.SetParent(_gameObject.transform, false);
-                });
-            }
-            else
-            {
-                if (null != _singleMagShieldGO)
-                {
-                    AssetsMgr.Instance.Destroy(_singleMagShieldGO);
-                    _singleMagShieldGO = null;
-                }
-
-                if (0 != _singleMagShieldAID)
-                {
-                    AssetsMgr.Instance.ReleaseAsset(_singleMagShieldAID);
-                    _singleMagShieldAID = 0;
-                }
+                var dirtyEffect = _buffEffectDic[id][_buffEffectDic[id].Count - 1];
+                dirtyEffect.Dispose();
+                _buffEffectDic[id].Remove(dirtyEffect);
             }
         }
 
@@ -1073,52 +1005,12 @@ namespace WarGame
 
             _data.Dispose();
 
-            if (null != _massPhyShieldGO)
+            foreach (var v in _buffEffectDic)
             {
-                AssetsMgr.Instance.Destroy(_massPhyShieldGO);
-                _massPhyShieldGO = null;
+                foreach (var v1 in v.Value)
+                    v1.Dispose();
             }
-
-            if (0 != _massPhyShieldAID)
-            {
-                AssetsMgr.Instance.ReleaseAsset(_massPhyShieldAID);
-                _massPhyShieldAID = 0;
-            }
-
-            if (null != _massMagShieldGO)
-            {
-                AssetsMgr.Instance.Destroy(_massMagShieldGO);
-                _massMagShieldGO = null;
-            }
-
-            if (0 != _massMagShieldAID)
-            {
-                AssetsMgr.Instance.ReleaseAsset(_massMagShieldAID);
-                _massMagShieldAID = 0;
-            }
-
-            if (null != _singlePhyShieldGO)
-            {
-                AssetsMgr.Instance.Destroy(_singlePhyShieldGO);
-                _singlePhyShieldGO = null;
-            }
-            if (0 != _singlePhyShieldAID)
-            {
-                AssetsMgr.Instance.ReleaseAsset(_singlePhyShieldAID);
-                _singlePhyShieldAID = 0;
-            }
-
-            if (null != _singleMagShieldGO)
-            {
-                AssetsMgr.Instance.Destroy(_singleMagShieldGO);
-                _singleMagShieldGO = null;
-            }
-
-            if (0 != _singleMagShieldAID)
-            {
-                AssetsMgr.Instance.ReleaseAsset(_singleMagShieldAID);
-                _singleMagShieldAID = 0;
-            }
+            _buffEffectDic.Clear();
 
             return base.Dispose();
         }

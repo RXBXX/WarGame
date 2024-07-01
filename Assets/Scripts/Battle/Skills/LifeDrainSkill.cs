@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace WarGame
 {
     public class LifeDrainSkill : FierceAttackSkill

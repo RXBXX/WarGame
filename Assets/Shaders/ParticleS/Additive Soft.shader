@@ -7,10 +7,9 @@ Shader "Custom/Particles/Additive (Soft)" {
     }
 
         Category{
-            Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
+            Tags { "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
             Blend One OneMinusSrcColor
             ColorMask RGBA
-            ZWrite Off
 
             SubShader {
                 Pass {

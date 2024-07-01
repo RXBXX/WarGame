@@ -311,6 +311,9 @@ namespace WarGame
 
         public enum Buff
         {
+            Blood = 1,
+            Posion = 2,
+            ReduceRage = 3,
             Cloaking = 4, //隐身
             Dizzy = 5, //晕眩
             MassPhyShield = 6, //群体物理护盾

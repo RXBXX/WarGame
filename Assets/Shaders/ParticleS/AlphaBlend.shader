@@ -8,10 +8,9 @@ Shader "Custom/Particles/Alpha Blended" {
     }
 
         Category{
-            Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
+            Tags { "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
             Blend SrcAlpha OneMinusSrcAlpha
             ColorMask RGBA
-            Zwrite On
 
             SubShader {
                 Pass {

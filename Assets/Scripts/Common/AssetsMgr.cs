@@ -8,6 +8,26 @@ using System.Threading.Tasks;
 
 namespace WarGame
 {
+    public class AssetPair<T> where T:Object
+    {
+        public int ID;
+        public T Obj;
+
+        public void Dispose()
+        {
+            if (null != Obj)
+            {
+                AssetsMgr.Instance.Destroy(Obj);
+                Obj = null;
+            }
+            if (0 != ID)
+            {
+                AssetsMgr.Instance.ReleaseAsset(ID);
+                ID = 0;
+            }
+        }
+    }
+
     public class AssetsMgr : Singeton<AssetsMgr>
     {
         private class LoadHandle

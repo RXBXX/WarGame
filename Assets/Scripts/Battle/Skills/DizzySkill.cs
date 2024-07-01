@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WarGame
 {
-    public class DizzySkill : SingleHealSkill
+    public class DizzySkill : SingleSkill
     {
         public DizzySkill(int id, int initiatorID) : base(id, initiatorID)
         {
