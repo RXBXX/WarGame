@@ -329,33 +329,6 @@ namespace WarGame
                     continue;
 
                 UpdateBuff(i, type, callback);
-                //var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id);
-                //var attrType = (Enum.AttrType)buffConfig.Attr.id;
-                //if (buffs[i].value <= 0)
-                //{
-                //    var buff = buffs[i];
-                //    buffs.RemoveAt(i);
-
-                //    callback(new object[] { buff.id, Enum.BuffUpdate.Delete, attrType, 0.0F });
-                //}
-                //else
-                //{
-                //    var attrUpdateValue = 0.0f;
-                //    if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
-                //    {
-                //        attrUpdateValue = buffConfig.Attr.value;
-                //        UpdateAttr(attrType, attrUpdateValue);
-                //    }
-
-                //    var buffUpdateType = Enum.BuffUpdate.None;
-                //    if (buffs[i].value >= buffConfig.Duration)
-                //    {
-                //        buffUpdateType = Enum.BuffUpdate.Add;
-                //    }
-                //    var buff = buffs[i];
-                //    buffs[i] = new BuffPair(buffs[i].id, buffs[i].value - 1, buffs[i].initiatorType);
-                //    callback(new object[] { buff.id, buffUpdateType, attrType, attrUpdateValue });
-                //}
             }
         }
 

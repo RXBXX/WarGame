@@ -13,9 +13,15 @@ Shader "Custom/PowerLineShader"
 		_Color("Color", Color) = (0, 0, 0, 0)
 	}
 	SubShader
-	{
-		pass {//ƽ�й�ĵ�pass��Ⱦ
-			Tags{"LightMode" = "ForwardBase" "Queue"="Transparent" "RenderType" = "Transparent"}
+	{ 
+			Tags
+			{
+				"Queue" = "Transparent+1"
+				"RenderType" = "Transparent"
+		}
+
+		pass {
+			Tags{"LightMode" = "ForwardBase"}
 			Cull Back
 			Blend SrcAlpha OneMinusSrcAlpha
 

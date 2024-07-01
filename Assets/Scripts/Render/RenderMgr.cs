@@ -113,6 +113,9 @@ namespace WarGame
 
         public int SetBlurBG(GLoader loader)
         {
+            if (null == CameraMgr.Instance.MainCamera)
+                return 0;
+
             var newID = 0;
             foreach (var v in _blurDic)
             {

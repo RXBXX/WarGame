@@ -102,9 +102,6 @@ namespace WarGame
                 }
             }
 
-            //if (null != target)
-            //    DebugManager.Instance.Log("target:" +target.ID);
-
             List<string> path = null;
             if (null != target)
             {
@@ -156,7 +153,7 @@ namespace WarGame
                     if (null == destCell || Vector3.Distance(targetHexagon.coor, destCell.coor) > Vector3.Distance(targetHexagon.coor, v.Value.coor))
                         destCell = v.Value;
                 }
-                DebugManager.Instance.Log(destCell.id);
+                //DebugManager.Instance.Log(destCell.id);
                 if (null != destCell)
                 {
                     path = new List<string>();
@@ -167,7 +164,7 @@ namespace WarGame
                     }
                     //DebugManager.Instance.Log("Path:"+path.Count);
                 }
-                DebugManager.Instance.Log(path.Count);
+                //DebugManager.Instance.Log(path.Count);
             }
             else
             {

@@ -32,7 +32,7 @@ namespace WarGame.UI
             _gCom.onClick.Add(OnClick);
             GetGObjectChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
 
-            //_blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
+            _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
             _optionList = GetGObjectChild<GList>("optionList");
             _optionList.itemRenderer = OnOptionRenderer;
             _optionList.onClickItem.Add(OnOptionClick);

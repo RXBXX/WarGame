@@ -5,6 +5,9 @@
     <loader id="n2_b0z0" name="bg" xy="0,0" size="1334,750">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
+    <graph id="n33_o61d" name="mask" xy="0,0" size="1334,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
     <graph id="n10_li0q" name="n10" xy="97,165" size="587,40" type="polygon" lineSize="0" fillColor="#ff5c8799" points="0,0,587,0,564,40,0,40"/>
     <graph id="n30_li0q" name="n30" xy="1248,205" size="587,40" rotation="180" type="polygon" lineSize="0" fillColor="#ffce4a35" points="0,0,587,0,564,40,0,40"/>
     <text id="n23_li0q" name="n23" xy="840,186" pivot="0.5,0.5" anchor="true" size="20,29" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="20" strokeColor="#ffffff" text="PA"/>

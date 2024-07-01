@@ -62,6 +62,7 @@ namespace WarGame.UI
 
         public void UpdateRage(float rage)
         {
+            //DebugManager.Instance.Log("UpdateRage:"+rage);
             if (rage == _rage.value)
                 return;
             GTween.Kill(_rage);

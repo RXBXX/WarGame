@@ -11,6 +11,7 @@ public class Test : MonoBehaviour
     private GameObject obj;
     private int operation;
     private bool stop = false;
+    public Material mat;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,11 @@ public class Test : MonoBehaviour
         obj = GameObject.Instantiate<GameObject>(go);
     }
 
+
+    public void OnRenderImage(RenderTexture source, RenderTexture destination)
+    {
+        Graphics.Blit(source, destination, mat);
+    }
     //private IEnumerator Load(string path)
     //{
     //    operation = Addressables.LoadAssetAsync<GameObject>(path);

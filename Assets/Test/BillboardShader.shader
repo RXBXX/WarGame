@@ -7,12 +7,14 @@ Shader "Unlit/BillboardShader"
 		[MaterialToggle]_Verical("Vercial",Range(0,1)) = 1
 			//_TexIndex("TexIndex", Range(0,1)) = 0
 	}
-		SubShader
+	SubShader
 	{
-		Tags { "Quene" = "Transparent" "RenderType" = "Transparent"}
+		Tags { 
+			"Queue" = "Transparent+1"
+		"RenderType" = "Transparent"
+		}
 		Pass
 		{
-			Zwrite On
 			Blend SrcAlpha OneMinusSrcAlpha//混合要渲染像素的A通道和1-要渲染的像素的A通道
 			//禁用剔除，绘制所有面
 			Cull off
