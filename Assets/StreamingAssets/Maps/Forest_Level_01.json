@@ -155,7 +155,7 @@
     {
       "ID": "0_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 0.0,
         "y": 0.0,
@@ -174,7 +174,7 @@
     {
       "ID": "0_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 0.0,
         "y": 0.0,
@@ -708,7 +708,7 @@
     {
       "ID": "1_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -727,7 +727,7 @@
     {
       "ID": "1_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -746,7 +746,7 @@
     {
       "ID": "1_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -836,7 +836,7 @@
     {
       "ID": "1_0_28",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -1159,6 +1159,25 @@
       }
     },
     {
+      "ID": "2_0_4",
+      "configId": 11,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.4472136,
+          "y": 0.0,
+          "z": 0.8944272,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 4.472136,
+        "sqrMagnitude": 20.0
+      }
+    },
+    {
       "ID": "2_0_6",
       "configId": 11,
       "isReachable": true,
@@ -1244,7 +1263,7 @@
     {
       "ID": "2_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1263,7 +1282,7 @@
     {
       "ID": "2_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1282,7 +1301,7 @@
     {
       "ID": "2_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1308,7 +1327,7 @@
     {
       "ID": "2_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1346,7 +1365,7 @@
     {
       "ID": "2_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1365,7 +1384,7 @@
     {
       "ID": "2_0_27",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1384,7 +1403,7 @@
     {
       "ID": "2_0_28",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1403,7 +1422,7 @@
     {
       "ID": "2_0_29",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 2.0,
         "y": 0.0,
@@ -1844,7 +1863,7 @@
     {
       "ID": "3_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1863,7 +1882,7 @@
     {
       "ID": "3_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1882,7 +1901,7 @@
     {
       "ID": "3_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1901,7 +1920,7 @@
     {
       "ID": "3_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1927,7 +1946,7 @@
     {
       "ID": "3_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1946,7 +1965,7 @@
     {
       "ID": "3_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1965,7 +1984,7 @@
     {
       "ID": "3_0_27",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -1984,7 +2003,7 @@
     {
       "ID": "3_0_28",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 3.0,
         "y": 0.0,
@@ -2397,7 +2416,7 @@
     {
       "ID": "4_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2416,7 +2435,7 @@
     {
       "ID": "4_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2487,7 +2506,7 @@
     {
       "ID": "4_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2506,7 +2525,7 @@
     {
       "ID": "4_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2525,7 +2544,7 @@
     {
       "ID": "4_0_27",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2544,7 +2563,7 @@
     {
       "ID": "4_0_28",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 4.0,
         "y": 0.0,
@@ -2905,6 +2924,25 @@
       }
     },
     {
+      "ID": "4_0_2",
+      "configId": 11,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.8944272,
+          "y": 0.0,
+          "z": 0.4472136,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 4.472136,
+        "sqrMagnitude": 20.0
+      }
+    },
+    {
       "ID": "5_0_7",
       "configId": 11,
       "isReachable": true,
@@ -3085,7 +3123,7 @@
     {
       "ID": "5_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 5.0,
         "y": 0.0,
@@ -3111,7 +3149,7 @@
     {
       "ID": "5_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 5.0,
         "y": 0.0,
@@ -4232,7 +4270,7 @@
     {
       "ID": "6_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 6.0,
         "y": 0.0,
@@ -4851,7 +4889,7 @@
     {
       "ID": "7_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5093,7 +5131,7 @@
     {
       "ID": "7_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5112,7 +5150,7 @@
     {
       "ID": "7_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5138,7 +5176,7 @@
     {
       "ID": "7_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5164,7 +5202,7 @@
     {
       "ID": "7_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5221,7 +5259,7 @@
     {
       "ID": "7_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5240,7 +5278,7 @@
     {
       "ID": "7_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 7.0,
         "y": 0.0,
@@ -5741,7 +5779,7 @@
     {
       "ID": "8_0_23",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5760,7 +5798,7 @@
     {
       "ID": "8_0_24",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5786,7 +5824,7 @@
     {
       "ID": "8_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5812,7 +5850,7 @@
     {
       "ID": "8_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5933,7 +5971,7 @@
     {
       "ID": "8_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5952,7 +5990,7 @@
     {
       "ID": "8_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -5978,7 +6016,7 @@
     {
       "ID": "8_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6004,7 +6042,7 @@
     {
       "ID": "8_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6023,7 +6061,7 @@
     {
       "ID": "8_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6042,7 +6080,7 @@
     {
       "ID": "8_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6061,7 +6099,7 @@
     {
       "ID": "8_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6080,7 +6118,7 @@
     {
       "ID": "8_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6099,7 +6137,7 @@
     {
       "ID": "8_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6118,7 +6156,7 @@
     {
       "ID": "8_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 8.0,
         "y": 0.0,
@@ -6405,7 +6443,7 @@
     {
       "ID": "9_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6578,7 +6616,7 @@
     {
       "ID": "9_0_22",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6597,7 +6635,7 @@
     {
       "ID": "9_0_23",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6616,7 +6654,7 @@
     {
       "ID": "9_0_24",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6635,7 +6673,7 @@
     {
       "ID": "9_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6730,7 +6768,7 @@
     {
       "ID": "9_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6749,7 +6787,7 @@
     {
       "ID": "9_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6768,7 +6806,7 @@
     {
       "ID": "9_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6787,7 +6825,7 @@
     {
       "ID": "9_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6832,7 +6870,7 @@
     {
       "ID": "9_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6858,7 +6896,7 @@
     {
       "ID": "9_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6877,7 +6915,7 @@
     {
       "ID": "9_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -6903,7 +6941,7 @@
     {
       "ID": "9_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": 0.0,
@@ -7183,7 +7221,7 @@
     {
       "ID": "10_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7202,7 +7240,7 @@
     {
       "ID": "10_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7228,7 +7266,7 @@
     {
       "ID": "10_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7394,7 +7432,7 @@
     {
       "ID": "10_0_22",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7413,7 +7451,7 @@
     {
       "ID": "10_0_23",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7432,7 +7470,7 @@
     {
       "ID": "10_0_24",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7451,7 +7489,7 @@
     {
       "ID": "10_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7515,7 +7553,7 @@
     {
       "ID": "10_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7534,7 +7572,7 @@
     {
       "ID": "10_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7631,7 +7669,7 @@
     {
       "ID": "10_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7657,7 +7695,7 @@
     {
       "ID": "10_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7690,7 +7728,7 @@
     {
       "ID": "10_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7709,7 +7747,7 @@
     {
       "ID": "10_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 10.0,
         "y": 0.0,
@@ -7982,7 +8020,7 @@
     {
       "ID": "11_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8001,7 +8039,7 @@
     {
       "ID": "11_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8020,7 +8058,7 @@
     {
       "ID": "11_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8046,7 +8084,7 @@
     {
       "ID": "11_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8212,7 +8250,7 @@
     {
       "ID": "11_0_22",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8231,7 +8269,7 @@
     {
       "ID": "11_0_23",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8468,7 +8506,7 @@
     {
       "ID": "11_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8487,7 +8525,7 @@
     {
       "ID": "11_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 11.0,
         "y": 0.0,
@@ -8812,7 +8850,7 @@
     {
       "ID": "12_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 12.0,
         "y": 0.0,
@@ -8838,7 +8876,7 @@
     {
       "ID": "12_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 12.0,
         "y": 0.0,
@@ -8864,7 +8902,7 @@
     {
       "ID": "12_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 12.0,
         "y": 0.0,
@@ -9421,7 +9459,7 @@
     {
       "ID": "13_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 13.0,
         "y": 0.0,
@@ -11694,7 +11732,7 @@
     {
       "ID": "17_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 17.0,
         "y": 0.0,
@@ -11713,7 +11751,7 @@
     {
       "ID": "17_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 17.0,
         "y": 0.0,
@@ -12256,7 +12294,7 @@
     {
       "ID": "18_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 18.0,
         "y": 0.0,
@@ -12275,7 +12313,7 @@
     {
       "ID": "18_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 18.0,
         "y": 0.0,
@@ -12294,7 +12332,7 @@
     {
       "ID": "18_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 18.0,
         "y": 0.0,
@@ -12830,7 +12868,7 @@
     {
       "ID": "19_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 19.0,
         "y": 0.0,
@@ -12849,7 +12887,7 @@
     {
       "ID": "19_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 19.0,
         "y": 0.0,
@@ -12868,7 +12906,7 @@
     {
       "ID": "19_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 19.0,
         "y": 0.0,
@@ -13397,7 +13435,7 @@
     {
       "ID": "20_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 20.0,
         "y": 0.0,
@@ -13416,7 +13454,7 @@
     {
       "ID": "20_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 20.0,
         "y": 0.0,
@@ -13442,7 +13480,7 @@
     {
       "ID": "20_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 20.0,
         "y": 0.0,
@@ -13786,7 +13824,7 @@
     {
       "ID": "20_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 20.0,
         "y": 0.0,
@@ -13805,7 +13843,7 @@
     {
       "ID": "20_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 20.0,
         "y": 0.0,
@@ -13914,7 +13952,7 @@
     {
       "ID": "21_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -13933,7 +13971,7 @@
     {
       "ID": "21_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -13959,7 +13997,7 @@
     {
       "ID": "21_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -13978,7 +14016,7 @@
     {
       "ID": "21_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -13997,7 +14035,7 @@
     {
       "ID": "21_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -14284,7 +14322,7 @@
     {
       "ID": "21_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -14303,7 +14341,7 @@
     {
       "ID": "21_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -14322,7 +14360,7 @@
     {
       "ID": "21_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -14341,7 +14379,7 @@
     {
       "ID": "21_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 21.0,
         "y": 0.0,
@@ -14424,7 +14462,7 @@
     {
       "ID": "22_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14443,7 +14481,7 @@
     {
       "ID": "22_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14462,7 +14500,7 @@
     {
       "ID": "22_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14481,7 +14519,7 @@
     {
       "ID": "22_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14500,7 +14538,7 @@
     {
       "ID": "22_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14730,7 +14768,7 @@
     {
       "ID": "22_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14749,7 +14787,7 @@
     {
       "ID": "22_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14775,7 +14813,7 @@
     {
       "ID": "22_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14801,7 +14839,7 @@
     {
       "ID": "22_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14820,7 +14858,7 @@
     {
       "ID": "22_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 22.0,
         "y": 0.0,
@@ -14915,7 +14953,7 @@
     {
       "ID": "23_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -14948,7 +14986,7 @@
     {
       "ID": "23_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -14967,7 +15005,7 @@
     {
       "ID": "23_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -14986,7 +15024,7 @@
     {
       "ID": "23_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15176,7 +15214,7 @@
     {
       "ID": "23_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15259,7 +15297,7 @@
     {
       "ID": "23_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15278,7 +15316,7 @@
     {
       "ID": "23_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15311,7 +15349,7 @@
     {
       "ID": "23_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15330,7 +15368,7 @@
     {
       "ID": "23_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 23.0,
         "y": 0.0,
@@ -15470,7 +15508,7 @@
     {
       "ID": "24_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15489,7 +15527,7 @@
     {
       "ID": "24_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15648,7 +15686,7 @@
     {
       "ID": "24_0_35",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15667,7 +15705,7 @@
     {
       "ID": "24_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15686,7 +15724,7 @@
     {
       "ID": "24_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15705,7 +15743,7 @@
     {
       "ID": "24_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15781,7 +15819,7 @@
     {
       "ID": "24_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -15807,7 +15845,7 @@
     {
       "ID": "24_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 24.0,
         "y": 0.0,
@@ -16184,7 +16222,7 @@
     {
       "ID": "25_0_34",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 25.0,
         "y": 0.0,
@@ -16203,7 +16241,7 @@
     {
       "ID": "25_0_35",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 25.0,
         "y": 0.0,
@@ -16222,7 +16260,7 @@
     {
       "ID": "25_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 25.0,
         "y": 0.0,
@@ -16241,7 +16279,7 @@
     {
       "ID": "25_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 25.0,
         "y": 0.0,
@@ -16260,7 +16298,7 @@
     {
       "ID": "25_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 25.0,
         "y": 0.0,
@@ -16777,7 +16815,7 @@
     {
       "ID": "26_0_34",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 26.0,
         "y": 0.0,
@@ -16796,7 +16834,7 @@
     {
       "ID": "26_0_35",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 26.0,
         "y": 0.0,
@@ -16815,7 +16853,7 @@
     {
       "ID": "26_0_36",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 26.0,
         "y": 0.0,
@@ -16841,7 +16879,7 @@
     {
       "ID": "26_0_37",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 26.0,
         "y": 0.0,
@@ -17344,7 +17382,7 @@
     {
       "ID": "27_0_34",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 27.0,
         "y": 0.0,
@@ -17370,7 +17408,7 @@
     {
       "ID": "27_0_35",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 27.0,
         "y": 0.0,
@@ -18203,7 +18241,7 @@
     {
       "ID": "28_0_49",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 28.0,
         "y": 0.0,
@@ -18794,7 +18832,7 @@
     {
       "ID": "29_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 29.0,
         "y": 0.0,
@@ -18813,7 +18851,7 @@
     {
       "ID": "29_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 29.0,
         "y": 0.0,
@@ -18832,7 +18870,7 @@
     {
       "ID": "29_0_49",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 29.0,
         "y": 0.0,
@@ -19347,7 +19385,7 @@
     {
       "ID": "30_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 30.0,
         "y": 0.0,
@@ -19366,7 +19404,7 @@
     {
       "ID": "30_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 30.0,
         "y": 0.0,
@@ -19385,7 +19423,7 @@
     {
       "ID": "30_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 30.0,
         "y": 0.0,
@@ -19404,7 +19442,7 @@
     {
       "ID": "30_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 30.0,
         "y": 0.0,
@@ -19423,7 +19461,7 @@
     {
       "ID": "30_0_49",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 30.0,
         "y": 0.0,
@@ -19976,7 +20014,7 @@
     {
       "ID": "31_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 31.0,
         "y": 0.0,
@@ -20002,7 +20040,7 @@
     {
       "ID": "31_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 31.0,
         "y": 0.0,
@@ -20021,7 +20059,7 @@
     {
       "ID": "31_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 31.0,
         "y": 0.0,
@@ -20040,7 +20078,7 @@
     {
       "ID": "31_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 31.0,
         "y": 0.0,
@@ -20059,7 +20097,7 @@
     {
       "ID": "31_0_49",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 31.0,
         "y": 0.0,
@@ -20614,7 +20652,7 @@
     {
       "ID": "32_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 32.0,
         "y": 0.0,
@@ -20633,7 +20671,7 @@
     {
       "ID": "32_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 32.0,
         "y": 0.0,
@@ -20652,7 +20690,7 @@
     {
       "ID": "32_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 32.0,
         "y": 0.0,
@@ -20671,7 +20709,7 @@
     {
       "ID": "32_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 32.0,
         "y": 0.0,
@@ -20932,7 +20970,7 @@
     {
       "ID": "33_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 33.0,
         "y": 0.0,
@@ -21371,7 +21409,7 @@
     {
       "ID": "33_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 33.0,
         "y": 0.0,
@@ -21390,7 +21428,7 @@
     {
       "ID": "33_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 33.0,
         "y": 0.0,
@@ -21644,7 +21682,7 @@
     {
       "ID": "34_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 34.0,
         "y": 0.0,
@@ -21663,7 +21701,7 @@
     {
       "ID": "34_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 34.0,
         "y": 0.0,
@@ -21689,7 +21727,7 @@
     {
       "ID": "34_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 34.0,
         "y": 0.0,
@@ -22085,7 +22123,7 @@
     {
       "ID": "34_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 34.0,
         "y": 0.0,
@@ -22111,7 +22149,7 @@
     {
       "ID": "34_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 34.0,
         "y": 0.0,
@@ -22436,7 +22474,7 @@
     {
       "ID": "35_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22462,7 +22500,7 @@
     {
       "ID": "35_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22481,7 +22519,7 @@
     {
       "ID": "35_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22896,7 +22934,7 @@
     {
       "ID": "35_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22915,7 +22953,7 @@
     {
       "ID": "35_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22934,7 +22972,7 @@
     {
       "ID": "35_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22953,7 +22991,7 @@
     {
       "ID": "35_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -22972,7 +23010,7 @@
     {
       "ID": "35_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 35.0,
         "y": 0.0,
@@ -23221,7 +23259,7 @@
     {
       "ID": "36_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23240,7 +23278,7 @@
     {
       "ID": "36_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23311,7 +23349,7 @@
     {
       "ID": "36_0_12",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23330,7 +23368,7 @@
     {
       "ID": "36_0_13",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23368,7 +23406,7 @@
     {
       "ID": "36_0_15",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23387,7 +23425,7 @@
     {
       "ID": "36_0_16",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23406,7 +23444,7 @@
     {
       "ID": "36_0_17",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23724,7 +23762,7 @@
     {
       "ID": "36_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23743,7 +23781,7 @@
     {
       "ID": "36_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23762,7 +23800,7 @@
     {
       "ID": "36_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23781,7 +23819,7 @@
     {
       "ID": "36_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 36.0,
         "y": 0.0,
@@ -23990,7 +24028,7 @@
     {
       "ID": "37_0_5",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24009,7 +24047,7 @@
     {
       "ID": "37_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24028,7 +24066,7 @@
     {
       "ID": "37_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24047,7 +24085,7 @@
     {
       "ID": "37_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24092,7 +24130,7 @@
     {
       "ID": "37_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24118,7 +24156,7 @@
     {
       "ID": "37_0_15",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24144,7 +24182,7 @@
     {
       "ID": "37_0_16",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24163,7 +24201,7 @@
     {
       "ID": "37_0_17",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24322,7 +24360,7 @@
     {
       "ID": "37_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24341,7 +24379,7 @@
     {
       "ID": "37_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24424,7 +24462,7 @@
     {
       "ID": "37_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24443,7 +24481,7 @@
     {
       "ID": "37_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24462,7 +24500,7 @@
     {
       "ID": "37_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24481,7 +24519,7 @@
     {
       "ID": "37_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 37.0,
         "y": 0.0,
@@ -24659,7 +24697,7 @@
     {
       "ID": "38_0_5",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24685,7 +24723,7 @@
     {
       "ID": "38_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24704,7 +24742,7 @@
     {
       "ID": "38_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24756,7 +24794,7 @@
     {
       "ID": "38_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24775,7 +24813,7 @@
     {
       "ID": "38_0_15",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24794,7 +24832,7 @@
     {
       "ID": "38_0_16",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24813,7 +24851,7 @@
     {
       "ID": "38_0_17",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24953,7 +24991,7 @@
     {
       "ID": "38_0_24",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24972,7 +25010,7 @@
     {
       "ID": "38_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -24998,7 +25036,7 @@
     {
       "ID": "38_0_26",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -25017,7 +25055,7 @@
     {
       "ID": "38_0_38",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -25036,7 +25074,7 @@
     {
       "ID": "38_0_39",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 38.0,
         "y": 0.0,
@@ -25188,7 +25226,7 @@
     {
       "ID": "39_0_5",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25207,7 +25245,7 @@
     {
       "ID": "39_0_6",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25226,7 +25264,7 @@
     {
       "ID": "39_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25252,7 +25290,7 @@
     {
       "ID": "39_0_14",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25271,7 +25309,7 @@
     {
       "ID": "39_0_15",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25328,7 +25366,7 @@
     {
       "ID": "39_0_24",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25347,7 +25385,7 @@
     {
       "ID": "39_0_25",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 39.0,
         "y": 0.0,
@@ -25544,7 +25582,7 @@
     {
       "ID": "40_0_5",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 40.0,
         "y": 0.0,
@@ -26094,7 +26132,7 @@
     {
       "ID": "41_0_31",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 41.0,
         "y": 0.0,
@@ -26120,7 +26158,7 @@
     {
       "ID": "41_0_32",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 41.0,
         "y": 0.0,
@@ -26215,7 +26253,7 @@
     {
       "ID": "41_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 41.0,
         "y": 0.0,
@@ -26234,7 +26272,7 @@
     {
       "ID": "41_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 41.0,
         "y": 0.0,
@@ -26687,7 +26725,7 @@
     {
       "ID": "42_0_30",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26706,7 +26744,7 @@
     {
       "ID": "42_0_31",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26725,7 +26763,7 @@
     {
       "ID": "42_0_32",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26744,7 +26782,7 @@
     {
       "ID": "42_0_33",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26808,7 +26846,7 @@
     {
       "ID": "42_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26827,7 +26865,7 @@
     {
       "ID": "42_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -26846,7 +26884,7 @@
     {
       "ID": "42_0_48",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 42.0,
         "y": 0.0,
@@ -27368,7 +27406,7 @@
     {
       "ID": "43_0_29",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27387,7 +27425,7 @@
     {
       "ID": "43_0_30",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27406,7 +27444,7 @@
     {
       "ID": "43_0_31",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27425,7 +27463,7 @@
     {
       "ID": "43_0_32",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27520,7 +27558,7 @@
     {
       "ID": "43_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27539,7 +27577,7 @@
     {
       "ID": "43_0_47",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 43.0,
         "y": 0.0,
@@ -27764,7 +27802,7 @@
     {
       "ID": "44_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 44.0,
         "y": 0.0,
@@ -28146,7 +28184,7 @@
     {
       "ID": "44_0_29",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 44.0,
         "y": 0.0,
@@ -28165,7 +28203,7 @@
     {
       "ID": "44_0_30",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 44.0,
         "y": 0.0,
@@ -28191,7 +28229,7 @@
     {
       "ID": "44_0_31",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 44.0,
         "y": 0.0,
@@ -28210,7 +28248,7 @@
     {
       "ID": "44_0_32",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 44.0,
         "y": 0.0,
@@ -28618,7 +28656,7 @@
     {
       "ID": "45_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -28637,7 +28675,7 @@
     {
       "ID": "45_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -28656,7 +28694,7 @@
     {
       "ID": "45_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -28675,7 +28713,7 @@
     {
       "ID": "45_0_11",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -29078,7 +29116,7 @@
     {
       "ID": "45_0_30",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -29346,7 +29384,7 @@
     {
       "ID": "45_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 45.0,
         "y": 0.0,
@@ -29536,7 +29574,7 @@
     {
       "ID": "46_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -29555,7 +29593,7 @@
     {
       "ID": "46_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -29574,7 +29612,7 @@
     {
       "ID": "46_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -29593,7 +29631,7 @@
     {
       "ID": "46_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30231,7 +30269,7 @@
     {
       "ID": "46_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30250,7 +30288,7 @@
     {
       "ID": "46_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30288,7 +30326,7 @@
     {
       "ID": "46_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30314,7 +30352,7 @@
     {
       "ID": "46_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30333,7 +30371,7 @@
     {
       "ID": "46_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -30537,7 +30575,7 @@
     {
       "ID": "47_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -30556,7 +30594,7 @@
     {
       "ID": "47_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -30582,7 +30620,7 @@
     {
       "ID": "47_0_9",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -30601,7 +30639,7 @@
     {
       "ID": "47_0_10",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31140,7 +31178,7 @@
     {
       "ID": "47_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31166,7 +31204,7 @@
     {
       "ID": "47_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31185,7 +31223,7 @@
     {
       "ID": "47_0_42",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31204,7 +31242,7 @@
     {
       "ID": "47_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31223,7 +31261,7 @@
     {
       "ID": "47_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31242,7 +31280,7 @@
     {
       "ID": "47_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31261,7 +31299,7 @@
     {
       "ID": "47_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -31446,7 +31484,7 @@
     {
       "ID": "48_0_7",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -31472,7 +31510,7 @@
     {
       "ID": "48_0_8",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32006,7 +32044,7 @@
     {
       "ID": "48_0_40",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32025,7 +32063,7 @@
     {
       "ID": "48_0_41",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32070,7 +32108,7 @@
     {
       "ID": "48_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32096,7 +32134,7 @@
     {
       "ID": "48_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32115,7 +32153,7 @@
     {
       "ID": "48_0_45",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32134,7 +32172,7 @@
     {
       "ID": "48_0_46",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 0.0,
@@ -32903,7 +32941,7 @@
     {
       "ID": "49_0_43",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 49.0,
         "y": 0.0,
@@ -32922,7 +32960,7 @@
     {
       "ID": "49_0_44",
       "configId": 11,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 49.0,
         "y": 0.0,
@@ -39221,7 +39259,7 @@
     {
       "ID": "12_0_11",
       "configId": 5,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 12.0,
         "y": 0.0,
@@ -47163,25 +47201,6 @@
       }
     },
     {
-      "ID": "2_0_4",
-      "configId": 22,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 4.472136,
-        "sqrMagnitude": 20.0
-      }
-    },
-    {
       "ID": "2_0_3",
       "configId": 22,
       "isReachable": true,
@@ -47218,72 +47237,187 @@
         "magnitude": 3.60555124,
         "sqrMagnitude": 13.0
       }
-    },
-    {
-      "ID": "4_0_2",
-      "configId": 22,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 4.472136,
-        "sqrMagnitude": 20.0
-      }
     }
   ],
   "enemys": [
     {
-      "configId": 20002,
+      "ID": 20002,
       "hexagonID": "43_0_42"
     },
     {
-      "configId": 20001,
+      "ID": 20001,
       "hexagonID": "43_0_39"
     },
     {
-      "configId": 20004,
+      "ID": 20004,
       "hexagonID": "40_0_27"
     },
     {
-      "configId": 20005,
+      "ID": 20005,
       "hexagonID": "35_0_30"
     },
     {
-      "configId": 20006,
+      "ID": 20006,
       "hexagonID": "16_0_38"
     },
     {
-      "configId": 20007,
+      "ID": 20007,
       "hexagonID": "13_0_35"
     },
     {
-      "configId": 20008,
+      "ID": 20008,
       "hexagonID": "13_0_15"
     },
     {
-      "configId": 20009,
+      "ID": 20009,
       "hexagonID": "16_0_12"
     },
     {
-      "configId": 20010,
+      "ID": 20010,
       "hexagonID": "43_0_8"
     },
     {
-      "configId": 20011,
+      "ID": 20011,
       "hexagonID": "39_0_11"
     },
     {
-      "configId": 20003,
+      "ID": 20003,
       "hexagonID": "40_0_42"
     }
   ],
-  "bonfires": []
+  "bonfires": [],
+  "ornaments": [
+    {
+      "ID": "47_0_45",
+      "configID": 13,
+      "hexagonID": "47_0_45",
+      "scale": 5.0
+    },
+    {
+      "ID": "43_0_31",
+      "configID": 13,
+      "hexagonID": "43_0_31",
+      "scale": 5.0
+    },
+    {
+      "ID": "36_0_40",
+      "configID": 13,
+      "hexagonID": "36_0_40",
+      "scale": 6.0
+    },
+    {
+      "ID": "31_0_47",
+      "configID": 13,
+      "hexagonID": "31_0_47",
+      "scale": 6.0
+    },
+    {
+      "ID": "22_0_46",
+      "configID": 13,
+      "hexagonID": "22_0_46",
+      "scale": 5.0
+    },
+    {
+      "ID": "9_0_43",
+      "configID": 13,
+      "hexagonID": "9_0_43",
+      "scale": 5.0
+    },
+    {
+      "ID": "8_0_38",
+      "configID": 13,
+      "hexagonID": "8_0_38",
+      "scale": 5.0
+    },
+    {
+      "ID": "3_0_27",
+      "configID": 13,
+      "hexagonID": "3_0_27",
+      "scale": 5.0
+    },
+    {
+      "ID": "9_0_24",
+      "configID": 13,
+      "hexagonID": "9_0_24",
+      "scale": 5.0
+    },
+    {
+      "ID": "11_0_13",
+      "configID": 13,
+      "hexagonID": "11_0_13",
+      "scale": 5.0
+    },
+    {
+      "ID": "2_0_12",
+      "configID": 13,
+      "hexagonID": "2_0_12",
+      "scale": 5.0
+    },
+    {
+      "ID": "22_0_8",
+      "configID": 13,
+      "hexagonID": "22_0_8",
+      "scale": 5.0
+    },
+    {
+      "ID": "38_0_6",
+      "configID": 13,
+      "hexagonID": "38_0_6",
+      "scale": 5.0
+    },
+    {
+      "ID": "46_0_9",
+      "configID": 13,
+      "hexagonID": "46_0_9",
+      "scale": 5.0
+    },
+    {
+      "ID": "37_0_16",
+      "configID": 13,
+      "hexagonID": "37_0_16",
+      "scale": 5.0
+    },
+    {
+      "ID": "38_0_25",
+      "configID": 13,
+      "hexagonID": "38_0_25",
+      "scale": 3.0
+    },
+    {
+      "ID": "35_0_13",
+      "configID": 13,
+      "hexagonID": "35_0_13",
+      "scale": 3.0
+    },
+    {
+      "ID": "18_0_9",
+      "configID": 13,
+      "hexagonID": "18_0_9",
+      "scale": 3.0
+    },
+    {
+      "ID": "25_0_36",
+      "configID": 13,
+      "hexagonID": "25_0_36",
+      "scale": 5.0
+    },
+    {
+      "ID": "42_0_47",
+      "configID": 13,
+      "hexagonID": "42_0_47",
+      "scale": 3.0
+    },
+    {
+      "ID": "47_0_41",
+      "configID": 13,
+      "hexagonID": "47_0_41",
+      "scale": 4.0
+    },
+    {
+      "ID": "29_0_5",
+      "configID": 11,
+      "hexagonID": "29_0_5",
+      "scale": 1.0
+    }
+  ]
 }

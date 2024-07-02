@@ -101,6 +101,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\Scripts\Common\InputManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitManager.cs" />
+    <Compile Include="Assets\Test\Cloud\PostRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlButton.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Tree\TreeView.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TypingEffect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XML.cs" />
+    <Compile Include="Assets\Test\Cloud\CustomInput.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ExtraTurnSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\ScrollPane.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
@@ -329,6 +331,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPainter.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\MassPhyShieldSkill.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightRoleInfo.cs" />
+    <Compile Include="Assets\Test\Cloud\DepthPost.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlParseOptions.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ZipReader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PopupMenu.cs" />
@@ -338,6 +341,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIConfig.cs" />
     <Compile Include="Assets\Scripts\Common\DataInterface.cs" />
     <Compile Include="Assets\Scripts\Test\CurveTest.cs" />
+    <Compile Include="Assets\Test\Cloud\CameraMove.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroEquipItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\BlurFilter.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\PinchGesture.cs" />
@@ -478,6 +482,8 @@
     <None Include="Assets\FairyGUI\Resources\Shaders\AddOn\FairyGUI-BlurFilter.shader" />
     <None Include="Assets\Shaders\ParticleS\Additive.shader" />
     <None Include="Assets\Shaders\ShieldShader.shader" />
+    <None Include="Assets\Shaders\Water.shader" />
+    <None Include="Assets\Test\Cloud\VolumeCloud.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
