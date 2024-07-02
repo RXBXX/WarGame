@@ -9,9 +9,8 @@ namespace WarGame
     public class MapManager : Singeton<MapManager>
     {
         private Dictionary<string, Hexagon> _map = new Dictionary<string, Hexagon>();
-        private Dictionary<int, Bonfire> _bonfiresDic = new Dictionary<int, Bonfire>();
-
-        private List<string> _markedRegion = new List<string>();
+        private Dictionary<string, Bonfire> _bonfiresDic = new Dictionary<string, Bonfire>();
+        private Dictionary<string, Ornament> _ornamentsDic = new Dictionary<string, Ornament>();
 
         private int _roleHeight = 5;
 
@@ -73,10 +72,11 @@ namespace WarGame
             return true;
         }
 
-        public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires)
+        public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments)
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
             _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
+            _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("BonfireRoot"));
         }
 
         public void UpdateRound(int round)

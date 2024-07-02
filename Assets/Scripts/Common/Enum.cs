@@ -53,6 +53,7 @@ namespace WarGame
             Hero = 1,
             Enemy = 2,
             Bonfire = 3,
+            Ornament = 4,
         }
 
         //UI²ã¼¶

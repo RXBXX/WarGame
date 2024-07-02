@@ -105,69 +105,6 @@ namespace WarGame
         public Vector3 ViceRotation;
     }
 
-    [Serializable]
-    public class HexagonMapPlugin
-    {
-        public string ID;
-
-        public int configId;
-
-        public bool isReachable;
-
-        public Vector3 coor;
-
-        public HexagonMapPlugin(string id, int configId, bool isReachable, Vector3 coor)
-        {
-            this.ID = id;
-            this.configId = configId;
-            this.isReachable = isReachable;
-            this.coor = coor;
-        }
-    }
-
-    [Serializable]
-    public class EnemyMapPlugin
-    {
-        public int configId;
-
-        public string hexagonID;
-
-        public EnemyMapPlugin(int configId, string hexagonID)
-        {
-            this.configId = configId;
-            this.hexagonID = hexagonID;
-        }
-    }
-
-    [Serializable]
-    public class BonfireMapPlugin
-    {
-        public int configId;
-
-        public string hexagonID;
-
-        public BonfireMapPlugin(int configId, string hexagonID)
-        {
-            this.configId = configId;
-            this.hexagonID = hexagonID;
-        }
-    }
-
-    [Serializable]
-    public class LevelMapPlugin
-    {
-        public HexagonMapPlugin[] hexagons;
-        public EnemyMapPlugin[] enemys;
-        public BonfireMapPlugin[] bonfires;
-
-        public LevelMapPlugin(HexagonMapPlugin[] hexagons, EnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires)
-        {
-            this.hexagons = hexagons;
-            this.enemys = enemys;
-            this.bonfires = bonfires;
-        }
-    }
-
     //属性表
     [Serializable]
     public class AttrConfig : Config
@@ -363,5 +300,12 @@ namespace WarGame
     public class RewardConfig : Config
     {
         public ItemPair[] Rewards;
+    }
+
+    //装饰物表
+    [Serializable]
+    public class OrnamentConfig : Config
+    {
+        public string Prefab;
     }
 }

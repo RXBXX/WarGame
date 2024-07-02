@@ -106,7 +106,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\MeshFactory.cs" />
-    <Compile Include="Assets\Scripts\Battle\EventBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\IUISource.cs" />
     <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\FontManager.cs" />
@@ -123,6 +122,7 @@
     <Compile Include="Assets\Scripts\Common\DebugManager.cs" />
     <Compile Include="Assets\FairyGUI\Examples\HeadBar\HeadBarMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\RectMesh.cs" />
+    <Compile Include="Assets\Scripts\Map\Ornament.cs" />
     <Compile Include="Assets\FairyGUI\Examples\LoopList\LoopListMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\ScrollPane\ScrollPaneMain.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\PullToRefreshMain.cs" />
@@ -251,6 +251,7 @@
     <Compile Include="Assets\Scripts\Common\ConfigInterface.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagWindow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay.cs" />
+    <Compile Include="Assets\Scripts\Map\MapPlugin.cs" />
     <Compile Include="Assets\Scripts\UI\Reward\RewardHeroPanel.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitNumbersMain.cs" />
@@ -259,6 +260,7 @@
     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
     <Compile Include="Assets\Scripts\Render\PostOutline.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
+    <Compile Include="Assets\Scripts\Map\EventBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
     <Compile Include="Assets\Scripts\Common\StoryMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
@@ -307,6 +309,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />
+    <Compile Include="Assets\Scripts\Map\OrnamentBehaviour.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\LifeDrainSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
@@ -361,7 +364,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\EMRenderSupport.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrComp.cs" />
-    <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\UI\Reward\RewardItemsPanel.cs" />
     <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
     <Compile Include="Assets\Scripts\Render\GPUInstancedGroup.cs" />
@@ -402,6 +404,7 @@
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderTextureMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearFontSize.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIBase.cs" />
+    <Compile Include="Assets\Scripts\Map\RoleBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Filter\ColorFilter.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\BookPage.cs" />
     <Compile Include="Assets\Test\VisualEffectTest.cs" />

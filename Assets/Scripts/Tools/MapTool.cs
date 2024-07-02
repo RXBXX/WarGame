@@ -77,19 +77,34 @@ namespace WarGame
             return hexagonDic;
         }
 
-        public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
+        public Dictionary<string, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
         {
-            Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
-            if (null != bonfireDic)
+            Dictionary<string, Bonfire> bonfireDic = new Dictionary<string, Bonfire>();
+            if (null != bonfires)
             {
                 for (int i = 0; i < bonfires.Length; i++)
                 {
-                    var bonfire = new Bonfire(i, bonfires[i].configId, bonfires[i].hexagonID);
+                    var bonfire = new Bonfire(bonfires[i].ID, bonfires[i].configId, bonfires[i].hexagonID);
                     bonfire.SetParent(root.transform);
-                    bonfireDic[i] = bonfire;
+                    bonfireDic[bonfires[i].ID] = bonfire;
                 }
             }
             return bonfireDic;
+        }
+
+        public Dictionary<string, Ornament> CreateOrnament(OrnamentMapPlugin[] ornaments, GameObject root)
+        {
+            Dictionary<string, Ornament> ornamentsDic = new Dictionary<string, Ornament>();
+            if (null != ornaments)
+            {
+                for (int i = 0; i < ornaments.Length; i++)
+                {
+                    var bonfire = new Ornament(ornaments[i].ID, ornaments[i].configID, ornaments[i].hexagonID);
+                    bonfire.SetParent(root.transform);
+                    ornamentsDic[ornaments[i].ID] = bonfire;
+                }
+            }
+            return ornamentsDic;
         }
 
 #if UNITY_EDITOR
@@ -134,7 +149,7 @@ namespace WarGame
                 var hexagonTra = rootObj.transform.GetChild(i);
                 var data = hexagonTra.GetComponent<HexagonBehaviour>();
                 var coor = GetCoorFromPos(hexagonTra.position);
-                var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.configId, data.IsReachable, coor);
+                var hexagonCell = new HexagonMapPlugin(GetHexagonKey(coor), data.ConfigId, data.IsReachable, coor);
                 hexagons[i] = hexagonCell;
             }
 
@@ -155,10 +170,23 @@ namespace WarGame
             {
                 var bonfireTra = fireRootObj.transform.GetChild(i);
                 var data = bonfireTra.GetComponent<BonfireBehaviour>();
-                bonfires[i] = new BonfireMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(bonfireTra.position - CommonParams.Offset)));
+                var hexagonID = GetHexagonKey(GetCoorFromPos(bonfireTra.position - CommonParams.Offset));
+                bonfires[i] = new BonfireMapPlugin(hexagonID, data.ConfigID, hexagonID);
             }
 
-            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires);
+            var ornamentRootObj = GameObject.Find("OrnamentRoot");
+            var ornamentCount = ornamentRootObj.transform.childCount;
+            OrnamentMapPlugin[] ornaments = new OrnamentMapPlugin[ornamentCount];
+            for (int i = 0; i < ornamentCount; i++)
+            {
+                var ornamentTra = ornamentRootObj.transform.GetChild(i);
+                var data = ornamentTra.GetComponent<OrnamentBehaviour>();
+                var hexagonID = GetHexagonKey(GetCoorFromPos(ornamentTra.position));
+                ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID);
+            }
+
+
+            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments);
 
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
             Tool.Instance.WriteJson<LevelMapPlugin>(dir, levelPlugin);
@@ -177,7 +205,7 @@ namespace WarGame
             var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
-            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires);
+            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments);
 
             RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
         }
@@ -264,6 +292,13 @@ namespace WarGame
             for (int i = bonfireCount - 1; i >= 0; i--)
             {
                 GameObject.DestroyImmediate(fireRootObj.transform.GetChild(i).gameObject);
+            }
+
+            var ornamentRootObj = GameObject.Find("OrnamentRoot");
+            var ornamentCount = ornamentRootObj.transform.childCount;
+            for (int i = ornamentCount - 1; i >= 0; i--)
+            {
+                GameObject.DestroyImmediate(ornamentRootObj.transform.GetChild(i).gameObject);
             }
         }
 #endif

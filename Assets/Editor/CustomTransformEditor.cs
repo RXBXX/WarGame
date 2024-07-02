@@ -259,6 +259,16 @@ namespace WarGame
                     bonfires[i].transform.SetParent(fireRootObj.transform);
                 }
             }
+
+            var ornamentRootObj = GameObject.Find("OrnamentRoot");
+            GameObject[] ornaments = GameObject.FindGameObjectsWithTag(Enum.Tag.Ornament.ToString());
+            for (int i = 0; i < ornaments.Length; i++)
+            {
+                if (ornaments[i].transform.parent != ornamentRootObj)
+                {
+                    ornaments[i].transform.SetParent(ornamentRootObj.transform);
+                }
+            }
         }
     }
 }

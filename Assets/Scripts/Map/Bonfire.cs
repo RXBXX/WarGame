@@ -5,9 +5,9 @@ namespace WarGame
 {
     public class Bonfire : MapObject
     {
-        public int ID;
-
         private int _configId;
+
+        private string _id;
 
         private string _hexagonID;
 
@@ -29,10 +29,10 @@ namespace WarGame
             get { return _configId; }
         }
 
-        public Bonfire(int id, int configId, string hexagonID)
+        public Bonfire(string id, int configId, string hexagonID)
         {
-            this.ID = id;
             this._configId = configId;
+            this._id = id;
             this._hexagonID = hexagonID;
 
             CreateGO();
@@ -55,7 +55,7 @@ namespace WarGame
         {
             base.OnCreate(prefab);
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + _offset;
-            _gameObject.GetComponent<BonfireBehaviour>().ID = _configId;
+            _gameObject.GetComponent<BonfireBehaviour>().ID = _id;
             _pointLight = _gameObject.transform.Find("Point Light").GetComponent<Light>();
             _pointLightPos = _pointLight.transform.position;
         }
@@ -97,7 +97,7 @@ namespace WarGame
 
         public void UpdateRound(int round)
         {
-            var hexagon = MapManager.Instance.GetHexagon(_hexagonID);
+            var hexagon = MapManager.Instance.GetHexagon(_id);
             foreach (var v in MapManager.Instance.Dicections)
             {
                 var hexagonKey = MapTool.Instance.GetHexagonKey(hexagon.coor + v);

@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexagonBehaviour : MonoBehaviour
+namespace WarGame
 {
-    public string ID = null;
+    public class HexagonBehaviour : MonoBehaviour
+    {
+        public string ID;
 
-    public int configId = 0;
+        public int ConfigId = 0;
 
-    public bool IsReachable = true;
+        public bool IsReachable = true;
+    }
 }
