@@ -60,12 +60,14 @@ namespace WarGame
         public string ID;
         public int configID;
         public string hexagonID;
+        public float scale;
 
-        public OrnamentMapPlugin(string ID, int configID, string hexagonID)
+        public OrnamentMapPlugin(string ID, int configID, string hexagonID, float scale = 1)
         {
             this.ID = ID;
             this.configID = configID;
             this.hexagonID = hexagonID;
+            this.scale = scale;
         }
     }
 

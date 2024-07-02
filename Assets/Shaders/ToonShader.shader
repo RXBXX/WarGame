@@ -10,7 +10,7 @@ Shader "Custom/ToonShader"
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
-		_Outline("Outline", Range(0,1)) = 0.1
+		_Outline("Outline", Range(0,0.1)) = 0.01
 		_OutlineColor("Outline Color", Color) = (0,0,0,0)
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
 		_Steps("Steps of toon",range(0,9)) = 3
@@ -222,7 +222,7 @@ Shader "Custom/ToonShader"
 						float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;
 						float aspect = _ScreenParams.y / _ScreenParams.x;
 						ndcNormal.x *= aspect;
-						pos.xy += 0.1 * _Outline * ndcNormal.xy;
+						pos.xy += _Outline * ndcNormal.xy;
 						o.pos = pos;
 
 						//half3 worldNormal = UnityObjectToWorldNormal(v.normal);

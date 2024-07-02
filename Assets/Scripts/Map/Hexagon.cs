@@ -56,8 +56,10 @@ namespace WarGame
         {
             base.OnCreate(prefab);
             _gameObject.transform.position = MapTool.Instance.GetPosFromCoor(coor);
-            _gameObject.GetComponent<HexagonBehaviour>().ID = ID;
-            _gameObject.GetComponent<HexagonBehaviour>().enabled = false;
+            var behaviour = _gameObject.GetComponent<HexagonBehaviour>();
+            behaviour.ID = ID;
+            behaviour.IsReachable = this.isReachable;
+            behaviour.enabled = false;
         }
 
         public void Update(float deltaTime)

@@ -329,8 +329,8 @@
       "ID": "Record_2",
       "title": "存档_2",
       "createTime": 1719825333579,
-      "saveTime": 1719901990579,
-      "duration": 1635352,
+      "saveTime": 1719913352053,
+      "duration": 2073082,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -366,47 +366,51 @@
       "levelDataDic": {
         "10001": {
           "configId": 10001,
-          "Stage": 4,
-          "Round": 1,
+          "Stage": 3,
+          "Round": 0,
           "actionType": 0,
           "heros": [
             {
               "HP": 110.0,
-              "Rage": 20.0,
-              "hexagonID": "6_0_6",
+              "Rage": 0.0,
+              "hexagonID": "2_0_1",
               "bornHexagonID": "2_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 1,
               "cloneRole": 0,
               "UID": 10001,
               "configId": 10001,
               "level": 6,
               "equipmentDic": {},
               "skillDic": {},
-              "talents": []
+              "talents": [
+                10001001
+              ]
             },
             {
               "HP": 100.0,
-              "Rage": 20.0,
-              "hexagonID": "4_0_8",
+              "Rage": 0.0,
+              "hexagonID": "3_0_1",
               "bornHexagonID": "3_0_1",
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 1,
               "cloneRole": 0,
               "UID": 10002,
               "configId": 10002,
               "level": 5,
               "equipmentDic": {},
               "skillDic": {},
-              "talents": []
+              "talents": [
+                10001002
+              ]
             }
           ],
           "enemys": [
             {
-              "HP": 0.0,
-              "Rage": 20.0,
+              "HP": 60.0,
+              "Rage": 0.0,
               "hexagonID": "5_0_7",
               "bornHexagonID": "5_0_7",
               "buffs": [],
@@ -416,7 +420,7 @@
                   "configId": 10006
                 }
               },
-              "state": 7,
+              "state": 0,
               "cloneRole": 0,
               "UID": 20002,
               "configId": 20002,

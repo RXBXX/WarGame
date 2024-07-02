@@ -3,7 +3,7 @@ Shader "Custom/HexagonToonShader"
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
-		_Outline("Outline", Range(0,1)) = 0.1
+		_Outline("Outline", Range(0, 0.1)) = 0.01
 		_OutlineColor("Outline Color", Color) = (0,0,0,0)
 		_HighLight("HighLight", Range(0,1)) = 1
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
@@ -188,7 +188,7 @@ Shader "Custom/HexagonToonShader"
 					float3 ndcNormal = normalize(TransformViewToProjection(viewNormal.xyz)) * pos.w;
 					float aspect = _ScreenParams.y / _ScreenParams.x;
 					ndcNormal.x *= aspect;
-					pos.xy += 0.1 * _Outline * ndcNormal.xy;
+					pos.xy += _Outline * ndcNormal.xy;
 					o.pos = pos;
 
 					half3 worldNormal = UnityObjectToWorldNormal(v.normal);
@@ -199,14 +199,7 @@ Shader "Custom/HexagonToonShader"
 
 				float4 frag(v2f i) : SV_TARGET
 				{
-					if (_HighLight > 0.5)
-					{
-						return float4(_OutlineColor.rgb, 1) * i.diff;
-					}
-					else
-					{
-						return float4(_OutlineColor.rgb, 1);
-					}
+					return _OutlineColor;
 				}
 				ENDCG
 			}

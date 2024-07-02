@@ -11,8 +11,6 @@ namespace WarGame
 
         private string _hexagonID;
 
-        private Vector3 _offset = new Vector3(0, 0.4F, 0);
-
         private Light _pointLight;
 
         private Vector3 _pointLightPos;
@@ -54,7 +52,7 @@ namespace WarGame
         protected override void OnCreate(GameObject prefab)
         {
             base.OnCreate(prefab);
-            _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + _offset;
+            _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
             _gameObject.GetComponent<BonfireBehaviour>().ID = _id;
             _pointLight = _gameObject.transform.Find("Point Light").GetComponent<Light>();
             _pointLightPos = _pointLight.transform.position;

@@ -7,12 +7,14 @@ namespace WarGame
         private string _id;
         private int _configID;
         private string _hexagonID;
+        private float _scale;
 
-        public Ornament(string id, int configID, string hexagonID)
+        public Ornament(string id, int configID, string hexagonID, float scale)
         {
             this._id = id;
             this._configID = configID;
             this._hexagonID = hexagonID;
+            this._scale = scale;
 
             CreateGO();
         }
@@ -26,8 +28,8 @@ namespace WarGame
         protected override void OnCreate(GameObject prefab)
         {
             base.OnCreate(prefab);
-            DebugManager.Instance.Log(_configID+"_"+_hexagonID);
-            _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition();
+            _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
+            _gameObject.transform.localScale = Vector3.one * _scale;
             _gameObject.GetComponent<OrnamentBehaviour>().ID = _id;
             _gameObject.GetComponent<OrnamentBehaviour>().enabled = false;
         }

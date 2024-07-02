@@ -445,7 +445,7 @@
     {
       "ID": "1_0_4",
       "configId": 1,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -464,7 +464,7 @@
     {
       "ID": "1_0_5",
       "configId": 5,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 1.0,
         "y": 0.0,
@@ -8127,167 +8127,19 @@
     }
   ],
   "enemys": [],
-  "bonfires": [],
+  "bonfires": [
+    {
+      "ID": "4_0_5",
+      "configId": 1,
+      "hexagonID": "4_0_5"
+    }
+  ],
   "ornaments": [
     {
-      "ID": "0_0_0",
-      "configID": 1,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 2,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 3,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 4,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 5,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 6,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 7,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 8,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 9,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 10,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 11,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
+      "ID": "1_0_5",
       "configID": 12,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 13,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 14,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 15,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 16,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 17,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 18,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 19,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 20,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 21,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 22,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 23,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 24,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 25,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 26,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 27,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 28,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 29,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 30,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 31,
-      "hexagonID": "0_0_0"
-    },
-    {
-      "ID": "0_0_0",
-      "configID": 1,
-      "hexagonID": "0_0_0"
+      "hexagonID": "1_0_5",
+      "scale": 3.0
     }
   ]
 }
