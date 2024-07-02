@@ -471,12 +471,15 @@ namespace WarGame
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
         private int _equipStartUID = 30000;
         public int homeEvent;
+        public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
 
         public RecordData(string ID, string title)
         {
             this.ID = ID;
             this.title = title;
             this.createTime = TimeMgr.Instance.GetUnixTimestamp();
+
+            AddItem((int)(Enum.ItemType.LevelRes), 100);
         }
 
         public void AddHero(int heroID)
@@ -494,6 +497,20 @@ namespace WarGame
             equipDataDic.Add(equipData.UID, equipData);
         }
 
+        public void AddItem(int itemId, int num)
+        {
+            if (!itemsDic.ContainsKey(itemId))
+                itemsDic.Add(itemId, 0);
+
+            itemsDic[itemId] += num;
+        }
+
+        public void RemoveItem(int itemId, int num)
+        {
+            if (!itemsDic.ContainsKey(itemId))
+                return;
+            itemsDic[itemId] = Math.Max(itemsDic[itemId] - num, 0);
+        }
 
         public void Save()
         {

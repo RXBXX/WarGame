@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="300,30">
+  <displayList>
+    <graph id="n0_nmz4" name="n0" xy="0,0" size="300,30" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n1_nmz4" name="resList" xy="0,0" size="300,30" layout="row" overflow="scroll" defaultItem="ui://ubnp7phxnmz41w" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+  <relation target="n1_nmz4" sidePair="rightext-right"/>
+</component>

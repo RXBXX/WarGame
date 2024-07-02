@@ -29,6 +29,7 @@ namespace WarGame
     {
         public int Job;
         public string Name;
+        public string Desc;
         public string Prefab;
         public Enum.RoleType Type;
         public int CommonSkill;
@@ -53,6 +54,7 @@ namespace WarGame
     public class RoleStarConfig : Config
     {
         public List<IntFloatPair> Attrs;
+        public int Cost;
     }
 
     ////技能等级表
@@ -80,6 +82,7 @@ namespace WarGame
     {
         public Enum.EquipType Type;
         public string Icon;
+        public string FullLengthIcon;
         public string Prefab;
         public string VicePrefab;
         public string Name;
@@ -320,11 +323,11 @@ namespace WarGame
         public string Pic;
     }
 
-    //资源类型
+    //道具
     [Serializable]
-    public class SourcePair
+    public class ItemPair
     {
-        public Enum.SourceType Type;
+        //public Enum.SourceType Type;
         public int id;
         public int value;
     }
@@ -345,5 +348,20 @@ namespace WarGame
     {
         public string ID;
         public string Str;
+    }
+
+    //道具表
+    [Serializable]
+    public class ItemConfig : Config
+    {
+        public string Icon;
+        public string Name;
+    }
+
+    //奖励表
+    [Serializable]
+    public class RewardConfig : Config
+    {
+        public ItemPair[] Rewards;
     }
 }

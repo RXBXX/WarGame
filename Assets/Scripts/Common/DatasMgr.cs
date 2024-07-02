@@ -87,6 +87,15 @@ namespace WarGame
             return roles;
         }
 
+        public int GetItem(int itemId)
+        {
+            var data = _data.GetUsingRecord();
+            if (!data.itemsDic.ContainsKey(itemId))
+                return 0;
+            return data.itemsDic[itemId];
+        }
+
+
         public bool IsLevelOpen(int levelID)
         {
             var gd = _data.GetUsingRecord();
@@ -176,18 +185,25 @@ namespace WarGame
             _data.GetUsingRecord().isNew = false;
         }
 
-        public void AddItem(SourcePair source)
+        public void AddHero(int id)
         {
-            if (Enum.SourceType.Hero == source.Type)
-                _data.GetUsingRecord().AddHero(source.id);
-            else if (Enum.SourceType.Equip == source.Type)
-                _data.GetUsingRecord().AddEquip(source.id);
+            _data.GetUsingRecord().AddHero(id);
         }
 
-        public void AddItems(SourcePair[] sources)
+        public void AddEquip(int id)
+        {
+            _data.GetUsingRecord().AddEquip(id);
+        }
+
+        public void AddItem(int id, int value)
+        {
+            _data.GetUsingRecord().AddItem(id, value);
+        }
+
+        public void AddItems(ItemPair[] sources)
         {
             foreach (var v in sources)
-                AddItem(v);
+                _data.GetUsingRecord().AddItem(v.id, v.value);
         }
 
         public List<int> GetOpenedLevels()
@@ -341,7 +357,7 @@ namespace WarGame
         {
             var roleData = GetRoleData(roleUID);
             roleData.level = level;
-
+            _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.LevelRes, roleData.GetStarConfig().Cost);
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });
         }
 

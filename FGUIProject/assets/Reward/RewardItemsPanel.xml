@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <loader id="n7_ozrt" name="bg" xy="0,0" size="1334,750"/>
+    <graph id="n0_e7yf" name="mask" xy="0,0" size="1334,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n6_ozrt" name="titleBg" xy="509,81" size="316,77" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n5_ozrt" name="listBg" xy="158,176" size="1018,224" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n2_ozrt" name="title" xy="667,119" pivot="0.5,0.5" anchor="true" size="204,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" align="center" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="Rewards"/>
+    <list id="n3_ozrt" name="rewards" xy="666,200" pivot="0.5,0" anchor="true" size="936,170" layout="flow_hz" overflow="scroll" colGap="10" defaultItem="ui://hx02grrppfj84" align="center" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n4_ozrt" name="n4" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,671"/>
+  </displayList>
+</component>

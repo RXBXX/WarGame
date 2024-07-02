@@ -30,7 +30,7 @@ namespace WarGame.UI
         {
             if (!_levelItemDic.ContainsKey(item.id))
                 _levelItemDic.Add(item.id, new HeroLevelItem((GComponent)item));
-            _levelItemDic[item.id].UpdateItem(_roleUID, index + 1, _level);
+            _levelItemDic[item.id].UpdateItem(_roleUID, index+1, _level+1);
         }
 
         public void LevelUp(int level)

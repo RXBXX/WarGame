@@ -15,6 +15,7 @@ namespace WarGame
                     callback();
                 return;
             }
+
             var eventConfig = ConfigMgr.Instance.GetConfig<EventConfig>("EventConfig", id);
             switch (eventConfig.Type)
             {
@@ -22,36 +23,46 @@ namespace WarGame
                     DialogMgr.Instance.OpenDialog(eventConfig.Value, (args) =>
                     {
                         OnNextEvent(eventConfig.NextEvents, 0, callback);
-                        //TriggerEvent(eventConfig.NextEvent, callback);
                     });
                     break;
                 case Enum.EventType.Level:
                     DatasMgr.Instance.ActiveLevelC2S(eventConfig.Value);
-                    //TriggerEvent(eventConfig.NextEvent, callback);
                     OnNextEvent(eventConfig.NextEvents, 0, callback);
                     break;
                 case Enum.EventType.Hero:
-                    var sp = new SourcePair();
-                    sp.Type = Enum.SourceType.Hero;
-                    sp.id = eventConfig.Value;
-                    DatasMgr.Instance.AddItem(sp);
+                    DatasMgr.Instance.AddHero(eventConfig.Value);
                     WGArgsCallback cb = (args) =>
                     {
                         OnNextEvent(eventConfig.NextEvents, 0, callback);
-                        //TriggerEvent(eventConfig.NextEvent, callback);
                     };
-                    UIManager.Instance.OpenPanel("Hero", "HeroShowPanel", new object[] { eventConfig.Value, cb });
+                    UIManager.Instance.OpenPanel("Reward", "RewardHeroPanel", new object[] { eventConfig.Value, cb });
                     break;
                 case Enum.EventType.Story:
                     StoryMgr.Instance.PlayStory(eventConfig.Value, true, (args) =>
                     {
                         OnNextEvent(eventConfig.NextEvents, 0, callback);
-                        //TriggerEvent(eventConfig.NextEvent, callback);
                     });
                     break;
                 case Enum.EventType.HomeEvent:
                     DatasMgr.Instance.SetHomeEvent(eventConfig.Value);
                     OnNextEvent(eventConfig.NextEvents, 0, callback);
+                    break;
+                case Enum.EventType.Equip:
+                    DatasMgr.Instance.AddEquip(eventConfig.Value);
+                    WGArgsCallback cb1 = (args) =>
+                    {
+                        OnNextEvent(eventConfig.NextEvents, 0, callback);
+                    };
+                    UIManager.Instance.OpenPanel("Reward", "RewardEquipPanel", new object[] { eventConfig.Value, cb1 });
+                    break;
+                case Enum.EventType.Items:
+                    var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", eventConfig.Value);
+                    DatasMgr.Instance.AddItems(rewardConfig.Rewards);
+                    WGArgsCallback cb2 = (args) =>
+                    {
+                        OnNextEvent(eventConfig.NextEvents, 0, callback);
+                    };
+                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {eventConfig, cb2 });
                     break;
             }
         }

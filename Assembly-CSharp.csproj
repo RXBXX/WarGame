@@ -97,7 +97,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\DynamicFont.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\BitmapFont.cs" />
     <Compile Include="Assets\FairyGUI\Examples\PullToRefresh\ScrollPaneHeader.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroShowPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Login\LoginPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\IHtmlObject.cs" />
     <Compile Include="Assets\Scripts\Common\InputManager.cs" />
@@ -219,6 +218,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Extensions\DragonBones\DragonBonesLoader.cs" />
     <Compile Include="Assets\Scripts\Battle\EnemyBattleAction.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
+    <Compile Include="Assets\Scripts\UI\Reward\RewardEquipPanel.cs" />
     <Compile Include="Assets\Scripts\Battle\ReadyBattleAction.cs" />
     <Compile Include="Assets\Scripts\SRP\CameraRenderer1.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLIterator.cs" />
@@ -251,6 +251,7 @@
     <Compile Include="Assets\Scripts\Common\ConfigInterface.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagWindow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearDisplay.cs" />
+    <Compile Include="Assets\Scripts\UI\Reward\RewardHeroPanel.cs" />
     <Compile Include="Assets\Scripts\Common\Entrance.cs" />
     <Compile Include="Assets\FairyGUI\Examples\EmitNumbers\EmitNumbersMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\DragDropManager.cs" />
@@ -315,6 +316,7 @@
     <Compile Include="Assets\FairyGUI\Examples\Filter\FilterMain.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\Skill.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Extension\MailItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroResComp.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\IconManager.cs" />
     <Compile Include="Assets\Scripts\UI\Record\RecordItem.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
@@ -360,6 +362,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\IHitTest.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroAttrComp.cs" />
     <Compile Include="Assets\Scripts\Battle\RoleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UI\Reward\RewardItemsPanel.cs" />
     <Compile Include="Assets\Scripts\Render\RenderMgr.cs" />
     <Compile Include="Assets\Scripts\Render\GPUInstancedGroup.cs" />
     <Compile Include="Assets\Scripts\SRP\WGRenderPipeline.cs" />
@@ -412,7 +415,6 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GComboBox.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\FairyBook.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Window.cs" />
-    <Compile Include="Assets\Scripts\UI\Reward\RewardPanel.cs" />
     <Compile Include="Assets\Scripts\SRP\WGRenderPipelineAsset.cs" />
     <Compile Include="Assets\Scripts\UI\Tips\TipsItem.cs" />
     <Compile Include="Assets\Scripts\UI\Common\HUDManager.cs" />

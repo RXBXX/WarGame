@@ -266,12 +266,20 @@ namespace WarGame
             Passed = 4, //成功通关
         }
 
-        //游戏内资源类型
+        ////游戏内资源类型
+        //[Serializable]
+        //public enum SourceType
+        //{
+        //    Hero = 1,
+        //    Equip = 2,
+        //    Item = 3,
+        //}
+
         [Serializable]
-        public enum SourceType
+        public enum ItemType
         {
-            Hero = 1,
-            Equip = 2,
+            TalentRes = 1,
+            LevelRes = 2,
         }
 
         public enum RecordMode
@@ -295,6 +303,8 @@ namespace WarGame
             Hero = 3, //激活英雄
             Story = 4, //故事
             HomeEvent = 5, //大地图事件，返回大地图界面触发
+            Equip = 6, //获得装备
+            Items = 7, //获得道具
         }
 
         public enum RoundType

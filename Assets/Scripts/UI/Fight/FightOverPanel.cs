@@ -26,7 +26,7 @@ namespace WarGame.UI
             _enemysList = GetGObjectChild<GList>("enemys");
             _enemysList.itemRenderer = OnEnemyRender;
 
-            _gCom.onClick.Add(OnClick);
+            GetGObjectChild<GGraph>("mask").onClick.Add(OnClick);
 
             _reportDic = (Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>)args[2];
             foreach (var v in _reportDic[Enum.RoleType.Hero])

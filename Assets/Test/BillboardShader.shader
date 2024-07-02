@@ -11,7 +11,7 @@ Shader "Unlit/BillboardShader"
 	{
 		Tags { 
 			"Queue" = "Transparent+1"
-		"RenderType" = "Transparent"
+		    "RenderType" = "Transparent"
 		}
 		Pass
 		{

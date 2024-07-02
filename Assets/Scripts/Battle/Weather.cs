@@ -7,7 +7,7 @@ namespace WarGame
     public class Weather
     {
         private float _time = 0;
-        private float day = 60f;
+        private float day = 3600f;
 
         public Weather(float time = 0)
         {
