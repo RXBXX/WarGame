@@ -155,6 +155,8 @@ namespace WarGame
 
             AudioMgr.Instance.PlayMusic("Assets/Audios/loop521.wav");
 
+            RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Fog);
+
             if (null != weather)
             {
                 weather.Dispose();
