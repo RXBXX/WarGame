@@ -34,11 +34,12 @@ namespace WarGame
             base.Setup();
         }
 
-        public override void Render(RenderTexture source, RenderTexture destination)
+        public override RenderTexture Render(RenderTexture source, RenderTexture destination)
         {
             if (null == _mat)
-                return;
+                return null;
             Graphics.Blit(source, destination, _mat);
+            return destination;
         }
 
         public override void Clear()

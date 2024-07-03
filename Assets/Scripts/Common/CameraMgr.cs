@@ -169,7 +169,7 @@ namespace WarGame
         /// </summary>
         public void CloseGray()
         {
-            RenderMgr.Instance.ClosePostProcessiong();
+            RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Gray);
         }
 
         public void ShakePosition()

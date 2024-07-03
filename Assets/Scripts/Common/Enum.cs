@@ -219,7 +219,8 @@ namespace WarGame
 
         public enum PostProcessingType
         {
-            Gray = 0
+            Gray = 0,
+            Fog = 1,
         }
 
         [Serializable]

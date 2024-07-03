@@ -8,5 +8,6 @@ namespace WarGame
         {
             Game.Instance.OnRenderImage(source, destination);
         }
+
     }
 }

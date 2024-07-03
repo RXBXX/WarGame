@@ -11,14 +11,19 @@ namespace WarGame
             CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = true;
         }
 
-        public virtual void Render(RenderTexture source, RenderTexture destination)
-        {
+        public virtual void Update(float deltaTime)
+        { 
         
+        }
+
+        public virtual RenderTexture Render(RenderTexture source, RenderTexture destination)
+        {
+            return destination;
         }
 
         public virtual void Clear()
         {
-            CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
+            //CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
         }
     }
 }

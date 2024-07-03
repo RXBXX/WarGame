@@ -21,6 +21,7 @@ public class DepthPost : PostRender
         mt = mt.inverse;
         Shader.SetGlobalMatrix("_InvVP", mt);
     }
+
     [ExecuteInEditMode]
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {

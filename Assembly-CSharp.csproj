@@ -143,6 +143,7 @@
     <Compile Include="Assets\Scripts\Map\BonfireBehaviour.cs" />
     <Compile Include="Assets\Scripts\Battle\Battlefield.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
+    <Compile Include="Assets\Scripts\Render\FogPP.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearColor.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearLook.cs" />
     <Compile Include="Assets\Scripts\Common\LineMgr.cs" />
@@ -483,7 +484,7 @@
     <None Include="Assets\Shaders\ParticleS\Additive.shader" />
     <None Include="Assets\Shaders\ShieldShader.shader" />
     <None Include="Assets\Shaders\Water.shader" />
-    <None Include="Assets\Test\Cloud\VolumeCloud.shader" />
+    <None Include="Assets\Shaders\VolumeCloud.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
     <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />

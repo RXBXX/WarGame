@@ -56,8 +56,6 @@ Shader "Custom/ParticleAddShader"
 				fixed4 frag(v2f i) : SV_Target
 				{
 					fixed4 col = tex2D(_MainTex, i.uv);
-				    //if (col.r == 0 && col.g == 0 && col.b == 0)
-					   // col.a = 0;
 					col.rgb *= _Color.rgb;
 					return col;
 				}

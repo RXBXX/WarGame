@@ -215,6 +215,7 @@ namespace WarGame
 
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
             BattleMgr.Instance.InitReports();
+            RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Fog);
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));

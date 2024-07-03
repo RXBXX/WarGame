@@ -77,7 +77,8 @@ namespace WarGame
 
     public class RenderMgr : Singeton<RenderMgr>
     {
-        private PostProcessing _pp;
+        private Dictionary<Enum.PostProcessingType, PostProcessing> _ppDic = new Dictionary<Enum.PostProcessingType, PostProcessing>();
+        //private PostProcessing _pp;
         private Dictionary<int, BlurStruct> _blurDic = new Dictionary<int, BlurStruct>();
         private Dictionary<string, GPUInstancedGroup> _GPUInstancedDic = new Dictionary<string, GPUInstancedGroup>();
 
@@ -89,26 +90,71 @@ namespace WarGame
 
         public void OpenPostProcessiong(Enum.PostProcessingType type)
         {
+            if (_ppDic.ContainsKey(type))
+                return;
+
             if (type == Enum.PostProcessingType.Gray)
             {
-                _pp = new GrayPP();
+                var _pp = new GrayPP();
                 _pp.Setup();
+                _ppDic.Add(type, _pp);
+            }
+            else if (type == Enum.PostProcessingType.Fog)
+            {
+                var _pp = new FogPP();
+                _pp.Setup();
+                _ppDic.Add(type, _pp);
             }
         }
 
-        public void ClosePostProcessiong()
+        public void ClosePostProcessiong(Enum.PostProcessingType type)
         {
-            if (null == _pp)
+            if (!_ppDic.ContainsKey(type))
                 return;
-            _pp.Clear();
-            _pp = null;
+
+            _ppDic[type].Clear();
+            _ppDic.Remove(type);
+
+            if (_ppDic.Count <= 0)
+                CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
+        }
+
+        public override void Update(float deltaTime)
+        {
+            foreach (var v in _GPUInstancedDic)
+                v.Value.Draw();
+
+            foreach (var v in _ppDic)
+                v.Value.Update(deltaTime);
         }
 
         public void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            if (null == _pp)
-                return;
-            _pp.Render(source, destination);
+            RenderTexture temp1 = RenderTexture.GetTemporary(source.width, source.height);
+            RenderTexture temp2 = RenderTexture.GetTemporary(source.width, source.height);
+
+            // 初始输入为source
+            RenderTexture currentSource = source;
+            RenderTexture currentDestination = temp1;
+
+            // 遍历字典中的每个后处理特效
+            foreach (var v in _ppDic)
+            {
+                // 渲染当前特效
+                v.Value.Render(currentSource, currentDestination);
+
+                // 交换source和destination
+                RenderTexture temp = currentSource;
+                currentSource = currentDestination;
+                currentDestination = temp;
+            }
+
+            // 将最终结果复制到destination
+            Graphics.Blit(currentSource, destination);
+
+            // 释放临时RenderTextures
+            RenderTexture.ReleaseTemporary(temp1);
+            RenderTexture.ReleaseTemporary(temp2);
         }
 
         public int SetBlurBG(GLoader loader)
@@ -215,17 +261,15 @@ namespace WarGame
             _GPUInstancedDic.Remove(prefab);
         }
 
-        public override void Update(float deltaTime)
-        {
-            foreach (var v in _GPUInstancedDic)
-                v.Value.Draw();
-        }
-
         public override bool Dispose()
         {
             foreach (var v in _GPUInstancedDic)
                 v.Value.Dispose();
             _GPUInstancedDic.Clear();
+
+            foreach (var v in _ppDic)
+                v.Value.Clear();
+            _ppDic.Clear();
 
             return base.Dispose();
         }
