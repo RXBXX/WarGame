@@ -40,7 +40,7 @@ namespace WarGame
             else
                 hexMapZ = (int)((pos.z / Mathf.Cos(_radian) + _insideDiameter / 2.0f) / _insideDiameter);
 
-            var hexMapY = (int)((pos.y ) / _height);
+            var hexMapY = (int)((pos.y ) / CommonParams.Offset.y);
 
             return new Vector3(hexMapX, hexMapY, hexMapZ);
         }
@@ -54,7 +54,7 @@ namespace WarGame
         {
             var hexPosZ = coor.z * _insideDiameter * Mathf.Cos(_radian);
             var hexPosX = coor.x * _insideDiameter + hexPosZ * Mathf.Tan(_radian);
-            var hexPosY = coor.y * _height;
+            var hexPosY = coor.y * CommonParams.Offset.y;
 
             return new Vector3(hexPosX, hexPosY, hexPosZ);
         }
@@ -70,7 +70,7 @@ namespace WarGame
             Dictionary<string, Hexagon> hexagonDic = new Dictionary<string, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
-                var hexagon = new Hexagon(hexagons[i].ID, hexagons[i].configId, hexagons[i].isReachable, hexagons[i].coor);
+                var hexagon = Factory.Instance.GetHexagon(hexagons[i]);
                 hexagon.SetParent(root.transform);
                 hexagonDic[GetHexagonKey(hexagon.coor)] = hexagon;
             }

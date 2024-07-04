@@ -62,7 +62,7 @@ namespace WarGame
             behaviour.enabled = false;
         }
 
-        public void Update(float deltaTime)
+        public virtual void Update(float deltaTime)
         {
 
         }

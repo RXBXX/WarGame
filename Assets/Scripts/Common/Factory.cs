@@ -34,7 +34,7 @@ namespace WarGame
 
         public Skill GetSkill(int skillID, int initiatorID)
         {
-            switch((Enum.Skill)skillID)
+            switch ((Enum.Skill)skillID)
             {
                 case Enum.Skill.FierceAttack:
                     return new FierceAttackSkill(skillID, initiatorID);
@@ -76,6 +76,14 @@ namespace WarGame
                     return new MassMagShieldSkill(skillID, initiatorID);
             }
             return null;
+        }
+
+        public Hexagon GetHexagon(HexagonMapPlugin plugin)
+        {
+            if ((Enum.HexagonType)plugin.configId == Enum.HexagonType.Hex19)
+                return new WaterHexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
+            else
+                return new Hexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
         }
     }
 }

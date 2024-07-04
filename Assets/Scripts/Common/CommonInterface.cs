@@ -126,7 +126,7 @@ namespace WarGame
     {
         public static Vector3 Offset
         {
-            get { return new Vector3(0, 0.224F, 0); }
+            get { return new Vector3(0, 0.2F, 0); }
         }
 
         public static string GetAttrColor(Enum.AttrType attrType)

@@ -33809,25 +33809,6 @@
       }
     },
     {
-      "ID": "46_0_46",
-      "configId": 8,
-      "isReachable": true,
-      "coor": {
-        "x": 46.0,
-        "y": 0.0,
-        "z": 46.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 65.0538254,
-        "sqrMagnitude": 4232.0
-      }
-    },
-    {
       "ID": "46_0_47",
       "configId": 8,
       "isReachable": true,
@@ -34029,25 +34010,6 @@
         },
         "magnitude": 64.3816757,
         "sqrMagnitude": 4145.0
-      }
-    },
-    {
-      "ID": "47_0_45",
-      "configId": 8,
-      "isReachable": true,
-      "coor": {
-        "x": 47.0,
-        "y": 0.0,
-        "z": 45.0,
-        "normalized": {
-          "x": 0.72230804,
-          "y": 0.0,
-          "z": 0.691571534,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 65.06919,
-        "sqrMagnitude": 4234.0
       }
     },
     {
@@ -50795,25 +50757,6 @@
       }
     },
     {
-      "ID": "49_0_9",
-      "configId": 19,
-      "isReachable": true,
-      "coor": {
-        "x": 49.0,
-        "y": 0.0,
-        "z": 9.0,
-        "normalized": {
-          "x": 0.983547151,
-          "y": 0.0,
-          "z": 0.180651516,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 49.8196754,
-        "sqrMagnitude": 2482.0
-      }
-    },
-    {
       "ID": "49_0_8",
       "configId": 19,
       "isReachable": true,
@@ -50830,6 +50773,25 @@
         },
         "magnitude": 49.6487656,
         "sqrMagnitude": 2465.0
+      }
+    },
+    {
+      "ID": "49_0_9",
+      "configId": 19,
+      "isReachable": true,
+      "coor": {
+        "x": 49.0,
+        "y": 0.0,
+        "z": 9.0,
+        "normalized": {
+          "x": 0.983547151,
+          "y": 0.0,
+          "z": 0.180651516,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 49.8196754,
+        "sqrMagnitude": 2482.0
       }
     },
     {
@@ -50964,9 +50926,52 @@
         "magnitude": 49.0,
         "sqrMagnitude": 2401.0
       }
+    },
+    {
+      "ID": "47_0_45",
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 47.0,
+        "y": 0.0,
+        "z": 45.0,
+        "normalized": {
+          "x": 0.72230804,
+          "y": 0.0,
+          "z": 0.691571534,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 65.06919,
+        "sqrMagnitude": 4234.0
+      }
+    },
+    {
+      "ID": "46_0_46",
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 46.0,
+        "y": 0.0,
+        "z": 46.0,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 65.0538254,
+        "sqrMagnitude": 4232.0
+      }
     }
   ],
-  "enemys": [],
+  "enemys": [
+    {
+      "ID": 20002,
+      "hexagonID": "6_2_6"
+    }
+  ],
   "bonfires": [],
   "ornaments": [
     {
