@@ -240,6 +240,27 @@ namespace WarGame
             return false;
         }
 
+        public float GetSoundVolume(Enum.SoundType type)
+        {
+            return _data.SoundVolumeDic[type];
+        }
+
+        public float SetSoundVolume(Enum.SoundType type, float volume)
+        {
+            _data.SoundVolumeDic[type] = volume;
+            return volume;
+        }
+
+        public void SetLanguage(int type)
+        {
+            _data.Language = type;
+        }
+
+        public int GetLanguage()
+        {
+            return _data.Language;
+        }
+
         /// region 协议部分----------------------------------------------------------
 
         /// <summary>

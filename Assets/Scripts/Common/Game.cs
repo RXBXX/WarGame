@@ -11,11 +11,11 @@ namespace WarGame
             //DebugManager.Instance.Log("Game.Init");
             base.Init();
 
-            AudioMgr.Instance.Init();
             TimeMgr.Instance.Init();
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
             DatasMgr.Instance.Init();
+            AudioMgr.Instance.Init();
             ConfigMgr.Instance.Init();
             CoroutineMgr.Instance.Init();
             UIManager.Instance.Init();

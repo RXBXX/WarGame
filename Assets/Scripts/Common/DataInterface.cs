@@ -552,10 +552,15 @@ namespace WarGame
         public string Version = "0.0.0.01";
         private string _usingDataID;
         public Dictionary<string, RecordData> _customRecordDic = new Dictionary<string, RecordData>();
+        public Dictionary<Enum.SoundType, float> SoundVolumeDic = new Dictionary<Enum.SoundType, float>()
+        {
+            { Enum.SoundType.Music, 0.05F},
+            { Enum.SoundType.Audio, 0.1F},
+        };
+        public int Language;
 
         public GameData()
         {
-
         }
 
         public RecordData GetUsingRecord()

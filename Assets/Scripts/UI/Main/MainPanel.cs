@@ -8,7 +8,7 @@ namespace WarGame.UI
     public class MainPanel : UIBase
     {
         private GList _optionList;
-        private List<StringCallbackStruct> _optionDatas = new List<StringCallbackStruct>();
+        private List<StringCallbackStruct> _tabDatas = new List<StringCallbackStruct>();
 
         public MainPanel(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -23,7 +23,7 @@ namespace WarGame.UI
 
         private void Init()
         {
-            _optionDatas.Add(new StringCallbackStruct("新游戏", ()=> {
+            _tabDatas.Add(new StringCallbackStruct("新游戏", ()=> {
                 UIManager.Instance.ClosePanel(name);
 
                 DatasMgr.Instance.StartNewGame();
@@ -31,30 +31,30 @@ namespace WarGame.UI
             }));
             if (DatasMgr.Instance.GetAllRecord().Count > 0)
             {
-                _optionDatas.Add(new StringCallbackStruct("继续游戏", () => {
+                _tabDatas.Add(new StringCallbackStruct("继续游戏", () => {
                     UIManager.Instance.OpenPanel("Record", "RecordPanel", new object[] {Enum.RecordMode.Read });
                 }));
             }
-            _optionDatas.Add(new StringCallbackStruct("设置", ()=> {
+            _tabDatas.Add(new StringCallbackStruct("设置", ()=> {
                 UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
             }));
-            _optionDatas.Add(new StringCallbackStruct("退出游戏",()=> {
+            _tabDatas.Add(new StringCallbackStruct("退出游戏",()=> {
                 Game.Instance.Quit();
             }));
 
-            _optionList.numItems = _optionDatas.Count;
+            _optionList.numItems = _tabDatas.Count;
         }
 
         private void ItemRenderer(int index, GObject item)
         {
-            ((GButton)item).title = _optionDatas[index].title;
+            ((GButton)item).title = _tabDatas[index].title;
         }
 
         private void OnClickItem(EventContext context)
         {
 
             var index = _optionList.GetChildIndex((GObject)context.data);
-            _optionDatas[index].callback();
+            _tabDatas[index].callback();
         }
     }
 }

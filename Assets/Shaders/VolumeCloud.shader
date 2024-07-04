@@ -284,7 +284,6 @@
 				rayEnd = camPos + dir * min(length(rayEnd - camPos), cast.x + cast.y);
 
 				float4 cloud = renderCloud(start, rayEnd);
-				cloud *= fixed4(0, 0, 1, 1);
 				col.rgb *= 1 - cloud.a;
 				col.rgb += cloud.rgb;
 				return col;

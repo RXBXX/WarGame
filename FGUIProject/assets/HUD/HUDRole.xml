@@ -23,9 +23,9 @@
     <loader id="n12_h53u" name="state" xy="157,-12" size="40,40" group="n15_cfrs" touchable="false" url="ui://hx02grrph53um" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
       <gearIcon controller="state" pages="0,2,3" values="ui://hx02grrph53um|ui://hx02grrph53un|" default="ui://hx02grrph53uo"/>
     </loader>
-    <loader id="n13_tg9e" name="n13" xy="192,-12" size="40,40" group="n15_cfrs" url="ui://dvt5l4zvtg9ea" align="center" vAlign="middle" fill="scale" color="#5c8799">
-      <gearDisplay controller="following" pages="1"/>
-    </loader>
     <group id="n15_cfrs" name="n15" xy="157,-12" size="40,40" advanced="true" layout="hz" colGap="-5" excludeInvisibles="true"/>
+    <graph id="n18_8u0k" name="n18" xy="70,-65" size="20,30" type="polygon" lineColor="#ffffffff" fillColor="#ffffb500" points="0,0,20,0,10,30">
+      <gearDisplay controller="following" pages="1"/>
+    </graph>
   </displayList>
 </component>

@@ -105,6 +105,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlButton.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XMLList.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
+    <Compile Include="Assets\Scripts\UI\Settings\SettingsLanguageItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\MeshFactory.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\IUISource.cs" />
@@ -405,6 +406,7 @@
     <Compile Include="Assets\Scripts\Common\Enum.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\FieldTypes.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\Card.cs" />
+    <Compile Include="Assets\Scripts\UI\Settings\SettingsAudioItem.cs" />
     <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderTextureMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearFontSize.cs" />

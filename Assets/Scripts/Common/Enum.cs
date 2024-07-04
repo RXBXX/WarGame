@@ -350,6 +350,23 @@ namespace WarGame
             Delete = 2,
         }
 
+        public enum SettingsType
+        {
+            Sound = 0,
+            Language = 1,
+        }
+
+        public enum SoundType
+        {
+            Music = 0,
+            Audio = 1,
+        }
+
+        public enum Language
+        {
+
+        }
+
         public enum Event
         {
             HUDInstruct_Idle_Event = 0,

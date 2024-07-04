@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="900,100">
+  <displayList>
+    <graph id="n1_8u0k" name="n1" xy="0,0" size="900,100" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <text id="n0_8u0k" name="title" xy="48,25" size="112,49" fontSize="36" color="#ffffff" text="背景音"/>
+    <component id="n2_8u0k" name="slider" src="8u0k3" fileName="SettingsSlider.xml" xy="201,37" size="637,26">
+      <Slider value="1" max="100"/>
+    </component>
+  </displayList>
+</component>

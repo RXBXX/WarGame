@@ -16,13 +16,6 @@ namespace WarGame
         }
     }
 
-    //[Serializable]
-    //public struct SkillStruct
-    //{
-    //    public int id;
-    //    public int level;
-    //}
-
     //½ÇÉ«±í
     [Serializable]
     public class RoleConfig : Config
@@ -307,5 +300,13 @@ namespace WarGame
     public class OrnamentConfig : Config
     {
         public string Prefab;
+    }
+
+    //ÓïÑÔ±í
+    [Serializable]
+    public class LanguageConfig : Config
+    {
+        public string Name;
+        public string SimpleName;
     }
 }

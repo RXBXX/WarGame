@@ -19,7 +19,6 @@ namespace WarGame
             var cam = CameraMgr.Instance.MainCamera;
             if (null == cam)
                 return;
-            DebugManager.Instance.Log("SettingDepth");
             cam.depthTextureMode = DepthTextureMode.Depth;
         }
 
@@ -29,7 +28,6 @@ namespace WarGame
             if (null == cam)
                 return;
 
-            DebugManager.Instance.Log("Update");
             Matrix4x4 mt = GL.GetGPUProjectionMatrix(cam.projectionMatrix, false) * cam.worldToCameraMatrix;
             mt = mt.inverse;
             Shader.SetGlobalMatrix("_InvVP", mt);
@@ -39,7 +37,6 @@ namespace WarGame
         {
             if (null == _mat)
                 return null;
-            DebugManager.Instance.Log("Render");
             Graphics.Blit(source, destination, _mat);
             return destination;
         }
