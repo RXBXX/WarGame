@@ -9,6 +9,7 @@ Shader "Custom/HexagonToonShader"
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
 		_Steps("Steps of toon",range(0,9)) = 3
 		_AmbientStrength("AmbientStrength", Range(0, 5)) = 1
+		_Color("Color", Color) = (1,1,1,1)
 	}
 	SubShader
 	{
@@ -32,6 +33,7 @@ Shader "Custom/HexagonToonShader"
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			float _AmbientStrength;
+			fixed4 _Color;
 
 
 			struct appdata
@@ -78,7 +80,7 @@ Shader "Custom/HexagonToonShader"
 
 				fixed4 col = tex2D(_MainTex, i.uv);
 
-				return fixed4((ambient + diffuse * _LightColor0.rgb * atten) * col, 1.0);
+				return fixed4((ambient + diffuse * _LightColor0.rgb * atten) * col, 1.0) * _Color;
 			}
 			ENDCG
 		}
