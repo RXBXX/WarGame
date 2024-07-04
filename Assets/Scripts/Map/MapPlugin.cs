@@ -61,13 +61,15 @@ namespace WarGame
         public int configID;
         public string hexagonID;
         public float scale;
+        public Quaternion rotation;
 
-        public OrnamentMapPlugin(string ID, int configID, string hexagonID, float scale = 1)
+        public OrnamentMapPlugin(string ID, int configID, string hexagonID, float scale, Quaternion rotation)
         {
             this.ID = ID;
             this.configID = configID;
             this.hexagonID = hexagonID;
             this.scale = scale;
+            this.rotation = rotation;
         }
     }
 

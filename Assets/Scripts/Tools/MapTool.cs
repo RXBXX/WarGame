@@ -100,7 +100,7 @@ namespace WarGame
                 for (int i = 0; i < ornaments.Length; i++)
                 {
                     var ornamentData = ornaments[i];
-                    var ornament = new Ornament(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale);
+                    var ornament = new Ornament(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale, ornamentData.rotation);
                     ornament.SetParent(root.transform);
                     ornamentsDic[ornaments[i].ID] = ornament;
                 }
@@ -183,7 +183,7 @@ namespace WarGame
                 var ornamentTra = ornamentRootObj.transform.GetChild(i);
                 var data = ornamentTra.GetComponent<OrnamentBehaviour>();
                 var hexagonID = GetHexagonKey(GetCoorFromPos(ornamentTra.position - CommonParams.Offset));
-                ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x);
+                ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, ornamentTra.rotation);
             }
 
 
