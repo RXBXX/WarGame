@@ -348,7 +348,10 @@ namespace WarGame.UI
             quoteCount -= 1;
             if (quoteCount <= 0)
             {
-                UIPackage.RemovePackage(packageName);
+                if (null != UIPackage.GetByName(packageName))
+                {
+                    UIPackage.RemovePackage(packageName);
+                }
                 _uiPackagesDic.Remove(packageName);
             }
             else

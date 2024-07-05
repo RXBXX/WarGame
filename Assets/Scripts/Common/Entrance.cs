@@ -30,7 +30,7 @@ namespace WarGame
 
         private void OnApplicationQuit()
         {
-            Game.Instance.Dispose();
+            //Game.Instance.Dispose();
         }
     }
 }

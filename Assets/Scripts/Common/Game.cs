@@ -111,6 +111,7 @@ namespace WarGame
 
         public void Quit()
         {
+            Dispose();
             Application.Quit();
         }
     }
