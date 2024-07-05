@@ -48,7 +48,6 @@ namespace WarGame
             }
             else
             {
-                DebugManager.Instance.Log(_configId);
                 _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(config.Prefab, OnCreate);
             }
         }
