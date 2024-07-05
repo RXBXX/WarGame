@@ -27,10 +27,11 @@ namespace WarGame
                 return;
             if (null != lastState)
             {
+                DebugManager.Instance.Log(lastState._name);
                 _last = lastState;
                 lastState.End(false);
             }
-            //DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);  

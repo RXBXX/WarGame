@@ -207,6 +207,7 @@
     <Compile Include="Assets\Scripts\Battle\Skills\FierceAttackSkill.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\MapInstruct.cs" />
     <Compile Include="Assets\Scripts\Render\PostProcessing.cs" />
+    <Compile Include="Assets\Scripts\UI\Settings\SettingsFightItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\LongPressGesture.cs" />
     <Compile Include="Assets\Scripts\Battle\Role.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\RichTextField.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\Scripts\Map\EventBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
+    <Compile Include="Assets\Scripts\Map\MagmaHexagon.cs" />
     <Compile Include="Assets\Scripts\Common\StoryMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\VertexBuffer.cs" />
@@ -402,6 +404,7 @@
     <Compile Include="Assets\Scripts\UI\Common\CommonAttrItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Map\WaterHexagon.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextInput.cs" />
     <Compile Include="Assets\Scripts\Common\Enum.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\FieldTypes.cs" />

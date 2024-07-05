@@ -558,6 +558,7 @@ namespace WarGame
             { Enum.SoundType.Audio, 0.1F},
         };
         public int Language;
+        public bool SkipBattle;
 
         public GameData()
         {

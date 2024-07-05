@@ -54,7 +54,7 @@ namespace WarGame
                 return;
             }
 
-            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
+            var mapDir = "Assets/StreamingAssets/Maps/Forest_Level_01.json";// ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments);
             if (_levelData.Stage < Enum.LevelStage.Entered)

@@ -10,7 +10,6 @@ namespace WarGame
         protected int _initiatorID;
         protected List<int> _targets = new List<int>();
         protected IEnumerator _coroutine;
-        protected bool _skipBattleShow = false;
         protected bool _isLockingCamera;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
 
@@ -55,7 +54,7 @@ namespace WarGame
         {
             Prepare();
 
-            if (!_skipBattleShow)
+            if (!DatasMgr.Instance.GetSkipBattle())
             {
                 yield return OpenBattleArena();
             }
@@ -145,7 +144,7 @@ namespace WarGame
         {
             DebugManager.Instance.Log("Over");
             yield return new WaitForSeconds(waitingTime);
-            if (!_skipBattleShow)
+            if (!DatasMgr.Instance.GetSkipBattle())
             {
                 CloseBattleArena();
             }

@@ -261,6 +261,16 @@ namespace WarGame
             return _data.Language;
         }
 
+        public void SetSkipBattle(bool skipBattle)
+        {
+            _data.SkipBattle = skipBattle;
+        }
+
+        public bool GetSkipBattle()
+        {
+            return _data.SkipBattle;
+        }
+
         /// region 协议部分----------------------------------------------------------
 
         /// <summary>

@@ -354,6 +354,7 @@ namespace WarGame
         {
             Sound = 0,
             Language = 1,
+            Fight = 2,
         }
 
         public enum SoundType
@@ -362,9 +363,9 @@ namespace WarGame
             Audio = 1,
         }
 
-        public enum Language
+        public enum FightType
         {
-
+            SkipBattleArena = 0,
         }
 
         public enum Event

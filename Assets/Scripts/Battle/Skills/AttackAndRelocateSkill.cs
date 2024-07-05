@@ -141,7 +141,7 @@ namespace WarGame
         private IEnumerator OnStageOver(float waitingTime = 0, bool isKill = false)
         {
             yield return new WaitForSeconds(waitingTime);
-            if (0 != _targets[0] && !_skipBattleShow)
+            if (0 != _targets[0] && !DatasMgr.Instance.GetSkipBattle())
             {
                 CloseBattleArena();
             }

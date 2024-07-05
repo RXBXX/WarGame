@@ -115,7 +115,7 @@ namespace WarGame
                 return;
 
             var target = RoleManager.Instance.GetRole(_targets[0]);
-            if (!_skipBattleShow)
+            if (!DatasMgr.Instance.GetSkipBattle())
             {
                 target.SetHPVisible(false);
                 target.ChangeToArenaSpace(_cloneTargetPos, 0);
