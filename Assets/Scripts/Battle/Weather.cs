@@ -27,7 +27,7 @@ namespace WarGame
             RenderSettings.skybox.SetFloat("_Rotation", dayTime * 360);
 
             SceneMgr.Instance.BattleField.mainLight.transform.rotation = Quaternion.Euler(new Vector3(45, dayTime * 360, 180));
-            SceneMgr.Instance.BattleField.mainLight.intensity = Mathf.Min(1.5F, 1.5F + Mathf.Sin(_time % day / day * 2 * Mathf.PI) * 1F);
+            SceneMgr.Instance.BattleField.mainLight.intensity = Mathf.Min(1.0F, 1.0F + Mathf.Sin(_time % day / day * 2 * Mathf.PI) * 1F);
         }
 
         public float GetLightIntensity()

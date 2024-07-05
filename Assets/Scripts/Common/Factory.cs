@@ -80,10 +80,15 @@ namespace WarGame
 
         public Hexagon GetHexagon(HexagonMapPlugin plugin)
         {
-            if ((Enum.HexagonType)plugin.configId == Enum.HexagonType.Hex19)
-                return new WaterHexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
-            else
-                return new Hexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
+            switch ((Enum.HexagonType)plugin.configId)
+            {
+                case Enum.HexagonType.Hex19:
+                    return new WaterHexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
+                case Enum.HexagonType.Hex28:
+                    return new MagmaHexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
+                default:
+                    return new Hexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
+            }
         }
     }
 }

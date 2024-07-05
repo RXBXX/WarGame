@@ -28,6 +28,7 @@ namespace WarGame
         /// </summary>
         public Vector3 GetCoorFromPos(Vector3 pos)
         {
+            pos += new Vector3(0.001F, 0.001F, 0.001F);
             var hexMapX = 0.0f;
             var hexMapZ = 0.0f;
             if (pos.x - pos.z * Mathf.Tan(_radian) < 0)
