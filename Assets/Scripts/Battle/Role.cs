@@ -490,7 +490,7 @@ namespace WarGame
 
         public void HandleEvent(string stateName, string secondStateName)
         {
-            if (_stateDic.ContainsKey(stateName))
+            if (_stateDic.ContainsKey(stateName) && _curAnimState == stateName)
             {
                 var state = _stateDic[stateName];
                 var method = typeof(State).GetMethod(secondStateName);

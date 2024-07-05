@@ -27,14 +27,15 @@ namespace WarGame
                 return;
             if (null != lastState)
             {
-                DebugManager.Instance.Log(lastState._name);
+                //DebugManager.Instance.Log(lastState._name);
                 _last = lastState;
                 lastState.End(false);
             }
-            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
+
+            //DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
-            _role.Animator.SetBool(_name, true);  
+            _role.Animator.SetBool(_name, true);
         }
 
         public virtual void Take()
@@ -58,6 +59,14 @@ namespace WarGame
 
             //DebugManager.Instance.Log("StateEnd" + reverse);
 
+            _state = Enum.RoleAnimState.End;
+            _role.Animator.SetBool(_name, false);
+            //DebugManager.Instance.Log(_name + ":" + _role.Animator.GetBool(_name));
+            //if (_name.Equals("Jump"))
+            //{
+            //    DebugManager.Instance.Log("Jump Pause:");
+            //    UnityEditor.EditorApplication.isPaused = true;
+            //}
             if (reverse)
             {
                 //DebugManager.Instance.Log("StateEnd" + _last._name) ;
@@ -65,8 +74,6 @@ namespace WarGame
                 _last = null;
             }
             //DebugManager.Instance.Log(_name + "_End_" + _role.ID);
-            _state = Enum.RoleAnimState.End;
-            _role.Animator.SetBool(_name, false);
         }
 
         public virtual void Update()
@@ -186,7 +193,7 @@ namespace WarGame
     public class AttackedState : State
     {
         public AttackedState(string name, Role role) : base(name, role)
-        { 
+        {
         }
 
         public override void End(bool reverse)
@@ -194,11 +201,11 @@ namespace WarGame
             //DebugManager.Instance.Log("AttackEnd");
 
             base.End(reverse);
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Attacked_End, new object[] { _role.ID});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Attacked_End, new object[] { _role.ID });
         }
     }
 
-    public class DeadState : State 
+    public class DeadState : State
     {
         public DeadState(string name, Role role) : base(name, role)
         { }
