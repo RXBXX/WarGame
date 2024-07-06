@@ -17,20 +17,19 @@ namespace WarGame
         public BlurStruct(int id, GLoader loader)
         {
             this.ID = id;
-
             _loader = loader;
+
             _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/BlurMat.mat", (mat) =>
             {
                 _src = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
-                CameraMgr.Instance.MainCamera.targetTexture = _src;
                 _coroutine = CoroutineMgr.Instance.StartCoroutine(BlurIEnumerator(mat));
             });
         }
 
         private IEnumerator BlurIEnumerator(Material mat)
         {
-            yield return null;
-
+            CameraMgr.Instance.MainCamera.targetTexture = _src;
+            yield return new WaitForSeconds(0.1f); //后期处理导致绘制会有一段时间黑屏，这里要等回复正常再截屏
             _coroutine = null;
 
             _dest = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
@@ -41,7 +40,6 @@ namespace WarGame
 
             RenderTexture.ReleaseTemporary(_src);
             _src = null;
-
             _loader.texture = new NTexture(_dest);
         }
 
@@ -70,8 +68,6 @@ namespace WarGame
                 RenderTexture.ReleaseTemporary(_dest);
                 _dest = null;
             }
-
-
         }
     }
 
@@ -115,8 +111,8 @@ namespace WarGame
             _ppDic[type].Clear();
             _ppDic.Remove(type);
 
-            if (_ppDic.Count <= 0)
-                CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
+            //if (_ppDic.Count <= 0)
+            //    CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
         }
 
         public override void Update(float deltaTime)

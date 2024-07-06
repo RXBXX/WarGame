@@ -396,7 +396,7 @@ namespace WarGame
 
         private void OnActionEnd(params object[] args)
         {
-            DebugManager.Instance.Log("OnActionEnd");
+            //DebugManager.Instance.Log("OnActionEnd");
             if (null != args && args.Length > 0)
             {
                 DisposeAction((int)args[0]);
