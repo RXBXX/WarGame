@@ -247,23 +247,46 @@ namespace WarGame
             if ((int)args[0] != _targetID)
                 return;
             ClearTarget();
-            FindingTarget();
+            
+            FindingTarget(true);
         }
 
-        private void FindingTarget()
+        private void FindingTarget(bool isInit = false)
         {
+            var targetID = _targetID;
             ClearTarget();
 
             var roles = RoleManager.Instance.GetAllRoles();
             if (roles.Count <= 0)
                 return;
 
-            var minRoleID = roles[0].ID;
-            var minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[0].GetPosition());
+            int minRoleID = targetID;
+            float minRoleToViewCenterDirDistance = 0;
+
+            if (0 != targetID)
+            {
+                minRoleID = targetID;
+                var minRole = RoleManager.Instance.GetRole(minRoleID);
+                minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, minRole.GetPosition());
+            }
+
             for (int i = 1; i < roles.Count; i++)
             {
+                if (!isInit)
+                {
+                    var screenPos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(roles[i].GetPosition());
+                    if (screenPos.x < 0)
+                        continue;
+                    if (screenPos.y < 0)
+                        continue;
+                    if (screenPos.x > Screen.width)
+                        continue;
+                    if (screenPos.y > Screen.height)
+                        continue;
+                }
+
                 var roleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[i].GetPosition());
-                if (roleToViewCenterDirDistance < minRoleToViewCenterDirDistance)
+                if (0 == minRoleID || roleToViewCenterDirDistance < minRoleToViewCenterDirDistance)
                 {
                     minRoleID = roles[i].ID;
                     minRoleToViewCenterDirDistance = roleToViewCenterDirDistance;
