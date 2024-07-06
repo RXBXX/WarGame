@@ -466,7 +466,6 @@ GameObject:
   - component: {fileID: -2408284674037517070}
   - component: {fileID: 2186563720470386183}
   - component: {fileID: -9115052398205632191}
-  - component: {fileID: 6956754215653162705}
   m_Layer: 0
   m_Name: Role_10001
   m_TagString: Untagged
@@ -484,7 +483,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0046296297, y: 0.0046296297, z: 0.0046296297}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2577446249964404441}
@@ -560,33 +559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6956754215653162705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459644543345086586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024553ecf96a65649b929ee08c9214fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packageName: HUD
-  componentName: HUDRole
-  fitScreen: 0
-  sortingOrder: 0
-  packagePath: UI/HUD
-  renderMode: 2
-  renderCamera: {fileID: 0}
-  position: {x: 0, y: -1.76, z: 0}
-  scale: {x: 0.01, y: 0.01, z: 0.01}
-  rotation: {x: 0, y: 0, z: 0}
-  fairyBatching: 0
-  touchDisabled: 0
-  cachedUISize: {x: 160, y: 20}
-  hitTestMode: 0
-  setNativeChildrenOrder: 0
 --- !u!1 &2480110918581774515
 GameObject:
   m_ObjectHideFlags: 0

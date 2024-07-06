@@ -14,6 +14,7 @@ namespace WarGame.UI
         private float _hpChangeDuration = 1F;
         private Controller _stateC;
         private Controller _followingC;
+        private Controller _hpVisibleC;
         private GLoader _elementLoader;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
@@ -27,6 +28,7 @@ namespace WarGame.UI
             _buffList = GetGObjectChild<GList>("buffList");
             _buffList.itemRenderer = OnItemRenderer;
             _elementLoader = GetGObjectChild<GLoader>("element");
+            _hpVisibleC = GetController("hpVisible");
 
             ((GTextField)_gCom.GetChild("id")).text = args[0].ToString();
             _hp.GetController("style").SetSelectedIndex((int)args[1]);
@@ -113,7 +115,12 @@ namespace WarGame.UI
 
         public void SetFollowing(bool following)
         {
-            _followingC.SetSelectedIndex(following ? 1 :0);
+            _followingC.SetSelectedIndex(following ? 1 : 0);
+        }
+
+        public void SetHPVisible(bool visible)
+        {
+            _hpVisibleC.SetSelectedIndex(visible ? 1 : 0);
         }
 
         public override void Dispose(bool disposeGComp = false)

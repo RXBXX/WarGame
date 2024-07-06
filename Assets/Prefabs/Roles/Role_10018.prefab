@@ -1612,7 +1612,6 @@ GameObject:
   - component: {fileID: -2937950877809549574}
   - component: {fileID: -3408237043922918196}
   - component: {fileID: 6189126068401248565}
-  - component: {fileID: -2465533458976910874}
   m_Layer: 0
   m_Name: Role_10018
   m_TagString: Untagged
@@ -1728,33 +1727,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7, y: 1.5083821, z: 0.43695313}
   m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
---- !u!114 &-2465533458976910874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8988103893952733304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024553ecf96a65649b929ee08c9214fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packageName: HUD
-  componentName: HUDRole
-  fitScreen: 0
-  sortingOrder: 0
-  packagePath: UI/HUD
-  renderMode: 2
-  renderCamera: {fileID: 0}
-  position: {x: 0, y: -1.76, z: 0}
-  scale: {x: 0.01, y: 0.01, z: 0.01}
-  rotation: {x: 0, y: 0, z: 0}
-  fairyBatching: 0
-  touchDisabled: 0
-  cachedUISize: {x: 160, y: 20}
-  hitTestMode: 0
-  setNativeChildrenOrder: 0
 --- !u!1 &9054165498110294671
 GameObject:
   m_ObjectHideFlags: 0

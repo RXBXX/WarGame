@@ -1343,7 +1343,6 @@ GameObject:
   - component: {fileID: -3149574650672960212}
   - component: {fileID: 1822718843184789990}
   - component: {fileID: 2210258287729856476}
-  - component: {fileID: -6922700419950283637}
   m_Layer: 0
   m_Name: Role_10003
   m_TagString: Enemy
@@ -1437,33 +1436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6922700419950283637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5382301900119433808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024553ecf96a65649b929ee08c9214fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  packageName: HUD
-  componentName: HUDRole
-  fitScreen: 0
-  sortingOrder: 0
-  packagePath: UI/HUD
-  renderMode: 2
-  renderCamera: {fileID: 0}
-  position: {x: 0, y: -1.76, z: 0}
-  scale: {x: 0.01, y: 0.01, z: 0.01}
-  rotation: {x: 0, y: 0, z: 0}
-  fairyBatching: 0
-  touchDisabled: 0
-  cachedUISize: {x: 160, y: 20}
-  hitTestMode: 0
-  setNativeChildrenOrder: 0
 --- !u!1 &5402262487131937433
 GameObject:
   m_ObjectHideFlags: 0

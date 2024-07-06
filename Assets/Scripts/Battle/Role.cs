@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
 using DG.Tweening;
+using FairyGUI;
 
 namespace WarGame
 {
@@ -34,8 +35,6 @@ namespace WarGame
         protected Dictionary<Enum.EquipPlace, Equip> _equipDic = new Dictionary<Enum.EquipPlace, Equip>();
 
         private Vector3 _position;
-
-        private bool _isFollowing = false;
 
         public bool DeadFlag = false;
 
@@ -182,6 +181,12 @@ namespace WarGame
 
         protected virtual void CreateHUD()
         {
+            var uiPanel = _hudPoint.AddComponent<UIPanel>();
+            uiPanel.packagePath = "UI/HUD";
+            uiPanel.packageName = "HUD";
+            uiPanel.componentName = "HUDRole";
+            uiPanel.container.renderMode = RenderMode.WorldSpace;
+            uiPanel.ui.scale = new Vector2(0.015F, 0.015F);
         }
 
         public AnimatorConfig GetAnimatorConfig()
@@ -727,11 +732,9 @@ namespace WarGame
 
         public void SetFollowing(bool following)
         {
-            _isFollowing = following;
-
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             if (null != hud)
-                hud.SetFollowing(_isFollowing);
+                hud.SetFollowing(following);
         }
 
         public Vector3 GetEffectPos()

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using WarGame.UI;
 using UnityEngine;
 using System.Collections;
+using FairyGUI;
 
 namespace WarGame
 {
@@ -27,10 +28,11 @@ namespace WarGame
 
         protected override void CreateHUD()
         {
+            base.CreateHUD();
             _hpHUDKey = ID + "_HP";
             var args = new object[] { ID, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
-            //_hudRole = UIManager.Instance.CreateUI<HUDRole>("HUDRole", _gameObject.GetComponent<FairyGUI.UIPanel>().ui, args);
-            HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _gameObject.GetComponent<FairyGUI.UIPanel>().ui, _gameObject, args);
+            var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
+            hud.SetHPVisible(false);
         }
 
         protected override void OnStateChanged()
@@ -130,6 +132,9 @@ namespace WarGame
                         destCell = destCell.parent;
                     }
                 }
+
+                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.SetHPVisible(true);
             }
             else if (targets.Count > 0)
             {
@@ -166,6 +171,9 @@ namespace WarGame
                     //DebugManager.Instance.Log("Path:"+path.Count);
                 }
                 //DebugManager.Instance.Log(path.Count);
+
+                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.SetHPVisible(true);
             }
             else
             {
@@ -212,6 +220,9 @@ namespace WarGame
                             path.Add(movePath[i].id);
                     }
                 }
+
+                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
+                hud.SetHPVisible(false);
             }
 
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });

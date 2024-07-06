@@ -51,7 +51,7 @@ namespace FairyGUI
         public int sortingOrder;
 
         [SerializeField]
-        string packagePath;
+        public string packagePath;
         [SerializeField]
         RenderMode renderMode = RenderMode.ScreenSpaceOverlay;
         [SerializeField]
@@ -86,6 +86,7 @@ namespace FairyGUI
 
         void OnEnable()
         {
+            Debug.Log("UIPanel.Create");
             if (Application.isPlaying)
             {
                 if (this.container == null)
@@ -171,6 +172,7 @@ namespace FairyGUI
                 }
             }
 
+            Debug.Log("CreateContainer");
             this.container = new Container(this.gameObject);
             this.container.renderMode = renderMode;
             this.container.renderCamera = renderCamera;

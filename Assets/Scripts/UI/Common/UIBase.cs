@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using FairyGUI;
-using System;
 using UnityEngine;
 
 namespace WarGame.UI

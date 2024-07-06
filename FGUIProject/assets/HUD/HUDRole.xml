@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="0"/>
-  <controller name="following" pages="0,,1," selected="0"/>
+  <controller name="hpVisible" pages="0,,1," selected="1"/>
+  <controller name="following" pages="0,,1," selected="1"/>
   <displayList>
-    <loader id="n14_yiew" name="element" xy="-44,-12" size="40,40" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
-    <component id="n11_o8z3" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="80,7" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0">
-      <ProgressBar value="49" max="100"/>
-    </component>
-    <component id="n0_kugj" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="0,14" size="160,7" touchable="false" controller="style,2">
-      <ProgressBar value="39" max="100"/>
+    <loader id="n14_yiew" name="element" xy="-44,-12" size="40,40" visible="false" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
+    <text id="n3_p3n5" name="id" xy="-3,10" pivot="1,0.5" anchor="true" size="27,39" visible="false" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" align="right" vAlign="middle" strokeColor="#000000" strokeSize="3" text="ID:"/>
+    <loader id="n12_h53u" name="state" xy="157,-12" size="40,40" touchable="false" url="ui://hx02grrph53um" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <gearIcon controller="state" pages="0,2,3" values="ui://hx02grrph53um|ui://hx02grrph53un|" default="ui://hx02grrph53uo"/>
+    </loader>
+    <component id="n19_clt4" name="following" src="clt4b" fileName="HUDTarget.xml" xy="80,-34">
+      <gearDisplay controller="following" pages="1"/>
     </component>
     <list id="n2_kugj" name="buffList" xy="80,-1" pivot="0.5,1" anchor="true" size="160,32" touchable="false" layout="flow_hz" overflow="scroll" lineItemCount="5" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
+      <gearDisplay controller="hpVisible" pages="1"/>
       <item/>
       <item/>
       <item/>
@@ -19,13 +22,13 @@
       <item/>
       <item/>
     </list>
-    <text id="n3_p3n5" name="id" xy="-3,10" pivot="1,0.5" anchor="true" size="27,39" visible="false" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" align="right" vAlign="middle" strokeColor="#000000" strokeSize="3" text="ID:"/>
-    <loader id="n12_h53u" name="state" xy="157,-12" size="40,40" group="n15_cfrs" touchable="false" url="ui://hx02grrph53um" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
-      <gearIcon controller="state" pages="0,2,3" values="ui://hx02grrph53um|ui://hx02grrph53un|" default="ui://hx02grrph53uo"/>
-    </loader>
-    <group id="n15_cfrs" name="n15" xy="157,-12" size="40,40" advanced="true" layout="hz" colGap="-5" excludeInvisibles="true"/>
-    <graph id="n18_8u0k" name="n18" xy="70,-65" size="20,30" type="polygon" lineColor="#ffffffff" fillColor="#ffffb500" points="0,0,20,0,10,30">
-      <gearDisplay controller="following" pages="1"/>
-    </graph>
+    <component id="n11_o8z3" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="80,6" pivot="0.5,0.5" anchor="true" size="160,14" touchable="false" controller="style,0">
+      <gearDisplay controller="hpVisible" pages="1"/>
+      <ProgressBar value="49" max="100"/>
+    </component>
+    <component id="n0_kugj" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="0,13" size="160,7" touchable="false" controller="style,2">
+      <gearDisplay controller="hpVisible" pages="1"/>
+      <ProgressBar value="39" max="100"/>
+    </component>
   </displayList>
 </component>

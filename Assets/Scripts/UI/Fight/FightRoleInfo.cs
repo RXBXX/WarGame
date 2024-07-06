@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FairyGUI;
@@ -13,6 +12,7 @@ namespace WarGame.UI
         private GProgressBar _rage;
         private List<ThreeStrPair> _attrsData = new List<ThreeStrPair>();
         private Dictionary<string, FightAttrItem> _attrsItemDic = new Dictionary<string, FightAttrItem>();
+        private GLoader _element;
 
         public FightRoleInfo(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -20,6 +20,7 @@ namespace WarGame.UI
             _hp = GetGObjectChild<GProgressBar>("hp");
             _rage = GetGObjectChild<GProgressBar>("rage");
             _attrList = GetGObjectChild<GList>("attrList");
+            _element = GetGObjectChild<GLoader>("element");
             _attrList.itemRenderer = OnItemRenderer;
         }
 
@@ -68,6 +69,8 @@ namespace WarGame.UI
                 centerPos.y = GRoot.inst.height - GCom.height;
             }
             SetPosition(centerPos);
+
+            _element.url = role.GetElementConfig().Icon;
 
             SetVisible(true);
         }
