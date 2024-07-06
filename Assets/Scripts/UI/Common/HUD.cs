@@ -7,7 +7,7 @@ namespace WarGame.UI
 {
     public class HUD : UIBase
     {
-        private GameObject _gameObject;
+        protected GameObject _gameObject;
         private Vector2 _offset;
         //public HUD(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         //{
@@ -31,7 +31,7 @@ namespace WarGame.UI
             UpdatePosition();
         }
         
-        private void UpdatePosition()
+        protected virtual void UpdatePosition()
         {
             var pos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(_gameObject.transform.position);
             pos.y = Screen.height - pos.y;

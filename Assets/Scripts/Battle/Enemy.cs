@@ -29,7 +29,8 @@ namespace WarGame
         {
             _hpHUDKey = ID + "_HP";
             var args = new object[] { ID, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
-            HUDManager.Instance.AddHUD<HUDRole>("HUD", "HUDRole", _hpHUDKey, _hudPoint, args);
+            //_hudRole = UIManager.Instance.CreateUI<HUDRole>("HUDRole", _gameObject.GetComponent<FairyGUI.UIPanel>().ui, args);
+            HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _gameObject.GetComponent<FairyGUI.UIPanel>().ui, _gameObject, args);
         }
 
         protected override void OnStateChanged()

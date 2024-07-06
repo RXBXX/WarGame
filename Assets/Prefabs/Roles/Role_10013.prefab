@@ -267,8 +267,8 @@ GameObject:
   - component: {fileID: 2146474059293277221}
   - component: {fileID: -8634980972985529199}
   - component: {fileID: -442080145265117325}
-  - component: {fileID: 5630868915927357447}
   - component: {fileID: 6511487990251880302}
+  - component: {fileID: 2365884925299757859}
   m_Layer: 0
   m_Name: Role_10013
   m_TagString: Untagged
@@ -341,27 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526c71ece9ca50a43bed8ba6ae40abdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &5630868915927357447
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015474665929895658}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.69, y: 1.5083821, z: 0.43695313}
-  m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
 --- !u!65 &6511487990251880302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -383,6 +362,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7, y: 1.5083821, z: 0.43695313}
   m_Center: {x: 0, y: 0.7571068, z: 0.019132644}
+--- !u!114 &2365884925299757859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015474665929895658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024553ecf96a65649b929ee08c9214fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packageName: HUD
+  componentName: HUDRole
+  fitScreen: 0
+  sortingOrder: 0
+  packagePath: UI/HUD
+  renderMode: 2
+  renderCamera: {fileID: 0}
+  position: {x: 0, y: -1.76, z: 0}
+  scale: {x: 0.01, y: 0.01, z: 0.01}
+  rotation: {x: 0, y: 0, z: 0}
+  fairyBatching: 0
+  touchDisabled: 0
+  cachedUISize: {x: 160, y: 20}
+  hitTestMode: 0
+  setNativeChildrenOrder: 0
 --- !u!1 &1301211743969115530
 GameObject:
   m_ObjectHideFlags: 0

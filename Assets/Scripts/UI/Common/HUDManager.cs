@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using FairyGUI;
 
 namespace WarGame.UI
 {
@@ -26,6 +27,16 @@ namespace WarGame.UI
         public T AddHUD<T>(string packageName, string compName, string customName, GameObject go, object[] args = null) where T:HUD
         {
             var ui = UIManager.Instance.CreateUI<T>(packageName, compName, args);
+            ui.name = customName;
+            ui.SetOwner(go);
+            _hudList.Add(ui);
+
+            return ui;
+        }
+
+        public T AddHUD<T>(string compName, string customName, GComponent gCom, GameObject go, object[] args = null) where T : HUD
+        {
+            var ui = UIManager.Instance.CreateUI<T>(compName, gCom, args);
             ui.name = customName;
             ui.SetOwner(go);
             _hudList.Add(ui);

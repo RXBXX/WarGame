@@ -1,5 +1,6 @@
 using FairyGUI;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace WarGame.UI
 {
@@ -47,9 +48,22 @@ namespace WarGame.UI
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-
             foreach (var v in _hudBuffDic)
                 v.Value.Update(deltaTime);
+        }
+
+        protected override void UpdatePosition()
+        {
+            var cameraFor = CameraMgr.Instance.GetMainCamForward();
+            cameraFor.y = 0;
+
+            var ownerFor = _gameObject.transform.forward;
+            ownerFor.y = 0;
+
+            var angle = Mathf.Acos(Vector3.Dot(cameraFor.normalized, ownerFor.normalized)) / 2 / Mathf.PI * 360;
+            if (Vector3.Cross(cameraFor.normalized, ownerFor.normalized).y > 0)
+                angle = 360 - angle;
+            _gCom.rotationY = angle;
         }
 
         public void UpdateHP(float hp)
