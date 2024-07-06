@@ -13,7 +13,7 @@ Shader "Custom/OrnamentShader"
 	}
 		SubShader
 		{
-			Tags{"Queue" = "Transparent" "RenderType" = "Transparent"}
+			Tags{"Queue" = "Geometry"}
 
 			pass {
 				Tags{"LightMode" = "ForwardBase"}

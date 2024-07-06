@@ -19,7 +19,7 @@ Shader "Custom/ToonShader"
 	}
 		SubShader
 		{
-			Tags{"Queue" = "Transparent" "RenderType" = "Transparent"}
+			Tags{"Queue" = "Geometry"}
 
 			pass {//ƽ�й�ĵ�pass��Ⱦ
 				Tags{"Queue" = "Transparent" "RenderType" = "Transparent"}

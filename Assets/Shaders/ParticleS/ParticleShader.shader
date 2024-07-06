@@ -19,6 +19,7 @@ Shader "Custom/ParticleShader"
 			Cull Off
 			Lighting Off
 			Blend SrcAlpha OneMinusSrcAlpha
+			ZWrite Off
 
 			Pass
 			{

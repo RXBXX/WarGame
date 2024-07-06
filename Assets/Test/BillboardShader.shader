@@ -10,9 +10,10 @@ Shader "Unlit/BillboardShader"
 	SubShader
 	{
 		Tags { 
-			"Queue" = "Transparent+1"
+			"Queue" = "Transparent"
 		    "RenderType" = "Transparent"
 		}
+		ZWrite Off
 		Pass
 		{
 			Blend SrcAlpha OneMinusSrcAlpha//混合要渲染像素的A通道和1-要渲染的像素的A通道

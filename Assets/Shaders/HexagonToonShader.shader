@@ -13,6 +13,8 @@ Shader "Custom/HexagonToonShader"
 	}
 	SubShader
 	{
+		Tags{"Queue" = "Geometry"}
+
 		pass {
 			Tags{"LightMode" = "ForwardBase"}
 			Cull Back
