@@ -10,7 +10,7 @@ Shader "Custom/ParticleShader"
 		{
 			Tags
 			{
-				"Queue" = "Transparent+1"
+				"Queue" = "Transparent"
 				"RenderType" = "Transparent"
 				//"PreviewType" = "Plane"
 			}
