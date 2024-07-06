@@ -344,6 +344,9 @@ namespace WarGame.UI
         /// <param name="packageName"></param>
         public void RemovePackage(string packageName)
         {
+            if (!_uiPackagesDic.ContainsKey(packageName))
+                return;
+
             var quoteCount = _uiPackagesDic[packageName];
             quoteCount -= 1;
             if (quoteCount <= 0)

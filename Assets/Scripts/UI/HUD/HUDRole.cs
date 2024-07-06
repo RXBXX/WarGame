@@ -56,13 +56,20 @@ namespace WarGame.UI
         {
             var cameraFor = CameraMgr.Instance.GetMainCamForward();
             cameraFor.y = 0;
-
+            cameraFor = cameraFor.normalized;
             var ownerFor = _gameObject.transform.forward;
             ownerFor.y = 0;
+            ownerFor = ownerFor.normalized;
 
-            var angle = Mathf.Acos(Vector3.Dot(cameraFor.normalized, ownerFor.normalized)) / 2 / Mathf.PI * 360;
-            if (Vector3.Cross(cameraFor.normalized, ownerFor.normalized).y > 0)
+            //Vector3.Dot(cameraFor.normalized, ownerFor.normalized) 的值超出 - 1 到 1 之间：由于浮点运算的不精确性，两个归一化向量的点积可能会略微超出理论上的范围[-1, 1]。
+            //Mathf.Acos 函数对于超出这个范围的输入值会返回 NaN。
+            if (cameraFor == Vector3.zero || ownerFor == Vector3.zero)
+                return;
+
+            var angle = Mathf.Acos(Vector3.Dot(cameraFor, ownerFor)) / 2 / Mathf.PI * 360;
+            if (Vector3.Cross(cameraFor, ownerFor).y > 0)
                 angle = 360 - angle;
+
             _gCom.rotationY = angle;
         }
 
