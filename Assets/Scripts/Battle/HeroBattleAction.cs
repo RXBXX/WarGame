@@ -296,6 +296,7 @@ namespace WarGame
 
             CameraMgr.Instance.SetTarget(_initiatorID);
 
+            MapManager.Instance.ClearMarkedRegion();
             _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID);
             _skillAction.Start();
         }

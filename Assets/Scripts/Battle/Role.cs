@@ -186,7 +186,7 @@ namespace WarGame
             uiPanel.packageName = "HUD";
             uiPanel.componentName = "HUDRole";
             uiPanel.container.renderMode = RenderMode.WorldSpace;
-            uiPanel.ui.scale = new Vector2(0.015F, 0.015F);
+            uiPanel.ui.scale = new Vector2(0.012F, 0.012F);
         }
 
         public AnimatorConfig GetAnimatorConfig()
