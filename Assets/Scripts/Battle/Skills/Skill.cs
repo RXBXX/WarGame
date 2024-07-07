@@ -142,7 +142,7 @@ namespace WarGame
 
         protected virtual IEnumerator Over(float waitingTime = 0, bool isKill = false)
         {
-            DebugManager.Instance.Log("Over");
+            //DebugManager.Instance.Log("Over");
             yield return new WaitForSeconds(waitingTime);
             if (!DatasMgr.Instance.GetSkipBattle())
             {

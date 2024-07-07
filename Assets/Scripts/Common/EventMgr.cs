@@ -62,7 +62,7 @@ namespace WarGame
                     {
                         OnNextEvent(eventConfig.NextEvents, 0, callback);
                     };
-                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {eventConfig, cb2 });
+                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {eventConfig.Value, cb2 });
                     break;
             }
         }

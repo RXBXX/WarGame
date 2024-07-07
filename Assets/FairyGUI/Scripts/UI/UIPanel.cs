@@ -86,7 +86,6 @@ namespace FairyGUI
 
         void OnEnable()
         {
-            Debug.Log("UIPanel.Create");
             if (Application.isPlaying)
             {
                 if (this.container == null)
@@ -172,7 +171,6 @@ namespace FairyGUI
                 }
             }
 
-            Debug.Log("CreateContainer");
             this.container = new Container(this.gameObject);
             this.container.renderMode = renderMode;
             this.container.renderCamera = renderCamera;
@@ -471,7 +469,6 @@ namespace FairyGUI
             if (Application.isPlaying)
                 return;
 
-            Debug.Log((string)data[1]);
             this.packageName = (string)data[0];
             this.packagePath = (string)data[1];
             this.componentName = (string)data[2];

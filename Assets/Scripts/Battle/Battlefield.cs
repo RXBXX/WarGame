@@ -591,7 +591,7 @@ namespace WarGame
             {
                 for (int i = deadRoles.Count - 1; i >= 0; i--)
                 {
-                    DebugManager.Instance.Log("Dead:" + deadRoles[i]);
+                    //DebugManager.Instance.Log("Dead:" + deadRoles[i]);
                     var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", deadRoles[i]);
                     if (null != enemyConfig && 0 != enemyConfig.DefeatEvent)
                     {

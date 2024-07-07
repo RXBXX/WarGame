@@ -8,10 +8,11 @@ Shader "Custom/Particles/Additive" {
     }
 
         Category{
-            Tags { "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
+            Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" "PreviewType" = "Plane" }
             Blend SrcAlpha One
             ColorMask RGBA
             ZWrite Off
+            Cull Off
 
             SubShader {
                 Pass {

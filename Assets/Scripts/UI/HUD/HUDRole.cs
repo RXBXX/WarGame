@@ -72,6 +72,8 @@ namespace WarGame.UI
             if (Vector3.Cross(cameraFor, ownerFor).y > 0)
                 angle = 360 - angle;
 
+            if (angle == float.NaN)
+                return;
             _gCom.rotationY = angle;
         }
 

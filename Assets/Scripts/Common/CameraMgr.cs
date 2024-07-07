@@ -116,6 +116,16 @@ namespace WarGame
                 var side1 = (targetPos - MainCamera.transform.position).normalized;
                 var side2 = side1 - new Vector3(0, side1.y, 0);
                 var angle = Mathf.Acos(Vector3.Distance(side2, Vector3.zero) / Vector3.Distance(side1, Vector3.zero)) * 180 / Mathf.PI;
+                //if (yAxis < 0)
+                //{
+                //    if (angle + yAxis > 20)
+                //        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                //}
+                //else
+                //{
+                //    if (angle + yAxis < 50)
+                //        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                //}
                 if (angle + yAxis > 20 && angle + yAxis < 50)
                 {
                     MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
@@ -208,7 +218,7 @@ namespace WarGame
         }
 
         public void SetTarget(int targetID)
-        { 
+        {
             //DebugManager.Instance.Log("SetTarget:"+targetID);
             //if (_isLocking)
             //    return;
@@ -247,7 +257,7 @@ namespace WarGame
             if ((int)args[0] != _targetID)
                 return;
             ClearTarget();
-            
+
             FindingTarget(true);
         }
 
@@ -270,7 +280,7 @@ namespace WarGame
                 minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, minRole.GetPosition());
             }
 
-            for (int i = 1; i < roles.Count; i++)
+            for (int i = 0; i < roles.Count; i++)
             {
                 if (!isInit)
                 {
@@ -284,6 +294,7 @@ namespace WarGame
                     if (screenPos.y > Screen.height)
                         continue;
                 }
+
 
                 var roleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[i].GetPosition());
                 if (0 == minRoleID || roleToViewCenterDirDistance < minRoleToViewCenterDirDistance)
