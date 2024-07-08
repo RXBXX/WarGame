@@ -6,9 +6,9 @@ namespace WarGame
     {
         protected Material _mat;
 
-        public virtual void Setup()
-        {
-            CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = true;
+        public PostProcessing(params object[] args)
+        { 
+        
         }
 
         public virtual void Update(float deltaTime)
@@ -23,7 +23,6 @@ namespace WarGame
 
         public virtual void Clear()
         {
-            //CameraMgr.Instance.MainCamera.GetComponent<CameraRender>().enabled = false;
         }
     }
 }

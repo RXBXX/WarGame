@@ -221,6 +221,7 @@ namespace WarGame
         {
             Gray = 0,
             Fog = 1,
+            Palette = 2,
         }
 
         [Serializable]
@@ -250,6 +251,7 @@ namespace WarGame
         [Serializable]
         public enum Element
         {
+            None = 0,
             Metal = 1, //½ð
             Wood = 2, //Ä¾
             Water = 3, //Ë®

@@ -199,6 +199,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TypingEffect.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\XML.cs" />
     <Compile Include="Assets\Test\Cloud\CustomInput.cs" />
+    <Compile Include="Assets\Test\PaletteTest.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ExtraTurnSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\ScrollPane.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\HUDRole.cs" />
@@ -353,6 +354,7 @@
     <Compile Include="Assets\Scripts\Common\AssetsMgr.cs" />
     <Compile Include="Assets\Scripts\Map\MapManager.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\Scripts\Render\PalettePP.cs" />
     <Compile Include="Assets\Scripts\UI\Fight\FightTips.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\Html\HtmlLink.cs" />
     <Compile Include="Assets\Scripts\Battle\State.cs" />
@@ -494,6 +496,7 @@
     <None Include="Assets\Test\InstancedIndirectShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
     <None Include="Assets\Shaders\ParticleS\Multiply.shader" />
+    <None Include="Assets\Shaders\PaletteShader.shader" />
     <None Include="Assets\Scripts\SRP\NewSurfaceShader 1.shader" />
     <None Include="Assets\Test\FishShader.shader" />
     <None Include="Assets\Shaders\LineShader_V2.shader" />

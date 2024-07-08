@@ -183,6 +183,7 @@ namespace WarGame
         public int FailedEvent;
         public int[] WinCond;
         public string Music;
+        public Enum.Element Element;
     }
 
     //µ–»À±Ì

@@ -157,6 +157,8 @@ namespace WarGame
 
             RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Fog);
 
+            RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Palette);
+
             if (null != weather)
             {
                 weather.Dispose();
@@ -218,6 +220,7 @@ namespace WarGame
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
             BattleMgr.Instance.InitReports();
             RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Fog);
+            RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Palette, new object[] { CommonParams.GetPalette(levelConfig.Element)});
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));

@@ -8,11 +8,9 @@ namespace WarGame
     {
         private int _assetID;
 
-        public override void Setup()
+        public FogPP(params object[] args) : base(args)
         {
-            base.Setup();
-
-            _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/VolumeCloud.mat", (Material mat)=> {
+            _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/VolumeCloud.mat", (Material mat) => {
                 _mat = mat;
             });
 

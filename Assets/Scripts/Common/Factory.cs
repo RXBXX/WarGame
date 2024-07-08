@@ -90,5 +90,20 @@ namespace WarGame
                     return new Hexagon(plugin.ID, plugin.configId, plugin.isReachable, plugin.coor);
             }
         }
+
+        public PostProcessing GetPostProcessiong(Enum.PostProcessingType type, params object[] args)
+        {
+            switch (type)
+            {
+                case Enum.PostProcessingType.Gray:
+                    return new GrayPP();
+                case Enum.PostProcessingType.Fog:
+                    return new FogPP();
+                case Enum.PostProcessingType.Palette:
+                    return new PalettePP(args);
+                default:
+                    return null;
+            }
+        }
     }
 }

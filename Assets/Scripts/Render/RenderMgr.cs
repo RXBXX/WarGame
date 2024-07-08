@@ -85,23 +85,11 @@ namespace WarGame
         //private ComputeBuffer positionBuffer;
         //private const int INSTANCE_COUNT = 100;
 
-        public void OpenPostProcessiong(Enum.PostProcessingType type)
+        public void OpenPostProcessiong(Enum.PostProcessingType type, params object[] args)
         {
             if (_ppDic.ContainsKey(type))
                 return;
-
-            if (type == Enum.PostProcessingType.Gray)
-            {
-                var _pp = new GrayPP();
-                _pp.Setup();
-                _ppDic.Add(type, _pp);
-            }
-            else if (type == Enum.PostProcessingType.Fog)
-            {
-                var _pp = new FogPP();
-                _pp.Setup();
-                _ppDic.Add(type, _pp);
-            }
+            _ppDic.Add(type, Factory.Instance.GetPostProcessiong(type, args));
         }
 
         public void ClosePostProcessiong(Enum.PostProcessingType type)

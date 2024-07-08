@@ -160,5 +160,24 @@ namespace WarGame
                     return Color.white;
             }
         }
+
+        public static Color GetPalette(Enum.Element element)
+        {
+            switch (element)
+            {
+                case Enum.Element.Earth:
+                    return new Color(1.0F, 0.9257F, 0.8504f, 1.0f);
+                case Enum.Element.Fire:
+                    return new Color(1.0F, 0.7857F, 0.7954f, 1.0f);
+                case Enum.Element.Metal:
+                    return new Color(1.0F, 0.8991F, 0.7803f, 1.0f);
+                case Enum.Element.Water:
+                    return new Color(0.9991F, 0.9426F, 1.0f, 1.0f);
+                case Enum.Element.Wood:
+                    return new Color(0.7749F, 0.9106F, 1.0f, 1.0f);
+                default:
+                    return Color.white;
+            }
+        }
     }
 }
