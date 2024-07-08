@@ -584,10 +584,10 @@ namespace WarGame
             rd.AddHero(10001);
             rd.AddHero(10002);
 
-            ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
-            {
-                rd.AddEquip(config.ID);
-            });
+            //ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
+            //{
+            //    rd.AddEquip(config.ID);
+            //});
             //rd.AddEquip(10001);
             //rd.AddEquip(10002);
             //rd.AddEquip(10003);

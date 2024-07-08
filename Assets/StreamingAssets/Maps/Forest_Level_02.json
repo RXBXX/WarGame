@@ -1159,25 +1159,6 @@
       }
     },
     {
-      "ID": "2_0_4",
-      "configId": 11,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.4472136,
-          "y": 0.0,
-          "z": 0.8944272,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 4.472136,
-        "sqrMagnitude": 20.0
-      }
-    },
-    {
       "ID": "2_0_6",
       "configId": 11,
       "isReachable": true,
@@ -2924,22 +2905,29 @@
       }
     },
     {
-      "ID": "4_0_2",
+      "ID": "4_-1_2",
       "configId": 11,
       "isReachable": true,
       "coor": {
         "x": 4.0,
-        "y": 0.0,
+        "y": -1.0,
         "z": 2.0,
         "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
+          "x": 0.8728715,
+          "y": -0.21821788,
+          "z": 0.436435759,
+          "normalized": {
+            "x": 0.8728716,
+            "y": -0.2182179,
+            "z": 0.4364358,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
         },
-        "magnitude": 4.472136,
-        "sqrMagnitude": 20.0
+        "magnitude": 4.582576,
+        "sqrMagnitude": 21.0
       }
     },
     {
@@ -48667,6 +48655,25 @@
       }
     },
     {
+      "ID": "2_0_4",
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.4472136,
+          "y": 0.0,
+          "z": 0.8944272,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 4.472136,
+        "sqrMagnitude": 20.0
+      }
+    },
+    {
       "ID": "3_0_2",
       "configId": 22,
       "isReachable": true,
@@ -48683,6 +48690,25 @@
         },
         "magnitude": 3.60555124,
         "sqrMagnitude": 13.0
+      }
+    },
+    {
+      "ID": "4_0_2",
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.8944272,
+          "y": 0.0,
+          "z": 0.4472136,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 4.472136,
+        "sqrMagnitude": 20.0
       }
     },
     {
@@ -48764,32 +48790,6 @@
       }
     },
     {
-      "ID": "4_-1_2",
-      "configId": 11,
-      "isReachable": false,
-      "coor": {
-        "x": 4.0,
-        "y": -1.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.8728715,
-          "y": -0.21821788,
-          "z": 0.436435759,
-          "normalized": {
-            "x": 0.8728716,
-            "y": -0.2182179,
-            "z": 0.4364358,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 4.582576,
-        "sqrMagnitude": 21.0
-      }
-    },
-    {
       "ID": "4_-1_3",
       "configId": 5,
       "isReachable": false,
@@ -48830,47 +48830,47 @@
   ],
   "enemys": [
     {
-      "ID": 20002,
+      "ID": 20202,
       "hexagonID": "43_0_42"
     },
     {
-      "ID": 20001,
+      "ID": 20201,
       "hexagonID": "43_0_39"
     },
     {
-      "ID": 20004,
+      "ID": 20204,
       "hexagonID": "40_0_27"
     },
     {
-      "ID": 20005,
+      "ID": 20205,
       "hexagonID": "35_0_30"
     },
     {
-      "ID": 20006,
+      "ID": 20206,
       "hexagonID": "16_0_38"
     },
     {
-      "ID": 20007,
+      "ID": 20207,
       "hexagonID": "13_0_35"
     },
     {
-      "ID": 20008,
+      "ID": 20208,
       "hexagonID": "13_0_15"
     },
     {
-      "ID": 20009,
+      "ID": 20209,
       "hexagonID": "16_0_12"
     },
     {
-      "ID": 20010,
+      "ID": 20210,
+      "hexagonID": "40_0_11"
+    },
+    {
+      "ID": 20211,
       "hexagonID": "43_0_8"
     },
     {
-      "ID": 20011,
-      "hexagonID": "39_0_11"
-    },
-    {
-      "ID": 20003,
+      "ID": 20203,
       "hexagonID": "40_0_42"
     }
   ],
