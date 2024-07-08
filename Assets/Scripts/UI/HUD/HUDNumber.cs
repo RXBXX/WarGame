@@ -18,14 +18,23 @@ namespace WarGame.UI
             _showT = (Transition)_gCom.GetTransition("show");
         }
 
-        public void Show(float delay, string str, PlayCompleteCallback callback)
+        public void Show(float delay, string str, GTweenCallback callback)
         {
             RemoveSequence();
             _seq = DOTween.Sequence();
             _seq.AppendInterval(delay);
             _seq.AppendCallback(()=>{
                 _title.text = str;
-                _showT.Play(callback);
+                var rd = Random.Range(- Mathf.PI / 3, Mathf.PI / 3);
+                var offset = new Vector2(Mathf.Sin(rd), -Mathf.Cos(rd));
+                var pos = _title.xy + offset * 80.0f;
+                _title.TweenMove(pos, 0.3F);
+                _title.scale = Vector2.zero;
+                _title.TweenScale(Vector2.one, 0.3F);
+            });
+            _seq.AppendInterval(0.8F);
+            _seq.AppendCallback(()=> {
+                callback();
             });
         }
 

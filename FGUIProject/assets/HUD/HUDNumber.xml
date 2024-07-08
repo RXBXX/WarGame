@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="76,64">
+<component size="60,49">
   <displayList>
-    <text id="n0_p3n5" name="title" xy="0,64" pivot="0,1" anchor="true" size="76,64" font="ui://hd0z4dz5omu90" fontSize="48" color="#ce4a35" letterSpacing="2" ubb="true" bold="true" strokeColor="#000000" strokeSize="2" autoClearText="true" text="[color=#ffb500]-111[/color]"/>
+    <text id="n0_p3n5" name="title" xy="0,0" size="60,49" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="2" ubb="true" bold="true" strokeColor="#000000" autoClearText="true" text="[color=#ffb500]-111[/color]"/>
   </displayList>
   <relation target="n0_p3n5" sidePair="width-width,height-height"/>
-  <transition name="show">
-    <item time="0" type="XY" target="n0_p3n5" tween="true" startValue="0.5,64.5" endValue="77.5,0.5" duration="6"/>
-    <item time="6" type="XY" target="n0_p3n5" tween="true" startValue="77.5,0.5" endValue="76.5,-22.5" duration="4"/>
-    <item time="10" type="Alpha" target="n0_p3n5" tween="true" startValue="1" endValue="0" duration="5"/>
-  </transition>
 </component>

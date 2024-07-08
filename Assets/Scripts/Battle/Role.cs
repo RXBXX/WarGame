@@ -418,10 +418,7 @@ namespace WarGame
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
             var numberHUD = HUDManager.Instance.AddHUD<HUDNumber>("HUD", "HUDNumber", numberID, _hudPoint);
             _numberHUDList.Add(numberID);
-            numberHUD.Show((_numberHUDList.Count - 1) / 3.0f, str, () =>
-            {
-                onNumberHUDRemove(numberID);
-            });
+            numberHUD.Show((_numberHUDList.Count - 1) * 0.1F, str, ()=> { onNumberHUDRemove(numberID); });
         }
 
         private void onNumberHUDRemove(string id)
