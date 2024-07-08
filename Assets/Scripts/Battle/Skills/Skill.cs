@@ -116,7 +116,8 @@ namespace WarGame
 
             yield return new WaitForSeconds(moveDuration);
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets });
+            var skillName = GetConfig().Name;
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName});
             yield return new WaitForSeconds(1.0f);
         }
 

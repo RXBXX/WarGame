@@ -11,6 +11,7 @@ namespace WarGame
         private int _stage;
         //记录当前回合攻击过自己的角色
         private List<int> _attackers = new List<int>();
+        private List<int> _findedEnemys = new List<int>();
 
         public Enemy(LevelRoleData data) : base(data)
         {
@@ -62,6 +63,7 @@ namespace WarGame
 
         protected virtual IEnumerator StartAI()
         {
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
             //查找所有视野目标
             var targets = FindingHeros();
 
@@ -80,9 +82,10 @@ namespace WarGame
                     targets.Add(v);
                 }
             }
+            UnityEngine.Profiling.Profiler.EndSample();
 
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
-
             //筛选出在攻击范围内的目标
             Role target = null;
             foreach (var v in targets)
@@ -104,7 +107,9 @@ namespace WarGame
                     }
                 }
             }
+            UnityEngine.Profiling.Profiler.EndSample();
 
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
             List<string> path = null;
             if (null != target)
             {
@@ -224,6 +229,7 @@ namespace WarGame
                 var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
                 hud.SetHPVisible(false);
             }
+            UnityEngine.Profiling.Profiler.EndSample();
 
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
@@ -256,6 +262,7 @@ namespace WarGame
             UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
             ResetState();
             _attackers.Clear();
+            _findedEnemys.Clear();
         }
 
         protected override int GetNextStage()
@@ -286,36 +293,47 @@ namespace WarGame
             CreateGO();
         }
 
+        //查找所有视野目标
         public List<Role> FindingHeros()
         {
-            //查找所有视野目标
+            if (_findedEnemys.Count <= 0)
+            {
+                foreach (var v in _attackers)
+                {
+                    var role = RoleManager.Instance.GetRole(v);
+                    if (null == role)
+                        continue;
+
+                    if (!role.Visible())
+                        continue;
+
+                    _findedEnemys.Add(role.ID);
+                }
+
+                var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
+                var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
+                foreach (var v in heros)
+                {
+                    if (_findedEnemys.Contains(v.ID))
+                        continue;
+
+                    if (!v.Visible())
+                        continue;
+
+                    if (!viewRegionDic.ContainsKey(v.Hexagon))
+                        continue;
+                    _findedEnemys.Add(v.ID);
+                }
+            }
+
             var targets = new List<Role>() { };
-            foreach (var v in _attackers)
+            foreach (var v in _findedEnemys)
             {
-                var role = RoleManager.Instance.GetRole(v);
-                if (null == role)
-                    continue;
-
-                if (!role.Visible())
-                    continue;
-
-                targets.Add(role);
+                var target = RoleManager.Instance.GetRole(v);
+                if (null != target)
+                    targets.Add(target);
             }
 
-            var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
-            foreach (var v in heros)
-            {
-                if (targets.Contains(v))
-                    continue;
-
-                if (!v.Visible())
-                    continue;
-
-                if (!viewRegionDic.ContainsKey(v.Hexagon))
-                    continue;
-                targets.Add(v);
-            }
             return targets;
         }
 

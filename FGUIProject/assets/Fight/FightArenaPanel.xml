@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750" opaque="false">
-  <displayList/>
+<component size="1334,750" overflow="hidden" opaque="false">
+  <displayList>
+    <component id="n0_ru2x" name="tag" src="ru2x1p" fileName="FightArenaTag.xml" xy="0,60"/>
+  </displayList>
   <transition name="showHP"/>
+  <transition name="t1" autoPlay="true">
+    <item time="0" type="XY" target="n0_ru2x" tween="true" startValue="-350,74" endValue="0,-" duration="4"/>
+    <item time="4" type="XY" target="n0_ru2x" value="0,-"/>
+  </transition>
 </component>

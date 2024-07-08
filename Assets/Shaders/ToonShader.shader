@@ -14,7 +14,7 @@ Shader "Custom/ToonShader"
 		_OutlineColor("Outline Color", Color) = (0,0,0,0)
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5
 		_Steps("Steps of toon",range(0,9)) = 3
-		_AmbientStrength("Outline", Range(0,10)) = 10
+		_AmbientStrength("AmbientStrength", Range(0,10)) = 10
 		_Alpha("Alpha", Range(0,1)) = 1
 	}
 		SubShader

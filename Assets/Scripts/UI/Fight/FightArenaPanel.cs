@@ -27,12 +27,10 @@ namespace WarGame.UI
 
         public FightArenaPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
-
             var initiators = (List<int>)args[0];
             for (int i = 0; i < initiators.Count; i++)
             {
-                AddHPProgress(initiators[i], new Vector2(1200 - i * 50, 660), i);
+                AddHPProgress(initiators[i], new Vector2(1200 - i * 50, 700), i);
             }
 
             if (args.Length > 1)
@@ -40,9 +38,13 @@ namespace WarGame.UI
                 var targets = (List<int>)args[1];
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    AddHPProgress(targets[i], new Vector2(134 + i * 50, 660), i);
+                    AddHPProgress(targets[i], new Vector2(134 + i * 50, 700), i);
                 }
             }
+
+            GetGObjectChild<GButton>("tag").title = (string)args[2];
+
+            EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
         }
 
         private void AddHPProgress(int roleID, Vector2 pos, int index)
