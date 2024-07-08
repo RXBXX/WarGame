@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using FairyGUI;
+using WarGame.UI;
 
 namespace WarGame
 {
@@ -21,7 +22,7 @@ namespace WarGame
 
             _assetID = AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/BlurMat.mat", (mat) =>
             {
-                _src = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+                _src = RenderTexture.GetTemporary(UIManager.Instance.GetGRootWidth(), UIManager.Instance.GetGRootHeight(), 24, RenderTextureFormat.ARGB32);
                 _coroutine = CoroutineMgr.Instance.StartCoroutine(BlurIEnumerator(mat));
             });
         }
@@ -32,7 +33,7 @@ namespace WarGame
             yield return new WaitForSeconds(0.1f); //后期处理导致绘制会有一段时间黑屏，这里要等回复正常再截屏
             _coroutine = null;
 
-            _dest = RenderTexture.GetTemporary(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+            _dest = RenderTexture.GetTemporary(UIManager.Instance.GetGRootWidth(), UIManager.Instance.GetGRootHeight(), 24, RenderTextureFormat.ARGB32);
 
             Graphics.Blit(_src, _dest, mat);
 

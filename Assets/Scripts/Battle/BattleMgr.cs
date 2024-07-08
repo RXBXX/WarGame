@@ -206,7 +206,7 @@ namespace WarGame
                 var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
                 AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-                var hurt = physicalHurt + magicHurt;
+                var hurt = Mathf.Max(0, physicalHurt + magicHurt);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
@@ -235,7 +235,7 @@ namespace WarGame
             var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-            var hurt = physicalHurt + magicHurt;
+            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             CameraMgr.Instance.ShakePosition();
@@ -336,6 +336,7 @@ namespace WarGame
 
                 var hurt = physicalHurt + magicHurt;
                 hurt *= Random.Range(1, multiply);
+                hurt = Mathf.Max(0, hurt);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
@@ -378,7 +379,7 @@ namespace WarGame
             var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-            var hurt = physicalHurt + magicHurt;
+            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
 
@@ -505,7 +506,7 @@ namespace WarGame
             var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-            var hurt = physicalHurt + magicHurt;
+            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
 

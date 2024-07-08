@@ -101,11 +101,15 @@ namespace WarGame.UI
             var target = RoleManager.Instance.GetRole(senderID);
             if ((Enum.AttrType)args[1] == Enum.AttrType.HP)
             {
-                _roleDic[senderID].hp.TweenValue(target.GetHP(), 0.5F);
+                var progress = _roleDic[senderID].hp;
+                var duration = (float)(Mathf.Abs(target.GetHP() - (float)progress.value) / progress.max);
+                progress.TweenValue(target.GetHP(), duration);
             }
             else
             {
-                _roleDic[senderID].rage.TweenValue(target.GetRage(), 0.5F);
+                var progress = _roleDic[senderID].rage;
+                var duration = (float)(Mathf.Abs(target.GetRage() - (float)progress.value) / progress.max);
+                progress.TweenValue(target.GetRage(), duration);
             }
         }
 

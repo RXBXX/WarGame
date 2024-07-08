@@ -327,7 +327,7 @@ namespace WarGame
             {
                 if (buffs[i].initiatorType != type)
                     continue;
-
+                //DebugManager.Instance.Log(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", buffs[i].id).Name);
                 UpdateBuff(i, type, callback);
             }
         }

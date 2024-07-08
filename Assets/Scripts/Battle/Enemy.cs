@@ -175,7 +175,7 @@ namespace WarGame
                 var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
                 hud.SetHPVisible(true);
             }
-            else
+            else if (InScreen())
             {
                 //在出生点和随机点之间移动
                 if (Hexagon == _data.bornHexagonID)

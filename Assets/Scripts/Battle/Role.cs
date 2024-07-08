@@ -416,8 +416,7 @@ namespace WarGame
         private void AddFloatHUD(string str)
         {
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
-            var target = _gameObject.transform.Find("hudPoint").gameObject;
-            var numberHUD = HUDManager.Instance.AddHUD<HUDNumber>("HUD", "HUDNumber", numberID, target);
+            var numberHUD = HUDManager.Instance.AddHUD<HUDNumber>("HUD", "HUDNumber", numberID, _hudPoint);
             _numberHUDList.Add(numberID);
             numberHUD.Show((_numberHUDList.Count - 1) / 3.0f, str, () =>
             {
@@ -535,7 +534,7 @@ namespace WarGame
             }
         }
 
-        public Vector3 GetPosition()
+        public override Vector3 GetPosition()
         {
             return _position;
             //return _gameObject.transform.position;
@@ -595,33 +594,18 @@ namespace WarGame
             var buffUpdate = (Enum.BuffUpdate)args[1];
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             hud.UpdateBuffs(_data.buffs);
-            if (buffUpdate == Enum.BuffUpdate.None)
-                return;
-
-            var buff = (Enum.Buff)args[0];
-            switch (buff)
+            if (buffUpdate != Enum.BuffUpdate.None)
             {
-                case Enum.Buff.Cloaking:
-                    SetVisible(buffUpdate != Enum.BuffUpdate.Add);
-                    break;
-                //case Enum.Buff.MassMagShield:
-                //    OnUpdateMassMagShield(buffUpdate == Enum.BuffUpdate.Add);
-                //    break;
-                //case Enum.Buff.MassPhyShield:
-                //    OnUpdateMassPhyShield(buffUpdate == Enum.BuffUpdate.Add);
-                //    break;
-                //case Enum.Buff.SingleMagShield:
-                //    OnUpdateSingleMagShield(buffUpdate == Enum.BuffUpdate.Add);
-                //    break;
-                //case Enum.Buff.SinglePhyShield:
-                //    OnUpdateSinglePhyShield(buffUpdate == Enum.BuffUpdate.Add);
-                //    break;
-                //case Enum.Buff.Dizzy:
-                //    OnUpdateDizzy(buffUpdate == Enum.BuffUpdate.Add);
-                //    break;
-            }
 
-            OnUpdateBuffEffect(buff, buffUpdate);
+                var buff = (Enum.Buff)args[0];
+                switch (buff)
+                {
+                    case Enum.Buff.Cloaking:
+                        SetVisible(buffUpdate != Enum.BuffUpdate.Add);
+                        break;
+                }
+                OnUpdateBuffEffect(buff, buffUpdate);
+            }
 
             OnUpdateAttr((Enum.AttrType)args[2], (float)args[3]);
         }

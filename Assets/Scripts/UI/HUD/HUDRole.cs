@@ -11,7 +11,6 @@ namespace WarGame.UI
         private GList _buffList;
         private List<BuffPair> _buffs;
         private Dictionary<string, HUDBuff> _hudBuffDic = new Dictionary<string, HUDBuff>();
-        private float _hpChangeDuration = 1F;
         private Controller _stateC;
         private Controller _followingC;
         private Controller _hpVisibleC;
@@ -82,7 +81,8 @@ namespace WarGame.UI
             if (hp == _hp.value)
                 return;
             GTween.Kill(_hp);
-            _hp.TweenValue(hp, _hpChangeDuration);
+            float duration = (float)(Mathf.Abs(hp - (float)_hp.value) / _hp.max);
+            _hp.TweenValue(hp, duration);
         }
 
         public void UpdateRage(float rage)
@@ -91,7 +91,8 @@ namespace WarGame.UI
             if (rage == _rage.value)
                 return;
             GTween.Kill(_rage);
-            _rage.TweenValue(rage, _hpChangeDuration);
+            float duration = (float)(Mathf.Abs(rage - (float)_rage.value) / _rage.max);
+            _rage.TweenValue(rage, duration);
         }
 
         public void UpdateBuffs(List<BuffPair> buffs)

@@ -163,7 +163,7 @@ namespace WarGame
             _gameObject.transform.rotation = Quaternion.identity;
         }
 
-        public Vector3 GetPosition()
+        public override Vector3 GetPosition()
         {
             return MapTool.Instance.GetPosFromCoor(coor);
             //return _gameObject.transform.position;

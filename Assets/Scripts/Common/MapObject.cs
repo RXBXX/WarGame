@@ -67,6 +67,20 @@ namespace WarGame
             //_gameObject.transform.SetParent(transform);
         }
 
+        public virtual Vector3 GetPosition()
+        {
+            return Vector3.zero;
+        }
+
+        //是否在屏幕视野内
+        public bool InScreen()
+        {
+            var screenPos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(GetPosition());
+            if (screenPos.x < 0 || screenPos.y < 0 || screenPos.x > Screen.width || screenPos.y > Screen.height)
+                return false;
+            return true;
+        }
+
         public virtual bool Dispose()
         {
             if (null != _gameObject)

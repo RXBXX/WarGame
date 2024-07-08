@@ -284,14 +284,7 @@ namespace WarGame
             {
                 if (!isInit)
                 {
-                    var screenPos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(roles[i].GetPosition());
-                    if (screenPos.x < 0)
-                        continue;
-                    if (screenPos.y < 0)
-                        continue;
-                    if (screenPos.x > Screen.width)
-                        continue;
-                    if (screenPos.y > Screen.height)
+                    if (!roles[i].InScreen())
                         continue;
                 }
 

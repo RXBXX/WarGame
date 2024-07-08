@@ -72,6 +72,16 @@ namespace WarGame.UI
             return true;
         }
 
+        public int GetGRootWidth()
+        {
+            return 1334;
+        }
+
+        public int GetGRootHeight()
+        {
+            return 750;
+        }
+
         /// <summary>
         /// 使用foreach遍历一定要注意，禁止在遍历内，让所遍历的List或Dictionary发生变化
         /// 这里使用For循环的方式遍历就是为了避免引起上述问题引起报错
