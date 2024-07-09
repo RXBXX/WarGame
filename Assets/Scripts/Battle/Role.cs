@@ -10,7 +10,7 @@ namespace WarGame
     {
         protected LevelRoleData _data;
 
-        private List<string> _path;
+        private List<int> _path;
 
         public int PathIndex;
 
@@ -67,7 +67,7 @@ namespace WarGame
             get { return _animator; }
         }
 
-        public List<string> Path
+        public List<int> Path
         {
             get { return _path; }
         }
@@ -82,7 +82,7 @@ namespace WarGame
             get { return _data; }
         }
 
-        public string Hexagon
+        public int Hexagon
         {
             get { return _data.hexagonID; }
             set { _data.hexagonID = value; }
@@ -203,7 +203,7 @@ namespace WarGame
             return ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
         }
 
-        public void UpdateHexagonID(string id, bool showElements = false)
+        public void UpdateHexagonID(int id, bool showElements = false)
         {
             if (showElements)
                 ClearElementEffects();
@@ -279,7 +279,7 @@ namespace WarGame
             EventDispatcher.Instance.PostEvent(Enum.Event.Role_MoveEnd_Event);
         }
 
-        public virtual void Move(List<string> hexagons)
+        public virtual void Move(List<int> hexagons)
         {
             var count = hexagons.Count;
             if (count <= 0 || hexagons[count - 1] == Hexagon)
@@ -873,7 +873,7 @@ namespace WarGame
         /// ¿ËÂ¡
         /// </summary>
         /// <returns></returns>
-        public virtual LevelRoleData Clone(string hexagon)
+        public virtual LevelRoleData Clone(int hexagon)
         {
             var data = _data.Clone();
             data.UID = _data.UID * 10 + 1;

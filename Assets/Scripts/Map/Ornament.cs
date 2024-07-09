@@ -4,13 +4,13 @@ namespace WarGame
 {
     public class Ornament : MapObject
     {
-        private string _id;
+        private int _id;
         private int _configID;
-        private string _hexagonID;
+        private int _hexagonID;
         private float _scale;
         private Quaternion _rotation;
 
-        public Ornament(string id, int configID, string hexagonID, float scale, Quaternion rotation)
+        public Ornament(int id, int configID, int hexagonID, float scale, Quaternion rotation)
         {
             this._id = id;
             this._configID = configID;

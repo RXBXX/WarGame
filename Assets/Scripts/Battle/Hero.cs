@@ -47,7 +47,7 @@ namespace WarGame
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0.3F);
         }
 
-        public override LevelRoleData Clone(string hexagon)
+        public override LevelRoleData Clone(int hexagon)
         {
             var data = base.Clone(hexagon);
             data.state = Enum.RoleState.Waiting;

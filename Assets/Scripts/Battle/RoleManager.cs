@@ -34,7 +34,7 @@ namespace WarGame
             return true;
         }
 
-        public List<LevelRoleData> InitLevelRoles(EnemyMapPlugin[] roles)
+        public List<LevelRoleData> InitLevelRoles(NewEnemyMapPlugin[] roles)
         {
             var enemys = new List<LevelRoleData>();
             for (int i = 0; i < roles.Length; i++)
@@ -142,7 +142,7 @@ namespace WarGame
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string GetHexagonIDByRoleID(int id)
+        public int GetHexagonIDByRoleID(int id)
         {
             for (int i = _roleList.Count - 1; i >= 0; i--)
             {
@@ -153,7 +153,7 @@ namespace WarGame
                     return _roleList[i].Hexagon;
                 }
             }
-            return null;
+            return -1;
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace WarGame
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int GetRoleIDByHexagonID(string id)
+        public int GetRoleIDByHexagonID(int id)
         {
             for (int i = _roleList.Count - 1; i >= 0; i--)
             {

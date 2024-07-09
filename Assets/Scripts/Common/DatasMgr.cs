@@ -144,7 +144,7 @@ namespace WarGame
             return _data.GetUsingRecord().homeEvent;
         }
 
-        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID, string bornHexagonID)
+        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID, int bornHexagonID)
         {
             if (type == Enum.RoleType.Hero)
             {

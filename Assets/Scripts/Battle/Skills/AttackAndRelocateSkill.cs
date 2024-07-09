@@ -60,14 +60,14 @@ namespace WarGame
             base.ClickEnemy(id);
         }
 
-        public override void ClickHexagon(string id)
+        public override void ClickHexagon(int id)
         {
             if (1 != _stage)
                 return;
             var start = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var end = id;
 
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
+            var hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
 
             if (null == hexagons || hexagons.Count <= 0)
                 return;

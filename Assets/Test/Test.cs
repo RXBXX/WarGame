@@ -5,6 +5,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using System.Collections;
 using System.Collections.Generic;
 using WarGame;
+using System.Text;
 
 public class Test : MonoBehaviour
 {
@@ -23,21 +24,27 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //StartCoroutine(Load("Assets/Prefabs/Roles/Role_10001.prefab"));
-            //stop = true;
-            //Addressables.Release(operation);
-            //operation = AssetMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Roles/Role_10001.prefab", Callback);
-            
-
-            operation = AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Roles/Role_10001.prefab", Callback);
-            //AssetMgr.Instance.ReleaseAssetOperation(operation);
+            UnityEngine.Profiling.Profiler.BeginSample("Str Profiler");
+            for (int i = 0; i < 10000; i++)
+            {
+                var sb = new StringBuilder();
+                sb.Append(1);
+                sb.Append('_');
+                sb.Append(2);
+                sb.Append('_');
+                sb.Append(3);
+                var str = sb.ToString();
+            }
+            UnityEngine.Profiling.Profiler.EndSample();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            stop = true;
-            //Destroy(obj);
-            Resources.UnloadUnusedAssets();
-
+            UnityEngine.Profiling.Profiler.BeginSample("Int Profiler");
+            for (int i = 0; i < 100000000; i++)
+            {
+                var index = ((1 * 100) + 1) * 100 + 1;
+            }
+            UnityEngine.Profiling.Profiler.EndSample();
         }
     }
 
@@ -47,10 +54,10 @@ public class Test : MonoBehaviour
     }
 
 
-    public void OnRenderImage(RenderTexture source, RenderTexture destination)
-    {
-        Graphics.Blit(source, destination, mat);
-    }
+    //public void OnRenderImage(RenderTexture source, RenderTexture destination)
+    //{
+    //    Graphics.Blit(source, destination, mat);
+    //}
     //private IEnumerator Load(string path)
     //{
     //    operation = Addressables.LoadAssetAsync<GameObject>(path);

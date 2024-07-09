@@ -7,7 +7,7 @@ namespace WarGame
     public class WaterHexagon : Hexagon
     {
         private float _floatOffset;
-        public WaterHexagon(string id, int configId, bool isReachable, Vector3 coor) : base(id, configId, isReachable, coor)
+        public WaterHexagon(int id, int configId, bool isReachable, Vector3 coor) : base(id, configId, isReachable, coor)
         {
             var x = coor.x / 5.0f;
             var z = coor.z / 5.0f;

@@ -110,7 +110,7 @@ namespace WarGame
             //UnityEngine.Profiling.Profiler.EndSample();
 
             //UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
-            List<string> path = null;
+            List<int> path = null;
             if (null != target)
             {
                 //计算处移动代价最小的路径选择
@@ -130,7 +130,7 @@ namespace WarGame
                 }
                 if (null != destCell)
                 {
-                    path = new List<string>();
+                    path = new List<int>();
                     while (null != destCell)
                     {
                         path.Insert(0, destCell.id);
@@ -167,7 +167,7 @@ namespace WarGame
                 //DebugManager.Instance.Log(destCell.id);
                 if (null != destCell)
                 {
-                    path = new List<string>();
+                    path = new List<int>();
                     while (null != destCell)
                     {
                         path.Insert(0, destCell.id);
@@ -197,7 +197,7 @@ namespace WarGame
                     var rdHexagon = emptyMoveRegions[randomHexagonIndex];
                     if (rdHexagon.id != Hexagon)
                     {
-                        path = new List<string>();
+                        path = new List<int>();
                         while (null != rdHexagon)
                         {
                             path.Insert(0, rdHexagon.id);
@@ -220,7 +220,7 @@ namespace WarGame
                             break;
                         }
 
-                        path = new List<string>();
+                        path = new List<int>();
                         for (int i = 0; i < movePath.Count; i++)
                             path.Add(movePath[i].id);
                     }
@@ -247,7 +247,7 @@ namespace WarGame
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Over, new object[] { 0 });
         }
 
-        public override void Move(List<string> hexagons)
+        public override void Move(List<int> hexagons)
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_MoveStart, new object[] { ID });
             base.Move(hexagons);
@@ -362,7 +362,7 @@ namespace WarGame
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0);
         }
 
-        public override LevelRoleData Clone(string hexagon)
+        public override LevelRoleData Clone(int hexagon)
         {
             var data = base.Clone(hexagon);
             data.state = Enum.RoleState.Locked;

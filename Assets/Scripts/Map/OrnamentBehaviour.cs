@@ -4,7 +4,7 @@ namespace WarGame
 {
     public class OrnamentBehaviour : MonoBehaviour
     {
-        public string ID;
+        public int ID;
         public int ConfigID;
     }
 }

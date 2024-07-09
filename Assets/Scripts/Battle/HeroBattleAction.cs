@@ -8,7 +8,7 @@ namespace WarGame
     public class HeroBattleAction : BattleAction
     {
         //private int _touchingID = 0;
-        protected string _touchingHexagon = null;
+        protected int _touchingHexagon = -1;
 
         public HeroBattleAction(int id) : base(id)
         {
@@ -39,7 +39,7 @@ namespace WarGame
 
         public override void FocusIn(GameObject obj)
         {
-            string touchingHexagonID = null;
+            int touchingHexagonID = -1;
             if (null != obj)
             {
                 var tag = obj.tag;
@@ -60,14 +60,14 @@ namespace WarGame
             }
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            if (null != initiator && null != touchingHexagonID && _touchingHexagon != touchingHexagonID && initiator.GetState() == Enum.RoleState.Waiting)
+            if (null != initiator && -1 != touchingHexagonID && _touchingHexagon != touchingHexagonID && initiator.GetState() == Enum.RoleState.Waiting)
             {
                 _touchingHexagon = touchingHexagonID;
                 MapManager.Instance.MarkingPath(initiator.Hexagon, touchingHexagonID, initiator.GetMoveDis());
             }
-            else if (null != _touchingHexagon && _touchingHexagon != touchingHexagonID)
+            else if (-1 != _touchingHexagon && _touchingHexagon != touchingHexagonID)
             {
-                _touchingHexagon = null;
+                _touchingHexagon = -1;
                 MapManager.Instance.ClearMarkedPath();
             }
         }
@@ -123,7 +123,7 @@ namespace WarGame
                 return;
             }
 
-            string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
             if (_initiatorID > 0)
             {
                 if (_initiatorID == heroID)
@@ -158,11 +158,11 @@ namespace WarGame
             }
 
             _initiatorID = 0;
-            string hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(enemyId);
             MapManager.Instance.MarkingRegion(hexagonID, enemy.GetMoveDis(), enemy.GetAttackDis(), Enum.RoleType.Enemy);
         }
 
-        private void ClickHexagon(string hexagonID)
+        private void ClickHexagon(int hexagonID)
         {
             if (_initiatorID <= 0)
                 return;
@@ -208,9 +208,9 @@ namespace WarGame
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        private void Move(string start, string end)
+        private void Move(int start, int end)
         {
-            List<string> hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
+            List<int> hexagons = MapManager.Instance.FindingPathForStr(start, end, RoleManager.Instance.GetRole(_initiatorID).GetMoveDis(), Enum.RoleType.Hero);
 
             if (null == hexagons || hexagons.Count <= 0)
                 return;

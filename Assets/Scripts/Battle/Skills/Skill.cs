@@ -183,7 +183,7 @@ namespace WarGame
         {
         }
 
-        public virtual void ClickHexagon(string id)
+        public virtual void ClickHexagon(int id)
         {
 
         }

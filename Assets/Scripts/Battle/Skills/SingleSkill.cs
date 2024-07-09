@@ -44,7 +44,7 @@ namespace WarGame
 
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            var hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
 
@@ -59,7 +59,7 @@ namespace WarGame
 
             var initiatorID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetID = RoleManager.Instance.GetHexagonIDByRoleID(id);
-            List<string> hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            var hexagons = MapManager.Instance.FindingAttackPathForStr(initiatorID, targetID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
 
@@ -71,7 +71,7 @@ namespace WarGame
         {
             var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var regionDic = MapManager.Instance.FindingAttackRegion(new List<string> { hexagonID }, initiator.GetAttackDis());
+            var regionDic = MapManager.Instance.FindingAttackRegion(new List<int> { hexagonID }, initiator.GetAttackDis());
 
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)

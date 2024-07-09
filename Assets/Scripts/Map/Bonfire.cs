@@ -7,9 +7,9 @@ namespace WarGame
     {
         private int _configId;
 
-        private string _id;
+        private int _id;
 
-        private string _hexagonID;
+        private int _hexagonID;
 
         private Light _pointLight;
 
@@ -27,7 +27,7 @@ namespace WarGame
             get { return _configId; }
         }
 
-        public Bonfire(string id, int configId, string hexagonID)
+        public Bonfire(int id, int configId, int hexagonID)
         {
             this._configId = configId;
             this._id = id;

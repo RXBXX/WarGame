@@ -22,11 +22,6 @@ namespace WarGame
         //高度
         private const float _height = 0.2F;
 
-        //字符串缓存
-        //字符串优化很重要
-        private Dictionary<Vector3, string> _hexagonKeyDic = new Dictionary<Vector3, string>();
-
-
         /// <summary>
         /// 从世界坐标转换成地图格子坐标
         /// </summary>
@@ -84,21 +79,21 @@ namespace WarGame
         /// </summary>
         /// <param name="dir"></param>
         /// <param name="root"></param>
-        public Dictionary<string, Hexagon> CreateMap(HexagonMapPlugin[] hexagons, GameObject root)
+        public Dictionary<int, Hexagon> CreateMap(HexagonMapPlugin[] hexagons, GameObject root)
         {
-            Dictionary<string, Hexagon> hexagonDic = new Dictionary<string, Hexagon>();
+            Dictionary<int, Hexagon> hexagonDic = new Dictionary<int, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
                 var hexagon = Factory.Instance.GetHexagon(hexagons[i]);
                 hexagon.SetParent(root.transform);
-                hexagonDic[GetHexagonKey(hexagon.coor)] = hexagon;
+                hexagonDic[hexagons[i].ID] = hexagon;
             }
             return hexagonDic;
         }
 
-        public Dictionary<string, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
+        public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
         {
-            Dictionary<string, Bonfire> bonfireDic = new Dictionary<string, Bonfire>();
+            Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
             if (null != bonfires)
             {
                 for (int i = 0; i < bonfires.Length; i++)
@@ -111,9 +106,9 @@ namespace WarGame
             return bonfireDic;
         }
 
-        public Dictionary<string, Ornament> CreateOrnament(OrnamentMapPlugin[] ornaments, GameObject root)
+        public Dictionary<int, Ornament> CreateOrnament(OrnamentMapPlugin[] ornaments, GameObject root)
         {
-            Dictionary<string, Ornament> ornamentsDic = new Dictionary<string, Ornament>();
+            Dictionary<int, Ornament> ornamentsDic = new Dictionary<int, Ornament>();
             if (null != ornaments)
             {
                 for (int i = 0; i < ornaments.Length; i++)
@@ -174,12 +169,12 @@ namespace WarGame
 
             var roleRootObj = GameObject.Find("RoleRoot");
             var enemyCount = roleRootObj.transform.childCount;
-            EnemyMapPlugin[] enemys = new EnemyMapPlugin[enemyCount];
+            NewEnemyMapPlugin[] enemys = new NewEnemyMapPlugin[enemyCount];
             for (int i = 0; i < enemyCount; i++)
             {
                 var enemyTra = roleRootObj.transform.GetChild(i);
                 var data = enemyTra.GetComponent<RoleBehaviour>();
-                enemys[i] = new EnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position - CommonParams.Offset)));
+                enemys[i] = new NewEnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position - CommonParams.Offset)));
             }
 
             var fireRootObj = GameObject.Find("BonfireRoot");
@@ -326,20 +321,14 @@ namespace WarGame
         /// 获取地块在构建的地图数据中的key
         /// </summary>
         /// <returns></returns>
-        public string GetHexagonKey(Vector3 pos)
+        public int GetHexagonKey(Vector3 pos)
         {
-            if (!_hexagonKeyDic.ContainsKey(pos))
-            {
-                var sb = new StringBuilder();
-                sb.Append(pos.x);
-                sb.Append('_');
-                sb.Append(pos.y);
-                sb.Append('_');
-                sb.Append(pos.z);
-
-                _hexagonKeyDic[pos] = sb.ToString();
-            }
-            return _hexagonKeyDic[pos];
+            var key = (int)pos.x;
+            key <<= 8;
+            key += (int)pos.y;
+            key <<= 8;
+            key += (int)pos.z;
+            return key;
         }
     }
 }

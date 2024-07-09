@@ -6,7 +6,7 @@ namespace WarGame
     [Serializable]
     public class HexagonMapPlugin
     {
-        public string ID;
+        public int ID;
 
         public int configId;
 
@@ -14,7 +14,7 @@ namespace WarGame
 
         public Vector3 coor;
 
-        public HexagonMapPlugin(string id, int configId, bool isReachable, Vector3 coor)
+        public HexagonMapPlugin(int id, int configId, bool isReachable, Vector3 coor)
         {
             this.ID = id;
             this.configId = configId;
@@ -24,13 +24,13 @@ namespace WarGame
     }
 
     [Serializable]
-    public class EnemyMapPlugin
+    public class NewEnemyMapPlugin
     {
         public int ID;
 
-        public string hexagonID;
+        public int hexagonID;
 
-        public EnemyMapPlugin(int configId, string hexagonID)
+        public NewEnemyMapPlugin(int configId, int hexagonID)
         {
             this.ID = configId;
             this.hexagonID = hexagonID;
@@ -40,13 +40,13 @@ namespace WarGame
     [Serializable]
     public class BonfireMapPlugin
     {
-        public string ID;
+        public int ID;
 
         public int configId;
 
-        public string hexagonID;
+        public int hexagonID;
 
-        public BonfireMapPlugin(string ID, int configId, string hexagonID)
+        public BonfireMapPlugin(int ID, int configId, int hexagonID)
         {
             this.configId = configId;
             this.ID = ID;
@@ -57,13 +57,13 @@ namespace WarGame
     [Serializable]
     public class OrnamentMapPlugin
     {
-        public string ID;
+        public int ID;
         public int configID;
-        public string hexagonID;
+        public int hexagonID;
         public float scale;
         public Quaternion rotation;
 
-        public OrnamentMapPlugin(string ID, int configID, string hexagonID, float scale, Quaternion rotation)
+        public OrnamentMapPlugin(int ID, int configID, int hexagonID, float scale, Quaternion rotation)
         {
             this.ID = ID;
             this.configID = configID;
@@ -77,11 +77,11 @@ namespace WarGame
     public class LevelMapPlugin
     {
         public HexagonMapPlugin[] hexagons;
-        public EnemyMapPlugin[] enemys;
+        public NewEnemyMapPlugin[] enemys;
         public BonfireMapPlugin[] bonfires;
         public OrnamentMapPlugin[] ornaments;
 
-        public LevelMapPlugin(HexagonMapPlugin[] hexagons, EnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments)
+        public LevelMapPlugin(HexagonMapPlugin[] hexagons, NewEnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments)
         {
             this.hexagons = hexagons;
             this.enemys = enemys;

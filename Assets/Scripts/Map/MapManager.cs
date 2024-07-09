@@ -8,9 +8,9 @@ namespace WarGame
 {
     public class MapManager : Singeton<MapManager>
     {
-        private Dictionary<string, Hexagon> _map = new Dictionary<string, Hexagon>();
-        private Dictionary<string, Bonfire> _bonfiresDic = new Dictionary<string, Bonfire>();
-        private Dictionary<string, Ornament> _ornamentsDic = new Dictionary<string, Ornament>();
+        private Dictionary<int, Hexagon> _map = new Dictionary<int, Hexagon>();
+        private Dictionary<int, Bonfire> _bonfiresDic = new Dictionary<int, Bonfire>();
+        private Dictionary<int, Ornament> _ornamentsDic = new Dictionary<int, Ornament>();
         private Stack<Cell> _cellPool = new Stack<Cell>();
 
         private int _roleHeight = 5;
@@ -113,12 +113,12 @@ namespace WarGame
             _bonfiresDic.Clear();
         }
 
-        public bool ContainHexagon(string key)
+        public bool ContainHexagon(int key)
         {
             return _map.ContainsKey(key);
         }
 
-        public Hexagon GetHexagon(string key)
+        public Hexagon GetHexagon(int key)
         {
             if (ContainHexagon(key))
                 return _map[key];
@@ -126,9 +126,9 @@ namespace WarGame
                 return null;
         }
 
-        public List<string> GetHexagonsByType(Enum.HexagonType type)
+        public List<int> GetHexagonsByType(Enum.HexagonType type)
         {
-            var hexagons = new List<string>();
+            var hexagons = new List<int>();
             foreach (var v in _map)
             {
                 if ((Enum.HexagonType)v.Value.ConfigID == type)
@@ -153,14 +153,14 @@ namespace WarGame
         /// <summary>
         /// 标记可抵达地块
         /// </summary>
-        public void MarkingRegion(string hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
+        public void MarkingRegion(int hexagonID, float moveDis, float attackDis, Enum.RoleType roleType)
         {
             ClearMarkedRegion();
 
-            var closeDic = new Dictionary<string, Cell>();
+            var closeDic = new Dictionary<int, Cell>();
             FindingMoveRegion(hexagonID, moveDis, roleType, closeDic);
 
-            var moveRegion = new List<string>();
+            var moveRegion = new List<int>();
             foreach (var v in closeDic)
             {
                 moveRegion.Add(v.Key);
@@ -210,7 +210,7 @@ namespace WarGame
         /// <summary>
         /// 标记路径
         /// </summary>
-        public void MarkingPath(string initiatorID, string targetID, float moveDis)
+        public void MarkingPath(int initiatorID, int targetID, float moveDis)
         {
             ClearMarkedPath();
             var cells = FindingPath(initiatorID, targetID, Enum.RoleType.Hero);
@@ -244,7 +244,7 @@ namespace WarGame
         /// </summary>
         public class Cell
         {
-            public string id;
+            public int id;
             public float g; //移动代价
             public float h; //曼哈顿距离
             public Vector3 coor;
@@ -256,7 +256,7 @@ namespace WarGame
                 get { return g + h; }
             }
 
-            public Cell(float g, float h, Vector3 pos, Cell parent, string id)
+            public Cell(float g, float h, Vector3 pos, Cell parent, int id)
             {
                 this.g = g;
                 this.h = h;
@@ -267,7 +267,7 @@ namespace WarGame
 
             public void Recycle()
             {
-                id = null;
+                id = -1;
                 g = 0;
                 h = 0;
                 coor = Vector3.zero;
@@ -278,7 +278,7 @@ namespace WarGame
             }
         };
 
-        public Cell CreateCell(float g, float h, Vector3 coor, Cell parent, string id)
+        public Cell CreateCell(float g, float h, Vector3 coor, Cell parent, int id)
         {
             if (_cellPool.Count <= 0)
             {
@@ -349,7 +349,7 @@ namespace WarGame
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleMoveCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Enum.RoleType roleType)
+        private Cell HandleMoveCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Enum.RoleType roleType)
         {
             if (!IsReachable(cellPos, roleType))
                 return null;
@@ -398,11 +398,11 @@ namespace WarGame
         /// <param name="startHexagonID"></param>
         /// <param name="endHexagonID"></param>
         /// <returns></returns>
-        public List<Cell> FindingPath(string startHexagonID, string endHexagonID, Enum.RoleType roleType)
+        public List<Cell> FindingPath(int startHexagonID, int endHexagonID, Enum.RoleType roleType)
         {
             List<Cell> path = new List<Cell>();
-            Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
-            Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
+            Dictionary<int, Cell> openDic = new Dictionary<int, Cell>();
+            Dictionary<int, Cell> closeDic = new Dictionary<int, Cell>();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -471,15 +471,14 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public List<string> FindingPathForStr(string initiatorID, string targetID, float dis, Enum.RoleType roleType)
+        public List<int> FindingPathForStr(int initiatorID, int targetID, float dis, Enum.RoleType roleType)
         {
             var path = FindingPath(initiatorID, targetID, roleType);
             if (null == path || path.Count <= 0)
                 return null;
             if (path[path.Count - 1].g > dis)
                 return null;
-
-            List<string> hexagons = new List<string>();
+            var hexagons = new List<int>();
             for (int i = 0; i < path.Count; i++)
             {
                 hexagons.Add(path[i].id);
@@ -495,7 +494,7 @@ namespace WarGame
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleAttackCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic)
+        private Cell HandleAttackCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
             if (closeDic.ContainsKey(key))
@@ -559,11 +558,11 @@ namespace WarGame
         /// <param name="startHexagonID"></param>
         /// <param name="endHexagonID"></param>
         /// <returns></returns>
-        public List<Cell> FindingAttackPath(string startHexagonID, string endHexagonID)
+        public List<Cell> FindingAttackPath(int startHexagonID, int endHexagonID)
         {
             List<Cell> path = new List<Cell>();
-            Dictionary<string, Cell> openDic = new Dictionary<string, Cell>();
-            Dictionary<string, Cell> closeDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<int, Cell>();
+            var closeDic = new Dictionary<int, Cell>();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -629,7 +628,7 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public List<string> FindingAttackPathForStr(string initiatorID, string targetID, float dis)
+        public List<int> FindingAttackPathForStr(int initiatorID, int targetID, float dis)
         {
             var path = FindingAttackPath(initiatorID, targetID);
             if (null == path || path.Count <= 0)
@@ -638,7 +637,7 @@ namespace WarGame
             if (path[path.Count - 1].g > dis)
                 return null;
 
-            List<string> hexagons = new List<string>();
+            var hexagons = new List<int>();
             for (int i = 0; i < path.Count; i++)
             {
                 hexagons.Add(path[i].id);
@@ -654,7 +653,7 @@ namespace WarGame
         /// <summary>
         /// 标记可达区域专用
         /// </summary>
-        private Cell HandleMoveRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic, Dictionary<string, Cell> walkableDic, Enum.RoleType roleType)
+        private Cell HandleMoveRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Dictionary<int, Cell> walkableDic, Enum.RoleType roleType)
         {
             if (!IsReachable(cellPos, roleType))
                 return null;
@@ -704,7 +703,7 @@ namespace WarGame
         /// <summary>
         /// 标记可达区域专用
         /// </summary>
-        private Cell HandleAttackRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<string, Cell> openDic, Dictionary<string, Cell> closeDic)
+        private Cell HandleAttackRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
             //DebugManager.Instance.Log(key +"_"+ closeDic.ContainsKey(key));
@@ -777,12 +776,12 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public Dictionary<string, Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<string, Cell> closeDic = null)
+        public Dictionary<int, Cell> FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<int, Cell> closeDic = null)
         {
-            var openDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<int, Cell>();
 
             if (null == closeDic)
-                closeDic = new Dictionary<string, Cell>();
+                closeDic = new Dictionary<int, Cell>();
 
             var startPos = GetHexagon(hexagonID).coor;
             var cell = HandleMoveRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType);
@@ -791,7 +790,7 @@ namespace WarGame
 
             while (openDic.Count > 0)
             {
-                var allKeys = new List<string>();
+                var allKeys = new List<int>();
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -817,12 +816,12 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string, Cell> FindingAttackRegion(List<string> hexagonIDs, float attackDis, Dictionary<string, Cell> closeDic = null)
+        public Dictionary<int, Cell> FindingAttackRegion(List<int> hexagonIDs, float attackDis, Dictionary<int, Cell> closeDic = null)
         {
-            var openDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<int, Cell>();
 
             if (null == closeDic)
-                closeDic = new Dictionary<string, Cell>();
+                closeDic = new Dictionary<int, Cell>();
 
             foreach (var v in hexagonIDs)
             {
@@ -834,7 +833,7 @@ namespace WarGame
 
             while (openDic.Count > 0)
             {
-                var allKeys = new List<string>();
+                var allKeys = new List<int>();
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -858,10 +857,10 @@ namespace WarGame
             return closeDic;
         }
 
-        public Dictionary<string, Cell> FindingViewRegion(string hexagonID, float viewDis)
+        public Dictionary<int, Cell> FindingViewRegion(int hexagonID, float viewDis)
         {
-            var openDic = new Dictionary<string, Cell>();
-            var closeDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<int, Cell>();
+            var closeDic = new Dictionary<int, Cell>();
 
             for (int q = 0; q < _directions.Length; q++)
             {
@@ -873,7 +872,7 @@ namespace WarGame
 
             while (openDic.Count > 0)
             {
-                var allKeys = new List<string>();
+                var allKeys = new List<int>();
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);

@@ -5,7 +5,7 @@ namespace WarGame
 {
     public class Hexagon : MapObject
     {
-        public string ID;
+        public int ID;
 
         private int _configId;
 
@@ -27,7 +27,7 @@ namespace WarGame
             get { return _configId; }
         }
 
-        public Hexagon(string id, int configId, bool isReachable, Vector3 coor)
+        public Hexagon(int id, int configId, bool isReachable, Vector3 coor)
         {
             this.ID = id;
             this._configId = configId;

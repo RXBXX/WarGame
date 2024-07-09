@@ -15,7 +15,7 @@ namespace WarGame
         private LocatingArrow _arrow;
         private Coroutine _coroutine;
         private int _touchingID = 0;
-        protected string _touchingHexagon = null;
+        protected int _touchingHexagon = -1;
         private List<int> _bornEffects = new List<int>();
         private List<GameObject> _bornEffectGOs = new List<GameObject>();
         private LevelData _levelData = null;
@@ -235,7 +235,7 @@ namespace WarGame
                 return;
 
             var touchingID = 0;
-            string touchingHexagonID = null;
+            int touchingHexagonID = -1;
             if (null != obj)
             {
                 var tag = obj.tag;
@@ -283,13 +283,13 @@ namespace WarGame
                     role.HighLight();
             }
 
-            if (null == touchingHexagonID)
+            if (-1 == touchingHexagonID)
             {
                 if (null != _arrow && _arrow.Active)
                 {
                     _arrow.Active = false;
                 }
-                _touchingHexagon = null;
+                _touchingHexagon = -1;
             }
             else if (touchingHexagonID != _touchingHexagon)
             {

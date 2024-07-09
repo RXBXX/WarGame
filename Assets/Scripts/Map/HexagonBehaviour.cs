@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class HexagonBehaviour : MonoBehaviour
     {
-        public string ID;
+        public int ID;
 
         public int ConfigId = 0;
 

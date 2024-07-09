@@ -260,14 +260,14 @@ namespace WarGame
     {
         public float HP;
         public float Rage;
-        public string hexagonID;
-        public string bornHexagonID;
+        public int hexagonID;
+        public int bornHexagonID;
         public List<BuffPair> buffs = new List<BuffPair>();
         public Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
         public Enum.RoleState state;
         public int cloneRole;
 
-        public LevelRoleData(int UID, int configId, int level, string bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level, talents, null)
+        public LevelRoleData(int UID, int configId, int level, int bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level, talents, null)
         {
             this.equipDataDic = equipDataDic;
             this.state = state;

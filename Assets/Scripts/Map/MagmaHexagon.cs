@@ -5,7 +5,7 @@ namespace WarGame
     public class MagmaHexagon : Hexagon
     {
         private float _floatOffset;
-        public MagmaHexagon(string id, int configId, bool isReachable, Vector3 coor) : base(id, configId, isReachable, coor)
+        public MagmaHexagon(int id, int configId, bool isReachable, Vector3 coor) : base(id, configId, isReachable, coor)
         {
             _floatOffset = coor.y / 5.0f;
         }

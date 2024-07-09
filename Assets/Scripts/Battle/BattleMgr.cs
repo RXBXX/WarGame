@@ -347,7 +347,7 @@ namespace WarGame
         /// ·ÖÉí
         /// </summary>
         /// <returns></returns>
-        public int DoClone(int initiatorID, string hexagon)
+        public int DoClone(int initiatorID, int hexagon)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var data = initiator.Clone(hexagon);

@@ -10,7 +10,7 @@ namespace WarGame
         protected int _initiatorID;
         protected int _targetID;
         protected int _skillID;
-        protected List<string> _path; //英雄移动的路径
+        protected List<int> _path; //英雄移动的路径
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected Skill _skillAction;
         protected bool _isLockingCamera;
