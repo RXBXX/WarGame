@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.IO;
+using System.Text;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
@@ -21,6 +21,10 @@ namespace WarGame
 
         //高度
         private const float _height = 0.2F;
+
+        //字符串缓存
+        //字符串优化很重要
+        private Dictionary<Vector3, string> _hexagonKeyDic = new Dictionary<Vector3, string>();
 
 
         /// <summary>
@@ -155,7 +159,6 @@ namespace WarGame
         {
             if (!IsActiveMapEditor())
                 return;
-
 
             var rootObj = GameObject.Find("Root");
             var hexagonCount = rootObj.transform.childCount;
@@ -318,13 +321,25 @@ namespace WarGame
             }
         }
 #endif
+
         /// <summary>
         /// 获取地块在构建的地图数据中的key
         /// </summary>
         /// <returns></returns>
         public string GetHexagonKey(Vector3 pos)
         {
-            return pos.x + "_" + pos.y + "_" + pos.z;
+            if (!_hexagonKeyDic.ContainsKey(pos))
+            {
+                var sb = new StringBuilder();
+                sb.Append(pos.x);
+                sb.Append('_');
+                sb.Append(pos.y);
+                sb.Append('_');
+                sb.Append(pos.z);
+
+                _hexagonKeyDic[pos] = sb.ToString();
+            }
+            return _hexagonKeyDic[pos];
         }
     }
 }

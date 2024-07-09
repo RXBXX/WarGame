@@ -63,7 +63,7 @@ namespace WarGame
 
         protected virtual IEnumerator StartAI()
         {
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
             //查找所有视野目标
             var targets = FindingHeros();
 
@@ -82,9 +82,9 @@ namespace WarGame
                     targets.Add(v);
                 }
             }
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
 
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
             //筛选出在攻击范围内的目标
             Role target = null;
@@ -107,9 +107,9 @@ namespace WarGame
                     }
                 }
             }
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
 
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
             List<string> path = null;
             if (null != target)
             {
@@ -229,7 +229,11 @@ namespace WarGame
                 var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
                 hud.SetHPVisible(false);
             }
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
+
+            foreach (var v in moveRegion)
+                v.Value.Recycle();
+            moveRegion.Clear();
 
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
@@ -324,6 +328,10 @@ namespace WarGame
                         continue;
                     _findedEnemys.Add(v.ID);
                 }
+
+                foreach (var v in viewRegionDic)
+                    v.Value.Recycle();
+                viewRegionDic.Clear();
             }
 
             var targets = new List<Role>() { };

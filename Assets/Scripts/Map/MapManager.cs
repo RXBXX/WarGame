@@ -11,11 +11,13 @@ namespace WarGame
         private Dictionary<string, Hexagon> _map = new Dictionary<string, Hexagon>();
         private Dictionary<string, Bonfire> _bonfiresDic = new Dictionary<string, Bonfire>();
         private Dictionary<string, Ornament> _ornamentsDic = new Dictionary<string, Ornament>();
+        private Stack<Cell> _cellPool = new Stack<Cell>();
 
         private int _roleHeight = 5;
 
         //可移动方向
-        private Vector3[] _directions = new Vector3[] {
+        private Vector3[] _directions = new Vector3[]
+        {
             new Vector3(1, 0, 0),
             new Vector3(0, 0, 1),
             new Vector3(-1, 0, 1),
@@ -38,7 +40,7 @@ namespace WarGame
             new Vector3(0, 1, -1),
             new Vector3(1, 1, -1),
             new Vector3(0, 1, 0),
-            };
+        };
 
 
         public Vector3[] Dicections
@@ -156,7 +158,7 @@ namespace WarGame
             ClearMarkedRegion();
 
             var closeDic = new Dictionary<string, Cell>();
-            FindingMoveRegion(hexagonID, moveDis, roleType, null, closeDic);
+            FindingMoveRegion(hexagonID, moveDis, roleType, closeDic);
 
             var moveRegion = new List<string>();
             foreach (var v in closeDic)
@@ -170,7 +172,7 @@ namespace WarGame
                     moveRegion.Remove(v.Value.parent.id);
             }
 
-            FindingAttackRegion(moveRegion, attackDis, null, closeDic);
+            FindingAttackRegion(moveRegion, attackDis, closeDic);
 
             //foreach (var v in closeDic)
             //{ 
@@ -187,6 +189,10 @@ namespace WarGame
                     RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(-0.3F, 0.4F, 0.2F), Vector3.one / 3.0F, "_TexIndex", blockParam);
                 }
             }
+
+            foreach (var v in closeDic)
+                v.Value.Recycle();
+            closeDic.Clear();
         }
 
         public void ClearMarkedRegion()
@@ -222,6 +228,9 @@ namespace WarGame
             }
             LineMgr.Instance.SetLine(points);
 
+            foreach (var v in cells)
+                v.Recycle();
+            cells.Clear();
         }
 
         public void ClearMarkedPath()
@@ -255,7 +264,43 @@ namespace WarGame
                 this.id = id;
                 this.parent = parent;
             }
+
+            public void Recycle()
+            {
+                id = null;
+                g = 0;
+                h = 0;
+                coor = Vector3.zero;
+                parent = null;
+                type = Enum.MarkType.None;
+
+                MapManager.Instance.RecycleCell(this);
+            }
         };
+
+        public Cell CreateCell(float g, float h, Vector3 coor, Cell parent, string id)
+        {
+            if (_cellPool.Count <= 0)
+            {
+                return new Cell(g, h, coor, parent, id);
+            }
+            else
+            {
+                //DebugManager.Instance.Log("Recycle");
+                var cell = _cellPool.Pop();
+                cell.g = g;
+                cell.h = h;
+                cell.coor = coor;
+                cell.parent = parent;
+                cell.id = id;
+                return cell;
+            }
+        }
+
+        public void RecycleCell(Cell cell)
+        {
+            _cellPool.Push(cell);
+        }
 
         private bool IsReachable(Vector3 coor, Enum.RoleType roleType)
         {
@@ -337,7 +382,8 @@ namespace WarGame
             }
             else
             {
-                cell = new Cell(cost, Vector3.Distance((Vector3)cellPos, endPos), (Vector3)cellPos, parent, hexagon.ID);
+                //cell = new Cell(cost, Vector3.Distance((Vector3)cellPos, endPos), (Vector3)cellPos, parent, hexagon.ID);
+                cell = CreateCell(cost, Vector3.Distance((Vector3)cellPos, endPos), (Vector3)cellPos, parent, hexagon.ID);
                 openDic.Add(key, cell);
             }
 
@@ -398,10 +444,23 @@ namespace WarGame
 
             while (null != endCell)
             {
+                if (openDic.ContainsKey(endCell.id))
+                    openDic.Remove(endCell.id);
+                if (closeDic.ContainsKey(endCell.id))
+                    closeDic.Remove(endCell.id);
+
                 path.Add(endCell);
                 endCell = endCell.parent;
             }
             path.Reverse();
+
+            foreach (var v in openDic)
+                v.Value.Recycle();
+            openDic.Clear();
+
+            foreach (var v in closeDic)
+                v.Value.Recycle();
+            closeDic.Clear();
 
             return path;
         }
@@ -425,6 +484,11 @@ namespace WarGame
             {
                 hexagons.Add(path[i].id);
             }
+
+            foreach (var v in path)
+                v.Recycle();
+            path.Clear();
+
             return hexagons;
         }
 
@@ -473,7 +537,8 @@ namespace WarGame
             }
             else
             {
-                cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, key);
+                //cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, key);
+                cell = CreateCell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, key);
                 if (!IsAttackable(cellPos))
                 {
                     closeDic.Add(key, cell);
@@ -537,10 +602,23 @@ namespace WarGame
 
             while (null != endCell)
             {
+                if (openDic.ContainsKey(endCell.id))
+                    openDic.Remove(endCell.id);
+                if (closeDic.ContainsKey(endCell.id))
+                    closeDic.Remove(endCell.id);
+
                 path.Add(endCell);
                 endCell = endCell.parent;
             }
             path.Reverse();
+
+            foreach (var v in openDic)
+                v.Value.Recycle();
+            openDic.Clear();
+
+            foreach (var v in closeDic)
+                v.Value.Recycle();
+            closeDic.Clear();
 
             return path;
         }
@@ -565,6 +643,11 @@ namespace WarGame
             {
                 hexagons.Add(path[i].id);
             }
+
+            foreach (var v in path)
+                v.Recycle();
+            path.Clear();
+
             return hexagons;
         }
 
@@ -609,7 +692,8 @@ namespace WarGame
             }
             else
             {
-                cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
+                //cell = new Cell(cost, 0, cellPos, parent, hexagon.ID);
+                cell = CreateCell(cost, 0, cellPos, parent, hexagon.ID);
                 cell.type = Enum.MarkType.Walkable;
                 openDic.Add(key, cell);
             }
@@ -668,7 +752,8 @@ namespace WarGame
             }
             else
             {
-                cell = new Cell(cost, 0, cellPos, parent, key);
+                //cell = new Cell(cost, 0, cellPos, parent, key);
+                cell = CreateCell(cost, 0, cellPos, parent, key);
                 cell.type = Enum.MarkType.Attackable;
 
                 if (!IsAttackable(cellPos))
@@ -692,10 +777,9 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public Dictionary<string, Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<string, Cell> openDic = null, Dictionary<string, Cell> closeDic = null)
+        public Dictionary<string, Cell> FindingMoveRegion(string hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<string, Cell> closeDic = null)
         {
-            if (null == openDic)
-                openDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<string, Cell>();
 
             if (null == closeDic)
                 closeDic = new Dictionary<string, Cell>();
@@ -725,8 +809,6 @@ namespace WarGame
                 }
             }
 
-            openDic.Clear();
-
             return closeDic;
         }
 
@@ -735,12 +817,10 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public Dictionary<string, Cell> FindingAttackRegion(List<string> hexagonIDs, float attackDis, Dictionary<string, Cell> openDic = null, Dictionary<string, Cell> closeDic = null)
+        public Dictionary<string, Cell> FindingAttackRegion(List<string> hexagonIDs, float attackDis, Dictionary<string, Cell> closeDic = null)
         {
-            if (null == openDic)
-                openDic = new Dictionary<string, Cell>();
+            var openDic = new Dictionary<string, Cell>();
 
-            //DebugManager.Instance.Log(null == closeDic);
             if (null == closeDic)
                 closeDic = new Dictionary<string, Cell>();
 
@@ -774,8 +854,6 @@ namespace WarGame
                     openDic.Remove(v);
                 }
             }
-
-            openDic.Clear();
 
             return closeDic;
         }
@@ -812,8 +890,6 @@ namespace WarGame
                     closeDic.Add(key, cell2);
                 }
             }
-
-            openDic.Clear();
 
             return closeDic;
         }

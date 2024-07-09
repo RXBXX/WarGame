@@ -86,6 +86,11 @@ namespace WarGame
                     roles[i].SetColliderEnable(false);
                 }
             }
+
+            foreach (var v in regionDic)
+                v.Value.Recycle();
+            regionDic.Clear();
+
             initiator.SetState(Enum.RoleState.WatingTarget);
             CameraMgr.Instance.OpenGray();
         }
