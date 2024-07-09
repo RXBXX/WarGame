@@ -78,7 +78,7 @@ namespace WarGame
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
             _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
-            _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("BonfireRoot"));
+            _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("OrnamentRoot"));
         }
 
         public void UpdateRound(int round)

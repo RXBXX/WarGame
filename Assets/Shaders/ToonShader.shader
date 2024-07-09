@@ -30,7 +30,6 @@ Shader "Custom/ToonShader"
 				#pragma fragment frag
 				#include "UnityCG.cginc"
 				#include "Lighting.cginc"
-				#pragma multi_compile_instancing
 					// 将着色器编译成多个有阴影和没有阴影的变体
 					//（我们还不关心任何光照贴图，所以跳过这些变体）
 					#pragma multi_compile_fwdbase nolightmap nodirlightmap nodynlightmap novertexlight
