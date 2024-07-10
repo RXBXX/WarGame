@@ -14,6 +14,12 @@ namespace WarGame
         {
         }
 
+        public override void Dispose(bool save = false)
+        {
+            base.Dispose(save);
+            CloseInstruct();
+        }
+
         protected override void AddListeners()
         {
             base.AddListeners();

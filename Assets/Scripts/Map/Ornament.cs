@@ -30,6 +30,8 @@ namespace WarGame
         protected override void OnCreate(GameObject prefab)
         {
             base.OnCreate(prefab);
+            if (!MapManager.Instance.ContainHexagon(_hexagonID))
+                return;
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
             _gameObject.transform.localScale = Vector3.one * _scale;
             _gameObject.transform.localRotation = _rotation;

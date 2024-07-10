@@ -111,24 +111,29 @@ namespace WarGame
 
                 var target = RoleManager.Instance.GetRole(_targetID);
                 var targetPos = target.GetPosition();
-                MainCamera.transform.RotateAround(targetPos, Vector3.up, xAxis);
-
-                var side1 = (targetPos - MainCamera.transform.position).normalized;
-                var side2 = side1 - new Vector3(0, side1.y, 0);
-                var angle = Mathf.Acos(Vector3.Distance(side2, Vector3.zero) / Vector3.Distance(side1, Vector3.zero)) * 180 / Mathf.PI;
-                //if (yAxis < 0)
-                //{
-                //    if (angle + yAxis > 20)
-                //        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
-                //}
-                //else
-                //{
-                //    if (angle + yAxis < 50)
-                //        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
-                //}
-                if (angle + yAxis > 20 && angle + yAxis < 50)
+                if (0 != xAxis)
                 {
-                    MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                    MainCamera.transform.RotateAround(targetPos, Vector3.up, xAxis);
+                }
+
+                if (0 != yAxis)
+                {
+                    var side1 = (targetPos - MainCamera.transform.position).normalized;
+                    var side2 = side1 - new Vector3(0, side1.y, 0);
+                    var angle = Mathf.Acos(Vector3.Distance(side2, Vector3.zero) / Vector3.Distance(side1, Vector3.zero)) * 180 / Mathf.PI;
+
+                    if (angle + yAxis > 20 && angle + yAxis < 50)
+                    {
+                        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                    }
+                    else if (yAxis < 0 && angle + yAxis > 50)
+                    {
+                        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                    }
+                    else if (yAxis > 0 && angle + yAxis < 20)
+                    {
+                        MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
+                    }
                 }
             }
 

@@ -43,6 +43,7 @@ namespace WarGame
                 var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, enemyConfig.ID, roles[i].hexagonID);
                 CreateRole(Enum.RoleType.Enemy, levelRoleData);
                 enemys.Add(levelRoleData);
+
             }
             return enemys;
         }

@@ -987,32 +987,6 @@
       }
     },
     {
-      "ID": 65539,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.316227764,
-          "y": 0.0,
-          "z": 0.948683262,
-          "normalized": {
-            "x": 0.3162278,
-            "y": 0.0,
-            "z": 0.9486833,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 3.1622777,
-        "sqrMagnitude": 10.0
-      }
-    },
-    {
       "ID": 65540,
       "configId": 26,
       "isReachable": true,
@@ -2009,44 +1983,6 @@
       }
     },
     {
-      "ID": 131074,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 2.828427,
-        "sqrMagnitude": 8.0
-      }
-    },
-    {
-      "ID": 131075,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.5547002,
-          "y": 0.0,
-          "z": 0.8320503,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 3.60555124,
-        "sqrMagnitude": 13.0
-      }
-    },
-    {
       "ID": 131076,
       "configId": 26,
       "isReachable": true,
@@ -3029,51 +2965,6 @@
       }
     },
     {
-      "ID": 196610,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 3.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.8320503,
-          "y": 0.0,
-          "z": 0.5547002,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 3.60555124,
-        "sqrMagnitude": 13.0
-      }
-    },
-    {
-      "ID": 196611,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 3.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.7071068,
-          "y": 0.0,
-          "z": 0.7071068,
-          "normalized": {
-            "x": 0.707106769,
-            "y": 0.0,
-            "z": 0.707106769,
-            "magnitude": 1.0,
-            "sqrMagnitude": 0.99999994
-          },
-          "magnitude": 1.00000012,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 4.2426405,
-        "sqrMagnitude": 18.0
-      }
-    },
-    {
       "ID": 196612,
       "configId": 26,
       "isReachable": true,
@@ -4046,44 +3937,6 @@
         },
         "magnitude": 4.12310553,
         "sqrMagnitude": 17.0
-      }
-    },
-    {
-      "ID": 262146,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 0.0,
-        "z": 2.0,
-        "normalized": {
-          "x": 0.8944272,
-          "y": 0.0,
-          "z": 0.4472136,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 4.472136,
-        "sqrMagnitude": 20.0
-      }
-    },
-    {
-      "ID": 262147,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 0.0,
-        "z": 3.0,
-        "normalized": {
-          "x": 0.8,
-          "y": 0.0,
-          "z": 0.6,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 5.0,
-        "sqrMagnitude": 25.0
       }
     },
     {
@@ -50999,9 +50852,193 @@
         "magnitude": 69.29646,
         "sqrMagnitude": 4802.0
       }
+    },
+    {
+      "ID": 65539,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.316227764,
+          "y": 0.0,
+          "z": 0.948683262,
+          "normalized": {
+            "x": 0.3162278,
+            "y": 0.0,
+            "z": 0.9486833,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 3.1622777,
+        "sqrMagnitude": 10.0
+      }
+    },
+    {
+      "ID": 131075,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.5547002,
+          "y": 0.0,
+          "z": 0.8320503,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 3.60555124,
+        "sqrMagnitude": 13.0
+      }
+    },
+    {
+      "ID": 196611,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.7071068,
+          "y": 0.0,
+          "z": 0.7071068,
+          "normalized": {
+            "x": 0.707106769,
+            "y": 0.0,
+            "z": 0.707106769,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 1.00000012,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 4.2426405,
+        "sqrMagnitude": 18.0
+      }
+    },
+    {
+      "ID": 262147,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.8,
+          "y": 0.0,
+          "z": 0.6,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 5.0,
+        "sqrMagnitude": 25.0
+      }
+    },
+    {
+      "ID": 262146,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.8944272,
+          "y": 0.0,
+          "z": 0.4472136,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 4.472136,
+        "sqrMagnitude": 20.0
+      }
+    },
+    {
+      "ID": 196610,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 3.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.8320503,
+          "y": 0.0,
+          "z": 0.5547002,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 3.60555124,
+        "sqrMagnitude": 13.0
+      }
+    },
+    {
+      "ID": 131074,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 2.828427,
+        "sqrMagnitude": 8.0
+      }
     }
   ],
-  "enemys": [],
+  "enemys": [
+    {
+      "ID": 21102,
+      "hexagonID": 2818089
+    },
+    {
+      "ID": 21103,
+      "hexagonID": 2490409
+    },
+    {
+      "ID": 21101,
+      "hexagonID": 2818085
+    },
+    {
+      "ID": 21104,
+      "hexagonID": 1310748
+    },
+    {
+      "ID": 21105,
+      "hexagonID": 1638428
+    },
+    {
+      "ID": 21106,
+      "hexagonID": 1638424
+    },
+    {
+      "ID": 21107,
+      "hexagonID": 786442
+    },
+    {
+      "ID": 21108,
+      "hexagonID": 589838
+    },
+    {
+      "ID": 21109,
+      "hexagonID": 851982
+    }
+  ],
   "bonfires": [],
   "ornaments": [
     {

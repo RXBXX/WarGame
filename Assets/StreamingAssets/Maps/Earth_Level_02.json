@@ -1,6 +1,108 @@
 {
   "hexagons": [
     {
+      "ID": 263942,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 7.0,
+        "z": 6.0,
+        "normalized": {
+          "x": 0.3980149,
+          "y": 0.696526051,
+          "z": 0.597022355,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 10.0498753,
+        "sqrMagnitude": 101.0
+      }
+    },
+    {
+      "ID": 263941,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 7.0,
+        "z": 5.0,
+        "normalized": {
+          "x": 0.421637028,
+          "y": 0.7378648,
+          "z": 0.5270463,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 9.486833,
+        "sqrMagnitude": 90.0
+      }
+    },
+    {
+      "ID": 329221,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 5.0,
+        "y": 6.0,
+        "z": 5.0,
+        "normalized": {
+          "x": 0.5391638,
+          "y": 0.6469966,
+          "z": 0.5391638,
+          "normalized": {
+            "x": 0.5391639,
+            "y": 0.6469967,
+            "z": 0.5391639,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 9.273619,
+        "sqrMagnitude": 86.0
+      }
+    },
+    {
+      "ID": 329220,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 5.0,
+        "y": 6.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.5698029,
+          "y": 0.683763444,
+          "z": 0.455842316,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 8.774964,
+        "sqrMagnitude": 77.0
+      }
+    },
+    {
+      "ID": 394500,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 6.0,
+        "y": 5.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.683763444,
+          "y": 0.5698029,
+          "z": 0.455842316,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 8.774964,
+        "sqrMagnitude": 77.0
+      }
+    },
+    {
       "ID": 1536,
       "configId": 7,
       "isReachable": true,
@@ -4253,44 +4355,6 @@
       }
     },
     {
-      "ID": 263685,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 6.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.455842316,
-          "y": 0.683763444,
-          "z": 0.5698029,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 8.774964,
-        "sqrMagnitude": 77.0
-      }
-    },
-    {
-      "ID": 263942,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 7.0,
-        "z": 6.0,
-        "normalized": {
-          "x": 0.3980149,
-          "y": 0.696526051,
-          "z": 0.597022355,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.00000012
-        },
-        "magnitude": 10.0498753,
-        "sqrMagnitude": 101.0
-      }
-    },
-    {
       "ID": 263943,
       "configId": 7,
       "isReachable": true,
@@ -5244,58 +5308,6 @@
         },
         "magnitude": 7.68114567,
         "sqrMagnitude": 59.0
-      }
-    },
-    {
-      "ID": 328964,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 5.0,
-        "y": 5.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.6154574,
-          "y": 0.6154574,
-          "z": 0.492365956,
-          "normalized": {
-            "x": 0.6154575,
-            "y": 0.6154575,
-            "z": 0.492366,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 8.124039,
-        "sqrMagnitude": 66.0
-      }
-    },
-    {
-      "ID": 329221,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 5.0,
-        "y": 6.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.5391638,
-          "y": 0.6469966,
-          "z": 0.5391638,
-          "normalized": {
-            "x": 0.5391639,
-            "y": 0.6469967,
-            "z": 0.5391639,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.00000012
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.9999999
-        },
-        "magnitude": 9.273619,
-        "sqrMagnitude": 86.0
       }
     },
     {
@@ -6299,25 +6311,6 @@
         },
         "magnitude": 8.3666,
         "sqrMagnitude": 70.0
-      }
-    },
-    {
-      "ID": 394500,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 6.0,
-        "y": 5.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.683763444,
-          "y": 0.5698029,
-          "z": 0.455842316,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 8.774964,
-        "sqrMagnitude": 77.0
       }
     },
     {
@@ -51428,9 +51421,609 @@
       }
     }
   ],
-  "enemys": [],
+  "enemys": [
+    {
+      "ID": 20602,
+      "hexagonID": 2754092
+    },
+    {
+      "ID": 20601,
+      "hexagonID": 2623020
+    },
+    {
+      "ID": 20603,
+      "hexagonID": 2753576
+    },
+    {
+      "ID": 20604,
+      "hexagonID": 2032167
+    },
+    {
+      "ID": 20605,
+      "hexagonID": 1966631
+    },
+    {
+      "ID": 20606,
+      "hexagonID": 1966883
+    },
+    {
+      "ID": 20607,
+      "hexagonID": 2162956
+    },
+    {
+      "ID": 20608,
+      "hexagonID": 2032144
+    },
+    {
+      "ID": 20609,
+      "hexagonID": 2162960
+    },
+    {
+      "ID": 20610,
+      "hexagonID": 590101
+    },
+    {
+      "ID": 20611,
+      "hexagonID": 721937
+    },
+    {
+      "ID": 20612,
+      "hexagonID": 721429
+    }
+  ],
   "bonfires": [],
   "ornaments": [
+    {
+      "ID": 2555906,
+      "configID": 19,
+      "hexagonID": 2555906,
+      "scale": 4.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 65557,
+      "configID": 19,
+      "hexagonID": 65557,
+      "scale": 2.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 65562,
+      "configID": 19,
+      "hexagonID": 65562,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 196635,
+      "configID": 19,
+      "hexagonID": 196635,
+      "scale": 5.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 131095,
+      "configID": 19,
+      "hexagonID": 131095,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 524318,
+      "configID": 19,
+      "hexagonID": 524318,
+      "scale": 6.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 458780,
+      "configID": 19,
+      "hexagonID": 458780,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 655390,
+      "configID": 19,
+      "hexagonID": 655390,
+      "scale": 2.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 917537,
+      "configID": 19,
+      "hexagonID": 917537,
+      "scale": 5.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1048609,
+      "configID": 19,
+      "hexagonID": 1048609,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 851999,
+      "configID": 19,
+      "hexagonID": 851999,
+      "scale": 2.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 720927,
+      "configID": 19,
+      "hexagonID": 720927,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1245221,
+      "configID": 19,
+      "hexagonID": 1245221,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1114147,
+      "configID": 19,
+      "hexagonID": 1114147,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1245224,
+      "configID": 19,
+      "hexagonID": 1245224,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1441837,
+      "configID": 19,
+      "hexagonID": 1441837,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2883609,
+      "configID": 19,
+      "hexagonID": 2883609,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2949141,
+      "configID": 19,
+      "hexagonID": 2949141,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 3080207,
+      "configID": 19,
+      "hexagonID": 3080207,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2752521,
+      "configID": 19,
+      "hexagonID": 2752521,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2293764,
+      "configID": 19,
+      "hexagonID": 2293764,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1179684,
+      "configID": 19,
+      "hexagonID": 1179684,
+      "scale": 2.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1376298,
+      "configID": 19,
+      "hexagonID": 1376298,
+      "scale": 5.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 1507376,
+      "configID": 19,
+      "hexagonID": 1507376,
+      "scale": 5.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2686982,
+      "configID": 19,
+      "hexagonID": 2686982,
+      "scale": 6.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 2949128,
+      "configID": 19,
+      "hexagonID": 2949128,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 3080203,
+      "configID": 19,
+      "hexagonID": 3080203,
+      "scale": 6.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 3080210,
+      "configID": 19,
+      "hexagonID": 3080210,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
+    {
+      "ID": 3014682,
+      "configID": 19,
+      "hexagonID": 3014682,
+      "scale": 3.0,
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0,
+        "eulerAngles": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "magnitude": 0.0,
+          "sqrMagnitude": 0.0
+        }
+      }
+    },
     {
       "ID": 524331,
       "configID": 5,
@@ -51855,7 +52448,7 @@
       "ID": 1769510,
       "configID": 20,
       "hexagonID": 1769510,
-      "scale": 6.00000048,
+      "scale": 6.00000238,
       "rotation": {
         "x": 0.0,
         "y": 0.766044438,
@@ -51881,7 +52474,7 @@
       "ID": 1114151,
       "configID": 20,
       "hexagonID": 1114151,
-      "scale": 6.000001,
+      "scale": 6.00000572,
       "rotation": {
         "x": 0.0,
         "y": 0.7743926,

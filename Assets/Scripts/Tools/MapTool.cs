@@ -216,7 +216,7 @@ namespace WarGame
 
             ClearEditorMapScene();
 
-            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "");
+            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "json");
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments);

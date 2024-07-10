@@ -584,23 +584,8 @@ namespace WarGame
             rd.AddHero(10001);
             rd.AddHero(10002);
 
-            //ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
-            //{
-            //    rd.AddEquip(config.ID);
-            //});
-            //rd.AddEquip(10001);
-            //rd.AddEquip(10002);
-            //rd.AddEquip(10003);
-            //rd.AddEquip(10004);
-            //rd.AddEquip(10005);
-            //rd.AddEquip(10006);
-            //rd.AddEquip(10007);
-            //rd.AddEquip(10008);
-            //rd.AddEquip(10009);
-            //rd.AddEquip(10010);
-            //rd.AddEquip(10011);
-            //rd.AddEquip(10012);
-            //rd.AddEquip(10013);
+            rd.AddEquip(10003);
+            rd.AddEquip(10004);
 
             _customRecordDic.Add(rd.ID, rd);
             _usingDataID = rd.ID;

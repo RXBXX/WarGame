@@ -86,14 +86,18 @@ namespace WarGame
 
             //UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
+
+            var hexagonToRole = new Dictionary<int, int>();
+            foreach (var v in RoleManager.Instance.GetAllRoles())
+                hexagonToRole.Add(v.Hexagon, v.ID);
+
             //筛选出在攻击范围内的目标
             Role target = null;
             foreach (var v in targets)
             {
                 foreach (var v1 in moveRegion)
                 {
-                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v1.Key);
-                    if (0 != hexagonRoleID && ID != hexagonRoleID)
+                    if (hexagonToRole.ContainsKey(v1.Key) && ID != hexagonToRole[v1.Key])
                         continue;
 
                     var attachPath = MapManager.Instance.FindingAttackPathForStr(v1.Key, v.Hexagon, GetAttackDis());
@@ -117,8 +121,7 @@ namespace WarGame
                 MapManager.Cell destCell = null;
                 foreach (var v in moveRegion)
                 {
-                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
-                    if (0 != hexagonRoleID && hexagonRoleID != ID)
+                    if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
                         continue;
 
                     var attachPath = MapManager.Instance.FindingAttackPathForStr(v.Key, target.Hexagon, GetAttackDis());
@@ -157,8 +160,7 @@ namespace WarGame
                 MapManager.Cell destCell = null;
                 foreach (var v in moveRegion)
                 {
-                    var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
-                    if (0 != hexagonRoleID && hexagonRoleID != ID)
+                    if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
                         continue;
 
                     if (null == destCell || Vector3.Distance(targetHexagon.coor, destCell.coor) > Vector3.Distance(targetHexagon.coor, v.Value.coor))
@@ -188,9 +190,9 @@ namespace WarGame
                     var emptyMoveRegions = new List<MapManager.Cell>();
                     foreach (var v in moveRegion)
                     {
-                        var hexagonRoleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
-                        if (0 != hexagonRoleID && hexagonRoleID != ID)
+                        if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
                             continue;
+
                         emptyMoveRegions.Add(v.Value);
                     }
                     var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
@@ -316,6 +318,7 @@ namespace WarGame
 
                 var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
                 var viewRegionDic = MapManager.Instance.FindingViewRegion(Hexagon, GetViewDis());
+                //DebugManager.Instance.Log("FindingViewRegion:" + count);
                 foreach (var v in heros)
                 {
                     if (_findedEnemys.Contains(v.ID))

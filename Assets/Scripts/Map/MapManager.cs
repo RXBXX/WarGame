@@ -12,6 +12,7 @@ namespace WarGame
         private Dictionary<int, Bonfire> _bonfiresDic = new Dictionary<int, Bonfire>();
         private Dictionary<int, Ornament> _ornamentsDic = new Dictionary<int, Ornament>();
         private Stack<Cell> _cellPool = new Stack<Cell>();
+        private Dictionary<int, int> _hexagonToRole = new Dictionary<int, int>();
 
         private int _roleHeight = 5;
 
@@ -31,7 +32,7 @@ namespace WarGame
             new Vector3(-1, -1, 0),
             new Vector3(0, -1, -1),
             new Vector3(1, -1, -1),
-            new Vector3(0, -1, 0),
+            //new Vector3(0, -1, 0),
 
             new Vector3(1, 1, 0),
             new Vector3(0, 1, 1),
@@ -39,7 +40,7 @@ namespace WarGame
             new Vector3(-1, 1, 0),
             new Vector3(0, 1, -1),
             new Vector3(1, 1, -1),
-            new Vector3(0, 1, 0),
+            //new Vector3(0, 1, 0),
         };
 
 
@@ -120,10 +121,9 @@ namespace WarGame
 
         public Hexagon GetHexagon(int key)
         {
-            if (ContainHexagon(key))
-                return _map[key];
-            else
-                return null;
+            Hexagon hex = null;
+            _map.TryGetValue(key, out hex);
+            return hex;
         }
 
         public List<int> GetHexagonsByType(Enum.HexagonType type)
@@ -304,26 +304,27 @@ namespace WarGame
 
         private bool IsReachable(Vector3 coor, Enum.RoleType roleType)
         {
+            //场景中目前还不会出现这种情况，为了节省性能，这里暂时注释掉，如果后面需要，再打开
             //如果当前位置可跨越高度正上方有地块，证明该地块不可达
             for (int i = 1; i <= _roleHeight; i++)
             {
                 var topKey = MapTool.Instance.GetHexagonKey(coor + new Vector3(0, i, 0));
-                var upHexagon = GetHexagon(topKey);
-                if (null != upHexagon)
+                if (ContainHexagon(topKey))
                     return false;
             }
 
             var key = MapTool.Instance.GetHexagonKey(coor);
 
-            if (!ContainHexagon(key))
+            var hexagon = GetHexagon(key);
+            if (null == hexagon)
                 return false;
 
-            var hexagon = GetHexagon(key);
             if (!hexagon.IsReachable())
                 return false;
 
             //如果当前地块有敌人，是不可达的，但是攻击距离不受影响
-            var roleId = RoleManager.Instance.GetRoleIDByHexagonID(key);
+            int roleId = 0;
+            _hexagonToRole.TryGetValue(key, out roleId);
             if (roleId > 0)
             {
                 var role = RoleManager.Instance.GetRole(roleId);
@@ -400,6 +401,8 @@ namespace WarGame
         /// <returns></returns>
         public List<Cell> FindingPath(int startHexagonID, int endHexagonID, Enum.RoleType roleType)
         {
+            PrepareHexagonToRole();
+
             List<Cell> path = new List<Cell>();
             Dictionary<int, Cell> openDic = new Dictionary<int, Cell>();
             Dictionary<int, Cell> closeDic = new Dictionary<int, Cell>();
@@ -462,6 +465,8 @@ namespace WarGame
                 v.Value.Recycle();
             closeDic.Clear();
 
+            ClearHexagonToRole();
+
             return path;
         }
 
@@ -494,7 +499,7 @@ namespace WarGame
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleAttackCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic)
+        private Cell HandleAttackCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, float dis)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
             if (closeDic.ContainsKey(key))
@@ -523,6 +528,9 @@ namespace WarGame
                 //if (cellPos.x != parent.coor.x || cellPos.z != parent.coor.z)
                 //    cost += 1;
             }
+
+            if (cost > dis)
+                return null;
 
             Cell cell = null;
             if (openDic.ContainsKey(key))
@@ -558,7 +566,7 @@ namespace WarGame
         /// <param name="startHexagonID"></param>
         /// <param name="endHexagonID"></param>
         /// <returns></returns>
-        public List<Cell> FindingAttackPath(int startHexagonID, int endHexagonID)
+        public List<Cell> FindingAttackPath(int startHexagonID, int endHexagonID, float dis)
         {
             List<Cell> path = new List<Cell>();
             var openDic = new Dictionary<int, Cell>();
@@ -567,7 +575,7 @@ namespace WarGame
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
 
-            var cell = HandleAttackCell(startPos, endPos, null, openDic, closeDic);
+            var cell = HandleAttackCell(startPos, endPos, null, openDic, closeDic, dis);
             if (null == cell || cell.coor == endPos)
                 return path;
 
@@ -586,7 +594,7 @@ namespace WarGame
                 for (int i = 0; i < _directions.Length; i++)
                 {
                     var pos2 = c1.coor + _directions[i];
-                    var cell2 = HandleAttackCell(pos2, endPos, c1, openDic, closeDic);
+                    var cell2 = HandleAttackCell(pos2, endPos, c1, openDic, closeDic, dis);
                     if (null != cell2 && cell2.coor == endPos)
                     {
                         endCell = cell2;
@@ -630,7 +638,7 @@ namespace WarGame
         /// <returns></returns>
         public List<int> FindingAttackPathForStr(int initiatorID, int targetID, float dis)
         {
-            var path = FindingAttackPath(initiatorID, targetID);
+            var path = FindingAttackPath(initiatorID, targetID, dis);
             if (null == path || path.Count <= 0)
                 return null;
 
@@ -778,6 +786,8 @@ namespace WarGame
         /// <returns></returns>
         public Dictionary<int, Cell> FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<int, Cell> closeDic = null)
         {
+            PrepareHexagonToRole();
+
             var openDic = new Dictionary<int, Cell>();
 
             if (null == closeDic)
@@ -808,6 +818,7 @@ namespace WarGame
                 }
             }
 
+            ClearHexagonToRole();
             return closeDic;
         }
 
@@ -891,6 +902,18 @@ namespace WarGame
             }
 
             return closeDic;
+        }
+
+        private void PrepareHexagonToRole()
+        {
+            var roles = RoleManager.Instance.GetAllRoles();
+            foreach (var v in roles)
+                _hexagonToRole.Add(v.Hexagon, v.ID);
+        }
+
+        private void ClearHexagonToRole()
+        {
+            _hexagonToRole.Clear();
         }
     }
 }

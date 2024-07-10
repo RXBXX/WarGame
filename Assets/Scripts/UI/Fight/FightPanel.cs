@@ -31,6 +31,7 @@ namespace WarGame.UI
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
             {
+                DatasMgr.Instance.Save();
                 SceneMgr.Instance.DestroyBattleFiled();
             });
 

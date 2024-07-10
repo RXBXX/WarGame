@@ -129,6 +129,11 @@ namespace WarGame
             get { return new Vector3(0, 0.2F, 0); }
         }
 
+        public static Vector3 RoleOffset
+        {
+            get { return new Vector3(0f, 0.22f, 0f); }
+        }
+
         public static string GetAttrColor(Enum.AttrType attrType)
         {
             switch (attrType)
@@ -174,7 +179,7 @@ namespace WarGame
                 case Enum.Element.Water:
                     return new Color(0.9991F, 0.9426F, 1.0f, 1.0f);
                 case Enum.Element.Wood:
-                    return new Color(0.7749F, 0.9106F, 1.0f, 1.0f);
+                    return new Color(0.9047F, 0.9583F, 0.9946f, 1.0f);
                 default:
                     return Color.white;
             }

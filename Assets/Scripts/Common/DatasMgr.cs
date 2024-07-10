@@ -23,9 +23,14 @@ namespace WarGame
 
         public override bool Dispose()
         {
+            Save();
+            return base.Dispose();
+        }
+
+        public void Save()
+        {
             _data.Save();
             Tool.Instance.WriteJson<GameData>(_path, _data);
-            return base.Dispose();
         }
 
         public void StartNewGame()

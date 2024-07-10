@@ -91,7 +91,7 @@ namespace WarGame
         public Role(LevelRoleData data)
         {
             this._data = data;
-            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.RoleOffset;
 
             CreateGO();
         }
@@ -111,7 +111,7 @@ namespace WarGame
 
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
 
-            _rotation = _gameObject.transform.rotation;
+            UpdateRotation(Quaternion.Euler(Vector3.zero));
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
             InitEquips();
@@ -209,7 +209,7 @@ namespace WarGame
                 ClearElementEffects();
 
             Hexagon = id;
-            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
+            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.RoleOffset;
             _gameObject.transform.position = _position;
 
             if (showElements)
@@ -253,6 +253,7 @@ namespace WarGame
 
         public virtual void UpdateRotation(Quaternion rotation)
         {
+            _rotation = rotation;
             _gameObject.transform.rotation = rotation;
         }
 
@@ -521,7 +522,6 @@ namespace WarGame
         public void NextPath()
         {
             PathIndex++;
-            _rotation = _gameObject.transform.rotation;
             UpdateHexagonID(_path[PathIndex]);
             if (PathIndex >= _path.Count - 1)
             {
@@ -539,8 +539,7 @@ namespace WarGame
 
         public void SetForward(Vector3 forward)
         {
-            _rotation = Quaternion.LookRotation(forward);
-            _gameObject.transform.rotation = _rotation;
+            UpdateRotation(Quaternion.LookRotation(forward));
         }
 
         public void SetColliderEnable(bool enable)
@@ -650,7 +649,7 @@ namespace WarGame
             base.ChangeToMapSpace();
 
             var hexagon = MapManager.Instance.GetHexagon(Hexagon);
-            var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + CommonParams.Offset;
+            var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + CommonParams.RoleOffset;
             UpdatePosition(pos);
             //_gameObject.transform.position = pos;
         }

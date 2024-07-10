@@ -3947,25 +3947,6 @@
       }
     },
     {
-      "ID": 262149,
-      "configId": 2,
-      "isReachable": true,
-      "coor": {
-        "x": 4.0,
-        "y": 0.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.624695063,
-          "y": 0.0,
-          "z": 0.780868769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 6.40312433,
-        "sqrMagnitude": 41.0
-      }
-    },
-    {
       "ID": 262151,
       "configId": 2,
       "isReachable": true,
@@ -4758,44 +4739,6 @@
       }
     },
     {
-      "ID": 327684,
-      "configId": 2,
-      "isReachable": true,
-      "coor": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.780868769,
-          "y": 0.0,
-          "z": 0.624695063,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 6.40312433,
-        "sqrMagnitude": 41.0
-      }
-    },
-    {
-      "ID": 327685,
-      "configId": 2,
-      "isReachable": true,
-      "coor": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 5.0,
-        "normalized": {
-          "x": 0.707106769,
-          "y": 0.0,
-          "z": 0.707106769,
-          "magnitude": 1.0,
-          "sqrMagnitude": 0.99999994
-        },
-        "magnitude": 7.071068,
-        "sqrMagnitude": 50.0
-      }
-    },
-    {
       "ID": 327686,
       "configId": 2,
       "isReachable": true,
@@ -5575,25 +5518,6 @@
         },
         "magnitude": 6.708204,
         "sqrMagnitude": 45.0
-      }
-    },
-    {
-      "ID": 393220,
-      "configId": 2,
-      "isReachable": true,
-      "coor": {
-        "x": 6.0,
-        "y": 0.0,
-        "z": 4.0,
-        "normalized": {
-          "x": 0.8320503,
-          "y": 0.0,
-          "z": 0.5547002,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 7.21110249,
-        "sqrMagnitude": 52.0
       }
     },
     {
@@ -51189,12 +51113,120 @@
         "magnitude": 7.21110249,
         "sqrMagnitude": 52.0
       }
+    },
+    {
+      "ID": 262149,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 4.0,
+        "y": 0.0,
+        "z": 5.0,
+        "normalized": {
+          "x": 0.624695063,
+          "y": 0.0,
+          "z": 0.780868769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41.0
+      }
+    },
+    {
+      "ID": 327685,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 5.0,
+        "normalized": {
+          "x": 0.707106769,
+          "y": 0.0,
+          "z": 0.707106769,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 7.071068,
+        "sqrMagnitude": 50.0
+      }
+    },
+    {
+      "ID": 327684,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 5.0,
+        "y": 0.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.780868769,
+          "y": 0.0,
+          "z": 0.624695063,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 6.40312433,
+        "sqrMagnitude": 41.0
+      }
+    },
+    {
+      "ID": 393220,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 6.0,
+        "y": 0.0,
+        "z": 4.0,
+        "normalized": {
+          "x": 0.8320503,
+          "y": 0.0,
+          "z": 0.5547002,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 7.21110249,
+        "sqrMagnitude": 52.0
+      }
     }
   ],
   "enemys": [
     {
-      "ID": 20102,
-      "hexagonID": 2818092
+      "ID": 20702,
+      "hexagonID": 2036260
+    },
+    {
+      "ID": 20701,
+      "hexagonID": 2167327
+    },
+    {
+      "ID": 20703,
+      "hexagonID": 1970719
+    },
+    {
+      "ID": 20705,
+      "hexagonID": 2031625
+    },
+    {
+      "ID": 20704,
+      "hexagonID": 1900556
+    },
+    {
+      "ID": 20706,
+      "hexagonID": 1966087
+    },
+    {
+      "ID": 20707,
+      "hexagonID": 1376258
+    },
+    {
+      "ID": 20708,
+      "hexagonID": 1507332
+    },
+    {
+      "ID": 20709,
+      "hexagonID": 1376263
     }
   ],
   "bonfires": [],

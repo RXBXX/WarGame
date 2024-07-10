@@ -105,8 +105,8 @@ namespace WarGame
             _lerpStep = 0;
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.RoleOffset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.RoleOffset;
             _speed = Vector3.Distance(endPos, startPos) / duration;
         }
 
@@ -128,8 +128,8 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.RoleOffset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.RoleOffset;
 
             _lerpStep += (Time.deltaTime * _speed);
 
@@ -138,7 +138,9 @@ namespace WarGame
             //_role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);
             //_role.GameObject.transform.position = newPos;
             _role.UpdatePosition(Vector3.Lerp(startPos, endPos, _lerpStep));
-            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep));
+            var forward = endPos - startPos;
+            forward.y = 0;
+            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation(forward.normalized), _lerpStep));
         }
     }
 
@@ -156,14 +158,16 @@ namespace WarGame
             var startHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex]);
             var endHexagon = MapManager.Instance.GetHexagon(_role.Path[_role.PathIndex + 1]);
 
-            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.Offset;
-            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.Offset;
+            var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.RoleOffset;
+            var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.RoleOffset;
 
             _lerpStep += (Time.deltaTime * _speed);
 
             //在Unity中使用插值来实现对象的平滑转向时，确实会遇到在背后转向时出现的突然变化问题。这是因为角度插值的方式不能很好地处理角度的360度环绕，从而导致了在180度处发生不连续性。
             _role.UpdatePosition(Vector3.Lerp(startPos, endPos, _lerpStep));
-            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep));
+            var forward = endPos - startPos;
+            forward.y = 0;
+            _role.UpdateRotation(Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation(forward.normalized), _lerpStep));
 
             //var newPos = Vector3.Lerp(startPos, endPos, _lerpStep);
             //_role.GameObject.transform.rotation = Quaternion.Lerp(_role.Rotation, Quaternion.LookRotation((endPos - startPos).normalized), _lerpStep);

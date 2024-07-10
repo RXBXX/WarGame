@@ -54,7 +54,7 @@ namespace WarGame
                 return;
             }
 
-            var mapDir = "Assets/StreamingAssets/Maps/Forest_Level_01.json";// ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
+            var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(mapDir);
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments);
             if (_levelData.Stage < Enum.LevelStage.Entered)
@@ -553,7 +553,8 @@ namespace WarGame
 
         private void OnSave(params object[] args)
         {
-            DatasMgr.Instance.SetLevelData(_levelData.Clone());
+            DatasMgr.Instance.Save();
+            //DatasMgr.Instance.SetLevelData(_levelData.Clone());
         }
 
         private void OnShowHP(params object[] args)

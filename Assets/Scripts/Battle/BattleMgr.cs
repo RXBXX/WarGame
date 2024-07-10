@@ -469,7 +469,7 @@ namespace WarGame
             var initiatorHP = initiator.GetHP();
             var targetHP = target.GetHP();
             var rd = Random.Range(0, initiatorHP + targetHP);
-            if (rd < initiatorHP && false)
+            if (rd < initiatorHP)
             {
                 target.Hit(targetHP, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
