@@ -145,6 +145,7 @@ namespace WarGame
         [Serializable]
         public enum Skill
         {
+            None = 0,
             FierceAttack = 10001, //猛攻
             SingleHeal = 10002, //单体治疗
             AtrikeAndRelocate = 10003, //攻击后撤

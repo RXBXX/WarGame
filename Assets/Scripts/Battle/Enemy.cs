@@ -365,13 +365,6 @@ namespace WarGame
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0);
         }
 
-        public override LevelRoleData Clone(int hexagon)
-        {
-            var data = base.Clone(hexagon);
-            data.state = Enum.RoleState.Locked;
-            return data;
-        }
-
         public override bool CanAction()
         {
             if (GetState() != Enum.RoleState.Locked)

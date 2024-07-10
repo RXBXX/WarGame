@@ -419,7 +419,7 @@ namespace WarGame
             var numberID = ID + "_HUDNumber_" + _numberHUDList.Count;
             var numberHUD = HUDManager.Instance.AddHUD<HUDNumber>("HUD", "HUDNumber", numberID, _hudPoint);
             _numberHUDList.Add(numberID);
-            numberHUD.Show((_numberHUDList.Count - 1) * 0.1F, str, ()=> { onNumberHUDRemove(numberID); });
+            numberHUD.Show((_numberHUDList.Count - 1) * 0.1F, str, () => { onNumberHUDRemove(numberID); });
         }
 
         private void onNumberHUDRemove(string id)
@@ -872,16 +872,14 @@ namespace WarGame
         /// ¿ËÂ¡
         /// </summary>
         /// <returns></returns>
-        public virtual LevelRoleData Clone(int hexagon)
+        public virtual LevelRoleData Clone(int hexagon, int cloneUID)
         {
-            var data = _data.Clone();
-            data.UID = _data.UID * 10 + 1;
-            data.hexagonID = hexagon;
-            data.bornHexagonID = hexagon;
+            return null;
+        }
 
-            _data.cloneRole = data.UID;
-
-            return data;
+        public virtual bool HaveCloneRole()
+        {
+            return 0 != _data.cloneRole && null != RoleManager.Instance.GetRole(_data.cloneRole);
         }
 
         public void ExtraTurn()

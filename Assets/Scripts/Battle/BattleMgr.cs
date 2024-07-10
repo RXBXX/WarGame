@@ -347,10 +347,11 @@ namespace WarGame
         /// ·ÖÉí
         /// </summary>
         /// <returns></returns>
-        public int DoClone(int initiatorID, int hexagon)
+        public int DoClone(int initiatorID, int hexagon, int cloneUID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var data = initiator.Clone(hexagon);
+            initiator.ClearRage();
+            var data = initiator.Clone(hexagon, cloneUID);
             RoleManager.Instance.CreateRole(initiator.Type, data);
             return data.UID;
         }
@@ -529,6 +530,16 @@ namespace WarGame
                 var target = RoleManager.Instance.GetRole(v);
                 target.ReduceRage(ratio);
             }
+        }
+
+        public bool IsReadySpecialSkill(int initiatorID, Enum.Skill skill)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            var rageEnough = initiator.GetRage() >= initiator.GetAttribute(Enum.AttrType.Rage);
+            if (skill == Enum.Skill.Clone)
+                return rageEnough && !initiator.HaveCloneRole();
+            else
+                return rageEnough;
         }
 
         public void InitReports()

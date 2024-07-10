@@ -26,7 +26,15 @@ namespace WarGame.UI
             _specialSkill = (int)args[1];
 
             _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).Name;
-            _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).Name;
+            if (0 == _specialSkill)
+            {
+                _skill2.visible = false;
+            }
+            else
+            {
+                _skill2.visible = true;
+                _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).Name;
+            }
 
             var rageFilled = (bool)args[2];
             _skill2.grayed = !rageFilled;

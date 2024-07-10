@@ -194,10 +194,11 @@ namespace WarGame
         private void OpenInstruct()
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
+            var specialSkill = role.GetConfig().SpecialSkill;
             HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
             role.GetConfig().CommonSkill,
-            role.GetConfig().SpecialSkill,
-            role.GetRage() >= role.GetAttribute(Enum.AttrType.Rage)
+            specialSkill,
+            BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill)
             });
         }
 

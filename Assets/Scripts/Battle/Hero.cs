@@ -47,9 +47,18 @@ namespace WarGame
             Tool.Instance.SetAlpha(_gameObject.gameObject, visible ? 1 : 0.3F);
         }
 
-        public override LevelRoleData Clone(int hexagon)
+        public override LevelRoleData Clone(int hexagon, int cloneUID)
         {
-            var data = base.Clone(hexagon);
+            var data = _data.Clone();
+            data.UID = cloneUID;
+            var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", cloneUID);
+            data.configId = heroConfig.RoleID;
+            data.level = heroConfig.Level;
+            data.hexagonID = hexagon;
+            data.bornHexagonID = hexagon;
+
+            _data.cloneRole = data.UID;
+
             data.state = Enum.RoleState.Waiting;
             return data;
         }

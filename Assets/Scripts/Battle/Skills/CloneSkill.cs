@@ -40,7 +40,7 @@ namespace WarGame
             if ("Cure" == stateName && "Take" == secondStateName)
             {
                 _lock = 2;
-                _targets.Add(BattleMgr.Instance.DoClone(_initiatorID, _targetHexagon.ID));
+                _targets.Add(BattleMgr.Instance.DoClone(_initiatorID, _targetHexagon.ID, (int)GetConfig().Params[0]));
             }
         }
 
