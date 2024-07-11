@@ -69,6 +69,10 @@ namespace WarGame
                 var index = 0;
                 foreach (var p in bornPoints)
                 {
+                    index++;
+                    if (index >= heroDatas.Length)
+                        break;
+
                     _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
                         //DebugManager.Instance.Log(prefab.name);
@@ -77,7 +81,7 @@ namespace WarGame
 
                         _bornEffectGOs.Add(go);
                     }));
-                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index++]);
+                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
                     var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
                     RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     _levelData.heros.Add(levelRoleData);
