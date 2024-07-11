@@ -1239,12 +1239,10 @@
     },
     {
         "ID": 20902,
-        "RoleID": 20002,
+        "RoleID": 20001,
         "Level": 9,
-        "Equips": [
-            10006
-        ],
-        "IsBoss": true,
+        "Equips": null,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 1,
@@ -1336,6 +1334,47 @@
         "Level": 9,
         "Equips": null,
         "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 1,
+        "ViewDis": 7,
+        "Group": "ML01_2",
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20910,
+        "RoleID": 20001,
+        "Level": 9,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 1,
+        "ViewDis": 7,
+        "Group": "ML01_2",
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20911,
+        "RoleID": 20001,
+        "Level": 9,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 1,
+        "ViewDis": 7,
+        "Group": "ML01_2",
+        "Remarks": "关卡1"
+    },
+    {
+        "ID": 20912,
+        "RoleID": 20002,
+        "Level": 9,
+        "Equips": [
+            10006
+        ],
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 1,
