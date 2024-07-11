@@ -198,6 +198,7 @@ namespace WarGame
         public float ViewDis;
         public string Group;
         public bool IsBoss;
+        public int Reward;
     }
 
     //µÐÈË±í
@@ -287,6 +288,7 @@ namespace WarGame
     {
         public string Icon;
         public string Name;
+        public string Prefab;
     }
 
     //½±Àø±í

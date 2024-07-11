@@ -35,8 +35,13 @@ namespace WarGame
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
             _gameObject.transform.localScale = Vector3.one * _scale;
             _gameObject.transform.localRotation = _rotation;
-            _gameObject.GetComponent<OrnamentBehaviour>().ID = _id;
-            _gameObject.GetComponent<OrnamentBehaviour>().enabled = false;
+            var ob = _gameObject.GetComponent<OrnamentBehaviour>();
+            ob.ID = _id;
+            ob.enabled = false;
+
+            var particles = _gameObject.GetComponentsInChildren<ParticleSystem>();
+            foreach (var v in particles)
+                v.Play();
         }
 
         private OrnamentConfig GetConfig()

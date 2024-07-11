@@ -22,7 +22,6 @@ Shader "Custom/ToonShader"
 			Tags{"Queue" = "Geometry"}
 
 			pass {//ƽ�й�ĵ�pass��Ⱦ
-				Tags{"Queue" = "Transparent" "RenderType" = "Transparent"}
 				Blend SrcAlpha OneMinusSrcAlpha
 				Cull Back
 				CGPROGRAM
@@ -50,6 +49,8 @@ Shader "Custom/ToonShader"
 						float4 vertex : POSITION;
 						float2 uv : TEXCOORD0;
 						float3 normal : NORMAL;
+
+						UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
 					};
 
 					struct v2f {
@@ -62,11 +63,11 @@ Shader "Custom/ToonShader"
 
 					v2f vert(appdata v) {
 						v2f o;
+						UNITY_SETUP_INSTANCE_ID(v);
 						o.pos = UnityObjectToClipPos(v.vertex);
 						o.worldNormal = UnityObjectToWorldNormal(v.normal);
 						o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 						o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-
 						// 计算阴影数据
 						TRANSFER_SHADOW(o)
 						return o;
@@ -110,6 +111,7 @@ Shader "Custom/ToonShader"
 
 					#pragma vertex vert
 					#pragma fragment frag
+					#pragma multi_compile_instancing
 
 					#include "Lighting.cginc"
 					#include "AutoLight.cginc"
@@ -120,6 +122,8 @@ Shader "Custom/ToonShader"
 					struct a2v {
 						float4 vertex : POSITION;
 						float3 normal : NORMAL;
+
+						UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
 					};
 
 					struct v2f {
@@ -131,10 +135,13 @@ Shader "Custom/ToonShader"
 
 					v2f vert(a2v v) {
 						v2f o;
+						UNITY_SETUP_INSTANCE_ID(v);
+
 						o.pos = UnityObjectToClipPos(v.vertex);
 						o.worldNormal = UnityObjectToWorldNormal(v.normal);
 						o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 						TRANSFER_VERTEX_TO_FRAGMENT(o);//包含光照衰减以及阴影
+
 						return o;
 					}
 
@@ -179,7 +186,6 @@ Shader "Custom/ToonShader"
 					UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 					return fixed4((diffuse + specular) * _LightColor0.rgb * atten * atten, 1);
 				}
-
 				ENDCG
 			}
 			Pass
@@ -195,6 +201,7 @@ Shader "Custom/ToonShader"
 					CGPROGRAM
 					#pragma vertex vert
 					#pragma fragment frag     
+				    #pragma multi_compile_instancing
 					#include "UnityCG.cginc"  
 					#include "UnityLightingCommon.cginc"
 
@@ -208,6 +215,7 @@ Shader "Custom/ToonShader"
 						float4 pos : POSITION;
 						float3 normal : NORMAL;
 						float3 tangent : TANGENT;
+						UNITY_VERTEX_INPUT_INSTANCE_ID //启动GPUInstancing
 					};
 					struct v2f
 					{
@@ -218,6 +226,7 @@ Shader "Custom/ToonShader"
 					v2f vert(appdata v)
 					{
 						v2f o;
+						UNITY_SETUP_INSTANCE_ID(v);
 
 						float4 pos = UnityObjectToClipPos(v.pos);
 						float3 viewNormal = mul((float3x3)UNITY_MATRIX_IT_MV, v.tangent.xyz);
@@ -242,7 +251,7 @@ Shader "Custom/ToonShader"
 
 				Pass
 					{
-						Tags {"LightMode" = "ShadowCaster" "Queue" = "Transparent" "RenderType" = "Transparent" }
+						Tags {"LightMode" = "ShadowCaster"}
 
 						Blend SrcAlpha OneMinusSrcAlpha
 
@@ -250,6 +259,7 @@ Shader "Custom/ToonShader"
 						#pragma vertex vert
 						#pragma fragment frag
 						#pragma multi_compile_shadowcaster
+						#pragma multi_compile_instancing // allow instanced shadow pass for most of the shaders
 						#include "UnityCG.cginc"
 
 							float _Alpha;
@@ -261,6 +271,8 @@ Shader "Custom/ToonShader"
 					v2f vert(appdata_base v)
 					{
 						v2f o;
+						UNITY_SETUP_INSTANCE_ID(v);
+
 						TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
 						return o;
 					}

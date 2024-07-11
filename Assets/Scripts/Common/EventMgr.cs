@@ -7,6 +7,22 @@ namespace WarGame
 {
     public class EventMgr : Singeton<EventMgr>
     {
+        //private Queue<EventPair> _eventQueue = new Queue<EventPair>();
+
+        //private class EventPair
+        //{
+        //    public int id;
+        //    public WGArgsCallback callback;
+        //    public object[] args;
+
+        //    public EventPair(int id, WGArgsCallback callback, params object[] args)
+        //    {
+        //        this.id = id;
+        //        this.callback = callback;
+        //        this.args = args;
+        //    }
+        //}
+
         public void TriggerEvent(int id, WGArgsCallback callback = null)
         {
             if (id == 0)
@@ -55,15 +71,15 @@ namespace WarGame
                     };
                     UIManager.Instance.OpenPanel("Reward", "RewardEquipPanel", new object[] { eventConfig.Value, cb1 });
                     break;
-                case Enum.EventType.Items:
-                    var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", eventConfig.Value);
-                    DatasMgr.Instance.AddItems(rewardConfig.Rewards);
-                    WGArgsCallback cb2 = (args) =>
-                    {
-                        OnNextEvent(eventConfig.NextEvents, 0, callback);
-                    };
-                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {eventConfig.Value, cb2 });
-                    break;
+                //case Enum.EventType.Items:
+                //    var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", eventConfig.Value);
+                //    DatasMgr.Instance.AddItems(rewardConfig.Rewards);
+                //    WGArgsCallback cb2 = (args) =>
+                //    {
+                //        OnNextEvent(eventConfig.NextEvents, 0, callback);
+                //    };
+                //    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {eventConfig.Value, cb2 });
+                //    break;
             }
         }
 

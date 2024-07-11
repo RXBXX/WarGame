@@ -584,8 +584,8 @@ namespace WarGame
             rd.AddHero(10001);
             rd.AddHero(10002);
 
-            rd.AddEquip(10003);
-            rd.AddEquip(10004);
+            //rd.AddEquip(10003);
+            //rd.AddEquip(10004);
 
             _customRecordDic.Add(rd.ID, rd);
             _usingDataID = rd.ID;
