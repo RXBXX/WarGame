@@ -269,6 +269,7 @@ namespace WarGame
             Talked = 2, //对话结束
             Readyed = 3, //准备完成
             Passed = 4, //成功通关
+            Failed = 5, //失败
         }
 
         ////游戏内资源类型
@@ -421,6 +422,7 @@ namespace WarGame
             Fight_Hide_RoleInfo = 47,
             Fight_Cure_End = 48,
             Role_Create_Success = 49,
+            Fight_ShowDrop = 50,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

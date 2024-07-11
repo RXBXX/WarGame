@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
 using FairyGUI;
+using DG.Tweening;
 
 namespace WarGame
 {
@@ -23,6 +24,9 @@ namespace WarGame
         public Weather weather;
         private bool _isLockingCamera;
         public Light mainLight;
+        private List<int> _assets = new List<int>();
+        private List<Sequence> _sequences = new List<Sequence>();
+        private List<GameObject> _gos = new List<GameObject>();
         //public long startTime;
 
         public BattleField(int levelID, bool restart)
@@ -33,10 +37,11 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.Event.Save_Data, OnSave);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_ShowDrop, OnShowDrop);
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
-            if (restart)
+            if (restart || _levelData.Stage == Enum.LevelStage.Failed)
             {
                 _levelData.Clear();
             }
@@ -180,12 +185,25 @@ namespace WarGame
             RoleManager.Instance.Clear();
             MapManager.Instance.ClearMap();
 
+            foreach (var v in _gos)
+                AssetsMgr.Instance.Destroy(v);
+            _gos.Clear();
+
+            foreach (var v in _assets)
+                AssetsMgr.Instance.ReleaseAsset(v);
+            _assets.Clear();
+
+            foreach (var v in _sequences)
+                v.Kill();
+            _sequences.Clear();
+
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Action_Over, OnActionEnd);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Event, HandleFightEvents);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Skip_Rount, OnSkipRound);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Save_Data, OnSave);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Close_HP, OnCloseHP);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_ShowDrop, OnShowDrop);
         }
 
         private IEnumerator OnLoad()
@@ -581,6 +599,9 @@ namespace WarGame
 
         private void OnFailed()
         {
+            _levelData.Stage = Enum.LevelStage.Failed;
+            OnSave();
+
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic });
@@ -686,6 +707,41 @@ namespace WarGame
                 if (null == _action)
                     NextAction();
             });
+        }
+
+        private void OnShowDrop(params object[] args)
+        {
+            var reward = (int)args[0];
+            var pos = (Vector3)args[1];
+            var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
+            foreach (var v in rewardConfig.Rewards)
+            {
+                var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id);
+                int assetID = 0;
+                assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
+                {
+                    for (int i = 0; i < v.value; i++)
+                    {
+                        var go = GameObject.Instantiate(prefab);
+                        go.transform.position = pos;
+                        Sequence seq = DOTween.Sequence();
+                        seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
+                        seq.AppendInterval(Random.Range(0.1F, 0.4F));
+                        seq.Append(go.transform.DOMove(pos + new Vector3(0, 2, 0), 0.2F));
+                        seq.AppendCallback(() =>
+                        {
+                            _gos.Remove(go);
+                            _sequences.Remove(seq);
+                            _assets.Remove(assetID);
+                            AssetsMgr.Instance.Destroy(go);
+                        });
+
+                        _gos.Add(go);
+                        _sequences.Add(seq);
+                    }
+                });
+                _assets.Add(assetID);
+            }
         }
     }
 }

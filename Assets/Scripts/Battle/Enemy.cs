@@ -377,34 +377,15 @@ namespace WarGame
             return base.CanAction();
         }
 
-        public override int GetReward()
+        public override void ShowDrops()
         {
-            return GetEnemyConfig().Reward;
-        }
-        //public override void Dead()
-        //{
-        //    base.Dead();
+            var reward = GetEnemyConfig().Reward;
+            if (0 == reward)
+                return;
+            var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
+            DatasMgr.Instance.AddItems(rewardConfig.Rewards);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_ShowDrop, new object[] { reward, GetPosition() });
 
-        //    var deadEvent = GetEnemyConfig().DefeatEvent;
-        //    var eventConfig = ConfigMgr.Instance.GetConfig<EventConfig>("EventConfig", deadEvent);
-        //    var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", eventConfig.Value);
-        //    foreach (var v in rewardConfig.Rewards)
-        //    {
-        //        var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id);
-        //        AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
-        //        {
-        //            for (int i = 0; i < v.value; i++)
-        //            {
-        //                var go = GameObject.Instantiate(prefab);
-        //                go.transform.position = GetEffectPos() + new Vector3(Random.Range(0, 0.5F), Random.Range(0, 0.5F), Random.Range(0, 0.5F));
-        //                go.transform.DOMove(GetEffectPos() + new Vector3(0, 1, 0), 0.2F).onComplete =
-        //                () =>
-        //                {
-        //                    AssetsMgr.Instance.Destroy(go);
-        //                };
-        //            }
-        //        });
-        //    }
-        //}
+        }
     }
 }

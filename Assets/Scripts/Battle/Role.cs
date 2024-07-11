@@ -955,9 +955,11 @@ namespace WarGame
             UpdateAttr(Enum.AttrType.HP, deltaHP);
         }
 
-        public virtual int GetReward()
+        /// <summary>
+        /// µôÂä
+        /// </summary>
+        public virtual void ShowDrops()
         {
-            return 0;
         }
 
         public override bool Dispose()

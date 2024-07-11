@@ -25,9 +25,9 @@ namespace WarGame.UI
             _lock = GetGObjectChild<GObject>("lock");
             _showBtnC = GetController("showBtn");
             _goOnBtn = GetGObjectChild<GButton>("goOnBtn");
-            _goOnBtn.onClick.Add(OnClickGoOn);
+            //_goOnBtn.onClick.Add(OnClickGoOn);
             _restartBtn = GetGObjectChild<GButton>("restartBtn");
-            _restartBtn.onClick.Add(OnClickRestart);
+            //_restartBtn.onClick.Add(OnClickRestart);
             _gCom.onClick.Add(OnClick);
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
         }
@@ -56,7 +56,9 @@ namespace WarGame.UI
                 return;
             }
 
-            _showBtnC.SetSelectedIndex(1);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
+
+            //_showBtnC.SetSelectedIndex(1);
         }
 
         public void SetGrayed(bool grayed)
@@ -79,21 +81,21 @@ namespace WarGame.UI
             }
         }
 
-        private void OnClickGoOn(EventContext context)
-        {
-            context.StopPropagation();
+        //private void OnClickGoOn(EventContext context)
+        //{
+        //    context.StopPropagation();
 
-            _showBtnC.SetSelectedIndex(0);
-            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
-        }
+        //    _showBtnC.SetSelectedIndex(0);
+        //    EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
+        //}
 
-        private void OnClickRestart(EventContext context)
-        {
-            context.StopPropagation();
+        //private void OnClickRestart(EventContext context)
+        //{
+        //    context.StopPropagation();
 
-            _showBtnC.SetSelectedIndex(0);
-            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, true});
-        }
+        //    _showBtnC.SetSelectedIndex(0);
+        //    EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, true});
+        //}
 
         private void OnTouchBegin()
         {

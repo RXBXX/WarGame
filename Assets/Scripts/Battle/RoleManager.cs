@@ -8,9 +8,6 @@ namespace WarGame
     public class RoleManager : Singeton<RoleManager>
     {
         private List<Role> _roleList = new List<Role>();
-        private List<int> _assets = new List<int>();
-        private List<Sequence> _sequences = new List<Sequence>();
-        private List<GameObject> _gos = new List<GameObject>();
 
         public override void Update(float deltaTime)
         {
@@ -103,42 +100,7 @@ namespace WarGame
                     }
                     else
                     {
-                        var reward = role.GetReward();
-                        if (0 != reward)
-                        {
-                            var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
-                            DatasMgr.Instance.AddItems(rewardConfig.Rewards);
-                            foreach (var v in rewardConfig.Rewards)
-                            {
-                                var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id);
-                                int assetID = 0;
-                                assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
-                                {
-                                    for (int i = 0; i < v.value; i++)
-                                    {
-                                        var go = GameObject.Instantiate(prefab);
-                                        var pos = role.GetPosition();
-                                        go.transform.position = pos;
-                                        Sequence seq = DOTween.Sequence();
-                                        seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
-                                        seq.AppendInterval(Random.Range(0.1F, 0.4F));
-                                        seq.Append(go.transform.DOMove(pos + new Vector3(0, 2, 0), 0.2F));
-                                        seq.AppendCallback(() =>
-                                        {
-                                            _gos.Remove(go);
-                                            _sequences.Remove(seq);
-                                            _assets.Remove(assetID);
-                                            AssetsMgr.Instance.Destroy(go);
-                                        });
-
-                                        _gos.Add(go);
-                                        _sequences.Add(seq);
-                                    }
-                                });
-                                _assets.Add(assetID);
-                            }
-                        }
-
+                        role.ShowDrops();
                         _roleList.RemoveAt(i);
                         role.Dispose();
                     }
@@ -216,18 +178,6 @@ namespace WarGame
                 _roleList[i].Dispose();
             }
             _roleList.Clear();
-
-            foreach (var v in _gos)
-                AssetsMgr.Instance.Destroy(v);
-            _gos.Clear();
-
-            foreach (var v in _assets)
-                AssetsMgr.Instance.ReleaseAsset(v);
-            _assets.Clear();
-
-            foreach (var v in _sequences)
-                v.Kill();
-            _sequences.Clear();
         }
 
         public Role GetRole(int id)
