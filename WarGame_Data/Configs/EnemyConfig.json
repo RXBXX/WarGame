@@ -685,12 +685,10 @@
     },
     {
         "ID": 20502,
-        "RoleID": 20002,
+        "RoleID": 20001,
         "Level": 5,
-        "Equips": [
-            10006
-        ],
-        "IsBoss": true,
+        "Equips": null,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 1,
@@ -817,15 +815,17 @@
     },
     {
         "ID": 20512,
-        "RoleID": 20001,
+        "RoleID": 20002,
         "Level": 5,
-        "Equips": null,
-        "IsBoss": false,
+        "Equips": [
+            10006
+        ],
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 1,
         "ViewDis": 7,
-        "Group": "ML01_2",
+        "Group": "ML01_5",
         "Remarks": "关卡1"
     },
     {
