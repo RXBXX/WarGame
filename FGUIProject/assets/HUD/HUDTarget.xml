@@ -3,4 +3,8 @@
   <displayList>
     <graph id="n18_8u0k" name="n18" xy="0,0" size="20,30" type="polygon" lineSize="2" fillColor="#ffffb500" points="0,0,20,0,10,30"/>
   </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n18_8u0k" tween="true" startValue="0,0" endValue="-,-20,0,-0.667" duration="12"/>
+    <item time="12" type="XY" target="n18_8u0k" tween="true" startValue="-,-20,0,-0.667" endValue="0,0" duration="12"/>
+  </transition>
 </component>
