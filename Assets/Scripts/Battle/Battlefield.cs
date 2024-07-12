@@ -69,7 +69,6 @@ namespace WarGame
                 var index = 0;
                 foreach (var p in bornPoints)
                 {
-                    index++;
                     if (index >= heroDatas.Length)
                         break;
 
@@ -85,6 +84,8 @@ namespace WarGame
                     var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
                     RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     _levelData.heros.Add(levelRoleData);
+
+                    index++;
                 }
 
                 _levelData.enemys = RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
