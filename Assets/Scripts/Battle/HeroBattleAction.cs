@@ -18,6 +18,7 @@ namespace WarGame
         {
             base.Dispose(save);
             CloseInstruct();
+            MapManager.Instance.ClearMarkedRegion();
         }
 
         protected override void AddListeners()

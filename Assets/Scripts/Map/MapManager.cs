@@ -403,6 +403,12 @@ namespace WarGame
         {
             PrepareHexagonToRole();
 
+            if (_hexagonToRole.ContainsKey(endHexagonID))
+            {
+                ClearHexagonToRole();
+                return null;
+            }
+
             List<Cell> path = new List<Cell>();
             Dictionary<int, Cell> openDic = new Dictionary<int, Cell>();
             Dictionary<int, Cell> closeDic = new Dictionary<int, Cell>();
@@ -906,6 +912,7 @@ namespace WarGame
 
         private void PrepareHexagonToRole()
         {
+            ClearHexagonToRole();
             var roles = RoleManager.Instance.GetAllRoles();
             foreach (var v in roles)
                 _hexagonToRole.Add(v.Hexagon, v.ID);

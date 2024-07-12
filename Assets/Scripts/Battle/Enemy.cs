@@ -196,15 +196,18 @@ namespace WarGame
 
                         emptyMoveRegions.Add(v.Value);
                     }
-                    var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
-                    var rdHexagon = emptyMoveRegions[randomHexagonIndex];
-                    if (rdHexagon.id != Hexagon)
+                    if (emptyMoveRegions.Count > 0)
                     {
-                        path = new List<int>();
-                        while (null != rdHexagon)
+                        var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
+                        var rdHexagon = emptyMoveRegions[randomHexagonIndex];
+                        if (rdHexagon.id != Hexagon)
                         {
-                            path.Insert(0, rdHexagon.id);
-                            rdHexagon = rdHexagon.parent;
+                            path = new List<int>();
+                            while (null != rdHexagon)
+                            {
+                                path.Insert(0, rdHexagon.id);
+                                rdHexagon = rdHexagon.parent;
+                            }
                         }
                     }
                 }
