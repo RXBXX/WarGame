@@ -63,14 +63,14 @@ namespace WarGame
                     DatasMgr.Instance.SetHomeEvent(eventConfig.Value);
                     OnNextEvent(eventConfig.NextEvents, 0, callback);
                     break;
-                case Enum.EventType.Equip:
-                    DatasMgr.Instance.AddEquip(eventConfig.Value);
-                    WGArgsCallback cb1 = (args) =>
-                    {
-                        OnNextEvent(eventConfig.NextEvents, 0, callback);
-                    };
-                    UIManager.Instance.OpenPanel("Reward", "RewardEquipPanel", new object[] { eventConfig.Value, cb1 });
-                    break;
+                //case Enum.EventType.Equip:
+                //    DatasMgr.Instance.AddEquip(eventConfig.Value);
+                //    WGArgsCallback cb1 = (args) =>
+                //    {
+                //        OnNextEvent(eventConfig.NextEvents, 0, callback);
+                //    };
+                //    UIManager.Instance.OpenPanel("Reward", "RewardEquipPanel", new object[] { eventConfig.Value, cb1 });
+                //    break;
                 //case Enum.EventType.Items:
                 //    var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", eventConfig.Value);
                 //    DatasMgr.Instance.AddItems(rewardConfig.Rewards);

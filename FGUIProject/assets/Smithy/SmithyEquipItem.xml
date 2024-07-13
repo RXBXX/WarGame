@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="220,60" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <graph id="n16_gy0s" name="n16" xy="0,0" pivot="0.3,0" size="220,60" alpha="0.3" type="rect" lineSize="0" fillColor="#ff333333"/>
+    <component id="n11_gy0s" name="icon" src="c2cw12" fileName="Components/CommonEquip.xml" pkg="hx02grrp" xy="4,4" scale="0.2,0.2"/>
+    <text id="n12_gy0s" name="title" xy="59,6" size="48,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#f7f7f7" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <component id="n15_gy0s" name="wearBtn" src="vvm61" fileName="HeroBtn.xml" xy="136,2" size="101,50" scale="0.4,0.4" pkg="ubnp7phx">
+      <Button title="Wear"/>
+    </component>
+    <loader id="n17_gy0s" name="ownerIcon" xy="37,4" size="17,17" touchable="false" align="center" vAlign="middle" fill="scale"/>
+  </displayList>
+  <Button mode="Radio"/>
+</component>

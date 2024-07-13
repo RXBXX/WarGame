@@ -2,6 +2,11 @@
 <component size="3072,3072" scroll="both">
   <displayList>
     <loader id="n0_nw17" name="map" xy="0,0" size="3072,3072" url="ui://p7jlxbp3b0z07" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
-    <component id="n3_hctw" name="level_0" src="hctw6" fileName="MapMark.xml" xy="1957,2120" visible="false"/>
+    <component id="n4_ou4w" name="heroBtn" src="ou4w8" fileName="MapMark2.xml" xy="2719,1635">
+      <Button title="Hero Camp"/>
+    </component>
+    <component id="n5_ou4w" name="smithyBtn" src="ou4w8" fileName="MapMark2.xml" xy="2722,1740">
+      <Button title="Smithy"/>
+    </component>
   </displayList>
 </component>

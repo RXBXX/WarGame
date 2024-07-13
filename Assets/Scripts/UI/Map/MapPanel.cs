@@ -29,7 +29,7 @@ namespace WarGame.UI
         {
             ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MapBG";
 
-            _gCom.GetChild("heroBtn").onClick.Add(OnClickHero);
+            //_gCom.GetChild("heroBtn").onClick.Add(OnClickHero);
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
 
             _map = GetChild<MapScroll>("mapScroll");
@@ -77,10 +77,10 @@ namespace WarGame.UI
             }
         }
 
-        private void OnClickHero()
-        {
-            SceneMgr.Instance.OpenHeroScene();
-        }
+        //private void OnClickHero()
+        //{
+        //    SceneMgr.Instance.OpenHeroScene();
+        //}
 
         private void OnClickClose()
         {
@@ -112,11 +112,11 @@ namespace WarGame.UI
         private void OnMapOpen(object[] args)
         {
             var levelID = (int)args[0];
-            if (!DatasMgr.Instance.IsLevelOpen(levelID))
-            {
-                TipsMgr.Instance.Add("关卡没有开启！");
-                return;
-            }
+            //if (!DatasMgr.Instance.IsLevelOpen(levelID))
+            //{
+            //    TipsMgr.Instance.Add("关卡没有开启！");
+            //    return;
+            //}
 
             UIManager.Instance.ClosePanel(name);
             SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);

@@ -13,7 +13,8 @@ namespace WarGame.UI
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-
+            GetGObjectChild<GButton>("smithyBtn").onClick.Add(OnClickSmithy);
+            GetGObjectChild<GButton>("heroBtn").onClick.Add(OnClickHero);
         }
 
         public void Init(string bg, List<MapLevelPair> levels)
@@ -165,7 +166,19 @@ namespace WarGame.UI
         public void OpenLevel(int level)
         {
             _levelsDic[level].Active();
-    }
+        }
+
+
+        private void OnClickHero()
+        {
+            SceneMgr.Instance.OpenHeroScene();
+        }
+
+        private void OnClickSmithy()
+        {
+            UIManager.Instance.OpenPanel("Smithy", "SmithyPanel");
+        }
+
 
         public override void Dispose(bool disposeGCom = false)
         {

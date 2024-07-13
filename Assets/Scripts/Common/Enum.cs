@@ -187,6 +187,7 @@ namespace WarGame
             PhysicalAttackRatio = 13, //物理增伤
             MagicAttackRatio = 14, //魔法增伤
             RageRecover = 15, //怒气回复
+            HPRecover = 16, //脱战血量回复
         }
 
         //数值类型
@@ -286,6 +287,7 @@ namespace WarGame
         {
             TalentRes = 1,
             LevelRes = 2,
+            EquipRes = 3,
         }
 
         public enum RecordMode
@@ -426,6 +428,7 @@ namespace WarGame
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,
+            BuyEquipS2C = 10004,
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类

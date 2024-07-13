@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <loader id="n4_ou4w" name="BG" xy="-146,-136" size="1600,900" url="ui://t8m39wbjou4w1" autoSize="true"/>
+    <list id="n0_ou4w" name="equips" xy="71,100" size="1819,1425" scale="0.4,0.4" layout="flow_hz" overflow="scroll" lineGap="10" defaultItem="ui://hx02grrpc2cw12" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n3_ou4w" name="attrs" xy="871,105" size="379,439" overflow="scroll" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="877,551" scale="0.4,0.4"/>
+    <text id="n6_ou4w" name="costTxt" xy="909,609" size="55,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ce4a35" text="10/12"/>
+    <component id="n7_ou4w" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,-1"/>
+  </displayList>
+</component>

@@ -42,6 +42,8 @@ namespace WarGame
 
         private Dictionary<Enum.Buff, List<AssetPair<GameObject>>> _buffEffectDic = new Dictionary<Enum.Buff, List<AssetPair<GameObject>>>();
 
+        private bool _isAttacking = false;
+
         public int ID
         {
             get { return _data.UID; }
@@ -295,6 +297,8 @@ namespace WarGame
 
         public virtual void Attack(Vector3 targetPos)
         {
+            _isAttacking = true;
+
             EnterState("Attack");
 
             foreach (var e in _equipDic)
@@ -305,6 +309,8 @@ namespace WarGame
 
         public virtual void Hit(float deltaHP, string hitEffect, int attacker)
         {
+            _isAttacking = true;
+
             if (null != hitEffect)
             {
                 //var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
@@ -614,7 +620,7 @@ namespace WarGame
             {
                 foreach (var v in _data.equipDataDic)
                 {
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.configId);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", v.Value.id);
                     if (null != equipConfig.Buffs)
                     {
                         foreach (var v1 in equipConfig.Buffs)
@@ -632,6 +638,20 @@ namespace WarGame
         public virtual void UpdateRound(Enum.RoleType type)
         {
             UpdateBuffs(type);
+
+            if (type != Type)
+                return;
+
+            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
+
+            if (!_isAttacking)
+            {
+                UpdateAttr(Enum.AttrType.HP, GetAttribute(Enum.AttrType.HPRecover));
+            }
+
+            ResetState();
+
+            _isAttacking = false;
         }
 
         public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
@@ -654,10 +674,14 @@ namespace WarGame
             //_gameObject.transform.position = pos;
         }
 
-        public void SetHPVisible(bool visible)
+        public void SetHUDRoleVisible(bool visible)
         {
-            var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-            hud.SetVisible(visible);
+            GetHUDRole().SetVisible(visible);
+        }
+
+        public HUDRole GetHUDRole()
+        {
+            return HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
         }
 
         public override void HighLight()

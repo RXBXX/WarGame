@@ -243,7 +243,7 @@ namespace WarGame
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
             BattleMgr.Instance.InitReports();
             RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Fog);
-            RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Palette, new object[] { CommonParams.GetPalette(levelConfig.Element)});
+            RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Palette, new object[] { CommonParams.GetPalette(levelConfig.Element) });
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());
 
             //DebugManager.Instance.Log("进入战场共耗时：" + (TimeMgr.Instance.GetUnixTimestamp() - startTime));
@@ -594,7 +594,8 @@ namespace WarGame
         {
             _levelData.Stage = Enum.LevelStage.Passed;
 
-            //DatasMgr.Instance.AddItems(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Rewards);
+            foreach (var v in _levelData.itemsDic)
+                DatasMgr.Instance.AddItem(v.Key, v.Value);
 
             OnSave();
             var reportDic = BattleMgr.Instance.GetReports();
@@ -719,6 +720,10 @@ namespace WarGame
             var reward = (int)args[0];
             var pos = (Vector3)args[1];
             var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
+
+            foreach (var v in rewardConfig.Rewards)
+                _levelData.AddItem(v.id, v.value);
+
             foreach (var v in rewardConfig.Rewards)
             {
                 var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id);

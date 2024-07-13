@@ -281,7 +281,7 @@ namespace WarGame.UI
             foreach (var v in ndpu.unwearEquips)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
-                DebugManager.Instance.Log(equipData.configId);
+                //DebugManager.Instance.Log(equipData.id);
                 var placeConfig = equipData.GetPlaceConfig();
                 var spinePoint = _rolesGO[roleUID].transform.Find(placeConfig.SpinePoint);
                 GameObject.Destroy(spinePoint.GetChild(0).gameObject);

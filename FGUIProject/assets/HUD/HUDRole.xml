@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="0"/>
-  <controller name="hpVisible" pages="0,,1," selected="1"/>
+  <controller name="hpVisible" pages="0,,1," selected="0"/>
   <controller name="following" pages="0,,1," selected="1"/>
   <displayList>
     <loader id="n14_yiew" name="element" xy="-44,-12" size="40,40" visible="false" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
@@ -30,5 +30,11 @@
       <gearDisplay controller="hpVisible" pages="1"/>
       <ProgressBar value="39" max="100"/>
     </component>
+    <loader id="n20_ou4w" name="warning" xy="80,-79" pivot="0.5,1" anchor="true" size="92,57" scale="0,0" url="ui://hx02grrpou4we" align="center" vAlign="middle" fill="scale"/>
   </displayList>
+  <transition name="warning">
+    <item time="0" type="Scale" target="n20_ou4w" tween="true" startValue="0,0" endValue="1,1" duration="6"/>
+    <item time="6" type="Scale" target="n20_ou4w" tween="true" startValue="1,1" endValue="1,1" duration="6"/>
+    <item time="12" type="Scale" target="n20_ou4w" tween="true" startValue="1,1" endValue="0,0" duration="5"/>
+  </transition>
 </component>

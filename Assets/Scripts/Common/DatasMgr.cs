@@ -74,7 +74,7 @@ namespace WarGame
             var index = 0;
             foreach (var v in _data.GetUsingRecord().equipDataDic)
             {
-                equipments[index] = v.Value.UID;
+                equipments[index] = v.Key;
                 index += 1;
             }
             return equipments;
@@ -172,7 +172,7 @@ namespace WarGame
                     {
                         var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
                         var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                        equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
+                        equipDic[equipTypeConfig.Place] = new EquipmentData(equipConfig.ID);
                     }
                 }
                 return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, bornHexagonID, Enum.RoleState.Locked, equipDic, null);
@@ -195,9 +195,14 @@ namespace WarGame
             _data.GetUsingRecord().AddHero(id);
         }
 
-        public void AddEquip(int id)
+        //public void AddEquip(int id)
+        //{
+        //    _data.GetUsingRecord().AddEquip(id);
+        //}
+
+        public bool ContainEquip(int id)
         {
-            _data.GetUsingRecord().AddEquip(id);
+            return _data.GetUsingRecord().ContainEquip(id);
         }
 
         public void AddItem(int id, int value)
@@ -397,6 +402,18 @@ namespace WarGame
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });
         }
 
+        public void BuyEquipC2S(int id)
+        {
+            var cost = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id).Cost;
+            if (GetItem((int)Enum.ItemType.EquipRes) < cost)
+            {
+                return;
+            }
+            _data.GetUsingRecord().RemoveItem(id, cost);
+            _data.GetUsingRecord().AddEquip(id);
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { id });
+        }
         /// endregion -----------------------------------------------------------------------------------------------------
     }
 }

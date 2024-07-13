@@ -34,7 +34,7 @@ namespace WarGame
             _hpHUDKey = ID + "_HP";
             var args = new object[] { ID, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
             var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
-            hud.SetHPVisible(false);
+            hud.SetHPVisible(true);
         }
 
         protected override void OnStateChanged()
@@ -115,6 +115,8 @@ namespace WarGame
             //UnityEngine.Profiling.Profiler.EndSample();
 
             //UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
+
+            bool showWarning = false;
             List<int> path = null;
             if (null != target)
             {
@@ -138,12 +140,13 @@ namespace WarGame
                     while (null != destCell)
                     {
                         path.Insert(0, destCell.id);
+
                         destCell = destCell.parent;
                     }
                 }
 
-                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-                hud.SetHPVisible(true);
+                showWarning = true;
+                //SetHPVisible(true);
             }
             else if (targets.Count > 0)
             {
@@ -180,8 +183,8 @@ namespace WarGame
                 }
                 //DebugManager.Instance.Log(path.Count);
 
-                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-                hud.SetHPVisible(true);
+                //SetHPVisible(true);
+                showWarning = true;
             }
             else if (InScreen())
             {
@@ -232,14 +235,21 @@ namespace WarGame
                     }
                 }
 
-                var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
-                hud.SetHPVisible(false);
+                //SetHPVisible(false);
             }
-            //UnityEngine.Profiling.Profiler.EndSample();
+            //else
+            //{
+            //    SetHPVisible(false);
+            //}
 
             foreach (var v in moveRegion)
                 v.Value.Recycle();
             moveRegion.Clear();
+
+            if (showWarning)
+            {
+                yield return new WaitForSeconds(GetHUDRole().Warning());
+            }
 
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });
             yield return new WaitForSeconds(1.0F);
@@ -269,8 +279,7 @@ namespace WarGame
             base.UpdateRound(type);
             if (type != Type)
                 return;
-            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
-            ResetState();
+
             _attackers.Clear();
             _findedEnemys.Clear();
         }
@@ -385,10 +394,7 @@ namespace WarGame
             var reward = GetEnemyConfig().Reward;
             if (0 == reward)
                 return;
-            var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
-            DatasMgr.Instance.AddItems(rewardConfig.Rewards);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_ShowDrop, new object[] { reward, GetPosition() });
-
         }
     }
 }

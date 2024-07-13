@@ -82,7 +82,7 @@ namespace WarGame
                 }
                 else
                 {
-                    roles[i].SetHPVisible(false);
+                    roles[i].SetHUDRoleVisible(false);
                     roles[i].SetColliderEnable(false);
                 }
             }
@@ -102,7 +102,7 @@ namespace WarGame
             {
                 roles[i].RecoverLayer();
                 roles[i].SetColliderEnable(true);
-                roles[i].SetHPVisible(true);
+                roles[i].SetHUDRoleVisible(true);
             }
             CameraMgr.Instance.CloseGray();
         }

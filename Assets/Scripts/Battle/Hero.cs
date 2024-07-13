@@ -32,15 +32,6 @@ namespace WarGame
             SetState(Enum.RoleState.Waiting);
         }
 
-        public override void UpdateRound(Enum.RoleType type)
-        {
-            base.UpdateRound(type);
-            if (type != Type)
-                return;
-            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
-            ResetState();
-        }
-
         protected override void SetVisible(bool visible)
         {
             DebugManager.Instance.Log("SetVisible:"+visible);

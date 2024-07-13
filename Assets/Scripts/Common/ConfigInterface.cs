@@ -84,6 +84,7 @@ namespace WarGame
         public string Effect;
         public string Bullet;
         public string HitEffect;
+        public int Cost;
     }
 
     //装备类型表

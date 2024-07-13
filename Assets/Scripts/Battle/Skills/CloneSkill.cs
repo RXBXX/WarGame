@@ -117,7 +117,7 @@ namespace WarGame
             var target = RoleManager.Instance.GetRole(_targets[0]);
             if (!DatasMgr.Instance.GetSkipBattle())
             {
-                target.SetHPVisible(false);
+                target.SetHUDRoleVisible(false);
                 target.ChangeToArenaSpace(_cloneTargetPos, 0);
                 _arenaObjects.Add(target);
             }

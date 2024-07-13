@@ -77,7 +77,7 @@ namespace WarGame
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                roles[i].SetHPVisible(false);
+                roles[i].SetHUDRoleVisible(false);
             }
             LockCamera();
             CameraMgr.Instance.OpenBattleArena();
@@ -134,7 +134,7 @@ namespace WarGame
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {
-                roles[i].SetHPVisible(true);
+                roles[i].SetHUDRoleVisible(true);
             }
 
             CameraMgr.Instance.CloseBattleArena();

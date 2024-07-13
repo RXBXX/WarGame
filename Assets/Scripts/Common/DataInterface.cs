@@ -6,18 +6,16 @@ namespace WarGame
     [Serializable]
     public class EquipmentData
     {
-        public int UID;
-        public int configId;
+        public int id;
 
-        public EquipmentData(int UID, int configId)
+        public EquipmentData(int id)
         {
-            this.UID = UID;
-            this.configId = configId;
+            this.id = id;
         }
 
         public int GetConfigID()
         {
-            return configId;
+            return id;
         }
 
         public string GetName()
@@ -32,7 +30,7 @@ namespace WarGame
 
         public EquipmentConfig GetConfig()
         {
-            return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", configId);
+            return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id);
         }
 
         public EquipmentTypeConfig GetTypeConfig()
@@ -93,7 +91,7 @@ namespace WarGame
 
         public EquipmentData Clone()
         {
-            return new EquipmentData(this.UID, this.configId);
+            return new EquipmentData(this.id);
         }
     }
 
@@ -199,7 +197,7 @@ namespace WarGame
                 foreach (var v in equipmentDic)
                 {
                     var equipData = DatasMgr.Instance.GetEquipmentData(v.Value);
-                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.configId);
+                    var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipData.id);
                     if (null != equipConfig.Attrs)
                     {
                         foreach (var v1 in equipConfig.Attrs)
@@ -424,6 +422,7 @@ namespace WarGame
         public Enum.ActionType actionType;
         public List<LevelRoleData> heros = new List<LevelRoleData>();
         public List<LevelRoleData> enemys = new List<LevelRoleData>();
+        public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
 
         public LevelData(int configId)
         {
@@ -436,6 +435,14 @@ namespace WarGame
             Round = 0;
             heros.Clear();
             enemys.Clear();
+            itemsDic.Clear();
+        }
+
+        public void AddItem(int id, int value)
+        {
+            if (!itemsDic.ContainsKey(id))
+                itemsDic.Add(id, 0);
+            itemsDic[id] += value;
         }
 
         public LevelData Clone()
@@ -491,8 +498,8 @@ namespace WarGame
 
         public void AddEquip(int configId)
         {
-            var equipData = new EquipmentData(_equipStartUID + equipDataDic.Count + 1, configId);
-            equipDataDic.Add(equipData.UID, equipData);
+            var equipData = new EquipmentData(configId);
+            equipDataDic.Add(configId, equipData);
         }
 
         public void AddItem(int itemId, int num)
@@ -519,6 +526,11 @@ namespace WarGame
         public float GetDuration()
         {
             return duration + TimeMgr.Instance.GetGameDuration();
+        }
+
+        public bool ContainEquip(int id)
+        {
+            return equipDataDic.ContainsKey(id);
         }
 
         public RecordData Clone()
