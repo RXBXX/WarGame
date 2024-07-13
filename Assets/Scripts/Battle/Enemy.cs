@@ -106,6 +106,8 @@ namespace WarGame
                         continue;
 
                     if ((null == target || target.GetHP() > v.GetHP()))
+                    //var pos = GetPosition();
+                    //if(null == target || Vector3.Distance(target.GetPosition(), pos) > Vector3.Distance(v.GetPosition(), pos))
                     {
                         target = v;
                         break;

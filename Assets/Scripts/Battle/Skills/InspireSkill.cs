@@ -13,11 +13,13 @@ namespace WarGame
         protected override void AddListeners()
         {
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         protected override void RemoveListeners()
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cured_End, OnCuredEnd);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Cure_End, OnCureEnd);
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -45,6 +47,22 @@ namespace WarGame
                 return;
 
             _targets.Remove(targetID);
+            if (_targets.Count > 0)
+                return;
+
+            if (null != _coroutine)
+                return;
+
+            _coroutine = Over(1.5F);
+            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+        }
+
+        private void OnCureEnd(object[] args)
+        {
+            var sender = (int)args[0];
+            if (sender != _initiatorID)
+                return;
+
             if (_targets.Count > 0)
                 return;
 

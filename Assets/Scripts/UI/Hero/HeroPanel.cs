@@ -24,6 +24,7 @@ namespace WarGame.UI
         private Dictionary<string, HeroItem> _herosDic = new Dictionary<string, HeroItem>();
         private GTextField _name;
         private List<Sequence> _seqList = new List<Sequence>();
+        private CommonResComp _resComp;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -35,10 +36,13 @@ namespace WarGame.UI
             _gCom.onTouchEnd.Add(OnTouchEnd);
             _proComp = GetChild<HeroProComp>("proComp");
             _name = GetGObjectChild<GTextField>("name");
-            GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
+            _resComp = GetChild<CommonResComp>("resComp");
+            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
 
+            GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
             EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
@@ -377,6 +381,11 @@ namespace WarGame.UI
             _seqList.Add(seq);
         }
 
+        private void OnHeroLevelUpS2C(params object[] args)
+        {
+            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             foreach (var v in _seqList)
@@ -400,6 +409,7 @@ namespace WarGame.UI
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
             EventDispatcher.Instance.RemoveListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
 
             base.Dispose(disposeGCom);
         }

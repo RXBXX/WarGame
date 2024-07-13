@@ -299,8 +299,9 @@ namespace WarGame
         [Serializable]
         public enum ActionType
         {
-            HeroAction = 0,
-            EnemyAction = 1,
+            ReadyAction = 0,
+            HeroAction = 1,
+            EnemyAction = 2,
         }
 
         [Serializable]

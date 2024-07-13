@@ -200,13 +200,13 @@ namespace WarGame
                 var magicDefense = GetMagicDefensePower(initiatorID, targetID);
                 AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-                var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+                var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
                 AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-                var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+                var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
                 AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-                var hurt = Mathf.Max(0, physicalHurt + magicHurt);
+                var hurt = physicalHurt + magicHurt;
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
@@ -229,13 +229,13 @@ namespace WarGame
             var magicDefense = GetMagicDefensePower(initiatorID, targetID);
             AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
             AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
+            var hurt = physicalHurt + magicHurt;
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             CameraMgr.Instance.ShakePosition();
@@ -328,10 +328,10 @@ namespace WarGame
                 var magicDefense = GetMagicDefensePower(initiatorID, targetID);
                 AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-                var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+                var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
                 AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-                var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+                var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
                 AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
                 var hurt = physicalHurt + magicHurt;
@@ -374,10 +374,10 @@ namespace WarGame
             var magicDefense = GetMagicDefensePower(initiatorID, targetID);
             AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
             AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
             var hurt = Mathf.Max(0, physicalHurt + magicHurt);
@@ -501,10 +501,10 @@ namespace WarGame
             var magicDefense = GetMagicDefensePower(initiatorID, targetID);
             AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-            var physicalHurt = GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense;
+            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
             AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-            var magicHurt = GetMagicAttackPower(initiatorID, targetID) - magicDefense;
+            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
             AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
             var hurt = Mathf.Max(0, physicalHurt + magicHurt);

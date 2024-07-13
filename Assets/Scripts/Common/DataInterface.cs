@@ -476,7 +476,6 @@ namespace WarGame
         public Dictionary<int, RoleData> roleDataDic = new Dictionary<int, RoleData>();
         public Dictionary<int, EquipmentData> equipDataDic = new Dictionary<int, EquipmentData>();
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
-        private int _equipStartUID = 30000;
         public int homeEvent;
         public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
 

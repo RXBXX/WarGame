@@ -158,11 +158,13 @@ namespace WarGame
 
             if (targetID == _targets[0])
             {
-                foreach (var v in _targets)
+                for(int i = _targets.Count - 1; i >= 0; i--)
                 {
-                    if (v != _targets[0])
+                    if (i >= _targets.Count)
+                        continue;
+                    if (_targets[i] != _targets[0])
                     {
-                        BattleMgr.Instance.DoAttack(_initiatorID, v);
+                        BattleMgr.Instance.DoAttack(_initiatorID, _targets[i]);
                     }
                 }
             }

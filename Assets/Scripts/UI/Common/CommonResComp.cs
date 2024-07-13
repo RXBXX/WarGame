@@ -5,22 +5,20 @@ using FairyGUI;
 
 namespace WarGame.UI
 {
-    public class HeroResComp : UIBase
+    public class CommonResComp : UIBase
     {
         private GList _resList;
-        private List<int> _resData = new List<int> {(int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes };
+        private List<int> _resData;
 
-        public HeroResComp(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
+        public CommonResComp(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
             _resList = GetGObjectChild<GList>("resList");
             _resList.itemRenderer = OnItemRenderer;
-            EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
-
-            UpdateComp();
         }
 
-        private   void UpdateComp()
+        public void UpdateComp(List<int> resData)
         {
+            _resData = resData;
             _resList.numItems = _resData.Count;
             _resList.ResizeToFit();
         }
@@ -32,15 +30,9 @@ namespace WarGame.UI
             resItem.icon = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", _resData[index]).Icon;
         }
 
-        private void OnHeroLevelUpS2C(params object[] args)
-        {
-            UpdateComp();
-        }
-
         public override void Dispose(bool disposeGCom = false)
         {
             base.Dispose(disposeGCom);
-            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace WarGame.UI
         private GList _attrsList;
         private Dictionary<string, CommonAttrItem> _attrsMap = new Dictionary<string, CommonAttrItem>();
         private int _selectEquip = 0;
+        private CommonResComp _resComp;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -27,6 +28,9 @@ namespace WarGame.UI
 
             _attrsList = GetGObjectChild<GList>("attrs");
             _attrsList.itemRenderer = OnAttrRenderer;
+
+            _resComp = GetChild<CommonResComp>("resComp");
+            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.EquipRes });
 
             GetGObjectChild<GButton>("buyBtn").onClick.Add(OnClickBuy);
 
@@ -98,6 +102,7 @@ namespace WarGame.UI
         private void OnBuyEquipS2C(params object[] args)
         {
             _equipList.numItems = _equipsData.Count;
+            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.EquipRes });
         }
 
         private void OnClickClose()

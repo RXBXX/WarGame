@@ -228,11 +228,13 @@ namespace WarGame
                 EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
                 {
                     _levelData.Stage = Enum.LevelStage.Talked;
+                    _levelData.actionType = Enum.ActionType.ReadyAction;
                     _action = new ReadyBattleAction(GetActionID(), _levelData);
                 });
             }
             else if (_levelData.Stage < Enum.LevelStage.Readyed)
             {
+                _levelData.actionType = Enum.ActionType.ReadyAction;
                 _action = new ReadyBattleAction(GetActionID(), _levelData);
             }
             else
@@ -446,6 +448,13 @@ namespace WarGame
         {
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
+
+            if (_levelData.actionType == Enum.ActionType.ReadyAction)
+            {
+                _levelData.actionType = Enum.ActionType.HeroAction;
+                _action = new HeroBattleAction(GetActionID());
+                return;
+            }
 
             if (_levelData.actionType == Enum.ActionType.HeroAction)
             {
