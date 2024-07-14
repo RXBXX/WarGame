@@ -17,34 +17,34 @@ namespace WarGame
         private int _roleHeight = 5;
 
         //可移动方向
-        private Vector3[] _directions = new Vector3[]
+        private WGVector3[] _directions = new WGVector3[]
         {
-            new Vector3(1, 0, 0),
-            new Vector3(0, 0, 1),
-            new Vector3(-1, 0, 1),
-            new Vector3(-1, 0, 0),
-            new Vector3(0, 0, -1),
-            new Vector3(1, 0, -1),
+            new WGVector3(1, 0, 0),
+            new WGVector3(0, 0, 1),
+            new WGVector3(-1, 0, 1),
+            new WGVector3(-1, 0, 0),
+            new WGVector3(0, 0, -1),
+            new WGVector3(1, 0, -1),
 
-            new Vector3(1, -1, 0),
-            new Vector3(0, -1, 1),
-            new Vector3(-1, -1, 1),
-            new Vector3(-1, -1, 0),
-            new Vector3(0, -1, -1),
-            new Vector3(1, -1, -1),
+            new WGVector3(1, -1, 0),
+            new WGVector3(0, -1, 1),
+            new WGVector3(-1, -1, 1),
+            new WGVector3(-1, -1, 0),
+            new WGVector3(0, -1, -1),
+            new WGVector3(1, -1, -1),
             //new Vector3(0, -1, 0),
 
-            new Vector3(1, 1, 0),
-            new Vector3(0, 1, 1),
-            new Vector3(-1, 1, 1),
-            new Vector3(-1, 1, 0),
-            new Vector3(0, 1, -1),
-            new Vector3(1, 1, -1),
+            new WGVector3(1, 1, 0),
+            new WGVector3(0, 1, 1),
+            new WGVector3(-1, 1, 1),
+            new WGVector3(-1, 1, 0),
+            new WGVector3(0, 1, -1),
+            new WGVector3(1, 1, -1),
             //new Vector3(0, 1, 0),
         };
 
 
-        public Vector3[] Dicections
+        public WGVector3[] Dicections
         {
             get { return _directions; }
         }
@@ -247,7 +247,7 @@ namespace WarGame
             public int id;
             public float g; //移动代价
             public float h; //曼哈顿距离
-            public Vector3 coor;
+            public WGVector3 coor;
             public Cell parent;
             public Enum.MarkType type;
 
@@ -256,7 +256,7 @@ namespace WarGame
                 get { return g + h; }
             }
 
-            public Cell(float g, float h, Vector3 pos, Cell parent, int id)
+            public Cell(float g, float h, WGVector3 pos, Cell parent, int id)
             {
                 this.g = g;
                 this.h = h;
@@ -270,7 +270,7 @@ namespace WarGame
                 id = -1;
                 g = 0;
                 h = 0;
-                coor = Vector3.zero;
+                coor = new WGVector3(0,0,0);
                 parent = null;
                 type = Enum.MarkType.None;
 
@@ -278,7 +278,7 @@ namespace WarGame
             }
         };
 
-        public Cell CreateCell(float g, float h, Vector3 coor, Cell parent, int id)
+        public Cell CreateCell(float g, float h, WGVector3 coor, Cell parent, int id)
         {
             if (_cellPool.Count <= 0)
             {
@@ -302,13 +302,13 @@ namespace WarGame
             _cellPool.Push(cell);
         }
 
-        private bool IsReachable(Vector3 coor, Enum.RoleType roleType)
+        private bool IsReachable(WGVector3 coor, Enum.RoleType roleType)
         {
             //场景中目前还不会出现这种情况，为了节省性能，这里暂时注释掉，如果后面需要，再打开
             //如果当前位置可跨越高度正上方有地块，证明该地块不可达
             for (int i = 1; i <= _roleHeight; i++)
             {
-                var topKey = MapTool.Instance.GetHexagonKey(coor + new Vector3(0, i, 0));
+                var topKey = MapTool.Instance.GetHexagonKey(coor + new WGVector3(0, i, 0));
                 if (ContainHexagon(topKey))
                     return false;
             }
@@ -335,12 +335,12 @@ namespace WarGame
             return true;
         }
 
-        private bool IsAttackable(Vector3 coor)
+        private bool IsAttackable(WGVector3 coor)
         {
             //如果当前位置正上方有地块，证明该地块为不可攻击
             for (int i = 1; i <= _roleHeight; i++)
             {
-                var topKey = MapTool.Instance.GetHexagonKey(coor + new Vector3(0, i, 0));
+                var topKey = MapTool.Instance.GetHexagonKey(coor + new WGVector3(0, i, 0));
                 if (ContainHexagon(topKey))
                     return false;
             }
@@ -350,7 +350,7 @@ namespace WarGame
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleMoveCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Enum.RoleType roleType)
+        private Cell HandleMoveCell(WGVector3 cellPos, WGVector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Enum.RoleType roleType)
         {
             if (!IsReachable(cellPos, roleType))
                 return null;
@@ -384,7 +384,7 @@ namespace WarGame
             else
             {
                 //cell = new Cell(cost, Vector3.Distance((Vector3)cellPos, endPos), (Vector3)cellPos, parent, hexagon.ID);
-                cell = CreateCell(cost, Vector3.Distance((Vector3)cellPos, endPos), (Vector3)cellPos, parent, hexagon.ID);
+                cell = CreateCell(cost, WGVector3.Distance(cellPos, endPos), cellPos, parent, hexagon.ID);
                 openDic.Add(key, cell);
             }
 
@@ -505,7 +505,7 @@ namespace WarGame
         /// <summary>
         /// 寻路专用
         /// </summary>
-        private Cell HandleAttackCell(Vector3 cellPos, Vector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, float dis)
+        private Cell HandleAttackCell(WGVector3 cellPos, WGVector3 endPos, Cell parent, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, float dis)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
             if (closeDic.ContainsKey(key))
@@ -517,7 +517,7 @@ namespace WarGame
                 //如果当前位置可跨越高度正上方有地块，证明该地块不可攻击
                 for (int i = 1; i <= _roleHeight; i++)
                 {
-                    var topKey = MapTool.Instance.GetHexagonKey(tempParent.coor + new Vector3(0, i, 0));
+                    var topKey = MapTool.Instance.GetHexagonKey(tempParent.coor + new WGVector3(0, i, 0));
                     if (ContainHexagon(topKey))
                         return null;
                 }
@@ -551,7 +551,7 @@ namespace WarGame
             else
             {
                 //cell = new Cell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, key);
-                cell = CreateCell(cost, Vector3.Distance(cellPos, endPos), cellPos, parent, key);
+                cell = CreateCell(cost, WGVector3.Distance(cellPos, endPos), cellPos, parent, key);
                 if (!IsAttackable(cellPos))
                 {
                     closeDic.Add(key, cell);
@@ -667,7 +667,7 @@ namespace WarGame
         /// <summary>
         /// 标记可达区域专用
         /// </summary>
-        private Cell HandleMoveRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Dictionary<int, Cell> walkableDic, Enum.RoleType roleType)
+        private Cell HandleMoveRegionCell(WGVector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic, Dictionary<int, Cell> walkableDic, Enum.RoleType roleType)
         {
             if (!IsReachable(cellPos, roleType))
                 return null;
@@ -717,7 +717,7 @@ namespace WarGame
         /// <summary>
         /// 标记可达区域专用
         /// </summary>
-        private Cell HandleAttackRegionCell(Vector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic)
+        private Cell HandleAttackRegionCell(WGVector3 cellPos, Cell parent, float dis, Dictionary<int, Cell> openDic, Dictionary<int, Cell> closeDic)
         {
             var key = MapTool.Instance.GetHexagonKey(cellPos);
             //DebugManager.Instance.Log(key +"_"+ closeDic.ContainsKey(key));

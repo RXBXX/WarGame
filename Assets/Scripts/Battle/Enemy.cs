@@ -169,7 +169,7 @@ namespace WarGame
                     if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
                         continue;
 
-                    if (null == destCell || Vector3.Distance(targetHexagon.coor, destCell.coor) > Vector3.Distance(targetHexagon.coor, v.Value.coor))
+                    if (null == destCell || WGVector3.Distance(targetHexagon.coor, destCell.coor) > WGVector3.Distance(targetHexagon.coor, v.Value.coor))
                         destCell = v.Value;
                 }
                 //DebugManager.Instance.Log(destCell.id);

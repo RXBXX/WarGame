@@ -185,4 +185,65 @@ namespace WarGame
             }
         }
     }
+
+    [Serializable]
+    public struct WGVector3
+    {
+        public float x;
+        public float y;
+        public float z;
+
+        public WGVector3(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public static WGVector3 operator +(WGVector3 v1, WGVector3 v2)
+        {
+            return new WGVector3(v1.x + v2.x, v1.y + v2.y, v1.z + v2.z);
+        }
+
+        public static bool operator ==(WGVector3 v1, WGVector3 v2)
+        {
+            return v1.x == v2.x && v1.y == v2.y && v1.z == v2.z;
+        }
+
+        public static bool operator !=(WGVector3 v1, WGVector3 v2)
+        {
+            return v1.x != v2.x || v1.y != v2.y || v1.z != v2.z;
+        }
+
+        public override bool Equals(object v)
+        {
+            return this == (WGVector3)v;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public static float Distance(WGVector3 v1, WGVector3 v2)
+        {
+            return Mathf.Sqrt(Mathf.Pow(v2.x - v1.x, 2) + Mathf.Pow(v2.y - v1.y, 2) + Mathf.Pow(v2.z - v1.z, 2));
+        }
+    }
+
+    //[Serializable]
+    //public struct WGQuaternion
+    //{
+    //    public float x;
+    //    public float y;
+    //    public float z;
+    //    public float w;
+    //    public WGQuaternion(float x, float y, float z, float w)
+    //    {
+    //        this.x = x;
+    //        this.y = y;
+    //        this.z = z;
+    //        this.w = w;
+    //    }
+    //}
 }

@@ -270,7 +270,8 @@ namespace WarGame
             this.Rage = 0;
             this.bornHexagonID = bornHexagonID;
             this.hexagonID = bornHexagonID;
-            this.talents = talents;
+            if (null != talents)
+                this.talents = talents;
         }
 
         public override float GetAttribute(Enum.AttrType attrType)

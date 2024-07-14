@@ -8,9 +8,9 @@ namespace WarGame
         private int _configID;
         private int _hexagonID;
         private float _scale;
-        private Quaternion _rotation;
+        private WGVector3 _rotation;
 
-        public Ornament(int id, int configID, int hexagonID, float scale, Quaternion rotation)
+        public Ornament(int id, int configID, int hexagonID, float scale, WGVector3 rotation)
         {
             this._id = id;
             this._configID = configID;
@@ -34,7 +34,7 @@ namespace WarGame
                 return;
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
             _gameObject.transform.localScale = Vector3.one * _scale;
-            _gameObject.transform.localRotation = _rotation;
+            _gameObject.transform.localRotation =  Quaternion.Euler(new Vector3(_rotation.x, _rotation.y, _rotation.z));
             var ob = _gameObject.GetComponent<OrnamentBehaviour>();
             ob.ID = _id;
             ob.enabled = false;

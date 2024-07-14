@@ -48,8 +48,8 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             //找出距离英雄最近的空位置，为后续分身做准备，不是寻路，不必考虑最短距离
-            List<Vector3> openDic = new List<Vector3>();
-            List<Vector3> closeDic = new List<Vector3>();
+            List<WGVector3> openDic = new List<WGVector3>();
+            List<WGVector3> closeDic = new List<WGVector3>();
             openDic.Add(MapManager.Instance.GetHexagon(initiator.Hexagon).coor);
             while (null == _targetHexagon)
             {

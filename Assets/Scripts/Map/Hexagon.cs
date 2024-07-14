@@ -9,7 +9,7 @@ namespace WarGame
 
         private int _configId;
 
-        public Vector3 coor;
+        public WGVector3 coor;
 
         private Tween _tween;
 
@@ -27,7 +27,7 @@ namespace WarGame
             get { return _configId; }
         }
 
-        public Hexagon(int id, int configId, bool isReachable, Vector3 coor)
+        public Hexagon(int id, int configId, bool isReachable, WGVector3 coor)
         {
             this.ID = id;
             this._configId = configId;

@@ -12,9 +12,9 @@ namespace WarGame
 
         public bool isReachable;
 
-        public Vector3 coor;
+        public WGVector3 coor;
 
-        public HexagonMapPlugin(int id, int configId, bool isReachable, Vector3 coor)
+        public HexagonMapPlugin(int id, int configId, bool isReachable, WGVector3 coor)
         {
             this.ID = id;
             this.configId = configId;
@@ -61,15 +61,15 @@ namespace WarGame
         public int configID;
         public int hexagonID;
         public float scale;
-        public Quaternion rotation;
+        public WGVector3 rotation;
 
-        public OrnamentMapPlugin(int ID, int configID, int hexagonID, float scale, Quaternion rotation)
+        public OrnamentMapPlugin(int ID, int configID, int hexagonID, float scale, WGVector3 rotation)
         {
             this.ID = ID;
             this.configID = configID;
             this.hexagonID = hexagonID;
             this.scale = scale;
-            this.rotation = rotation;
+            this.rotation = rotation;// new Quaternion(rotation.x, rotation.y, rotation.z, rotation.z);
         }
     }
 

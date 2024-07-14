@@ -25,7 +25,7 @@ namespace WarGame
         /// <summary>
         /// 从世界坐标转换成地图格子坐标
         /// </summary>
-        public Vector3 GetCoorFromPos(Vector3 pos)
+        public WGVector3 GetCoorFromPos(Vector3 pos)
         {
             if (pos.x < 0)
                 pos.x -= 0.0001F;
@@ -42,8 +42,8 @@ namespace WarGame
             else
                 pos.z -= 0.0001F;
 
-            var hexMapX = 0.0f;
-            var hexMapZ = 0.0f;
+            var hexMapX = 0;
+            var hexMapZ = 0;
             if (pos.x - pos.z * Mathf.Tan(_radian) < 0)
                 hexMapX = (int)((pos.x - pos.z * Mathf.Tan(_radian) - _insideDiameter / 2.0f) / _insideDiameter);
             else
@@ -56,7 +56,7 @@ namespace WarGame
 
             var hexMapY = (int)((pos.y ) / CommonParams.Offset.y);
 
-            return new Vector3(hexMapX, hexMapY, hexMapZ);
+            return new WGVector3(hexMapX, hexMapY, hexMapZ);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace WarGame
         /// </summary>
         /// <param name="coor"></param>
         /// <returns></returns>
-        public Vector3 GetPosFromCoor(Vector3 coor)
+        public Vector3 GetPosFromCoor(WGVector3 coor)
         {
             var hexPosZ = coor.z * _insideDiameter * Mathf.Cos(_radian);
             var hexPosX = coor.x * _insideDiameter + hexPosZ * Mathf.Tan(_radian);
@@ -196,7 +196,9 @@ namespace WarGame
                 var ornamentTra = ornamentRootObj.transform.GetChild(i);
                 var data = ornamentTra.GetComponent<OrnamentBehaviour>();
                 var hexagonID = GetHexagonKey(GetCoorFromPos(ornamentTra.position - CommonParams.Offset));
-                ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, ornamentTra.rotation);
+                var eulerAngles = ornamentTra.localEulerAngles;
+                var rotation = new WGVector3(eulerAngles.x, eulerAngles.y, eulerAngles.z);
+                ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, rotation);
             }
 
 
@@ -271,7 +273,7 @@ namespace WarGame
                         AssetsMgr.Instance.LoadAssetAsync<GameObject>(assetPath, (GameObject prefab) =>
                         {
                             var obj = GameObject.Instantiate(prefab);
-                            obj.transform.position = MapTool.Instance.GetPosFromCoor(new Vector3(i, q, j));
+                            obj.transform.position = MapTool.Instance.GetPosFromCoor(new WGVector3(i, q, j));
                             obj.transform.SetParent(rootObj.transform);
                         });
                     }
@@ -321,7 +323,7 @@ namespace WarGame
         /// 获取地块在构建的地图数据中的key
         /// </summary>
         /// <returns></returns>
-        public int GetHexagonKey(Vector3 pos)
+        public int GetHexagonKey(WGVector3 pos)
         {
             var key = (int)pos.x;
             key <<= 8;
