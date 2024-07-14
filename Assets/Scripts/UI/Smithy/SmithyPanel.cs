@@ -15,6 +15,7 @@ namespace WarGame.UI
         private Dictionary<string, CommonAttrItem> _attrsMap = new Dictionary<string, CommonAttrItem>();
         private int _selectEquip = 0;
         private CommonResComp _resComp;
+        private GTextField _name;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -34,6 +35,8 @@ namespace WarGame.UI
 
             GetGObjectChild<GButton>("buyBtn").onClick.Add(OnClickBuy);
 
+            _name = GetGObjectChild<GTextField>("name");
+
             EventDispatcher.Instance.AddListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
 
             ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
@@ -52,8 +55,8 @@ namespace WarGame.UI
             _attrsData.Clear();
 
             var attrsDic = new Dictionary<int, float>();
-            var attrs = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id).Attrs;
-            foreach (var v in attrs)
+            var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id);
+            foreach (var v in equipConfig.Attrs)
             {
                 if (!attrsDic.ContainsKey(v.id))
                     attrsDic.Add(v.id, 0);
@@ -67,17 +70,21 @@ namespace WarGame.UI
                 _attrsData.Add(new IntFloatPair(v.Key, v.Value));
 
             _attrsList.numItems = _attrsData.Count;
+
+            _name.text = equipConfig.Name;
         }
 
         private void OnEquipRenderer(int index, GObject item)
         {
-            item.icon = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _equipsData[index]).Icon;
-            item.grayed = !DatasMgr.Instance.ContainEquip(_equipsData[index]);
+            var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _equipsData[index]);
+            item.icon = config.Icon;
+            ((GButton)item).title = config.Name;
         }
 
         private void OnClickEquip(EventContext context)
         {
             var index = _equipList.GetChildIndex((GObject)context.data);
+            index = _equipList.ChildIndexToItemIndex(index);
             SelectEquip(_equipsData[index]);
         }
 
@@ -101,7 +108,6 @@ namespace WarGame.UI
 
         private void OnBuyEquipS2C(params object[] args)
         {
-            _equipList.numItems = _equipsData.Count;
             _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.EquipRes });
         }
 
@@ -112,6 +118,8 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
+            EventDispatcher.Instance.RemoveListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
+
             base.Dispose(disposeGCom);
             foreach (var v in _attrsMap)
                 v.Value.Dispose();

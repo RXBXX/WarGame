@@ -130,6 +130,7 @@ namespace WarGame
             Axe = 6, //斧
             BigWeapon = 7, //双手武器
             Spear = 9, //长枪
+            Cloak = 10, //披风
         }
 
         //装备佩戴方式
@@ -140,6 +141,7 @@ namespace WarGame
             Left = 2, //左手
             BothHand = 3, //双手公用
             RightAndLeft = 4, //左右手
+            Back = 5, //后背
         }
 
         [Serializable]
@@ -174,11 +176,11 @@ namespace WarGame
             None = 0,
             HP = 1,
             Rage = 2,
-            PhysicalAttack = 3, //攻击
-            MagicAttack = 4,
+            PhysicalAttack = 3, //物理攻击
+            MagicAttack = 4, //魔法攻击
             Cure = 5,//	治疗
-            PhysicalDefense = 6,//	防御
-            MagicDefense = 7,
+            PhysicalDefense = 6,//	物理防御
+            MagicDefense = 7, // 魔法防御
             MoveDis = 8,//	移动距离
             AttackDis = 9,//	攻击距离
             DodgeRatio = 10, //闪避率

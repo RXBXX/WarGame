@@ -38,7 +38,7 @@ namespace WarGame
             var equipPlaceConfig = GetPlaceConfig();
             var spinePoint = _spineRoot.transform.Find(equipPlaceConfig.SpinePoint);
             _gameObject.transform.SetParent(spinePoint, false);
-            _gameObject.transform.localPosition = Vector3.zero;
+            _gameObject.transform.localPosition = GetTypeConfig().Pos;
             _gameObject.transform.localEulerAngles = GetTypeConfig().Rotation;
 
             if (_gameObject.TryGetComponent(out _trail))

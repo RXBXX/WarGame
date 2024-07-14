@@ -95,6 +95,7 @@ namespace WarGame
         public Enum.EquipType[] Combination;
         public Enum.EquipPlace Place;
         public int Animator;
+        public Vector3 Pos;
         public Vector3 Rotation;
         public Vector3 ViceRotation;
     }

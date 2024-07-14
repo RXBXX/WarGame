@@ -6,10 +6,12 @@ namespace WarGame
     [Serializable]
     public class EquipmentData
     {
+        public int UID;
         public int id;
 
-        public EquipmentData(int id)
+        public EquipmentData(int UID, int id)
         {
+            this.UID = UID;
             this.id = id;
         }
 
@@ -91,7 +93,7 @@ namespace WarGame
 
         public EquipmentData Clone()
         {
-            return new EquipmentData(this.id);
+            return new EquipmentData(this.UID, this.id);
         }
     }
 
@@ -495,10 +497,11 @@ namespace WarGame
             roleDataDic.Add(roleData.UID, roleData);
         }
 
-        public void AddEquip(int configId)
+        public int AddEquip(int configId)
         {
-            var equipData = new EquipmentData(configId);
-            equipDataDic.Add(configId, equipData);
+            var equipData = new EquipmentData(30000 + equipDataDic.Count + 1, configId);
+            equipDataDic.Add(equipData.UID, equipData);
+            return equipData.UID;
         }
 
         public void AddItem(int itemId, int num)
@@ -513,7 +516,9 @@ namespace WarGame
         {
             if (!itemsDic.ContainsKey(itemId))
                 return;
+            DebugManager.Instance.Log("RemoveItem:" + num);
             itemsDic[itemId] = Math.Max(itemsDic[itemId] - num, 0);
+            DebugManager.Instance.Log("RemoveItem:" + itemsDic[itemId]);
         }
 
         public void Save()

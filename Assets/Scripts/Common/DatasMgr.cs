@@ -172,7 +172,7 @@ namespace WarGame
                     {
                         var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
                         var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                        equipDic[equipTypeConfig.Place] = new EquipmentData(equipConfig.ID);
+                        equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
                     }
                 }
                 return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, bornHexagonID, Enum.RoleState.Locked, equipDic, null);
@@ -298,6 +298,8 @@ namespace WarGame
                 unwearEquips.Add(equipUID);
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Success, roleUID, unwearEquips, fromWear) });
+
+                Save();
             }
             catch
             {
@@ -358,6 +360,8 @@ namespace WarGame
                 roleData.equipmentDic.Add(equipData.GetPlace(), equipUID);
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.WearEquipS2C, new object[] { new WearEquipNDPU(Enum.ErrorCode.Success, roleUID, wearEquips) });
+
+                Save();
             }
             catch (Exception e)
             {
@@ -381,6 +385,8 @@ namespace WarGame
             roleData.talents.Add(talentID);
 
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroTalentActiveS2C, new object[] { roleUID, talentID });
+
+            Save();
         }
 
         public void ActiveLevelC2S(int levelID)
@@ -392,6 +398,8 @@ namespace WarGame
             _data.GetUsingRecord().levelDataDic.Add(levelData.configId, levelData);
 
             EventDispatcher.Instance.PostEvent(Enum.Event.ActiveLevelS2C, new object[] { levelID });
+
+            Save();
         }
 
         public void HeroLevelUpC2S(int roleUID, int level)
@@ -400,6 +408,8 @@ namespace WarGame
             roleData.level = level;
             _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.LevelRes, roleData.GetStarConfig().Cost);
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });
+
+            Save();
         }
 
         public void BuyEquipC2S(int id)
@@ -409,10 +419,12 @@ namespace WarGame
             {
                 return;
             }
-            _data.GetUsingRecord().RemoveItem(id, cost);
-            _data.GetUsingRecord().AddEquip(id);
+            _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.EquipRes, cost);
+            var equipID = _data.GetUsingRecord().AddEquip(id);
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { id });
+            EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { equipID });
+
+            Save();
         }
         /// endregion -----------------------------------------------------------------------------------------------------
     }

@@ -168,7 +168,7 @@ namespace WarGame.UI
                     var weapon = GameObject.Instantiate<GameObject>(prefab);
                     Tool.Instance.ApplyProcessingFotOutLine(weapon);
                     weapon.transform.SetParent(_rolesGO[uid].transform.Find(placeConfig.SpinePoint), false);
-                    weapon.transform.localPosition = Vector3.zero;
+                    weapon.transform.localPosition = equipData.GetTypeConfig().Pos;
                     weapon.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
                     Tool.SetLayer(weapon.transform, Enum.Layer.Display);
                 });
@@ -248,7 +248,7 @@ namespace WarGame.UI
                     var equip = GameObject.Instantiate<GameObject>(prefab);
                     equip.transform.SetParent(spinePoint, false);
                     equip.transform.localEulerAngles = equipData.GetTypeConfig().Rotation;
-                    equip.transform.localPosition = Vector3.zero;
+                    equip.transform.localPosition = equipData.GetTypeConfig().Pos;
                     Tool.SetLayer(equip.transform, Enum.Layer.Display);
                 });
 

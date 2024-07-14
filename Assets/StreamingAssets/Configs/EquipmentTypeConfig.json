@@ -2,9 +2,16 @@
     {
         "ID": 1,
         "Name": "法杖",
-        "Combination": null,
+        "Combination": [
+            10
+        ],
         "Place": 1,
         "Animator": 5,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
@@ -23,10 +30,16 @@
             3,
             6,
             7,
-            5
+            5,
+            10
         ],
         "Place": 2,
         "Animator": 2,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 270,
@@ -42,10 +55,16 @@
         "ID": 3,
         "Name": "剑",
         "Combination": [
-            2
+            2,
+            10
         ],
         "Place": 1,
         "Animator": 7,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
@@ -60,9 +79,16 @@
     {
         "ID": 4,
         "Name": "弓箭",
-        "Combination": null,
+        "Combination": [
+            10
+        ],
         "Place": 4,
         "Animator": 3,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 270,
@@ -78,10 +104,16 @@
         "ID": 5,
         "Name": "锤",
         "Combination": [
-            2
+            2,
+            10
         ],
         "Place": 1,
         "Animator": 7,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
@@ -97,10 +129,16 @@
         "ID": 6,
         "Name": "斧",
         "Combination": [
-            2
+            2,
+            10
         ],
         "Place": 1,
         "Animator": 7,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
@@ -115,9 +153,16 @@
     {
         "ID": 7,
         "Name": "双手武器",
-        "Combination": null,
+        "Combination": [
+            10
+        ],
         "Place": 3,
         "Animator": 4,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
@@ -132,13 +177,52 @@
     {
         "ID": 9,
         "Name": "长枪",
-        "Combination": null,
+        "Combination": [
+            10
+        ],
         "Place": 3,
         "Animator": 6,
+        "Pos": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
         "Rotation": {
             "x": 0,
             "y": 0,
             "z": 0
+        },
+        "ViceRotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    {
+        "ID": 10,
+        "Name": "披风",
+        "Combination": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+        ],
+        "Place": 5,
+        "Animator": 1,
+        "Pos": {
+            "x": "0.325992525",
+            "y": "0.00536630768",
+            "z": "0.0323651731"
+        },
+        "Rotation": {
+            "x": "0.461896986",
+            "y": "267.401215",
+            "z": "10.0621977"
         },
         "ViceRotation": {
             "x": 0,

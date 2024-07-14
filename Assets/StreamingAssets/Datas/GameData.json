@@ -5,15 +5,17 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1720870814744,
-      "saveTime": 1720884612369,
-      "duration": 5212654,
+      "saveTime": 1720939008247,
+      "duration": 5282228,
       "isNew": false,
       "roleDataDic": {
         "10001": {
           "UID": 10001,
           "configId": 10001,
           "level": 1,
-          "equipmentDic": {},
+          "equipmentDic": {
+            "Back": 30003
+          },
           "skillDic": {},
           "talents": []
         },
@@ -21,7 +23,9 @@
           "UID": 10002,
           "configId": 10002,
           "level": 1,
-          "equipmentDic": {},
+          "equipmentDic": {
+            "Back": 30002
+          },
           "skillDic": {},
           "talents": []
         },
@@ -29,7 +33,9 @@
           "UID": 10003,
           "configId": 10003,
           "level": 1,
-          "equipmentDic": {},
+          "equipmentDic": {
+            "Back": 30001
+          },
           "skillDic": {},
           "talents": []
         },
@@ -42,7 +48,20 @@
           "talents": []
         }
       },
-      "equipDataDic": {},
+      "equipDataDic": {
+        "30001": {
+          "UID": 30001,
+          "id": 10065
+        },
+        "30002": {
+          "UID": 30002,
+          "id": 10064
+        },
+        "30003": {
+          "UID": 30003,
+          "id": 10063
+        }
+      },
       "levelDataDic": {
         "10001": {
           "configId": 10001,
@@ -609,6 +628,7 @@
               "buffs": [],
               "equipDataDic": {
                 "RightAndLeft": {
+                  "UID": 0,
                   "id": 10006
                 }
               },
@@ -631,9 +651,9 @@
       },
       "homeEvent": 0,
       "itemsDic": {
-        "1": 48,
-        "2": 50,
-        "3": 28
+        "1": 72,
+        "2": 75,
+        "3": 36
       }
     }
   },
