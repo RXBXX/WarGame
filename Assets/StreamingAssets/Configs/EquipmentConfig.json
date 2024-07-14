@@ -1,0 +1,1843 @@
+[
+    {
+        "ID": 10003,
+        "Type": 6,
+        "Icon": "UI/Icons/Axe_01",
+        "Prefab": "Assets/Prefabs/Equipments/OHS10_Axe.prefab",
+        "VicePrefab": null,
+        "Name": "斧1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 100
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10004,
+        "Type": 7,
+        "Icon": "UI/Icons/BigSword_02",
+        "Prefab": "Assets/Prefabs/Equipments/THS01_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 100
+            },
+            {
+                "id": 2,
+                "value": 100
+            },
+            {
+                "id": 3,
+                "value": 100
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_Blood.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10005,
+        "Type": 7,
+        "Icon": "UI/Icons/BogSword_01",
+        "Prefab": "Assets/Prefabs/Equipments/THS02_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_EnemyDeathSkull.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10006,
+        "Type": 4,
+        "Icon": "UI/Icons/Bow_01",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_01.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "Name": "弓1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10007,
+        "Type": 4,
+        "Icon": "UI/Icons/Bow_02",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_02.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "Name": "弓2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10008,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_01",
+        "Prefab": "Assets/Prefabs/Equipments/Shield15.prefab",
+        "VicePrefab": null,
+        "Name": "盾15",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10009,
+        "Type": 2,
+        "Icon": "UI/Icons/Shield_02",
+        "Prefab": "Assets/Prefabs/Equipments/Shield14.prefab",
+        "VicePrefab": null,
+        "Name": "盾14",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10010,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_01",
+        "Prefab": "Assets/Prefabs/Equipments/OHS04_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑4",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX2_WWExplosion_C.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10011,
+        "Type": 3,
+        "Icon": "UI/Icons/Sword_02",
+        "Prefab": "Assets/Prefabs/Equipments/OHS03_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑3",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Fire_Explosion.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10012,
+        "Type": 1,
+        "Icon": "UI/Icons/Wand_01",
+        "Prefab": "Assets/Prefabs/Equipments/Wand02.prefab",
+        "VicePrefab": null,
+        "Name": "法杖2",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_A_Ground.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10013,
+        "Type": 1,
+        "Icon": "UI/Icons/Wand_02",
+        "Prefab": "Assets/Prefabs/Equipments/Wand01.prefab",
+        "VicePrefab": null,
+        "Name": "法杖1",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_C_Air.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10014,
+        "Type": 4,
+        "Icon": "UI/Icons/Bow_03",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_03.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_03.prefab",
+        "Name": "弓3",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10015,
+        "Type": 4,
+        "Icon": "UI/Icons/Bow_04",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_04.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_04.prefab",
+        "Name": "弓4",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10016,
+        "Type": 4,
+        "Icon": "UI/Icons/Bow_05",
+        "Prefab": "Assets/Prefabs/Equipments/Bow_05.prefab",
+        "VicePrefab": "Assets/Prefabs/Equipments/Arrow_05.prefab",
+        "Name": "弓5",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10017,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_06",
+        "Prefab": "Assets/Prefabs/Equipments/OHS01_Stick.prefab",
+        "VicePrefab": null,
+        "Name": "剑1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10018,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_07",
+        "Prefab": "Assets/Prefabs/Equipments/OHS02_Niddle.prefab",
+        "VicePrefab": null,
+        "Name": "剑2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10019,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_08",
+        "Prefab": "Assets/Prefabs/Equipments/OHS05_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑5",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10020,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_09",
+        "Prefab": "Assets/Prefabs/Equipments/OHS06_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑6",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10021,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_10",
+        "Prefab": "Assets/Prefabs/Equipments/OHS07_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑7",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10022,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_11",
+        "Prefab": "Assets/Prefabs/Equipments/OHS08_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑8",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10023,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_12",
+        "Prefab": "Assets/Prefabs/Equipments/OHS09_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑9",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10024,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_13",
+        "Prefab": "Assets/Prefabs/Equipments/OHS11_Hammer.prefab",
+        "VicePrefab": null,
+        "Name": "锤1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 20
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10025,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_14",
+        "Prefab": "Assets/Prefabs/Equipments/OHS12_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑13",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10026,
+        "Type": 6,
+        "Icon": "UI/Icons/Bow_15",
+        "Prefab": "Assets/Prefabs/Equipments/OHS13_Axe.prefab",
+        "VicePrefab": null,
+        "Name": "斧2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10027,
+        "Type": 5,
+        "Icon": "UI/Icons/Bow_16",
+        "Prefab": "Assets/Prefabs/Equipments/OHS14_Hammer.prefab",
+        "VicePrefab": null,
+        "Name": "锤2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 20
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10028,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_17",
+        "Prefab": "Assets/Prefabs/Equipments/OHS15_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑15",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10029,
+        "Type": 3,
+        "Icon": "UI/Icons/Bow_18",
+        "Prefab": "Assets/Prefabs/Equipments/OHS16_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "剑16",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10030,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_19",
+        "Prefab": "Assets/Prefabs/Equipments/Shield01.prefab",
+        "VicePrefab": null,
+        "Name": "盾1",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10031,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_20",
+        "Prefab": "Assets/Prefabs/Equipments/Shield02.prefab",
+        "VicePrefab": null,
+        "Name": "盾2",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10032,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_21",
+        "Prefab": "Assets/Prefabs/Equipments/Shield03.prefab",
+        "VicePrefab": null,
+        "Name": "盾3",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10033,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_22",
+        "Prefab": "Assets/Prefabs/Equipments/Shield04.prefab",
+        "VicePrefab": null,
+        "Name": "盾4",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10034,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_23",
+        "Prefab": "Assets/Prefabs/Equipments/Shield05.prefab",
+        "VicePrefab": null,
+        "Name": "盾5",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10035,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_24",
+        "Prefab": "Assets/Prefabs/Equipments/Shield06.prefab",
+        "VicePrefab": null,
+        "Name": "盾6",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10036,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_25",
+        "Prefab": "Assets/Prefabs/Equipments/Shield07.prefab",
+        "VicePrefab": null,
+        "Name": "盾7",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10037,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_26",
+        "Prefab": "Assets/Prefabs/Equipments/Shield08.prefab",
+        "VicePrefab": null,
+        "Name": "盾8",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10038,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_27",
+        "Prefab": "Assets/Prefabs/Equipments/Shield09.prefab",
+        "VicePrefab": null,
+        "Name": "盾9",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10039,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_28",
+        "Prefab": "Assets/Prefabs/Equipments/Shield10.prefab",
+        "VicePrefab": null,
+        "Name": "盾10",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10040,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_29",
+        "Prefab": "Assets/Prefabs/Equipments/Shield11.prefab",
+        "VicePrefab": null,
+        "Name": "盾11",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10041,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_30",
+        "Prefab": "Assets/Prefabs/Equipments/Shield12.prefab",
+        "VicePrefab": null,
+        "Name": "盾12",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10042,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_31",
+        "Prefab": "Assets/Prefabs/Equipments/Shield13.prefab",
+        "VicePrefab": null,
+        "Name": "盾13",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10043,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_32",
+        "Prefab": "Assets/Prefabs/Equipments/Shield16.prefab",
+        "VicePrefab": null,
+        "Name": "盾16",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10044,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_33",
+        "Prefab": "Assets/Prefabs/Equipments/Shield17.prefab",
+        "VicePrefab": null,
+        "Name": "盾17",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10045,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_34",
+        "Prefab": "Assets/Prefabs/Equipments/Shield18.prefab",
+        "VicePrefab": null,
+        "Name": "盾18",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10046,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_35",
+        "Prefab": "Assets/Prefabs/Equipments/Shield19.prefab",
+        "VicePrefab": null,
+        "Name": "盾19",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10047,
+        "Type": 2,
+        "Icon": "UI/Icons/Bow_36",
+        "Prefab": "Assets/Prefabs/Equipments/Shield20.prefab",
+        "VicePrefab": null,
+        "Name": "盾20",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10048,
+        "Type": 9,
+        "Icon": "UI/Icons/Bow_37",
+        "Prefab": "Assets/Prefabs/Equipments/Spear01.prefab",
+        "VicePrefab": null,
+        "Name": "长枪1",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10049,
+        "Type": 9,
+        "Icon": "UI/Icons/Bow_38",
+        "Prefab": "Assets/Prefabs/Equipments/Spear02.prefab",
+        "VicePrefab": null,
+        "Name": "长枪2",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10050,
+        "Type": 9,
+        "Icon": "UI/Icons/Bow_39",
+        "Prefab": "Assets/Prefabs/Equipments/Spear03.prefab",
+        "VicePrefab": null,
+        "Name": "长枪3",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10051,
+        "Type": 9,
+        "Icon": "UI/Icons/Bow_40",
+        "Prefab": "Assets/Prefabs/Equipments/Spear04.prefab",
+        "VicePrefab": null,
+        "Name": "长枪4",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10052,
+        "Type": 9,
+        "Icon": "UI/Icons/Bow_41",
+        "Prefab": "Assets/Prefabs/Equipments/Spear05.prefab",
+        "VicePrefab": null,
+        "Name": "长枪5",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 10
+            },
+            {
+                "id": 11,
+                "value": 15
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10053,
+        "Type": 7,
+        "Icon": "UI/Icons/Bow_42",
+        "Prefab": "Assets/Prefabs/Equipments/THS03_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑3",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10054,
+        "Type": 7,
+        "Icon": "UI/Icons/Bow_43",
+        "Prefab": "Assets/Prefabs/Equipments/THS04_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑4",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10055,
+        "Type": 7,
+        "Icon": "UI/Icons/Bow_44",
+        "Prefab": "Assets/Prefabs/Equipments/THS05_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑5",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10056,
+        "Type": 7,
+        "Icon": "UI/Icons/Bow_45",
+        "Prefab": "Assets/Prefabs/Equipments/THS06_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑6",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10057,
+        "Type": 7,
+        "Icon": "UI/Icons/Bow_46",
+        "Prefab": "Assets/Prefabs/Equipments/THS07_Sword.prefab",
+        "VicePrefab": null,
+        "Name": "大剑7",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 30
+            },
+            {
+                "id": 8,
+                "value": "-1"
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10058,
+        "Type": 1,
+        "Icon": "UI/Icons/Bow_47",
+        "Prefab": "Assets/Prefabs/Equipments/Wand03.prefab",
+        "VicePrefab": null,
+        "Name": "法杖3",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10059,
+        "Type": 1,
+        "Icon": "UI/Icons/Bow_48",
+        "Prefab": "Assets/Prefabs/Equipments/Wand04.prefab",
+        "VicePrefab": null,
+        "Name": "法杖4",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 10
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10060,
+        "Type": 1,
+        "Icon": "UI/Icons/Bow_49",
+        "Prefab": "Assets/Prefabs/Equipments/Wand05.prefab",
+        "VicePrefab": null,
+        "Name": "法杖5",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 11
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10061,
+        "Type": 1,
+        "Icon": "UI/Icons/Bow_50",
+        "Prefab": "Assets/Prefabs/Equipments/Wand06.prefab",
+        "VicePrefab": null,
+        "Name": "法杖6",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10062,
+        "Type": 1,
+        "Icon": "UI/Icons/Bow_51",
+        "Prefab": "Assets/Prefabs/Equipments/Wand07.prefab",
+        "VicePrefab": null,
+        "Name": "法杖7",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 10
+            },
+            {
+                "id": 9,
+                "value": 2
+            }
+        ],
+        "Buffs": [
+            {
+                "id": 1,
+                "value": 10
+            },
+            {
+                "id": 2,
+                "value": 10
+            },
+            {
+                "id": 3,
+                "value": 13
+            }
+        ],
+        "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
+        "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
+        "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
+        "Cost": 2
+    },
+    {
+        "ID": 10063,
+        "Type": 10,
+        "Icon": "UI/Icons/Bow_51",
+        "Prefab": "Assets/Prefabs/Equipments/Cloak01.prefab",
+        "VicePrefab": null,
+        "Name": "斗篷",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 10
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10064,
+        "Type": 10,
+        "Icon": "UI/Icons/Bow_51",
+        "Prefab": "Assets/Prefabs/Equipments/Cloak02.prefab",
+        "VicePrefab": null,
+        "Name": "斗篷",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 20
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    },
+    {
+        "ID": 10065,
+        "Type": 10,
+        "Icon": "UI/Icons/Bow_51",
+        "Prefab": "Assets/Prefabs/Equipments/Cloak03.prefab",
+        "VicePrefab": null,
+        "Name": "斗篷",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 30
+            }
+        ],
+        "Buffs": null,
+        "Effect": null,
+        "Bullet": null,
+        "HitEffect": null,
+        "Cost": 2
+    }
+]
