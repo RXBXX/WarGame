@@ -10,11 +10,13 @@ namespace WarGame.UI
         private int _lod = 0;
         private Dictionary<int, MapMark> _levelsDic = new Dictionary<int, MapMark>();
         private GTweener _tweener = null;
+        private MapSky _sky;
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             GetGObjectChild<GButton>("smithyBtn").onClick.Add(OnClickSmithy);
             GetGObjectChild<GButton>("heroBtn").onClick.Add(OnClickHero);
+            _sky = GetChild<MapSky>("sky");
         }
 
         public void Init(string bg, List<MapLevelPair> levels)
@@ -25,7 +27,7 @@ namespace WarGame.UI
                 var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levels[i].configId);
                 var ui = UIManager.Instance.CreateUI<MapMark>("Map", "MapMark");
                 ui.Init(levels[i].configId, levels[i].open, config.Type, config.Name, config.Desc);
-                ui.SetParent(_gCom);
+                GCom.AddChildAt(ui.GCom, GCom.numChildren - 1);
                 ui.SetPosition(config.UIPos);
                 _levelsDic.Add(levels[i].configId, ui);
             }
@@ -145,6 +147,8 @@ namespace WarGame.UI
             {
                 v.Value.Update(timeDelta);
             }
+
+            _sky.Update(timeDelta);
         }
 
 

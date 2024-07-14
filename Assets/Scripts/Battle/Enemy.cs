@@ -306,7 +306,7 @@ namespace WarGame
 
             base.Dispose();
 
-            _data = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Enemy, GetNextStage(), hexagon);
+            _data = Factory.Instance.GetLevelRoleData(Enum.RoleType.Enemy, GetNextStage(), hexagon);
             _data.UID = UID;
             _stage++;
             DeadFlag = false;

@@ -129,6 +129,7 @@ namespace WarGame.UI
             _map.ScrollToLevel(level);
         }
 
+
         public override void Dispose(bool disposeGCom = false)
         {
             _map.Dispose();

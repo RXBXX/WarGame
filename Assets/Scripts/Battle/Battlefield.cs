@@ -74,14 +74,13 @@ namespace WarGame
 
                     _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
-                        //DebugManager.Instance.Log(prefab.name);
                         var go = GameObject.Instantiate<GameObject>(prefab);
                         go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
 
                         _bornEffectGOs.Add(go);
                     }));
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
-                    var levelRoleData = DatasMgr.Instance.CreateLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
+                    var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
                     RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     _levelData.heros.Add(levelRoleData);
 
@@ -101,7 +100,6 @@ namespace WarGame
                     {
                         _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                         {
-                            //DebugManager.Instance.Log(prefab.name);
                             var go = GameObject.Instantiate<GameObject>(prefab);
                             go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
 

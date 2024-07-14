@@ -104,20 +104,13 @@ namespace WarGame
         public int configId;
         public int level;
         public Dictionary<Enum.EquipPlace, int> equipmentDic = new Dictionary<Enum.EquipPlace, int>();
-        public Dictionary<int, int> skillDic = new Dictionary<int, int>();
         public List<int> talents = new List<int>();
 
-        public RoleData(int UID, int configId, int level, List<int> talents = null, Dictionary<Enum.EquipPlace, int> equipmentDic = null, Dictionary<int, int> skillDic = null)
+        public RoleData(int UID, int configId, int level)
         {
             this.UID = UID;
             this.configId = configId;
             this.level = level;
-            if (null != talents)
-                this.talents = talents;
-            if (null != equipmentDic)
-                this.equipmentDic = equipmentDic;
-            if (null != skillDic)
-                this.skillDic = skillDic;
         }
 
         public int GetLevel()
@@ -233,17 +226,19 @@ namespace WarGame
 
         public RoleData Clone()
         {
-            var cloneEquipDic = new Dictionary<Enum.EquipPlace, int>();
+            var roleData = new RoleData(this.UID, this.configId, this.level);
+
             foreach (var v in this.equipmentDic)
             {
-                cloneEquipDic.Add(v.Key, v.Value);
+                roleData.equipmentDic.Add(v.Key, v.Value);
             }
-            var cloneSkillDic = new Dictionary<int, int>();
-            foreach (var v in this.skillDic)
+
+            foreach (var v in talents)
             {
-                cloneSkillDic.Add(v.Key, v.Value);
+                roleData.talents.Add(v);
             }
-            return new RoleData(this.UID, this.configId, this.level, talents, cloneEquipDic, cloneSkillDic);
+
+            return roleData;
         }
 
         public virtual void Dispose()
@@ -267,7 +262,7 @@ namespace WarGame
         public Enum.RoleState state;
         public int cloneRole;
 
-        public LevelRoleData(int UID, int configId, int level, int bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level, talents, null)
+        public LevelRoleData(int UID, int configId, int level, int bornHexagonID, Enum.RoleState state, Dictionary<Enum.EquipPlace, EquipmentData> equipDataDic, List<int> talents) : base(UID, configId, level)
         {
             this.equipDataDic = equipDataDic;
             this.state = state;
@@ -275,6 +270,7 @@ namespace WarGame
             this.Rage = 0;
             this.bornHexagonID = bornHexagonID;
             this.hexagonID = bornHexagonID;
+            this.talents = talents;
         }
 
         public override float GetAttribute(Enum.AttrType attrType)
@@ -391,7 +387,13 @@ namespace WarGame
                 cloneEquipDataDic.Add(v.Key, v.Value.Clone());
             }
 
-            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, new List<int>());
+            var talents = new List<int>();
+            foreach (var v in talents)
+            {
+                talents.Add(v);
+            }
+
+            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, talents);
             clone.hexagonID = hexagonID;
             clone.bornHexagonID = bornHexagonID;
             clone.HP = HP;

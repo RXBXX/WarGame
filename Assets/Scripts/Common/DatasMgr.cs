@@ -149,37 +149,6 @@ namespace WarGame
             return _data.GetUsingRecord().homeEvent;
         }
 
-        public LevelRoleData CreateLevelRoleData(Enum.RoleType type, int UID, int bornHexagonID)
-        {
-            if (type == Enum.RoleType.Hero)
-            {
-                var roleData = GetRoleData(UID);
-                var equipDataDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                foreach (var v in roleData.equipmentDic)
-                {
-                    equipDataDic.Add(v.Key, GetEquipmentData(v.Value));
-                }
-                return new LevelRoleData(roleData.UID, roleData.configId, roleData.level, bornHexagonID, Enum.RoleState.Waiting, equipDataDic, roleData.talents);
-            }
-            else if (type == Enum.RoleType.Enemy)
-            {
-
-                var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", UID);
-                var equipDic = new Dictionary<Enum.EquipPlace, EquipmentData>();
-                if (null != enemyConfig.Equips)
-                {
-                    for (int j = 0; j < enemyConfig.Equips.Length; j++)
-                    {
-                        var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", enemyConfig.Equips[j]);
-                        var equipTypeConfig = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (int)equipConfig.Type);
-                        equipDic[equipTypeConfig.Place] = new EquipmentData(0, equipConfig.ID);
-                    }
-                }
-                return new LevelRoleData(enemyConfig.ID, enemyConfig.RoleID, enemyConfig.Level, bornHexagonID, Enum.RoleState.Locked, equipDic, null);
-            }
-            return null;
-        }
-
         public bool IsNewGameData()
         {
             return _data.GetUsingRecord().isNew;
