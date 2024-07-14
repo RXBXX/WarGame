@@ -83,7 +83,7 @@ namespace WarGame.UI
             if (hp == _hp.value)
                 return;
             GTween.Kill(_hp);
-            float duration = (float)(Mathf.Abs(hp - (float)_hp.value) / _hp.max);
+            float duration = (float)(Mathf.Abs(hp - (float)_hp.value) / _hp.max) * 0.4F;
             _hp.TweenValue(hp, duration);
         }
 
@@ -93,7 +93,7 @@ namespace WarGame.UI
             if (rage == _rage.value)
                 return;
             GTween.Kill(_rage);
-            float duration = (float)(Mathf.Abs(rage - (float)_rage.value) / _rage.max);
+            float duration = (float)(Mathf.Abs(rage - (float)_rage.value) / _rage.max) * 0.4F;
             _rage.TweenValue(rage, duration);
         }
 
