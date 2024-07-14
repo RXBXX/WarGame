@@ -146,7 +146,7 @@ namespace WarGame
 
     public class MoveState : State
     {
-        private float _speed = 5.0f;
+        private float _speed = 3.0f;
 
         public MoveState(string name, Role role) : base(name, role)
         {
