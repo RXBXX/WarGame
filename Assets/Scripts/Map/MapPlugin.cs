@@ -74,6 +74,21 @@ namespace WarGame
     }
 
     [Serializable]
+    public class LightingPlugin
+    {
+        public string Sky;
+        public Vector4 TintColor;
+        public float Intensity;
+
+        public LightingPlugin(string sky, Vector4 tintColor, float intensity)
+        {
+            this.Sky = sky;
+            this.TintColor = tintColor;
+            Intensity = intensity;
+        }
+    }
+
+    [Serializable]
     public class LevelMapPlugin
     {
         public HexagonMapPlugin[] hexagons;

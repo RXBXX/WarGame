@@ -6,6 +6,8 @@ namespace WarGame
 {
     public class FierceAttackSkill : SingleSkill
     {
+        private int _touchingID;
+
         public FierceAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }
@@ -82,6 +84,34 @@ namespace WarGame
 
             _coroutine = Over(1.5F);
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
+        }
+
+        public override void FocusIn(GameObject obj)
+        {
+            var touchingID = 0;
+            if (null != obj)
+            {
+                var tag = obj.tag;
+                if (tag == Enum.Tag.Hero.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+                else if (tag == Enum.Tag.Enemy.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+            }
+
+            if (touchingID != _touchingID && 0 != _touchingID)
+            {
+                RoleManager.Instance.GetRole(_touchingID).CancelPreview();
+            }
+            if (0 != touchingID)
+            {
+                _touchingID = touchingID;
+                var hurt = BattleMgr.Instance.GetAttackValue(_initiatorID, touchingID);
+                RoleManager.Instance.GetRole(_touchingID).Preview(hurt);
+            }
         }
     }
 }

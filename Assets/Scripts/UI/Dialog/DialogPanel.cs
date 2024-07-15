@@ -16,6 +16,7 @@ namespace WarGame.UI
         private int _blurID;
         private GList _optionList;
         private List<int> _optionsData;
+        private GButton _autoBtn;
 
         public DialogPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -30,7 +31,9 @@ namespace WarGame.UI
             _curIndex = 0;
 
             _gCom.onClick.Add(OnClick);
-            GetGObjectChild<GButton>("autoBtn").onClick.Add(OnClickAuto);
+
+            _autoBtn = GetGObjectChild<GButton>("autoBtn");
+            _autoBtn.onClick.Add(OnClickAuto);
 
             _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
             _optionList = GetGObjectChild<GList>("optionList");
@@ -92,6 +95,10 @@ namespace WarGame.UI
             context.StopPropagation();
 
             _isAutoPlay = !_isAutoPlay;
+            if (_isAutoPlay)
+                _autoBtn.GetTransition("loop").Play(-1, 0, null);
+            else
+                _autoBtn.GetTransition("loop").Stop();
             if (_isAutoPlay && !_dialogBox.IsPlaying())
             {
                 NextDialog();

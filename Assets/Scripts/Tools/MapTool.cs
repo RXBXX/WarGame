@@ -201,6 +201,7 @@ namespace WarGame
                 ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, rotation);
             }
 
+            //var lightingPlugin = new LightingPlugin(RenderSettings.ambientLight);
 
             var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments);
 

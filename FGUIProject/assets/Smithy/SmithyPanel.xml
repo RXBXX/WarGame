@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,750">
+<component size="1334,750" overflow="hidden">
   <displayList>
     <loader id="n4_ou4w" name="BG" xy="-146,-136" size="1600,900" url="ui://t8m39wbjou4w1" autoSize="true"/>
     <list id="n0_ou4w" name="equips" xy="12,133" size="942,500" layout="row" overflow="scroll" scroll="horizontal" lineGap="20" colGap="-76" defaultItem="ui://t8m39wbjou4w1y" autoClearItems="true">
@@ -27,9 +27,9 @@
       <item/>
     </list>
     <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="879,544" scale="0.4,0.4"/>
-    <text id="n6_ou4w" name="costTxt" xy="980,595" size="55,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ce4a35" text="10/12"/>
+    <text id="n6_ou4w" name="costTxt" xy="980,595" size="55,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#5c8799" ubb="true" strokeColor="#000000" text="10/12"/>
     <component id="n7_ou4w" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,-1"/>
-    <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="-665,327" pivot="1,0" anchor="true"/>
-    <text id="n9_kwvb" name="name" xy="973,117" size="176,64" font="ui://hd0z4dz5omu90" fontSize="48" letterSpacing="2" text="xxxxxxxx"/>
+    <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true"/>
+    <text id="n9_kwvb" name="name" xy="975,117" size="176,64" font="ui://hd0z4dz5omu90" fontSize="48" color="#f7f7f7" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
   </displayList>
 </component>

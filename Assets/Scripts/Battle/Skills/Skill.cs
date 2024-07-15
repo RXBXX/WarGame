@@ -215,5 +215,8 @@ namespace WarGame
         {
             return ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _id);
         }
+
+        public virtual void FocusIn(GameObject obj)
+        { }
     }
 }

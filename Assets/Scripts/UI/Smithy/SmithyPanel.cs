@@ -16,6 +16,7 @@ namespace WarGame.UI
         private int _selectEquip = 0;
         private CommonResComp _resComp;
         private GTextField _name;
+        private GTextField _cost;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -36,6 +37,7 @@ namespace WarGame.UI
             GetGObjectChild<GButton>("buyBtn").onClick.Add(OnClickBuy);
 
             _name = GetGObjectChild<GTextField>("name");
+            _cost = GetGObjectChild<GTextField>("costTxt");
 
             EventDispatcher.Instance.AddListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
 
@@ -65,13 +67,20 @@ namespace WarGame.UI
                 else
                     attrsDic[v.id] += v.value;
             }
-
             foreach (var v in attrsDic)
                 _attrsData.Add(new IntFloatPair(v.Key, v.Value));
-
             _attrsList.numItems = _attrsData.Count;
 
             _name.text = equipConfig.Name;
+            var ownNum = DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes);
+            if (ownNum >= equipConfig.Cost)
+            {
+                _cost.text = "[color=#5C8799]" + ownNum + "/" + equipConfig.Cost + "[/color]";
+            }
+            else
+            {
+                _cost.text = "[color=#CE4A35]" + ownNum + "/" + equipConfig.Cost + "[/color]";
+            }
         }
 
         private void OnEquipRenderer(int index, GObject item)

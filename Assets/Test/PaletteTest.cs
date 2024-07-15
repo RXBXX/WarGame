@@ -23,7 +23,7 @@ public class PaletteTest : MonoBehaviour
     [ExecuteInEditMode]
     public void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        Debug.Log("OnRenderImage");
+        //Debug.Log("OnRenderImage");
         Graphics.Blit(source, destination, material);
     }
 }

@@ -11,11 +11,15 @@ namespace WarGame.UI
         private Dictionary<int, MapMark> _levelsDic = new Dictionary<int, MapMark>();
         private GTweener _tweener = null;
         private MapSky _sky;
+        private GButton _smithyBtn;
+        private GButton _heroBtn;
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            GetGObjectChild<GButton>("smithyBtn").onClick.Add(OnClickSmithy);
-            GetGObjectChild<GButton>("heroBtn").onClick.Add(OnClickHero);
+            _smithyBtn = GetGObjectChild<GButton>("smithyBtn");
+            _smithyBtn.onClick.Add(OnClickSmithy);
+            _heroBtn = GetGObjectChild<GButton>("heroBtn");
+            _heroBtn.onClick.Add(OnClickHero);
             _sky = GetChild<MapSky>("sky");
         }
 
@@ -61,10 +65,14 @@ namespace WarGame.UI
                     OnChangeLOD(1);
             }
 
+            var newScale = Vector2.one * 1 / scale.x;
             foreach (var v in _levelsDic)
             {
-                v.Value.SetScale(Vector2.one * 1 / scale.x);
+                v.Value.SetScale(newScale);
             }
+
+            _smithyBtn.scale = newScale;
+            _heroBtn.scale = newScale;
 
             _gCom.scale = scale;
             _gCom.xy = pos;

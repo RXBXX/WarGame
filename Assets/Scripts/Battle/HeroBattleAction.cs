@@ -7,7 +7,6 @@ namespace WarGame
 {
     public class HeroBattleAction : BattleAction
     {
-        //private int _touchingID = 0;
         protected int _touchingHexagon = -1;
 
         public HeroBattleAction(int id) : base(id)
@@ -77,6 +76,9 @@ namespace WarGame
                 _touchingHexagon = -1;
                 MapManager.Instance.ClearMarkedPath();
             }
+
+            if (null != _skillAction)
+                _skillAction.FocusIn(obj);
         }
 
         public override void OnClick(GameObject obj)

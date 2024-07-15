@@ -16,6 +16,7 @@ namespace WarGame.UI
         private Controller _hpVisibleC;
         private GLoader _elementLoader;
         private Transition _warning;
+        private float _hpValue;
 
         public HUDRole(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -39,6 +40,7 @@ namespace WarGame.UI
 
         private void Init(float HP, float totalHP, float rage, float totalRage, Enum.Element element)
         {
+            _hpValue = HP;
             _hp.max = totalHP;
             _hp.value = HP;
 
@@ -80,11 +82,12 @@ namespace WarGame.UI
 
         public void UpdateHP(float hp)
         {
-            if (hp == _hp.value)
+            if (hp == _hpValue)
                 return;
             GTween.Kill(_hp);
-            float duration = (float)(Mathf.Abs(hp - (float)_hp.value) / _hp.max) * 0.4F;
-            _hp.TweenValue(hp, duration);
+            _hpValue = hp;
+            float duration = (float)(Mathf.Abs(_hpValue - (float)_hp.value) / _hp.max) * 0.4F;
+            _hp.TweenValue(_hpValue, duration);
         }
 
         public void UpdateRage(float rage)
@@ -132,6 +135,23 @@ namespace WarGame.UI
         {
             _warning.Play();
             return _warning.totalDuration;
+        }
+
+        public void Preview(float deltaHP)
+        {
+            if (0 == deltaHP)
+                return;
+
+            GTween.Kill(_hp);
+            var targetHP = _hpValue - deltaHP;
+            float duration = (float)(Mathf.Abs(targetHP - (float)_hp.value) / _hp.max) * 0.4F;
+            _hp.TweenValue(targetHP, duration);
+        }
+
+        public void CancelPreview()
+        {
+            GTween.Kill(_hp);
+            _hp.value = _hpValue;
         }
 
         public override void Dispose(bool disposeGComp = false)

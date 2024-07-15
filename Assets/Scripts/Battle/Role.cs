@@ -986,6 +986,16 @@ namespace WarGame
         {
         }
 
+        public void Preview(float hurt)
+        {
+            GetHUDRole().Preview(hurt);
+        }
+
+        public void CancelPreview()
+        {
+            GetHUDRole().CancelPreview();
+        }
+
         public override bool Dispose()
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Role_Dispose, new object[] { ID });
