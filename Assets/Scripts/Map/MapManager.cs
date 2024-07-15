@@ -75,11 +75,22 @@ namespace WarGame
             return true;
         }
 
-        public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments)
+        public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin)
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
             _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
             _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("OrnamentRoot"));
+
+            if (null != lightingPlugin)
+            {
+                GameObject.Find("Directional Light").GetComponent<Light>().color = lightingPlugin.DirLightColor;
+                AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/Skyboxs/" + lightingPlugin.Sky + ".mat", (mat) =>
+                {
+                    RenderSettings.skybox = mat;
+                    RenderSettings.skybox.SetColor("_Tint", lightingPlugin.TintColor);
+                    RenderSettings.skybox.SetFloat("_Exposure", lightingPlugin.Intensity);
+                });
+            }
         }
 
         public void UpdateRound(int round)

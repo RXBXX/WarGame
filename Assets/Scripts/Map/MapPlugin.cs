@@ -79,12 +79,14 @@ namespace WarGame
         public string Sky;
         public Vector4 TintColor;
         public float Intensity;
+        public Vector4 DirLightColor;
 
-        public LightingPlugin(string sky, Vector4 tintColor, float intensity)
+        public LightingPlugin(string sky, Vector4 tintColor, float intensity, Vector4 dirLightColor)
         {
             this.Sky = sky;
             this.TintColor = tintColor;
-            Intensity = intensity;
+            this. Intensity = intensity;
+            this.DirLightColor = dirLightColor;
         }
     }
 
@@ -95,13 +97,15 @@ namespace WarGame
         public NewEnemyMapPlugin[] enemys;
         public BonfireMapPlugin[] bonfires;
         public OrnamentMapPlugin[] ornaments;
+        public LightingPlugin lightingPlugin;
 
-        public LevelMapPlugin(HexagonMapPlugin[] hexagons, NewEnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments)
+        public LevelMapPlugin(HexagonMapPlugin[] hexagons, NewEnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin)
         {
             this.hexagons = hexagons;
             this.enemys = enemys;
             this.bonfires = bonfires;
             this.ornaments = ornaments;
+            this.lightingPlugin = lightingPlugin;
         }
     }
 }

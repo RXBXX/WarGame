@@ -25910,5 +25910,41 @@
         "z": 0.0
       }
     }
-  ]
+  ],
+  "lightingPlugin": {
+    "Sky": "Midgard 09",
+    "TintColor": {
+      "x": 0.644204736,
+      "y": 0.644204736,
+      "z": 0.644204736,
+      "w": 0.5,
+      "normalized": {
+        "x": 0.526869953,
+        "y": 0.526869953,
+        "z": 0.526869953,
+        "w": 0.40893054,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 1.22270155,
+      "sqrMagnitude": 1.49499917
+    },
+    "Intensity": 0.998017848,
+    "DirLightColor": {
+      "x": 0.8719676,
+      "y": 0.961455166,
+      "z": 1.0,
+      "w": 0.0,
+      "normalized": {
+        "x": 0.532170236,
+        "y": 0.5867853,
+        "z": 0.6103096,
+        "w": 0.0,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 1.63851261,
+      "sqrMagnitude": 2.68472362
+    }
+  }
 }

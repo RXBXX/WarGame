@@ -46,6 +46,8 @@ public class Test : MonoBehaviour
             }
             UnityEngine.Profiling.Profiler.EndSample();
         }
+
+        DebugManager.Instance.Log(this.transform.eulerAngles);
     }
 
     private void Callback(GameObject go)

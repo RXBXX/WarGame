@@ -201,9 +201,11 @@ namespace WarGame
                 ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, rotation);
             }
 
-            //var lightingPlugin = new LightingPlugin(RenderSettings.ambientLight);
+            var skyBox = RenderSettings.skybox;
+            var mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+            var lightingPlugin = new LightingPlugin(skyBox.name, skyBox.GetColor("_Tint"), skyBox.GetFloat("_Exposure"), mainLight.color);
 
-            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments);
+            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments, lightingPlugin);
 
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
             Tool.Instance.WriteJson<LevelMapPlugin>(dir, levelPlugin);
@@ -222,7 +224,7 @@ namespace WarGame
             var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "json");
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
-            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments);
+            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments, levelPlugin.lightingPlugin);
 
             RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
         }
