@@ -220,30 +220,61 @@ namespace WarGame
         }
 
         /// <summary>
+        /// ¹¥»÷
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoAttack(int initiatorID, List<int> targets)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+
+                var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
+                var rd = Random.Range(0, 1.0f);
+                if (rd < dodgeRatio)
+                {
+                    target.Dodge();
+                }
+                else
+                {
+                    var hurt = GetAttackValue(initiatorID, v);
+                    target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+                    target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+                    CameraMgr.Instance.ShakePosition();
+                }
+            }
+        }
+
+        /// <summary>
         /// ËøÁ´¹¥»÷
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoChainAttack(int initiatorID, int targetID)
+        public void DoChainAttack(int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var target = RoleManager.Instance.GetRole(targetID);
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
 
-            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+                var physicalDefense = GetPhysicalDefensePower(initiatorID, v);
+                AddReport(v, Enum.AttrType.PhysicalDefense, physicalDefense);
 
-            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+                var magicDefense = GetMagicDefensePower(initiatorID, v);
+                AddReport(v, Enum.AttrType.MagicDefense, magicDefense);
 
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+                var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, v) - physicalDefense);
+                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+                var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, v) - magicDefense);
+                AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-            var hurt = physicalHurt + magicHurt;
-            target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
-            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+                var hurt = physicalHurt + magicHurt;
+                target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+            }
             CameraMgr.Instance.ShakePosition();
         }
 

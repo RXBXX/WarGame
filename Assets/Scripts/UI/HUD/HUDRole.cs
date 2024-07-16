@@ -86,17 +86,17 @@ namespace WarGame.UI
                 return;
             GTween.Kill(_hp);
             _hpValue = hp;
-            float duration = (float)(Mathf.Abs(_hpValue - (float)_hp.value) / _hp.max) * 0.4F;
+            float duration = (float)(Mathf.Abs(_hpValue - (float)_hp.value) / _hp.max) * 0.2F;
             _hp.TweenValue(_hpValue, duration);
         }
 
         public void UpdateRage(float rage)
         {
-            //DebugManager.Instance.Log("UpdateRage:"+rage);
             if (rage == _rage.value)
                 return;
+
             GTween.Kill(_rage);
-            float duration = (float)(Mathf.Abs(rage - (float)_rage.value) / _rage.max) * 0.4F;
+            float duration = (float)(Mathf.Abs(rage - (float)_rage.value) / _rage.max) * 0.2F;
             _rage.TweenValue(rage, duration);
         }
 
@@ -141,10 +141,9 @@ namespace WarGame.UI
         {
             if (0 == deltaHP)
                 return;
-
             GTween.Kill(_hp);
             var targetHP = _hpValue - deltaHP;
-            float duration = (float)(Mathf.Abs(targetHP - (float)_hp.value) / _hp.max) * 0.4F;
+            float duration = (float)(Mathf.Abs(targetHP - (float)_hp.value) / _hp.max) * 0.2F;
             _hp.TweenValue(targetHP, duration);
         }
 

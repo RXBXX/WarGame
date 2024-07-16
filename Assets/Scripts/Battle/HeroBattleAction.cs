@@ -346,6 +346,8 @@ namespace WarGame
 
             var role = RoleManager.Instance.GetRole(_initiatorID);
             role.SetState(Enum.RoleState.WaitingOrder);
+            var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
+            MapManager.Instance.MarkingRegion(hexagonID, 0, role.GetAttackDis(), Enum.RoleType.Hero);
         }
 
         private void OnClickAttack(object[] args)

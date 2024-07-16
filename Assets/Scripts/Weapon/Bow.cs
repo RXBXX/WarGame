@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -7,7 +8,7 @@ namespace WarGame
     {
         private Animator _bowAnimator;
         private Animator _arrowAnimator;
-        private Tween _tweener;
+        private List<Tweener> _tweeners = new List<Tweener>();
 
         public Bow(EquipmentData data, Transform spineRoot) : base(data, spineRoot)
         { }
@@ -24,46 +25,64 @@ namespace WarGame
             _arrowAnimator = _viceGO.GetComponent<Animator>();
         }
 
-        public override void Attack(Vector3 targetPos)
+        public override void Attack(List<Vector3> hitPoss)
         {
-            //DebugManager.Instance.Log("Attack");
-            _targetPos = targetPos;
+            _hitPoss = hitPoss;
             if (null != _bowAnimator)
                 _bowAnimator.Play("Attack");
             if (null != _arrowAnimator)
                 _arrowAnimator.Play("Attack");
+
+            _bulletAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Bullet, (GameObject prefab) =>
+            {
+                for (int i = 0; i < _hitPoss.Count; i++)
+                {
+                    var bullet = GameObject.Instantiate(prefab);
+                    _bulletGOs.Add(bullet);
+                    Tool.SetLayer(bullet.transform, Enum.Layer.Gray);
+                    bullet.SetActive(false);
+                }
+            });
         }
 
         protected override void BulletTake()
         {
+            if (null == _bulletGOs)
+                return;
+
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_arrowAnimator, "Attack01_Combo0102_Arrow");
             var duration = timeDic["Bullet_End"] - timeDic["Bullet_Take"];
 
-            _bulletAssetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Bullet, (prefab) =>
+            for (int i = 0; i < _hitPoss.Count; i++)
             {
-                _bulletGO = GameObject.Instantiate(prefab);
-                Tool.SetLayer(_bulletGO.transform, Enum.Layer.Gray);
-                Trail trail;
-                if (_bulletGO.TryGetComponent<Trail>(out trail))
-                {
-                    trail.enabled = true;
-                }
-                _bulletGO.transform.position = _gameObject.transform.position;
-                var forward = _targetPos - _gameObject.transform.position;
-                _bulletGO.transform.forward = forward;
-                var tp = _targetPos - forward.normalized;
-                _tweener = _bulletGO.transform.DOMove(tp, duration);
-            });
+                var bullet = _bulletGOs[i];
+                bullet.SetActive(true);
+                bullet.transform.position = _viceGO.transform.position;
+                bullet.transform.localScale = _viceGO.transform.lossyScale;
+                bullet.transform.rotation = _viceGO.transform.rotation;
+
+                var forward = (_hitPoss[i] - _gameObject.transform.position).normalized;
+                bullet.transform.forward = forward;
+                _tweeners.Add(bullet.transform.DOMove(_hitPoss[i] - _viceGO.transform.lossyScale.x * forward, duration));
+            }
         }
 
         protected override void BulletEnd()
         {
-            if (null != _tweener)
-            {
-                _tweener.Kill();
-                _tweener = null;
-            }
+            foreach (var v in _tweeners)
+                v.Kill();
+            _tweeners.Clear();
+
             base.BulletEnd();
+        }
+
+        public override bool Dispose()
+        {
+            foreach (var v in _tweeners)
+                v.Kill();
+            _tweeners.Clear();
+
+            return base.Dispose();
         }
     }
 }

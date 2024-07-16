@@ -104,13 +104,13 @@ namespace WarGame.UI
             if ((Enum.AttrType)args[1] == Enum.AttrType.HP)
             {
                 var progress = _roleDic[senderID].hp;
-                var duration = (float)(Mathf.Abs(target.GetHP() - (float)progress.value) / progress.max);
+                var duration = (float)(Mathf.Abs(target.GetHP() - (float)progress.value) / progress.max) * 0.2f;
                 progress.TweenValue(target.GetHP(), duration);
             }
             else
             {
                 var progress = _roleDic[senderID].rage;
-                var duration = (float)(Mathf.Abs(target.GetRage() - (float)progress.value) / progress.max);
+                var duration = (float)(Mathf.Abs(target.GetRage() - (float)progress.value) / progress.max) * 0.2f;
                 progress.TweenValue(target.GetRage(), duration);
             }
         }

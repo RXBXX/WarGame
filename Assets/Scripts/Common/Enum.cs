@@ -190,6 +190,7 @@ namespace WarGame
             MagicAttackRatio = 14, //魔法增伤
             RageRecover = 15, //怒气回复
             HPRecover = 16, //脱战血量回复
+            AttackRange = 17, //攻击范围
         }
 
         //数值类型

@@ -60,7 +60,7 @@ namespace WarGame
 
 		Coroutine update = null;
 
-		public Color color;
+		public Color color = Color.red;
 
 		/// <summary>
 		/// The array of Vector3 points to connect.
@@ -106,7 +106,7 @@ namespace WarGame
 			meshRenderer.material = material;
 			meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
-			meshRenderer.material.SetColor("_TintColor", color);
+			meshRenderer.material.SetColor("_Color", color);
 			Initialize((int)(duration / Time.fixedDeltaTime));
 		}
 

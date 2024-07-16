@@ -295,7 +295,7 @@ namespace WarGame
             EnterState("Move");
         }
 
-        public virtual void Attack(Vector3 targetPos)
+        public virtual void Attack(List<Vector3> hitPoss)
         {
             _isAttacking = true;
 
@@ -303,7 +303,7 @@ namespace WarGame
 
             foreach (var e in _equipDic)
             {
-                e.Value.Attack(targetPos);
+                e.Value.Attack(hitPoss);
             }
         }
 
@@ -743,12 +743,17 @@ namespace WarGame
 
         public Vector3 GetEffectPos()
         {
-            return GetPosition() + new Vector3(0, 0.6F, 0);
+            return _gameObject.transform.Find("effectPoint").position;
+        }
+
+        public Vector3 GetHitPos()
+        {
+            return _gameObject.transform.Find("hitPoint").position;
         }
 
         public GameObject GetEffectPoint()
         {
-            return _gameObject.transform.Find("root/pelvis/spine_01/spine_02/spine_03/neck_01/head").gameObject;
+            return _gameObject.transform.Find("hitPoint").gameObject;
         }
 
         public void AddEffects(List<IntFloatPair> effects)
@@ -957,6 +962,7 @@ namespace WarGame
                 {
                     var GO = GameObject.Instantiate<GameObject>(go);
                     GO.transform.SetParent(_gameObject.transform, false);
+                    go.transform.position = GetEffectPos();
                     newAP.Obj = GO;
                 });
                 _buffEffectDic[id].Add(newAP);

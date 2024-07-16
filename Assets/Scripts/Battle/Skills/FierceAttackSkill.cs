@@ -29,7 +29,12 @@ namespace WarGame
         protected override void TriggerSkill()
         {
             base.TriggerSkill();
-            RoleManager.Instance.GetRole(_initiatorID).Attack(RoleManager.Instance.GetRole(_targets[0]).GetEffectPos());
+            var hitPoss = new List<Vector3>();
+            foreach (var v in _targets)
+            {
+                hitPoss.Add(RoleManager.Instance.GetRole(v).GetHitPos());
+            }
+            RoleManager.Instance.GetRole(_initiatorID).Attack(hitPoss);
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -39,18 +44,23 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoAttack(_initiatorID, _targets[0]);
+                BattleMgr.Instance.DoAttack(_initiatorID, _targets);
+                //BattleMgr.Instance.DoAttack(_initiatorID, _targets[0]);
             }
         }
 
         private void OnAttackedEnd(object[] args)
         {
             var sender = (int)args[0];
-            if (sender != _targets[0])
+            if (!_targets.Contains(sender))
                 return;
 
             var target = RoleManager.Instance.GetRole(sender);
             if (target.IsDead())
+                return;
+
+            _targets.Remove(sender);
+            if (_targets.Count > 0)
                 return;
 
             if (null != _coroutine)
@@ -62,8 +72,13 @@ namespace WarGame
 
         private void OnDeadEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            var sender = (int)args[0];
+            if (!_targets.Contains(sender))
+                return;
+
+            _targets.Remove(sender);
+
+            if (_targets.Count > 0)
                 return;
 
             if (null != _coroutine)
@@ -75,8 +90,13 @@ namespace WarGame
 
         private void OnDodgeEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            var sender = (int)args[0];
+            if (!_targets.Contains(sender))
+                return;
+
+            _targets.Remove(sender);
+
+            if (_targets.Count > 0)
                 return;
 
             if (null != _coroutine)
@@ -102,15 +122,19 @@ namespace WarGame
                 }
             }
 
-            if (touchingID != _touchingID && 0 != _touchingID)
+            if (touchingID != _touchingID)
             {
-                RoleManager.Instance.GetRole(_touchingID).CancelPreview();
-            }
-            if (0 != touchingID)
-            {
-                _touchingID = touchingID;
-                var hurt = BattleMgr.Instance.GetAttackValue(_initiatorID, touchingID);
-                RoleManager.Instance.GetRole(_touchingID).Preview(hurt);
+                if (0 != _touchingID)
+                {
+                    RoleManager.Instance.GetRole(_touchingID).CancelPreview();
+                    _touchingID = 0;
+                }
+                if (0 != touchingID)
+                {
+                    _touchingID = touchingID;
+                    var hurt = BattleMgr.Instance.GetAttackValue(_initiatorID, touchingID);
+                    RoleManager.Instance.GetRole(_touchingID).Preview(hurt);
+                }
             }
         }
     }

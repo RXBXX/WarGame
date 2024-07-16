@@ -519,9 +519,7 @@ namespace WarGame
         {
             if (!itemsDic.ContainsKey(itemId))
                 return;
-            DebugManager.Instance.Log("RemoveItem:" + num);
             itemsDic[itemId] = Math.Max(itemsDic[itemId] - num, 0);
-            DebugManager.Instance.Log("RemoveItem:" + itemsDic[itemId]);
         }
 
         public void Save()
@@ -603,8 +601,12 @@ namespace WarGame
             rd.AddHero(10001);
             rd.AddHero(10002);
 
-            //rd.AddEquip(10003);
-            //rd.AddEquip(10004);
+            rd.AddEquip(10015);
+            rd.AddEquip(10056);
+
+            //rd.AddItem((int)Enum.ItemType.EquipRes, 10000);
+            //rd.AddItem((int)Enum.ItemType.LevelRes, 10000);
+            //rd.AddItem((int)Enum.ItemType.TalentRes, 10000);
 
             _customRecordDic.Add(rd.ID, rd);
             _usingDataID = rd.ID;

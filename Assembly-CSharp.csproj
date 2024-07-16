@@ -309,6 +309,7 @@
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\ShaderConfig.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\TextField.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\CommonTipsPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapScroll.cs" />
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
@@ -448,7 +449,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Event\EventBridge.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\ParticleS\ParticleAddShader.shader" />
+    <None Include="Assets\Shaders\TrailShader.shader" />
     <None Include="Assets\Shaders\ChainShader.shader" />
     <None Include="Assets\Shaders\OutlineProcessing.shader" />
     <None Include="Assets\Shaders\HexagonInstancedToonShader.shader" />

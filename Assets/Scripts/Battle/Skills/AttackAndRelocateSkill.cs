@@ -30,7 +30,12 @@ namespace WarGame
         protected override void TriggerSkill()
         {
             base.TriggerSkill();
-            RoleManager.Instance.GetRole(_initiatorID).Attack(RoleManager.Instance.GetRole(_targets[0]).GetEffectPos());
+            var hitPoss = new List<Vector3>();
+            foreach (var v in _targets)
+            {
+                hitPoss.Add(RoleManager.Instance.GetRole(v).GetHitPos());
+            }
+            RoleManager.Instance.GetRole(_initiatorID).Attack(hitPoss);
         }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)

@@ -67,37 +67,37 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9866995
-        functionName: PlayEvent
-        data: Effect_End
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9944316
-        functionName: PlayEvent
-        data: Attack_End
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.87680614
+      - time: 0.8313065
         functionName: PlayEvent
         data: Bullet_Take
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9427021
+      - time: 0.9705923
+        functionName: PlayEvent
+        data: Attack_Take
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9927875
         functionName: PlayEvent
         data: Bullet_End
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9279622
+      - time: 0.9960115
         functionName: PlayEvent
-        data: Attack_Take
+        data: Effect_End
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: PlayEvent
+        data: Attack_End
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
