@@ -1,11 +1,14 @@
 using WarGame.UI;
 using UnityEngine;
 using FairyGUI;
+using System.Collections.Generic;
 
 namespace WarGame
 {
     public class Hero:Role
     {
+        private ParticleSystem _smoke;
+
         public Hero(LevelRoleData data) : base(data)
         {
             _type = Enum.RoleType.Hero;
@@ -16,6 +19,14 @@ namespace WarGame
         {
             base.OnCreate(go);
             _gameObject.tag = Enum.Tag.Hero.ToString();
+
+            var smoke = _gameObject.transform.Find("smoke");
+            if (null != smoke)
+            {
+                smoke.gameObject.SetActive(true);
+                _smoke = smoke.GetComponent<ParticleSystem>();
+                StopSmoke();
+            }
         }
 
         protected override void CreateHUD()
@@ -60,6 +71,34 @@ namespace WarGame
                 return false;
 
             return base.CanAction();
+        }
+
+        public override void Move(List<int> hexagons)
+        {
+            PlaySmoke();
+            base.Move(hexagons);
+        }
+
+        public override void MoveEnd()
+        {
+            StopSmoke();
+            base.MoveEnd();
+        }
+
+        private void PlaySmoke()
+        {
+            if (null == _smoke)
+                return;
+            var emisson = _smoke.emission;
+            emisson.enabled = true;
+        }
+
+        private void StopSmoke()
+        {
+            if (null == _smoke)
+                return;
+            var emisson = _smoke.emission;
+            emisson.enabled = false;
         }
     }
 }
