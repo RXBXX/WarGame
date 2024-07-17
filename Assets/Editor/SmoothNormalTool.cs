@@ -93,6 +93,7 @@ namespace WarGame
 
             var sqrt = Mathf.CeilToInt(Mathf.Sqrt(tangents.Length));
             var texture = new Texture2D(sqrt, sqrt, TextureFormat.RGBA32, false);
+            //Debug.Log("Write" + sqrt * sqrt);
             for (int i = 0; i < sqrt; i++)
             {
                 for (int j = 0; j < sqrt; j++)
@@ -100,14 +101,23 @@ namespace WarGame
                     var index = i * sqrt + j;
                     if (index >= tangents.Length)
                         break;
-                    texture.SetPixel(i, j, new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2)); ;
+                    //Debug.Log(i+"_"+j +":"+ new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2));
+                    texture.SetPixel(i, j, new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2));
                 }
             }
             texture.Apply();
             var bytes = texture.EncodeToPNG();
             File.WriteAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png", bytes);
-
             GameObject.DestroyImmediate(texture);
+
+            AssetDatabase.Refresh();
+
+            string path = "Assets/Textures/MeshTagentTex/" + mesh.name + ".png";
+            TextureImporter import = AssetImporter.GetAtPath(path) as TextureImporter;
+            import.isReadable = true;
+            import.npotScale = TextureImporterNPOTScale.None;
+            
+            AssetDatabase.ImportAsset(path);
 
             DebugManager.Instance.Log("成功写入切线数据：" + mesh.name);
         }

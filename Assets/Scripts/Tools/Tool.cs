@@ -193,6 +193,7 @@ namespace WarGame
             int assetID = 0;
             assetID = AssetsMgr.Instance.LoadAssetAsync<Texture2D>("Assets/Textures/MeshTagentTex/" + mesh.name + ".png", (texture) =>
             {
+                //Debug.Log("Read:" + texture.width);
                 Vector4[] tangents = new Vector4[mesh.vertices.Length];
                 for (int i = 0; i < texture.width; i++)
                 {
@@ -202,6 +203,7 @@ namespace WarGame
                         if (index >= mesh.vertices.Length)
                             break;
                         var color = texture.GetPixel(i, j);
+                        //Debug.Log(i + "_" + j + ":" + color);
                         tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
                     }
                 }
