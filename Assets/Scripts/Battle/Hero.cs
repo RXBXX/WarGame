@@ -20,7 +20,7 @@ namespace WarGame
             base.OnCreate(go);
             _gameObject.tag = Enum.Tag.Hero.ToString();
 
-            var smoke = _gameObject.transform.Find("smoke");
+            var smoke = _gameObject.transform.Find("root/pelvis/smoke");
             if (null != smoke)
             {
                 smoke.gameObject.SetActive(true);

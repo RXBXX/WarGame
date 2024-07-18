@@ -9,7 +9,7 @@ namespace WarGame
         private float _time = 0;
         private float day = 1800f;
 
-        public Weather(float time = 0)
+        public Weather(float time = 1000)
         {
             if (0 == time)
                 _time = day / 4;
