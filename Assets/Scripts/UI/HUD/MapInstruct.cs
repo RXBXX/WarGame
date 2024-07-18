@@ -1,4 +1,5 @@
 using FairyGUI;
+using UnityEngine;
 
 namespace WarGame.UI
 {
@@ -52,6 +53,20 @@ namespace WarGame.UI
         private void OnAttackEvent(object[] args)
         {
             _stateC.SetSelectedIndex(2);
+        }
+
+        protected override void UpdatePosition()
+        {
+            var pos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(_gameObject.transform.position);
+            pos.y = Screen.height - pos.y;
+            pos = GRoot.inst.GlobalToLocal(pos) + _offset;// new Vector2(pos.x / Screen.width * GRoot.inst.width, (Screen.height - pos.y) / Screen.height * GRoot.inst.height) + _offset;
+            if (_gCom.position != pos)
+                _gCom.position = pos;
+
+            var dis = Vector3.Distance(CameraMgr.Instance.MainCamera.transform.position, _gameObject.transform.position);
+            var scale = 6.0F / dis * Vector2.one;
+            if (scale != _gCom.scale)
+                _gCom.scale = scale;
         }
 
         public override void Dispose(bool disposeGComp = false)

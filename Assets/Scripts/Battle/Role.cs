@@ -540,7 +540,11 @@ namespace WarGame
         public override Vector3 GetPosition()
         {
             return _position;
-            //return _gameObject.transform.position;
+        }
+
+        public Vector3 GetFollowPos()
+        {
+            return _position + new Vector3(0, 0.8f, 0);
         }
 
         public void SetForward(Vector3 forward)

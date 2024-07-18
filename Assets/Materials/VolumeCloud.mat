@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 51d9f77b879de204ab6ebe8611a7611e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -72,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Weather:
-        m_Texture: {fileID: 2800000, guid: 8fc215f79732302438d9de231638917d, type: 3}
+        m_Texture: {fileID: 2800000, guid: d29a5c7f3fb527a46bdda059ee8d25c7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Weather2:
@@ -86,13 +86,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Absorption: 0
-    - _Alpha: 0.346
-    - _BP: 0.142
+    - _Alpha: 0.119
+    - _BP: 0.2
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _G: 0.498
+    - _G: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -108,8 +108,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BoundsMax: {r: 70, g: 6, b: 70, a: 1}
-    - _BoundsMin: {r: -10, g: -1, b: -10, a: 1}
+    - _BoundsMax: {r: 500, g: 50, b: 500, a: 1}
+    - _BoundsMin: {r: -200, g: -5, b: -200, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

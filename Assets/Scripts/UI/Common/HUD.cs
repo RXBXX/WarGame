@@ -8,7 +8,7 @@ namespace WarGame.UI
     public class HUD : UIBase
     {
         protected GameObject _gameObject;
-        private Vector2 _offset;
+        protected Vector2 _offset;
         //public HUD(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         //{
         //    UILayer = Enum.UILayer.HUDLayer;

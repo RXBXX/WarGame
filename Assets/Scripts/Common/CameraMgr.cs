@@ -9,7 +9,7 @@ namespace WarGame
         private float _moveSpeed = 0.5F;
         private float _zoomSpeed = 5.0f;
         private float _rotateSpeed = 2.0f;
-        private float _maxDistance = 30.0f;
+        private float _maxDistance = 20.0f;
         private float _minDistance = 8.0f;
         private Tweener _tweener;
         private int _targetID;
@@ -100,7 +100,7 @@ namespace WarGame
                     _cameraDis = tempCameraDis;
 
                     var target = RoleManager.Instance.GetRole(_targetID);
-                    MainCamera.transform.position = target.GetPosition() - MainCamera.transform.forward * _cameraDis;
+                    MainCamera.transform.position = target.GetFollowPos() - MainCamera.transform.forward * _cameraDis;
                 }
             }
 
@@ -110,7 +110,7 @@ namespace WarGame
                 float yAxis = Input.GetAxis("Mouse Y") * _rotateSpeed;
 
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var targetPos = target.GetPosition();
+                var targetPos = target.GetFollowPos();
                 if (0 != xAxis)
                 {
                     MainCamera.transform.RotateAround(targetPos, Vector3.up, xAxis);
@@ -122,15 +122,15 @@ namespace WarGame
                     var side2 = side1 - new Vector3(0, side1.y, 0);
                     var angle = Mathf.Acos(Vector3.Distance(side2, Vector3.zero) / Vector3.Distance(side1, Vector3.zero)) * 180 / Mathf.PI;
 
-                    if (angle + yAxis > 20 && angle + yAxis < 50)
+                    if (angle + yAxis > 6 && angle + yAxis < 60)
                     {
                         MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
                     }
-                    else if (yAxis < 0 && angle + yAxis > 50)
+                    else if (yAxis < 0 && angle + yAxis > 60)
                     {
                         MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
                     }
-                    else if (yAxis > 0 && angle + yAxis < 20)
+                    else if (yAxis > 0 && angle + yAxis < 6)
                     {
                         MainCamera.transform.RotateAround(targetPos, MainCamera.transform.right, yAxis);
                     }
@@ -243,7 +243,7 @@ namespace WarGame
             _targetID = targetID;
             var target = RoleManager.Instance.GetRole(_targetID);
             target.SetFollowing(true);
-            _tweener = MainCamera.transform.DOMove(target.GetPosition() - _cameraDis * MainCamera.transform.forward, 0.4F).SetEase(Ease.InOutCirc);
+            _tweener = MainCamera.transform.DOMove(target.GetFollowPos() - _cameraDis * MainCamera.transform.forward, 0.4F).SetEase(Ease.InOutCirc);
             _tweener.onComplete = (() => { KillTweener(); });
         }
 
@@ -282,7 +282,7 @@ namespace WarGame
             {
                 minRoleID = targetID;
                 var minRole = RoleManager.Instance.GetRole(minRoleID);
-                minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, minRole.GetPosition());
+                minRoleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, minRole.GetFollowPos());
             }
 
             for (int i = 0; i < roles.Count; i++)
@@ -294,7 +294,7 @@ namespace WarGame
                 }
 
 
-                var roleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[i].GetPosition());
+                var roleToViewCenterDirDistance = Tool.GetDistancePointToLine(MainCamera.transform.position, MainCamera.transform.forward, roles[i].GetFollowPos());
                 if (0 == minRoleID || roleToViewCenterDirDistance < minRoleToViewCenterDirDistance)
                 {
                     minRoleID = roles[i].ID;
@@ -349,6 +349,11 @@ namespace WarGame
             MainCamera.transform.position = target.GetPosition() - MainCamera.transform.forward * _cameraDis;
             CloseGray();
         }
+
+        //private Vector3 GetViewCenter()
+        //{ 
+        
+        //}
 
         public override bool Dispose()
         {

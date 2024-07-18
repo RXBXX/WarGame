@@ -81,16 +81,16 @@ namespace WarGame
             _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
             _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("OrnamentRoot"));
 
-            if (null != lightingPlugin)
-            {
-                GameObject.Find("Directional Light").GetComponent<Light>().color = lightingPlugin.DirLightColor;
-                AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/Skyboxs/" + lightingPlugin.Sky + ".mat", (mat) =>
-                {
-                    RenderSettings.skybox = mat;
-                    RenderSettings.skybox.SetColor("_Tint", lightingPlugin.TintColor);
-                    RenderSettings.skybox.SetFloat("_Exposure", lightingPlugin.Intensity);
-                });
-            }
+            //if (null != lightingPlugin)
+            //{
+            //    GameObject.Find("Directional Light").GetComponent<Light>().color = lightingPlugin.DirLightColor;
+            //    AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/Skyboxs/" + lightingPlugin.Sky + ".mat", (mat) =>
+            //    {
+            //        RenderSettings.skybox = mat;
+            //        RenderSettings.skybox.SetColor("_Tint", lightingPlugin.TintColor);
+            //        RenderSettings.skybox.SetFloat("_Exposure", lightingPlugin.Intensity);
+            //    });
+            //}
         }
 
         public void UpdateRound(int round)
