@@ -177,7 +177,7 @@ namespace WarGame
                 case Enum.Element.Metal:
                     return new Color(1.0F, 0.8991F, 0.7803f, 1.0f);
                 case Enum.Element.Water:
-                    return new Color(0.9991F, 0.9426F, 1.0f, 1.0f);
+                    return new Color(0.9097F, 0.9595F, 1.0f, 1.0f);
                 case Enum.Element.Wood:
                     return new Color(0.9047F, 0.9583F, 0.9946f, 1.0f);
                 default:

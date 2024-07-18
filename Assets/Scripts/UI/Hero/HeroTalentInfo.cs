@@ -14,6 +14,8 @@ namespace WarGame.UI
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
         private GButton _activeBtn;
+        private Controller _type;
+        private GTextField _costTxt;
 
         public HeroTalentInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
@@ -27,6 +29,9 @@ namespace WarGame.UI
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
             _activeBtn = GetGObjectChild<GButton>("btn");
             _activeBtn.onClick.Add(OnClick);
+
+            _type = GetController("type");
+            _costTxt = GetGObjectChild<GTextField>("cost");
         }
 
         private void OnAttrRenderer(int index, GObject item)
@@ -59,7 +64,22 @@ namespace WarGame.UI
             SetPosition((Vector2)args[2]);
             SetVisible(true);
 
-            _activeBtn.visible = DatasMgr.Instance.CanHeroTalentActive(_heroUID, _talentID);
+            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes);
+            if (DatasMgr.Instance.IsHeroTalentActive(_heroUID, _talentID))
+                _type.SetSelectedIndex(0);
+            else
+            {
+                if (!DatasMgr.Instance.CanHeroTalentActive(_heroUID, _talentID))
+                    _type.SetSelectedIndex(3);
+                else
+                {
+                    if (resCount >= talentConfig.Cost)
+                        _type.SetSelectedIndex(1);
+                    else
+                        _type.SetSelectedIndex(2);
+                }
+            }
+            _costTxt.text = string.Format("{0}/{1}", resCount, talentConfig.Cost);
         }
 
         private void OnClick()

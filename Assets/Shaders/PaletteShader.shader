@@ -45,10 +45,42 @@ Shader "Custome/PaletteShader"
                 return o;
             }
 
+            // RGB to HSV conversion
+            void RGBToHSV(float3 rgb, out float3 hsv)
+            {
+                float4 K = float4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+                float4 p = lerp(float4(rgb.bg, K.wz), float4(rgb.gb, K.xy), step(rgb.b, rgb.g));
+                float4 q = lerp(float4(p.xyw, rgb.r), float4(rgb.r, p.yzx), step(p.x, rgb.r));
+
+                float d = q.x - min(q.w, q.y);
+                float e = 1.0e-10;
+                hsv = float3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+            }
+
+            // HSV to RGB conversion
+            float3 HSVToRGB(float3 hsv)
+            {
+                float4 K = float4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+                float3 p = abs(frac(hsv.xxx + K.xyz) * 6.0 - K.www);
+                return hsv.z * lerp(K.xxx, saturate(p - K.xxx), hsv.y);
+            }
+
+
             fixed4 frag(v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv) * _Color;
+                fixed4 col = tex2D(_MainTex, i.uv);
+
+               // 增加饱和度
+               float3 hsv;
+               RGBToHSV(col.rgb, hsv);
+               // Increase saturation
+               hsv.y *= 1.01;
+               col.rgb = HSVToRGB(hsv);
+
+               // 调色
+               col.rgb *= _Color.rgb;
+
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

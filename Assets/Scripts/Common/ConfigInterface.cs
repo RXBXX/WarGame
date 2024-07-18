@@ -220,6 +220,7 @@ namespace WarGame
         public List<IntFloatPair> Attrs;
         public int LastTalent;
         public string Icon;
+        public int Cost;
     }
 
     //στ»π±ν

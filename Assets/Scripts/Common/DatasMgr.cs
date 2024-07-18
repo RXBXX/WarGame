@@ -342,7 +342,6 @@ namespace WarGame
 
         public void HeroTalentActiveC2S(int roleUID, int talentID)
         {
-            var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
             var roleData = GetRoleData(roleUID);
 
             if (null == roleData.talents)
@@ -352,6 +351,9 @@ namespace WarGame
                 return;
 
             roleData.talents.Add(talentID);
+
+            var config = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", talentID);
+            _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.TalentRes, config.Cost);
 
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroTalentActiveS2C, new object[] { roleUID, talentID });
 

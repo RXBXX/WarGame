@@ -135,13 +135,13 @@
 			float cloudShape(float3 pos)
 			{
 				float2 uv = pos.xz / float2(_BoundsMax.x - _BoundsMin.x, _BoundsMax.z - _BoundsMin.z);
-				uv.x += _Time.y*0.01;
+				uv.x += _Time.y * 0.001;
 				float heightPercent = (pos.y - _BoundsMin.y) / (_BoundsMax.y - _BoundsMin.y);
 				float weather = tex2Dlod(_Weather, float4( uv*_Weather_ST.xy+_Weather_ST.zw,0,0));
 				float heightFra = GetDensityHeightGradientForPoint1(heightPercent, weather);
 
 				float3 detailUVW = pos * _UVScale;
-				detailUVW.xy += float2( _Time.y*0.04,_Time.w*0.01);
+				detailUVW.xy += float2( _Time.y * 0.004,_Time.w * 0.001);
 				float4 low_frequency_noises = tex3Dlod(_Noise3D, float4(detailUVW, 0));
 				// 从低频Worley噪声中构建FBM，可用于为低频Perlin-Worley噪声添加细节。 
 				float low_freq_FBM = (low_frequency_noises.g * 0.625) + (low_frequency_noises.b*0.25) + (low_frequency_noises.r * 0.125);
@@ -212,7 +212,7 @@
 				float3 light_step = normalize(lightDir)* stepSize;
 				float density_along_cone = 0.0;
 				//光照的ray-march循环。 
-				for (fixed i = 0; i <= 4; i++)
+				for (fixed i = 0; i <= 3; i++)
 				{
 					float3 noise = tex2D(_PerlinNoise, p.xz).rgb;
 					//将采样位置加上当前步距。 
@@ -230,7 +230,7 @@
 				float3 light_step = lightDir * stepSize;
 				float density = 0;
 				//光照的ray-march循环。 
-				for (fixed i = 0; i <= 4; i++)
+				for (fixed i = 0; i <= 3; i++)
 				{
 					//将采样位置加上当前步距。 
 					p += light_step;

@@ -43,6 +43,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
@@ -386,6 +388,11 @@ namespace WarGame.UI
             _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
         }
 
+        private void OnHeroTalentActiveS2C(params object[] args)
+        {
+            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             foreach (var v in _seqList)
@@ -410,6 +417,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
 
             base.Dispose(disposeGCom);
         }

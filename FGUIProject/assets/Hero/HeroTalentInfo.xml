@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="300,335" pivot="1,0" anchor="true">
+  <controller name="type" pages="0,已激活,1,可激活,2,资源不足不可激活,3,不可激活" selected="2"/>
   <displayList>
     <graph id="n36_gy0s" name="n36" xy="0,0" size="300,335" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="bottomext-bottom"/>
@@ -16,9 +17,16 @@
     <text id="n32_gy0s" name="title" xy="12,0" size="63,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffe7ac" strokeColor="#000000" autoClearText="true" text="Attack"/>
     <text id="n33_gy0s" name="desc" xy="14,36" size="273,43" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffe7ac" leading="0" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
     <graph id="n34_gy0s" name="n34" xy="10,34" size="280,2" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="204,284" size="100,46" scale="0.6,0.6">
+    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="204,284" size="100,46" scale="0.6,0.6" touchable="false" grayed="true">
+      <gearDisplay controller="type" pages="1,2"/>
+      <gearLook controller="type" pages="2" values="1,0,1,0" default="1,0,0,1"/>
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </component>
+    <text id="n37_sqcv" name="cost" xy="219,296" pivot="1,0" anchor="true" size="40,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ce4a35" strokeColor="#000000" autoClearText="true" text="12/20">
+      <gearDisplay controller="type" pages="1,2"/>
+      <gearColor controller="type" pages="1,2" values="#5c8799,#000000|#ce4a35,#000000" default="#ffffff,#000000"/>
+      <relation target="" sidePair="bottom-bottom"/>
+    </text>
   </displayList>
   <relation target="n35_gy0s" sidePair="bottomext-bottom"/>
 </component>
