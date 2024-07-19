@@ -212,7 +212,7 @@
 				float3 light_step = normalize(lightDir)* stepSize;
 				float density_along_cone = 0.0;
 				//光照的ray-march循环。 
-				for (fixed i = 0; i <= 3; i++)
+				for (fixed i = 0; i <= 2; i++)
 				{
 					float3 noise = tex2D(_PerlinNoise, p.xz).rgb;
 					//将采样位置加上当前步距。 
@@ -230,7 +230,7 @@
 				float3 light_step = lightDir * stepSize;
 				float density = 0;
 				//光照的ray-march循环。 
-				for (fixed i = 0; i <= 3; i++)
+				for (fixed i = 0; i <= 2; i++)
 				{
 					//将采样位置加上当前步距。 
 					p += light_step;
@@ -246,7 +246,7 @@
 				fixed stepCount = 8;
 				float3 dir = normalize(end - start);
 				float dis = length(end - start);
-				float stepSize = dis / stepCount;
+				float stepSize = dis / stepCount ;
 
 				float3 samplePos = start;
 				float d = dot(normalize(_WorldSpaceLightPos0.xyz), normalize(dir));
