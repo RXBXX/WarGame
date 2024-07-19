@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="610,140" pivot="0.5,0.5" extention="Button">
+<component size="610,130" pivot="0.5,0.5" extention="Button">
   <controller name="Empty" pages="0,,1," selected="0"/>
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n14_kky8" name="n14" src="kky89" fileName="Images/RecordItemBG.png" xy="9,10" size="600,130" aspect="true"/>
-    <text id="n0_rquy" name="title" xy="186,24" size="118,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="111111111111"/>
-    <text id="n10_bc04" name="duration" xy="571,112" pivot="1,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1f1f1f" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
-    <text id="n6_bc04" name="time" xy="186,80" pivot="0,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1c1c1c" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
-    <graph id="n16_kky8" name="n16" xy="6,2" size="175,117" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <loader id="n15_kky8" name="n15" xy="8,4" size="171,113" url="ui://ngubhyc3kky8a" fill="scaleFree"/>
+    <image id="n14_kky8" name="n14" src="kky89" fileName="Images/RecordItemBG.png" xy="9,0" size="600,130" aspect="true"/>
+    <text id="n0_rquy" name="title" xy="186,14" size="118,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="111111111111"/>
+    <text id="n10_bc04" name="duration" xy="571,102" pivot="1,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1f1f1f" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
+    <text id="n6_bc04" name="time" xy="186,70" pivot="0,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1c1c1c" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
+    <graph id="n16_kky8" name="n16" xy="4,5" size="175,117" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <loader id="n15_kky8" name="n15" xy="6,7" size="171,113" url="ui://ngubhyc3kky8a" fill="scaleFree"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".95"/>
 </component>
