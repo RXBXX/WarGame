@@ -11,7 +11,7 @@ namespace WarGame.UI
             mainBtn.onClick.Add(OnClickMainBtn);
 
             _gCom.GetChild("title").text = "KA KA KILL";
-            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MainBG";
+            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/CommonBG";
         }
 
         private void OnClickMainBtn()

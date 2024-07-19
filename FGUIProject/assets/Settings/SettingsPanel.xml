@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <graph id="n4_bc04" name="n4" xy="0,0" size="1334,750" type="rect" lineSize="0">
+    <loader id="n4_bc04" name="BG" xy="0,0" size="1334,750" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
-    </graph>
+    </loader>
     <image id="n10_sqcv" name="n10" src="sqcvb" fileName="Images/SettingBG.png" xy="0,0"/>
-    <list id="n5_bc04" name="tabList" xy="246,97" size="842,50" layout="flow_hz" overflow="scroll" scroll="horizontal" lineGap="10" colGap="30" defaultItem="ui://hx02grrpsqcv21" align="center" vAlign="middle" autoClearItems="true">
+    <list id="n5_bc04" name="tabList" xy="246,97" size="842,50" layout="flow_hz" overflow="scroll" scroll="horizontal" lineGap="10" colGap="10" defaultItem="ui://hx02grrpsqcv21" align="center" vAlign="middle" autoClearItems="true">
       <item/>
       <item/>
       <item/>

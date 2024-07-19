@@ -9,7 +9,7 @@ namespace WarGame.UI
         public LoadPanel(GComponent gCom, string customName, object[] args):base(gCom, customName, args)
         {
             _progress = GetGObjectChild<GProgressBar>("progress");
-            GetGObjectChild<GLoader>("bg").url = "UI/Background/MainBG";
+            GetGObjectChild<GLoader>("bg").url = "UI/Background/CommonBG";
             EventDispatcher.Instance.AddListener(Enum.Event.Scene_Load_Progress, OnUpdateProgress);
         }
 

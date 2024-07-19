@@ -28,7 +28,7 @@ namespace WarGame.UI
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            GetGObjectChild<GLoader>("BG").url = "UI/Background/HeroBG";
+            GetGObjectChild<GLoader>("BG").url = "UI/Background/CommonBG";
             _touchArena = (GGraph)_gCom.GetChild("touchArena");
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
             _gCom.onTouchBegin.Add(OnTouchBegin);

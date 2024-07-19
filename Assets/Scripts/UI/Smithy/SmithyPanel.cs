@@ -20,7 +20,7 @@ namespace WarGame.UI
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            GetGObjectChild<GLoader>("BG").url = "UI/Background/HeroBG";
+            GetGObjectChild<GLoader>("BG").url = "UI/Background/CommonBG";
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
 
             _equipList = GetGObjectChild<GList>("equips");

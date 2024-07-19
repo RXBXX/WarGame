@@ -20,6 +20,7 @@ namespace WarGame.UI
         public SettingsPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
+            GetGObjectChild<GLoader>("BG").url = "UI/Background/CommonBG";
 
             _tabList = GetGObjectChild<GList>("tabList");
             _tabList.itemRenderer = OnTabRenderer;

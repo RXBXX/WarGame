@@ -18,7 +18,7 @@ namespace WarGame.UI
             UILayer = Enum.UILayer.PopLayer;
 
             var bg = GetGObjectChild<GLoader>("bg");
-            bg.url = "UI/Background/MainBG";
+            bg.url = "UI/Background/CommonBG";
             bg.onClick.Add(() =>
             {
                 UIManager.Instance.ClosePanel(name);

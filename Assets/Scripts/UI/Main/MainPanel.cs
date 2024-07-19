@@ -12,7 +12,7 @@ namespace WarGame.UI
 
         public MainPanel(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
-            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/MainBG";
+            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/CommonBG";
 
             _optionList = (GList)_gCom.GetChild("recordList");
             _optionList.itemRenderer = ItemRenderer;

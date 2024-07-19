@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="587,117" pivot="0.5,0.5" extention="Button">
+<component size="610,140" pivot="0.5,0.5" extention="Button">
   <controller name="Empty" pages="0,,1," selected="0"/>
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n12_ovai" name="n12" src="ovai1i" fileName="Images/CommonRecordBG2.png" pkg="hx02grrp" xy="0,0" size="587,117">
-      <gearDisplay controller="button" pages="0"/>
-    </image>
-    <image id="n11_ovai" name="n11" src="ovai7" fileName="Previews/CommonRecordBG.png" xy="0,0" size="587,117">
-      <gearDisplay controller="button" pages="1,2,3"/>
-    </image>
-    <text id="n0_rquy" name="title" xy="23,31" size="149,44" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="111111111111"/>
-    <text id="n10_bc04" name="duration" xy="561,40" pivot="1,0.5" anchor="true" size="83,26" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" align="center" vAlign="middle" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="111111111111"/>
-    <text id="n6_bc04" name="time" xy="560,81" pivot="1,0.5" anchor="true" size="83,26" group="n7_bc04" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" align="center" vAlign="middle" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="111111111111"/>
-    <group id="n7_bc04" name="n7" xy="23,27" size="538,67" advanced="true">
-      <gearDisplay controller="Empty" pages="0"/>
-    </group>
-    <text id="n8_bc04" name="newGame" xy="219,28" size="148,64" fontSize="48" color="#cccccc" strokeColor="#000000" text="新游戏">
-      <gearDisplay controller="Empty" pages="1"/>
-    </text>
+    <image id="n14_kky8" name="n14" src="kky89" fileName="Images/RecordItemBG.png" xy="9,10" size="600,130" aspect="true"/>
+    <text id="n0_rquy" name="title" xy="186,24" size="118,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="111111111111"/>
+    <text id="n10_bc04" name="duration" xy="571,112" pivot="1,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1f1f1f" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
+    <text id="n6_bc04" name="time" xy="186,80" pivot="0,0.5" anchor="true" size="83,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#1c1c1c" align="center" vAlign="middle" letterSpacing="1" autoClearText="true" text="111111111111"/>
+    <graph id="n16_kky8" name="n16" xy="6,2" size="175,117" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <loader id="n15_kky8" name="n15" xy="8,4" size="171,113" url="ui://ngubhyc3kky8a" fill="scaleFree"/>
   </displayList>
-  <Button downEffect="scale" downEffectValue=".8"/>
+  <Button downEffect="scale" downEffectValue=".95"/>
 </component>
