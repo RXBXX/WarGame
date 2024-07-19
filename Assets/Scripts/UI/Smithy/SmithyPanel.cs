@@ -71,7 +71,7 @@ namespace WarGame.UI
                 _attrsData.Add(new IntFloatPair(v.Key, v.Value));
             _attrsList.numItems = _attrsData.Count;
 
-            _name.text = equipConfig.Name;
+            _name.text = equipConfig.GetTranslation("Name");
             var ownNum = DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes);
             if (ownNum >= equipConfig.Cost)
             {
@@ -87,7 +87,7 @@ namespace WarGame.UI
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _equipsData[index]);
             item.icon = config.Icon;
-            ((GButton)item).title = config.Name;
+            ((GButton)item).title = config.GetTranslation("Name");
         }
 
         private void OnClickEquip(EventContext context)
@@ -101,7 +101,7 @@ namespace WarGame.UI
         {
             if (!_attrsMap.ContainsKey(item.id))
                 _attrsMap.Add(item.id, UIManager.Instance.CreateUI<CommonAttrItem>("CommonAttrItem", item));
-            _attrsMap[item.id].Update(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", _attrsData[index].id).Name, _attrsData[index].value.ToString());
+            _attrsMap[item.id].Update(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", _attrsData[index].id).GetTranslation("Name"), _attrsData[index].value.ToString());
         }
 
         private void OnClickBuy()

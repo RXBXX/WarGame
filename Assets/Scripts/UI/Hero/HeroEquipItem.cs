@@ -32,7 +32,7 @@ namespace WarGame.UI
             _owner = owner;
 
             var equipData = DatasMgr.Instance.GetEquipmentData(UID);
-            var title = equipData.GetConfig().Name;
+            var title = equipData.GetConfig().GetTranslation("Name");
             if (adept)
                 title += "×¨¾«";
             _title.text = title;
@@ -67,7 +67,7 @@ namespace WarGame.UI
             var attrs = new List<AttrStruct>();
             foreach (var v in equipData.GetAttrs())
             {
-                attrs.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name, v.value.ToString()));
+                attrs.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
             }
             EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Attrs, new object[] { attrs, pos });
         }

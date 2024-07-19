@@ -22,9 +22,10 @@ namespace WarGame.UI
         {
             _type = type;
             if (type == Enum.SoundType.Music)
-                _titie.text = "±≥æ∞“Ù";
+                _titie.text = ConfigMgr.Instance.GetTranslation("SettingsPanel_Audio_Music");
             else
-                _titie.text = "“Ù–ß";
+                _titie.text = ConfigMgr.Instance.GetTranslation("SettingsPanel_Audio_Sound");
+
             _slider.value = DatasMgr.Instance.GetSoundVolume(type) * 100.0F;
         }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="30,40" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="1"/>
   <displayList>
     <graph id="n0_8u0k" name="n0" xy="0,0" size="30,40" touchable="false" type="rect" lineSize="0" fillColor="#fff0f0f0">
       <gearDisplay controller="button" pages="0"/>
@@ -10,7 +10,7 @@
       <gearDisplay controller="button" pages="2"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <graph id="n2_8u0k" name="n2" xy="0,0" size="30,40" touchable="false" type="rect" lineSize="0" fillColor="#ffcccccc">
+    <graph id="n2_8u0k" name="n2" xy="0,0" size="30,40" touchable="false" type="rect" lineSize="0">
       <gearDisplay controller="button" pages="1,3"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>

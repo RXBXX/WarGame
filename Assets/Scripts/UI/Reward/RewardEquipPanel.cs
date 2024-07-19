@@ -16,7 +16,7 @@ namespace WarGame.UI
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", equipId);
 
             GetGObjectChild<GButton>("hero").icon = config.FullLengthIcon;
-            GetGObjectChild<GTextField>("name").text = config.Name;
+            GetGObjectChild<GTextField>("name").text = config.GetTranslation("Name");
 
             _callback = (WGArgsCallback)args[1];
         }

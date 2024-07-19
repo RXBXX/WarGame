@@ -322,7 +322,7 @@ namespace WarGame.UI
             LoadHero(_roles[_roleIndex]);
 
             var role = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
-            _name.text = role.GetConfig().Name;
+            _name.text = role.GetConfig().GetTranslation("Name");
             _proComp.UpdateComp(_roles[_roleIndex]);
         }
 

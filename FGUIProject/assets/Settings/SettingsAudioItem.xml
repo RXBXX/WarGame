@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="900,100">
+<component size="900,48" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="3"/>
   <displayList>
-    <graph id="n1_8u0k" name="n1" xy="0,0" size="900,100" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <text id="n0_8u0k" name="title" xy="48,25" size="112,49" fontSize="36" color="#ffffff" text="背景音"/>
-    <component id="n2_8u0k" name="slider" src="8u0k3" fileName="SettingsSlider.xml" xy="201,37" size="637,26">
+    <loader id="n3_sqcv" name="n3" xy="5,0" size="894,48" url="ui://hx02grrpsqcv20" fill="scaleFree">
+      <gearXY controller="button" pages="1,3" values="5,0|5,0" default="0,0"/>
+      <gearIcon controller="button" pages="1,3" values="ui://hx02grrpsqcv20|ui://hx02grrpsqcv20" default="ui://hx02grrpsqcv1z"/>
+    </loader>
+    <text id="n0_8u0k" name="title" xy="52,4" size="55,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="111111">
+      <gearXY controller="button" pages="0,1,2,3" values="47,7|52,4|47,7|52,4"/>
+    </text>
+    <component id="n2_8u0k" name="slider" src="8u0k3" fileName="SettingsSlider.xml" xy="439,21" size="429,6">
       <Slider value="1" max="100"/>
     </component>
   </displayList>
+  <Button mode="Radio"/>
 </component>

@@ -23,7 +23,7 @@ namespace WarGame.UI
 
         private void Init()
         {
-            _tabDatas.Add(new StringCallbackStruct("新游戏", ()=> {
+            _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_NewGame"), ()=> {
                 UIManager.Instance.ClosePanel(name);
 
                 DatasMgr.Instance.StartNewGame();
@@ -31,14 +31,14 @@ namespace WarGame.UI
             }));
             if (DatasMgr.Instance.GetAllRecord().Count > 0)
             {
-                _tabDatas.Add(new StringCallbackStruct("继续游戏", () => {
+                _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_ContinueGame"), () => {
                     UIManager.Instance.OpenPanel("Record", "RecordPanel", new object[] {Enum.RecordMode.Read });
                 }));
             }
-            _tabDatas.Add(new StringCallbackStruct("设置", ()=> {
+            _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_Settings"), ()=> {
                 UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
             }));
-            _tabDatas.Add(new StringCallbackStruct("退出游戏",()=> {
+            _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_Exit"), ()=> {
                 Game.Instance.Quit();
             }));
 

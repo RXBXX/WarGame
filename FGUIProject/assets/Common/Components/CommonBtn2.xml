@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="255,50" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="3"/>
+  <displayList>
+    <loader id="n2_sqcv" name="n2" xy="0,7" size="255,43" url="ui://hx02grrpsqcv1y" autoSize="true">
+      <gearXY controller="button" pages="0,1,2,3" values="0,3|0,7|0,3|0,7"/>
+      <gearIcon controller="button" pages="0,1,2,3" values="ui://hx02grrpsqcv1x|ui://hx02grrpsqcv1y|ui://hx02grrpsqcv1x|ui://hx02grrpsqcv1y"/>
+    </loader>
+    <text id="n3_sqcv" name="title" xy="127,29" pivot="0.5,0.5" anchor="true" size="64,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="1111111">
+      <gearXY controller="button" pages="1,3" values="127,29|127,29" default="127,25"/>
+    </text>
+  </displayList>
+  <Button mode="Radio"/>
+</component>

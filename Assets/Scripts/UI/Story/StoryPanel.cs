@@ -72,7 +72,7 @@ namespace WarGame.UI
                 _pic.url = storyConfig.Pic;
                 _fadeIn.Play(() =>
                 {
-                    _context.text = storyConfig.Context;
+                    _context.text = storyConfig.GetTranslation("Context");
                     _te.Start();
                     _te.Print();
                     _stop = false;
@@ -87,7 +87,7 @@ namespace WarGame.UI
                         _pic.url = storyConfig.Pic;
                         _fadeIn.Play(() =>
                         {
-                            _context.text = storyConfig.Context;
+                            _context.text = storyConfig.GetTranslation("Context");
                             _te.Start();
                             _te.Print();
                             _stop = false;
@@ -96,7 +96,7 @@ namespace WarGame.UI
                 }
                 else
                 {
-                    _context.text = storyConfig.Context;
+                    _context.text = storyConfig.GetTranslation("Context");
                     _te.Start();
                     _te.Print();
                     _stop = false;

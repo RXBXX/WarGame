@@ -1,4 +1,5 @@
 using FairyGUI;
+using System.Collections.Generic;
 
 namespace WarGame.UI
 {
@@ -6,23 +7,54 @@ namespace WarGame.UI
     {
         private int _type;
         private GTextField _title;
+        private GTextField _value;
+        private int _index;
+        private List<int> _languages = new List<int>();
 
         public SettingsLanguageItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _title = GetGObjectChild<GTextField>("title");
+            _value = GetGObjectChild<GTextField>("value");
 
-            _gCom.onClick.Add(OnClick);
+            GetGObjectChild<GButton>("leftBtn").onClick.Add(OnClickLeft);
+            GetGObjectChild<GButton>("rightBtn").onClick.Add(OnClickRight);
+
+            ConfigMgr.Instance.ForeachConfig<LanguageConfig>("LanguageConfig", (config)=> {
+                _languages.Add(config.ID);
+            });
         }
 
-        public void UpdateItem(int language)
+        public void UpdateItem(Enum.LanguageType languageType)
         {
-            _type = language;
-            _title.text = ConfigMgr.Instance.GetConfig<LanguageConfig>("LanguageConfig", _type).Name;
+            _title.text = ConfigMgr.Instance.GetTranslation("SettingsPanel_TextLanguage");
+
+            var language = DatasMgr.Instance.GetLanguage();
+            for (int i = 0; i < _languages.Count; i++)
+            {
+                if (_languages[i] == language)
+                {
+                    _index = i;
+                    break;
+                }    
+            }
+
+            _value.text = ConfigMgr.Instance.GetConfig<LanguageConfig>("LanguageConfig", language).GetTranslation("Name");
         }
 
-        private void OnClick()
+        private void OnClickLeft(EventContext context)
         {
-            DatasMgr.Instance.SetLanguage(_type);
+            _index -= 1;
+            if (_index < 0)
+                _index = _languages.Count - 1;
+            DatasMgr.Instance.SetLanguageC2S(_languages[_index]);
+        }
+
+        private void OnClickRight(EventContext context)
+        {
+            _index += 1;
+            if (_index >= _languages.Count - 1)
+                _index = 0;
+            DatasMgr.Instance.SetLanguageC2S(_languages[_index]);
         }
     }
 }

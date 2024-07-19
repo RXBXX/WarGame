@@ -19,7 +19,7 @@ namespace WarGame.UI
             GetChild<CommonSkillItem>("skill").Update(roleConfig.SpecialSkill);
             GetGObjectChild<GButton>("hero").icon = roleConfig.FullLengthIcon;
             GetGObjectChild<GTextField>("name").text = roleConfig.GetTranslation("Name");
-            GetGObjectChild<GTextField>("desc").text = roleConfig.Desc;
+            GetGObjectChild<GTextField>("desc").text = roleConfig.GetTranslation("Desc");
 
             _callback = (WGArgsCallback)args[1];
         }

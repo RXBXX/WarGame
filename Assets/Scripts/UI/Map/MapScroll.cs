@@ -30,7 +30,7 @@ namespace WarGame.UI
             {
                 var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levels[i].configId);
                 var ui = UIManager.Instance.CreateUI<MapMark>("Map", "MapMark");
-                ui.Init(levels[i].configId, levels[i].open, config.Type, config.Name, config.Desc);
+                ui.Init(levels[i].configId, levels[i].open, config.Type, config.GetTranslation("Name"), config.GetTranslation("Desc"));
                 GCom.AddChildAt(ui.GCom, GCom.numChildren - 1);
                 ui.SetPosition(config.UIPos);
                 _levelsDic.Add(levels[i].configId, ui);

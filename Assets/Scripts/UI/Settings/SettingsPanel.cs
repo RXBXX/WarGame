@@ -10,7 +10,7 @@ namespace WarGame.UI
         private GList _itemList;
         private List<Enum.SettingsType> _tabData = new List<Enum.SettingsType>();
         private List<Enum.SoundType> _soundData = new List<Enum.SoundType>();
-        private List<int> _languageData = new List<int>();
+        private List<Enum.LanguageType> _languageData = new List<Enum.LanguageType>();
         private List<Enum.FightType> _fightData = new List<Enum.FightType>();
         private Enum.SettingsType _settingType;
         private Dictionary<string, SettingsAudioItem> _audioDic = new Dictionary<string, SettingsAudioItem>();
@@ -32,19 +32,20 @@ namespace WarGame.UI
 
             GetGObjectChild<GButton>("closeBtn").onClick.Add(OnClickClose);
             Init();
+
+            EventDispatcher.Instance.AddListener(Enum.Event.Language_Changed, OnLanguageChanged);
         }
 
         private void Init()
         {
+            _tabData.Clear();
+
             foreach (var v in System.Enum.GetValues(typeof(Enum.SettingsType)))
                 _tabData.Add((Enum.SettingsType)v);
 
             _tabList.numItems = _tabData.Count;
 
-            _soundData.Clear();
-            _soundData.Add(Enum.SoundType.Music);
-            _soundData.Add(Enum.SoundType.Audio);
-            _itemList.numItems = _soundData.Count;
+            SelectTab(_settingType);
         }
 
         private void OnTabRenderer(int index, GObject item)
@@ -52,46 +53,24 @@ namespace WarGame.UI
             switch (_tabData[index])
             {
                 case Enum.SettingsType.Sound:
-                    ((GButton)item).title = "“Ù–ß";
+                    ((GButton)item).title = ConfigMgr.Instance.GetTranslation("SettingsPanel_TabSound");
                     break;
                 case Enum.SettingsType.Language:
-                    ((GButton)item).title = "”Ô—‘";
+                    ((GButton)item).title = ConfigMgr.Instance.GetTranslation("SettingsPanel_TabLanguage");
                     break;
                 case Enum.SettingsType.Fight:
-                    ((GButton)item).title = "’Ω∂∑";
+                    ((GButton)item).title = ConfigMgr.Instance.GetTranslation("SettingsPanel_TabBattle");
                     break;
             }
+            ((GButton)item).selected = _tabData[index] == _settingType;
         }
 
         private void OnClickTab(EventContext context)
         {
             var index = _tabList.GetChildIndex((GObject)context.data);
-            if (_settingType == _tabData[index])
+            if (_tabData[index] == _settingType)
                 return;
-            _settingType = _tabData[index];
-
-            switch (_settingType)
-            {
-                case Enum.SettingsType.Sound:
-                    _soundData.Clear();
-                    _soundData.Add(Enum.SoundType.Music);
-                    _soundData.Add(Enum.SoundType.Audio);
-                    _itemList.numItems = _soundData.Count;
-                    break;
-                case Enum.SettingsType.Language:
-                    _languageData.Clear();
-                    ConfigMgr.Instance.ForeachConfig<LanguageConfig>("LanguageConfig", (config) =>
-                    {
-                        _languageData.Add(config.ID);
-                    });
-                    _itemList.numItems = _languageData.Count;
-                    break;
-                case Enum.SettingsType.Fight:
-                    _fightData.Clear();
-                    _fightData.Add(Enum.FightType.SkipBattleArena);
-                    _itemList.numItems = _fightData.Count;
-                    break;
-            }
+            SelectTab(_tabData[index]);
         }
 
         private string OnItemProvider(int index)
@@ -137,9 +116,42 @@ namespace WarGame.UI
             }
         }
 
+        private void SelectTab(Enum.SettingsType tab)
+        {
+            _settingType = tab;
+
+            switch (_settingType)
+            {
+                case Enum.SettingsType.Sound:
+                    _soundData.Clear();
+                    _soundData.Add(Enum.SoundType.Music);
+                    _soundData.Add(Enum.SoundType.Audio);
+                    _itemList.numItems = _soundData.Count;
+                    break;
+                case Enum.SettingsType.Language:
+                    _languageData.Clear();
+                    _languageData.Add(Enum.LanguageType.Text);
+                    _itemList.numItems = _languageData.Count;
+                    break;
+                case Enum.SettingsType.Fight:
+                    _fightData.Clear();
+                    _fightData.Add(Enum.FightType.SkipBattleArena);
+                    _itemList.numItems = _fightData.Count;
+                    break;
+            }
+        }
+
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+        }
+
+        private void OnLanguageChanged(params object[] args)
+        {
+            if (Enum.SettingsType.Language != _settingType)
+                return;
+
+            Init();
         }
 
         public override void Dispose(bool disposeGCom = false)
@@ -162,6 +174,8 @@ namespace WarGame.UI
                 v.Value.Dispose();
             }
             _fightDic.Clear();
+
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Language_Changed, OnLanguageChanged);
         }
     }
 }

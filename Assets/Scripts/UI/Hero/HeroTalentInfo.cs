@@ -50,13 +50,13 @@ namespace WarGame.UI
 
             var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _talentID);
 
-            _title.text = talentConfig.Name;
-            _desc.text = talentConfig.Desc;
+            _title.text = talentConfig.GetTranslation("Name");
+            _desc.text = talentConfig.GetTranslation("Desc");
 
             _attrsData.Clear();
             foreach (var v in talentConfig.Attrs)
             {
-                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).Name, v.value.ToString()));
+                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
             }
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();

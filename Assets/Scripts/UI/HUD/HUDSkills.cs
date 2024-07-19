@@ -25,7 +25,7 @@ namespace WarGame.UI
             _commonSkill = (int)args[0];
             _specialSkill = (int)args[1];
 
-            _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).Name;
+            _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).GetTranslation("Name");
             if (0 == _specialSkill)
             {
                 _skill2.visible = false;
@@ -33,7 +33,7 @@ namespace WarGame.UI
             else
             {
                 _skill2.visible = true;
-                _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).Name;
+                _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).GetTranslation("Name");
             }
 
             var rageFilled = (bool)args[2];

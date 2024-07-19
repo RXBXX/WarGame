@@ -32,7 +32,7 @@ namespace WarGame.UI
                 var starAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetStarAttribute(attrType));
                 var talentAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetTalentAttribute(attrType));
                 var equipAttr = BattleMgr.Instance.GetAttributeStr(config.ID, role.GetEquipAttribute(attrType));
-                _attrsData.Add(new FourStrPair(config.Name, starAttr, talentAttr, equipAttr));
+                _attrsData.Add(new FourStrPair(config.GetTranslation("Name"), starAttr, talentAttr, equipAttr));
             });
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();

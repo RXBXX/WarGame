@@ -230,9 +230,10 @@ namespace WarGame
             return volume;
         }
 
-        public void SetLanguage(int type)
+        public void SetLanguageC2S(int type)
         {
             _data.Language = type;
+            EventDispatcher.Instance.PostEvent(Enum.Event.SetLanguageS2C);
         }
 
         public int GetLanguage()

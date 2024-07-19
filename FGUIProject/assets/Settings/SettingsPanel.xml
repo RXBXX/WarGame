@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <graph id="n4_bc04" name="n4" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n4_bc04" name="n4" xy="0,0" size="1334,750" type="rect" lineSize="0">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <graph id="n6_li0q" name="n6" xy="0,73" size="200,638" type="polygon" lineSize="0" fillColor="#ff000000" points="0,37,199,8.5,200,609,0,638"/>
-    <graph id="n7_li0q" name="n7" xy="220,82" size="1037,600" alpha="0.3" type="rect" lineSize="0" lineColor="#ffffffff" fillColor="#ff000000"/>
-    <list id="n5_bc04" name="tabList" xy="23,124" size="527,1766" scale="0.3,0.3" overflow="scroll" lineGap="10" defaultItem="ui://hx02grrpomu92" autoClearItems="true">
+    <image id="n10_sqcv" name="n10" src="sqcvb" fileName="Images/SettingBG.png" xy="0,0"/>
+    <list id="n5_bc04" name="tabList" xy="246,100" size="842,50" layout="flow_hz" overflow="scroll" lineGap="10" colGap="30" defaultItem="ui://hx02grrpsqcv21" align="center" vAlign="middle" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -15,7 +14,7 @@
       <item/>
     </list>
     <component id="n8_li0q" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,-1"/>
-    <list id="n9_8u0k" name="itemList" xy="287,122" size="900,513" overflow="scroll" lineGap="10" defaultItem="ui://yg4fd4ma8u0k4" autoClearItems="true">
+    <list id="n9_8u0k" name="itemList" xy="217,172" size="900,481" overflow="scroll" lineGap="10" defaultItem="ui://yg4fd4ma8u0k1" autoClearItems="true">
       <item/>
       <item/>
       <item/>

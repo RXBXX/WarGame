@@ -575,7 +575,7 @@ namespace WarGame
 
             foreach (var v in buffs)
             {
-                AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).Name);
+                AddFloatHUD(ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", v).GetTranslation("Name"));
             }
 
             //UpdateBuffs(type);
@@ -810,7 +810,7 @@ namespace WarGame
 
         public string GetName()
         {
-            return _data.GetConfig().Name;
+            return _data.GetConfig().GetTranslation("Name");
         }
 
         /// <summary>

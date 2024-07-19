@@ -22,7 +22,7 @@ namespace WarGame
 
         public string GetName()
         {
-            return GetConfig().Name;
+            return GetConfig().GetTranslation("Name");
         }
 
         public string GetIcon()
@@ -577,6 +577,7 @@ namespace WarGame
 
         public GameData()
         {
+
         }
 
         public RecordData GetUsingRecord()

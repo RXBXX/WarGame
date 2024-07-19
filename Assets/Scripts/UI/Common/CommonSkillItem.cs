@@ -25,8 +25,8 @@ namespace WarGame.UI
             this._id = id;
             var config = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", id);
             _icon.icon = config.Icon;
-            _name.text = config.Name;
-            _desc.text = config.Desc;
+            _name.text = config.GetTranslation("Name");
+            _desc.text = config.GetTranslation("Desc");
         }
 
         private void OnClickIcon(EventContext context)

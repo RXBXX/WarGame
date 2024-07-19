@@ -378,6 +378,11 @@ namespace WarGame
             SkipBattleArena = 0,
         }
 
+        public enum LanguageType
+        {
+            Text = 0
+        }
+
         public enum Event
         {
             HUDInstruct_Idle_Event = 0,
@@ -429,10 +434,12 @@ namespace WarGame
             Fight_Cure_End = 48,
             Role_Create_Success = 49,
             Fight_ShowDrop = 50,
+            Language_Changed = 51,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,
             BuyEquipS2C = 10004,
+            SetLanguageS2C = 10005,
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类

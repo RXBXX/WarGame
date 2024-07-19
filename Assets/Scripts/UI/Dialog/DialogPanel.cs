@@ -68,7 +68,7 @@ namespace WarGame.UI
             else
             {
                 var dialogConfig = ConfigMgr.Instance.GetConfig<DialogConfig>("DialogConfig", _dialogGroup * 1000 + _curIndex);
-                _dialogBox.Play(dialogConfig.Context, dialogConfig.Role, OnDialogEnd);
+                _dialogBox.Play(dialogConfig.GetTranslation("Context"), dialogConfig.Role, OnDialogEnd);
             }
         }
 

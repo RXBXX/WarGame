@@ -56,7 +56,8 @@ namespace WarGame
             if (!_eventDic.ContainsKey(eventName))
                 return;
 
-            for (int i = _eventDic[eventName].Count - 1; i >= 0; i--)
+            var count = _eventDic[eventName].Count;
+            for (int i = 0; i < count; i++)
             {
                 if (i >= _eventDic[eventName].Count)
                     break;

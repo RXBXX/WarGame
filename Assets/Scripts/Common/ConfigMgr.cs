@@ -11,6 +11,52 @@ namespace WarGame
         private Dictionary<string, Dictionary<int, Config>> _configDic = new Dictionary<string, Dictionary<int, Config>>();
         private Dictionary<string, TranslationConfig> _TranslationDic = new Dictionary<string, TranslationConfig>();
 
+        public override bool Init()
+        {
+            var language = Application.systemLanguage;
+            switch (language)
+            {
+                case SystemLanguage.ChineseSimplified:
+                    DatasMgr.Instance.SetLanguageC2S(2);
+                    break;
+                case SystemLanguage.Russian:
+                    DatasMgr.Instance.SetLanguageC2S(3);
+                    break;
+                case SystemLanguage.Spanish:
+                    DatasMgr.Instance.SetLanguageC2S(4);
+                    break;
+                case SystemLanguage.Portuguese:
+                    DatasMgr.Instance.SetLanguageC2S(5);
+                    break;
+                case SystemLanguage.German:
+                    DatasMgr.Instance.SetLanguageC2S(6);
+                    break;
+                case SystemLanguage.Japanese:
+                    DatasMgr.Instance.SetLanguageC2S(7);
+                    break;
+                case SystemLanguage.French:
+                    DatasMgr.Instance.SetLanguageC2S(8);
+                    break;
+                case SystemLanguage.Polish:
+                    DatasMgr.Instance.SetLanguageC2S(9);
+                    break;
+                case SystemLanguage.Korean:
+                    DatasMgr.Instance.SetLanguageC2S(10);
+                    break;
+                case SystemLanguage.ChineseTraditional:
+                    DatasMgr.Instance.SetLanguageC2S(11);
+                    break;
+                case SystemLanguage.Turkish:
+                    DatasMgr.Instance.SetLanguageC2S(12);
+                    break;
+                default:
+                    DatasMgr.Instance.SetLanguageC2S(1);
+                    break;
+            }
+
+            EventDispatcher.Instance.AddListener(Enum.Event.SetLanguageS2C, OnLanguageChanged);
+            return true;
+        }
 
         private bool InitConfig<T>(string jsonName) where T : Config
         {
@@ -63,13 +109,29 @@ namespace WarGame
 
         public string GetTranslation(string configName, int id, string key)
         {
-            if (null == _TranslationDic)
+            if (_TranslationDic.Count <= 0)
                 InitTranslation();
 
             key = configName + "_" + id + "_" + key;
             if (!_TranslationDic.ContainsKey(key))
                 return "";
             return _TranslationDic[key].Str;
+        }
+
+        public string GetTranslation(string key)
+        {
+            if (_TranslationDic.Count <= 0)
+                InitTranslation();
+
+            if (!_TranslationDic.ContainsKey(key))
+                return "";
+            return _TranslationDic[key].Str;
+        }
+
+        private void OnLanguageChanged(params object[] args)
+        {
+            _TranslationDic.Clear();
+            EventDispatcher.Instance.PostEvent(Enum.Event.Language_Changed);
         }
 
         public override bool Dispose()
@@ -79,6 +141,7 @@ namespace WarGame
                 pair.Value.Clear();
             }
             _configDic.Clear();
+            EventDispatcher.Instance.RemoveListener(Enum.Event.SetLanguageS2C, OnLanguageChanged);
             return base.Dispose();
         }
     }

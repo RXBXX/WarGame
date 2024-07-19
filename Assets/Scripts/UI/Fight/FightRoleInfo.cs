@@ -57,7 +57,7 @@ namespace WarGame.UI
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
                 if (value > 0)
                 {
-                    _attrsData.Add(new ThreeStrPair(config.Name, BattleMgr.Instance.GetAttributeStr(config.ID, value), BattleMgr.Instance.GetAttributeStr(config.ID, value * BattleMgr.Instance.GetElementAdd(roleID))));
+                    _attrsData.Add(new ThreeStrPair(config.GetTranslation("Name"), BattleMgr.Instance.GetAttributeStr(config.ID, value), BattleMgr.Instance.GetAttributeStr(config.ID, value * BattleMgr.Instance.GetElementAdd(roleID))));
                 }
             });
 
