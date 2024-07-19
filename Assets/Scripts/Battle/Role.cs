@@ -108,7 +108,7 @@ namespace WarGame
         {
             base.OnCreate(go);
             _gameObject.transform.position = _position;
-            _gameObject.transform.localScale = Vector3.one * 0.5F;
+            _gameObject.transform.localScale = Vector3.one * 0.4F;
             _animator = _gameObject.GetComponent<Animator>();
 
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
