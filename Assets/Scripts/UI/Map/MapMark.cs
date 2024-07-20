@@ -50,12 +50,6 @@ namespace WarGame.UI
 
         private void OnClick()
         {
-            if (!DatasMgr.Instance.IsLevelOpen(_levelID))
-            {
-                TipsMgr.Instance.Add("关卡没有开启！");
-                return;
-            }
-
             EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
 
             //_showBtnC.SetSelectedIndex(1);

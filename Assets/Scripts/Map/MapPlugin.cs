@@ -77,16 +77,12 @@ namespace WarGame
     public class LightingPlugin
     {
         public string Sky;
-        public Vector4 TintColor;
-        public float Intensity;
-        public Vector4 DirLightColor;
+        public Vector4 LightColor;
 
-        public LightingPlugin(string sky, Vector4 tintColor, float intensity, Vector4 dirLightColor)
+        public LightingPlugin(string sky, Vector4 lightColor)
         {
             this.Sky = sky;
-            this.TintColor = tintColor;
-            this. Intensity = intensity;
-            this.DirLightColor = dirLightColor;
+            this.LightColor = lightColor;
         }
     }
 

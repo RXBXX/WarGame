@@ -25583,39 +25583,30 @@
     }
   ],
   "lightingPlugin": {
-    "Sky": "Midgard 06",
-    "TintColor": {
-      "x": 0.622641444,
-      "y": 0.622641444,
-      "z": 0.622641444,
-      "w": 0.5,
-      "normalized": {
-        "x": 0.523793042,
-        "y": 0.523793042,
-        "z": 0.523793042,
-        "w": 0.420621723,
-        "magnitude": 1.0,
-        "sqrMagnitude": 1.00000012
-      },
-      "magnitude": 1.18871653,
-      "sqrMagnitude": 1.41304708
-    },
-    "Intensity": 0.998077452,
-    "DirLightColor": {
-      "x": 0.8719676,
-      "y": 0.961455166,
+    "Sky": "LapuSky 1",
+    "LightColor": {
+      "x": 0.888140142,
+      "y": 0.9523045,
       "z": 1.0,
       "w": 0.0,
       "normalized": {
-        "x": 0.532170236,
-        "y": 0.5867853,
-        "z": 0.6103096,
+        "x": 0.540938139,
+        "y": 0.5800186,
+        "z": 0.6090684,
         "w": 0.0,
-        "magnitude": 1.0,
-        "sqrMagnitude": 1.0
+        "normalized": {
+          "x": 0.5409382,
+          "y": 0.58001864,
+          "z": 0.609068453,
+          "w": 0.0,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 0.99999994,
+        "sqrMagnitude": 0.99999994
       },
-      "magnitude": 1.63851261,
-      "sqrMagnitude": 2.68472362
+      "magnitude": 1.64185166,
+      "sqrMagnitude": 2.6956768
     }
   }
 }

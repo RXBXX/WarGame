@@ -112,11 +112,11 @@ namespace WarGame.UI
         private void OnMapOpen(object[] args)
         {
             var levelID = (int)args[0];
-            if (!DatasMgr.Instance.IsLevelOpen(levelID))
-            {
-                TipsMgr.Instance.Add("关卡没有开启！");
-                return;
-            }
+            //if (!DatasMgr.Instance.IsLevelOpen(levelID))
+            //{
+            //    TipsMgr.Instance.Add("关卡没有开启！");
+            //    return;
+            //}
 
             WGCallback cb = () => {
                 UIManager.Instance.ClosePanel(name);

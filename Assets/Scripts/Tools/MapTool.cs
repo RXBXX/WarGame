@@ -201,9 +201,9 @@ namespace WarGame
                 ornaments[i] = new OrnamentMapPlugin(hexagonID, data.ConfigID, hexagonID, ornamentTra.localScale.x, rotation);
             }
 
-            var skyBox = RenderSettings.skybox;
+            var skyBox = GameObject.Find("Main Camera").GetComponent<Skybox>();
             var mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
-            var lightingPlugin = new LightingPlugin(skyBox.name, skyBox.GetColor("_Tint"), skyBox.GetFloat("_Exposure"), mainLight.color);
+            var lightingPlugin = new LightingPlugin(skyBox.material.name, mainLight.color);
 
             var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments, lightingPlugin);
 
