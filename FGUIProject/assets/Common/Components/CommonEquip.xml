@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="256,256" extention="Button" mask="n24_c2cw">
+<component size="128,128" extention="Button">
   <displayList>
-    <image id="n24_c2cw" name="n24" src="c2cw14" fileName="Images/Equip_Mask.png" xy="0,0"/>
-    <image id="n23_c2cw" name="n23" src="c2cw13" fileName="Images/Equip_BG.png" xy="0,0"/>
-    <loader id="n20_c2cw" name="icon" xy="0,0" size="256,256" align="center" vAlign="middle" fill="scale"/>
-    <image id="n21_c2cw" name="n21" src="c2cw11" fileName="Images/Equip.png" xy="0,0"/>
-    <text id="n25_kwvb" name="title" xy="127,128" pivot="0.5,0.5" anchor="true" size="69,56" fontSize="42" color="#ffffff" text="xxx"/>
+    <image id="n27_kky8" name="n27" src="kky824" fileName="Images/CommonEquip.png" xy="0,0" size="128,128">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n20_c2cw" name="icon" xy="5,6" size="116,116" align="center" vAlign="middle" fill="scale">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <text id="n25_kwvb" name="title" xy="63,113" pivot="0.5,0.5" anchor="true" size="26,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="xxx">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </text>
   </displayList>
   <Button/>
 </component>

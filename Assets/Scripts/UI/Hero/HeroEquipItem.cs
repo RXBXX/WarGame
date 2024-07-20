@@ -7,22 +7,17 @@ namespace WarGame.UI
     public class HeroEquipItem : UIBase
     {
         private int _UID;
-        private GTextField _title;
-        private GLoader _ownerIcon;
+        private GButton _ownerIcon;
         private GButton _icon;
-        private GButton _wearBtn;
         private int _selectedRoleUID;
         private int _owner;
 
         public HeroEquipItem(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
-            _title = GetGObjectChild<GTextField>("title");
-            _ownerIcon = GetGObjectChild<GLoader>("ownerIcon");
             _icon = GetGObjectChild<GButton>("icon");
-            _wearBtn = GetGObjectChild<GButton>("wearBtn");
+            _ownerIcon = GetGObjectChild<GButton>("owner");
 
-            _icon.onClick.Add(OnClickIcon);
-            _wearBtn.onClick.Add(OnClickWearBtn);
+            gCom.onClick.Add(OnClick);
         }
 
         public void UpdateItem(int UID, bool adept, int owner, int selectedRoleUID)
@@ -33,51 +28,38 @@ namespace WarGame.UI
 
             var equipData = DatasMgr.Instance.GetEquipmentData(UID);
             var title = equipData.GetConfig().GetTranslation("Name");
-            if (adept)
-                title += "专精";
-            _title.text = title;
+            //if (adept)
+            //    title += "专精";
+            _icon.title = title;
 
             if (0 != owner)
             {
-                _ownerIcon.url = DatasMgr.Instance.GetRoleData(owner).GetConfig().Icon;
+                _ownerIcon.visible = true;
+                _ownerIcon.icon = DatasMgr.Instance.GetRoleData(owner).GetConfig().Icon;
             }
             else
             {
-                _ownerIcon.url = "";
+                _ownerIcon.visible = false;
             }
 
-            if (owner == selectedRoleUID)
-            {
-                _wearBtn.title = "卸下";
-            }
-            else
-            {
-                _wearBtn.title = "穿戴";
-            }
+            //if (owner == selectedRoleUID)
+            //{
+            //    _wearBtn.title = "卸下";
+            //}
+            //else
+            //{
+            //    _wearBtn.title = "穿戴";
+            //}
 
             _icon.icon = DatasMgr.Instance.GetEquipmentData(UID).GetConfig().Icon;
         }
 
-        private void OnClickIcon(EventContext context)
+        private void OnClick(EventContext context)
         {
             var pos = context.inputEvent.position;
             pos = GRoot.inst.GlobalToLocal(pos);
 
-            var equipData = DatasMgr.Instance.GetEquipmentData(_UID);
-            var attrs = new List<AttrStruct>();
-            foreach (var v in equipData.GetAttrs())
-            {
-                attrs.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
-            }
-            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Attrs, new object[] { attrs, pos });
-        }
-
-        private void OnClickWearBtn()
-        {
-            if (_owner == _selectedRoleUID)
-                DatasMgr.Instance.UnwearEquipC2S(_selectedRoleUID, _UID);
-            else
-                DatasMgr.Instance.WearEquipC2S(_selectedRoleUID, _UID);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Attrs, new object[] { _UID, _owner, _selectedRoleUID, pos});
         }
     }
 }

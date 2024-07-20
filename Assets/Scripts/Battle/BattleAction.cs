@@ -23,6 +23,12 @@ namespace WarGame
 
         public virtual void Dispose(bool save = false)
         {
+            if (null != _skillAction)
+            {
+                _skillAction.Dispose();
+                _skillAction = null;
+            }
+
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);

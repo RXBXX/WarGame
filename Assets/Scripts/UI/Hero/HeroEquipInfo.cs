@@ -4,20 +4,32 @@ using UnityEngine;
 
 namespace WarGame.UI
 {
-    public class HeroAttrsInfo : UIBase
+    public class HeroEquipInfo : UIBase
     {
+        private int _UID;
+        private int _owner;
+        private int _selectedRoleUID;
         private GList _attrList;
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
+        private GTextField _title;
+        private GTextField _desc;
+        private GTextField _ownerTxt;
+        private GButton _activeBtn;
 
-        public HeroAttrsInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
+        public HeroEquipInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
+            _title = GetGObjectChild<GTextField>("title");
+            _desc = GetGObjectChild<GTextField>("desc");
+            _ownerTxt = GetGObjectChild<GTextField>("owner");
             _attrList = GetGObjectChild<GList>("attrList");
             _attrList.itemRenderer = OnAttrRenderer;
+            _activeBtn = GetGObjectChild<GButton>("btn");
 
             EventDispatcher.Instance.AddListener(Enum.Event.Hero_Show_Attrs, OnShowAttrs);
 
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
+            _activeBtn.onClick.Add(OnClick);
         }
 
         private void OnAttrRenderer(int index, GObject item)
@@ -31,10 +43,31 @@ namespace WarGame.UI
 
         private void OnShowAttrs(params object[] args)
         {
-            _attrsData = (List<AttrStruct>)args[0];
+            _UID = (int)args[0];
+            _owner = (int)args[1];
+            _selectedRoleUID = (int)args[2];
+
+            _attrsData.Clear();
+            var equipData = DatasMgr.Instance.GetEquipmentData(_UID);
+            _title.text = equipData.GetName();
+            _desc.text = equipData.GetConfig().GetTranslation("Desc");
+
+            foreach (var v in equipData.GetAttrs())
+            {
+                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
+            }
             _attrList.numItems = _attrsData.Count;
 
-            SetPosition((Vector2)args[1]);
+            if (_selectedRoleUID == _owner)
+            {
+                _activeBtn.title = "Ð¶ÏÂ";
+            }
+            else
+            {
+                _activeBtn.title = "´©´÷";
+            }
+
+            SetPosition((Vector2)args[3]);
             SetVisible(true);
         }
 
@@ -55,6 +88,15 @@ namespace WarGame.UI
             {
                 SetVisible(false);
             }
+        }
+
+        private void OnClick()
+        {
+            SetVisible(false);
+            if (_owner == _selectedRoleUID)
+                DatasMgr.Instance.UnwearEquipC2S(_selectedRoleUID, _UID);
+            else
+                DatasMgr.Instance.WearEquipC2S(_selectedRoleUID, _UID);
         }
 
         public override void Dispose(bool disposeGCom = false)

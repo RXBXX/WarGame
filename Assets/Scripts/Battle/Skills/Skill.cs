@@ -37,6 +37,7 @@ namespace WarGame
 
         public virtual void Dispose()
         {
+            CloseBattleArena();
             RemoveListeners();
             CameraMgr.Instance.UnlockTarget();
         }

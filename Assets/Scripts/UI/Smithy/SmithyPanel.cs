@@ -47,6 +47,7 @@ namespace WarGame.UI
             });
             _equipList.numItems = _equipsData.Count;
 
+            _equipList.selectedIndex = 0;
             SelectEquip(_equipsData[0]);
         }
 
@@ -86,8 +87,9 @@ namespace WarGame.UI
         private void OnEquipRenderer(int index, GObject item)
         {
             var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _equipsData[index]);
-            item.icon = config.Icon;
-            ((GButton)item).title = config.GetTranslation("Name");
+            var icon = (GButton)((GButton)(item)).GetChild("icon");
+            icon.icon = config.Icon;
+            icon.title = config.GetTranslation("Name");
         }
 
         private void OnClickEquip(EventContext context)

@@ -5,15 +5,17 @@
       "ID": "Record_1",
       "title": "存档_1",
       "createTime": 1721304958463,
-      "saveTime": 1721456378591,
-      "duration": 3689253,
+      "saveTime": 1721491072847,
+      "duration": 4483053,
       "isNew": false,
       "roleDataDic": {
         "10001": {
           "UID": 10001,
           "configId": 10001,
           "level": 1,
-          "equipmentDic": {},
+          "equipmentDic": {
+            "Right": 30002
+          },
           "talents": [
             10001003,
             10001004,
@@ -334,17 +336,17 @@
         "10002": {
           "configId": 10002,
           "Stage": 3,
-          "Round": 5,
+          "Round": 6,
           "actionType": 1,
           "heros": [
             {
               "HP": 100.0,
               "Rage": 100.0,
-              "hexagonID": 786437,
+              "hexagonID": 917512,
               "bornHexagonID": 131075,
               "buffs": [],
               "equipDataDic": {},
-              "state": 1,
+              "state": 5,
               "cloneRole": 0,
               "UID": 10001,
               "configId": 10001,
@@ -364,7 +366,7 @@
               "bornHexagonID": 131076,
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 5,
               "cloneRole": 0,
               "UID": 10002,
               "configId": 10002,
@@ -379,7 +381,7 @@
               "bornHexagonID": 196610,
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 5,
               "cloneRole": 0,
               "UID": 10003,
               "configId": 10003,
@@ -390,11 +392,11 @@
             {
               "HP": 85.0,
               "Rage": 100.0,
-              "hexagonID": 720906,
+              "hexagonID": 917514,
               "bornHexagonID": 262146,
               "buffs": [],
               "equipDataDic": {},
-              "state": 7,
+              "state": 5,
               "cloneRole": 0,
               "UID": 10021,
               "configId": 10021,
@@ -459,7 +461,7 @@
             {
               "HP": 80.0,
               "Rage": 100.0,
-              "hexagonID": 852009,
+              "hexagonID": 852007,
               "bornHexagonID": 852007,
               "buffs": [],
               "equipDataDic": {},
@@ -474,7 +476,7 @@
             {
               "HP": 80.0,
               "Rage": 100.0,
-              "hexagonID": 655399,
+              "hexagonID": 852003,
               "bornHexagonID": 852003,
               "buffs": [],
               "equipDataDic": {},
@@ -489,7 +491,7 @@
             {
               "HP": 80.0,
               "Rage": 100.0,
-              "hexagonID": 1114148,
+              "hexagonID": 1048612,
               "bornHexagonID": 1048612,
               "buffs": [],
               "equipDataDic": {},

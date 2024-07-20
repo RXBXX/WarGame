@@ -89,7 +89,7 @@ namespace WarGame
                     AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/Skyboxs/" + lightingPlugin.Sky + ".mat", (mat) =>
                     {
                         GameObject.Find("Main Camera").GetComponent<Skybox>().material = mat;
-                    });
+                     });
                 }
             }
         }

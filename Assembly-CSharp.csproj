@@ -141,6 +141,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearXY.cs" />
     <Compile Include="Assets\Scripts\Map\BonfireBehaviour.cs" />
     <Compile Include="Assets\Scripts\Battle\Battlefield.cs" />
+    <Compile Include="Assets\Scripts\UI\Hero\HeroEquipInfo.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\EllipseMesh.cs" />
     <Compile Include="Assets\Scripts\Render\FogPP.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearColor.cs" />
@@ -274,7 +275,6 @@
     <Compile Include="Assets\Scripts\Render\BloomPP.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\RectHitTest.cs" />
     <Compile Include="Assets\Scripts\Common\TipsMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\Hero\HeroAttrsInfo.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Gesture\SwipeGesture.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapMark.cs" />
