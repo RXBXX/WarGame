@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="280,500" pivot="0.5,0.5" extention="Button" mask="n18_kwvb">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="1"/>
   <displayList>
-    <graph id="n19_kwvb" name="n19" xy="9,0" size="261,500" alpha="0.7" type="polygon" lineSize="0" lineColor="#ffffffff" fillColor="#ff000000" points="64,0,261,0,197,500,0,500">
-      <gearColor controller="button" pages="0" values="#000000" default="#ffa500"/>
+    <graph id="n19_kwvb" name="n19" xy="9,0" size="261,500" alpha="0.9" type="polygon" lineSize="0" lineColor="#ffffffff" fillColor="#ffffb500" points="64,0,261,0,197,500,0,500">
+      <gearColor controller="button" pages="0,1" values="#000000|#ffb500" default="#ffa500"/>
     </graph>
     <graph id="n18_kwvb" name="mask" xy="9,0" size="261,500" type="polygon" lineSize="0" points="64,0,261,0,197,500,0,500"/>
-    <graph id="n24_kwvb" name="n24" xy="-68,127" size="423,196" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <loader id="n11_gy0s" name="icon" xy="142,226" pivot="0.5,0.5" anchor="true" size="147,147" url="ui://hx02grrpc2cw14" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
-    <graph id="n22_kwvb" name="n22" xy="-83,376" size="423,50" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n20_kwvb" name="title" xy="121,401" pivot="0.5,0.5" anchor="true" size="69,44" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="Name"/>
+    <graph id="n24_kwvb" name="n24" xy="-68,121" size="423,172" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ffcccccc"/>
+    <loader id="n11_gy0s" name="icon" xy="145,209" pivot="0.5,0.5" anchor="true" size="116,119" url="ui://t8m39wbjkky81z" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
+    <graph id="n22_kwvb" name="n22" xy="-83,375" size="423,34" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n20_kwvb" name="title" xy="121,391" pivot="0.5,0.5" anchor="true" size="51,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Name"/>
   </displayList>
   <Button mode="Radio"/>
 </component>

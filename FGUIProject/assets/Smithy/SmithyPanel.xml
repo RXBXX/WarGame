@@ -26,7 +26,9 @@
       <item/>
       <item/>
     </list>
-    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="879,544" scale="0.4,0.4"/>
+    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="997,577" size="360,69" scale="0.4,0.4">
+      <Button titleFontSize="36"/>
+    </component>
     <text id="n6_ou4w" name="costTxt" xy="980,595" size="55,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#5c8799" ubb="true" strokeColor="#000000" text="10/12"/>
     <component id="n7_ou4w" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="0,-1"/>
     <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true"/>
