@@ -24,7 +24,6 @@ namespace WarGame
         public string Name;
         public string Desc;
         public string Prefab;
-        public Enum.RoleType Type;
         public int CommonSkill;
         public int SpecialSkill;
         public string Icon;

@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Text;
 using System.Collections.Generic;
+using System.IO;
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 using UnityEditor;
@@ -208,6 +208,9 @@ namespace WarGame
             var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments, lightingPlugin);
 
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
+            if (null == dir || dir.Equals(""))
+                return;
+
             Tool.Instance.WriteJson<LevelMapPlugin>(dir, levelPlugin);
         }
 
@@ -222,6 +225,12 @@ namespace WarGame
             ClearEditorMapScene();
 
             var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "json");
+            if (null == dir || "" == dir)
+                return;
+
+            if (!File.Exists(dir))
+                return;
+
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments, levelPlugin.lightingPlugin);
