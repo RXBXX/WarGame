@@ -90,8 +90,11 @@ namespace WarGame.UI
 
         public override void Update(float deltaTime)
         {
+            if (!_map.IsHit(Stage.inst.touchTarget))
+                return;
+
             var scroll = InputManager.Instance.GetAxis("Mouse ScrollWheel");
-            if (0 != scroll && _map.IsHit(Stage.inst.touchTarget))
+            if (0 != scroll)
             {
                 _map.Zoom(InputManager.Instance.GetMousePos(), scroll);
             }

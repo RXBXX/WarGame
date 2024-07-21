@@ -25460,10 +25460,10 @@
       }
     },
     {
-      "ID": 2686991,
+      "ID": 3014666,
       "configID": 13,
-      "hexagonID": 2686991,
-      "scale": 3.0,
+      "hexagonID": 3014666,
+      "scale": 5.0,
       "rotation": {
         "x": 0.0,
         "y": 0.0,
@@ -25471,10 +25471,10 @@
       }
     },
     {
-      "ID": 3014666,
+      "ID": 2686991,
       "configID": 13,
-      "hexagonID": 3014666,
-      "scale": 5.0,
+      "hexagonID": 2686991,
+      "scale": 3.0,
       "rotation": {
         "x": 0.0,
         "y": 0.0,
@@ -25912,39 +25912,30 @@
     }
   ],
   "lightingPlugin": {
-    "Sky": "Midgard 09",
-    "TintColor": {
-      "x": 0.644204736,
-      "y": 0.644204736,
-      "z": 0.644204736,
-      "w": 0.5,
-      "normalized": {
-        "x": 0.526869953,
-        "y": 0.526869953,
-        "z": 0.526869953,
-        "w": 0.40893054,
-        "magnitude": 1.0,
-        "sqrMagnitude": 1.0
-      },
-      "magnitude": 1.22270155,
-      "sqrMagnitude": 1.49499917
-    },
-    "Intensity": 0.998017848,
-    "DirLightColor": {
-      "x": 0.8719676,
-      "y": 0.961455166,
+    "Sky": "LapuSky 1",
+    "LightColor": {
+      "x": 0.8827493,
+      "y": 0.965399265,
       "z": 1.0,
       "w": 0.0,
       "normalized": {
-        "x": 0.532170236,
-        "y": 0.5867853,
-        "z": 0.6103096,
+        "x": 0.536109149,
+        "y": 0.586303949,
+        "z": 0.607317567,
         "w": 0.0,
-        "magnitude": 1.0,
-        "sqrMagnitude": 1.0
+        "normalized": {
+          "x": 0.5361092,
+          "y": 0.586304,
+          "z": 0.6073176,
+          "w": 0.0,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 0.99999994,
+        "sqrMagnitude": 0.99999994
       },
-      "magnitude": 1.63851261,
-      "sqrMagnitude": 2.68472362
+      "magnitude": 1.646585,
+      "sqrMagnitude": 2.7112422
     }
   }
 }

@@ -16,8 +16,13 @@ namespace WarGame.UI
             _callback = (WGCallback)args[1];
             GetGObjectChild<GTextField>("desc").text = (string)args[0];
 
-            GetGObjectChild<GButton>("sureBtn").onClick.Add(OnSure);
-            GetGObjectChild<GButton>("cancelBtn").onClick.Add(OnCancel);
+            var sureBtn = GetGObjectChild<GButton>("sureBtn");
+            sureBtn.title = ConfigMgr.Instance.GetTranslation("TipsPanel_Sure");
+            sureBtn.onClick.Add(OnSure);
+
+            var cancelBtn = GetGObjectChild<GButton>("cancelBtn");
+            cancelBtn.title = ConfigMgr.Instance.GetTranslation("TipsPanel_Cancel");
+            cancelBtn.onClick.Add(OnCancel);
         }
 
         private void OnSure()

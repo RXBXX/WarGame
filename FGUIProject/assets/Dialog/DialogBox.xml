@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1100,120">
-  <controller name="type" pages="0,,1," selected="1"/>
+  <controller name="type" pages="0,,1," selected="0"/>
   <displayList>
-    <graph id="n12_mj42" name="n12" xy="848,-313" size="200,300" group="n13_mj42" scale="1.04,1.04" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,200,0,100,300"/>
-    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="952,-10" group="n13_mj42"/>
-    <group id="n13_mj42" name="n13" xy="848,-313" size="204,303" advanced="true">
-      <gearXY controller="type" pages="1" values="848,-313" default="38,-313"/>
+    <image id="n12_mj42" name="n12" src="kky8j" fileName="Images/Dialog_RoleBG.png" xy="22,-318" size="218,306" group="n13_mj42" scale="1.04,1.04"/>
+    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="142,-10" group="n13_mj42"/>
+    <group id="n13_mj42" name="n13" xy="22,-318" size="220,308" advanced="true">
+      <gearXY controller="type" pages="0,1" values="22,-318|848,-313"/>
     </group>
-    <graph id="n11_mj42" name="n11" xy="-1,0" size="1100,120" type="polygon" lineColor="#ffffffff" fillColor="#ff000000" points="74,0,1100,0,1032,120,0,120"/>
-    <text id="n1_a4gr" name="context" xy="84,10" size="931,96" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" bold="true" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
+    <image id="n11_mj42" name="n11" src="kky8i" fileName="Images/DialogBG.png" xy="-1,0" size="1144,146"/>
+    <text id="n1_a4gr" name="context" xy="84,10" size="931,96" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
   </displayList>
 </component>
