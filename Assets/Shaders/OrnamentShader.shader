@@ -59,7 +59,6 @@ Shader "Custom/OrnamentShader"
 						v2f o;
 
 						UNITY_SETUP_INSTANCE_ID(v);
-
 						o.pos = UnityObjectToClipPos(v.vertex);
 						o.worldNormal = UnityObjectToWorldNormal(v.normal);
 						o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;

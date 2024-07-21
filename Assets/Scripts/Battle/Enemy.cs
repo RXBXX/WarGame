@@ -24,7 +24,7 @@ namespace WarGame
         {
             base.OnCreate(go);
             if (GetEnemyConfig().IsBoss)
-                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.2F;
+                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.1F;
             _gameObject.tag = Enum.Tag.Enemy.ToString();
         }
 

@@ -2,10 +2,10 @@
 <component size="1100,120">
   <controller name="type" pages="0,,1," selected="0"/>
   <displayList>
-    <image id="n12_mj42" name="n12" src="kky8j" fileName="Images/Dialog_RoleBG.png" xy="22,-318" size="218,306" group="n13_mj42" scale="1.04,1.04"/>
-    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="142,-10" group="n13_mj42"/>
-    <group id="n13_mj42" name="n13" xy="22,-318" size="220,308" advanced="true">
-      <gearXY controller="type" pages="0,1" values="22,-318|848,-313"/>
+    <image id="n12_mj42" name="n12" src="kky8j" fileName="Images/Dialog_RoleBG.png" xy="27,-320" size="209,306" group="n13_mj42" scale="1.04,1.04"/>
+    <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="142,-11" group="n13_mj42"/>
+    <group id="n13_mj42" name="n13" xy="27,-320" size="215,309" advanced="true">
+      <gearXY controller="type" pages="0,1" values="27,-320|848,-313"/>
     </group>
     <image id="n11_mj42" name="n11" src="kky8i" fileName="Images/DialogBG.png" xy="-1,0" size="1144,146"/>
     <text id="n1_a4gr" name="context" xy="84,10" size="931,96" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" bold="true" strokeColor="#000000" autoClearText="true" text="1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas1wqedsadas"/>
