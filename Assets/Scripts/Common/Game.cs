@@ -60,6 +60,7 @@ namespace WarGame
             LineMgr.Instance.Update(deltaTime);
             RoleManager.Instance.Update(deltaTime);
             RenderMgr.Instance.Update(deltaTime);
+            AudioMgr.Instance.Update(deltaTime);
         }
 
         public override void LateUpdate()
