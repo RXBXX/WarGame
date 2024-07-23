@@ -10,7 +10,7 @@ namespace WarGame.UI
         private int _value;
         private int _deltaValue;
         private GTextField _valueTxt;
-        private float _interval = 0.06F;
+        private float _interval = 0.04F;
 
         public CommonResItem(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
