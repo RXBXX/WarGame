@@ -108,7 +108,7 @@ namespace WarGame.UI
         public void UpdateBuffs(List<BuffPair> buffs)
         {
             _buffs = buffs;
-            _buffList.numItems = buffs.Count;
+            _buffList.numItems = buffs.Count; //’‚¿Ô”–bug
             _buffList.ResizeToFit();
         }
 

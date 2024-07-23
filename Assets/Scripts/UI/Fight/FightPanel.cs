@@ -62,6 +62,7 @@ namespace WarGame.UI
                 _skipBtn.visible = true;
             }
 
+            GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).GetTranslation("Name");
             _round.text = args[2].ToString();
 
             UpdateRess(true);
