@@ -37,7 +37,7 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.Event.Save_Data, OnSave);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Close_HP, OnCloseHP);
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_ShowDrop, OnShowDrop);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Drops, OnFightDrops);
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
@@ -206,7 +206,7 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.Event.Save_Data, OnSave);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Close_HP, OnCloseHP);
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_ShowDrop, OnShowDrop);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Drops, OnFightDrops);
         }
 
         private IEnumerator OnLoad()
@@ -218,7 +218,7 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] {_levelID, _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
 
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
@@ -383,6 +383,7 @@ namespace WarGame
 
         public void RightClickBegin(GameObject obj)
         {
+            //DebugManager.Instance.Log("RIghtClickBegin");
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString() || tag == Enum.Tag.Enemy.ToString())
             {
@@ -397,6 +398,7 @@ namespace WarGame
 
         public void RightClickEnd()
         {
+            //DebugManager.Instance.Log("RIghtClickEnd");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_RoleInfo);
             if (_isLockingCamera)
             {
@@ -722,7 +724,7 @@ namespace WarGame
             });
         }
 
-        private void OnShowDrop(params object[] args)
+        private void OnFightDrops(params object[] args)
         {
             var reward = (int)args[0];
             var pos = (Vector3)args[1];

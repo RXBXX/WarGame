@@ -206,20 +206,24 @@ namespace WarGame
         {
             var sender = (int)args[0];
             var target = RoleManager.Instance.GetRole(sender);
-            if (target.IsDead())
-                return;
 
             if (_targets.Contains(sender))
             {
-                _targets.Remove(sender);
                 if (_chainTargetDic.ContainsKey(sender))
                 {
-                    foreach (var v in _chainTargetDic[sender])
-                        BattleMgr.Instance.DoAttack(_initiatorID, v);
+                    BattleMgr.Instance.DoChainAttack(_initiatorID, _chainTargetDic[sender]);
                 }
+
+                if (target.IsDead())
+                    return;
+
+                _targets.Remove(sender);
             }
             else
             {
+                if (target.IsDead())
+                    return;
+
                 foreach (var v in _chainTargetDic)
                 {
                     if (v.Value.Contains(sender))

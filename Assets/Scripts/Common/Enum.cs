@@ -433,7 +433,7 @@ namespace WarGame
             Fight_Hide_RoleInfo = 47,
             Fight_Cure_End = 48,
             Role_Create_Success = 49,
-            Fight_ShowDrop = 50,
+            Fight_Drops = 50,
             Language_Changed = 51,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,

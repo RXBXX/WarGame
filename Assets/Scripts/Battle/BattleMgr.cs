@@ -504,6 +504,8 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
+            initiator.ClearRage();
+
             var initiatorHP = initiator.GetHP();
             var targetHP = target.GetHP();
             var rd = Random.Range(0, initiatorHP + targetHP);

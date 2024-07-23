@@ -60,7 +60,10 @@ namespace WarGame
                 bullet.transform.position = _viceGO.transform.position;
                 bullet.transform.localScale = _viceGO.transform.lossyScale;
                 bullet.transform.rotation = _viceGO.transform.rotation;
-
+                foreach (var v in bullet.GetComponentsInChildren<TrailRenderer>())
+                {
+                    v.enabled = true;
+                }
                 var forward = (_hitPoss[i] - _gameObject.transform.position).normalized;
                 bullet.transform.forward = forward;
                 _tweeners.Add(bullet.transform.DOMove(_hitPoss[i] - _viceGO.transform.lossyScale.x * forward, duration));

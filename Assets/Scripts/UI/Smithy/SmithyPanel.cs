@@ -32,7 +32,9 @@ namespace WarGame.UI
             _attrsList.itemRenderer = OnAttrRenderer;
 
             _resComp = GetChild<CommonResComp>("resComp");
-            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.EquipRes });
+            _resComp.InitComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
+            });
 
             GetGObjectChild<GButton>("buyBtn").onClick.Add(OnClickBuy);
 
@@ -49,6 +51,11 @@ namespace WarGame.UI
 
             _equipList.selectedIndex = 0;
             SelectEquip(_equipsData[0]);
+        }
+
+        public override void Update(float deltaTime)
+        {
+            _resComp.Update(deltaTime);
         }
 
         private void SelectEquip(int id)
@@ -119,7 +126,9 @@ namespace WarGame.UI
 
         private void OnBuyEquipS2C(params object[] args)
         {
-            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.EquipRes });
+            _resComp.UpdateComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
+            });
         }
 
         private void OnClickClose()

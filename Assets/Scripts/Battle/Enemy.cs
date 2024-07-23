@@ -396,7 +396,8 @@ namespace WarGame
             var reward = GetEnemyConfig().Reward;
             if (0 == reward)
                 return;
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_ShowDrop, new object[] { reward, GetPosition() });
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Drops, new object[] { reward, GetPosition() });
         }
     }
 }

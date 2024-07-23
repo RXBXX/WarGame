@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using FairyGUI;
 
 namespace WarGame.UI
@@ -8,7 +6,8 @@ namespace WarGame.UI
     public class CommonResComp : UIBase
     {
         private GList _resList;
-        private List<int> _resData;
+        private List<TwoIntPair> _resData;
+        private Dictionary<int, CommonResItem> _itemDic = new Dictionary<int, CommonResItem>();
 
         public CommonResComp(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
@@ -16,7 +15,7 @@ namespace WarGame.UI
             _resList.itemRenderer = OnItemRenderer;
         }
 
-        public void UpdateComp(List<int> resData)
+        public void InitComp(List<TwoIntPair> resData)
         {
             _resData = resData;
             _resList.numItems = _resData.Count;
@@ -25,9 +24,25 @@ namespace WarGame.UI
 
         private void OnItemRenderer(int index, GObject item)
         {
-            var resItem = (GButton)item;
-            resItem.title = DatasMgr.Instance.GetItem(_resData[index]).ToString();
-            resItem.icon = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", _resData[index]).Icon;
+            if (!_itemDic.ContainsKey(_resData[index].id))
+                _itemDic.Add(_resData[index].id, UIManager.Instance.CreateUI<CommonResItem>("CommonResItem", item));
+            _itemDic[_resData[index].id].Init(_resData[index]);
+        }
+
+        public void UpdateComp(List<TwoIntPair> resData)
+        {
+            foreach (var v in resData)
+            {
+                if (!_itemDic.ContainsKey(v.id))
+                    continue;
+                _itemDic[v.id].UpdateItem(v.value);
+            }
+        }
+
+        public override void Update(float deltaTime)
+        {
+            foreach (var v in _itemDic)
+                v.Value.Update(deltaTime);
         }
 
         public override void Dispose(bool disposeGCom = false)

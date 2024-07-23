@@ -169,6 +169,7 @@
     <Compile Include="Assets\FairyGUI\Examples\CutScene\LevelManager.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\CompositeMesh.cs" />
     <Compile Include="Assets\Scripts\Common\Factory.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\CommonResItem.cs" />
     <Compile Include="Assets\Scripts\Battle\HeroBattleAction.cs" />
     <Compile Include="Assets\Scripts\Battle\ElementLine.cs" />
     <Compile Include="Assets\Scripts\Battle\Weather.cs" />
@@ -332,6 +333,7 @@
     <Compile Include="Assets\Scripts\UI\Record\RecordItem.cs" />
     <Compile Include="Assets\Scripts\Common\DatasMgr.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightEnemyTips.cs" />
     <Compile Include="Assets\Test\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Common\EventMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIPainter.cs" />
@@ -511,6 +513,7 @@
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\Shaders\WhetherShader.shader" />
+    <None Include="Assets\Shaders\Hex28ToonShader.shader" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
     <None Include="Assets\Shaders\OrnamentShader.shader" />
     <None Include="Assets\Test\BillboardShader.shader" />

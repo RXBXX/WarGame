@@ -37,7 +37,10 @@ namespace WarGame.UI
             _proComp = GetChild<HeroProComp>("proComp");
             _name = GetGObjectChild<GTextField>("name");
             _resComp = GetChild<CommonResComp>("resComp");
-            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
+            _resComp.InitComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.TalentRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes)),
+                new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
+            });
 
             GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
             EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
@@ -58,6 +61,9 @@ namespace WarGame.UI
 
         public override void Update(float deltaTime)
         {
+            _resComp.Update(deltaTime);
+
+
             if (_draging)
             {
                 if (Time.time - _lastDragTime > deltaTime)
@@ -385,12 +391,18 @@ namespace WarGame.UI
 
         private void OnHeroLevelUpS2C(params object[] args)
         {
-            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
+            _resComp.UpdateComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.TalentRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes)),
+                new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
+            });
         }
 
         private void OnHeroTalentActiveS2C(params object[] args)
         {
-            _resComp.UpdateComp(new List<int> { (int)Enum.ItemType.TalentRes, (int)Enum.ItemType.LevelRes });
+            _resComp.UpdateComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.TalentRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes)),
+                new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
+            });
         }
 
         public override void Dispose(bool disposeGCom = false)

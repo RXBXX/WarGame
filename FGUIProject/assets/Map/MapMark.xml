@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="123,35" pivot="0.5,0.5" extention="Button">
+<component size="180,45" pivot="0.5,0.5" extention="Button">
   <controller name="showBtn" pages="0,,1," selected="0"/>
   <displayList>
-    <image id="n6_b0z0" name="n6" src="b0z0g" fileName="Images/BG_02.png" pkg="hx02grrp" xy="61,17" pivot="0.5,0.5" anchor="true" size="123,35" alpha="0.7">
-      <relation target="n4_b0z0" sidePair="width-width,height-height"/>
-    </image>
-    <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="19,6" size="12,21" group="n4_b0z0" aspect="true"/>
-    <text id="n0_hctw" name="title" xy="70,17" pivot="0.5,0.5" anchor="true" size="68,29" group="n4_b0z0" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Mark111"/>
-    <group id="n4_b0z0" name="n4" xy="19,3" size="85,29" advanced="true" layout="hz" colGap="5" excludeInvisibles="true">
-      <relation target="" sidePair="center-center,middle-middle"/>
-    </group>
-    <text id="n1_b0z0" name="desc" xy="61,1" pivot="0.5,1" anchor="true" size="400,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#f6f6f6" align="center" leading="1" letterSpacing="2" autoSize="height" strokeColor="#000000" autoClearText="true" text="11111111111111111111111"/>
+    <image id="n6_b0z0" name="n6" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="0,0" pivot="0.5,0.5" size="180,44"/>
+    <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="20,10" size="17,29" aspect="true"/>
+    <text id="n0_hctw" name="title" xy="90,23" pivot="0.5,0.5" anchor="true" size="62,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Mark111"/>
+    <text id="n1_b0z0" name="desc" xy="83,4" pivot="0.5,1" anchor="true" size="400,41" font="ui://hd0z4dz5omu90" fontSize="16" color="#f6f6f6" align="center" leading="-2" autoSize="height" strokeColor="#000000" autoClearText="true" text="11111111111111111111111&#xA;1111111111111111"/>
     <component id="n7_gy0s" name="goOnBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="-13,24" pivot="1,0.5" anchor="true" scale="0.3,0.3">
       <gearDisplay controller="showBtn" pages="1"/>
       <Button title="GO ON"/>

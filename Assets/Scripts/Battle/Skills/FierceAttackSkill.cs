@@ -137,5 +137,81 @@ namespace WarGame
                 }
             }
         }
+
+        public override void ClickHero(int id)
+        {
+            if (!IsTarget(Enum.RoleType.Hero))
+                return;
+
+            var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
+            var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
+            var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            if (null == hexagons)
+                return;
+
+            _targets.Add(id);
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var attackRange = initiator.GetAttribute(Enum.AttrType.AttackRange);
+            if (attackRange > 0)
+            {
+                var attackRegion = MapManager.Instance.FindingAttackRegion(new List<int> { targetHexID }, attackRange);
+                foreach (var v in attackRegion)
+                {
+                    if (v.Key == startHexID || v.Key == targetHexID)
+                        continue;
+                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                    if (0 == roleID)
+                        continue;
+                    var role = RoleManager.Instance.GetRole(roleID);
+                    if (!IsTarget(role.Type))
+                        continue;
+                    _targets.Add(roleID);
+                }
+
+                foreach (var v in attackRegion)
+                    v.Value.Recycle();
+            }
+            Play();
+        }
+
+        public override void ClickEnemy(int id)
+        {
+            if (!IsTarget(Enum.RoleType.Enemy))
+                return;
+
+            var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
+            var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
+            var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
+            if (null == hexagons)
+                return;
+
+            _targets.Add(id);
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var attackRange = initiator.GetAttribute(Enum.AttrType.AttackRange);
+
+            if (attackRange > 0)
+            {
+                var attackRegion = MapManager.Instance.FindingAttackRegion(new List<int> { targetHexID }, attackRange);
+                foreach (var v in attackRegion)
+                {
+                    if (v.Key == startHexID || v.Key == targetHexID)
+                        continue;
+                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                    if (0 == roleID)
+                        continue;
+                    var role = RoleManager.Instance.GetRole(roleID);
+                    if (!IsTarget(role.Type))
+                        continue;
+                    _targets.Add(roleID);
+                }
+
+                foreach (var v in attackRegion)
+                    v.Value.Recycle();
+            }
+
+            Play();
+        }
     }
 }

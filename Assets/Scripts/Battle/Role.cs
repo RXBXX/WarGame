@@ -842,6 +842,9 @@ namespace WarGame
 
         public void AddElementEffect(int roleUID, Enum.Element element)
         {
+            if (null == _gameObject)
+                return;
+
             if (_elementEffectDic.ContainsKey(roleUID))
                 return;
 

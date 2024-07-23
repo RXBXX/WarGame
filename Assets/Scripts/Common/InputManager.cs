@@ -8,6 +8,8 @@ namespace WarGame
         private Ray _ray;
         private RaycastHit _hitInfo;
         private Collider _downCollider = null;
+        private float _rightMouseTime = 0;
+        private float _rightMouseInterval = 0.1f;
 
         // Update is called once per frame
         public override void Update(float deltaTime)
@@ -75,17 +77,25 @@ namespace WarGame
                 SceneMgr.Instance.ClickEnd();
             }
 
-            if (Input.GetMouseButtonDown(1))
+            _rightMouseTime += deltaTime;
+            if (_rightMouseTime >= _rightMouseInterval)
             {
-                _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(_ray, out _hitInfo))
+                if (Input.GetMouseButtonDown(1))
                 {
-                    SceneMgr.Instance.RightClickBegin(_hitInfo.collider.gameObject);
+                    //DebugManager.Instance.Log("MouseButtonDown");
+                    _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(_ray, out _hitInfo))
+                    {
+                        SceneMgr.Instance.RightClickBegin(_hitInfo.collider.gameObject);
+                    }
                 }
-            }
-            else if (Input.GetMouseButtonUp(1))
-            {
-                SceneMgr.Instance.RightClickEnd();
+                else if (Input.GetMouseButtonUp(1))
+                {
+                    //MouseButtonUp触发时，有极大概率会重复出发MouseButtonDown和MouseButtonUp
+                    //DebugManager.Instance.Log("MouseButtonUp");
+                    SceneMgr.Instance.RightClickEnd();
+                    _rightMouseTime = 0;
+                }
             }
         }
 
