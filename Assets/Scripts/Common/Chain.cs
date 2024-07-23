@@ -11,7 +11,7 @@ namespace WarGame
         private float droop = 1F;
         private float _time = 0;
 
-        public Chain(GameObject startGO, GameObject endGO, Material mat, int segment = 5, float droop = 0.2f)
+        public Chain(GameObject startGO, GameObject endGO, Material mat, int segment = 5, float droop = 0.12f)
         {
             this.startGO = startGO;
             this.endGO = endGO;
@@ -22,9 +22,9 @@ namespace WarGame
             lr.positionCount = segment + 1;
             lr.material = mat;
             lr.textureMode = LineTextureMode.Tile;
-            lr.startWidth = 0.08f;
-            lr.endWidth = 0.08f;
-            lr.textureScale = new Vector2(8, 1);
+            lr.startWidth = 0.04f;
+            lr.endWidth = 0.04f;
+            lr.textureScale = new Vector2(4, 1);
 
             UpdateLine(0);
         }

@@ -167,12 +167,12 @@ Material:
     m_Colors:
     - _CloudBrightness: {r: 0, g: 0.2, b: 0.1, a: 1}
     - _CloudColorDayEdge: {r: 0.6603774, g: 0.27201173, b: 0.17132434, a: 1}
-    - _CloudColorDayMain: {r: 1, g: 0.8715105, b: 0.83962256, a: 1}
-    - _CloudColorDaySec: {r: 0.9892183, g: 0.8397334, b: 0.8039065, a: 1}
+    - _CloudColorDayMain: {r: 0.99999994, g: 0.019672599, b: 0, a: 1}
+    - _CloudColorDaySec: {r: 1, g: 0.49828956, b: 0.4083557, a: 1}
     - _CloudColorDayUnder: {r: 0.8301887, g: 0.67818666, b: 0.5991456, a: 1}
     - _CloudColorNightEdge: {r: 0, g: 1, b: 1, a: 1}
-    - _CloudColorNightMain: {r: 1, g: 0.50671506, b: 0.31671154, a: 1}
-    - _CloudColorNightSec: {r: 1, g: 0.28573203, b: 0, a: 1}
+    - _CloudColorNightMain: {r: 0.40700805, g: 0, b: 0.03140023, a: 1}
+    - _CloudColorNightSec: {r: 1, g: 0.019889653, b: 0, a: 1}
     - _CloudColorNightUnder: {r: 0, g: 0.2, b: 0.6, a: 1}
     - _CloudDayColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _CloudDayColorMain: {r: 1, g: 0, b: 0, a: 1}
@@ -181,8 +181,8 @@ Material:
     - _CloudNightColorSec: {r: 0, g: 0.2, b: 0.1, a: 1}
     - _CloudSkyColor: {r: 1, g: 0.9633742, b: 0.8632076, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DayBottomColor: {r: 0.6549864, g: 0.27473205, b: 0.045019243, a: 1}
-    - _DayTopColor: {r: 1, g: 0.5036242, b: 0.24123985, a: 1}
+    - _DayBottomColor: {r: 0, g: 0, b: 0, a: 1}
+    - _DayTopColor: {r: 1, g: 0.56341714, b: 0.5377358, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HorizonColorDay: {r: 0.254717, g: 0.046858322, b: 0.060055744, a: 1}
     - _HorizonColorNight: {r: 1, g: 0.1548208, b: 0, a: 1}
