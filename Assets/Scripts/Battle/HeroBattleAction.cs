@@ -15,9 +15,31 @@ namespace WarGame
 
         public override void Dispose(bool save = false)
         {
-            base.Dispose(save);
             CloseInstruct();
             MapManager.Instance.ClearMarkedRegion();
+
+            if (_initiatorID > 0)
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                if (initiator.GetState() > Enum.RoleState.Locked && initiator.GetState() < Enum.RoleState.Over)
+                {
+                    initiator.SetState(Enum.RoleState.Waiting, true);
+                    switch (initiator.GetState())
+                    {
+                        case Enum.RoleState.Moving:
+                        case Enum.RoleState.WaitingOrder:
+                        case Enum.RoleState.WatingTarget:
+                        case Enum.RoleState.Attacking:
+                            initiator.UpdateHexagonID(_path[0]);
+                            break;
+                        case Enum.RoleState.ReturnMoving:
+                            initiator.UpdateHexagonID(_path[_path.Count - 1]);
+                            break;
+                    }
+                }
+            }
+
+            base.Dispose(save);
         }
 
         protected override void AddListeners()

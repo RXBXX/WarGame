@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="300,30">
+<component size="303,42" overflow="hidden">
   <displayList>
-    <graph id="n0_nmz4" name="n0" xy="0,0" size="300,30" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+    <image id="n2_upau" name="n2" src="upau2l" fileName="Images/ItemBG.png" xy="-1,-3" size="310,45">
       <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <list id="n1_nmz4" name="resList" xy="0,0" size="300,30" layout="row" overflow="scroll" defaultItem="ui://hx02grrpnmz41w" autoClearItems="true">
+    </image>
+    <list id="n1_nmz4" name="resList" xy="3,-3" size="300,40" layout="row" overflow="scroll" colGap="-5" defaultItem="ui://hx02grrpnmz41w" autoClearItems="true">
       <item/>
       <item/>
       <item/>

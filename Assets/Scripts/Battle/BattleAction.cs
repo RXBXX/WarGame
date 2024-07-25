@@ -23,33 +23,13 @@ namespace WarGame
 
         public virtual void Dispose(bool save = false)
         {
+            RemoveListeners();
+
             if (null != _skillAction)
             {
                 _skillAction.Dispose();
                 _skillAction = null;
             }
-
-            if (_initiatorID > 0)
-            {
-                var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() > Enum.RoleState.Locked && initiator.GetState() < Enum.RoleState.Over)
-                {
-                    initiator.SetState(Enum.RoleState.Waiting, true);
-                    switch (initiator.GetState())
-                    {
-                        case Enum.RoleState.Moving:
-                        case Enum.RoleState.WaitingOrder:
-                        case Enum.RoleState.WatingTarget:
-                        case Enum.RoleState.Attacking:
-                            initiator.UpdateHexagonID(_path[0]);
-                            break;
-                        case Enum.RoleState.ReturnMoving:
-                            initiator.UpdateHexagonID(_path[_path.Count - 1]);
-                            break;
-                    }
-                }
-            }
-            RemoveListeners();
         }
 
         protected virtual void AddListeners()

@@ -242,11 +242,10 @@ namespace WarGame
             if (_chainTargetDic.Count > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
         private void OnDeadEnd(object[] args)
@@ -277,11 +276,10 @@ namespace WarGame
             if (_chainTargetDic.Count > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
         private void ClearChains()

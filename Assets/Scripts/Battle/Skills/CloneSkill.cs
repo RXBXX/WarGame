@@ -102,11 +102,10 @@ namespace WarGame
             if (_lock > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
         private void OnRoleCreate(object[] args)
@@ -126,11 +125,10 @@ namespace WarGame
             if (_lock > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
     }
 }

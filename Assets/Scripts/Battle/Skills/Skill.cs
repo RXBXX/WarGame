@@ -9,11 +9,12 @@ namespace WarGame
         protected int _id;
         protected int _initiatorID;
         protected List<int> _targets = new List<int>();
-        protected IEnumerator _coroutine;
         protected bool _isLockingCamera;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         private int _touchingID;
         private bool _isPlaing = false;
+        private Coroutine _playCoroutine;
+        protected Coroutine _attackCoroutine;
 
         public Skill(int id, int initiatorID)
         {
@@ -39,6 +40,18 @@ namespace WarGame
 
         public virtual void Dispose()
         {
+            if (null != _playCoroutine)
+            {
+                CoroutineMgr.Instance.StopCoroutine(_playCoroutine);
+                _playCoroutine = null;
+            }
+
+            if (null != _attackCoroutine)
+            {
+                CoroutineMgr.Instance.StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
+
             CloseBattleArena();
             RemoveListeners();
             CameraMgr.Instance.UnlockTarget();
@@ -53,7 +66,7 @@ namespace WarGame
 
             RoleManager.Instance.GetRole(_initiatorID).SetState(Enum.RoleState.Attacking);
 
-            CoroutineMgr.Instance.StartCoroutine(DoPlay());
+            _playCoroutine = CoroutineMgr.Instance.StartCoroutine(DoPlay());
         }
 
         protected virtual IEnumerator DoPlay()

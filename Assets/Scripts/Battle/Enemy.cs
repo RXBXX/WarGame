@@ -13,6 +13,7 @@ namespace WarGame
         //记录当前回合攻击过自己的角色
         private List<int> _attackers = new List<int>();
         private List<int> _findedEnemys = new List<int>();
+        private Coroutine _coroutine;
 
         public Enemy(LevelRoleData data) : base(data)
         {
@@ -38,7 +39,7 @@ namespace WarGame
             base.OnStateChanged();
             if (_data.state == Enum.RoleState.Waiting)
             {
-                CoroutineMgr.Instance.StartCoroutine(StartAI());
+                _coroutine = CoroutineMgr.Instance.StartCoroutine(StartAI());
             }
         }
 
@@ -260,6 +261,8 @@ namespace WarGame
                 MoveEnd();
             else
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Over, new object[] { 0 });
+
+            _coroutine = null;
         }
 
         public override void Move(List<int> hexagons)
@@ -405,6 +408,16 @@ namespace WarGame
                     return GetConfig().SpecialSkill;
             }
             return GetConfig().CommonSkill;
+        }
+
+        public override bool Dispose()
+        {
+            if (null != _coroutine)
+            {
+                //CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+            return base.Dispose();
         }
     }
 }

@@ -132,6 +132,7 @@ namespace WarGame
         {
             foreach (var v in _trails)
                 v.enabled = false;
+
             if (null != _effectGO)
             {
                 GameObject.Destroy(_effectGO);

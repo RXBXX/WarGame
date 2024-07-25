@@ -62,11 +62,10 @@ namespace WarGame
             if (_targets.Count > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
         private void OnDeadEnd(object[] args)
@@ -80,11 +79,10 @@ namespace WarGame
             if (_targets.Count > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F, true);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F, true));
         }
 
         private void OnDodgeEnd(object[] args)
@@ -98,24 +96,26 @@ namespace WarGame
             if (_targets.Count > 0)
                 return;
 
-            if (null != _coroutine)
+            if (null != _attackCoroutine)
                 return;
 
-            _coroutine = Over(1.5F);
-            CoroutineMgr.Instance.StartCoroutine(_coroutine);
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
         public override void ClickHero(int id)
         {
+            DebugManager.Instance.Log("ClickHero:" + id);
+
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-
+            DebugManager.Instance.Log("ClickHero 1111:" + id);
             var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
 
+            DebugManager.Instance.Log("ClickHero 2222:" + id);
             _targets = FindTargets(id);
 
             Play();
@@ -123,15 +123,16 @@ namespace WarGame
 
         public override void ClickEnemy(int id)
         {
+            DebugManager.Instance.Log("ClickEnemy:"+id);
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-
+            DebugManager.Instance.Log("ClickEnemy 1111:" + id);
             var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-
+            DebugManager.Instance.Log("ClickEnemy 2222:" + id);
             _targets = FindTargets(id);
 
             Play();

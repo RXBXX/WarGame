@@ -2,12 +2,8 @@
 <component size="1334,750" overflow="hidden" opaque="false">
   <displayList>
     <component id="n14_st3u" name="vsComp" src="st3u3" fileName="FightInforComp.xml" xy="667,355" touchable="false"/>
-    <component id="n37_nuya" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true" size="300,30"/>
-    <graph id="n35_li0q" name="n35" xy="202,-1" size="50,70" group="n11_tsk1" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,50,0,50,62,0,70"/>
-    <text id="n4_p3n5" name="round" xy="226,32" pivot="0.5,0.5" anchor="true" size="16,49" group="n11_tsk1" font="ui://hd0z4dz5omu90" fontSize="36" color="#ce4a35" letterSpacing="5" strokeColor="#000000" text="1"/>
-    <group id="n11_tsk1" name="n11" xy="202,-1" size="50,70" advanced="true">
-      <relation target="" sidePair="center-center,top-top"/>
-    </group>
+    <component id="n37_nuya" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true"/>
+    <text id="n4_p3n5" name="round" xy="667,70" pivot="0.5,0.5" anchor="true" size="10,29" font="ui://hd0z4dz5omu90" fontSize="20" color="#ce4a35" letterSpacing="5" strokeColor="#000000" text="1"/>
     <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
@@ -24,9 +20,9 @@
     <component id="n5_omu9" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
-    <image id="n34_e7yf" name="n34" src="e7yf1j" fileName="Images/Elements.png" pkg="hx02grrp" xy="1191,23" size="117,136" aspect="true"/>
+    <image id="n34_e7yf" name="n34" src="e7yf1j" fileName="Images/Elements.png" pkg="hx02grrp" xy="1197,43" size="117,136" aspect="true"/>
     <component id="n36_nuya" name="n36" src="nuya1q" fileName="FightEnemyTips.xml" xy="0,599"/>
-    <text id="n38_nuya" name="title" xy="667,44" pivot="0.5,0.5" anchor="true" size="33,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
+    <text id="n38_nuya" name="title" xy="667,44" pivot="0.5,0.5" anchor="true" size="43,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
   </displayList>
   <transition name="showHP"/>
 </component>
