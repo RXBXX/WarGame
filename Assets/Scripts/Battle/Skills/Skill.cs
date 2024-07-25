@@ -12,6 +12,8 @@ namespace WarGame
         protected IEnumerator _coroutine;
         protected bool _isLockingCamera;
         protected List<MapObject> _arenaObjects = new List<MapObject>();
+        private int _touchingID;
+        private bool _isPlaing = false;
 
         public Skill(int id, int initiatorID)
         {
@@ -44,6 +46,9 @@ namespace WarGame
 
         public virtual void Play()
         {
+            DebugManager.Instance.Log("CancelPreview");
+
+            _isPlaing = true;
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
 
             RoleManager.Instance.GetRole(_initiatorID).SetState(Enum.RoleState.Attacking);
@@ -218,6 +223,50 @@ namespace WarGame
         }
 
         public virtual void FocusIn(GameObject obj)
+        {
+            if (_isPlaing)
+                return;
+
+            var touchingID = 0;
+            if (null != obj)
+            {
+                var tag = obj.tag;
+                if (tag == Enum.Tag.Hero.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+                else if (tag == Enum.Tag.Enemy.ToString())
+                {
+                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
+                }
+            }
+
+            if (touchingID != _touchingID)
+            {
+                if (0 != _touchingID)
+                {
+                    CancelPreview();
+                    _touchingID = 0;
+                }
+                if (0 != touchingID)
+                {
+                    _touchingID = touchingID;
+                    Preview(_touchingID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 技能效果预览
+        /// </summary>
+        /// <param name="id"></param>
+        protected virtual void Preview(int id)
+        { }
+
+        /// <summary>
+        /// 技能效果取消预览
+        /// </summary>
+        protected virtual void CancelPreview()
         { }
     }
 }

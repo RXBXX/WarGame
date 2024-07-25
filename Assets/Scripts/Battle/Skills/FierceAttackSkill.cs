@@ -6,7 +6,6 @@ namespace WarGame
 {
     public class FierceAttackSkill : SingleSkill
     {
-        private int _touchingID;
 
         public FierceAttackSkill(int id, int initiatorID) : base(id, initiatorID)
         {
@@ -106,38 +105,6 @@ namespace WarGame
             CoroutineMgr.Instance.StartCoroutine(_coroutine);
         }
 
-        public override void FocusIn(GameObject obj)
-        {
-            var touchingID = 0;
-            if (null != obj)
-            {
-                var tag = obj.tag;
-                if (tag == Enum.Tag.Hero.ToString())
-                {
-                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
-                }
-                else if (tag == Enum.Tag.Enemy.ToString())
-                {
-                    touchingID = obj.GetComponent<RoleBehaviour>().ID;
-                }
-            }
-
-            if (touchingID != _touchingID)
-            {
-                if (0 != _touchingID)
-                {
-                    RoleManager.Instance.GetRole(_touchingID).CancelPreview();
-                    _touchingID = 0;
-                }
-                if (0 != touchingID)
-                {
-                    _touchingID = touchingID;
-                    var hurt = BattleMgr.Instance.GetAttackValue(_initiatorID, touchingID);
-                    RoleManager.Instance.GetRole(_touchingID).Preview(hurt);
-                }
-            }
-        }
-
         public override void ClickHero(int id)
         {
             if (!IsTarget(Enum.RoleType.Hero))
@@ -149,29 +116,8 @@ namespace WarGame
             if (null == hexagons)
                 return;
 
-            _targets.Add(id);
+            _targets = FindTargets(id);
 
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var attackRange = initiator.GetAttribute(Enum.AttrType.AttackRange);
-            if (attackRange > 0)
-            {
-                var attackRegion = MapManager.Instance.FindingAttackRegion(new List<int> { targetHexID }, attackRange);
-                foreach (var v in attackRegion)
-                {
-                    if (v.Key == startHexID || v.Key == targetHexID)
-                        continue;
-                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
-                    if (0 == roleID)
-                        continue;
-                    var role = RoleManager.Instance.GetRole(roleID);
-                    if (!IsTarget(role.Type))
-                        continue;
-                    _targets.Add(roleID);
-                }
-
-                foreach (var v in attackRegion)
-                    v.Value.Recycle();
-            }
             Play();
         }
 
@@ -186,32 +132,41 @@ namespace WarGame
             if (null == hexagons)
                 return;
 
-            _targets.Add(id);
-
-            var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var attackRange = initiator.GetAttribute(Enum.AttrType.AttackRange);
-
-            if (attackRange > 0)
-            {
-                var attackRegion = MapManager.Instance.FindingAttackRegion(new List<int> { targetHexID }, attackRange);
-                foreach (var v in attackRegion)
-                {
-                    if (v.Key == startHexID || v.Key == targetHexID)
-                        continue;
-                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
-                    if (0 == roleID)
-                        continue;
-                    var role = RoleManager.Instance.GetRole(roleID);
-                    if (!IsTarget(role.Type))
-                        continue;
-                    _targets.Add(roleID);
-                }
-
-                foreach (var v in attackRegion)
-                    v.Value.Recycle();
-            }
+            _targets = FindTargets(id);
 
             Play();
+        }
+
+        protected override void Preview(int touchingID)
+        {
+            DebugManager.Instance.Log("Preview");
+            _previewTargets = FindTargets(touchingID);
+            foreach (var v in _previewTargets)
+            {
+                var role = RoleManager.Instance.GetRole(v);
+                if (!_attackableTargets.Contains(v))
+                {
+                    role.SetLayer(Enum.Layer.Gray);
+                    role.SetHUDRoleVisible(true);
+                }
+                role.Preview(BattleMgr.Instance.GetAttackValue(_initiatorID, v));
+            }
+        }
+
+        protected override void CancelPreview()
+        {
+            DebugManager.Instance.Log("CancelPreview");
+            foreach (var v in _previewTargets)
+            {
+                var role = RoleManager.Instance.GetRole(v);
+                if (!_attackableTargets.Contains(v))
+                {
+                    role.RecoverLayer();
+                    role.SetHUDRoleVisible(false);
+                }
+                role.CancelPreview();
+            }
+            _previewTargets.Clear();
         }
     }
 }

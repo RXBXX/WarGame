@@ -349,35 +349,27 @@ namespace WarGame
         public void DoCriticalHit(int initiatorID, int targetID, float multiply)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
+
             var target = RoleManager.Instance.GetRole(targetID);
+            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
 
-            var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
-            var rd = Random.Range(0, 1.0f);
-            if (rd < dodgeRatio)
-            {
-                target.Dodge();
-            }
-            else
-            {
-                var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-                AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
+            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
 
-                var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-                AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
+            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
 
-                var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
+            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
 
-                var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-                AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
-
-                var hurt = physicalHurt + magicHurt;
-                hurt *= Random.Range(1, multiply);
-                hurt = Mathf.Max(0, hurt);
-                target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
-                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
-                CameraMgr.Instance.ShakePosition();
-            }
+            var hurt = physicalHurt + magicHurt;
+            hurt *= Random.Range(1, multiply);
+            hurt = Mathf.Max(0, hurt);
+            target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+            target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+            CameraMgr.Instance.ShakePosition();
         }
 
         /// <summary>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="200,100" pivot="0.5,0.5" extention="Button">
+<component size="120,80" pivot="0.5,0.5" extention="Button">
   <displayList>
-    <graph id="n6_m8jm" name="n6" xy="0,1" size="199,99" touchable="false" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,199,0,199,69.36006,0,99"/>
-    <image id="n5_m8jm" name="n5" src="m8jm1m" fileName="Images/ReturnBtn.png" xy="10,5" size="180,90" aspect="true" color="#ce4a35"/>
+    <image id="n7_upau" name="n7" src="upau2j" fileName="Images/Return.png" xy="-26,0" size="160,76"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

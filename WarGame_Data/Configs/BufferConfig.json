@@ -8,7 +8,7 @@
         },
         "Duration": 2,
         "Name": "流血",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_Blood",
         "Desc": "每回合减少10血量，剩余%s回合",
         "Effect": null
     },
@@ -21,7 +21,7 @@
         },
         "Duration": 3,
         "Name": "中毒",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_Poison",
         "Desc": "每回合减少15血量，剩余%s回合",
         "Effect": null
     },
@@ -34,7 +34,7 @@
         },
         "Duration": 2,
         "Name": "减怒",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_Dizzy",
         "Desc": "每回合较少怒气回复，剩余%s回合",
         "Effect": null
     },
@@ -47,7 +47,7 @@
         },
         "Duration": 1,
         "Name": "隐身",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_Dizzy",
         "Desc": "当前回合隐身",
         "Effect": null
     },
@@ -60,7 +60,7 @@
         },
         "Duration": 1,
         "Name": "晕眩",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_Dizzy",
         "Desc": "使敌人当前回合晕眩，无法行动",
         "Effect": "Assets/Prefabs/Effects/DizzyEffect.prefab"
     },
@@ -73,7 +73,7 @@
         },
         "Duration": 2,
         "Name": "群体物理护盾",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_PhyShield",
         "Desc": "使敌人当前回合晕眩，无法行动",
         "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
@@ -86,7 +86,7 @@
         },
         "Duration": 2,
         "Name": "群体魔法护盾",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_MagicShield",
         "Desc": "使敌人当前回合晕眩，无法行动",
         "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     },
@@ -99,7 +99,7 @@
         },
         "Duration": 2,
         "Name": "单体物理护盾",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_PhyShield",
         "Desc": "使敌人当前回合晕眩，无法行动",
         "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
@@ -112,7 +112,7 @@
         },
         "Duration": 2,
         "Name": "单体魔法护盾",
-        "Icon": "ui://Common/Buff_Blood",
+        "Icon": "UI/Icons/Buffs/Buff_MagicShield",
         "Desc": "使敌人当前回合晕眩，无法行动",
         "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     }

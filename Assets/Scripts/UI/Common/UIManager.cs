@@ -339,13 +339,12 @@ namespace WarGame.UI
         /// 加载包体，并记载引用数
         /// </summary>
         /// <param name="packageName"></param>
-        private void AddPackage(string packageName)
+        public void AddPackage(string packageName)
         {
             var package = UIPackage.AddPackage("UI/" + packageName);
-            var quoteCount = 0;
-            if (_uiPackagesDic.ContainsKey(packageName))
-                quoteCount = _uiPackagesDic[packageName];
-            _uiPackagesDic[package.name] = quoteCount + 1;
+            if (!_uiPackagesDic.ContainsKey(packageName))
+                _uiPackagesDic[packageName] = 0;
+            _uiPackagesDic[package.name] ++;
         }
 
         /// <summary>

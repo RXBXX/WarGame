@@ -345,6 +345,8 @@ namespace WarGame
 
         public void CloseBattleArena()
         {
+            if (0 == _targetID)
+                return;
             var target = RoleManager.Instance.GetRole(_targetID);
             MainCamera.transform.position = target.GetPosition() - MainCamera.transform.forward * _cameraDis;
             CloseGray();

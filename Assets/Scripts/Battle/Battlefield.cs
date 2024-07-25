@@ -153,7 +153,7 @@ namespace WarGame
                 if (null != weather)
                     weather.Update(deltaTime);
 
-                MapManager.Instance.UpdateHexagon(weather.GetLightIntensity());
+                //MapManager.Instance.UpdateHexagon(weather.GetLightIntensity());
             }
         }
 
@@ -180,9 +180,9 @@ namespace WarGame
             }
 
             ClearBornEffects();
-            CameraMgr.Instance.SetTarget(0);
-
             DisposeAction(_battleActionID, true);
+
+            CameraMgr.Instance.SetTarget(0);
 
             Tool.ClearAppliedProcessingFotOutLine();
             RoleManager.Instance.Clear();
@@ -218,7 +218,7 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
-            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] {_levelID, _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
+            UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelID, _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
 
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
@@ -273,13 +273,8 @@ namespace WarGame
                 else if (tag == Enum.Tag.Hexagon.ToString())
                 {
                     var hexagonID = obj.GetComponent<HexagonBehaviour>().ID;
-
                     var roleID = RoleManager.Instance.GetRoleIDByHexagonID(hexagonID);
-                    if (roleID > 0)
-                    {
-                        touchingID = roleID;
-                    }
-                    else
+                    if (roleID == 0)
                     {
                         var hexagon = MapManager.Instance.GetHexagon(hexagonID);
                         if (hexagon.IsReachable())

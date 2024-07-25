@@ -18,22 +18,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 100
-            },
-            {
-                "id": 2,
-                "value": 100
-            },
-            {
-                "id": 3,
-                "value": 100
+                "id": 5,
+                "value": 5
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
-        "Cost": 50
+        "Cost": 50,
+        "Desc": "有5%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10002,
@@ -54,22 +47,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 100
-            },
-            {
-                "id": 2,
-                "value": 100
-            },
-            {
-                "id": 3,
-                "value": 100
+                "id": 5,
+                "value": 5
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_Blood.prefab",
-        "Cost": 50
+        "Cost": 50,
+        "Desc": "有5%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10003,
@@ -90,22 +76,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 11
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_EnemyDeathSkull.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10004,
@@ -126,22 +105,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
                 "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
+                "value": 4
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
-        "Cost": 40
+        "Cost": 40,
+        "Desc": "有4%的概率使敌人中毒，持续两回合"
     },
     {
         "ID": 10005,
@@ -162,22 +134,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
                 "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
+                "value": 12
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab",
-        "Cost": 120
+        "Cost": 120,
+        "Desc": "有12%的概率使敌人中毒，持续两回合"
     },
     {
         "ID": 10006,
@@ -196,7 +161,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10007,
@@ -215,7 +181,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10008,
@@ -230,24 +197,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_WWExplosion_C.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10009,
@@ -262,24 +217,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Fire_Explosion.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10010,
@@ -304,22 +247,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 11
+                "value": 6
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_A_Ground.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "有6%的概率降低敌人怒气，持续两回合"
     },
     {
         "ID": 10011,
@@ -344,22 +280,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 12
+                "value": 6
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX4 Disruptive Force.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_C_Air.prefab",
-        "Cost": 20
+        "Cost": 20,
+        "Desc": "有6%的概率降低敌人怒气，持续两回合"
     },
     {
         "ID": 10012,
@@ -380,22 +309,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
                 "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人中毒，持续两回合"
     },
     {
         "ID": 10013,
@@ -416,22 +338,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
                 "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
+                "value": 6
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "有6%的概率使敌人中毒，持续两回合"
     },
     {
         "ID": 10014,
@@ -452,22 +367,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
                 "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
                 "value": 10
             }
         ],
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab",
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "有10%的概率使敌人中毒，持续两回合"
     },
     {
         "ID": 10015,
@@ -482,24 +390,12 @@
                 "value": 6
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 1
-            },
-            {
-                "id": 2,
-                "value": 1
-            },
-            {
-                "id": 3,
-                "value": 1
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
-        "Cost": 10
+        "Cost": 10,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10016,
@@ -514,24 +410,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
-        "Cost": 20
+        "Cost": 20,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10017,
@@ -546,24 +430,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
-        "Cost": 30
+        "Cost": 30,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10018,
@@ -578,24 +450,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
-        "Cost": 40
+        "Cost": 40,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10019,
@@ -610,24 +470,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
-        "Cost": 50
+        "Cost": 50,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10020,
@@ -642,24 +490,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 11
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10021,
@@ -674,24 +510,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
-        "Cost": 70
+        "Cost": 70,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10022,
@@ -708,22 +532,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10023,
@@ -738,24 +555,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
-        "Cost": 90
+        "Cost": 90,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10024,
@@ -776,22 +581,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
+                "id": 5,
                 "value": 10
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "有10%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10025,
@@ -808,22 +606,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
+                "id": 5,
                 "value": 11
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
-        "Cost": 110
+        "Cost": 110,
+        "Desc": "有11%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10026,
@@ -838,24 +629,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
-        "Cost": 120
+        "Cost": 120,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10027,
@@ -870,24 +649,12 @@
                 "value": 10
             }
         ],
-        "Buffs": [
-            {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
-            }
-        ],
+        "Buffs": null,
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
-        "Cost": 130
+        "Cost": 130,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10028,
@@ -906,7 +673,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 10
+        "Cost": 10,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10029,
@@ -925,7 +693,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 30
+        "Cost": 30,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10030,
@@ -944,7 +713,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 40
+        "Cost": 40,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10031,
@@ -963,7 +733,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 50
+        "Cost": 50,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10032,
@@ -982,7 +753,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10033,
@@ -1001,7 +773,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 70
+        "Cost": 70,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10034,
@@ -1020,7 +793,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10035,
@@ -1039,7 +813,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 90
+        "Cost": 90,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10036,
@@ -1058,7 +833,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10037,
@@ -1077,7 +853,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 110
+        "Cost": 110,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10038,
@@ -1096,7 +873,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 120
+        "Cost": 120,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10039,
@@ -1115,7 +893,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 130
+        "Cost": 130,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10040,
@@ -1134,7 +913,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 140
+        "Cost": 140,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10041,
@@ -1153,7 +933,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 150
+        "Cost": 150,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10042,
@@ -1172,7 +953,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 160
+        "Cost": 160,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10043,
@@ -1191,7 +973,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 170
+        "Cost": 170,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10044,
@@ -1210,7 +993,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 180
+        "Cost": 180,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10045,
@@ -1229,7 +1013,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 190
+        "Cost": 190,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10046,
@@ -1255,21 +1040,14 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
+                "value": 2
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
-        "Cost": 20
+        "Cost": 20,
+        "Desc": "有2%的概率使敌人陷入流血"
     },
     {
         "ID": 10047,
@@ -1295,21 +1073,14 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
+                "value": 4
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
-        "Cost": 40
+        "Cost": 40,
+        "Desc": "有4%的概率使敌人陷入流血"
     },
     {
         "ID": 10048,
@@ -1335,21 +1106,14 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 11
+                "value": 6
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "有6%的概率使敌人陷入流血"
     },
     {
         "ID": 10049,
@@ -1375,21 +1139,14 @@
         "Buffs": [
             {
                 "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入流血"
     },
     {
         "ID": 10050,
@@ -1416,20 +1173,13 @@
             {
                 "id": 1,
                 "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "有10%的概率使敌人陷入流血"
     },
     {
         "ID": 10051,
@@ -1450,22 +1200,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10052,
@@ -1486,22 +1229,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 10
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10053,
@@ -1522,22 +1258,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 11
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10054,
@@ -1558,22 +1287,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 12
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10055,
@@ -1594,22 +1316,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
-                "id": 3,
-                "value": 13
+                "id": 5,
+                "value": 8
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率使敌人陷入眩晕"
     },
     {
         "ID": 10056,
@@ -1634,22 +1349,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 10
+                "value": 2
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
-        "Cost": 20
+        "Cost": 20,
+        "Desc": "有2%的概率降低敌人怒气"
     },
     {
         "ID": 10057,
@@ -1674,22 +1382,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 10
+                "value": 4
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
-        "Cost": 40
+        "Cost": 40,
+        "Desc": "有4%的概率降低敌人怒气"
     },
     {
         "ID": 10058,
@@ -1714,22 +1415,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 11
+                "value": 6
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "有6%的概率降低敌人怒气"
     },
     {
         "ID": 10059,
@@ -1754,22 +1448,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 12
+                "value": 8
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
-        "Cost": 80
+        "Cost": 80,
+        "Desc": "有8%的概率降低敌人怒气"
     },
     {
         "ID": 10060,
@@ -1794,22 +1481,15 @@
         ],
         "Buffs": [
             {
-                "id": 1,
-                "value": 10
-            },
-            {
-                "id": 2,
-                "value": 10
-            },
-            {
                 "id": 3,
-                "value": 13
+                "value": 10
             }
         ],
         "Effect": "Assets/Prefabs/Effects/CFX_Magical_Source.prefab",
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "有10%的概率降低敌人怒气"
     },
     {
         "ID": 10061,
@@ -1828,7 +1508,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 20
+        "Cost": 20,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10062,
@@ -1847,7 +1528,8 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 60
+        "Cost": 60,
+        "Desc": "暂时为空"
     },
     {
         "ID": 10063,
@@ -1866,6 +1548,7 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": null,
-        "Cost": 100
+        "Cost": 100,
+        "Desc": "暂时为空"
     }
 ]

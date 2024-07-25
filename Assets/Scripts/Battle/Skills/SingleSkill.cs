@@ -5,6 +5,9 @@ namespace WarGame
 {
     public class SingleSkill : Skill
     {
+        protected List<int> _attackableTargets = new List<int>();
+        protected List<int> _previewTargets = new List<int>();
+
         public SingleSkill(int id, int initiatorID) : base(id, initiatorID)
         {
         }
@@ -80,6 +83,7 @@ namespace WarGame
             {
                 if (IsTarget(roles[i].Type) && roles[i].ID != _initiatorID && regionDic.ContainsKey(roles[i].Hexagon))
                 {
+                    _attackableTargets.Add(roles[i].ID);
                     roles[i].SetLayer(Enum.Layer.Gray);
                 }
                 else
@@ -107,6 +111,41 @@ namespace WarGame
                 roles[i].SetHUDRoleVisible(true);
             }
             CameraMgr.Instance.CloseGray();
+
+            _attackableTargets.Clear();
+        }
+
+        protected List<int> FindTargets(int selectTarget)
+        {
+            var targets = new List<int>();
+            targets.Add(selectTarget);
+
+            var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
+            var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(selectTarget);
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var attackRange = initiator.GetAttribute(Enum.AttrType.AttackRange);
+
+            if (attackRange > 0)
+            {
+                var attackRegion = MapManager.Instance.FindingAttackRegion(new List<int> { targetHexID }, attackRange);
+                foreach (var v in attackRegion)
+                {
+                    if (v.Key == startHexID || v.Key == targetHexID)
+                        continue;
+                    var roleID = RoleManager.Instance.GetRoleIDByHexagonID(v.Key);
+                    if (0 == roleID)
+                        continue;
+                    var role = RoleManager.Instance.GetRole(roleID);
+                    if (!IsTarget(role.Type))
+                        continue;
+                    targets.Add(roleID);
+                }
+
+                foreach (var v in attackRegion)
+                    v.Value.Recycle();
+            }
+            return targets;
         }
     }
 }

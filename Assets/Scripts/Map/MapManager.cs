@@ -151,16 +151,16 @@ namespace WarGame
             return hexagons;
         }
 
-        public void UpdateHexagon(float intensity)
-        {
-            Hexagon hexagon = null;
-            foreach (var v in _map)
-            {
-                hexagon = v.Value;
-                break;
-            }
-            //hexagon.GameObject.GetComponent<MeshRenderer>().sharedMaterial.SetFloat("MainLightIntensity");
-        }
+        //public void UpdateHexagon(float intensity)
+        //{
+        //    Hexagon hexagon = null;
+        //    foreach (var v in _map)
+        //    {
+        //        hexagon = v.Value;
+        //        break;
+        //    }
+        //    //hexagon.GameObject.GetComponent<MeshRenderer>().sharedMaterial.SetFloat("MainLightIntensity");
+        //}
 
         /// <summary>
         /// 标记可抵达地块

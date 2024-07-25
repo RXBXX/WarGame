@@ -8,7 +8,7 @@
     <text id="n0_rquy" name="title" xy="946,266" pivot="0.5,0.5" anchor="true" size="486,179" font="ui://hd0z4dz5omu90" fontSize="140" color="#333333" autoClearText="true" text="KA KA KILL">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
-    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="711,539" controller="style,1">
+    <component id="n2_rquy" name="mainBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="711,539">
       <Button title="play"/>
     </component>
   </displayList>

@@ -29,13 +29,9 @@ namespace WarGame
             }
         }
 
-        protected override void CreateHUD()
+        protected override int GetHPType()
         {
-            base.CreateHUD();
-            _hpHUDKey = ID + "_HP";
-            var args = new object[] { ID, 0, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement()};
-            var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
-            hud.SetHPVisible(true);
+            return 0;
         }
 
         public override void ResetState()

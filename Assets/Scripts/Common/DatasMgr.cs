@@ -114,6 +114,14 @@ namespace WarGame
             return false;
         }
 
+        public bool IsLevelEntered(int levelID)
+        {
+            if (!IsLevelOpen(levelID))
+                return false;
+            var levelData = GetLevelData(levelID);
+            return levelData.Stage >= Enum.LevelStage.Entered;
+        }
+
         public bool IsLevelPass(int levelID)
         {
             var gd = _data.GetUsingRecord();

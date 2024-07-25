@@ -28,13 +28,9 @@ namespace WarGame
             _gameObject.tag = Enum.Tag.Enemy.ToString();
         }
 
-        protected override void CreateHUD()
+        protected override int GetHPType()
         {
-            base.CreateHUD();
-            _hpHUDKey = ID + "_HP";
-            var args = new object[] { ID, 1, GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement() };
-            var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
-            hud.SetHPVisible(true);
+            return 1;
         }
 
         protected override void OnStateChanged()
@@ -253,7 +249,8 @@ namespace WarGame
                 yield return new WaitForSeconds(GetHUDRole().Warning());
             }
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, GetConfig().CommonSkill });
+            var skillID = SelectSkill();
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID });
             yield return new WaitForSeconds(1.0F);
 
             //DebugManager.Instance.Log(path.Count);
@@ -398,6 +395,16 @@ namespace WarGame
                 return;
 
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Drops, new object[] { reward, GetPosition() });
+        }
+
+        private int SelectSkill()
+        {
+            if (GetRage() >= GetAttribute(Enum.AttrType.Rage))
+            {
+                if (GetConfig().SpecialSkill == (int)Enum.Skill.CriticalHit)
+                    return GetConfig().SpecialSkill;
+            }
+            return GetConfig().CommonSkill;
         }
     }
 }

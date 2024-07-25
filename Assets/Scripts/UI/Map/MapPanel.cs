@@ -114,21 +114,22 @@ namespace WarGame.UI
 
         private void OnMapOpen(object[] args)
         {
-            var levelID = (int)args[0];
-            //if (!DatasMgr.Instance.IsLevelOpen(levelID))
-            //{
-            //    TipsMgr.Instance.Add("关卡没有开启！");
-            //    return;
-            //}
+            UIManager.Instance.OpenPanel("Fight", "FightTipsPanel", args);
+            //var levelID = (int)args[0];
+            ////if (!DatasMgr.Instance.IsLevelOpen(levelID))
+            ////{
+            ////    TipsMgr.Instance.Add("关卡没有开启！");
+            ////    return;
+            ////}
 
-            WGCallback cb = () => {
-                UIManager.Instance.ClosePanel(name);
-                SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);
-            };
-            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] {
-            "请确保进入前，已做好万全准备，一旦进入将无法再为英雄进行升级等操作，直至赢得胜利。",
-            cb
-            });
+            //WGCallback cb = () => {
+            //    UIManager.Instance.ClosePanel(name);
+            //    SceneMgr.Instance.OpenBattleField(levelID, (bool)args[1]);
+            //};
+            //UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] {
+            //"请确保进入前，已做好万全准备，一旦进入将无法再为英雄进行升级等操作，直至赢得胜利。",
+            //cb
+            //});
 
         }
 

@@ -35,10 +35,10 @@ namespace WarGame.UI
             ((GTextField)_gCom.GetChild("id")).text = args[0].ToString();
             _hp.GetController("style").SetSelectedIndex((int)args[1]);
 
-            Init((float)args[2], (float)args[3], (float)args[4], (float)args[5], (Enum.Element)args[6]);
+            Init((float)args[2], (float)args[3], (float)args[4], (float)args[5], (Enum.Element)args[6], (List<BuffPair>)args[7]);
         }
 
-        private void Init(float HP, float totalHP, float rage, float totalRage, Enum.Element element)
+        private void Init(float HP, float totalHP, float rage, float totalRage, Enum.Element element, List<BuffPair> buffs)
         {
             _hpValue = HP;
             _hp.max = totalHP;
@@ -48,6 +48,8 @@ namespace WarGame.UI
             _rage.value = rage;
 
             _elementLoader.url = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)element).Icon;
+
+            UpdateBuffs(buffs);
         }
 
         public override void Update(float deltaTime)
@@ -108,7 +110,7 @@ namespace WarGame.UI
         public void UpdateBuffs(List<BuffPair> buffs)
         {
             _buffs = buffs;
-            _buffList.numItems = buffs.Count; //’‚¿Ô”–bug
+            _buffList.numItems = buffs.Count;
             _buffList.ResizeToFit();
         }
 

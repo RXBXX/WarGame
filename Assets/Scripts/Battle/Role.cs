@@ -183,12 +183,23 @@ namespace WarGame
 
         protected virtual void CreateHUD()
         {
+            UIManager.Instance.AddPackage("HUD");
             var uiPanel = _hudPoint.AddComponent<UIPanel>();
             uiPanel.packagePath = "UI/HUD";
             uiPanel.packageName = "HUD";
             uiPanel.componentName = "HUDRole";
             uiPanel.container.renderMode = RenderMode.WorldSpace;
             uiPanel.ui.scale = new Vector2(0.012F, 0.012F);
+
+            _hpHUDKey = ID + "_HP";
+            var args = new object[] { ID, GetHPType(), GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement(), _data.buffs};
+            var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
+            hud.SetHPVisible(true);
+        }
+
+        protected virtual int GetHPType()
+        {
+            return 0;
         }
 
         public AnimatorConfig GetAnimatorConfig()

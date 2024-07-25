@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="300,335" pivot="1,0" anchor="true">
+<component size="240,248" pivot="1,0" anchor="true">
   <displayList>
-    <graph id="n36_gy0s" name="n36" xy="0,0" size="300,335" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n36_gy0s" name="n36" xy="0,0" size="240,248" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="bottomext-bottom"/>
     </graph>
-    <list id="n29_gy0s" name="attrList" xy="12,84" size="275,200" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+    <list id="n29_gy0s" name="attrList" xy="12,78" size="362,200" scale="0.6,0.6" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
       <relation target="n33_gy0s" sidePair="top-bottom"/>
       <item/>
       <item/>
@@ -13,13 +13,12 @@
       <item/>
       <item/>
     </list>
-    <text id="n32_gy0s" name="title" xy="12,0" size="63,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffe7ac" strokeColor="#000000" autoClearText="true" text="Attack"/>
-    <text id="n33_gy0s" name="desc" xy="14,36" size="273,43" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffe7ac" leading="0" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
-    <graph id="n34_gy0s" name="n34" xy="10,34" size="280,2" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="204,284" size="100,46" scale="0.6,0.6">
+    <text id="n32_gy0s" name="title" xy="12,0" size="63,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n33_gy0s" name="desc" xy="14,36" size="213,37" font="ui://hd0z4dz5omu90" fontSize="14" color="#ffffff" leading="0" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
+    <image id="n34_gy0s" name="n34" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="10,34" size="220,2" alpha="0.7"/>
+    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="151,197" size="100,46" scale="0.6,0.6">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </component>
-    <text id="n38_kky8" name="owner" xy="83,7" size="48,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffe7ac" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n38_kky8" name="owner" xy="83,7" size="48,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attack"/>
   </displayList>
-  <relation target="n35_gy0s" sidePair="bottomext-bottom"/>
 </component>
