@@ -193,24 +193,16 @@ namespace WarGame
             int assetID = 0;
             assetID = AssetsMgr.Instance.LoadAssetAsync<Texture2D>("Assets/Textures/MeshTagentTex/" + mesh.name + ".png", (texture) =>
             {
-                //Debug.Log("Read:" + texture.width);
-                Vector4[] tangents = new Vector4[mesh.vertices.Length];
-                for (int i = 0; i < texture.width; i++)
+                var verticesLength = mesh.vertexCount;
+                Vector4[] tangents = new Vector4[verticesLength];
+                Color[] colors = texture.GetPixels();
+                for (int i = 0; i < verticesLength; i++)
                 {
-                    for (int j = 0; j < texture.height; j++)
-                    {
-                        var index = i * texture.width + j;
-                        if (index >= mesh.vertices.Length)
-                            break;
-                        var color = texture.GetPixel(i, j);
-                        //Debug.Log(i + "_" + j + ":" + color);
-                        tangents[index] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
-                    }
+                    var color = colors[i];
+                    tangents[i] = new Vector4(color.r * 2 - 1, color.g * 2 - 1, color.b * 2 - 1, color.a * 2 - 1);
                 }
-
                 AssetsMgr.Instance.ReleaseAsset(assetID);
                 mesh.tangents = tangents;
-
 
                 if (!Application.isPlaying)
                     DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);

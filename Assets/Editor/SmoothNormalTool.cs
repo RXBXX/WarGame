@@ -94,15 +94,15 @@ namespace WarGame
             var sqrt = Mathf.CeilToInt(Mathf.Sqrt(tangents.Length));
             var texture = new Texture2D(sqrt, sqrt, TextureFormat.RGBA32, false);
             //Debug.Log("Write" + sqrt * sqrt);
-            for (int i = 0; i < sqrt; i++)
+            for (int y = 0; y < sqrt; y++)
             {
-                for (int j = 0; j < sqrt; j++)
+                for (int x = 0; x < sqrt; x++)
                 {
-                    var index = i * sqrt + j;
+                    var index = y * sqrt + x;
                     if (index >= tangents.Length)
                         break;
                     //Debug.Log(i+"_"+j +":"+ new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2));
-                    texture.SetPixel(i, j, new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2));
+                    texture.SetPixel(x, y, new Color((tangents[index].x + 1) / 2, (tangents[index].y + 1) / 2, (tangents[index].z + 1) / 2, (tangents[index].w + 1) / 2));
                 }
             }
             texture.Apply();

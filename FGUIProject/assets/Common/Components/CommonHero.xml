@@ -11,7 +11,7 @@
     <image id="n7_pfj8" name="n7" src="cwzy1d" fileName="Images/HeroFrame.png" xy="0,0" size="80,80">
       <gearColor controller="button" pages="0,1,2,3" values="#ffffff|#ffb500|#ffb500|#ffb500"/>
     </image>
-    <text id="n5_pfj8" name="title" xy="40,40" pivot="0.5,0.5" anchor="true" size="20,21" fontSize="14" color="#ffffff" autoClearText="true" text="11"/>
+    <text id="n5_pfj8" name="title" xy="40,40" pivot="0.5,0.5" anchor="true" size="20,21" visible="false" fontSize="14" color="#ffffff" autoClearText="true" text="11"/>
   </displayList>
   <Button/>
 </component>
