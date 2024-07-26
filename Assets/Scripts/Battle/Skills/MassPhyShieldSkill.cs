@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace WarGame
 {
-    public class MassPhyShieldSkill : Skill
+    public class MassPhyShieldSkill : MassSkill
     {
         public MassPhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
         { }

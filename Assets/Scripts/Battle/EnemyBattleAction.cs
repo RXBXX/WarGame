@@ -58,26 +58,26 @@ namespace WarGame
             _targetID = (int)args[1];
             _skillID = (int)args[2];
 
-            DebugManager.Instance.Log("SkillID:" + _skillID);
+            //DebugManager.Instance.Log("SkillID:" + _skillID);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AIAction_Start, args);
         }
 
         public void OnMoveStart(object[] args)
         {
-            try
-            {
-                var inititor = RoleManager.Instance.GetRole(_initiatorID);
-                inititor.SetState(Enum.RoleState.Moving);
-            }
-            catch
-            {
-                DebugManager.Instance.Log(_initiatorID);
-            }
+            //try
+            //{
+            var inititor = RoleManager.Instance.GetRole(_initiatorID);
+            inititor.SetState(Enum.RoleState.Moving);
+            //}
+            //catch
+            //{
+            //    DebugManager.Instance.Log(_initiatorID);
+            //}
         }
 
         protected override void OnMoveEnd(params object[] args)
         {
-            DebugManager.Instance.Log("OnMoveEnd:" + _targetID);
+            //DebugManager.Instance.Log("OnMoveEnd:" + _targetID);
             if (_targetID > 0)
             {
                 OnAIAttack();

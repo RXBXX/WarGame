@@ -63,7 +63,7 @@ namespace WarGame.UI
             {
                 startBtn.visible = false;
                 _skipBtn.visible = true;
-                readyTips.visible = true;
+                readyTips.visible = false;
             }
 
             GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).GetTranslation("Name");

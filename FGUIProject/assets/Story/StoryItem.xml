@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,450" overflow="hidden" mask="n2_dd4m">
+  <controller name="type" exported="true" pages="0,,1," selected="1"/>
+  <displayList>
+    <graph id="n2_dd4m" name="n2" xy="667,225" pivot="0.5,0.5" anchor="true" size="1334,450" scale="-1,-1" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,1334,0,1334,337,0,450">
+      <gearSize controller="type" pages="1" values="1334,450,-1,-1" default="1334,450,1,1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <loader id="n1_dd4m" name="pic" xy="-81,0" size="1496,450" url="ui://sj7ohizdovai1" align="center" vAlign="middle" fill="scale"/>
+  </displayList>
+  <transition name="fadeOut">
+    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="1" endValue="0" duration="12"/>
+  </transition>
+  <transition name="fadeIn">
+    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="0" endValue="1" duration="12"/>
+  </transition>
+  <transition name="over"/>
+</component>

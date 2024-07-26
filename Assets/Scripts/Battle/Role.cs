@@ -851,13 +851,17 @@ namespace WarGame
 
         public void AddElementEffect(int roleUID, Enum.Element element)
         {
-            if (null == _gameObject)
+            if (!IsCreated())
                 return;
 
             if (_elementEffectDic.ContainsKey(roleUID))
                 return;
 
-            var el = new ElementLine(GetEffectPos(), RoleManager.Instance.GetRole(roleUID).GetEffectPos(), CommonParams.GetElementColor(element));
+            var linkRole = RoleManager.Instance.GetRole(roleUID);
+            if (!linkRole.IsCreated())
+                return;
+
+            var el = new ElementLine(GetEffectPos(), linkRole.GetEffectPos(), CommonParams.GetElementColor(element));
             _elementEffectDic.Add(roleUID, el);
         }
 
@@ -978,7 +982,7 @@ namespace WarGame
                 {
                     var GO = GameObject.Instantiate<GameObject>(go);
                     GO.transform.SetParent(_gameObject.transform, false);
-                    go.transform.position = GetEffectPos();
+                    GO.transform.localPosition = Vector3.zero;
                     newAP.Obj = GO;
                 });
                 _buffEffectDic[id].Add(newAP);

@@ -24,6 +24,11 @@ namespace WarGame
             SmoothNormal();
         }
 
+        public bool IsCreated()
+        {
+            return null != _gameObject;
+        }
+
         protected virtual void SmoothNormal()
         {
             Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
