@@ -15,6 +15,7 @@ public class Test : MonoBehaviour
     public Material mat;
     private float _time;
     private float _Intervale = 0.1F;
+    public  Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +30,17 @@ public class Test : MonoBehaviour
             return;
 
         if (Input.GetMouseButtonDown(1))
-            Debug.Log("MouseDown");
-        else if (Input.GetMouseButtonUp(1))
         {
-            _time = 0;
-            Debug.Log("MouseUp");
+            animator.SetBool("Attack", false);
+            animator.SetBool("Attacked", true);
+        }
+        //    Debug.Log("MouseDown");
+        else if (Input.GetMouseButtonDown(0))
+        {
+            //_time = 0;
+            //Debug.Log("MouseUp");
+            animator.SetBool("Idle", false);
+            animator.SetBool("Attack", true);
         }
     }
 

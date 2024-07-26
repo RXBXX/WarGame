@@ -46,12 +46,15 @@ namespace WarGame.UI
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 
+            var readyTips = GetGObjectChild<GTextField>("readyTips");
+            readyTips.text = "≥§∞¥”¢–€ÃÊªª”¢–€…œ’Û";
             var startBtn = GetGObjectChild<GButton>("startBtn");
             startBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Start);
                 startBtn.visible = false;
                 _skipBtn.visible = true;
+                readyTips.visible = false;
             });
 
             _levelID = (int)args[0];
@@ -60,6 +63,7 @@ namespace WarGame.UI
             {
                 startBtn.visible = false;
                 _skipBtn.visible = true;
+                readyTips.visible = true;
             }
 
             GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).GetTranslation("Name");

@@ -501,7 +501,7 @@ namespace WarGame
             var initiatorHP = initiator.GetHP();
             var targetHP = target.GetHP();
             var rd = Random.Range(0, initiatorHP + targetHP);
-            if (rd < initiatorHP)
+            if (rd < initiatorHP && false)
             {
                 target.Hit(targetHP, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
@@ -512,7 +512,6 @@ namespace WarGame
                 initiator.Hit(initiatorHP, null, 0);
             }
 
-            DebugManager.Instance.Log(initiator.DeadFlag);
             CameraMgr.Instance.ShakePosition();
         }
 

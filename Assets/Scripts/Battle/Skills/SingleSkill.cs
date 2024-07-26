@@ -115,7 +115,7 @@ namespace WarGame
             _attackableTargets.Clear();
         }
 
-        protected List<int> FindTargets(int selectTarget)
+        protected virtual List<int> FindTargets(int selectTarget)
         {
             var targets = new List<int>();
             targets.Add(selectTarget);

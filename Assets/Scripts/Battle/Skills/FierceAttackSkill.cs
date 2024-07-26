@@ -104,18 +104,18 @@ namespace WarGame
 
         public override void ClickHero(int id)
         {
-            DebugManager.Instance.Log("ClickHero:" + id);
+            //DebugManager.Instance.Log("ClickHero:" + id);
 
             if (!IsTarget(Enum.RoleType.Hero))
                 return;
-            DebugManager.Instance.Log("ClickHero 1111:" + id);
+            //DebugManager.Instance.Log("ClickHero 1111:" + id);
             var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
 
-            DebugManager.Instance.Log("ClickHero 2222:" + id);
+            //DebugManager.Instance.Log("ClickHero 2222:" + id);
             _targets = FindTargets(id);
 
             Play();
@@ -123,16 +123,16 @@ namespace WarGame
 
         public override void ClickEnemy(int id)
         {
-            DebugManager.Instance.Log("ClickEnemy:"+id);
+            //DebugManager.Instance.Log("ClickEnemy:"+id);
             if (!IsTarget(Enum.RoleType.Enemy))
                 return;
-            DebugManager.Instance.Log("ClickEnemy 1111:" + id);
+            //DebugManager.Instance.Log("ClickEnemy 1111:" + id);
             var startHexID = RoleManager.Instance.GetHexagonIDByRoleID(_initiatorID);
             var targetHexID = RoleManager.Instance.GetHexagonIDByRoleID(id);
             var hexagons = MapManager.Instance.FindingAttackPathForStr(startHexID, targetHexID, RoleManager.Instance.GetRole(_initiatorID).GetAttackDis());
             if (null == hexagons)
                 return;
-            DebugManager.Instance.Log("ClickEnemy 2222:" + id);
+            //DebugManager.Instance.Log("ClickEnemy 2222:" + id);
             _targets = FindTargets(id);
 
             Play();
@@ -140,7 +140,7 @@ namespace WarGame
 
         protected override void Preview(int touchingID)
         {
-            DebugManager.Instance.Log("Preview");
+            //DebugManager.Instance.Log("Preview");
             _previewTargets = FindTargets(touchingID);
             foreach (var v in _previewTargets)
             {
@@ -156,7 +156,7 @@ namespace WarGame
 
         protected override void CancelPreview()
         {
-            DebugManager.Instance.Log("CancelPreview");
+            //DebugManager.Instance.Log("CancelPreview");
             foreach (var v in _previewTargets)
             {
                 var role = RoleManager.Instance.GetRole(v);

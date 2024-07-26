@@ -23,8 +23,10 @@ namespace WarGame
         {
             if (_state == Enum.RoleAnimState.Start)
                 return;
+
             if (lastState == this)
                 return;
+
             if (null != lastState)
             {
                 //DebugManager.Instance.Log(lastState._name);
@@ -67,7 +69,7 @@ namespace WarGame
             //    DebugManager.Instance.Log("Jump Pause:");
             //    UnityEditor.EditorApplication.isPaused = true;
             //}
-            if (reverse)
+            if (reverse && null != _last)
             {
                 //DebugManager.Instance.Log("StateEnd" + _last._name) ;
                 _last.Start();

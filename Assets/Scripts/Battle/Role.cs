@@ -279,9 +279,7 @@ namespace WarGame
         {
             if (stateName == _curAnimState)
                 return;
-            var curState = _stateDic[_curAnimState];
-            //_curState = stateName;
-            _stateDic[stateName].Start(curState);
+            _stateDic[stateName].Start(_stateDic[_curAnimState]);
         }
 
         public virtual void MoveEnd()
