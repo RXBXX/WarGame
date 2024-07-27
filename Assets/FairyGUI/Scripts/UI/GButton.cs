@@ -571,6 +571,7 @@ namespace FairyGUI
 
         private void __touchBegin(EventContext context)
         {
+            WarGame.AudioMgr.Instance.PlaySound("Assets/Audios/Click.mp3");
             if (context.inputEvent.button != 0)
                 return;
 

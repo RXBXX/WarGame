@@ -1198,7 +1198,6 @@ namespace FairyGUI
                             clickTarget.BubbleEvent("onRightClick", touch.evt);
                         else
                         {
-                            WarGame.AudioMgr.Instance.PlaySound("Assets/Audios/Click.mp3");
                             clickTarget.BubbleEvent("onClick", touch.evt);
                         }
                     }

@@ -224,7 +224,7 @@ namespace WarGame
 
             ClearEditorMapScene();
 
-            var dir = EditorUtility.OpenFilePanel("打开地图", Application.dataPath + "/Maps", "json");
+            var dir = EditorUtility.OpenFilePanel("打开地图", Application.streamingAssetsPath + "/Maps", "json");
             if (null == dir || "" == dir)
                 return;
 

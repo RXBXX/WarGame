@@ -44,7 +44,7 @@ namespace WarGame
             public void SetActive(bool active)
             {
                 audioSource.enabled = active;
-                DebugManager.Instance.Log("AudioSource Enabled:" + audioSource.enabled);
+                //DebugManager.Instance.Log("AudioSource Enabled:" + audioSource.enabled);
             }
 
             public void SetVolume(float volume)
@@ -107,7 +107,7 @@ namespace WarGame
 
         public int PlaySound(string sound, bool isLoop = false)
         {
-            DebugManager.Instance.Log(sound);
+            //DebugManager.Instance.Log(sound);
             var audioSource = CreateAudioSource();
             audioSource.SetVolume(DatasMgr.Instance.GetSoundVolume(Enum.SoundType.Audio));
             audioSource.LoadClip(sound);

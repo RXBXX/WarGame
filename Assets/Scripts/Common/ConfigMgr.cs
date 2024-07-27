@@ -60,7 +60,8 @@ namespace WarGame
 
         private bool InitConfig<T>(string jsonName) where T : Config
         {
-            var configs = Tool.Instance.ReadJson<T[]>("Assets/StreamingAssets/Configs/" + jsonName + ".json");
+            //DebugManager.Instance.Log(jsonName);
+            var configs = Tool.Instance.ReadJson<T[]>(Application.streamingAssetsPath + "/Configs/" + jsonName + ".json");
             _configDic[jsonName] = new Dictionary<int, Config>();
             foreach (var v in configs)
             {
@@ -99,7 +100,7 @@ namespace WarGame
         {
             _TranslationDic.Clear();
             var config = GetConfig<LanguageConfig>("LanguageConfig", DatasMgr.Instance.GetLanguage());
-            var configs = Tool.Instance.ReadJson<TranslationConfig[]>("Assets/StreamingAssets/Configs/Translation_" + config.SimpleName + ".json");
+            var configs = Tool.Instance.ReadJson<TranslationConfig[]>(Application.streamingAssetsPath + "/Configs/Translation_" + config.SimpleName + ".json");
             foreach (var v in configs)
             {
                 _TranslationDic[v.ID] = v;

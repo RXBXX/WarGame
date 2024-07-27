@@ -160,7 +160,7 @@ namespace WarGame
         public override void Start(State lastState = null)
         {
             base.Start(lastState);
-            _runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.wav");
+            _runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.mp3");
         }
 
         public override void Update()

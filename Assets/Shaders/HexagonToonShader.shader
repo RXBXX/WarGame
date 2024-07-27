@@ -148,7 +148,6 @@ Shader "Custom/HexagonToonShader"
 
 				return fixed4(diffuse * _LightColor0.rgb * atten, 1.0);
 			}
-
 			ENDCG
 		}
 			Pass

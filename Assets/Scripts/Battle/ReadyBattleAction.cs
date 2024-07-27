@@ -30,38 +30,40 @@ namespace WarGame
 
         public override void OnClickBegin(GameObject obj)
         {
+            DebugManager.Instance.Log("OnClickBegin");
+
             var tag = obj.tag;
-            if (tag == Enum.Tag.Hero.ToString())
+            if (tag != Enum.Tag.Hero.ToString())
+                return;
+
+            _selectedHero = obj.GetComponent<RoleBehaviour>().ID;
+            var hexagonID = RoleManager.Instance.GetRole(_selectedHero).Hexagon;
+            var hexagon = MapManager.Instance.GetHexagon(hexagonID);
+            if ((Enum.HexagonType)hexagon.ConfigID != Enum.HexagonType.Hex22)
+                return;
+
+            var screenPos = InputManager.Instance.GetMousePos();
+            screenPos.y = Screen.height - screenPos.y;
+            var uiPos = GRoot.inst.GlobalToLocal(screenPos);
+            var allHeros = DatasMgr.Instance.GetAllRoles();
+            var heros = new int[allHeros.Length - 1];
+            var index = 0;
+            foreach (var v in allHeros)
             {
-                _selectedHero = obj.GetComponent<RoleBehaviour>().ID;
-
-                var hexagonID = RoleManager.Instance.GetRole(_selectedHero).Hexagon;
-                var hexagon = MapManager.Instance.GetHexagon(hexagonID);
-                if ((Enum.HexagonType)hexagon.ConfigID != Enum.HexagonType.Hex22)
-                    return;
-
-                var screenPos = InputManager.Instance.GetMousePos();
-                screenPos.y = Screen.height - screenPos.y;
-                var uiPos = GRoot.inst.GlobalToLocal(screenPos);
-                var allHeros = DatasMgr.Instance.GetAllRoles();
-                var heros = new int[allHeros.Length - 1];
-                var index = 0;
-                foreach (var v in allHeros)
+                if (v != _selectedHero)
                 {
-                    if (v != _selectedHero)
-                    {
-                        heros[index] = v;
-                        index += 1;
-                    }
+                    heros[index] = v;
+                    index += 1;
                 }
-
-                LockCamera();
-                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HeroGroup, new object[] { uiPos, heros });
             }
+
+            LockCamera();
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HeroGroup, new object[] { uiPos, heros });
         }
 
         public override void OnClickEnd()
         {
+            DebugManager.Instance.Log("OnClickEnd");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_HeroGroup);
             UnlockCamera();
         }
@@ -134,7 +136,7 @@ namespace WarGame
         private void OnReadyOver(params object[] args)
         {
             _levelData.Stage = Enum.LevelStage.Readyed;
-            OnActionOver(new object[] {0});
+            OnActionOver(new object[] { 0 });
         }
     }
 }
