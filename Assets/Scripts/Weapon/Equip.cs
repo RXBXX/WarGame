@@ -100,6 +100,10 @@ namespace WarGame
         public virtual void Attack(List<Vector3> hitPoss)
         {
             _hitPoss = hitPoss;
+            if (null != GetConfig().Sound)
+            {
+                AudioMgr.Instance.PlaySound(GetConfig().Sound);
+            }
         }
 
         public EquipmentConfig GetConfig()
@@ -143,7 +147,6 @@ namespace WarGame
 
         protected virtual void BulletTake()
         {
-
         }
 
         protected virtual void BulletEnd()

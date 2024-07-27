@@ -43,8 +43,6 @@ namespace WarGame
                     bullet.SetActive(false);
                 }
             });
-
-            AudioMgr.Instance.PlaySound("bow_start.mp3");
     }
 
         protected override void BulletTake()
@@ -71,7 +69,10 @@ namespace WarGame
                 _tweeners.Add(bullet.transform.DOMove(_hitPoss[i] - _viceGO.transform.lossyScale.x * forward, duration));
             }
 
-            AudioMgr.Instance.PlaySound("bow_take.wav");
+            if (null != GetConfig().Sound)
+            {
+                AudioMgr.Instance.PlaySound(GetConfig().Sound);
+            }
         }
 
         protected override void BulletEnd()

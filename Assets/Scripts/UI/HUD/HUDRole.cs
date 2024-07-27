@@ -149,7 +149,7 @@ namespace WarGame.UI
             if (0 == deltaHP)
                 return;
             GTween.Kill(_hp);
-            var targetHP = _hpValue - deltaHP;
+            var targetHP = _hpValue + deltaHP;
             float duration = (float)(Mathf.Abs(targetHP - (float)_hp.value) / _hp.max) * 0.2F;
             _hp.TweenValue(targetHP, duration);
         }

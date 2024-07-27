@@ -42,7 +42,7 @@ namespace WarGame
         {
             UIManager.Instance.OpenPanel("Login", "LoginPanel");
 
-            AudioMgr.Instance.PlayMusic("Assets/Audios/loop521.wav");
+            AudioMgr.Instance.PlayMusic("Assets/Audios/BG_Music.mp3");
             return true;
         }
 

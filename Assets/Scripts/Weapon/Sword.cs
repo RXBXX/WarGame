@@ -10,11 +10,5 @@ namespace WarGame
         { 
         
         }
-
-        public override void Attack(List<Vector3> hitPoss)
-        {
-            base.Attack(hitPoss);
-            AudioMgr.Instance.PlaySound("sword_take.mp3");
-        }
     }
 }

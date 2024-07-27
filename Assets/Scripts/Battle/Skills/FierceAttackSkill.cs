@@ -150,7 +150,7 @@ namespace WarGame
                     role.SetLayer(Enum.Layer.Gray);
                     role.SetHUDRoleVisible(true);
                 }
-                role.Preview(BattleMgr.Instance.GetAttackValue(_initiatorID, v));
+                role.Preview(-BattleMgr.Instance.GetAttackValue(_initiatorID, v));
             }
         }
 

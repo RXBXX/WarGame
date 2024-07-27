@@ -177,8 +177,17 @@ namespace WarGame
             _stateDic.Add("Cured", new CuredState("Cured", this));
             _stateDic.Add("Cure", new CureState("Cure", this));
             _stateDic.Add("Dodge", new DodgeState("Dodge", this));
-            _curAnimState = "Idle";
-            _stateDic[_curAnimState].Start();
+            _stateDic.Add("Victory", new VictoryState("Victory", this));
+
+            if (null != _curAnimState && "Idle" != _curAnimState)
+            {
+                _stateDic[_curAnimState].Start(_stateDic["Idle"]);
+            }
+            else
+            {
+                _curAnimState = "Idle";
+                _stateDic[_curAnimState].Start();
+            }
         }
 
         protected virtual void CreateHUD()
@@ -192,7 +201,7 @@ namespace WarGame
             uiPanel.ui.scale = new Vector2(0.012F, 0.012F);
 
             _hpHUDKey = ID + "_HP";
-            var args = new object[] { ID, GetHPType(), GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement(), _data.buffs};
+            var args = new object[] { ID, GetHPType(), GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement(), _data.buffs };
             var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
             hud.SetHPVisible(true);
         }
@@ -277,8 +286,15 @@ namespace WarGame
 
         private void EnterState(string stateName)
         {
+            if (!IsCreated())
+            {
+                _curAnimState = stateName;
+                return;
+            }
+
             if (stateName == _curAnimState)
                 return;
+
             _stateDic[stateName].Start(_stateDic[_curAnimState]);
         }
 
@@ -333,6 +349,8 @@ namespace WarGame
             EnterState("Attacked");
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
+
+            AudioMgr.Instance.PlaySound("Assets/Audios/Hit.mp3");
         }
 
         public virtual void Cure()
@@ -383,6 +401,7 @@ namespace WarGame
 
                 _data.cloneRole = 0;
             }
+            AudioMgr.Instance.PlaySound(GetConfig().DeadSound);
         }
 
         public virtual void Idle()
@@ -1020,6 +1039,12 @@ namespace WarGame
         public void CancelPreview()
         {
             GetHUDRole().CancelPreview();
+        }
+
+        public void GoIntoBattle()
+        {
+            AudioMgr.Instance.PlaySound(GetConfig().IntoBattleSound);
+            EnterState("Cured");
         }
 
         public override bool Dispose()

@@ -31,9 +31,9 @@ namespace WarGame
 
             public void LoadClip(string clipPath)
             {
-                assetID = AssetsMgr.Instance.LoadAssetAsync<AudioClip>("Assets/Audios/" + clipPath, (clip) =>
+                assetID = AssetsMgr.Instance.LoadAssetAsync<AudioClip>(clipPath, (clip) =>
                 {
-                    length = (long)(clip.length * 1000);
+                    length = (long)(clip.length * 1000) + 1000;
                     audioClip = clip;
                     audioSource.volume = DatasMgr.Instance.GetSoundVolume(Enum.SoundType.Audio);
                     audioSource.clip = clip;
@@ -44,6 +44,7 @@ namespace WarGame
             public void SetActive(bool active)
             {
                 audioSource.enabled = active;
+                DebugManager.Instance.Log("AudioSource Enabled:" + audioSource.enabled);
             }
 
             public void SetVolume(float volume)
@@ -61,6 +62,9 @@ namespace WarGame
             public void Dispose()
             {
                 SetActive(false);
+                audioClip = null;
+                audioSource.clip = null;
+                length = 0;
 
                 AssetsMgr.Instance.ReleaseAsset(assetID);
                 assetID = 0;
@@ -103,6 +107,7 @@ namespace WarGame
 
         public int PlaySound(string sound, bool isLoop = false)
         {
+            DebugManager.Instance.Log(sound);
             var audioSource = CreateAudioSource();
             audioSource.SetVolume(DatasMgr.Instance.GetSoundVolume(Enum.SoundType.Audio));
             audioSource.LoadClip(sound);
@@ -150,11 +155,15 @@ namespace WarGame
             if (_audioStack.Count > 0)
             {
                 audioSource = _audioStack.Pop();
+                audioSource.time = TimeMgr.Instance.GetUnixTimestamp();
                 audioSource.SetActive(true);
             }
+            else
+            {
+                _count++;
+                audioSource = new AudioPair(_count, TimeMgr.Instance.GetUnixTimestamp(), _GO.AddComponent<AudioSource>());
+            }
 
-            _count++;
-            audioSource = new AudioPair(_count, TimeMgr.Instance.GetUnixTimestamp(), _GO.AddComponent<AudioSource>());
             return audioSource;
         }
 

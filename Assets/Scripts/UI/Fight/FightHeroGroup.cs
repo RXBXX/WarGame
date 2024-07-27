@@ -41,6 +41,8 @@ namespace WarGame.UI
         {
             if (GCom.visible)
                 return;
+
+            AudioMgr.Instance.PlaySound("Assets/Audios/Show.mp3");
             SetPosition(centerPos);
 
             _heroDic.Clear();

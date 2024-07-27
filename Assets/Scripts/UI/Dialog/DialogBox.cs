@@ -13,6 +13,7 @@ namespace WarGame.UI
         private float _time = 0.0f;
         private WGArgsCallback _callback;
         private int _lastRole = 0;
+        private int _soundID = 0;
 
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -31,9 +32,7 @@ namespace WarGame.UI
             {
                 if (!_te.Print())
                 {
-                    _start = false;
-                    _te.Cancel();
-                    _callback();
+                    OnComplete();
                 }
                 _time = 0;
             }
@@ -57,6 +56,7 @@ namespace WarGame.UI
             _te.Print();
             _start = true;
             _time = 0;
+            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Print.mp3", true);
         }
 
         public bool IsPlaying()
@@ -67,6 +67,28 @@ namespace WarGame.UI
         public void Complete()
         {
             _te.Cancel();
+        }
+
+        private void OnComplete()
+        {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
+            _start = false;
+            _te.Cancel();
+            _callback();
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
+            base.Dispose(disposeGCom);
         }
     }
 }

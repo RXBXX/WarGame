@@ -152,6 +152,7 @@ namespace WarGame.UI
                 RenderMgr.Instance.ReleaseBlurBG(_blurID);
                 _blurID = 0;
             }
+            _dialogBox.Dispose();
             base.Dispose(disposeGCom);
         }
     }

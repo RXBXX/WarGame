@@ -49,5 +49,30 @@ namespace WarGame
 
             _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
+
+        protected override void Preview(int touchingID)
+        {
+            _previewTargets.Add(touchingID);
+            var role = RoleManager.Instance.GetRole(touchingID);
+            role.SetLayer(Enum.Layer.Gray);
+            role.SetHUDRoleVisible(true);
+            role.Preview(BattleMgr.Instance.GetCurePower(_initiatorID, touchingID));
+        }
+
+        protected override void CancelPreview()
+        {
+            //DebugManager.Instance.Log("CancelPreview");
+            foreach (var v in _previewTargets)
+            {
+                var role = RoleManager.Instance.GetRole(v);
+                if (!_attackableTargets.Contains(v))
+                {
+                    role.RecoverLayer();
+                    role.SetHUDRoleVisible(false);
+                }
+                role.CancelPreview();
+            }
+            _previewTargets.Clear();
+        }
     }
 }

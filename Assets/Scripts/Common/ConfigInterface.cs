@@ -30,6 +30,8 @@ namespace WarGame
         public string FullLengthIcon;
         public Enum.Element Element;
         public int MaxLevel;
+        public string DeadSound;
+        public string IntoBattleSound;
     }
 
     //地块表
@@ -84,6 +86,7 @@ namespace WarGame
         public string Bullet;
         public string HitEffect;
         public int Cost;
+        public string Sound;
     }
 
     //装备类型表
@@ -185,6 +188,7 @@ namespace WarGame
         public int[] WinCond;
         public string Music;
         public Enum.Element Element;
+        public string TargetDesc;
     }
 
     //敌人表

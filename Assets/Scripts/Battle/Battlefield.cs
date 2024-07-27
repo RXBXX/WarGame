@@ -81,7 +81,8 @@ namespace WarGame
                     }));
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
                     var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
-                    RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
+                    var role = RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
+                    role.GoIntoBattle();
                     _levelData.heros.Add(levelRoleData);
 
                     index++;
@@ -161,7 +162,7 @@ namespace WarGame
         {
             UIManager.Instance.ClosePanel("FightPanel");
 
-            AudioMgr.Instance.PlayMusic("Assets/Audios/loop521.wav");
+            AudioMgr.Instance.PlayMusic("Assets/Audios/BG_Music.mp3");
 
             RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Fog);
 

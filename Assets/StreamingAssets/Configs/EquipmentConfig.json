@@ -26,7 +26,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 50,
-        "Desc": "有5%的概率使敌人陷入眩晕"
+        "Desc": "有5%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10002,
@@ -55,7 +56,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_Blood.prefab",
         "Cost": 50,
-        "Desc": "有5%的概率使敌人陷入眩晕"
+        "Desc": "有5%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10003,
@@ -84,7 +86,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_EnemyDeathSkull.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10004,
@@ -113,7 +116,8 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
         "Cost": 40,
-        "Desc": "有4%的概率使敌人中毒，持续两回合"
+        "Desc": "有4%的概率使敌人中毒，持续两回合",
+        "Sound": "Assets/Audios/Bow.mp3"
     },
     {
         "ID": 10005,
@@ -142,7 +146,8 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab",
         "Cost": 120,
-        "Desc": "有12%的概率使敌人中毒，持续两回合"
+        "Desc": "有12%的概率使敌人中毒，持续两回合",
+        "Sound": "Assets/Audios/Bow.mp3"
     },
     {
         "ID": 10006,
@@ -162,7 +167,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10007,
@@ -182,7 +188,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10008,
@@ -202,7 +209,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_WWExplosion_C.prefab",
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10009,
@@ -222,7 +230,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Fire_Explosion.prefab",
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10010,
@@ -255,7 +264,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_A_Ground.prefab",
         "Cost": 60,
-        "Desc": "有6%的概率降低敌人怒气，持续两回合"
+        "Desc": "有6%的概率降低敌人怒气，持续两回合",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10011,
@@ -288,7 +298,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_C_Air.prefab",
         "Cost": 20,
-        "Desc": "有6%的概率降低敌人怒气，持续两回合"
+        "Desc": "有6%的概率降低敌人怒气，持续两回合",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10012,
@@ -317,7 +328,8 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人中毒，持续两回合"
+        "Desc": "有8%的概率使敌人中毒，持续两回合",
+        "Sound": "Assets/Audios/Bow.mp3"
     },
     {
         "ID": 10013,
@@ -346,7 +358,8 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
         "Cost": 60,
-        "Desc": "有6%的概率使敌人中毒，持续两回合"
+        "Desc": "有6%的概率使敌人中毒，持续两回合",
+        "Sound": "Assets/Audios/Bow.mp3"
     },
     {
         "ID": 10014,
@@ -375,7 +388,8 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab",
         "Cost": 100,
-        "Desc": "有10%的概率使敌人中毒，持续两回合"
+        "Desc": "有10%的概率使敌人中毒，持续两回合",
+        "Sound": "Assets/Audios/Bow.mp3"
     },
     {
         "ID": 10015,
@@ -395,7 +409,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
         "Cost": 10,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Stick.mp3"
     },
     {
         "ID": 10016,
@@ -415,7 +430,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
         "Cost": 20,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10017,
@@ -435,7 +451,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
         "Cost": 30,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10018,
@@ -455,7 +472,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
         "Cost": 40,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10019,
@@ -475,7 +493,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
         "Cost": 50,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10020,
@@ -495,7 +514,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10021,
@@ -515,7 +535,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
         "Cost": 70,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10022,
@@ -540,7 +561,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10023,
@@ -560,7 +582,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
         "Cost": 90,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10024,
@@ -589,7 +612,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 100,
-        "Desc": "有10%的概率使敌人陷入眩晕"
+        "Desc": "有10%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10025,
@@ -614,7 +638,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 110,
-        "Desc": "有11%的概率使敌人陷入眩晕"
+        "Desc": "有11%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10026,
@@ -634,7 +659,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
         "Cost": 120,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10027,
@@ -654,7 +680,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
         "Cost": 130,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10028,
@@ -674,7 +701,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 10,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10029,
@@ -694,7 +722,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 30,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10030,
@@ -714,7 +743,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 40,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10031,
@@ -734,7 +764,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 50,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10032,
@@ -754,7 +785,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10033,
@@ -774,7 +806,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 70,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10034,
@@ -794,7 +827,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 80,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10035,
@@ -814,7 +848,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 90,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10036,
@@ -834,7 +869,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 100,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10037,
@@ -854,7 +890,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 110,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10038,
@@ -874,7 +911,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 120,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10039,
@@ -894,7 +932,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 130,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10040,
@@ -914,7 +953,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 140,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10041,
@@ -934,7 +974,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 150,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10042,
@@ -954,7 +995,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 160,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10043,
@@ -974,7 +1016,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 170,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10044,
@@ -994,7 +1037,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 180,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10045,
@@ -1014,7 +1058,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 190,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10046,
@@ -1047,7 +1092,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
         "Cost": 20,
-        "Desc": "有2%的概率使敌人陷入流血"
+        "Desc": "有2%的概率使敌人陷入流血",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10047,
@@ -1080,7 +1126,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
         "Cost": 40,
-        "Desc": "有4%的概率使敌人陷入流血"
+        "Desc": "有4%的概率使敌人陷入流血",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10048,
@@ -1113,7 +1160,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
         "Cost": 60,
-        "Desc": "有6%的概率使敌人陷入流血"
+        "Desc": "有6%的概率使敌人陷入流血",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10049,
@@ -1146,7 +1194,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入流血"
+        "Desc": "有8%的概率使敌人陷入流血",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10050,
@@ -1179,7 +1228,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
         "Cost": 100,
-        "Desc": "有10%的概率使敌人陷入流血"
+        "Desc": "有10%的概率使敌人陷入流血",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10051,
@@ -1208,7 +1258,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10052,
@@ -1237,7 +1288,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10053,
@@ -1266,7 +1318,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10054,
@@ -1295,7 +1348,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10055,
@@ -1324,7 +1378,8 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率使敌人陷入眩晕"
+        "Desc": "有8%的概率使敌人陷入眩晕",
+        "Sound": "Assets/Audios/Sword.mp3"
     },
     {
         "ID": 10056,
@@ -1357,7 +1412,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 20,
-        "Desc": "有2%的概率降低敌人怒气"
+        "Desc": "有2%的概率降低敌人怒气",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10057,
@@ -1390,7 +1446,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
         "Cost": 40,
-        "Desc": "有4%的概率降低敌人怒气"
+        "Desc": "有4%的概率降低敌人怒气",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10058,
@@ -1423,7 +1480,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
         "Cost": 60,
-        "Desc": "有6%的概率降低敌人怒气"
+        "Desc": "有6%的概率降低敌人怒气",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10059,
@@ -1456,7 +1514,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 80,
-        "Desc": "有8%的概率降低敌人怒气"
+        "Desc": "有8%的概率降低敌人怒气",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10060,
@@ -1489,7 +1548,8 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 100,
-        "Desc": "有10%的概率降低敌人怒气"
+        "Desc": "有10%的概率降低敌人怒气",
+        "Sound": "Assets/Audios/Wand.mp3"
     },
     {
         "ID": 10061,
@@ -1509,7 +1569,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 20,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10062,
@@ -1529,7 +1590,8 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     },
     {
         "ID": 10063,
@@ -1549,6 +1611,7 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 100,
-        "Desc": "暂时为空"
+        "Desc": "暂时为空",
+        "Sound": null
     }
 ]

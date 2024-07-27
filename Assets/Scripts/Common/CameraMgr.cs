@@ -190,7 +190,7 @@ namespace WarGame
         public void ShakePosition()
         {
             KillTweener();
-            _tweener = MainCamera.transform.DOShakePosition(0.5f, Random.Range(0.1F, 0.2F));
+            _tweener = MainCamera.transform.DOShakePosition(0.5f, Random.Range(0.4F, 1.0F));
             _tweener.onComplete = (() => { KillTweener(); });
         }
 

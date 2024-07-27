@@ -149,10 +149,18 @@ namespace WarGame
     public class MoveState : State
     {
         private float _speed = 3.0f;
+        private int _runSound = 0;
+
 
         public MoveState(string name, Role role) : base(name, role)
         {
 
+        }
+
+        public override void Start(State lastState = null)
+        {
+            base.Start(lastState);
+            _runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.wav");
         }
 
         public override void Update()
@@ -181,6 +189,16 @@ namespace WarGame
                 _lerpStep = 0;
                 _role.NextPath();
             }
+        }
+
+        public override void End(bool reverse)
+        {
+            if (0 != _runSound)
+            {
+                AudioMgr.Instance.StopSound(_runSound);
+                _runSound = 0;
+            }
+            base.End(reverse);
         }
     }
 
@@ -264,6 +282,13 @@ namespace WarGame
         {
             base.End(reverse);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Dodge_End, new object[] { _role.ID });
+        }
+    }
+
+    public class VictoryState : State
+    {
+        public VictoryState(string name, Role role) : base(name, role)
+        {
         }
     }
 }

@@ -8,14 +8,17 @@ namespace WarGame.UI
     public class FightTipsPanel : UIBase
     {
         private int _levelID;
+        private int _soundID;
 
         public FightTipsPanel(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
 
             _levelID = (int)args[0];
-            GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).GetTranslation("Name");
-            GetGObjectChild<GTextField>("desc").text = "请确保进入前，已做好万全准备，一旦进入将无法再为英雄进行升级等操作，直至赢得胜利。";
+            var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID);
+            GetGObjectChild<GTextField>("title").text = levelConfig.GetTranslation("Name");
+            GetGObjectChild<GTextField>("desc").text = levelConfig.GetTranslation("TargetDesc");
+            GetGObjectChild<GTextField>("tips").text = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Tips");
 
             var cancelBtn = GetGObjectChild<GButton>("cancelBtn");
             cancelBtn.title = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Cancel");
@@ -43,6 +46,18 @@ namespace WarGame.UI
                 var restartBtn = GetGObjectChild<GButton>("restartBtn");
                 restartBtn.visible = false;
             }
+
+            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Warning.mp3", true);
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
+            base.Dispose(disposeGCom);
         }
 
         private void OnStart()
