@@ -110,6 +110,9 @@ namespace WarGame
             var startPos = MapTool.Instance.GetPosFromCoor(startHexagon.coor) + CommonParams.RoleOffset;
             var endPos = MapTool.Instance.GetPosFromCoor(endHexagon.coor) + CommonParams.RoleOffset;
             _speed = Vector3.Distance(endPos, startPos) / duration;
+
+            _role.PlaySound("Assets/Audios/Jump.mp3");
+            //AudioMgr.Instance.PlaySound("Assets/Audios/Jump.mp3");
         }
 
         public override void End(bool reverse)
@@ -160,7 +163,8 @@ namespace WarGame
         public override void Start(State lastState = null)
         {
             base.Start(lastState);
-            _runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.mp3");
+            _role.PlaySound("Assets/Audios/Run.mp3", true);
+            //_runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.mp3");
         }
 
         public override void Update()
@@ -193,11 +197,12 @@ namespace WarGame
 
         public override void End(bool reverse)
         {
-            if (0 != _runSound)
-            {
-                AudioMgr.Instance.StopSound(_runSound);
-                _runSound = 0;
-            }
+            //if (0 != _runSound)
+            //{
+            //    AudioMgr.Instance.StopSound(_runSound);
+            //    _runSound = 0;
+            //}
+            _role.StopSound();
             base.End(reverse);
         }
     }

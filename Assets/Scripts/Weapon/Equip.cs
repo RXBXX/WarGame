@@ -102,7 +102,7 @@ namespace WarGame
             _hitPoss = hitPoss;
             if (null != GetConfig().Sound)
             {
-                AudioMgr.Instance.PlaySound(GetConfig().Sound);
+                PlaySound(GetConfig().Sound);
             }
         }
 

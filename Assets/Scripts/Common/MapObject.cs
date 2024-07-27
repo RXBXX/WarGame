@@ -13,6 +13,10 @@ namespace WarGame
 
         protected Transform _parent;
 
+        private AudioSource _audioSource;
+
+        private int _soundAssetID;
+
         protected virtual void CreateGO()
         {
         }
@@ -86,8 +90,44 @@ namespace WarGame
             return true;
         }
 
+        public void PlaySound(string sound, bool isLoop = false)
+        {
+            if (0 != _soundAssetID)
+            {
+                AssetsMgr.Instance.ReleaseAsset(_soundAssetID);
+                _soundAssetID = 0;
+            }
+
+            if (null == _audioSource)
+            {
+                _audioSource = _gameObject.AddComponent<AudioSource>();
+                _audioSource.minDistance = 6;
+                _audioSource.spatialBlend = 1.0F;
+            }
+            AssetsMgr.Instance.LoadAssetAsync<AudioClip>(sound, (clip) => {
+                _audioSource.clip = clip;
+                _audioSource.loop = isLoop;
+                _audioSource.Play();
+            });
+        }
+
+        public void StopSound()
+        {
+            if (0 != _soundAssetID)
+            {
+                AssetsMgr.Instance.ReleaseAsset(_soundAssetID);
+                _soundAssetID = 0;
+            }
+
+            if (null == _audioSource)
+                return;
+            _audioSource.Stop();
+        }
+
         public virtual bool Dispose()
         {
+            StopSound();
+
             if (null != _gameObject)
             {
                 GameObject.Destroy(_gameObject);

@@ -71,7 +71,7 @@ namespace WarGame
 
             if (null != GetConfig().Sound)
             {
-                AudioMgr.Instance.PlaySound(GetConfig().Sound);
+                PlaySound(GetConfig().Sound);
             }
         }
 

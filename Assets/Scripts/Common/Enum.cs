@@ -383,6 +383,12 @@ namespace WarGame
             Text = 0
         }
 
+        public enum AudioListenerType
+        {
+            TwoD = 0,
+            ThreeD = 1,
+        }
+
         public enum Event
         {
             HUDInstruct_Idle_Event = 0,

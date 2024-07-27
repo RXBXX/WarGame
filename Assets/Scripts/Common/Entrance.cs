@@ -9,6 +9,7 @@ namespace WarGame
         {
             //Debug.Log("Entrance Awake");
             DontDestroyOnLoad(this);
+            DontDestroyOnLoad(GameObject.Find("Main Camera"));
             Game.Instance.Init();
         }
 

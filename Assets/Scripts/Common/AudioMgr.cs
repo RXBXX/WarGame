@@ -183,6 +183,18 @@ namespace WarGame
             }
         }
 
+        public void ChangeAudioListener(Enum.AudioListenerType type)
+        {
+            if (type == Enum.AudioListenerType.TwoD)
+            {
+                GameObject.Find("Entrance").GetComponent<AudioListener>().enabled = true;
+            }
+            else
+            {
+            
+            }
+        }
+
         public override bool Dispose()
         {
             foreach (var v in _soundASs)

@@ -350,7 +350,8 @@ namespace WarGame
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
 
-            AudioMgr.Instance.PlaySound("Assets/Audios/Hit.mp3");
+            PlaySound("Assets/Audios/Hit.mp3");
+            //AudioMgr.Instance.PlaySound("Assets/Audios/Hit.mp3");
         }
 
         public virtual void Cure()
@@ -401,7 +402,8 @@ namespace WarGame
 
                 _data.cloneRole = 0;
             }
-            AudioMgr.Instance.PlaySound(GetConfig().DeadSound);
+            PlaySound(GetConfig().DeadSound);
+            //AudioMgr.Instance.PlaySound(GetConfig().DeadSound);
         }
 
         public virtual void Idle()
@@ -1043,7 +1045,8 @@ namespace WarGame
 
         public void GoIntoBattle()
         {
-            AudioMgr.Instance.PlaySound(GetConfig().IntoBattleSound);
+            PlaySound(GetConfig().IntoBattleSound);
+            //AudioMgr.Instance.PlaySound(GetConfig().IntoBattleSound);
             EnterState("Cured");
         }
 
