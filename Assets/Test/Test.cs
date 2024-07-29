@@ -19,7 +19,8 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        var str = System.IO.File.ReadAllText("E://WarGame/APP/WarGame_Data/StreamingAssets/Configs/AnimatorConfig.json");
+        DebugManager.Instance.Log(Tool.AESDecrypt(str));
     }
 
     // Update is called once per frame

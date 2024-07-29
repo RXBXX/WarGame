@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
-//using System.Security.Cryptography;
+using System.Security.Cryptography;
+using System.Text;
+using System;
 
 namespace WarGame
 {
@@ -72,7 +74,11 @@ namespace WarGame
         public T ReadJson<T>(string path)
         {
             var jsonStr = "";
-            try { jsonStr = File.ReadAllText(path); }
+            try
+            {
+                jsonStr = File.ReadAllText(path);
+                jsonStr = AESDecrypt(jsonStr);
+            }
             catch
             {
                 return default(T);
@@ -86,7 +92,11 @@ namespace WarGame
         public void WriteJson<T>(string path, T t)
         {
             var jsonStr = SerializeObject<T>(t);
-            try { File.WriteAllText(path, jsonStr); }
+            try
+            {
+                jsonStr = AESEncrypt(jsonStr);
+                File.WriteAllText(path, jsonStr);
+            }
             catch (IOException exception)
             {
                 Debug.Log(exception);
@@ -288,5 +298,57 @@ namespace WarGame
                 return;
             }
         }
+
+        /// <summary>
+        /// AES 算法加密
+        /// </summary>
+        /// <param name="content">明文</param>
+        /// <param name="Key">密钥</param>
+        /// <returns>加密后的密文</returns>
+        public static string AESEncrypt(string encryptStr, string key = "12345678987654321234567890987654")
+        {
+            if (encryptStr.Substring(0, 4).Equals("True"))
+            {
+                encryptStr.Remove(0, 4);
+                return encryptStr;
+            }
+
+            byte[] keyArray = Encoding.UTF8.GetBytes(key);
+            byte[] toEncryptArray = Encoding.UTF8.GetBytes(encryptStr);
+            RijndaelManaged rDel = new RijndaelManaged
+            {
+                Key = keyArray,
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
+            ICryptoTransform cTransform = rDel.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            return "True" + Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        public static string AESDecrypt(string decryptStr, string key = "12345678987654321234567890987654")
+        {
+            if (!decryptStr.Substring(0, 4).Equals("True"))
+            {
+                return decryptStr;
+            }
+            DebugManager.Instance.Log(decryptStr);
+
+            decryptStr = decryptStr.Remove(0, 4);
+            DebugManager.Instance.Log(decryptStr);
+
+            byte[] keyArray = Encoding.UTF8.GetBytes(key);
+            byte[] toEncryptArray = Convert.FromBase64String(decryptStr);
+            RijndaelManaged rDel = new RijndaelManaged
+            {
+                Key = keyArray,
+                Mode = CipherMode.ECB,
+                Padding = PaddingMode.PKCS7
+            };
+            ICryptoTransform cTransform = rDel.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            return Encoding.UTF8.GetString(resultArray);
+        }
+
     }
 }
