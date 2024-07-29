@@ -15,12 +15,14 @@ namespace WarGame
             public int assetID;
             public AudioClip audioClip;
             public bool isLoop;
+            public GameObject GO;
 
-            public AudioPair(int id, long time, AudioSource audioSource)
+            public AudioPair(int id, long time, AudioSource audioSource, GameObject go)
             {
                 this.id = id;
                 this.time = time;
                 this.audioSource = audioSource;
+                this.GO = go;
             }
 
             public void SetLoop(bool isLoop)
@@ -44,12 +46,21 @@ namespace WarGame
             public void SetActive(bool active)
             {
                 audioSource.enabled = active;
-                //DebugManager.Instance.Log("AudioSource Enabled:" + audioSource.enabled);
             }
 
             public void SetVolume(float volume)
             {
                 audioSource.volume = volume;
+            }
+
+            public void SetBlend(float blend)
+            {
+                audioSource.spatialBlend = blend;
+            }
+
+            public void SetMinDictance(float distance)
+            {
+                audioSource.minDistance = distance;
             }
 
             public bool IsOver()
@@ -68,19 +79,13 @@ namespace WarGame
 
                 AssetsMgr.Instance.ReleaseAsset(assetID);
                 assetID = 0;
-
-                //if (null != audioClip)
-                //{
-                //    AssetsMgr.Instance.Destroy(audioClip);
-                //    audioClip = null;
-                //}
             }
         }
 
         private GameObject _GO;
         private AudioSource _backgoundAS;
         private List<AudioPair> _soundASs = new List<AudioPair>();
-        private Stack<AudioPair> _audioStack = new Stack<AudioPair>();
+        private List<AudioPair> _audioPool = new List<AudioPair>();
         private int _count;
 
         public override bool Init()
@@ -105,10 +110,15 @@ namespace WarGame
             });
         }
 
-        public int PlaySound(string sound, bool isLoop = false)
+
+        public int PlaySound(string sound, bool isLoop = false, GameObject go = null, float blend = 0, float minDistance = 0)
         {
-            //DebugManager.Instance.Log(sound);
-            var audioSource = CreateAudioSource();
+            if (null == go)
+                go = _GO;
+
+            var audioSource = CreateAudioSource(go);
+            audioSource.SetBlend(blend);
+            audioSource.SetMinDictance(minDistance);
             audioSource.SetVolume(DatasMgr.Instance.GetSoundVolume(Enum.SoundType.Audio));
             audioSource.LoadClip(sound);
             audioSource.SetLoop(isLoop);
@@ -124,7 +134,7 @@ namespace WarGame
                 if (_soundASs[i].id == id)
                 {
                     _soundASs[i].Dispose();
-                    _audioStack.Push(_soundASs[i]);
+                    _audioPool.Add(_soundASs[i]);
                     _soundASs.RemoveAt(i);
                     break;
                 }
@@ -149,20 +159,28 @@ namespace WarGame
             }
         }
 
-        private AudioPair CreateAudioSource()
+        private AudioPair CreateAudioSource(GameObject go)
         {
             AudioPair audioSource = null;
-            if (_audioStack.Count > 0)
+            if (_audioPool.Count > 0)
             {
-                audioSource = _audioStack.Pop();
-                audioSource.time = TimeMgr.Instance.GetUnixTimestamp();
-                audioSource.SetActive(true);
+                for (int i = _audioPool.Count - 1; i >= 0; i--)
+                {
+                    if (_audioPool[i].GO == go)
+                    {
+                        audioSource = _audioPool[i];
+                        _audioPool.RemoveAt(i);
+                        break;
+                    }
+                }
             }
-            else
+            if (null == audioSource)
             {
                 _count++;
-                audioSource = new AudioPair(_count, TimeMgr.Instance.GetUnixTimestamp(), _GO.AddComponent<AudioSource>());
+                audioSource = new AudioPair(_count, TimeMgr.Instance.GetUnixTimestamp(), go.AddComponent<AudioSource>(), go);
             }
+            audioSource.time = TimeMgr.Instance.GetUnixTimestamp();
+            audioSource.SetActive(true);
 
             return audioSource;
         }
@@ -177,7 +195,7 @@ namespace WarGame
                 if (_soundASs[i].IsOver())
                 {
                     _soundASs[i].Dispose();
-                    _audioStack.Push(_soundASs[i]);
+                    _audioPool.Add(_soundASs[i]);
                     _soundASs.RemoveAt(i);
                 }
             }
@@ -191,7 +209,22 @@ namespace WarGame
             }
             else
             {
-            
+
+            }
+        }
+
+        public void ClearSound(GameObject go)
+        {
+            for (int i = _soundASs.Count - 1; i >= 0; i--)
+            {
+                if (_soundASs[i].GO = go)
+                    _soundASs.RemoveAt(i);
+            }
+
+            for (int i = _audioPool.Count - 1; i >= 0; i--)
+            {
+                if (_audioPool[i].GO = go)
+                    _audioPool.RemoveAt(i);
             }
         }
 
@@ -201,9 +234,9 @@ namespace WarGame
                 v.Dispose();
             _soundASs.Clear();
 
-            foreach (var v in _audioStack)
+            foreach (var v in _audioPool)
                 v.Dispose();
-            _audioStack.Clear();
+            _audioPool.Clear();
 
             return base.Dispose();
         }

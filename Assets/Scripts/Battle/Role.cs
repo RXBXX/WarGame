@@ -346,11 +346,11 @@ namespace WarGame
                 });
             }
 
+            PlaySound("Assets/Audios/Hit.mp3");
             EnterState("Attacked");
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
 
-            PlaySound("Assets/Audios/Hit.mp3");
             //AudioMgr.Instance.PlaySound("Assets/Audios/Hit.mp3");
         }
 
@@ -373,6 +373,7 @@ namespace WarGame
 
         public virtual void Dodge()
         {
+            PlaySound("Assets/Audios/Roll.mp3");
             EnterState("Dodge");
             AddFloatHUD("Miss");
         }

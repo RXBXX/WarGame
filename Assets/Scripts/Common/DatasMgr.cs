@@ -8,6 +8,8 @@ namespace WarGame
     {
         private GameData _data = null;
         private string _path = Application.streamingAssetsPath + "/Datas/GameData.json";
+        private float _autoSaveInterval = 600.0f;
+        private float _autoTime = 0;
 
         public override bool Init()
         {
@@ -18,6 +20,16 @@ namespace WarGame
                 _data = new GameData();
 
             return true;
+        }
+
+        public override void Update(float deltaTime)
+        {
+            _autoTime += deltaTime;
+            if (_autoTime > _autoSaveInterval)
+            {
+                Save();
+                _autoTime = 0;
+            }
         }
 
 

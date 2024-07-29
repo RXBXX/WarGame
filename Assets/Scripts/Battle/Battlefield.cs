@@ -190,7 +190,10 @@ namespace WarGame
             MapManager.Instance.ClearMap();
 
             foreach (var v in _gos)
+            {
+                AudioMgr.Instance.ClearSound(v);
                 AssetsMgr.Instance.Destroy(v);
+            }
             _gos.Clear();
 
             foreach (var v in _assets)
@@ -735,9 +738,11 @@ namespace WarGame
                 int assetID = 0;
                 assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
                 {
-                    for (int i = 0; i < v.value; i++)
+                    var count = Mathf.Min(v.value, 5);   
+                    for (int i = 0; i < count; i++)
                     {
                         var go = GameObject.Instantiate(prefab);
+                        AudioMgr.Instance.PlaySound("Assets/Audios/Drop.mp3", false, go, 1, 6);
                         go.transform.position = pos;
                         Sequence seq = DOTween.Sequence();
                         seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
@@ -748,6 +753,7 @@ namespace WarGame
                             _gos.Remove(go);
                             _sequences.Remove(seq);
                             _assets.Remove(assetID);
+                            AudioMgr.Instance.ClearSound(go);
                             AssetsMgr.Instance.Destroy(go);
                         });
 

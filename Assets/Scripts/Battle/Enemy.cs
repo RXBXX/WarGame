@@ -414,7 +414,7 @@ namespace WarGame
         {
             if (null != _coroutine)
             {
-                //CoroutineMgr.Instance.StopCoroutine(_coroutine);
+                CoroutineMgr.Instance.StopCoroutine(_coroutine);
                 _coroutine = null;
             }
             return base.Dispose();

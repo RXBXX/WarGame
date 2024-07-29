@@ -154,7 +154,6 @@ namespace WarGame
         private float _speed = 3.0f;
         private int _runSound = 0;
 
-
         public MoveState(string name, Role role) : base(name, role)
         {
 
@@ -163,8 +162,7 @@ namespace WarGame
         public override void Start(State lastState = null)
         {
             base.Start(lastState);
-            _role.PlaySound("Assets/Audios/Run.mp3", true);
-            //_runSound = AudioMgr.Instance.PlaySound("Assets/Audios/Run.mp3");
+            _runSound = _role.PlaySound("Assets/Audios/Run.mp3", true);
         }
 
         public override void Update()
@@ -197,12 +195,11 @@ namespace WarGame
 
         public override void End(bool reverse)
         {
-            //if (0 != _runSound)
-            //{
-            //    AudioMgr.Instance.StopSound(_runSound);
-            //    _runSound = 0;
-            //}
-            _role.StopSound();
+            if (0 != _runSound)
+            {
+                _role.StopSound(_runSound);
+                _runSound = 0;
+            }
             base.End(reverse);
         }
     }
