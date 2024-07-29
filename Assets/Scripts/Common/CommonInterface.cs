@@ -229,6 +229,16 @@ namespace WarGame
         {
             return Mathf.Sqrt(Mathf.Pow(v2.x - v1.x, 2) + Mathf.Pow(v2.y - v1.y, 2) + Mathf.Pow(v2.z - v1.z, 2));
         }
+
+        public Vector3 ToVector3()
+        {
+            return new Vector3(x, y, z);
+        }
+
+        public static WGVector3 ToWGVector3(Vector3 vec)
+        {
+            return new WGVector3(vec.x, vec.y, vec.z);
+        }
     }
 
     //[Serializable]

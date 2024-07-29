@@ -441,6 +441,7 @@ namespace WarGame
             Role_Create_Success = 49,
             Fight_Drops = 50,
             Language_Changed = 51,
+            Fight_ShowReady = 52,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

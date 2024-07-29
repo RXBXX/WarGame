@@ -14,6 +14,8 @@ namespace WarGame
         public ReadyBattleAction(int id, LevelData data) : base(id)
         {
             _levelData = data;
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_ShowReady);
         }
 
         protected override void AddListeners()

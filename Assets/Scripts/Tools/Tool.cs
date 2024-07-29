@@ -94,7 +94,9 @@ namespace WarGame
             var jsonStr = SerializeObject<T>(t);
             try
             {
+#if !UNITY_EDITOR
                 jsonStr = AESEncrypt(jsonStr);
+#endif
                 File.WriteAllText(path, jsonStr);
             }
             catch (IOException exception)

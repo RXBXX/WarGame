@@ -1,6 +1,7 @@
 using UnityEngine;
 using FairyGUI;
 using DG.Tweening;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -16,6 +17,7 @@ namespace WarGame
         private float _cameraDis;
         private int _lockCount = 0;
         private bool _dragging = false;
+        private Sequence _floatSeq;
 
         private bool _isLocking
         {
@@ -80,6 +82,9 @@ namespace WarGame
                 return;
             //DebugManager.Instance.Log("555555");
             if (null != _tweener)
+                return;
+
+            if (null != _floatSeq)
                 return;
             //DebugManager.Instance.Log("666666");
 
@@ -222,15 +227,8 @@ namespace WarGame
             }
         }
 
-        public void SetTarget(int targetID)
+        public void SetTarget(int targetID, bool ani = true)
         {
-            //DebugManager.Instance.Log("SetTarget:"+targetID);
-            //if (_isLocking)
-            //    return;
-
-            //if (_isLockingTarget)
-            //    return;
-
             if (targetID == _targetID)
                 return;
 
@@ -243,8 +241,16 @@ namespace WarGame
             _targetID = targetID;
             var target = RoleManager.Instance.GetRole(_targetID);
             target.SetFollowing(true);
-            _tweener = MainCamera.transform.DOMove(target.GetFollowPos() - _cameraDis * MainCamera.transform.forward, 0.4F).SetEase(Ease.InOutCirc);
-            _tweener.onComplete = (() => { KillTweener(); });
+            if (ani)
+            {
+                var camDis = _cameraDis * MainCamera.transform.forward;
+                _tweener = MainCamera.transform.DOMove(target.GetFollowPos() - camDis, 0.4F).SetEase(Ease.InOutQuad);
+                _tweener.onComplete = (() => { KillTweener(); });
+            }
+            else
+            {
+                MainCamera.transform.position = target.GetFollowPos() - _cameraDis * MainCamera.transform.forward;
+            }
         }
 
         private void KillTweener()
@@ -354,12 +360,43 @@ namespace WarGame
 
         //private Vector3 GetViewCenter()
         //{ 
-        
+
         //}
+
+        public void FloatPoints(List<WGVector3> points, WGArgsCallback callback)
+        {
+            DebugManager.Instance.Log("FloatPoints");
+            var camDis = _cameraDis * MainCamera.transform.forward;
+            _floatSeq = DOTween.Sequence();
+            for (int i = 0; i < points.Count; i++)
+            {
+                _floatSeq.Append(MainCamera.transform.DOMove(points[i].ToVector3() - camDis, 1.0F).SetEase(Ease.InOutQuad));
+                _floatSeq.AppendInterval(0.4f);
+            }
+            var target = RoleManager.Instance.GetRole(_targetID);
+            _floatSeq.Append(MainCamera.transform.DOMove(target.GetPosition() - camDis, 1.0F).SetEase(Ease.InOutQuad));
+
+            _floatSeq.AppendCallback(()=> { 
+                callback();
+                _floatSeq = null;
+            });
+        }
 
         public override bool Dispose()
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Role_Dispose, OnRoleDispose);
+
+            if (null != _tweener)
+            {
+                _tweener.Kill();
+                _tweener = null;
+            }
+
+            if (null != _floatSeq)
+            {
+                _floatSeq.Kill();
+                _floatSeq = null;
+            }
 
             ClearTarget();
 

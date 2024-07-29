@@ -146,7 +146,7 @@ namespace WarGame
                 switch (guiEvent.type)
                 {
                     case EventType.MouseDown:
-                        Debug.Log("MouseDown");
+                        //Debug.Log("MouseDown");
                         if (guiEvent.button == 0 && HandleUtility.DistanceToLine(endPosition, startPosition) < 10f)
                         {
                             dragingAxis = i;

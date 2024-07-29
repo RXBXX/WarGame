@@ -10,7 +10,7 @@
     <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,650" size="200,40" visible="false">
       <Button title="SKIP"/>
     </component>
-    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,650" size="200,40">
+    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,650" size="200,40" visible="false">
       <Button title="START"/>
     </component>
     <component id="n22_pfj8" name="heroGroup" src="pfj86" fileName="FightHeroGroup.xml" xy="0,0" visible="false">
@@ -23,7 +23,7 @@
     <image id="n34_e7yf" name="n34" src="upau2n" fileName="Images/Elements_center.png" pkg="hx02grrp" xy="1159,43" size="160,160" aspect="true"/>
     <component id="n36_nuya" name="n36" src="nuya1q" fileName="FightEnemyTips.xml" xy="0,599"/>
     <text id="n38_nuya" name="title" xy="666,44" pivot="0.5,0.5" anchor="true" size="37,29" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
-    <text id="n39_upau" name="readyTips" xy="1150,708" pivot="0.5,0.5" anchor="true" size="164,24" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵"/>
+    <text id="n39_upau" name="readyTips" xy="1150,708" pivot="0.5,0.5" anchor="true" size="164,24" visible="false" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵"/>
   </displayList>
   <transition name="showHP"/>
 </component>

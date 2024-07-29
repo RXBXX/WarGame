@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -94,14 +95,16 @@ namespace WarGame
         public BonfireMapPlugin[] bonfires;
         public OrnamentMapPlugin[] ornaments;
         public LightingPlugin lightingPlugin;
+        public List<WGVector3> points;
 
-        public LevelMapPlugin(HexagonMapPlugin[] hexagons, NewEnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin)
+        public LevelMapPlugin(HexagonMapPlugin[] hexagons, NewEnemyMapPlugin[] enemys, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin, List<WGVector3> points)
         {
             this.hexagons = hexagons;
             this.enemys = enemys;
             this.bonfires = bonfires;
             this.ornaments = ornaments;
             this.lightingPlugin = lightingPlugin;
+            this.points = points;
         }
     }
 }

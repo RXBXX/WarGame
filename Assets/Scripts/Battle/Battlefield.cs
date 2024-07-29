@@ -27,6 +27,7 @@ namespace WarGame
         private List<int> _assets = new List<int>();
         private List<Sequence> _sequences = new List<Sequence>();
         private List<GameObject> _gos = new List<GameObject>();
+        private LevelMapPlugin _levelPlugin;
         //public long startTime;
 
         public BattleField(int levelID, bool restart)
@@ -60,8 +61,8 @@ namespace WarGame
             }
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
-            LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + mapDir);
-            MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments, levelPlugin.lightingPlugin);
+            _levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + mapDir);
+            MapManager.Instance.CreateMap(_levelPlugin.hexagons, _levelPlugin.bonfires, _levelPlugin.ornaments, _levelPlugin.lightingPlugin);
             if (_levelData.Stage < Enum.LevelStage.Entered)
             {
                 var heroDatas = DatasMgr.Instance.GetAllRoles();
@@ -88,7 +89,7 @@ namespace WarGame
                     index++;
                 }
 
-                _levelData.enemys = RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
+                _levelData.enemys = RoleManager.Instance.InitLevelRoles(_levelPlugin.enemys);
 
                 _levelData.Stage = Enum.LevelStage.Entered;
             }
@@ -219,7 +220,7 @@ namespace WarGame
             _loaded = true;
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
-            CameraMgr.Instance.SetTarget(heros[0].ID);
+            CameraMgr.Instance.SetTarget(heros[0].ID, false);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
             UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelID, _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
@@ -227,11 +228,15 @@ namespace WarGame
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {
-                EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
-                {
-                    _levelData.Stage = Enum.LevelStage.Talked;
-                    _levelData.actionType = Enum.ActionType.ReadyAction;
-                    _action = new ReadyBattleAction(GetActionID(), _levelData);
+                CameraMgr.Instance.FloatPoints(_levelPlugin.points, (args)=> {
+                    EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
+                    {
+                        _levelData.Stage = Enum.LevelStage.Talked;
+                        _levelData.actionType = Enum.ActionType.ReadyAction;
+                        _action = new ReadyBattleAction(GetActionID(), _levelData);
+                    });
+
+
                 });
             }
             else if (_levelData.Stage < Enum.LevelStage.Readyed)

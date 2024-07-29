@@ -205,7 +205,8 @@ namespace WarGame
             var mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
             var lightingPlugin = new LightingPlugin(skyBox.material.name, mainLight.color);
 
-            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments, lightingPlugin);
+            var points = GameObject.Find("FloatPoint").GetComponent<MapFloatPoint>().Points;
+            var levelPlugin = new LevelMapPlugin(hexagons, enemys, bonfires, ornaments, lightingPlugin, points);
 
             var dir = EditorUtility.SaveFilePanel("导出地图", Application.dataPath + "/Maps", "地图", "json");
             if (null == dir || dir.Equals(""))
@@ -236,6 +237,8 @@ namespace WarGame
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments, levelPlugin.lightingPlugin);
 
             RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
+
+            GameObject.Find("FloatPoint").GetComponent<MapFloatPoint>().Points.Clear();
         }
 
         /// <summary>

@@ -14,6 +14,8 @@ namespace WarGame.UI
         private FightRoleInfo _roleInfo;
         private int _levelID = 0;
         private CommonResComp _resComp;
+        private GButton _readyBtn;
+        private GTextField _tips;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -33,6 +35,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_RoleInfo, OnShowRoleInfo);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Hide_RoleInfo, OnHideRoleInfo);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_ShowReady, OnFightReady);
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
             {
@@ -46,24 +49,24 @@ namespace WarGame.UI
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 
-            var readyTips = GetGObjectChild<GTextField>("readyTips");
-            readyTips.text = "≥§∞¥”¢–€ÃÊªª”¢–€…œ’Û";
-            var startBtn = GetGObjectChild<GButton>("startBtn");
-            startBtn.onClick.Add(() =>
+            _tips = GetGObjectChild<GTextField>("readyTips");
+            _tips.text = "≥§∞¥”¢–€ÃÊªª”¢–€…œ’Û";
+            _readyBtn = GetGObjectChild<GButton>("startBtn");
+            _readyBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Start);
-                startBtn.visible = false;
+                _readyBtn.visible = false;
                 _skipBtn.visible = true;
-                readyTips.visible = false;
+                _tips.visible = false;
             });
 
             _levelID = (int)args[0];
 
             if ((bool)args[1])
             {
-                startBtn.visible = false;
+                _readyBtn.visible = false;
                 _skipBtn.visible = true;
-                readyTips.visible = false;
+                _tips.visible = false;
             }
 
             GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).GetTranslation("Name");
@@ -147,6 +150,12 @@ namespace WarGame.UI
                 _resComp.UpdateComp(ress);
         }
 
+        private void OnFightReady(params object[] args)
+        {
+            _readyBtn.visible = true;
+            _tips.visible = true;
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_RoleInfo, OnShowRoleInfo);
@@ -158,6 +167,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HeroGroup, OnShowHeroGroup);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Hide_HeroGroup, OnHideHeroGroup);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_ShowReady, OnFightReady);
 
             base.Dispose(disposeGCom);
         }
