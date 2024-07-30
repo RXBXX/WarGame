@@ -6,8 +6,8 @@ namespace WarGame
     {
         private int _id;
         private int _configID;
-        private int _hexagonID;
-        private float _scale;
+        protected int _hexagonID;
+        protected float _scale;
         private WGVector3 _rotation;
 
         public Ornament(int id, int configID, int hexagonID, float scale, WGVector3 rotation)
@@ -31,7 +31,10 @@ namespace WarGame
         {
             base.OnCreate(prefab);
             if (!MapManager.Instance.ContainHexagon(_hexagonID))
+            {
+                //DebugManager.Instance.Log("Ornament:" + _hexagonID);
                 return;
+            }
             _gameObject.transform.position = MapManager.Instance.GetHexagon(_hexagonID).GetPosition() + CommonParams.Offset;
             _gameObject.transform.localScale = Vector3.one * _scale;
             _gameObject.transform.localRotation =  Quaternion.Euler(new Vector3(_rotation.x, _rotation.y, _rotation.z));
@@ -48,5 +51,8 @@ namespace WarGame
         {
             return ConfigMgr.Instance.GetConfig<OrnamentConfig>("OrnamentConfig", _configID);
         }
+
+        public virtual void Update(float deltatime)
+        { }
     }
 }

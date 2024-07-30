@@ -216,8 +216,8 @@ namespace WarGame
                 AssetsMgr.Instance.ReleaseAsset(assetID);
                 mesh.tangents = tangents;
 
-                if (!Application.isPlaying)
-                    DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
+                //if (!Application.isPlaying)
+                //    DebugManager.Instance.Log("成功应用切线数据：" + mesh.name);
             });
             //var bytes = File.ReadAllBytes(Application.dataPath + "/Textures/MeshTagentTex/" + mesh.name + ".png");
             //Texture2D texture = new Texture2D(2, 2);

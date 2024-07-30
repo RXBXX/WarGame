@@ -54,7 +54,7 @@ namespace WarGame
             else
                 hexMapZ = (int)((pos.z / Mathf.Cos(_radian) + _insideDiameter / 2.0f) / _insideDiameter);
 
-            var hexMapY = (int)((pos.y ) / CommonParams.Offset.y);
+            var hexMapY = (int)((pos.y) / CommonParams.Offset.y);
 
             return new WGVector3(hexMapX, hexMapY, hexMapZ);
         }
@@ -84,6 +84,9 @@ namespace WarGame
             Dictionary<int, Hexagon> hexagonDic = new Dictionary<int, Hexagon>();
             for (int i = 0; i < hexagons.Length; i++)
             {
+                if (hexagonDic.ContainsKey(hexagons[i].ID))
+                    continue;
+
                 var hexagon = Factory.Instance.GetHexagon(hexagons[i]);
                 hexagon.SetParent(root.transform);
                 hexagonDic[hexagons[i].ID] = hexagon;
@@ -113,8 +116,7 @@ namespace WarGame
             {
                 for (int i = 0; i < ornaments.Length; i++)
                 {
-                    var ornamentData = ornaments[i];
-                    var ornament = new Ornament(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale, ornamentData.rotation);
+                    var ornament = Factory.Instance.GetOrnament(ornaments[i]);
                     ornament.SetParent(root.transform);
                     ornamentsDic[ornaments[i].ID] = ornament;
                 }
@@ -174,6 +176,11 @@ namespace WarGame
             {
                 var enemyTra = roleRootObj.transform.GetChild(i);
                 var data = enemyTra.GetComponent<RoleBehaviour>();
+
+                //var vec = GetCoorFromPos(enemyTra.position - CommonParams.Offset);
+                //DebugManager.Instance.Log(enemyTra.position - CommonParams.Offset);
+                //DebugManager.Instance.Log(vec.x + "/" + vec.y + "/" + vec.z);
+                //DebugManager.Instance.Log(GetHexagonKey(GetCoorFromPos(enemyTra.position - CommonParams.Offset)));
                 enemys[i] = new NewEnemyMapPlugin(data.ID, GetHexagonKey(GetCoorFromPos(enemyTra.position - CommonParams.Offset)));
             }
 
@@ -346,6 +353,18 @@ namespace WarGame
             key <<= 8;
             key += (int)pos.z;
             return key;
+
+            //    0,-3, 0
+            //    00000000 00000000 00000000 00000000
+            //    +
+            //    11111111 11111111 11111111 11111100 负数以补码形式存在
+            //    ||
+            //    11111111 11111111 11111111 11111100
+            //    <<8
+            //    ||
+            //    11111111 11111111 11111100 00000000
+            //    ||转原码
+            //    10000000 00000000 00000011 00000000
         }
     }
 }

@@ -29,6 +29,7 @@ namespace WarGame
 
         public Hexagon(int id, int configId, bool isReachable, WGVector3 coor)
         {
+            //DebugManager.Instance.Log("Hexagon:"+id);
             this.ID = id;
             this._configId = configId;
             this.isReachable = isReachable;

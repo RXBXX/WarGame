@@ -316,11 +316,11 @@
     <Compile Include="Assets\Scripts\UI\Common\CommonTipsPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Map\MapScroll.cs" />
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
+    <Compile Include="Assets\Scripts\Map\MapFloatPoint.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />
     <Compile Include="Assets\Scripts\Map\OrnamentBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Map\MapFloatPoint.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\LifeDrainSkill.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\PolygonMesh.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleAction.cs" />
@@ -416,6 +416,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\FieldTypes.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnCard\Card.cs" />
     <Compile Include="Assets\Scripts\UI\Settings\SettingsAudioItem.cs" />
+    <Compile Include="Assets\Scripts\Map\Meteor.cs" />
     <Compile Include="Assets\Scripts\Common\CoroutineMgr.cs" />
     <Compile Include="Assets\FairyGUI\Examples\RenderTexture\RenderTextureMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearFontSize.cs" />

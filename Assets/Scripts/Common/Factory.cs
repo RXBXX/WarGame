@@ -136,5 +136,16 @@ namespace WarGame
             }
             return null;
         }
+
+        public Ornament GetOrnament(OrnamentMapPlugin ornamentData)
+        {
+            switch (ornamentData.configID)
+            {
+                case 32:
+                   return new Meteor(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale, ornamentData.rotation);
+                default:
+                    return new Ornament(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale, ornamentData.rotation);
+            }
+        }
     }
 }

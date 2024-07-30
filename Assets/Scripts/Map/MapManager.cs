@@ -64,6 +64,9 @@ namespace WarGame
             }
             foreach (var v in _map)
                 v.Value.Update(deltaTime);
+
+            foreach (var v in _ornamentsDic)
+                v.Value.Update(deltaTime);
         }
 
         public override bool Dispose()
@@ -135,6 +138,11 @@ namespace WarGame
         {
             Hexagon hex = null;
             _map.TryGetValue(key, out hex);
+
+            if (!Application.isPlaying && null == hex)
+            {
+                hex = Factory.Instance.GetHexagon(new HexagonMapPlugin(MapTool.Instance.GetHexagonKey(new WGVector3(0, 0, 0)), 1, true, new WGVector3(0, 0, 0)));
+            }
             return hex;
         }
 

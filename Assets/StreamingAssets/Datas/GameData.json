@@ -5343,8 +5343,8 @@
       "ID": "Record_2",
       "title": "存档_2",
       "createTime": 1722105587742,
-      "saveTime": 1722275897066,
-      "duration": 1011010,
+      "saveTime": 1722356962802,
+      "duration": 1654354,
       "isNew": false,
       "roleDataDic": {
         "10001": {
@@ -6349,6 +6349,708 @@
               "UID": 20602,
               "configId": 20006,
               "level": 6,
+              "equipmentDic": {},
+              "talents": []
+            }
+          ],
+          "itemsDic": {}
+        },
+        "10005": {
+          "configId": 10005,
+          "Stage": 2,
+          "Round": 0,
+          "actionType": 0,
+          "heros": [
+            {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "hexagonID": 263942,
+              "bornHexagonID": 263942,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30002,
+                  "id": 10056
+                }
+              },
+              "state": 1,
+              "cloneRole": 0,
+              "UID": 10001,
+              "configId": 10001,
+              "level": 1,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "hexagonID": 263941,
+              "bornHexagonID": 263941,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30001,
+                  "id": 10015
+                }
+              },
+              "state": 1,
+              "cloneRole": 0,
+              "UID": 10002,
+              "configId": 10002,
+              "level": 1,
+              "equipmentDic": {},
+              "talents": []
+            }
+          ],
+          "enemys": [
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 2622498,
+              "bornHexagonID": 2622498,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20512,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 2556964,
+              "bornHexagonID": 2556964,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20511,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 2491428,
+              "bornHexagonID": 2491428,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20510,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 2884907,
+              "bornHexagonID": 2884907,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20513,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 2884908,
+              "bornHexagonID": 2884908,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20514,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 240.0,
+              "Rage": 0.0,
+              "hexagonID": 2819628,
+              "bornHexagonID": 2819628,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20515,
+              "configId": 10008,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 1902104,
+              "bornHexagonID": 1902104,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20509,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 150.0,
+              "Rage": 0.0,
+              "hexagonID": 1967640,
+              "bornHexagonID": 1967640,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20308,
+              "configId": 20003,
+              "level": 3,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 1967639,
+              "bornHexagonID": 1967639,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20507,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 1246736,
+              "bornHexagonID": 1246736,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20504,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 1312272,
+              "bornHexagonID": 1312272,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20505,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 1181202,
+              "bornHexagonID": 1181202,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20506,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 591629,
+              "bornHexagonID": 591629,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20501,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 200.0,
+              "Rage": 0.0,
+              "hexagonID": 526092,
+              "bornHexagonID": 526092,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20503,
+              "configId": 20005,
+              "level": 5,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 150.0,
+              "Rage": 0.0,
+              "hexagonID": 526093,
+              "bornHexagonID": 526093,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 20302,
+              "configId": 20003,
+              "level": 3,
+              "equipmentDic": {},
+              "talents": []
+            }
+          ],
+          "itemsDic": {}
+        },
+        "10011": {
+          "configId": 10011,
+          "Stage": 2,
+          "Round": 0,
+          "actionType": 0,
+          "heros": [
+            {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "hexagonID": 65027,
+              "bornHexagonID": 65027,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30002,
+                  "id": 10056
+                }
+              },
+              "state": 1,
+              "cloneRole": 0,
+              "UID": 10001,
+              "configId": 10001,
+              "level": 1,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 100.0,
+              "Rage": 0.0,
+              "hexagonID": 130819,
+              "bornHexagonID": 130819,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 30001,
+                  "id": 10015
+                }
+              },
+              "state": 1,
+              "cloneRole": 0,
+              "UID": 10002,
+              "configId": 10002,
+              "level": 1,
+              "equipmentDic": {},
+              "talents": []
+            }
+          ],
+          "enemys": [
+            {
+              "HP": 640.0,
+              "Rage": 0.0,
+              "hexagonID": 2818089,
+              "bornHexagonID": 2818089,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21114,
+              "configId": 10018,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 2687017,
+              "bornHexagonID": 2687017,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21113,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 640.0,
+              "Rage": 0.0,
+              "hexagonID": 2818087,
+              "bornHexagonID": 2818087,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21115,
+              "configId": 10020,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1310756,
+              "bornHexagonID": 1310756,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21107,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1376550,
+              "bornHexagonID": 1376550,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21108,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1442083,
+              "bornHexagonID": 1442083,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21109,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 2490396,
+              "bornHexagonID": 2490396,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21111,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 2359070,
+              "bornHexagonID": 2359070,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21112,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 2424606,
+              "bornHexagonID": 2424606,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21110,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1179668,
+              "bornHexagonID": 1179668,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21104,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1048598,
+              "bornHexagonID": 1048598,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21105,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 1179670,
+              "bornHexagonID": 1179670,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21106,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 589321,
+              "bornHexagonID": 589321,
+              "buffs": [],
+              "equipDataDic": {
+                "RightAndLeft": {
+                  "UID": 0,
+                  "id": 10004
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21103,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 589320,
+              "bornHexagonID": 589320,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21102,
+              "configId": 20011,
+              "level": 10,
+              "equipmentDic": {},
+              "talents": []
+            },
+            {
+              "HP": 650.0,
+              "Rage": 0.0,
+              "hexagonID": 654857,
+              "bornHexagonID": 654857,
+              "buffs": [],
+              "equipDataDic": {
+                "Right": {
+                  "UID": 0,
+                  "id": 10015
+                }
+              },
+              "state": 0,
+              "cloneRole": 0,
+              "UID": 21101,
+              "configId": 20011,
+              "level": 10,
               "equipmentDic": {},
               "talents": []
             }

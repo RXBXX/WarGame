@@ -98,14 +98,7 @@ namespace WarGame
         public int LoadAssetAsync<T>(string path, LoadAssetCB<T> callback, LoadAssetCB<T> faildCallback = null) where T : Object
         {
             _id++;
-#if UNITY_EDITOR
-            if (!Application.isPlaying)
-            {
-                var obj = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
-                callback((T)obj);
-                return _id;
-            }
-#endif
+ 
             var handle = Addressables.LoadAssetAsync<Object>(path);
             var coroutine = CoroutineMgr.Instance.StartCoroutine(Load<T>(handle, callback));
             _operationDic[_id] = new LoadHandle(_id, handle, coroutine);
@@ -172,6 +165,7 @@ namespace WarGame
 
         public void Destroy<T>(T go) where T : Object
         {
+            GameObject.DontDestroyOnLoad(go);
             GameObject.Destroy(go);
         }
 
