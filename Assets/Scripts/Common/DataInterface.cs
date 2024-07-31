@@ -569,8 +569,8 @@ namespace WarGame
         public Dictionary<string, RecordData> _customRecordDic = new Dictionary<string, RecordData>();
         public Dictionary<Enum.SoundType, float> SoundVolumeDic = new Dictionary<Enum.SoundType, float>()
         {
-            { Enum.SoundType.Music, 0.05F},
-            { Enum.SoundType.Audio, 0.1F},
+            { Enum.SoundType.Music, 0.8F},
+            { Enum.SoundType.Audio, 0.8F},
         };
         public int Language;
         public bool SkipBattle;

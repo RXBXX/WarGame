@@ -261,6 +261,12 @@ namespace WarGame
         {
         }
 
+        public override void Start(State lastState = null)
+        {
+            _role.PlaySound(_role.GetConfig().IntoBattleSound);
+            base.Start(lastState);
+        }
+
         public override void End(bool reverse)
         {
             base.End(reverse);

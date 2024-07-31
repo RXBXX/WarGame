@@ -5,9 +5,9 @@
     <image id="n25_kky8" name="n25" src="kky820" fileName="Images/SmithyItemBG.png" xy="0,0" size="264,500"/>
     <graph id="n18_kwvb" name="mask" xy="3,5" size="256,492" type="polygon" lineSize="0" points="64,0,256,0,194,492,2,492"/>
     <loader id="n11_gy0s" name="icon" xy="135,209" pivot="0.5,0.5" anchor="true" size="116,119" url="ui://t8m39wbjkky81z" align="center" vAlign="middle" fill="scale" clearOnPublish="true"/>
-    <text id="n20_kwvb" name="title" xy="111,391" pivot="0.5,0.5" anchor="true" size="51,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Name"/>
     <graph id="n27_kky8" name="n27" xy="-147,-1" size="423,172" alpha="0.3" rotation="-26" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
     <graph id="n28_kky8" name="n28" xy="-85,449" size="423,179" alpha="0.3" rotation="-26" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n20_kwvb" name="title" xy="111,391" pivot="0.5,0.5" anchor="true" size="51,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Name"/>
   </displayList>
   <Button mode="Radio"/>
 </component>

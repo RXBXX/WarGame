@@ -1046,7 +1046,6 @@ namespace WarGame
 
         public void GoIntoBattle()
         {
-            PlaySound(GetConfig().IntoBattleSound);
             //AudioMgr.Instance.PlaySound(GetConfig().IntoBattleSound);
             EnterState("Cured");
         }

@@ -10,6 +10,7 @@ namespace WarGame.UI
     {
         private List<int> _equipsData = new List<int>();
         private GList _equipList;
+        private Dictionary<string, SmithyEquipItem> _equipDic = new Dictionary<string, SmithyEquipItem>();
         private List<IntFloatPair> _attrsData = new List<IntFloatPair>();
         private GList _attrsList;
         private Dictionary<string, CommonAttrItem> _attrsMap = new Dictionary<string, CommonAttrItem>();
@@ -93,10 +94,11 @@ namespace WarGame.UI
 
         private void OnEquipRenderer(int index, GObject item)
         {
-            var config = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _equipsData[index]);
-            var icon = (GButton)((GButton)(item)).GetChild("icon");
-            icon.icon = config.Icon;
-            icon.title = config.GetTranslation("Name");
+            if (!_equipDic.ContainsKey(item.id))
+            {
+                _equipDic[item.id] = UIManager.Instance.CreateUI<SmithyEquipItem>("SmithyEquipItem", item);
+            }
+            _equipDic[item.id].UpdateItem(_equipsData[index]);
         }
 
         private void OnClickEquip(EventContext context)
