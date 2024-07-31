@@ -245,7 +245,7 @@ namespace WarGame
 
             RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
 
-            GameObject.Find("FloatPoint").GetComponent<MapFloatPoint>().Points.Clear();
+            GameObject.Find("FloatPoint").GetComponent<MapFloatPoint>().Points = levelPlugin.points;
         }
 
         /// <summary>
