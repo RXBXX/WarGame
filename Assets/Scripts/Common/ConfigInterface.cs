@@ -318,4 +318,10 @@ namespace WarGame
         public string Name;
         public string SimpleName;
     }
+
+    [Serializable]
+    public class PlayGameConfig : Config
+    {
+        public string Desc;
+    }
 }

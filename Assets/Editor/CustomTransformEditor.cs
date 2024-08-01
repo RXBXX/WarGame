@@ -166,7 +166,7 @@ namespace WarGame
                             Vector3 tempWorldAxis = transform.TransformDirection(customAxes[dragingAxis]);
                             Vector3 tempMoveVector = tempWorldAxis.normalized;
                             float delta = HandleUtility.CalcLineTranslation(mousePos, guiEvent.mousePosition, oldPos, tempMoveVector);
-                            Debug.Log(tempPos);
+                            //Debug.Log(tempPos);
                             Vector3 newPos = tempMoveVector * delta + tempPos;
 
                             var hexMapPos = MapTool.Instance.GetCoorFromPos(newPos);

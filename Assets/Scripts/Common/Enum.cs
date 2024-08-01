@@ -365,6 +365,7 @@ namespace WarGame
             Sound = 0,
             Language = 1,
             Fight = 2,
+            PlayGame = 3,
         }
 
         public enum SoundType

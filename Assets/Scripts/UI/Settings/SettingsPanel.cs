@@ -12,6 +12,7 @@ namespace WarGame.UI
         private List<Enum.SoundType> _soundData = new List<Enum.SoundType>();
         private List<Enum.LanguageType> _languageData = new List<Enum.LanguageType>();
         private List<Enum.FightType> _fightData = new List<Enum.FightType>();
+        private List<int> _tipsData = new List<int>();
         private Enum.SettingsType _settingType;
         private Dictionary<string, SettingsAudioItem> _audioDic = new Dictionary<string, SettingsAudioItem>();
         private Dictionary<string, SettingsLanguageItem> _languageDic = new Dictionary<string, SettingsLanguageItem>();
@@ -44,6 +45,7 @@ namespace WarGame.UI
             foreach (var v in System.Enum.GetValues(typeof(Enum.SettingsType)))
                 _tabData.Add((Enum.SettingsType)v);
 
+            DebugManager.Instance.Log(_tabData.Count);
             _tabList.numItems = _tabData.Count;
 
             SelectTab(_settingType);
@@ -61,6 +63,9 @@ namespace WarGame.UI
                     break;
                 case Enum.SettingsType.Fight:
                     ((GButton)item).title = ConfigMgr.Instance.GetTranslation("SettingsPanel_TabBattle");
+                    break;
+                case Enum.SettingsType.PlayGame:
+                    ((GButton)item).title = ConfigMgr.Instance.GetTranslation("SettingsPanel_TabPlayGame");
                     break;
             }
             ((GButton)item).selected = _tabData[index] == _settingType;
@@ -84,6 +89,8 @@ namespace WarGame.UI
                     return "ui://Settings/SettingsLanguageItem";
                 case Enum.SettingsType.Fight:
                     return "ui://Settings/SettingsFightItem";
+                case Enum.SettingsType.PlayGame:
+                    return "ui://Settings/SettingsTipsItem";
                 default:
                     return "";
             }
@@ -114,6 +121,9 @@ namespace WarGame.UI
                     }
                     _fightDic[item.id].UpdateItem(_fightData[index]);
                     break;
+                case Enum.SettingsType.PlayGame:
+                    ((GButton)item).title = ConfigMgr.Instance.GetConfig<PlayGameConfig>("PlayGameConfig", _tipsData[index]).GetTranslation("Desc");
+                    break;
             }
         }
 
@@ -138,6 +148,14 @@ namespace WarGame.UI
                     _fightData.Clear();
                     _fightData.Add(Enum.FightType.SkipBattleArena);
                     _itemList.numItems = _fightData.Count;
+                    break;
+                case Enum.SettingsType.PlayGame:
+                    _tipsData.Clear();
+                    ConfigMgr.Instance.ForeachConfig<PlayGameConfig>("PlayGameConfig", (config) =>
+                    {
+                        _tipsData.Add(config.ID);
+                    });
+                    _itemList.numItems = _tipsData.Count;
                     break;
             }
         }

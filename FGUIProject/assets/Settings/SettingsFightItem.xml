@@ -2,9 +2,9 @@
 <component size="900,48" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="2"/>
   <displayList>
-    <loader id="n3_sqcv" name="n3" xy="0,0" size="894,48" url="ui://hx02grrpsqcv1z" fill="scaleFree">
-      <gearXY controller="button" pages="1,3" values="5,0|5,0" default="0,0"/>
-      <gearIcon controller="button" pages="1,3" values="ui://hx02grrpsqcv20|ui://hx02grrpsqcv20" default="ui://hx02grrpsqcv1z"/>
+    <loader id="n3_sqcv" name="n3" xy="5,0" size="894,48" url="ui://hx02grrpsqcv20" fill="scaleFree">
+      <gearXY controller="button" pages="1,2,3" values="5,0|5,0|5,0" default="0,0"/>
+      <gearIcon controller="button" pages="1,2,3" values="ui://hx02grrpsqcv20|ui://hx02grrpsqcv20|ui://hx02grrpsqcv20" default="ui://hx02grrpsqcv1z"/>
     </loader>
     <text id="n0_8u0k" name="title" xy="47,4" size="63,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="111111">
       <gearXY controller="button" pages="0,1,2,3" values="47,4|52,3|47,4|52,3"/>

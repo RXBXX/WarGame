@@ -1792,6 +1792,10 @@
         "Str": "Battle"
     },
     {
+        "ID": "SettingsPanel_TabPlayGame",
+        "Str": "PlayGame"
+    },
+    {
         "ID": "EquipmentConfig_10001_Desc",
         "Str": "有5%的概率使敌人陷入眩晕"
     },
@@ -2114,5 +2118,33 @@
     {
         "ID": "FightTipsPanel_Tips",
         "Str": "请确保进入前，已做好万全准备。"
+    },
+    {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "注意五行克制和加强。/n当处于被克制关系时，被克制方属性将会降低。当处于被加强关系时，被加强方属性将会提升。/n"
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "当英雄附近格子有可以加强自身的己方英雄存在以及技能目标是被克制方时，英雄自身属性会被提升。/n当技能目标是克制英雄自身时，英雄属性将会降低。"
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "金克制木、木克制土、土克制水、水克制火、火克制金。"
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "金加强水、水加强木、木加强火、火加强土、土加强金。"
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "根据敌人阵容选择英雄。"
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "开战前，注意在英雄营地做好准备。"
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "可以在铁匠铺为英雄选择合适的装备。"
     }
 ]
