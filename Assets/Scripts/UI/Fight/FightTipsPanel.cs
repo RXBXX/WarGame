@@ -74,9 +74,14 @@ namespace WarGame.UI
 
         private void OnRestart()
         {
-            UIManager.Instance.ClosePanel(name);
-            UIManager.Instance.ClosePanel("MapPanel");
-            SceneMgr.Instance.OpenBattleField(_levelID, true);
+            WGCallback cb = () =>
+            {
+
+                UIManager.Instance.ClosePanel(name);
+                UIManager.Instance.ClosePanel("MapPanel");
+                SceneMgr.Instance.OpenBattleField(_levelID, true);
+            };
+            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { "重新开始会丢失该关卡已有的记录，是否确认重新开始？", cb });
         }
     }
 }

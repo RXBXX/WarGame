@@ -448,6 +448,7 @@ namespace WarGame
             ActiveLevelS2C = 10003,
             BuyEquipS2C = 10004,
             SetLanguageS2C = 10005,
+            DeleteRecordS2C = 10006,
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类

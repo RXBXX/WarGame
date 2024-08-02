@@ -366,6 +366,12 @@ namespace WarGame
         public void FloatPoints(List<WGVector3> points, WGArgsCallback callback)
         {
             DebugManager.Instance.Log("FloatPoints");
+            if (null == points)
+            {
+                callback();
+                return;
+            }
+
             var camDis = _cameraDis * MainCamera.transform.forward;
             _floatSeq = DOTween.Sequence();
             for (int i = 0; i < points.Count; i++)
@@ -382,6 +388,15 @@ namespace WarGame
             });
         }
 
+        public void StopFloatPoint()
+        {
+            if (null != _floatSeq)
+            {
+                _floatSeq.Kill();
+                _floatSeq = null;
+            }
+        }
+
         public override bool Dispose()
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Role_Dispose, OnRoleDispose);
@@ -392,11 +407,7 @@ namespace WarGame
                 _tweener = null;
             }
 
-            if (null != _floatSeq)
-            {
-                _floatSeq.Kill();
-                _floatSeq = null;
-            }
+            StopFloatPoint();
 
             ClearTarget();
 

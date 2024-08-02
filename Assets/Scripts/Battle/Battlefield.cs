@@ -169,6 +169,8 @@ namespace WarGame
 
             RenderMgr.Instance.ClosePostProcessiong(Enum.PostProcessingType.Palette);
 
+            CameraMgr.Instance.StopFloatPoint();
+
             if (null != weather)
             {
                 weather.Dispose();

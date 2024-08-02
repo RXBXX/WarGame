@@ -90,9 +90,9 @@ namespace WarGame
             return true;
         }
 
-        public int PlaySound(string sound, bool isLoop = false)
+        public int PlaySound(string sound, bool isLoop = false, float minDistance = 6)
         {
-            return AudioMgr.Instance.PlaySound(sound, isLoop, _gameObject, 1.0f, 6);
+            return AudioMgr.Instance.PlaySound(sound, isLoop, _gameObject, 1.0f, minDistance);
             //if (0 != _soundAssetID)
             //{
             //    AssetsMgr.Instance.ReleaseAsset(_soundAssetID);

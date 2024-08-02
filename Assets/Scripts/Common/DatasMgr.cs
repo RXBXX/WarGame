@@ -418,6 +418,12 @@ namespace WarGame
 
             Save();
         }
+
+        public void DeleteRecordC2S(string id)
+        {
+            _data.DeleteRecord(id);
+            EventDispatcher.Instance.PostEvent(Enum.Event.DeleteRecordS2C, new object[] { id });
+        }
         /// endregion -----------------------------------------------------------------------------------------------------
     }
 }

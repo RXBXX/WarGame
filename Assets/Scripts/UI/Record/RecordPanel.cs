@@ -30,6 +30,16 @@ namespace WarGame.UI
 
             _mode = (Enum.RecordMode)args[0];
 
+            UpdateRecords();
+
+            _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
+
+            EventDispatcher.Instance.AddListener(Enum.Event.DeleteRecordS2C, OnDeleteRecordS2C);
+        }
+
+        private void UpdateRecords()
+        {
+            _listDatas.Clear();
             if (_mode == Enum.RecordMode.Write)
             {
                 _listDatas.Add("�´浵");
@@ -40,8 +50,6 @@ namespace WarGame.UI
                 _listDatas.Add(v);
 
             _recordList.numItems = _listDatas.Count;
-
-            _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
         }
 
         private void ItemRenderer(int index, GObject item)
@@ -51,12 +59,12 @@ namespace WarGame.UI
 
             if (_mode == Enum.RecordMode.Write && 0 == index)
             {
-                _recordItemDic[item.id].Update(1, _listDatas[index]);
+                _recordItemDic[item.id].Update(null);
             }
             else
             {
                 var gd = DatasMgr.Instance.GetRecord(_listDatas[index]);
-                _recordItemDic[item.id].Update(0, gd.title, TimeMgr.Instance.GetFormatLeftTime(gd.duration), TimeMgr.Instance.GetFormatDateTime(gd.saveTime));
+                _recordItemDic[item.id].Update(_listDatas[index]);
             }
         }
 
@@ -89,6 +97,17 @@ namespace WarGame.UI
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+        }
+
+        private void OnDeleteRecordS2C(params object[] args)
+        {
+            UpdateRecords();
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            EventDispatcher.Instance.RemoveListener(Enum.Event.DeleteRecordS2C, OnDeleteRecordS2C);
+            base.Dispose(disposeGCom);
         }
     }
 }

@@ -664,6 +664,11 @@ namespace WarGame
             }
             return gameDatas;
         }
+
+        public void DeleteRecord(string id)
+        {
+            _customRecordDic.Remove(id);
+        }
     }
 
     //region 协议部分 -------------------------------------------------------------------------------------------
