@@ -45,7 +45,6 @@ namespace WarGame.UI
             foreach (var v in System.Enum.GetValues(typeof(Enum.SettingsType)))
                 _tabData.Add((Enum.SettingsType)v);
 
-            DebugManager.Instance.Log(_tabData.Count);
             _tabList.numItems = _tabData.Count;
 
             SelectTab(_settingType);

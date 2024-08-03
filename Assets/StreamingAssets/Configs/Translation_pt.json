@@ -1,98 +1,2692 @@
 [
     {
         "ID": "RoleConfig_10001_Name",
-        "Str": "Noah"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10002_Name",
-        "Str": "Alyia"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10003_Name",
-        "Str": "Calvin"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10004_Name",
-        "Str": "Derek"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10005_Name",
-        "Str": "Ethan"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10006_Name",
-        "Str": "Aiden"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10007_Name",
-        "Str": "Fayne"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10008_Name",
-        "Str": "Hawk"
+        "Str": "hawke",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10009_Name",
-        "Str": "Gareth"
+        "Str": "Com gareth",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10010_Name",
-        "Str": "Justin"
+        "Str": "justina",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10011_Name",
-        "Str": "Cain"
+        "Str": "kane",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10012_Name",
-        "Str": "Lian"
+        "Str": "Liam.",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10013_Name",
-        "Str": "Marcus"
+        "Str": "Marcus!",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10014_Name",
-        "Str": "Oliver"
+        "Str": "Oliver!",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10015_Name",
-        "Str": "Vera"
+        "Str": "vera",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10016_Name",
-        "Str": "Mira"
+        "Str": "Mila.",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10017_Name",
-        "Str": "Lina"
+        "Str": "Lena,",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10018_Name",
-        "Str": "Felix"
+        "Str": "O felix",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10019_Name",
-        "Str": "Quentin"
+        "Str": "quentin",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10020_Name",
-        "Str": "Ryan"
+        "Str": "O ryan",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10021_Name",
-        "Str": "Simon"
+        "Str": "Simon.",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10022_Name",
-        "Str": "Thomas"
+        "Str": "Thomas, thomas",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10023_Name",
-        "Str": "Ulric"
+        "Str": "O ulf",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10024_Name",
-        "Str": "Zach"
+        "Str": "zach",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_10025_Name",
+        "Str": "Ramo de fane",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20001_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20002_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20003_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20004_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20005_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20006_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20007_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20008_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20009_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20010_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20011_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20012_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20013_Name",
+        "Str": "vagabundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_1_Name",
+        "Str": "Itens com talento",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_2_Name",
+        "Str": "Itens por nível",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_3_Name",
+        "Str": "Moedas de equipamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001001_Context",
+        "Str": "Espera, há algo errado aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001002_Context",
+        "Str": "Pode haver algo de errado com isso? Você é muito sensível? Despacha-te, ainda preciso encontrar calvin. Talvez esta missão esteja completa e o velho sábio me dê algo interessante.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001003_Context",
+        "Str": "Estes não são os homens de mori hoshitsuki. Eles são muito hostis e a pessoa que você está procurando estima que já está em perigo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001004_Context",
+        "Str": "Então, precisamos de ver o que está a acontecer.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001005_Context",
+        "Str": "Está bem.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002001_Context",
+        "Str": "Obrigado por afastar o inimigo. Parece que essas pessoas foram premeditadas. Eu estava antecipando algo ruim e estava tentando ir para os sábios, mas eles estão cercados aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002002_Context",
+        "Str": "Vocês sabem quem são essas pessoas e qual é o seu propósito?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002003_Context",
+        "Str": "Não tenho a certeza, mas eles devem ter algo a ver com as forças das trevas. Vamos primeiro ao sábio.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002004_Context",
+        "Str": "Parece que o problema está a tornar-se cada vez mais complicado.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001001_Context",
+        "Str": "Todos tenham cuidado. Depois do último incidente, o inimigo deve ter fortalecido a sua defesa.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001002_Context",
+        "Str": "Acreditem, todos os inimigos são um pedaço de bolo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001003_Context",
+        "Str": "O sábio tem razão, o inimigo agiu como se tivesse sido premeditado, e depois de termos interrompido os nossos planos da última vez, eles certamente se prepararão para voltar desta vez.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001004_Context",
+        "Str": "Também acho que o sábio tem razão.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001005_Context",
+        "Str": "Tudo bem, tudo bem.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001006_Context",
+        "Str": "Qual é o vosso objectivo? Porque atacaram aqui?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001007_Context",
+        "Str": "......",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001008_Context",
+        "Str": "Não falem, pois não? Então vão ter de falar. Começa a luta.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002001_Context",
+        "Str": "Acabou. Parece que o mesmo problema está acontecendo em outros lugares. O que diabos esses idiotas estão tentando fazer?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002002_Context",
+        "Str": "Qual é o seu objetivo? Parece que só podemos descobrir por nós mesmos em watertown.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002003_Context",
+        "Str": "(os elementos de madeira foram retirados, o assunto ainda não é conhecido deles!)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002004_Context",
+        "Str": "Parece que estão ocupados.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002005_Context",
+        "Str": "Esta vez, eles atacaram a floresta de estrela da lua e também fizeram uma operação contra a cidade de água. Eu acho que a situação não é muito otimista agora. As outras cidades também estão estimadas dentro de seus planos. Precisamos nos apressar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001001_Context",
+        "Str": "Esses caras estão realmente aqui. Deixe isso comigo e veja como eu vou limpá-los.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001002_Context",
+        "Str": "Não se preocupe, ainda não se sabe se este grupo já recebeu a notícia do que aconteceu na floresta da lua estrelada. Se eles já soubessem, certamente fortaleceriam suas defesas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001003_Context",
+        "Str": "Ei, de onde é que vocês são, e o que têm a ver com o grupo da floresta estrelada?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001004_Context",
+        "Str": "Mau, apanhado, personagem principal, seu idiota, não pode agir em silêncio?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001005_Context",
+        "Str": "Parece que a operação da floresta da lua estrelada foi descoberta. Agora que você está aqui, isso só pode resolver você.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001006_Context",
+        "Str": "O tom não é pequeno, então só pode falar com força.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002001_Context",
+        "Str": "Estes tipos são difíceis. Ainda bem que sou corajoso.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002002_Context",
+        "Str": "Ainda não acabou. Temos de ir até às profundezas da cidade da água.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002003_Context",
+        "Str": "A alia tem razão. A julgar pelo que aconteceu na floresta da lua estrelada, o inimigo não vai ficar com este lote. Vamos nos apressar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001001_Context",
+        "Str": "Vocês adivinharam, estes tipos ainda estão lá.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001002_Context",
+        "Str": "Como você entrou? Nós deveríamos ter colocado um guarda. Hahaha, parece que vocês são um pouco capazes de entrar aqui. Acho que os nossos companheiros de equipa já foram eliminados por vocês.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001003_Context",
+        "Str": "Parece que não são estúpidos. Querem ser honestos, ou estou a obrigar-vos a dizê-lo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001004_Context",
+        "Str": "Hahaha, eu aconselho você a sair honestamente, eu não quero machucá-lo, temos algo aqui que precisamos obter.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001005_Context",
+        "Str": "Se você está certo, você está tentando extrair o poder da água, certo?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001006_Context",
+        "Str": "Quem é você, não deve haver muitas pessoas no continente de emote que ainda conheçam o poder elemental?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001007_Context",
+        "Str": "Essas forças elementais são importantes para o continente de emotie. Se forem usadas por pessoas malignas, todo o continente de emotie pode ser destruído, incluindo você.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001008_Context",
+        "Str": "Não gostamos de destruição, só precisamos da força aqui para fazer deste mundo um lugar melhor. O continente de emote tem sido calmo por milhares de anos. Agora, parece que as pessoas tomam tudo para garantido. As pessoas ainda têm o poder da liberdade ruim no momento. A liberdade corroída pelo desejo destruirá o mundo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001009_Context",
+        "Str": "Noah: deixa de disparates e luta.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001010_Context",
+        "Str": "Mais uma vez, não é minha intenção magoá-los, mas não vou ter piedade se vocês entrarem no nosso caminho.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001011_Context",
+        "Str": "Então, vamos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40002001_Context",
+        "Str": "Não podeis impedir que isso aconteça, e não sabeis nada do que está para acontecer.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40002002_Context",
+        "Str": "Parece que o assunto é mais sério do que esperávamos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001001_Context",
+        "Str": "Parece que vai haver outra luta. Estou pronto.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001002_Context",
+        "Str": "Como você gosta tanto de brigas? A violência não resolve o problema.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001003_Context",
+        "Str": "Mas a violência é a mais imediata e rápida, e para este grupo, a razão é tocar com o boi. Vamos dar cabo deles primeiro.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001004_Context",
+        "Str": "......",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001005_Context",
+        "Str": "Hahaha, noé está certo, o trabalho é feito.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002001_Context",
+        "Str": "Você perdeu. Chame o seu chefe. Você é muito fraco.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002002_Context",
+        "Str": "O que diabos estou a fazer e porque estou aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002003_Context",
+        "Str": "O que é que estás a fazer?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001001_Context",
+        "Str": "Estes tipos ainda são muito persistentes. Eles também podem ser vistos aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001002_Context",
+        "Str": "Foram enganados e, ao continuar assim, só trarão destruição a este continente.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001003_Context",
+        "Str": "Vocês não entendem nada.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001004_Context",
+        "Str": "O vosso propósito, já o conhecemos há muito.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001005_Context",
+        "Str": "Ainda não falemos tanto, temos que terminar o trabalho o mais rápido possível, e ainda temos que fazer os próximos passos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001006_Context",
+        "Str": "É exactamente o que eu queria.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002001_Context",
+        "Str": "Será que estamos realmente errados?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002002_Context",
+        "Str": "Talvez possamos realmente confiar neles, e eles podem realmente salvar o mundo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002003_Context",
+        "Str": "Precisamos da sua ajuda. Junte-se a nós.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60003001_Context",
+        "Str": "Nível 10006 falha",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001001_Context",
+        "Str": "Que dor de cabeça. Vocês são como baratas, por todo o lado.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001002_Context",
+        "Str": "Hahaha, você é tão fraco que tantas pessoas não nos resolveram.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001003_Context",
+        "Str": "Então, deixe-me terminar com isso.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70002001_Context",
+        "Str": "Parece que ainda somos fortes!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001001_Context",
+        "Str": "Kane, um traidor que não conseguiu cumprir a sua missão e traiu o seu mestre.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001002_Context",
+        "Str": "Junte-se a nós, leon e marcus. Ele está errado. Ainda há algo no mundo que vale a pena salvar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001003_Context",
+        "Str": "Você esqueceu o que você passou? Só a destruição total pode mudar o mundo para melhor.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001004_Context",
+        "Str": "Pare de falar com eles, bata-os primeiro e depois racionalize-os.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001005_Context",
+        "Str": "Hahaha, você também é muito pequeno para nós. Meme it",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80002001_Context",
+        "Str": "Se querem salvar o mundo, precisam da nossa força, marcus, e estes homens podem mesmo fazer isso.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80002002_Context",
+        "Str": "Talvez.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001001_Context",
+        "Str": "Vocês são os que estão bloqueando nossos planos, e antes que eu vá até vocês, vocês estão aqui. Resolve o problema.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001002_Context",
+        "Str": "Oliver, cuidado com estas pessoas. O facto de terem vindo aqui mostra que não são fracos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001003_Context",
+        "Str": "Vocês são um monte de tretas. Batam e batam.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "Que tal? Nós somos fortes. Junte-se a nós.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001001_Context",
+        "Str": "Não pensei que estivessem aqui. Voltem para trás. Não quero magoar-vos. Os monstros que estão por trás não são para vocês lutar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001002_Context",
+        "Str": "Agora que chegamos aqui, é impossível voltar. O mundo não pode ser destruído.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001003_Context",
+        "Str": "Mira, pára de falar com eles. Vamos levá-los de volta juntos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "Eu admito que você é forte, mas com sua força atual não pode lutar contra o senhor do nada. Você precisa da nossa ajuda.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "Mira, tens a certeza? Os senhores do nada são tão poderosos que, mesmo com nós, ainda não são suficientes.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002003_Context",
+        "Str": "Talvez seja possível.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001001_Context",
+        "Str": "Você não pode nos deter. Agora que você está aqui, nós só podemos resolver você.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001002_Context",
+        "Str": "É irônico que a única maneira concebível de você salvar o mundo seja destruir. Mesmo que você use a destruição para fazer o mundo nascer de novo, depois de milhares de anos, se você enfrentar o mesmo problema, será que você destruirá novamente? Sua solução trata os sintomas e não as causas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001003_Context",
+        "Str": "Está tudo bem, mas é melhor do que deixar o mundo continuar a apodrecer.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001004_Context",
+        "Str": "Eu não sei o que você está passando. O mundo é bom e ruim. Não é porque você está no escuro que o personagem todo o mundo está coberto de escuridão. O mundo vale a pena ser salvo, mesmo que seja apenas para aquele toque de luz da manhã.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001005_Context",
+        "Str": "Não fazes ideia do que estamos a passar. Para nós, o mundo é irremediável.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001006_Context",
+        "Str": "Vamos para a guerra, estamos em situações diferentes e falar muito não ajuda.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110002001_Context",
+        "Str": "Ganhais. Tendes o poder de mudar o mundo, mas o mundo não será necessariamente mudado como desejais.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110002002_Context",
+        "Str": "O mundo também é seu. Pode ser verdade que o mundo é ruim, mas se você tentar mudar, haverá sempre um canto do mundo iluminado por sua luz, não é? Junte-se a nós. Precisamos da sua força.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001001_Context",
+        "Str": "As coisas da força elemental parecem que vocês já sabem, e perseguiram até aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001002_Context",
+        "Str": "Que força elemental?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001003_Context",
+        "Str": "Sabes que mais, avô sábio?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001004_Context",
+        "Str": "Eu vi isso no livro, o mundo tem cinco forças elementares de madeira dourada, água, fogo e terra, mantendo o funcionamento básico do mundo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001005_Context",
+        "Str": "Parece-me que o verdadeiro propósito do vosso grupo é destruir o mundo com a força elemental.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001006_Context",
+        "Str": "Não adianta saber que o mestre já recolheu a força do nada, já é tarde demais.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001007_Context",
+        "Str": "Então, temos de nos apressar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120002001_Context",
+        "Str": "É tarde demais para tudo. Você me ganhou, e não ajuda.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001001_Context",
+        "Str": "Finalmente, vocês estão aqui. Vocês não podem me deter. O meu poder não pode ser imaginado.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001002_Context",
+        "Str": "Você é o senhor do nada, não é? Parece que precisamos selá-lo novamente.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001003_Context",
+        "Str": "Hahahaha, venha experimentar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130002001_Context",
+        "Str": "Impossível. Ainda há alguém que me pode derrotar, vocês todos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130002002_Context",
+        "Str": "Você nunca ouviu uma frase? Um banco de mil milhas desmoronou no ninho. Mesmo que nós fôssemos grilos, o seu grande barco teria que ser danificado por nós.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130003001_Context",
+        "Str": "Ainda somos muito fracos!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001001_Context",
+        "Str": "Noah, preciso da tua ajuda. Ontem à noite, o céu estava algo fora do normal, então eu adivinhei a fofoca. Mas a fonte do fofoca era o nada, e só se podia ver uma escuridão penetrando gradualmente todo o continente.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001002_Context",
+        "Str": "Vivemos em um mundo com organizações que nos mantêm seguros. Eles resolvem tudo. Não se preocupe.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001003_Context",
+        "Str": "Desta vez é diferente, o nada devorará gradualmente a todos, como a noite que desce silenciosamente, e quando você olha pela janela, de repente percebe que a noite cobriu completamente a terra.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001004_Context",
+        "Str": "Então, o que posso fazer?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001005_Context",
+        "Str": "Eu preciso que você vá à floresta da lua estrelada para encontrar um homem chamado calvin, que tem o poder de prever o futuro, para obter a verdade que pode nos ajudar a descobrir isso.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001006_Context",
+        "Str": "Do que estão a falar? Em que posso ajudar?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001007_Context",
+        "Str": "O velho sábio sentiu algo ruim. Eu preciso encontrar alguém.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001008_Context",
+        "Str": "Acontece que eu também vou para a floresta da lua estrelada para coletar algumas ervas medicinais. Vou com você.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001009_Context",
+        "Str": "Também é bom que a alia já esteve várias vezes e conhece um pouco mais o local.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001010_Context",
+        "Str": "Por precaução, tenho algumas coisas para vocês no acampamento dos heróis. Lembrem-se de as levar antes de irem embora.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002001_Context",
+        "Str": "Velho sábio, trouxemos de volta aquele que você precisa.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002002_Context",
+        "Str": "Bom trabalho. Calvin, há quanto tempo. Você sabe o que está acontecendo.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002003_Context",
+        "Str": "Eu queria vir e perguntar-lhe. Houve um acidente no meio, graças ao homem que você enviou.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002004_Context",
+        "Str": "O que aconteceu?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002005_Context",
+        "Str": "Eu também não sei muito bem neste momento, só sei que algumas pessoas querem algo de mim.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002006_Context",
+        "Str": "Eles não tiveram sucesso nessa operação e devem voltar para a floresta estrelada novamente. Parece que temos de fazer outra viagem, e desta vez vou com vocês para evitar algum perigo desconhecido.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001002_Context",
+        "Str": "Este é o melhor e o pior dos tempos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001003_Context",
+        "Str": "As pessoas no continente de emoti desfrutam de paz e prosperidade, a cultura se desenvolve e a tecnologia avança.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001004_Context",
+        "Str": "Enquanto isso, uma força do mal está despertando silenciosamente, o senhor do nada. O poder do senhor do nada trará destruição e medo sem fim. Quando o senhor do nada acordar, ele vai devastar todo o seu exército de trevas. Aldeias estão destruídas, florestas contaminadas e rios se transformam em veneno negro. O mundo que outrora foi sereno também irá mergulhar em um caos sem precedentes.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001005_Context",
+        "Str": "Você deve embarcar em uma jornada para encontrar todo o poder contra o senhor do nada. O futuro do continente de emoti depende de sua decisão.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10002001_Context",
+        "Str": "O mundo está em paz.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_Name",
+        "Str": "Aoki- cuicyin área",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_Name",
+        "Str": "Distrito de aoki-linxi",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_Name",
+        "Str": "Lansea- zona das marés",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_Name",
+        "Str": "Lanhai- distrito de chaton",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_Name",
+        "Str": "Cidade de pedra- distrito de rocha",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_Name",
+        "Str": "Stone town- área de terra grossa",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_Name",
+        "Str": "Yan du- área de fogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_Name",
+        "Str": "Yan- distrito de chiguang",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_Name",
+        "Str": "Yaodu- área brilhante",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_Name",
+        "Str": "Yaodu- área de fundição",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_Name",
+        "Str": "Soyeon- zona das sombras",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_Name",
+        "Str": "Soyeon- área do vale",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_Name",
+        "Str": "Soyeon- área do abismo",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_Desc",
+        "Str": "Cuicyin é conhecido por suas árvores altas e florestas densas, entrelaçadas com casas na árvore e pontes suspensas. Os moradores vivem nas árvores e se misturam com a natureza. O ar é puro e o cheiro dos pássaros e das flores é ideal para meditação e relaxamento.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_Desc",
+        "Str": "O centro do distrito de linghe é um riacho transparente e sem barreiras, com amplos prados e jardins florais em ambos os lados, adequados para piqueniques e passeios. Também abriga o centro de educação ecológica, dedicado à disseminação do conhecimento ambiental e à conservação da natureza.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_Desc",
+        "Str": "A área de marés tem uma costa espetacular e uma paisagem de marés variável. A praia e o passeio à beira-mar atraem inúmeros turistas para desfrutar do sol, da areia e das ondas. A área de maré também abriga o centro de vida marinha, que exibe a riqueza da vida marinha.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_Desc",
+        "Str": "O bairro chaton distingue-se pela agradável brisa do mar e pelo ritmo de vida descontraído. Os pescadores saem para o mar todas as manhãs e à noite trazem os produtos frescos do mar. Os mercados de frutos do mar e os restaurantes à beira-mar atraem os comensais com as iguarias mais frescas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_Desc",
+        "Str": "O distrito da rocha é notável por seus enormes blocos de pedra e construções sólidas. Seus habitantes são conhecidos por sua tenacidade e trabalho duro. A arquitetura e as gravuras mostram a habilidade da pedra, atraindo muitos turistas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_Desc",
+        "Str": "A construção na área de terra grossa é feita principalmente de pedra pesada e argila, dando uma sensação de solidez e segurança. Há uma grande variedade de locais culturais e históricos que mostram a longa história e as tradições culturais únicas de stone town.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_Desc",
+        "Str": "O flaming district é conhecido por sua atividade vulcânica ativa e fontes termais. Os visitantes podem experimentar o conforto de fontes termais geotérmicas e a emoção de uma aventura vulcânica aqui. A paisagem é magnífica, perfeita para os amantes de aventura e aventura.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_Desc",
+        "Str": "O distrito de chiguang está cheio de rochas vermelhas e veias. Os mineiros trabalham duro aqui para extrair uma variedade de minérios preciosos. A paisagem única da área e a atividade mineira fazem com que seja um local popular para geólogos e turistas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_Desc",
+        "Str": "Os prédios altos desta área brilham ao sol, onde estão as sedes dos gigantes comerciais e os centros comerciais de luxo. À noite, a área brilhante é iluminada como um céu estrelado, atraindo inúmeros turistas para passear e fazer compras.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_Desc",
+        "Str": "Um paraíso para artesãos e inventores, onde o barulho de todos os tipos de metais e o barulho das chamas enchem toda a área. Com uma oficina de forjamento de última geração e uma fábrica de máquinas, os produtos produzidos são exportados para o quad.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_Desc",
+        "Str": "A zona sombria é envolta em sombras eternas. Os edifícios aqui dominam o preto e o cinza, dando uma sensação de mistério e majestade. Os habitantes são especialistas em técnicas e estratégias secretas, e muitas das lendas têm origem aqui.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_Desc",
+        "Str": "O vale está localizado no meio de vales profundos e coberto por neblina durante todo o ano. O ambiente é tranquilo e misterioso e os habitantes vivem uma vida de reclusão. Com paisagens naturais únicas, é o lugar ideal para quem procura tranquilidade e inspiração.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_Desc",
+        "Str": "A zona do abismo é a parte mais profunda do silêncio, repleta de oportunidades para o desconhecido e a exploração. Há muitas cavernas e rios subterrâneos por descobrir, onde os exploradores procuram tesouros e segredos, enquanto enfrentam inúmeros desafios e perigos.",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10001_Name",
+        "Str": "ataque",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10002_Name",
+        "Str": "tratamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10003_Name",
+        "Str": "Retirada do ataque",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10004_Name",
+        "Str": "Ataque em cadeia",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10005_Name",
+        "Str": "incentivos",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10006_Name",
+        "Str": "puffs",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10007_Name",
+        "Str": "O golpe crítico",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10008_Name",
+        "Str": "O fantasma",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10009_Name",
+        "Str": "Tonturas,",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10010_Name",
+        "Str": "Ações adicionais para",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10011_Name",
+        "Str": "Barreiras de aço",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10012_Name",
+        "Str": "Confuso.",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10013_Name",
+        "Str": "Aposta de destino",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10014_Name",
+        "Str": "A vida bebe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10015_Name",
+        "Str": "Recuperação do grupo",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10016_Name",
+        "Str": "Guarda de aço",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10017_Name",
+        "Str": "A raiva diminui",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10018_Name",
+        "Str": "Refúgio mágico",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10019_Name",
+        "Str": "Barreira de mana",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10001_Desc",
+        "Str": "Causa dano a inimigos designados",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10002_Desc",
+        "Str": "Responder hp de companheiro designado",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10003_Desc",
+        "Str": "Aumenta a ação para um local designado após um ataque",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10004_Desc",
+        "Str": "Causa dano ao inimigo alvo e inimigos da área próxima",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10005_Desc",
+        "Str": "Recupera a ira de todos os companheiros de equipe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10006_Desc",
+        "Str": "Não visível na sessão atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10007_Desc",
+        "Str": "Inimigos produzem dano ultra alto",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10008_Desc",
+        "Str": "Dividir o próprio herói",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10009_Desc",
+        "Str": "Inativa o turno atual do inimigo",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10010_Desc",
+        "Str": "Adiciona uma ação a um companheiro designado",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10011_Desc",
+        "Str": "Adicionar escudo para todos os companheiros de equipe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10012_Desc",
+        "Str": "Uma certa probabilidade faz com que o alvo do ataque atual do inimigo se transforme em companheiro de equipe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10013_Desc",
+        "Str": "Aposto todo o hp restante do inimigo à custa de metade do hp total",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10014_Desc",
+        "Str": "Transforma dano infligido ao inimigo em pv próprio",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10015_Desc",
+        "Str": "Recupera hp de todos os companheiros de equipe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10016_Desc",
+        "Str": "Adicionar escudo a um companheiro designado",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10017_Desc",
+        "Str": "Reduz os valores de raiva geral do inimigo",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10018_Desc",
+        "Str": "Adiciona escudo mágico a todos os companheiros de equipe",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10019_Desc",
+        "Str": "Adiciona escudo mágico a companheiros de equipe designados",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001001_Name",
+        "Str": "O talento 1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001002_Name",
+        "Str": "O talento 2",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001003_Name",
+        "Str": "O talento 3",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001004_Name",
+        "Str": "O talento 4",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001005_Name",
+        "Str": "O talento 5",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001006_Name",
+        "Str": "O talento 6",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001007_Name",
+        "Str": "O talento 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001008_Name",
+        "Str": "O talento 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001009_Name",
+        "Str": "O talento 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001010_Name",
+        "Str": "O talento 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001011_Name",
+        "Str": "O talento 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001012_Name",
+        "Str": "O talento 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001013_Name",
+        "Str": "O talento 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001014_Name",
+        "Str": "O talento 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001015_Name",
+        "Str": "O talento 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001016_Name",
+        "Str": "O talento 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001017_Name",
+        "Str": "O talento 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001018_Name",
+        "Str": "O talento 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001019_Name",
+        "Str": "O talento 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001020_Name",
+        "Str": "Talento talento 14",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001021_Name",
+        "Str": "Talento talento 15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001022_Name",
+        "Str": "Talento talento 16",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001023_Name",
+        "Str": "Talento talento 17",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001024_Name",
+        "Str": "O talento 18",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001025_Name",
+        "Str": "Talento talento 19",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001026_Name",
+        "Str": "O talento 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001027_Name",
+        "Str": "O talento 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001028_Name",
+        "Str": "O talento 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001029_Name",
+        "Str": "O talento 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001030_Name",
+        "Str": "O talento 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001031_Name",
+        "Str": "O talento 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001032_Name",
+        "Str": "O talento 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001033_Name",
+        "Str": "Talento talento 14",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001034_Name",
+        "Str": "Talento talento 15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001035_Name",
+        "Str": "Talento talento 16",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001036_Name",
+        "Str": "Talento talento 17",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001037_Name",
+        "Str": "O talento 18",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Name",
+        "Str": "Talento talento 19",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001039_Name",
+        "Str": "O talento 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001001_Desc",
+        "Str": "Vida +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001002_Desc",
+        "Str": "Ataque físico +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001003_Desc",
+        "Str": "Ataque mágico +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001004_Desc",
+        "Str": "Tratamento +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001005_Desc",
+        "Str": "Defesa física +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001006_Desc",
+        "Str": "Defesa mágica +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001007_Desc",
+        "Str": "Regeneração de raiva +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001008_Desc",
+        "Str": "Evasão +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001009_Desc",
+        "Str": "Penetração física +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001010_Desc",
+        "Str": "Penetração mágica +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001011_Desc",
+        "Str": "Aumento de dano físico +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001012_Desc",
+        "Str": "Aumento de dano mágico +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001013_Desc",
+        "Str": "Distância de movimento +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001014_Desc",
+        "Str": "Vida +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001015_Desc",
+        "Str": "Ataque físico +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001016_Desc",
+        "Str": "Ataque mágico +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001017_Desc",
+        "Str": "Tratamentos +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001018_Desc",
+        "Str": "Defesa física +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001019_Desc",
+        "Str": "Defesa mágica +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001020_Desc",
+        "Str": "Regeneração de raiva +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001021_Desc",
+        "Str": "Evasão +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001022_Desc",
+        "Str": "Penetração física +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001023_Desc",
+        "Str": "Penetração mágica +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001024_Desc",
+        "Str": "Aumento de dano físico +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001025_Desc",
+        "Str": "Aumento de dano mágico +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001026_Desc",
+        "Str": "Distância de movimento +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001027_Desc",
+        "Str": "Vida +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001028_Desc",
+        "Str": "Ataque físico +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001029_Desc",
+        "Str": "Ataque mágico +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001030_Desc",
+        "Str": "Tratamentos +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001031_Desc",
+        "Str": "Defesa física +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001032_Desc",
+        "Str": "Defesa mágica +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001033_Desc",
+        "Str": "Regeneração de raiva +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001034_Desc",
+        "Str": "Evasão +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001035_Desc",
+        "Str": "Penetração física +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001036_Desc",
+        "Str": "Penetração mágica +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001037_Desc",
+        "Str": "Aumento de dano físico +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Desc",
+        "Str": "Aumento de dano mágico +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Desc",
+        "Str": "Distância de movimento +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_1_Name",
+        "Str": "Sangrar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_2_Name",
+        "Str": "envenenamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_3_Name",
+        "Str": "Redução de ira",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_4_Name",
+        "Str": "invisibilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_5_Name",
+        "Str": "Tonturas,",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_6_Name",
+        "Str": "Escudo físico de grupo",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_7_Name",
+        "Str": "Escudo mágico de grupo",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_8_Name",
+        "Str": "Escudo físico monomérico",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_9_Name",
+        "Str": "Escudo mágico monomérico",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_1_Desc",
+        "Str": "Redução de hp em 10 por turno, %s restante por turno",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_2_Desc",
+        "Str": "15 hp menos por turno, %s restante por turno",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_3_Desc",
+        "Str": "Menos regeneração de raiva por turno, %s rodadas restantes",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_4_Desc",
+        "Str": "Sessão atual stealth",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_5_Desc",
+        "Str": "Atordoa e incapacita o inimigo na rodada atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_6_Desc",
+        "Str": "Atordoa e incapacita o inimigo na rodada atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_7_Desc",
+        "Str": "Atordoa e incapacita o inimigo na rodada atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_8_Desc",
+        "Str": "Atordoa e incapacita o inimigo na rodada atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_9_Desc",
+        "Str": "Atordoa e incapacita o inimigo na rodada atual",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_1_Name",
+        "Str": "A vida",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_2_Name",
+        "Str": "raiva",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_3_Name",
+        "Str": "Um ataque físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_4_Name",
+        "Str": "O ataque mágico",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_5_Name",
+        "Str": "tratamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_6_Name",
+        "Str": "A defesa física",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_7_Name",
+        "Str": "A defesa mágica",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_8_Name",
+        "Str": "Distância do movimento",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_9_Name",
+        "Str": "Distância de ataque",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_10_Name",
+        "Str": "jank",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_11_Name",
+        "Str": "A penetração física",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_12_Name",
+        "Str": "Magia penetração penetração",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_13_Name",
+        "Str": "Aumento físico da lesão",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_14_Name",
+        "Str": "Aumento de dano mágico",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_15_Name",
+        "Str": "Recuperação de raiva",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_16_Name",
+        "Str": "Recuperação de hp após desmobilização",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_17_Name",
+        "Str": "Alcance do ataque",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_1_Name",
+        "Str": "king",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_2_Name",
+        "Str": "madeira",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_3_Name",
+        "Str": "água",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_4_Name",
+        "Str": "O fogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_5_Name",
+        "Str": "O solo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10001_Name",
+        "Str": "Machado vazio rachado",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Name",
+        "Str": "Espada gigante do céu rachado",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Name",
+        "Str": "Deus da guerra lâmina gigante",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Name",
+        "Str": "Arco da sombra do vento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Name",
+        "Str": "Corda do falcão",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10006_Name",
+        "Str": "Barreiras de aço",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10007_Name",
+        "Str": "Escudo da luz",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10008_Name",
+        "Str": "A lâmina brilhante",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10009_Name",
+        "Str": "Espada de ataque de sombra",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Name",
+        "Str": "Cetro de gelo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Name",
+        "Str": "O bastão eterno",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Name",
+        "Str": "Perseguindo almas à noite",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Name",
+        "Str": "Arco das estrelas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Name",
+        "Str": "Moonlight caçador",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10015_Name",
+        "Str": "ramos",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10016_Name",
+        "Str": "Frente de santidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10017_Name",
+        "Str": "Lâmina da noite",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10018_Name",
+        "Str": "Relâmpago espada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10019_Name",
+        "Str": "Espada flamejante",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10020_Name",
+        "Str": "Espadas geladas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10021_Name",
+        "Str": "Espada dos dentes do dragão",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10022_Name",
+        "Str": "Martelo pesado trovão",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10023_Name",
+        "Str": "Quebra a espada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Name",
+        "Str": "Machado gigante",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Name",
+        "Str": "Martelo da montanha",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10026_Name",
+        "Str": "Estrela yao espada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10027_Name",
+        "Str": "Espada do fogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10028_Name",
+        "Str": "Espeto.",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10029_Name",
+        "Str": "Não se mexa como uma montanha",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10030_Name",
+        "Str": "Acompanhante de shining",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10031_Name",
+        "Str": "Parede de ares",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10032_Name",
+        "Str": "Escudo do firmamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10033_Name",
+        "Str": "Escudo da glória",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10034_Name",
+        "Str": "Ferro e sangue defesa",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10035_Name",
+        "Str": "Barreira de sombra",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10036_Name",
+        "Str": "Guardião do rei",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10037_Name",
+        "Str": "A muralha sagrada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10038_Name",
+        "Str": "Escudo da firmeza",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10039_Name",
+        "Str": "Escudo dos guardiões",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10040_Name",
+        "Str": "A parede intransigente",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10041_Name",
+        "Str": "Escudo de trovão",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10042_Name",
+        "Str": "Barreira de fogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10043_Name",
+        "Str": "Escudo da eternidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10044_Name",
+        "Str": "Guardião do destino",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10045_Name",
+        "Str": "Escudo do amanhecer",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Name",
+        "Str": "Longridge arma longa",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Name",
+        "Str": "Mania de guerra lança",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Name",
+        "Str": "Longa arma das estrelas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Name",
+        "Str": "Lança com fogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Name",
+        "Str": "Arma longa congelada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Name",
+        "Str": "Seiscentos e agudos",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Name",
+        "Str": "Fúria mata dragão espada",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Name",
+        "Str": "Destemido frente",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Name",
+        "Str": "Lâmina do amanhecer",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Name",
+        "Str": "Espada pesada impensável",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Name",
+        "Str": "Bastão das estrelas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Name",
+        "Str": "Bastão do segredo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Name",
+        "Str": "Sabedoria dos tempos",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Name",
+        "Str": "Vara da ilusão",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Name",
+        "Str": "Vara flamejante",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10061_Name",
+        "Str": "Capa das estrelas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10062_Name",
+        "Str": "Manto da aparição",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10063_Name",
+        "Str": "O manto quente",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_NewGame",
+        "Str": "Um novo jogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_ContinueGame",
+        "Str": "Continuar o jogo",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_Settings",
+        "Str": "As configurações",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_Exit",
+        "Str": "Desistir.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_1_Name",
+        "Str": "inglês",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_2_Name",
+        "Str": "Chinês simplificado chinês",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_3_Name",
+        "Str": "russo",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_4_Name",
+        "Str": "Língua espanhola",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_5_Name",
+        "Str": "Língua portuguesa português",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_6_Name",
+        "Str": "Em alemão",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_7_Name",
+        "Str": "japonês",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_8_Name",
+        "Str": "francês",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_9_Name",
+        "Str": "Língua polonesa",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_10_Name",
+        "Str": "coreano",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_11_Name",
+        "Str": "Chinês tradicional chinês",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_12_Name",
+        "Str": "Em turco",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Audio_Music",
+        "Str": "Sons de fundo",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Audio_Sound",
+        "Str": "som",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_BattlePerformance",
+        "Str": "Show de batalha",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Off",
+        "Str": "fechada",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "abrir",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TextLanguage",
+        "Str": "Idioma do texto",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabSound",
+        "Str": "som",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabLanguage",
+        "Str": "línguas",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabBattle",
+        "Str": "lutar",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabPlayGame",
+        "Str": "Direitos exclusivos",
+        "Translated": "true"
+    },
+    {
+        "ID": "TipsPanel_Sure",
+        "Str": "A certeza",
+        "Translated": "true"
+    },
+    {
+        "ID": "TipsPanel_Cancel",
+        "Str": "cancelar",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Fornece dano físico e tem 5% de probabilidade de lançar um inimigo em atordoamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Fornece dano físico e tem 5% de probabilidade de lançar um inimigo em atordoamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Fornece dano físico e tem 4% de probabilidade de envenenar inimigos por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Fornece dano físico e tem 12% de probabilidade de envenenar inimigos por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10006_Desc",
+        "Str": "Fornece defesa física",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10007_Desc",
+        "Str": "Fornece defesa física",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10008_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10009_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Fornece dano mágico e reduz a ira do inimigo com 6% de probabilidade por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Fornece dano mágico e reduz a ira do inimigo com 6% de probabilidade por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Fornece dano físico e tem 8% de chance de envenenar inimigos por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Fornece dano físico e tem 6% de probabilidade de envenenar inimigos por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Fornece dano físico e tem 10% de chance de envenenar inimigos por 2 rodadas",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10015_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10016_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10017_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10018_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10019_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10020_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10021_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10023_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Fornece dano físico e tem 10% de probabilidade de lançar um inimigo em atordoamento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Fornece dano físico e tem 11% de probabilidade de atordoar um inimigo",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10026_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10027_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10028_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10029_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10030_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10031_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10032_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10033_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10034_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10035_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10036_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10037_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10038_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10039_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10040_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10041_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10042_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10043_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10044_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10045_Desc",
+        "Str": "Fornece dano físico",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Fornece dano físico e tem 2% de probabilidade de lançar um inimigo em sangramento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Fornece dano físico e tem 4% de probabilidade de lançar um inimigo em sangramento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Fornece dano físico e tem 6% de probabilidade de lançar um inimigo em sangramento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em sangramento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Fornece dano físico e tem 10% de chance de lançar um inimigo em sangramento",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em vertigem",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 2% de probabilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 4% de probabilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 6% de probabilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 8% de probabilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 10% de probabilidade",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10061_Desc",
+        "Str": "Fornece defesa de feitiços",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10062_Desc",
+        "Str": "Fornece defesa de feitiços",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10063_Desc",
+        "Str": "Fornece defesa de feitiços",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Start",
+        "Str": "início",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Restart",
+        "Str": "Começar de novo",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Cancel",
+        "Str": "cancelar",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Continue",
+        "Str": "Continuar a",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_TargetDesc",
+        "Str": "Derrote todos os inimigos e encontre o profeta",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_TargetDesc",
+        "Str": "Derrote todos os inimigos",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Tips",
+        "Str": "Por favor, certifique-se de que você está pronto para tudo antes de entrar.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Observe cinco elementos de contenção e fortalecimento. /n quando em uma relação contida, os atributos do lado contido serão reduzidos. Os atributos do lado fortalecido serão promovidos quando estiverem na relação fortalecida. /n",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "As estatísticas do próprio herói são aumentadas quando uma grade próxima ao herói tem uma presença de herói próprio que pode se fortalecer e quando o alvo da habilidade é o lado contido. /n quando o objetivo da habilidade é conter o herói, as estatísticas do herói serão reduzidas.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "Ouro contenha madeira, madeira contenha terra, terra contenha água, água contenha fogo, fogo contenha ouro.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "O ouro fortalece a água, a água fortalece a madeira, a madeira fortalece o fogo, o fogo fortalece a terra e a terra fortalece o ouro.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Escolha o herói de acordo com a formação inimiga.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Antes da guerra, tenha cuidado para se preparar no acampamento dos heróis.",
+        "Translated": "true"
     }
 ]

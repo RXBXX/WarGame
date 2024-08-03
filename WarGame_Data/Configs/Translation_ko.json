@@ -1,98 +1,2692 @@
 [
     {
         "ID": "RoleConfig_10001_Name",
-        "Str": "Noah"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10002_Name",
-        "Str": "Alyia"
+        "Str": "알리야",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10003_Name",
-        "Str": "Calvin"
+        "Str": "캘빈",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10004_Name",
-        "Str": "Derek"
+        "Str": "데릭",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10005_Name",
-        "Str": "Ethan"
+        "Str": "이토 모리",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10006_Name",
-        "Str": "Aiden"
+        "Str": "그곳",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10007_Name",
-        "Str": "Fayne"
+        "Str": null,
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10008_Name",
-        "Str": "Hawk"
+        "Str": "호크",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10009_Name",
-        "Str": "Gareth"
+        "Str": "가레스",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10010_Name",
-        "Str": "Justin"
+        "Str": "저스틴",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10011_Name",
-        "Str": "Cain"
+        "Str": "케인",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10012_Name",
-        "Str": "Lian"
+        "Str": "리 안",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10013_Name",
-        "Str": "Marcus"
+        "Str": "마르쿠스",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10014_Name",
-        "Str": "Oliver"
+        "Str": "올리버",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10015_Name",
-        "Str": "Vera"
+        "Str": "베라",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10016_Name",
-        "Str": "Mira"
+        "Str": "미라",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10017_Name",
-        "Str": "Lina"
+        "Str": "리나",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10018_Name",
-        "Str": "Felix"
+        "Str": "펠릭스",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10019_Name",
-        "Str": "Quentin"
+        "Str": "KunTing",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10020_Name",
-        "Str": "Ryan"
+        "Str": "라 이언",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10021_Name",
-        "Str": "Simon"
+        "Str": "사이 먼",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10022_Name",
-        "Str": "Thomas"
+        "Str": "토마스",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10023_Name",
-        "Str": "Ulric"
+        "Str": "우르푸",
+        "Translated": "true"
     },
     {
         "ID": "RoleConfig_10024_Name",
-        "Str": "Zach"
+        "Str": "자크",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_10025_Name",
+        "Str": "파인 분지",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20001_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20002_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20003_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20004_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20005_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20006_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20007_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20008_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20009_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20010_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20011_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20012_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "RoleConfig_20013_Name",
+        "Str": "유랑자",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_1_Name",
+        "Str": "천부 도구",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_2_Name",
+        "Str": "레벨 아이템",
+        "Translated": "true"
+    },
+    {
+        "ID": "ItemConfig_3_Name",
+        "Str": "장비 화폐",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001001_Context",
+        "Str": "잠깐, 여기에 뭔가 잘못된 것이 있습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001002_Context",
+        "Str": "내가 캘빈에게 가야 할 날이 있겠지. 아마이 일이 끝나면, 현자 노인이 내게 뭔가 재미있는 것을 줄 테니까. (시드 비셔스, 지혜명언)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001003_Context",
+        "Str": "이들은 별과 달이 아름다운 사람들이 아니라 적의가 심하여 당신이 찾는 사람은 이미 위험에 봉착한것 같다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001004_Context",
+        "Str": "무슨 일이 일어나는지 좀 더 살펴볼 필요가 있습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10001005_Context",
+        "Str": "좋아요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002001_Context",
+        "Str": "나쁜것을 예견하고 지혜로운 사람을 찾아가려다가 여기에 포위된, 마치 획책을 하고있는것 같은 적들을 몰아내니 고맙습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002002_Context",
+        "Str": "이 사람들이 누구인지, 그들의 목적이 무엇인지 아십니까?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002003_Context",
+        "Str": "확실하지는 않지만 그들은 암흑의 예견된 힘과 관련이 있어야 합니다.우리 먼저 현자를 찾아보자.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10002004_Context",
+        "Str": "문제가 점점 더 복잡해지는 것 같다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_10003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001001_Context",
+        "Str": "모두들 조심해라, 지난번 일을 겪고 나서 적들이 틀림없이 방비를 강화했을 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001002_Context",
+        "Str": "믿으세요. 모든 적은 식은 죽 먹기예요. (시드 비셔스, 원수명언)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001003_Context",
+        "Str": "지혜로운 자의 말이 옳다. 적들의 행동은 마치 계획되어 있는 것 같다. 지난번에 우리가 그 계획을 중단시켰으니, 이번에 그들이 돌아온다면 틀림없이 만반의 준비를 할 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001004_Context",
+        "Str": "나도 현자의 말이 일리가 있다고 생각한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001005_Context",
+        "Str": "좋아 좋아, 너희 말 들을게.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001006_Context",
+        "Str": "당신들의 목적은 무엇이며, 왜 이곳을 공격했습니까?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001007_Context",
+        "Str": "……",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20001008_Context",
+        "Str": "말하지 말라, 그러면 너희들을 입을 열게 할 수밖에 없다. 전투가 시작된다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002001_Context",
+        "Str": "끝장났다, 다른 곳도 같은 문제를 겪고 있는 것 같은데,이 새끼들이 대체 뭘 하려는 거지?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002002_Context",
+        "Str": "그들의 목적이 무엇인지 보아하니 우리가 직접 수성에 가서 끝까지 알아보아야 할것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002003_Context",
+        "Str": "나무원소는 이미 뽑혔는데 이일은 아직 그들에게 알려주지 말아야 한다!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002004_Context",
+        "Str": "좀 바쁜가보다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20002005_Context",
+        "Str": "그들은 이번에 성월삼림을 진공함과 동시에 수성에 대해서도 행동을 취하였다. 나는 지금 형세가 그리 락관적이지 않다고 생각한다. 기타 도시들도 모두 그들의 계획안에 들어있다고 생각되므로 우리는 시간을 다그쳐야 한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_20003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001001_Context",
+        "Str": "과연이 녀석들이 여기 있다. 내가 손보는 대로 내게 맡겨라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001002_Context",
+        "Str": "그러나 방심하지 마라.이 사람들이 이미 소식을 듣고 별달숲에서 일어난 일을 알았다면 틀림없이 방비를 강화했을것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001003_Context",
+        "Str": "야, 너희들은 어디서 왔는지, 달과 별의 숲에 사는 사람들하고는 도대체 무슨 관계야?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001004_Context",
+        "Str": "걸렸네, 주인공아,이 바보야, 조용히 할 수 없니?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001005_Context",
+        "Str": "별과 달의 숲은이 행성을 찾아냈으며,이 행성은이 행성을 찾아냈으며,이 행성은이 행성을 찾아낸 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30001006_Context",
+        "Str": "입심이 세네, 그럼 실력으로 말해야지.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002001_Context",
+        "Str": "이 녀석들은 정말 난처하지만 나는 다행히 용기가 있고 지략이 있어.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002002_Context",
+        "Str": "일은 아직 끝나지 않았습니다. 우리는 수성의 깊은 곳으로 가서 살펴보아야 합니다. 내 생각에는 적들이 겨우이 정도밖에 없을것 같습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30002003_Context",
+        "Str": "엘리야의 말도 일리가 있다. 별과 달 삼림에서 일어난 일로 볼 때, 적들은 절대로 이런 무리들이 없을 것이니, 우리는 시간을 다그쳐야 한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_30003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001001_Context",
+        "Str": "맞히셨군요.이 녀석들이 아직도 남아있네요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001002_Context",
+        "Str": "너희들은 어떻게 들어왔니? 사람을 보내서 지켜야 하는데.하하하, 보아하니 당신들은 능력이 좀 있어서 여기까지 들어올수 있었나봅니다. 아마 우리 팀원은 당신들에 의해 이미 해결되였나봅니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001003_Context",
+        "Str": "보아하니 너희들은 바보가 아닌 것 같다. 너희들은 도대체 스스로 솔직하게 말하려고 하는 것이냐, 아니면 내가 억지로 말하게 하는 것이냐.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001004_Context",
+        "Str": "하하하, 나는 당신들에게 정직하게 떠나라고 충고한다, 나는 당신들을 다치게하고 싶지 않다, 우리는 여기에서 얻어야 할 것들이 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001005_Context",
+        "Str": "맞다면, 여러분은 물의 힘을 끌어올리고 싶으실 겁니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001006_Context",
+        "Str": "당신은 누구입니까? 원소의 힘을 아는 사람이 에모테에서 얼마 남지 않았겠지요?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001007_Context",
+        "Str": "이 원소들의 힘은 에모테 대륙에 중요하며, 사악한 자들에게 이용당하면, 에모테 대륙 전체를 멸망시킬 수 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001008_Context",
+        "Str": "우리는 파멸을 좋아하지 않는다. 세상을 더 나은 곳으로 만들기 위해서는 단지이 힘이 필요할 뿐이다. (마더 테레사, 죽음명언)에모테 대륙은 수천 년 동안 평온했지만, 사람들은 모든 것을 당연하게 여겼고, 자유의 힘을 아직 장악할 수 없으며, 욕망의 자유에 의해 침식된 자유는이 세계를 파멸시킬 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001009_Context",
+        "Str": "노아:쓸데없는 소리 하지 말고 싸우자.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001010_Context",
+        "Str": "다시 한번 말하지만, 나는 너희들을 다치게 할 생각은 없지만, 너희들이 우리의 공적인 일을 방해한다면 용서하지 않겠다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40001011_Context",
+        "Str": "그럼 오십시오.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40002001_Context",
+        "Str": "여러분들은 이런 일이 일어나는 것을 막을 수 없습니다. 여러분들은 무슨 일이 일어날지 모릅니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40002002_Context",
+        "Str": "이 일은 우리가 예기한 것보다 더 심각한 것 같습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_40003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001001_Context",
+        "Str": "보아하니 또 한바탕 싸워야 할 것 같다. 나는 준비가다 되었다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001002_Context",
+        "Str": "너는 왜 이렇게 싸움을 좋아하느냐, 폭력으로는 문제를 해결할 수 없어.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001003_Context",
+        "Str": "그러나 폭력이 가장 직접적이고 또 가장 빠른바이 사람들에게는 도리를 따지는것이 쇠귀에 경 읽기였다.먼저 그들을 굴복시키고 나서 얘기하자.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001004_Context",
+        "Str": "……",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50001005_Context",
+        "Str": "하하하, 노아의 말이 맞아, 하면 끝이야.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002001_Context",
+        "Str": "네가 졌다.어서 큰형을 불러내라, 너희들은 너무 약해.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002002_Context",
+        "Str": "아아아아, 나는 뭘하고 있는 걸까, 왜 내가 여기 있는 걸까.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50002003_Context",
+        "Str": "너 뭘 모르는 척해, 아까도 우겼는데.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_50003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001001_Context",
+        "Str": "이놈들은 정말 집착.이들은 이곳에도 보인다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001002_Context",
+        "Str": "너희들은 속아 넘어갔으니, 너희들이 이대로 나가면이 대륙에 파멸만 가져올 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001003_Context",
+        "Str": "너희들은 아무것도 모른다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001004_Context",
+        "Str": "당신들의 목적을 우리는 벌써 알고있습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001005_Context",
+        "Str": "아무래도 이렇게 많이 말하지 마세요, 우리는 되도록 빨리 임무를 완성해야하고, 또 다음 단계의 일을 해야 합니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60001006_Context",
+        "Str": "내 마음에 꼭 든다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002001_Context",
+        "Str": "우리가 정말 틀렸을까?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002002_Context",
+        "Str": "우리는 그들을 믿을 수 있습니다. 그들은 세상을 구할 수 있습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60002003_Context",
+        "Str": "우리는 당신들의 도움이 필요하니 우리와 함께 하세요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_60003001_Context",
+        "Str": "10006번 레벨이 실패했습니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001001_Context",
+        "Str": "머리가 아파. 너희들은 정말 바퀴벌레처럼 아무 곳에나 있는 것 같아.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001002_Context",
+        "Str": "하하하, 당신들은 너무 약해요.이 많은 사람인데 우리를 해결하지 못해요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70001003_Context",
+        "Str": "그럼 그만해. 내가다 끝내줄게.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70002001_Context",
+        "Str": "보아하니 우리는 아직 강한것 같다!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_70003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001001_Context",
+        "Str": "임무를 완수하지 못하고 주인을 배반한 배신자 케인!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001002_Context",
+        "Str": "리안과 마쿠스는 우리와 함께 해주세요. 그가 틀렸습니다. 세상은 아직 구할 가치가 있습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001003_Context",
+        "Str": "네가 겪은 일을 잊었니? 완전한 파괴만이 세상을 좋게 만들 수 있어. (마크 트웨인, 경험명언)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001004_Context",
+        "Str": "쓸데없는 소리 하지 말고 먼저 그들을 굴복시킨 다음 그들에게 이치를 설명해라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80001005_Context",
+        "Str": "하하하, 너도 우리를 너무 무시하는구나.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80002001_Context",
+        "Str": "마커스, 당신들이 세상을 구하려면 우리의 힘이 필요합니다.이 사람들이 할 수 있을 겁니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80002002_Context",
+        "Str": "글쎄요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_80003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001001_Context",
+        "Str": "원래 너희들이 계속 우리 계획을 가로막고 있었구나, 내가 찾아가기도 전에 너희들이 왔구나.문제를 딱 해결했다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001002_Context",
+        "Str": "올리버,이 사람들을 조심해. 그들이 여기 있다는 것은 그들이 약하지 않다는 것을 보여 준다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90001003_Context",
+        "Str": "너희들은 쓸데없는 말이 정말 많구나, 맞으면 때려라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "어때, 우린 강하니까, 같이 하자.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_90003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001001_Context",
+        "Str": "당신들이 여기까지 올 줄은 생각지 못했어요, 빨리 돌아가세요, 나는 당신들을 다치게하고 싶지 않아요, 뒤에 있는 그 괴물들은 당신들이 대항할 수 있는 것이 아닙니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001002_Context",
+        "Str": "여기까지 온 이상 돌아갈 수는 없습니다.이 세계는 훼멸될 수 없다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100001003_Context",
+        "Str": "미라, 그들에게 쓸데없는 소리 하지 말고 우리 함께 그들을 쫓아내자",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "너희들이 강하다는 것을 인정하지만, 너희들의 현재의 힘으로는 무령의 영주에 대항할 수 없다. 너희들은 우리의 도움이 필요하다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "미라, 확실해? 허무 영주는 너무 강력해. 우리가 있다고 해도 아직 충분치 않아.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100002003_Context",
+        "Str": "어쩌면 가능할지도 몰라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001001_Context",
+        "Str": "너희들은 우리들을 막을 수 없어, 너희들이 여기까지 온 이상 우리들은 너희들을 해결할 수밖에 없어.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001002_Context",
+        "Str": "당신들은 입만 벌리면 세상을 구할 수 있다. 생각할 수 있는 유일한 방법은 확실히 파괴이다. 정말 아이러니한 일이다. 설령 당신들이 파괴로이 세계를 다시 태어나게 하더라도 수천 년이 지나도 같은 문제에 직면한다면, 당신들은 다시 파괴할 것이다. 당신의 방법은 근본을 해결하지 않고 지엽적인 것을 치료할 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001003_Context",
+        "Str": "네 말은 문제없지만, 세상을 썩게 하는 것보다는 낫지.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001004_Context",
+        "Str": "당신이 무슨 일을 겪었는지 모르겠어요. 세상은 좋고 나쁜게 함께 존재해요. 당신이 어둠 속에 있다고 해서 세상 전체가 어둠으로 덮이는게 아니에요. 세상은 아침 햇빛만 받아도 구원받을 만해요. (존 웨인, 인생명언)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001005_Context",
+        "Str": "당신은 우리가이 세상을 겪고 있다는 것을 이해하지 못합니다.이 세상은 구제불능입니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110001006_Context",
+        "Str": "전쟁을 개시하자, 우리의 처지는 다르니 많이 말하여도 이로울 것이 없다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110002001_Context",
+        "Str": "여러분이 이겼습니다. 여러분은 세상을 바꿀 수 있습니다. 하지만 세상은 여러분이 원하는 대로 바뀌지 않습니다. (오프라 윈프리, 성공명언)",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110002002_Context",
+        "Str": "이 세상도 당신의것입니다.이 세상은 정말 형편없을지도 모릅니다. 하지만 당신이 변하려고 노력한다면이 세상의 한구석은 항상 당신의것으로 환히 비춰질 것입니다.저희와 함께 해주세요. 저희들은 여러분의 힘이 필요합니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_110003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001001_Context",
+        "Str": "원소의 힘에 대한 사실은 이미 알고있는것 같은데 여기에까지 도달하게 되였다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001002_Context",
+        "Str": "어떤 원소의 힘인가?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001003_Context",
+        "Str": "현자 할아버지, 그거 아세요?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001004_Context",
+        "Str": "책에서이 사실을 본적이 있는데이 세계에는 금, 목, 수, 화, 토 5가지 원소의 힘이 있어이 세계의 기본적인 운행을 수호하고있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001005_Context",
+        "Str": "내 추측대로 당신들의 진짜 목적은 원소의 힘을 빌려 세계를 파멸시키려는것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001006_Context",
+        "Str": "너희가 알아도 소용없다 주인은 이미 허무한 힘을 모았다. 지금은 늦었다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120001007_Context",
+        "Str": "그럼 서둘러야 합니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120002001_Context",
+        "Str": "이미 늦었습니다. 당신이 이겨도 소용없습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_120003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001001_Context",
+        "Str": "너희들이 드디어 왔구나, 너희들로는 나를 막을 수 없어.나의 힘을 너희들은 상상할 수 없다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001002_Context",
+        "Str": "당신이 바로 허무 영주이군요. 우리가 다시 봉인해야 되겠네요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130001003_Context",
+        "Str": "하하하하 한번 해 보세요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130002001_Context",
+        "Str": "불가능해, 지금이 시대에 나를 이길 수 있는 사람이 아직 있어,이 땅강아지들아.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130002002_Context",
+        "Str": "천리 되는 둑도 개미구멍으로 무너진다고, 우리가 땅강아지와 개미라고 해도 너라는 큰 배도 우리에 의해 좀이 슬어 간다는 말 못 들었어?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_130003001_Context",
+        "Str": "우린 너무 약해!",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001001_Context",
+        "Str": "노아, 나는 너의 도움이 필요해.어제 밤에 천상 (天象)이 좀 이상하여 점을 쳐 보았는데, 괘의 근원은 허무 (허무) 였고, 어둠이 서서히 온 대륙으로 스며드는 것밖에 볼 수 없었다. 「 홍성원, 육이오 」",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001002_Context",
+        "Str": "우리가 살고 있는 세상에는 우리를 보호하는 조직이 있다. 그들이 모든 것을 해결해 줄 테니 걱정 마라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001003_Context",
+        "Str": "이번은 다르다. 무가 점차적으로 매 사람을 삼켜버린다. 마치 어둠이 찾아오는것 같다. 당신이 창밖을 내다볼 때 갑자기 어둠이 이미 철저하게 대지를 덮고있음을 발견할수 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001004_Context",
+        "Str": "제가 무엇을 할 수 있을까요?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001005_Context",
+        "Str": "달과 별의 숲으로 가서 캘빈이라는 사람을 찾아라. 그는 미래를 예지할 수 있는 힘을 가지고 있어 우리가이 사건의 진상을 규명하는 데 도움을 줄 수 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001006_Context",
+        "Str": "무슨 얘기 하는 거야? 내가 도와줄까?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001007_Context",
+        "Str": "현명한 노인은 좋지 않은 일이 생겼어. 내가 가서 사람을 찾아야 해.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001008_Context",
+        "Str": "마침 나도 성월삼림에 약재를 채집하러 가게 되었으니 너와 함께 가자.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001009_Context",
+        "Str": "아니나 다를까, 엘리아는 몇 번 가 본 적이 있어서 그곳에 대해 좀 익숙했어.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200001010_Context",
+        "Str": "만일을 대비해서 내가 영웅영지에 너희들을 위해 몇 가지 장비를 준비했으니 떠나기 전에 꼭 가지고 가라.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002001_Context",
+        "Str": "현자 영감, 당신이 필요로 하는 사람들을 데려왔습니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002002_Context",
+        "Str": "잘했다.캘빈, 오랜만이야.무슨 일이 일어났는지 아시나요?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002003_Context",
+        "Str": "나는 본래 당신에게 물어보려고 하였는데 중간에 약간의 의외의 일이 발생하였는데 다행히 당신이 파견해 주신 사람 덕분입니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002004_Context",
+        "Str": "무슨 일이 일어날까요?",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002005_Context",
+        "Str": "나도 잘 모르지만, 나에게서 뭔가를 얻고자 하는 사람들이 있다는 것만 안다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "DialogConfig_200002006_Context",
+        "Str": "그들은이 작전에서 실패하여 다시 달과 별의 숲으로 돌아갈 것이다.우리는 보아하니 다시 한번 가야 할 것 같습니다. 이번에는 나와 당신들과 함께 가서 일부 알려지지 않은 위험을 방지해야 합니다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001002_Context",
+        "Str": "가장 좋은 시기이자, 가장 나쁜 시기였다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001003_Context",
+        "Str": "에모티대륙의 사람들은 평화와 번영을 누리고있으며 문화가 발전하고 과학기술이 진보하고있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001004_Context",
+        "Str": "이와 동시에,\"무 (無) 영주\", 무 (無) 영주의 힘은 끝없는 멸망과 공포로 다가올 것이며, 무 (無) 영주가 깨어났을 때, 그는 그의 어둠의 군대로 사방에 행패할 것이며, 마을은 파괴되고, 숲은 오염되고, 강은 검은 독으로 변하게 될 것이다.조용했던 세상이 전례 없는 혼란에 빠져들 것이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10001005_Context",
+        "Str": "무상의 영주에 대항할 수 있는 모든 힘을 찾기 위해 여행을 떠나야만 하며, 에모테의 미래는 당신의 결정에 달려 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "StoryConfig_10002001_Context",
+        "Str": "세상은 평온을 되찾았다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_Name",
+        "Str": "그린우드-그린우드 지역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_Name",
+        "Str": "청룡-청룡지역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_Name",
+        "Str": "바다-조수 구역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_Name",
+        "Str": "란하이-하이윈구",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_Name",
+        "Str": "파스케-파스케 구역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_Name",
+        "Str": "호토 (湖土)-호토 지역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_Name",
+        "Str": "화염 지대",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_Name",
+        "Str": "얀 두-츠광 구역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_Name",
+        "Str": "요두-휘황구",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_Name",
+        "Str": "요두-주조 구역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_Name",
+        "Str": "고요한 연못-어두운 그림자의 구역",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_Name",
+        "Str": "고요한 깊은 골짜기",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_Name",
+        "Str": "심연 (深緣) 이라고도 불린다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_Desc",
+        "Str": "이 지역은 큰 나무와 무성한 숲으로 유명하며, 나무집과 구름다리가 서로 교차해 있고, 주민들은 나무와 함께 살면서 자연과 하나가 된다.공기가 깨끗하고 새들이 지저귀며 꽃이 향기로워 명상과 휴식을 취하기에 이상적인 곳이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_Desc",
+        "Str": "시냇물 지역 중심에는 바닥이 보이는 맑은 시냇물이 있고, 시냇물의 양쪽에는 넓은 초원과 화훼 공원이 있어 피크닉과 산책을 즐기기에 좋다.생태교육센터도 있어 환경보호 지식의 전파와 자연보호에 힘쓰고 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_Desc",
+        "Str": "간석지는 해안선이 웅장하고 밀물이 많이 오는 모습을 보여준다.이곳의 모래사장과 해변 산책로는 수많은 여행객들을 끌어들여 햇빛, 모래사장과 파도를 즐긴다.조석구역에는 풍부한 해양생물을 전시하는 해양생물센터가 있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_Desc",
+        "Str": "하이윈구는 쾌적한 바다 바람과 여유로운 생활 리듬으로 유명하다.어민들은 매일 아침 바다에 나가 저녁이면 신선한 해산물을 가지고 돌아온다.이곳의 해산물 시장과 바닷가 식당들은 가장 신선한 진수성찬을 내와 식객들의 눈길을 끈다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_Desc",
+        "Str": "반석구는 거대한 돌덩이와 견고한 건축물로 유명하며 주민들의 강인함과 근면함으로 유명하다.정교한 석공 기술을 자랑하는 건축과 조각 작품들은 많은 관광객을 끌어들인다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_Desc",
+        "Str": "후토 지역의 건물들은 두꺼운 석재와 점토로 이루어져 있어 튼튼하고 안전한 느낌을 준다.이곳은 풍부한 문화와 력사유적이 있어 석성의 유구한 력사와 독특한 문화전통을 보여주고있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_Desc",
+        "Str": "화염 지역은 화산 활동과 온천으로 유명한 곳으로, 방문객들은 이곳에서 지열 온천의 편안함과 화산 탐험의 스릴을 동시에 체험할 수 있다.경관이 웅장하고 아름다워 모험과 탐험을 즐기기에 안성맞춤이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_Desc",
+        "Str": "적광구역에는 온통 붉은 암석과 광맥이 널려있으며 광부들은 이곳에서 부지런히 일하며 각종 진귀한 광석을 채굴한다.그 지역의 독특한 경관과 광산 활동 때문에 지질학자와 관광객들에게 인기 있는 장소이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_Desc",
+        "Str": "고층 건물들이 햇빛에 반짝이고, 거대 기업들의 본사와 화려한 쇼핑 센터들이 그 지역에 널려 있다.밤의 휘황한 지역은 불빛으로 환히 밝혀 마치 별하늘처럼 수많은 유람객들을 끌어들여 관광과 쇼핑을 한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_Desc",
+        "Str": "장인들과 발명가들의 천국으로 불리는 이곳은 온갖 금속이 쨍그랑거리고 화염이 굉음을 내며 울려 퍼진다.이곳에는 가장 선진적인 단조공장과 기계제작공장이 있어서 생산 제품은 사방으로 팔려 나간다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_Desc",
+        "Str": "어두운 그림자구역은 영원한 그림자에 싸여있는데 이곳의 건축물은 주로 검은색과 회색을 띠고있어 사람들에게 신비하고 장엄한 느낌을 준다.주민들은 은밀한 기예와 책략에 능했으며 많은 전기적인 이야기들이 이곳에서 기원되였다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_Desc",
+        "Str": "유곡지역은 깊은 골짜기에 위치하여있는데 일년 내내 엷은 안개에 싸여있다.이곳의 환경은 조용하고 신비스러우며 주민들은 은거생활을 하고있다.이곳의 자연 경관은 독특해서 평온과 영감을 찾는 사람들에게 이상적인 장소이다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_Desc",
+        "Str": "심연지대 (深深地)는 고요한 연못의 가장 깊은 곳으로, 미지의 영역과 탐험의 기회로 가득하다.이곳에는 아직 발견되지 않은 동굴과 지하하천이 많아 탐험가들은 이곳에서 보물과 비밀을 찾는 한편 수많은 도전과 위험에 직면하고있다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10001_Name",
+        "Str": "공격",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10002_Name",
+        "Str": "치료",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10003_Name",
+        "Str": "기습 철수하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10004_Name",
+        "Str": "연쇄 공격",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10005_Name",
+        "Str": "격려",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10006_Name",
+        "Str": "잠행",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10007_Name",
+        "Str": "치명적 일격",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10008_Name",
+        "Str": "환영",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10009_Name",
+        "Str": "어",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10010_Name",
+        "Str": "추가 작업",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10011_Name",
+        "Str": "강철 장벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10012_Name",
+        "Str": "홀",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10013_Name",
+        "Str": "운명의 도박판",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10014_Name",
+        "Str": "생명 추출",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10015_Name",
+        "Str": "공동체 회복",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10016_Name",
+        "Str": "스틸 가드",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10017_Name",
+        "Str": "화가 가라앉다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10018_Name",
+        "Str": "마법보호대",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10019_Name",
+        "Str": "마법의 병풍.",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10001_Desc",
+        "Str": "지정한 적에게 데미지를 입힌다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10002_Desc",
+        "Str": "플레이어의 체력을 지정합니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10003_Desc",
+        "Str": "공격 후 행동을 지정된 위치로 증가시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10004_Desc",
+        "Str": "목표 적과 인근 지역의 적에게 데미지를 입힌다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10005_Desc",
+        "Str": "팀 전체의 화기를 회복시키다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10006_Desc",
+        "Str": "현재 라운드가 보이지 않습니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10007_Desc",
+        "Str": "적에게 슈퍼 데미지를 준다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10008_Desc",
+        "Str": "영웅을 만들 수 있습니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10009_Desc",
+        "Str": "현재 라운드에서는 적을 움직일 수 없게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10010_Desc",
+        "Str": "지명한 팀원에게 1차 행동을 추가한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10011_Desc",
+        "Str": "모든 아군에게 방패를 씌우다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10012_Desc",
+        "Str": "특정 확률로 현재 라운드에서의 적의 공격 목표를 아군으로 변경시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10013_Desc",
+        "Str": "전체 피량의 절반을 대가로 자신의 나머지 전체 피량을 걸다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10014_Desc",
+        "Str": "적에게 입은 데미지를 자신의 피로 변화시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10015_Desc",
+        "Str": "전체 아군의 피를 회복시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10016_Desc",
+        "Str": "지정한 팀원에게 방패를 씌우다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10017_Desc",
+        "Str": "적의 전체 분노를 다운시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10018_Desc",
+        "Str": "모든 아군에게 마법 방패를 부여한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "SkillConfig_10019_Desc",
+        "Str": "지정된 아군에게 마법 방패를 더한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001001_Name",
+        "Str": "자질 1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001002_Name",
+        "Str": "재능 2",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001003_Name",
+        "Str": "재능 3",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001004_Name",
+        "Str": "자질 4",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001005_Name",
+        "Str": "재능 5",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001006_Name",
+        "Str": "자질 6",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001007_Name",
+        "Str": "자질 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001008_Name",
+        "Str": "자질 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001009_Name",
+        "Str": "재능 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001010_Name",
+        "Str": "천부 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001011_Name",
+        "Str": "자질 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001012_Name",
+        "Str": "자질 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001013_Name",
+        "Str": "자질 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001014_Name",
+        "Str": "자질 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001015_Name",
+        "Str": "자질 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001016_Name",
+        "Str": "재능 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001017_Name",
+        "Str": "천부 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001018_Name",
+        "Str": "자질 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001019_Name",
+        "Str": "자질 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001020_Name",
+        "Str": "천부 14",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001021_Name",
+        "Str": "자질 15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001022_Name",
+        "Str": "선천적으로 16세",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001023_Name",
+        "Str": "천부 17",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001024_Name",
+        "Str": "천부 18",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001025_Name",
+        "Str": "천부 19",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001026_Name",
+        "Str": "자질 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001027_Name",
+        "Str": "자질 8",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001028_Name",
+        "Str": "자질 9",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001029_Name",
+        "Str": "재능 10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001030_Name",
+        "Str": "천부 11",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001031_Name",
+        "Str": "자질 12",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001032_Name",
+        "Str": "자질 13",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001033_Name",
+        "Str": "천부 14",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001034_Name",
+        "Str": "자질 15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001035_Name",
+        "Str": "선천적으로 16세",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001036_Name",
+        "Str": "천부 17",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001037_Name",
+        "Str": "천부 18",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Name",
+        "Str": "천부 19",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001039_Name",
+        "Str": "자질 7",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001001_Desc",
+        "Str": "라이프 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001002_Desc",
+        "Str": "물리 공격력 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001003_Desc",
+        "Str": "마법 공격력 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001004_Desc",
+        "Str": "치료 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001005_Desc",
+        "Str": "물리 방어 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001006_Desc",
+        "Str": "마법 방어 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001007_Desc",
+        "Str": "분노 회복 +10",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001008_Desc",
+        "Str": "피치 +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001009_Desc",
+        "Str": "물리 투과 +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001010_Desc",
+        "Str": "마법 관통 +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001011_Desc",
+        "Str": "물리 데미지 +10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001012_Desc",
+        "Str": "마법 데미지 증가 10%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001013_Desc",
+        "Str": "이동거리 +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001014_Desc",
+        "Str": "라이프 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001015_Desc",
+        "Str": "물리 공격력 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001016_Desc",
+        "Str": "마법 공격력 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001017_Desc",
+        "Str": "치료 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001018_Desc",
+        "Str": "물리 방어 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001019_Desc",
+        "Str": "마법 방어 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001020_Desc",
+        "Str": "분노 회복 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001021_Desc",
+        "Str": "피치 +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001022_Desc",
+        "Str": "15%의 물리 투과",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001023_Desc",
+        "Str": "마법 관통 +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001024_Desc",
+        "Str": "물리 데미지 증가 15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001025_Desc",
+        "Str": "마법 데미지 증가 15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001026_Desc",
+        "Str": "이동거리 +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001027_Desc",
+        "Str": "라이프 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001028_Desc",
+        "Str": "물리 공격력 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001029_Desc",
+        "Str": "마법 공격력 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001030_Desc",
+        "Str": "치료 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001031_Desc",
+        "Str": "물리 방어 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001032_Desc",
+        "Str": "마법 방어 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001033_Desc",
+        "Str": "분노 회복 +15",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001034_Desc",
+        "Str": "피치 +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001035_Desc",
+        "Str": "15%의 물리 투과",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001036_Desc",
+        "Str": "마법 관통 +15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001037_Desc",
+        "Str": "물리 데미지 증가 15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Desc",
+        "Str": "마법 데미지 증가 15%",
+        "Translated": "true"
+    },
+    {
+        "ID": "TalentConfig_10001038_Desc",
+        "Str": "이동거리 +1",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_1_Name",
+        "Str": "피 가",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_2_Name",
+        "Str": "중독",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_3_Name",
+        "Str": "노하여 줄",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_4_Name",
+        "Str": "스텔스",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_5_Name",
+        "Str": "어",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_6_Name",
+        "Str": "군체 물리 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_7_Name",
+        "Str": "군중 마법 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_8_Name",
+        "Str": "단일 물리 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_9_Name",
+        "Str": "싱글 매직 쉴드",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_1_Desc",
+        "Str": "라운드마다 10명씩 감소하며, 나머지%s 라운드입니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_2_Desc",
+        "Str": "라운드당 체력이 15 감소되며, 나머지%s 라운드입니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_3_Desc",
+        "Str": "라운드마다 분노 회복이 적으며,%s 라운드까지 남아 있습니다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_4_Desc",
+        "Str": "현재는 은신하고 있다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_5_Desc",
+        "Str": "적들로 하여금 현재 라운드에 어지러워 행동하지 못하게하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_6_Desc",
+        "Str": "적들로 하여금 현재 라운드에 어지러워 행동하지 못하게하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_7_Desc",
+        "Str": "적들로 하여금 현재 라운드에 어지러워 행동하지 못하게하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_8_Desc",
+        "Str": "적들로 하여금 현재 라운드에 어지러워 행동하지 못하게하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "BufferConfig_9_Desc",
+        "Str": "적들로 하여금 현재 라운드에 어지러워 행동하지 못하게하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_1_Name",
+        "Str": "생명",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_2_Name",
+        "Str": "노기",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_3_Name",
+        "Str": "물리 공격",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_4_Name",
+        "Str": "마술 공격",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_5_Name",
+        "Str": "치료",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_6_Name",
+        "Str": "물리적 방어",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_7_Name",
+        "Str": "마법 방어",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_8_Name",
+        "Str": "이동 거리",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_9_Name",
+        "Str": "공격 거리",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_10_Name",
+        "Str": "빗",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_11_Name",
+        "Str": "물리적 침투",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_12_Name",
+        "Str": "마법이 뚫리다",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_13_Name",
+        "Str": "물리적 부상",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_14_Name",
+        "Str": "마법 데미지",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_15_Name",
+        "Str": "노기가 회복되다",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_16_Name",
+        "Str": "탈피 후 혈액량이 회복된다",
+        "Translated": "true"
+    },
+    {
+        "ID": "AttrConfig_17_Name",
+        "Str": "공격 범위",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_1_Name",
+        "Str": "김",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_2_Name",
+        "Str": "나무",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_3_Name",
+        "Str": "물",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_4_Name",
+        "Str": "불",
+        "Translated": "true"
+    },
+    {
+        "ID": "ElementConfig_5_Name",
+        "Str": "흙",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10001_Name",
+        "Str": "도끼",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Name",
+        "Str": "파천대검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Name",
+        "Str": "칼날",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Name",
+        "Str": "바람 그림자의 활",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Name",
+        "Str": "매의 줄",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10006_Name",
+        "Str": "강철 장벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10007_Name",
+        "Str": "신성한 빛의 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10008_Name",
+        "Str": "빛나는 날",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10009_Name",
+        "Str": "영습검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Name",
+        "Str": "서릿발 같은 지위",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Name",
+        "Str": "영구 법봉",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Name",
+        "Str": "밤에 혼령을 쫓다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Name",
+        "Str": "별의 활",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Name",
+        "Str": "웨광헌터",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10015_Name",
+        "Str": "나뭇가지 가",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10016_Name",
+        "Str": "거룩한 예기",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10017_Name",
+        "Str": "어둠의 날",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10018_Name",
+        "Str": "세찬 검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10019_Name",
+        "Str": "화염검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10020_Name",
+        "Str": "차가운 검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10021_Name",
+        "Str": "용아의 검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10022_Name",
+        "Str": "벼락이 내리치다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10023_Name",
+        "Str": "허공검을 파다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Name",
+        "Str": "거인도끼",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Name",
+        "Str": "산의 추",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10026_Name",
+        "Str": "밝은 별과 밝은 검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10027_Name",
+        "Str": "불길 같은 검",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10028_Name",
+        "Str": "말뚝",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10029_Name",
+        "Str": "산처럼 움직이지 않다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10030_Name",
+        "Str": "빛나는 호위",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10031_Name",
+        "Str": "전신의 벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10032_Name",
+        "Str": "창궁의 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10033_Name",
+        "Str": "영광의 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10034_Name",
+        "Str": "하드 디펜스",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10035_Name",
+        "Str": "방호벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10036_Name",
+        "Str": "왕이 지키다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10037_Name",
+        "Str": "신성한 장벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10038_Name",
+        "Str": "의연한 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10039_Name",
+        "Str": "수호자의 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10040_Name",
+        "Str": "불굴의 벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10041_Name",
+        "Str": "맹렬한 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10042_Name",
+        "Str": "화염장벽",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10043_Name",
+        "Str": "영원한 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10044_Name",
+        "Str": "수호하라는 하늘의 명",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10045_Name",
+        "Str": "새벽녘의 방패",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Name",
+        "Str": "등골이 긴 창",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Name",
+        "Str": "창을 광분하여 싸우다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Name",
+        "Str": "별이 총총하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Name",
+        "Str": "맹렬한 화염과 긴 창",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Name",
+        "Str": "서릿발 같은 창",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Name",
+        "Str": "세상의 예봉을 떨치다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Name",
+        "Str": "광노하여 용을 도살하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Name",
+        "Str": "전열을 두려워하지 않다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Name",
+        "Str": "동틀 날",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Name",
+        "Str": "절영 에페",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Name",
+        "Str": "별장",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Name",
+        "Str": "비법의 지장",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Name",
+        "Str": "상고의 지혜.",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Name",
+        "Str": "신령의 지팡이",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Name",
+        "Str": "화염 법장",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10061_Name",
+        "Str": "별빛 망토",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10062_Name",
+        "Str": "환상 망토",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10063_Name",
+        "Str": "망토를 작열하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_NewGame",
+        "Str": "새 게임",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_ContinueGame",
+        "Str": "게임을 계속하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_Settings",
+        "Str": "설정",
+        "Translated": "true"
+    },
+    {
+        "ID": "MainPanel_Exit",
+        "Str": "출구",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_1_Name",
+        "Str": "영어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_2_Name",
+        "Str": "중국어 간체",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_3_Name",
+        "Str": "러시아어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_4_Name",
+        "Str": "스페인어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_5_Name",
+        "Str": "포르투갈어로",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_6_Name",
+        "Str": "독일어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_7_Name",
+        "Str": "일본어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_8_Name",
+        "Str": "프랑스어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_9_Name",
+        "Str": "폴란드어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_10_Name",
+        "Str": "한국어",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_11_Name",
+        "Str": "중국어 번체",
+        "Translated": "true"
+    },
+    {
+        "ID": "LanguageConfig_12_Name",
+        "Str": "터키어로",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Audio_Music",
+        "Str": "배경음",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Audio_Sound",
+        "Str": "사운드",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_BattlePerformance",
+        "Str": "전투 시범",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_Off",
+        "Str": "관",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "열",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TextLanguage",
+        "Str": "텍스트 언어",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabSound",
+        "Str": "소리",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabLanguage",
+        "Str": "언어",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabBattle",
+        "Str": "전투",
+        "Translated": "true"
+    },
+    {
+        "ID": "SettingsPanel_TabPlayGame",
+        "Str": "놀이",
+        "Translated": "true"
+    },
+    {
+        "ID": "TipsPanel_Sure",
+        "Str": "확정",
+        "Translated": "true"
+    },
+    {
+        "ID": "TipsPanel_Cancel",
+        "Str": "취소",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "물리 데미지를 제공하고 5%의 확률로 적에게 현기증을 느끼게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "물리 데미지를 제공하고 5%의 확률로 적에게 현기증을 느끼게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "물리 데미지를 제공하고 2 라운드 동안 4%의 확률로 적에게 중독시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "물리 데미지를 제공하고 12%의 확률로 적에게 중독을 입히며 2 라운드 동안 지속한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10006_Desc",
+        "Str": "물리적 방어를 제공하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10007_Desc",
+        "Str": "물리적 방어를 제공하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10008_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10009_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "주술 데미지를 제공하고 6%의 확률로 적의 노기를 감소시키며 2 라운드 동안 지속한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "주술 데미지를 제공하고 6%의 확률로 적의 노기를 감소시키며 2 라운드 동안 지속한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 중독을 입히며 2 라운드 동안 지속한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "물리 데미지를 제공하고 6%의 확률로 2 라운드 동안 적에게 중독시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "물리 데미지를 제공하며 2 라운드 동안 10%의 확률로 적에게 중독시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10015_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10016_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10017_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10018_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10019_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10020_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10021_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10023_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "물리 데미지를 제공하고 10%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "물리 데미지를 제공하고 11%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10026_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10027_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10028_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10029_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10030_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10031_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10032_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10033_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10034_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10035_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10036_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10037_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10038_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10039_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10040_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10041_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10042_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10043_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10044_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10045_Desc",
+        "Str": "물리적 데미지를 입히다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "물리 데미지를 제공하고 2%의 확률로 적에게 피를 흘린다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "물리 데미지를 주고 4% 확률로 적에게 피를 흘린다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "물리 데미지를 제공하고 6%의 확률로 적에게 피를 흘리게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 피를 흘리게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "물리 데미지를 제공하고 10% 확률로 적에게 피를 흘리게 한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "물리 데미지를 제공하고 8%의 확률로 적에게 아찔함을 선사한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "주술 데미지를 제공하고 2% 확률로 적의 노기를 감소시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "주술 피해를 주고 4% 확률로 적의 노기를 감소시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "주문 데미지를 제공하고 6%의 확률로 적의 노기를 감소시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "주문 데미지를 제공하고 8%의 확률로 적의 노기를 감소시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "주문 데미지를 제공하며 10% 확률로 적의 노기를 감소시킨다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10061_Desc",
+        "Str": "주술 방어를 제공한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10062_Desc",
+        "Str": "주술 방어를 제공한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "EquipmentConfig_10063_Desc",
+        "Str": "주술 방어를 제공한다",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Start",
+        "Str": "시작",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Restart",
+        "Str": "다시 시작하다",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Cancel",
+        "Str": "취소",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Continue",
+        "Str": "계속",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10001_TargetDesc",
+        "Str": "모든 적을 무찌르고 예언자를 찾아라",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10002_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10003_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10004_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10005_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10006_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10007_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10008_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10009_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10010_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10011_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10012_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "LevelConfig_10013_TargetDesc",
+        "Str": "모든 적을 쳐부수다",
+        "Translated": "true"
+    },
+    {
+        "ID": "FightTipsPanel_Tips",
+        "Str": "들어가기 전에 반드시 만반의 준비를 갖추었는지 확인하세요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "오행의 자제와 강화에 주의한다.만약 통제되는 관계에 있다면, 통제되는 속성은 감소한다.강화된 관계에 있을 때, 강화된 상대방의 속성이 상승한다./n",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "영웅의 주위에 자신을 강화시킬 수 있는 아군 영웅이 존재하거나, 자신을 억제시킬 수 있는 아군 스킬의 대상이 되는 경우, 영웅 자신의 속성을 상승시킨다.영웅을 억제하는 것이 목표일 경우 영웅 속성이 감소한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "금은 목을, 목은 흙을, 흙은 물을, 물은 화를, 화는 금을 억제한다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "금은 수를, 수는 목을, 목은 화를, 화는 토를, 토는 금을 강화시킨다.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "적의 진영에 따라 영웅을 선택하세요.",
+        "Translated": "true"
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "개전 전에 영웅 영지에서 준비를 잘 하도록 주의해라.",
+        "Translated": "true"
     }
 ]

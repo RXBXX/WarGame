@@ -2,9 +2,13 @@
 <component size="180,45" pivot="0.5,0.5" anchor="true" extention="Button">
   <controller name="showBtn" pages="0,,1," selected="0"/>
   <displayList>
-    <image id="n6_b0z0" name="n6" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="0,0" pivot="0.5,0.5" size="180,44"/>
-    <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="20,10" size="17,29" aspect="true"/>
-    <text id="n0_hctw" name="title" xy="90,23" pivot="0.5,0.5" anchor="true" size="62,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Mark111"/>
+    <image id="n6_b0z0" name="n6" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="39,6" pivot="0.5,0.5" size="103,32">
+      <relation target="n0_hctw" sidePair="width-width"/>
+    </image>
+    <image id="n3_b0z0" name="lock" src="b0z0f" fileName="Images/Lock.png" pkg="hx02grrp" xy="54,23" pivot="0.5,0.5" anchor="true" size="12,20" aspect="true">
+      <relation target="n0_hctw" sidePair="right-left"/>
+    </image>
+    <text id="n0_hctw" name="title" xy="90,21" pivot="0.5,0.5" anchor="true" size="51,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" align="center" vAlign="middle" leading="0" strokeColor="#000000" autoClearText="true" text="Mark111"/>
     <text id="n1_b0z0" name="desc" xy="83,4" pivot="0.5,1" anchor="true" size="400,41" font="ui://hd0z4dz5omu90" fontSize="16" color="#f6f6f6" align="center" leading="-2" autoSize="height" strokeColor="#000000" autoClearText="true" text="11111111111111111111111&#xA;1111111111111111"/>
     <component id="n7_gy0s" name="goOnBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="-13,24" pivot="1,0.5" anchor="true" scale="0.3,0.3">
       <gearDisplay controller="showBtn" pages="1"/>

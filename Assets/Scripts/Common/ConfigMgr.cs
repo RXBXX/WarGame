@@ -108,6 +108,7 @@ namespace WarGame
             return true;
         }
 
+
         public string GetTranslation(string configName, int id, string key)
         {
             if (_TranslationDic.Count <= 0)
