@@ -44,14 +44,16 @@ namespace WarGame.UI
             });
 
             _skipBtn = GetGObjectChild<GButton>("skipBtn");
+            _skipBtn.title = ConfigMgr.Instance.GetTranslation("FightPanel_Skip");
             _skipBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 
             _tips = GetGObjectChild<GTextField>("readyTips");
-            _tips.text = "≥§∞¥”¢–€ÃÊªª”¢–€…œ’Û";
+            _tips.text = ConfigMgr.Instance.GetTranslation("FightPanel_StartTips");
             _readyBtn = GetGObjectChild<GButton>("startBtn");
+            _readyBtn.title = ConfigMgr.Instance.GetTranslation("FightPanel_Start");
             _readyBtn.onClick.Add(() =>
             {
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Start);

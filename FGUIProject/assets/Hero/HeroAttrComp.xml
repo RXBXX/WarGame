@@ -13,10 +13,10 @@
       <item/>
     </list>
     <graph id="n22_czz8" name="n22" xy="0,0" size="460,36" alpha="0.5" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <text id="n23_czz8" name="n23" xy="16,0" size="90,36" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" strokeColor="#000000" text="ATTRIBUTE"/>
-    <text id="n24_czz8" name="n24" xy="157,0" size="47,36" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" strokeColor="#000000" text="LEVEL"/>
-    <text id="n25_czz8" name="n25" xy="255,0" size="62,36" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" strokeColor="#000000" text="TALENT"/>
-    <text id="n26_czz8" name="n26" xy="370,0" size="52,36" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" strokeColor="#000000" text="EQUIP"/>
+    <text id="n23_czz8" name="attrTitle" xy="53,18" pivot="0.5,0.5" anchor="true" size="84,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" vAlign="middle" strokeColor="#000000" text="ATTRIBUTE"/>
+    <text id="n24_czz8" name="levelTitle" xy="180,18" pivot="0.5,0.5" anchor="true" size="44,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" text="LEVEL"/>
+    <text id="n25_czz8" name="talentTitle" xy="286,18" pivot="0.5,0.5" anchor="true" size="58,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" text="TALENT"/>
+    <text id="n26_czz8" name="equipTitle" xy="396,18" pivot="0.5,0.5" anchor="true" size="49,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" text="EQUIP"/>
   </displayList>
   <relation target="n13_gy0s" sidePair="bottomext-bottom"/>
 </component>

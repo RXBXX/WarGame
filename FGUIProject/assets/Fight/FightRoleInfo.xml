@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="228,233" opaque="false">
+<component size="228,220" opaque="false">
   <displayList>
-    <graph id="n8_czz8" name="n8" xy="0,0" size="228,233" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n8_czz8" name="n8" xy="0,0" size="228,220" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="height-height"/>
     </graph>
-    <text id="n1_dd4m" name="name" xy="9,4" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#e2ba2a" letterSpacing="2" strokeColor="#000000" strokeSize="2" text="11111"/>
+    <text id="n1_dd4m" name="name" xy="9,4" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="11111"/>
     <list id="n0_dd4m" name="attrList" xy="9,96" size="210,114" touchable="false" overflow="scroll" lineGap="2" defaultItem="ui://kbw86fxtczz81l">
       <item/>
       <item/>
@@ -19,9 +19,9 @@
       <ProgressBar value="50" max="100"/>
     </component>
     <graph id="n4_czz8" name="n4" xy="9,74" size="210,20" alpha="0.5" touchable="false" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <text id="n5_czz8" name="n5" xy="32,72" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" text="Attr"/>
-    <text id="n6_czz8" name="n6" xy="107,72" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" text="Base"/>
-    <text id="n7_czz8" name="n7" xy="160,72" size="48,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" text="Element"/>
+    <text id="n5_czz8" name="attrTitle" xy="15,72" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attr"/>
+    <text id="n6_czz8" name="baseTitle" xy="122,84" pivot="0.5,0.5" anchor="true" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Base"/>
+    <text id="n7_czz8" name="elementTitle" xy="184,84" pivot="0.5,0.5" anchor="true" size="48,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Element"/>
     <loader id="n9_clt4" name="element" xy="206,22" pivot="0.5,0.5" anchor="true" size="24,24" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true"/>
   </displayList>
   <relation target="n0_dd4m" sidePair="bottomext-bottom"/>

@@ -2,8 +2,8 @@
 <component size="86,86" pivot="0.5,0.5" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <component id="n11_gy0s" name="icon" src="c2cw12" fileName="Components/CommonEquip.xml" pkg="hx02grrp" xy="0,0" size="86,86"/>
-    <component id="n18_kky8" name="owner" src="pfj84" fileName="Components/CommonHero.xml" pkg="hx02grrp" xy="57,3" scale="0.3,0.3"/>
+    <component id="n11_gy0s" name="icon" src="c2cw12" fileName="Components/CommonEquip.xml" pkg="hx02grrp" xy="1,1" scale="0.66,0.66"/>
+    <component id="n18_kky8" name="owner" src="pfj84" fileName="Components/CommonHero.xml" pkg="hx02grrp" xy="56,4" scale="0.3,0.3"/>
   </displayList>
   <Button mode="Radio"/>
 </component>

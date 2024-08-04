@@ -37,8 +37,10 @@ namespace WarGame.UI
                 new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
             });
 
-            GetGObjectChild<GButton>("buyBtn").onClick.Add(OnClickBuy);
-
+            var forgeBtn = GetGObjectChild<GButton>("buyBtn");
+            forgeBtn.title = ConfigMgr.Instance.GetTranslation("SmithyPanel_Forge");
+            forgeBtn.onClick.Add(OnClickBuy);
+                
             _name = GetGObjectChild<GTextField>("name");
             _cost = GetGObjectChild<GTextField>("costTxt");
 

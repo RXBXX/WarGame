@@ -17,8 +17,10 @@ namespace WarGame.UI
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _smithyBtn = GetGObjectChild<GButton>("smithyBtn");
+            _smithyBtn.title = ConfigMgr.Instance.GetTranslation("MapPanel_Smithy");
             _smithyBtn.onClick.Add(OnClickSmithy);
             _heroBtn = GetGObjectChild<GButton>("heroBtn");
+            _heroBtn.title = ConfigMgr.Instance.GetTranslation("MapPanel_Camp");
             _heroBtn.onClick.Add(OnClickHero);
             _sky = GetChild<MapSky>("sky");
         }

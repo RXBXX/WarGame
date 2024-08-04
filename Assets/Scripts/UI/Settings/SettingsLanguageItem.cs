@@ -46,7 +46,6 @@ namespace WarGame.UI
             _index -= 1;
             if (_index < 0)
                 _index = _languages.Count - 1;
-            DebugManager.Instance.Log("Language:" + _languages[_index]);
             DatasMgr.Instance.SetLanguageC2S(_languages[_index]);
         }
 

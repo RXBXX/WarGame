@@ -4,9 +4,10 @@
     <graph id="n17_gy0s" name="n17" xy="0,0" size="460,34" alpha="0.3" type="rect" lineSize="0" lineColor="#ff1b1a1a" fillColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <text id="n13_gy0s" name="name" xy="30,1" size="58,32" font="ui://hd0z4dz5omu90" fontSize="22" color="#f8f8f8" strokeColor="#000000" autoClearText="true" text="Attack"/>
-    <text id="n14_gy0s" name="value" xy="430,17" pivot="1,0.5" anchor="true" size="24,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#f8f8f8" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
-      <relation target="" sidePair="right-right"/>
+    <text id="n13_gy0s" name="name" xy="14,1" size="230,32" font="ui://hd0z4dz5omu90" fontSize="22" color="#f8f8f8" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n14_gy0s" name="value" xy="440,17" pivot="1,0.5" anchor="true" size="24,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#f8f8f8" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
+      <relation target="" sidePair="middle-middle,right-right"/>
     </text>
   </displayList>
+  <relation target="n13_gy0s" sidePair="bottomext-bottom"/>
 </component>

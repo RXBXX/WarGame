@@ -22,6 +22,10 @@ namespace WarGame.UI
             _attrList = GetGObjectChild<GList>("attrList");
             _element = GetGObjectChild<GLoader>("element");
             _attrList.itemRenderer = OnItemRenderer;
+
+            GetGObjectChild<GTextField>("attrTitle").text = ConfigMgr.Instance.GetTranslation("Attr_Title");
+            GetGObjectChild<GTextField>("baseTitle").text = ConfigMgr.Instance.GetTranslation("Base_Title");
+            GetGObjectChild<GTextField>("elementTitle").text = ConfigMgr.Instance.GetTranslation("Element_Title");
         }
 
         private void OnItemRenderer(int index, GObject item)

@@ -18,11 +18,11 @@ namespace WarGame.UI
         public HeroProComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _type = GetController("type");
-            GetChild<HeroTitleItem>("levelTitle").Init("Level", 0, OnClickLevel);
-            GetChild<HeroTitleItem>("talentTitle").Init("Talents", 0, OnClickTalent);
-            GetChild<HeroTitleItem>("skillTitle").Init("Skills", 0, OnClickSkill);
-            GetChild<HeroTitleItem>("attrTitle").Init("Attrs", 1, OnClickAttr);
-            GetChild<HeroTitleItem>("equipTitle").Init("Equips", 0, OnClickEquip);
+            GetChild<HeroTitleItem>("levelTitle").Init(ConfigMgr.Instance.GetTranslation("HeroPanel_LevelTitle"), 0, OnClickLevel);
+            GetChild<HeroTitleItem>("talentTitle").Init(ConfigMgr.Instance.GetTranslation("HeroPanel_TalentTitle"), 0, OnClickTalent);
+            GetChild<HeroTitleItem>("skillTitle").Init(ConfigMgr.Instance.GetTranslation("HeroPanel_SkillTitle"), 0, OnClickSkill);
+            GetChild<HeroTitleItem>("attrTitle").Init(ConfigMgr.Instance.GetTranslation("HeroPanel_AttrTitle"), 1, OnClickAttr);
+            GetChild<HeroTitleItem>("equipTitle").Init(ConfigMgr.Instance.GetTranslation("HeroPanel_EquipTitle"), 0, OnClickEquip);
 
             _talentComp = GetChild<HeroTalentComp>("talentComp");
 

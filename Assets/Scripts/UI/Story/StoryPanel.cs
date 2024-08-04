@@ -9,7 +9,7 @@ namespace WarGame.UI
         private int _groupID;
         private int _index = 0;
         private WGArgsCallback _callback;
-        private float _wordInterval = 0.1f;
+        private float _wordInterval = 0.05f;
         private float _paragraphInterval = 1.0f;
         private float _time = 0.0f;
         private GLoader _pic;
@@ -17,6 +17,7 @@ namespace WarGame.UI
         private Transition _fadeOut;
         private Transition _over;
         private bool _stop = true;
+        private int _soundID = 0;
 
         public StoryPanel(GComponent gCom, string name, object[] args) : base(gCom, name)
         {
@@ -41,6 +42,7 @@ namespace WarGame.UI
             {
                 if (!_te.Print())
                 {
+                    OnStopString();
                     if (_time > _wordInterval + _paragraphInterval)
                     {
                         Next();
@@ -66,16 +68,12 @@ namespace WarGame.UI
             }
 
             var storyConfig = ConfigMgr.Instance.GetConfig<StoryConfig>("StoryConfig", _groupID * 1000 + _index);
-
             if (_index <= 1)
             {
                 _pic.url = storyConfig.Pic;
                 _fadeIn.Play(() =>
                 {
-                    _context.text = storyConfig.GetTranslation("Context");
-                    _te.Start();
-                    _te.Print();
-                    _stop = false;
+                    OnPlayString();
                 });
             }
             else
@@ -87,20 +85,33 @@ namespace WarGame.UI
                         _pic.url = storyConfig.Pic;
                         _fadeIn.Play(() =>
                         {
-                            _context.text = storyConfig.GetTranslation("Context");
-                            _te.Start();
-                            _te.Print();
-                            _stop = false;
+                            OnPlayString();
                         });
                     });
                 }
                 else
                 {
-                    _context.text = storyConfig.GetTranslation("Context");
-                    _te.Start();
-                    _te.Print();
-                    _stop = false;
+                    OnPlayString();
                 }
+            }
+        }
+
+        private void OnPlayString()
+        {
+            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Print.mp3", true);
+            var storyConfig = ConfigMgr.Instance.GetConfig<StoryConfig>("StoryConfig", _groupID * 1000 + _index);
+            _context.text = storyConfig.GetTranslation("Context");
+            _te.Start();
+            _te.Print();
+            _stop = false;
+        }
+
+        private void OnStopString()
+        {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
             }
         }
     }

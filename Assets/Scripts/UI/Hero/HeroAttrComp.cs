@@ -13,6 +13,10 @@ namespace WarGame.UI
         public HeroAttrComp(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
             _attrList = GetGObjectChild<GList>("attrList");
+            GetGObjectChild<GTextField>("attrTitle").text = ConfigMgr.Instance.GetTranslation("HeroPanel_AttrTitle");
+            GetGObjectChild<GTextField>("levelTitle").text = ConfigMgr.Instance.GetTranslation("HeroPanel_LevelTitle");
+            GetGObjectChild<GTextField>("talentTitle").text = ConfigMgr.Instance.GetTranslation("HeroPanel_TalentTitle");
+            GetGObjectChild<GTextField>("equipTitle").text = ConfigMgr.Instance.GetTranslation("HeroPanel_EquipTitle");
             _attrList.itemRenderer = OnAttrRenderer;
         }
 

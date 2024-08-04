@@ -17,7 +17,7 @@
       <item/>
       <item/>
     </list>
-    <list id="n3_ou4w" name="attrs" xy="976,190" size="274,380" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+    <list id="n3_ou4w" name="attrs" xy="986,190" size="342,380" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
       <item/>
       <item/>
       <item/>
@@ -26,14 +26,14 @@
       <item/>
       <item/>
     </list>
-    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="997,577" size="360,69" scale="0.4,0.4">
-      <Button titleFontSize="36"/>
+    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1120,577" size="295,69" scale="0.4,0.4">
+      <Button titleFontSize="42"/>
     </component>
-    <graph id="n11_kky8" name="n11" xy="975,598" size="85,28" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n6_ou4w" name="costTxt" xy="980,599" size="42,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#5c8799" ubb="true" strokeColor="#000000" text="10/12"/>
+    <graph id="n11_kky8" name="n11" xy="985,598" size="85,28" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n6_ou4w" name="costTxt" xy="990,599" size="42,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
     <component id="n7_ou4w" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
     <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true"/>
     <graph id="n10_kky8" name="n10" xy="975,133" size="423,41" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n9_kwvb" name="name" xy="982,134" size="110,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
+    <text id="n9_kwvb" name="name" xy="986,134" size="110,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
   </displayList>
 </component>
