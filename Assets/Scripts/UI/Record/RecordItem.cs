@@ -29,8 +29,8 @@ namespace WarGame.UI
             {
                 var gd = DatasMgr.Instance.GetRecord(id);
                 _title.text = gd.title;
-                _time.text = "最后保存时间：" + TimeMgr.Instance.GetFormatDateTime(gd.saveTime);
-                _duration.text = "游戏时常：" + TimeMgr.Instance.GetFormatLeftTime(gd.duration);
+                _time.text = ConfigMgr.Instance.GetTranslation("RecordItem_Time") + TimeMgr.Instance.GetFormatDateTime(gd.saveTime);
+                _duration.text = ConfigMgr.Instance.GetTranslation("RecordItem_Duration") + TimeMgr.Instance.GetFormatLeftTime(gd.duration);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace WarGame.UI
             {
                 DatasMgr.Instance.DeleteRecordC2S(_id);
             };
-            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] {"是否确认要删除该游戏记录？", cb});
+            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { ConfigMgr.Instance.GetTranslation("RecordItem_Tips"), cb});
         }
     }
 }

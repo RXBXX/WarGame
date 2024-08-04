@@ -55,7 +55,7 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     try:
         total_rows = worksheet.nrows - 1  # 总行数，减去标题行
         row_index = 1
-        while(row_index < total_rows):
+        while(row_index <= total_rows):
             if destWS.nrows < row_index + 1 or destWS.ncols < 3 or destWS.cell_value(row_index, 2) != 'true':
                 original_text = worksheet.cell_value(row_index, 1)
                 success, translated_text = createRequest(original_text, worksheet.cell_value(row_index, 0), lang_from, lang_to)

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using Newtonsoft.Json;
 
 namespace WarGame
 {
@@ -13,47 +10,6 @@ namespace WarGame
 
         public override bool Init()
         {
-            var language = Application.systemLanguage;
-            switch (language)
-            {
-                case SystemLanguage.ChineseSimplified:
-                    DatasMgr.Instance.SetLanguageC2S(2);
-                    break;
-                case SystemLanguage.Russian:
-                    DatasMgr.Instance.SetLanguageC2S(3);
-                    break;
-                case SystemLanguage.Spanish:
-                    DatasMgr.Instance.SetLanguageC2S(4);
-                    break;
-                case SystemLanguage.Portuguese:
-                    DatasMgr.Instance.SetLanguageC2S(5);
-                    break;
-                case SystemLanguage.German:
-                    DatasMgr.Instance.SetLanguageC2S(6);
-                    break;
-                case SystemLanguage.Japanese:
-                    DatasMgr.Instance.SetLanguageC2S(7);
-                    break;
-                case SystemLanguage.French:
-                    DatasMgr.Instance.SetLanguageC2S(8);
-                    break;
-                case SystemLanguage.Polish:
-                    DatasMgr.Instance.SetLanguageC2S(9);
-                    break;
-                case SystemLanguage.Korean:
-                    DatasMgr.Instance.SetLanguageC2S(10);
-                    break;
-                case SystemLanguage.ChineseTraditional:
-                    DatasMgr.Instance.SetLanguageC2S(11);
-                    break;
-                case SystemLanguage.Turkish:
-                    DatasMgr.Instance.SetLanguageC2S(12);
-                    break;
-                default:
-                    DatasMgr.Instance.SetLanguageC2S(1);
-                    break;
-            }
-
             EventDispatcher.Instance.AddListener(Enum.Event.SetLanguageS2C, OnLanguageChanged);
             return true;
         }

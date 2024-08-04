@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="360,54" pivot="0.5,0.5" extention="Button">
-  <controller name="style" exported="true" pages="0,,1," selected="1"/>
+  <controller name="style" exported="true" pages="0,,1," selected="0"/>
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <loader id="n4_ovai" name="n4" xy="0,0" size="360,54" url="ui://hx02grrpupau2a" fill="scaleFree">
+    <loader id="n4_ovai" name="n4" xy="0,0" size="360,54" url="ui://hx02grrpovai1g" fill="scaleFree">
       <gearIcon controller="style" pages="1" values="ui://hx02grrpupau2a" default="ui://hx02grrpovai1g"/>
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
-    <text id="n1_omu9" name="title" xy="179,27" pivot="0.5,0.5" anchor="true" size="65,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="Start">
+    <text id="n1_omu9" name="title" xy="179,26" pivot="0.5,0.5" anchor="true" size="61,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" strokeColor="#000000" autoClearText="true" text="Start">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>

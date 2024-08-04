@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 namespace WarGame
 {
@@ -577,7 +578,46 @@ namespace WarGame
 
         public GameData()
         {
-
+            var language = Application.systemLanguage;
+            switch (language)
+            {
+                case SystemLanguage.ChineseSimplified:
+                    Language = 2;
+                    break;
+                case SystemLanguage.Russian:
+                    Language = 3;
+                    break;
+                case SystemLanguage.Spanish:
+                    Language = 4;
+                    break;
+                case SystemLanguage.Portuguese:
+                    Language = 5;
+                    break;
+                case SystemLanguage.German:
+                    Language = 6;
+                    break;
+                case SystemLanguage.Japanese:
+                    Language = 7;
+                    break;
+                case SystemLanguage.French:
+                    Language = 8;
+                    break;
+                case SystemLanguage.Polish:
+                    Language = 9;
+                    break;
+                case SystemLanguage.Korean:
+                    Language = 10;
+                    break;
+                case SystemLanguage.ChineseTraditional:
+                    Language = 11;
+                    break;
+                case SystemLanguage.Turkish:
+                    Language = 12;
+                    break;
+                default:
+                    Language = 1;
+                    break;
+            }
         }
 
         public RecordData GetUsingRecord()
@@ -592,7 +632,7 @@ namespace WarGame
 
         public string GetTitle()
         {
-            return "´æµµ_" + (_customRecordDic.Count + 1);
+            return ConfigMgr.Instance.GetTranslation("Record_Title") + "_" + (_customRecordDic.Count + 1);
         }
 
         public void StartNewGame()

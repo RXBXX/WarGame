@@ -97,6 +97,7 @@ namespace WarGame.UI
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+            UIManager.Instance.OpenPanel("Main", "MainPanel");
         }
 
         private void OnDeleteRecordS2C(params object[] args)

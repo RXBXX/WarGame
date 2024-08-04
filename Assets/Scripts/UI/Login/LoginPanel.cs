@@ -7,7 +7,7 @@ namespace WarGame.UI
         public LoginPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             var mainBtn = (GButton)_gCom.GetChild("mainBtn");
-            mainBtn.title = "PLAY";
+            mainBtn.title = ConfigMgr.Instance.GetTranslation("LoginPanel_Play");
             mainBtn.onClick.Add(OnClickMainBtn);
 
             _gCom.GetChild("title").text = "KA KA KILL";

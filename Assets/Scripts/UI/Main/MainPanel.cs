@@ -32,10 +32,12 @@ namespace WarGame.UI
             if (DatasMgr.Instance.GetAllRecord().Count > 0)
             {
                 _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_ContinueGame"), () => {
+                    UIManager.Instance.ClosePanel(name);
                     UIManager.Instance.OpenPanel("Record", "RecordPanel", new object[] {Enum.RecordMode.Read });
                 }));
             }
             _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_Settings"), ()=> {
+                UIManager.Instance.ClosePanel(name);
                 UIManager.Instance.OpenPanel("Settings", "SettingsPanel");
             }));
             _tabDatas.Add(new StringCallbackStruct(ConfigMgr.Instance.GetTranslation("MainPanel_Exit"), ()=> {

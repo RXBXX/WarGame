@@ -162,6 +162,7 @@ namespace WarGame.UI
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+            UIManager.Instance.OpenPanel("Main", "MainPanel");
         }
 
         private void OnLanguageChanged(params object[] args)
