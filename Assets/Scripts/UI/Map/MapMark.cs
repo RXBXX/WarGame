@@ -12,21 +12,21 @@ namespace WarGame.UI
         private GTextField _name;
         private GTextField _desc;
         private Enum.LevelType _levelType;
-        private GObject _lock;
+        //private GObject _lock;
         private Controller _showBtnC;
-        private GButton _goOnBtn;
-        private GButton _restartBtn;
+        //private GButton _goOnBtn;
+        //private GButton _restartBtn;
 
         public MapMark(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _name = GetGObjectChild<GTextField>("title");
             _desc = GetGObjectChild<GTextField>("desc");
             _typeC = GetController("type");
-            _lock = GetGObjectChild<GObject>("lock");
+            //_lock = GetGObjectChild<GObject>("lock");
             _showBtnC = GetController("showBtn");
-            _goOnBtn = GetGObjectChild<GButton>("goOnBtn");
+            //_goOnBtn = GetGObjectChild<GButton>("goOnBtn");
             //_goOnBtn.onClick.Add(OnClickGoOn);
-            _restartBtn = GetGObjectChild<GButton>("restartBtn");
+            //_restartBtn = GetGObjectChild<GButton>("restartBtn");
             //_restartBtn.onClick.Add(OnClickRestart);
             _gCom.onClick.Add(OnClick);
             Stage.inst.onTouchBegin.Add(OnTouchBegin);
@@ -45,7 +45,8 @@ namespace WarGame.UI
             _name.text = name;
             _desc.text = desc;
             //_typeC.SetSelectedIndex((int)type - 1);
-            _lock.visible = !isOpen;
+            _gCom.grayed = !isOpen;
+            //_lock.visible = !isOpen;
         }
 
         private void OnClick()
@@ -111,7 +112,8 @@ namespace WarGame.UI
 
         public void Active()
         {
-            _lock.visible = false;
+            _gCom.grayed = false;
+            //_lock.visible = false;
         }
     }
 }

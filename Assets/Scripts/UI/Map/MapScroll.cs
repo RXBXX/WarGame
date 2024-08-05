@@ -13,6 +13,7 @@ namespace WarGame.UI
         private MapSky _sky;
         private GButton _smithyBtn;
         private GButton _heroBtn;
+        private float _maxScale = 1.2F;
 
         public MapScroll(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -92,7 +93,7 @@ namespace WarGame.UI
 
         private bool IsZoomCrossBorder(ref Vector2 pos, ref Vector2 scale)
         {
-            if (scale.x > 2 || scale.y > 2)
+            if (scale.x > _maxScale || scale.y > _maxScale)
                 return true;
             else if (_gCom.width * scale.x < GRoot.inst.width || _gCom.height * scale.y < GRoot.inst.height)
             {

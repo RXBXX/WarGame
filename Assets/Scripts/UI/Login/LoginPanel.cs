@@ -10,8 +10,8 @@ namespace WarGame.UI
             mainBtn.title = ConfigMgr.Instance.GetTranslation("LoginPanel_Play");
             mainBtn.onClick.Add(OnClickMainBtn);
 
-            _gCom.GetChild("title").text = "KA KA KILL";
-            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/CommonBG";
+            _gCom.GetChild("title").text = ConfigMgr.Instance.GetTranslation("Game_Name");
+            ((GLoader)_gCom.GetChild("bg")).url = "UI/Background/LoginBG";
         }
 
         private void OnClickMainBtn()
