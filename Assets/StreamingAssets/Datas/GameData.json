@@ -1,6 +1,54 @@
 {
   "Version": "0.0.0.01",
-  "_customRecordDic": {},
+  "_customRecordDic": {
+    "Record_1": {
+      "ID": "Record_1",
+      "title": "存档_1",
+      "createTime": 1723012972767,
+      "saveTime": 1723012997412,
+      "duration": 27401,
+      "isNew": false,
+      "roleDataDic": {
+        "10001": {
+          "UID": 10001,
+          "configId": 10001,
+          "level": 1,
+          "equipmentDic": {},
+          "talents": []
+        },
+        "10002": {
+          "UID": 10002,
+          "configId": 10002,
+          "level": 1,
+          "equipmentDic": {},
+          "talents": []
+        }
+      },
+      "equipDataDic": {
+        "30001": {
+          "UID": 30001,
+          "id": 10015
+        },
+        "30002": {
+          "UID": 30002,
+          "id": 10056
+        }
+      },
+      "levelDataDic": {
+        "10001": {
+          "configId": 10001,
+          "Stage": 0,
+          "Round": 0,
+          "actionType": 0,
+          "heros": [],
+          "enemys": [],
+          "itemsDic": {}
+        }
+      },
+      "homeEvent": 0,
+      "itemsDic": {}
+    }
+  },
   "SoundVolumeDic": {
     "Music": 0.880916536,
     "Audio": 1.0
