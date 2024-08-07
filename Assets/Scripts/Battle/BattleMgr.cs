@@ -50,15 +50,18 @@ namespace WarGame
             }
 
             //计算关卡元素加成
-            var levelElementConfig = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)levelElement);
-            if (levelElementConfig.Restrain == initiatorElement)
+            if (levelElement != Enum.Element.None)
             {
-                add -= levelElementConfig.RestrainValue;
-            }
+                var levelElementConfig = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)levelElement);
+                if (levelElementConfig.Restrain == initiatorElement)
+                {
+                    add -= levelElementConfig.RestrainValue;
+                }
 
-            if (levelElementConfig.Reinforce == initiatorElement)
-            {
-                add += levelElementConfig.RestrainValue;
+                if (levelElementConfig.Reinforce == initiatorElement)
+                {
+                    add += levelElementConfig.RestrainValue;
+                }
             }
 
             return add;
