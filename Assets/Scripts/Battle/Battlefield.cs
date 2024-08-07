@@ -235,7 +235,7 @@ namespace WarGame
                     {
                         _levelData.Stage = Enum.LevelStage.Talked;
                         _levelData.actionType = Enum.ActionType.ReadyAction;
-                        _action = new ReadyBattleAction(GetActionID(), _levelData);
+                        _action = new ReadyBattleAction(GetActionID(), _levelID, _levelData);
                     });
 
 
@@ -244,7 +244,7 @@ namespace WarGame
             else if (_levelData.Stage < Enum.LevelStage.Readyed)
             {
                 _levelData.actionType = Enum.ActionType.ReadyAction;
-                _action = new ReadyBattleAction(GetActionID(), _levelData);
+                _action = new ReadyBattleAction(GetActionID(), _levelID, _levelData);
             }
             else
             {
@@ -398,7 +398,7 @@ namespace WarGame
                 var screenPos = InputManager.Instance.GetMousePos();
                 screenPos.y = Screen.height - screenPos.y;
                 var uiPos = GRoot.inst.GlobalToLocal(screenPos);
-                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID, _levelID});
             }
         }
 
@@ -458,7 +458,7 @@ namespace WarGame
             if (_levelData.actionType == Enum.ActionType.ReadyAction)
             {
                 _levelData.actionType = Enum.ActionType.HeroAction;
-                _action = new HeroBattleAction(GetActionID());
+                _action = new HeroBattleAction(GetActionID(), _levelID);
                 return;
             }
 
@@ -469,7 +469,7 @@ namespace WarGame
                 {
                     if (heros[i].CanAction())
                     {
-                        _action = new HeroBattleAction(GetActionID());
+                        _action = new HeroBattleAction(GetActionID(), _levelID);
                         return;
                     }
                 }
@@ -491,7 +491,7 @@ namespace WarGame
                         //if (enemys[i].GetState() == Enum.RoleState.Locked)
                         if (enemys[i].CanAction())
                         {
-                            _action = new EnemyBattleAction(GetActionID());
+                            _action = new EnemyBattleAction(GetActionID(), _levelID);
                             enemys[i].SetState(Enum.RoleState.Waiting);
                             break;
                         }
@@ -513,7 +513,7 @@ namespace WarGame
                     //if (enemys[i].GetState() == Enum.RoleState.Locked)
                     if (enemys[i].CanAction())
                     {
-                        _action = new EnemyBattleAction(GetActionID());
+                        _action = new EnemyBattleAction(GetActionID(), _levelID);
                         enemys[i].SetState(Enum.RoleState.Waiting);
                         return;
                     }
@@ -721,7 +721,7 @@ namespace WarGame
                 {
                     if (v.CanAction())
                     {
-                        _action = new HeroBattleAction(GetActionID());
+                        _action = new HeroBattleAction(GetActionID(), _levelID);
                         break;
                     }
                 }

@@ -14,10 +14,12 @@ namespace WarGame
         protected List<MapObject> _arenaObjects = new List<MapObject>();
         protected Skill _skillAction;
         protected bool _isLockingCamera;
+        protected int _levelID;
 
-        public BattleAction(int id)
+        public BattleAction(int id, int levelID)
         {
             this.ID = id;
+            _levelID = levelID;
             AddListeners();
         }
 

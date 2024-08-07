@@ -5,7 +5,7 @@ namespace WarGame
 {
     public class EnemyBattleAction : BattleAction
     {
-        public EnemyBattleAction(int id) : base(id)
+        public EnemyBattleAction(int id, int levelID) : base(id, levelID)
         {
         }
 
@@ -92,7 +92,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
             initiator.SetState(Enum.RoleState.WatingTarget);
-            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID, _levelID);
             _skillAction.Start();
 
             _skillAction.ClickHero(_targetID);

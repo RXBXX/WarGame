@@ -10,7 +10,7 @@ namespace WarGame
         private Dictionary<int, Chain> _chainsDic = new Dictionary<int, Chain>();
         private Dictionary<int, List<int>> _chainTargetDic = new Dictionary<int, List<int>>();
 
-        public ChainAttackSkill(int id, int initiatorID) : base(id, initiatorID)
+        public ChainAttackSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
 
         }
@@ -45,7 +45,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoChainAttack(_initiatorID, _targets);
+                BattleMgr.Instance.DoChainAttack(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets);
             }
         }
 
@@ -211,7 +211,7 @@ namespace WarGame
             {
                 if (_chainTargetDic.ContainsKey(sender))
                 {
-                    BattleMgr.Instance.DoChainAttack(_initiatorID, _chainTargetDic[sender]);
+                    BattleMgr.Instance.DoChainAttack(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _chainTargetDic[sender]);
                 }
 
                 if (target.IsDead())

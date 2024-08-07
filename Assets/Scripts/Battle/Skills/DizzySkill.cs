@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class DizzySkill : SingleSkill
     {
-        public DizzySkill(int id, int initiatorID) : base(id, initiatorID)
+        public DizzySkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -40,7 +40,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoDizzy(_initiatorID, _targets[0]);
+                BattleMgr.Instance.DoDizzy(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets[0]);
             }
         }
 

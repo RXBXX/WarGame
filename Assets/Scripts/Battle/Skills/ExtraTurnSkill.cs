@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class ExtraTurnSkill : SingleSkill
     {
-        public ExtraTurnSkill(int id, int initiatorID) : base(id, initiatorID)
+        public ExtraTurnSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

@@ -123,7 +123,7 @@ namespace WarGame.UI
 
         private void OnShowRoleInfo(params object[] args)
         {
-            _roleInfo.Show((Vector2)args[0], (int)args[1]);
+            _roleInfo.Show((Vector2)args[0], (int)args[1], (int)args[2]);
         }
 
         private void OnHideRoleInfo(params object[] args)

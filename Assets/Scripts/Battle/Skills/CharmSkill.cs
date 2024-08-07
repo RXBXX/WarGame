@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class CharmSkill : SingleSkill
     {
-        public CharmSkill(int id, int initiatorID) : base(id, initiatorID)
+        public CharmSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

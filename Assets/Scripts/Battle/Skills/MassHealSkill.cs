@@ -2,7 +2,7 @@ namespace WarGame
 {
     public class MassHealSkill : MassSkill
     {
-        public MassHealSkill(int id, int initiatorID) : base(id, initiatorID)
+        public MassHealSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -23,7 +23,7 @@ namespace WarGame
 
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoMassHeal(_initiatorID, _targets);
+                BattleMgr.Instance.DoMassHeal(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets);
             }
         }
 

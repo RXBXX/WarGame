@@ -35,7 +35,9 @@ namespace WarGame.UI
             _autoBtn = GetGObjectChild<GButton>("autoBtn");
             _autoBtn.onClick.Add(OnClickAuto);
 
-            _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
+            if (SceneMgr.Instance.IsInBattleField())
+                _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("BG"));
+
             _optionList = GetGObjectChild<GList>("optionList");
             _optionList.itemRenderer = OnOptionRenderer;
             _optionList.onClickItem.Add(OnOptionClick);

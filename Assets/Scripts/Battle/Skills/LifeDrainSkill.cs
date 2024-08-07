@@ -2,7 +2,7 @@ namespace WarGame
 {
     public class LifeDrainSkill : FierceAttackSkill
     {
-        public LifeDrainSkill(int id, int initiatorID) : base(id, initiatorID)
+        public LifeDrainSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         { }
 
         public override void HandleFightEvents(int sender, string stateName, string secondStateName)
@@ -12,7 +12,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoLefeDrain(_initiatorID, _targets[0]);
+                BattleMgr.Instance.DoLefeDrain(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets[0]);
             }
         }
     }

@@ -9,13 +9,14 @@ namespace WarGame
         private Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> _reportDic;
 
         ///计算元素克制加成
-        public float GetElementAdd(int _initiatorID, int targetID = 0)
+        public float GetElementAdd(Enum.Element levelElement, int _initiatorID, int targetID = 0)
         {
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
 
             var add = 0.0f;
             var initiatorElement = initiator.GetElement();
 
+            //计算技能目标的属性克制
             if (0 != targetID)
             {
                 var target = RoleManager.Instance.GetRole(targetID);
@@ -32,6 +33,7 @@ namespace WarGame
                 }
             }
 
+            //计算队友元素加成
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
             foreach (var v in MapManager.Instance.Dicections)
             {
@@ -45,6 +47,18 @@ namespace WarGame
                 {
                     add += elementConfig.ReinforceValue;
                 }
+            }
+
+            //计算关卡元素加成
+            var levelElementConfig = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)levelElement);
+            if (levelElementConfig.Restrain == initiatorElement)
+            {
+                add -= levelElementConfig.RestrainValue;
+            }
+
+            if (levelElementConfig.Reinforce == initiatorElement)
+            {
+                add += levelElementConfig.RestrainValue;
             }
 
             return add;
@@ -77,11 +91,11 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetPhysicalAttackPower(int initiatorID, int targetID)
+        public float GetPhysicalAttackPower(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
 
-            var add = GetElementAdd(initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
             var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack) * (1 + add);
             var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio) * (1 + add);
 
@@ -94,11 +108,11 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetMagicAttackPower(int initiatorID, int targetID)
+        public float GetMagicAttackPower(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
 
-            var add = GetElementAdd(initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
             var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack) * (1 + add);
             var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio) * (1 + add);
 
@@ -111,12 +125,12 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetPhysicalDefensePower(int initiatorID, int targetID)
+        public float GetPhysicalDefensePower(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            var add = GetElementAdd(initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
             var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio) * (1 + add);
 
             var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
@@ -130,12 +144,12 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetMagicDefensePower(int initiatorID, int targetID)
+        public float GetMagicDefensePower(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            var add = GetElementAdd(initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
             var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio) * (1 + add);
 
             var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
@@ -149,12 +163,14 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetCurePower(int initiatorID, int targetID)
+        public float GetCurePower(Enum.Element levelElement, int initiatorID, int targetID, bool addReport = false)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-
-            var add = GetElementAdd(initiatorID, targetID);
-            return initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var curePower = initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add);
+            if (addReport)
+                AddReport(initiatorID, Enum.AttrType.Cure, curePower);
+            return curePower;
         }
 
         /// <summary>
@@ -163,11 +179,14 @@ namespace WarGame
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
         /// <returns></returns>
-        public float GetInspirePower(int initiatorID, int targetID)
+        public float GetInspirePower(Enum.Element levelElement, int initiatorID, int targetID, bool addReport = false)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var add = GetElementAdd(initiatorID, targetID);
-            return 20 * (1 + add);
+            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var ragePower = initiator.GetAttribute(Enum.AttrType.Inspire) * (1 + add);
+            if (addReport)
+                AddReport(initiatorID, Enum.AttrType.Rage, ragePower);
+            return ragePower;
         }
 
         public string GetAttributeStr(int id, float value)
@@ -177,54 +196,33 @@ namespace WarGame
         }
 
 
-        public float GetAttackValue(int initiatorID, int targetID)
+        public float GetAttackValue(Enum.Element levelElement, int initiatorID, int targetID, bool addReport = false, float multiply = 1)
         {
-            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+            var physicalDefense = GetPhysicalDefensePower(levelElement, initiatorID, targetID);
+            var magicDefense = GetMagicDefensePower(levelElement, initiatorID, targetID);
+            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(levelElement, initiatorID, targetID) - physicalDefense);
+            var magicHurt = Mathf.Max(0, GetMagicAttackPower(levelElement, initiatorID, targetID) - magicDefense);
 
-            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+            physicalHurt *= multiply;
+            magicHurt *= multiply;
 
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+            if (addReport)
+            {
+                AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
+                AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
+                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
+                AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+            }
 
             return physicalHurt + magicHurt;
         }
 
         /// <summary>
-        /// 攻击
+        /// 普通攻击
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoAttack(int initiatorID, int targetID)
-        {
-            var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var target = RoleManager.Instance.GetRole(targetID);
-
-            var dodgeRatio = target.GetAttribute(Enum.AttrType.DodgeRatio);
-            var rd = Random.Range(0, 1.0f);
-            if (rd < dodgeRatio)
-            {
-                target.Dodge();
-            }
-            else
-            {
-                var hurt = GetAttackValue(initiatorID, targetID);
-                target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
-                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
-                CameraMgr.Instance.ShakePosition();
-            }
-        }
-
-        /// <summary>
-        /// 攻击
-        /// </summary>
-        /// <param name="initiatorID"></param>
-        /// <param name="targetID"></param>
-        public void DoAttack(int initiatorID, List<int> targets)
+        public void DoAttack(Enum.Element levelElement, int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             foreach (var v in targets)
@@ -239,7 +237,7 @@ namespace WarGame
                 }
                 else
                 {
-                    var hurt = GetAttackValue(initiatorID, v);
+                    var hurt = GetAttackValue(levelElement, initiatorID, v);
                     target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                     target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                     CameraMgr.Instance.ShakePosition();
@@ -248,30 +246,35 @@ namespace WarGame
         }
 
         /// <summary>
-        /// 锁链攻击
+        /// 后撤攻击
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoChainAttack(int initiatorID, List<int> targets)
+        public void DoRelocateAttack(Enum.Element levelElement, int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
+                var hurt = GetAttackValue(levelElement, initiatorID, v);
+                target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
+                target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+                CameraMgr.Instance.ShakePosition();
+            }
+        }
 
-                var physicalDefense = GetPhysicalDefensePower(initiatorID, v);
-                AddReport(v, Enum.AttrType.PhysicalDefense, physicalDefense);
-
-                var magicDefense = GetMagicDefensePower(initiatorID, v);
-                AddReport(v, Enum.AttrType.MagicDefense, magicDefense);
-
-                var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, v) - physicalDefense);
-                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-
-                var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, v) - magicDefense);
-                AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
-
-                var hurt = physicalHurt + magicHurt;
+        /// <summary>
+        /// 锁链攻击
+        /// </summary>
+        /// <param name="initiatorID"></param>
+        /// <param name="targetID"></param>
+        public void DoChainAttack(Enum.Element levelElement, int initiatorID, List<int> targets)
+        {
+            var initiator = RoleManager.Instance.GetRole(initiatorID);
+            foreach (var v in targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                var hurt = GetAttackValue(levelElement, initiatorID, v);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             }
@@ -283,15 +286,14 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoCure(int initiatorID, int targetID)
+        public void DoCure(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
             initiator.ClearRage();
 
-            var cure = GetCurePower(initiatorID, targetID);
-            AddReport(initiatorID, Enum.AttrType.Cure, cure);
+            var cure = GetCurePower(levelElement, initiatorID, targetID, true);
             target.Cured(cure);
         }
 
@@ -300,7 +302,7 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targets"></param>
-        public void DoMassHeal(int initiatorID, List<int> targets)
+        public void DoMassHeal(Enum.Element levelElement, int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
@@ -308,8 +310,7 @@ namespace WarGame
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                var cure = GetCurePower(initiatorID, v);
-                AddReport(initiatorID, Enum.AttrType.Cure, cure);
+                var cure = GetCurePower(levelElement, initiatorID, v, true);
                 target.Cured(cure);
             }
         }
@@ -319,14 +320,14 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targets"></param>
-        public void DoInspire(int initiatorID, List<int> targets)
+        public void DoInspire(Enum.Element levelElement, int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                target.Inspired(GetInspirePower(initiatorID, v));
+                target.Inspired(GetInspirePower(levelElement, initiatorID, v, true));
             }
         }
 
@@ -346,27 +347,12 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoCriticalHit(int initiatorID, int targetID, float multiply)
+        public void DoCriticalHit(Enum.Element levelElement, int initiatorID, int targetID, float multiply)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
-
             var target = RoleManager.Instance.GetRole(targetID);
-            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
-
-            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
-
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
-
-            var hurt = physicalHurt + magicHurt;
-            hurt *= Random.Range(1, multiply);
-            hurt = Mathf.Max(0, hurt);
+            var hurt = GetAttackValue(levelElement, initiatorID, targetID, true, Random.Range(1.0f, multiply));
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             CameraMgr.Instance.ShakePosition();
@@ -390,30 +376,17 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoDizzy(int initiatorID, int targetID)
+        public void DoDizzy(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var target = RoleManager.Instance.GetRole(targetID);
-
             initiator.ClearRage();
 
-            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
-
-            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
-
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
-
-            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
+            var target = RoleManager.Instance.GetRole(targetID);
+            var hurt = GetAttackValue(levelElement, initiatorID, targetID, true);
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
-
             target.AddBuffs(new List<int> { (int)Enum.Buff.Dizzy }, initiator.Type);
+            CameraMgr.Instance.ShakePosition();
         }
 
         /// <summary>
@@ -501,15 +474,17 @@ namespace WarGame
             var initiatorHP = initiator.GetHP();
             var targetHP = target.GetHP();
             var rd = Random.Range(0, initiatorHP + targetHP);
-            if (rd < initiatorHP && false)
+            if (rd < initiatorHP)
             {
                 target.Hit(targetHP, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
+                AddReport(initiatorID, Enum.AttrType.MagicAttack, targetHP);
             }
             else
             {
                 target.Hit(0, initiator.GetAttackEffect(), initiator.ID);
                 initiator.Hit(initiatorHP, null, 0);
+                AddReport(targetID, Enum.AttrType.MagicAttack, initiatorHP);
             }
 
             CameraMgr.Instance.ShakePosition();
@@ -520,24 +495,12 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoLefeDrain(int initiatorID, int targetID)
+        public void DoLefeDrain(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            var physicalDefense = GetPhysicalDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
-
-            var magicDefense = GetMagicDefensePower(initiatorID, targetID);
-            AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
-
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(initiatorID, targetID) - physicalDefense);
-            AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(initiatorID, targetID) - magicDefense);
-            AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
-
-            var hurt = Mathf.Max(0, physicalHurt + magicHurt);
+            var hurt = GetAttackValue(levelElement, initiatorID, targetID, true);
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
 

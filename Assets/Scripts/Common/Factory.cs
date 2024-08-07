@@ -33,48 +33,48 @@ namespace WarGame
             }
         }
 
-        public Skill GetSkill(int skillID, int initiatorID)
+        public Skill GetSkill(int skillID, int initiatorID, int levelID)
         {
             switch ((Enum.Skill)skillID)
             {
                 case Enum.Skill.FierceAttack:
-                    return new FierceAttackSkill(skillID, initiatorID);
+                    return new FierceAttackSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.SingleHeal:
-                    return new SingleHealSkill(skillID, initiatorID);
+                    return new SingleHealSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.AtrikeAndRelocate:
-                    return new AttackAndRelocateSkill(skillID, initiatorID);
+                    return new AttackAndRelocateSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.ChainAttack:
-                    return new ChainAttackSkill(skillID, initiatorID);
+                    return new ChainAttackSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Inspire:
-                    return new InspireSkill(skillID, initiatorID);
+                    return new InspireSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Stealth:
-                    return new StealthSkill(skillID, initiatorID);
+                    return new StealthSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.CriticalHit:
-                    return new CriticalHitSkill(skillID, initiatorID);
+                    return new CriticalHitSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Clone:
-                    return new CloneSkill(skillID, initiatorID);
+                    return new CloneSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Dizzy:
-                    return new DizzySkill(skillID, initiatorID);
+                    return new DizzySkill(skillID, initiatorID, levelID);
                 case Enum.Skill.ExtraTurn:
-                    return new ExtraTurnSkill(skillID, initiatorID);
+                    return new ExtraTurnSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.MassPhyShield:
-                    return new MassPhyShieldSkill(skillID, initiatorID);
+                    return new MassPhyShieldSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Charm:
-                    return new CharmSkill(skillID, initiatorID);
+                    return new CharmSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.Roulette:
-                    return new RouletteSkill(skillID, initiatorID);
+                    return new RouletteSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.LifeDrain:
-                    return new LifeDrainSkill(skillID, initiatorID);
+                    return new LifeDrainSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.MassHeal:
-                    return new MassHealSkill(skillID, initiatorID);
+                    return new MassHealSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.SinglePhyShield:
-                    return new SinglePhyShieldSkill(skillID, initiatorID);
+                    return new SinglePhyShieldSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.RageReduction:
-                    return new RageReductionSkill(skillID, initiatorID);
+                    return new RageReductionSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.SingleMagShield:
-                    return new SingleMagShieldSkill(skillID, initiatorID);
+                    return new SingleMagShieldSkill(skillID, initiatorID, levelID);
                 case Enum.Skill.MassMagShield:
-                    return new MassMagShieldSkill(skillID, initiatorID);
+                    return new MassMagShieldSkill(skillID, initiatorID, levelID);
             }
             return null;
         }

@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class RageReductionSkill : MassSkill
     {
-        public RageReductionSkill(int id, int initiatorID) : base(id, initiatorID)
+        public RageReductionSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

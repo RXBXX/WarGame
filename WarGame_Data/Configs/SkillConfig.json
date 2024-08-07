@@ -2,7 +2,7 @@
     {
         "ID": 10001,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10001",
         "Name": "攻击",
         "TargetType": 0,
         "Desc": "对指定敌人造成伤害",
@@ -11,7 +11,7 @@
     {
         "ID": 10002,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10002",
         "Name": "治疗",
         "TargetType": 1,
         "Desc": "回复指定队友血量",
@@ -20,7 +20,7 @@
     {
         "ID": 10003,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10003",
         "Name": "突袭后撤",
         "TargetType": 0,
         "Desc": "攻击后增加行动至指定位置",
@@ -29,7 +29,7 @@
     {
         "ID": 10004,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10004",
         "Name": "连锁攻击",
         "TargetType": 0,
         "Desc": "对目标敌人及附近区域敌人造成伤害",
@@ -38,7 +38,7 @@
     {
         "ID": 10005,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10005",
         "Name": "激励",
         "TargetType": 1,
         "Desc": "恢复全体队友怒气值",
@@ -47,7 +47,7 @@
     {
         "ID": 10006,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10006",
         "Name": "潜行",
         "TargetType": 1,
         "Desc": "当前回合不可见",
@@ -56,7 +56,7 @@
     {
         "ID": 10007,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10007",
         "Name": "致命一击",
         "TargetType": 0,
         "Desc": "敌人产生超高伤害",
@@ -67,7 +67,7 @@
     {
         "ID": 10008,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10008",
         "Name": "幻影",
         "TargetType": 1,
         "Desc": "分裂出自身英雄",
@@ -78,7 +78,7 @@
     {
         "ID": 10009,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10009",
         "Name": "晕眩",
         "TargetType": 0,
         "Desc": "让敌方当前回合不可行动",
@@ -87,7 +87,7 @@
     {
         "ID": 10010,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10010",
         "Name": "额外行动",
         "TargetType": 1,
         "Desc": "给指定队友增加一次行动",
@@ -96,7 +96,7 @@
     {
         "ID": 10011,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10011",
         "Name": "钢铁壁垒",
         "TargetType": 1,
         "Desc": "给全部队友加护盾",
@@ -105,7 +105,7 @@
     {
         "ID": 10012,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10012",
         "Name": "迷惑",
         "TargetType": 0,
         "Desc": "一定概率让敌人当前回合攻击目标变为队友",
@@ -114,7 +114,7 @@
     {
         "ID": 10013,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10013",
         "Name": "命运赌盘",
         "TargetType": 0,
         "Desc": "以全部血量的一半为代价，赌敌人自身剩余全部血量",
@@ -123,7 +123,7 @@
     {
         "ID": 10014,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10014",
         "Name": "生命汲取",
         "TargetType": 0,
         "Desc": "将对敌人的伤害转化为自身血量",
@@ -132,7 +132,7 @@
     {
         "ID": 10015,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10015",
         "Name": "群体恢复",
         "TargetType": 1,
         "Desc": "恢复全体队友血量",
@@ -141,7 +141,7 @@
     {
         "ID": 10016,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10016",
         "Name": "钢铁守护",
         "TargetType": 1,
         "Desc": "给指定队友加护盾",
@@ -150,7 +150,7 @@
     {
         "ID": 10017,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10017",
         "Name": "怒气消减",
         "TargetType": 0,
         "Desc": "降低敌方全体怒气值",
@@ -159,7 +159,7 @@
     {
         "ID": 10018,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10018",
         "Name": "魔法庇护",
         "TargetType": 1,
         "Desc": "给全部队友加魔法护盾",
@@ -168,7 +168,7 @@
     {
         "ID": 10019,
         "Prefab": "prefab",
-        "Icon": "icon",
+        "Icon": "UI/Icons/Skills/Skills_10019",
         "Name": "法力屏障",
         "TargetType": 1,
         "Desc": "对指定队友加魔法护盾",

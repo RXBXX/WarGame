@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class MassPhyShieldSkill : MassSkill
     {
-        public MassPhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
+        public MassPhyShieldSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         { }
 
 

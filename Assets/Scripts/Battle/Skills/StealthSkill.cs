@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class StealthSkill : Skill
     {
-        public StealthSkill(int id, int initiatorID) : base(id, initiatorID)
+        public StealthSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

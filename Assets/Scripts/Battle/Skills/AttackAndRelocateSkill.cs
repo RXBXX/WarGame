@@ -8,7 +8,7 @@ namespace WarGame
     {
         private int _stage = 0;
 
-        public AttackAndRelocateSkill(int id, int initiatorID) : base(id, initiatorID)
+        public AttackAndRelocateSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
 
         }
@@ -16,7 +16,6 @@ namespace WarGame
         protected override void AddListeners()
         {
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
         }
 
@@ -24,7 +23,6 @@ namespace WarGame
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Attacked_End, OnAttackedEnd);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dead_End, OnDeadEnd);
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Dodge_End, OnDodgeEnd);
         }
 
         protected override void TriggerSkill()
@@ -45,7 +43,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoAttack(_initiatorID, _targets[0]);
+                BattleMgr.Instance.DoRelocateAttack(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets);
             }
         }
 
@@ -96,12 +94,16 @@ namespace WarGame
 
         private void OnAttackedEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            var sender = (int)args[0];
+            if (!_targets.Contains(sender))
                 return;
 
-            var target = RoleManager.Instance.GetRole(targetID);
+            var target = RoleManager.Instance.GetRole(sender);
             if (target.IsDead())
+                return;
+
+            _targets.Remove(sender);
+            if (_targets.Count > 0)
                 return;
 
             if (null != _attackCoroutine)
@@ -112,20 +114,13 @@ namespace WarGame
 
         private void OnDeadEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            var sender = (int)args[0];
+            if (!_targets.Contains(sender))
                 return;
 
-            if (null != _attackCoroutine)
-                return;
+            _targets.Remove(sender);
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(OnStageOver(1.5F, true));
-        }
-
-        private void OnDodgeEnd(object[] args)
-        {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            if (_targets.Count > 0)
                 return;
 
             if (null != _attackCoroutine)
@@ -134,12 +129,13 @@ namespace WarGame
             _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(OnStageOver(1.5F));
         }
 
+
         public override void OnMoveEnd()
         {
             _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
         }
 
-        private IEnumerator OnStageOver(float waitingTime = 0, bool isKill = false)
+        private IEnumerator OnStageOver(float waitingTime = 0)
         {
             yield return new WaitForSeconds(waitingTime);
             if (0 != _targets[0] && !DatasMgr.Instance.GetSkipBattle())

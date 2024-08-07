@@ -7,7 +7,7 @@ namespace WarGame
     public class MassMagShieldSkill : MassSkill
     {
 
-        public MassMagShieldSkill(int id, int initiatorID) : base(id, initiatorID)
+        public MassMagShieldSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         { }
 
         protected override void AddListeners()

@@ -11,7 +11,7 @@ namespace WarGame
         private int _selectedHero = 0;
         private LevelData _levelData;
 
-        public ReadyBattleAction(int id, LevelData data) : base(id)
+        public ReadyBattleAction(int id, int levelID, LevelData data) : base(id, levelID)
         {
             _levelData = data;
 

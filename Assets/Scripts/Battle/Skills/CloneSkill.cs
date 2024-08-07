@@ -11,7 +11,7 @@ namespace WarGame
         private Vector3 _cloneTargetPos;
         private int _lock = 0;
 
-        public CloneSkill(int id, int initiatorID) : base(id, initiatorID)
+        public CloneSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

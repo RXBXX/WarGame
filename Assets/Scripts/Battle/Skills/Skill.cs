@@ -15,11 +15,13 @@ namespace WarGame
         private bool _isPlaing = false;
         private Coroutine _playCoroutine;
         protected Coroutine _attackCoroutine;
+        protected int _levelID;
 
-        public Skill(int id, int initiatorID)
+        public Skill(int id, int initiatorID, int levelID)
         {
             this._id = id;
             this._initiatorID = initiatorID;
+            _levelID = levelID;
 
             AddListeners();
 

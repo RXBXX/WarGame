@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class SingleMagShieldSkill : SingleSkill
     {
-        public SingleMagShieldSkill(int id, int initiatorID) : base(id, initiatorID)
+        public SingleMagShieldSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         { }
 
         protected override void AddListeners()

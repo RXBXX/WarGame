@@ -657,6 +657,10 @@ namespace WarGame
         {
             if (null == _usingDataID)
                 return;
+
+            if (!_customRecordDic.ContainsKey(_usingDataID))
+                return;
+
             _customRecordDic[_usingDataID].Save();
         }
 
@@ -707,6 +711,8 @@ namespace WarGame
 
         public void DeleteRecord(string id)
         {
+            if (!_customRecordDic.ContainsKey(id))
+                return;
             _customRecordDic.Remove(id);
         }
     }

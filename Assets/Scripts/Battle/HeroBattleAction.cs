@@ -9,7 +9,7 @@ namespace WarGame
     {
         protected int _touchingHexagon = -1;
 
-        public HeroBattleAction(int id) : base(id)
+        public HeroBattleAction(int id, int levelID) : base(id, levelID)
         {
         }
 
@@ -329,7 +329,7 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(_initiatorID);
 
             MapManager.Instance.ClearMarkedRegion();
-            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID);
+            _skillAction = Factory.Instance.GetSkill(_skillID, _initiatorID, _levelID);
             _skillAction.Start();
         }
 

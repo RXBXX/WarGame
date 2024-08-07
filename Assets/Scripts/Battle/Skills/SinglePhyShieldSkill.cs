@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class SinglePhyShieldSkill : SingleSkill
     {
-        public SinglePhyShieldSkill(int id, int initiatorID) : base(id, initiatorID)
+        public SinglePhyShieldSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         { }
 
         protected override void AddListeners()

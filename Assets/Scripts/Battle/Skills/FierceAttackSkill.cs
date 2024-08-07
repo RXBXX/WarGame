@@ -7,7 +7,7 @@ namespace WarGame
     public class FierceAttackSkill : SingleSkill
     {
 
-        public FierceAttackSkill(int id, int initiatorID) : base(id, initiatorID)
+        public FierceAttackSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -43,7 +43,7 @@ namespace WarGame
 
             if ("Attack" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoAttack(_initiatorID, _targets);
+                BattleMgr.Instance.DoAttack(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets);
                 //BattleMgr.Instance.DoAttack(_initiatorID, _targets[0]);
             }
         }
@@ -150,7 +150,7 @@ namespace WarGame
                     role.SetLayer(Enum.Layer.Gray);
                     role.SetHUDRoleVisible(true);
                 }
-                role.Preview(-BattleMgr.Instance.GetAttackValue(_initiatorID, v));
+                role.Preview(- BattleMgr.Instance.GetAttackValue(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, v));
             }
         }
 

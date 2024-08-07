@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class InspireSkill : MassSkill
     {
-        public InspireSkill(int id, int initiatorID) : base(id, initiatorID)
+        public InspireSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -29,7 +29,7 @@ namespace WarGame
 
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoInspire(_initiatorID, _targets);
+                BattleMgr.Instance.DoInspire(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets);
             }
         }
 

@@ -37,7 +37,7 @@ namespace WarGame.UI
             _attrsItemDic[item.id].UpdateItem(_attrsData[index]);
         }
 
-        public void Show(Vector2 centerPos, int roleID)
+        public void Show(Vector2 centerPos, int roleID, int levelID)
         {
             if (GCom.visible)
                 return;
@@ -61,7 +61,8 @@ namespace WarGame.UI
                 var value = role.GetAttribute((Enum.AttrType)config.ID);
                 if (value > 0)
                 {
-                    _attrsData.Add(new ThreeStrPair(config.GetTranslation("Name"), BattleMgr.Instance.GetAttributeStr(config.ID, value), BattleMgr.Instance.GetAttributeStr(config.ID, value * BattleMgr.Instance.GetElementAdd(roleID))));
+                    var elementAdd = BattleMgr.Instance.GetElementAdd(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID).Element, roleID);
+                    _attrsData.Add(new ThreeStrPair(config.GetTranslation("Name"), BattleMgr.Instance.GetAttributeStr(config.ID, value), BattleMgr.Instance.GetAttributeStr(config.ID, value * elementAdd)));
                 }
             });
 

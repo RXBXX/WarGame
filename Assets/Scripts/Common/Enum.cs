@@ -191,6 +191,7 @@ namespace WarGame
             RageRecover = 15, //怒气回复
             HPRecover = 16, //脱战血量回复
             AttackRange = 17, //攻击范围
+            Inspire = 18, //领导力
         }
 
         //数值类型

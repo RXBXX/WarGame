@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="126,124" extention="Button" mask="n19_c2cw">
+<component size="124,124" extention="Button">
   <displayList>
-    <image id="n19_c2cw" name="n19" src="c2cwy" fileName="Images/Skill_Mask.png" xy="0,0"/>
-    <image id="n17_c2cw" name="n17" src="c2cww" fileName="Images/Skill_BG.png" xy="0,0"/>
-    <loader id="n20_c2cw" name="icon" xy="0,0" size="126,124" fill="scale"/>
-    <image id="n18_c2cw" name="n18" src="c2cwx" fileName="Images/Skill_Frame.png" xy="0,0" size="126,124"/>
+    <component id="n23_t2gc" name="icon" src="t2gc2u" fileName="Components/CommonSkillMask.xml" xy="0,0" size="122,123">
+      <Button icon="ui://hx02grrpmj421l"/>
+    </component>
+    <image id="n22_t2gc" name="n22" src="t2gc2t" fileName="Images/Skills_Frame.png" xy="-1,0" size="126,126"/>
   </displayList>
   <Button/>
 </component>

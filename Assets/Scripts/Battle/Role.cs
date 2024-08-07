@@ -93,6 +93,7 @@ namespace WarGame
         public Role(LevelRoleData data)
         {
             this._data = data;
+            DebugManager.Instance.Log(ID  );
             _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
 
             CreateGO();

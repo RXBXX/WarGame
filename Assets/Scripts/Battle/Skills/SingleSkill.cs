@@ -8,7 +8,7 @@ namespace WarGame
         protected List<int> _attackableTargets = new List<int>();
         protected List<int> _previewTargets = new List<int>();
 
-        public SingleSkill(int id, int initiatorID) : base(id, initiatorID)
+        public SingleSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

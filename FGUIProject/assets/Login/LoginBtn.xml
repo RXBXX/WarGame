@@ -2,8 +2,8 @@
 <component size="360,54" pivot="0.5,0.5" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <graph id="n5_t2gc" name="n5" xy="180,27" pivot="0.5,0.5" anchor="true" size="1500,71" alpha="0.7" type="rect" fillColor="#ff000000"/>
-    <text id="n1_omu9" name="title" xy="179,26" pivot="0.5,0.5" anchor="true" size="89,56" font="ui://hd0z4dz5omu90" fontSize="42" color="#f7f7f7" strokeColor="#000000" autoClearText="true" text="Start">
+    <graph id="n5_t2gc" name="n5" xy="180,27" pivot="0.5,0.5" anchor="true" size="1500,71" alpha="0.5" type="rect" fillColor="#ff000000"/>
+    <text id="n1_omu9" name="title" xy="179,26" pivot="0.5,0.5" anchor="true" size="96,56" font="ui://hd0z4dz5omu90" fontSize="42" color="#fed174" letterSpacing="1" bold="true" strokeColor="#000000" autoClearText="true" text="Start">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>

@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class RouletteSkill : SingleSkill
     {
-        public RouletteSkill(int id, int initiatorID) : base(id, initiatorID)
+        public RouletteSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 

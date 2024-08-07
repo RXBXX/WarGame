@@ -24,7 +24,7 @@ namespace WarGame.UI
         {
             this._id = id;
             var config = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", id);
-            _icon.icon = config.Icon;
+            _icon.GetChild("icon").icon = config.Icon;
             _name.text = config.GetTranslation("Name");
             _desc.text = config.GetTranslation("Desc");
         }

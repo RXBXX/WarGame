@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class CriticalHitSkill : SingleSkill
     {
-        public CriticalHitSkill(int id, int initiatorID) : base(id, initiatorID)
+        public CriticalHitSkill(int id, int initiatorID,int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -41,18 +41,22 @@ namespace WarGame
             if ("Attack" == stateName && "Take" == secondStateName)
             {
                 var multiply = (int)(GetConfig().Params[0]) / 100.0f;
-                BattleMgr.Instance.DoCriticalHit(_initiatorID, _targets[0], multiply);
+                BattleMgr.Instance.DoCriticalHit(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets[0], multiply);
             }
         }
 
         private void OnAttackedEnd(object[] args)
         {
             var sender = (int)args[0];
-            if (sender != _targets[0])
+            if (!_targets.Contains(sender))
                 return;
 
             var target = RoleManager.Instance.GetRole(sender);
             if (target.IsDead())
+                return;
+
+            _targets.Remove(sender);
+            if (_targets.Count > 0)
                 return;
 
             if (null != _attackCoroutine)
@@ -63,8 +67,13 @@ namespace WarGame
 
         private void OnDeadEnd(object[] args)
         {
-            var targetID = (int)args[0];
-            if (targetID != _targets[0])
+            var sender = (int)args[0];
+            if (!_targets.Contains(sender))
+                return;
+
+            _targets.Remove(sender);
+
+            if (_targets.Count > 0)
                 return;
 
             if (null != _attackCoroutine)

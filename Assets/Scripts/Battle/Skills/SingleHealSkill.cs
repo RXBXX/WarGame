@@ -6,7 +6,7 @@ namespace WarGame
 {
     public class SingleHealSkill : SingleSkill
     {
-        public SingleHealSkill(int id, int initiatorID) : base(id, initiatorID)
+        public SingleHealSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
         }
 
@@ -28,7 +28,7 @@ namespace WarGame
             //var initiator = RoleManager.Instance.GetRole(sender);
             if ("Cure" == stateName && "Take" == secondStateName)
             {
-                BattleMgr.Instance.DoCure(_initiatorID, _targets[0]);
+                BattleMgr.Instance.DoCure(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _targets[0]);
             }
         }
 
@@ -56,7 +56,7 @@ namespace WarGame
             var role = RoleManager.Instance.GetRole(touchingID);
             role.SetLayer(Enum.Layer.Gray);
             role.SetHUDRoleVisible(true);
-            role.Preview(BattleMgr.Instance.GetCurePower(_initiatorID, touchingID));
+            role.Preview(BattleMgr.Instance.GetCurePower(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, touchingID));
         }
 
         protected override void CancelPreview()
