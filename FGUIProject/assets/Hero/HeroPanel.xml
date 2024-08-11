@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <loader id="n17_icsb" name="BG" xy="667,375" pivot="0.5,0.5" anchor="true" size="1600,900" url="ui://ubnp7phxovain" align="center" vAlign="middle" fill="scaleFree" autoSize="true" clearOnPublish="true">
+    <loader id="n17_icsb" name="BG" xy="667,375" pivot="0.5,0.5" anchor="true" size="1600,900" url="ui://ubnp7phxovain" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
     <graph id="n9_omu9" name="touchArena" xy="0,0" size="1334,750" alpha="0" type="rect">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <loader id="n16_icsb" name="heroLoader" xy="465,374" pivot="0.5,0.5" anchor="true" size="1553,756" touchable="false" align="center" vAlign="middle" fill="scale"/>
-    <image id="n40_ovai" name="n40" src="ovaio" fileName="Images/ProBG.png" xy="791,-52" size="566,900"/>
-    <graph id="n30_gy0s" name="n30" xy="793,-126" size="666,976" visible="false" alpha="0.486" type="rect" fillColor="#ff000000"/>
+    <image id="n40_ovai" name="n40" src="ovaio" fileName="Images/ProBG.png" xy="791,-52" size="566,900">
+      <relation target="" sidePair="height-height,right-right"/>
+    </image>
     <list id="n22_gy0s" name="heroList" xy="65,154" size="200,522" layout="flow_hz" overflow="scroll" lineGap="5" defaultItem="ui://ubnp7phxgy0sj" align="center" autoClearItems="true">
+      <relation target="" sidePair="left-left,bottomext-bottom"/>
       <item/>
       <item/>
       <item/>
@@ -20,7 +22,9 @@
       <item/>
       <item/>
     </list>
-    <component id="n12_tsk1" name="proComp" src="tsk18" fileName="HeroProComp.xml" xy="816,44" size="500,660"/>
+    <component id="n12_tsk1" name="proComp" src="tsk18" fileName="HeroProComp.xml" xy="816,44" size="500,660">
+      <relation target="" sidePair="right-right,top-top,bottomext-bottom"/>
+    </component>
     <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
     <graph id="n36_gy0s" name="n36" xy="465,641" pivot="0.5,0.5" anchor="true" size="230,76" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="n32_gy0s" sidePair="width-width"/>
@@ -28,6 +32,8 @@
     <text id="n32_gy0s" name="name" xy="468,641" pivot="0.5,0.5" anchor="true" size="158,84" font="ui://hd0z4dz5omu90" fontSize="64" color="#ffffff" strokeColor="#000000" text="AKUINA"/>
     <component id="n38_gy0s" name="attrsInfo" src="kky81y" fileName="HeroEquipInfo.xml" xy="522,110" visible="false"/>
     <component id="n39_gy0s" name="talentInfo" src="gy0sm" fileName="HeroTalentInfo.xml" xy="476,418" visible="false"/>
-    <component id="n41_nmz4" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true"/>
+    <component id="n41_nmz4" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
   </displayList>
 </component>

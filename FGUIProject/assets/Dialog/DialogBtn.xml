@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="48,48" extention="Button">
+<component size="42,42" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n4_dsuy" name="n4" src="dsuyf" fileName="Images/Pause01.png" xy="24,24" pivot="0.5,0.5" anchor="true" size="48,48"/>
-    <image id="n5_dsuy" name="n5" src="dsuyg" fileName="Images/Pause02.png" xy="0,0" size="48,48"/>
+    <image id="n4_dsuy" name="n4" src="oykck" fileName="Images/PauseBtn_Circle.png" xy="21,21" pivot="0.5,0.5" anchor="true" size="42,40" aspect="true"/>
+    <image id="n5_dsuy" name="n5" src="oykcl" fileName="Images/PauseBtn_Equal.png" xy="14,12" size="13,18" aspect="true"/>
   </displayList>
   <Button mode="Check"/>
   <transition name="loop">

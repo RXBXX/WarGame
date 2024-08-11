@@ -2,9 +2,10 @@
 <component size="1334,750">
   <displayList>
     <graph id="n3_nr69" name="bg" xy="0,0" pivot="0.5,0.5" size="1334,750" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="center-center,middle-middle"/>
+      <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <component id="n8_pq96" name="progress" src="pq960" fileName="LoadSlider.xml" xy="160,606">
+      <relation target="" sidePair="width-width,bottom-bottom"/>
       <ProgressBar max="100"/>
     </component>
   </displayList>

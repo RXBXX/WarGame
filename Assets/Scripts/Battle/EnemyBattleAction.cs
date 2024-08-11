@@ -58,6 +58,7 @@ namespace WarGame
             _targetID = (int)args[1];
             _skillID = (int)args[2];
 
+            //DebugManager.Instance.Log("InitiatorID:" + _initiatorID);
             //DebugManager.Instance.Log("SkillID:" + _skillID);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AIAction_Start, args);
         }
@@ -100,6 +101,7 @@ namespace WarGame
 
         protected override void OnActionOver(params object[] args)
         {
+            DebugManager.Instance.Log("ActionOver:" + _initiatorID);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AIAction_Over);
             base.OnActionOver(args);
         }

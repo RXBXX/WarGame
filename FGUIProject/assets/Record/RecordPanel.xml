@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <loader id="n4_ez9s" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1334,750" url="ui://ngubhyc3kky8b" fill="scaleFree" clearOnPublish="true"/>
+    <loader id="n4_ez9s" name="bg" xy="667,375" pivot="0.5,0.5" anchor="true" size="1334,750" url="ui://ngubhyc3kky8b" fill="scaleFree" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
     <list id="n2_nw17" name="recordList" xy="362,85" size="610,574" overflow="scroll" lineGap="4" defaultItem="ui://ngubhyc3rquy0" autoClearItems="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <item/>
       <item/>
       <item/>
@@ -11,6 +14,8 @@
       <item/>
     </list>
     <component id="n5_ovai" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
-    <text id="n6_kky8" name="n6" xy="567,677" size="199,26" fontSize="18" color="#ffffff" strokeColor="#000000" text="选择存储进度开始游戏！"/>
+    <text id="n6_kky8" name="n6" xy="567,677" size="199,26" fontSize="18" color="#ffffff" strokeColor="#000000" text="选择存储进度开始游戏！">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </text>
   </displayList>
 </component>

@@ -476,6 +476,8 @@ namespace WarGame
 
                 BattleRoundFunc callback = () =>
                 {
+                    DebugManager.Instance.Log("BattleRoundFunc");
+                    _levelData.actionType = Enum.ActionType.EnemyAction;
                     foreach (var v in enemys)
                     {
                         v.UpdateRound(Enum.RoleType.Enemy);
@@ -496,7 +498,6 @@ namespace WarGame
                             break;
                         }
                     }
-                    _levelData.actionType = Enum.ActionType.EnemyAction;
 
                     if (null == _action)
                         NextAction();
@@ -522,6 +523,7 @@ namespace WarGame
                 _levelData.Round++;
                 BattleRoundFunc callback = () =>
                 {
+                    _levelData.actionType = Enum.ActionType.HeroAction;
                     MapManager.Instance.UpdateRound(_levelData.Round);
 
                     foreach (var v in enemys)
@@ -537,7 +539,7 @@ namespace WarGame
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
-                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round, callback });
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round});
             }
         }
 

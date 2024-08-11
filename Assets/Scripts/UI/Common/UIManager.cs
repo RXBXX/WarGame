@@ -13,6 +13,7 @@ namespace WarGame.UI
         private Dictionary<Enum.UILayer, GComponent> _uiLayerDic = new Dictionary<Enum.UILayer, GComponent>();
         private Dictionary<Enum.UILayer, List<UIBase>> _panelDic = new Dictionary<Enum.UILayer, List<UIBase>>();
         private Dictionary<string, int> _uiPackagesDic = new Dictionary<string, int>();
+        private int _width = 1334, _height = 750;
 
         public override bool Init()
         {
@@ -58,10 +59,14 @@ namespace WarGame.UI
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
             //设置缩放参数
-            GRoot.inst.SetContentScaleFactor(1134, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
+            GRoot.inst.SetContentScaleFactor(1334, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
+            _width = (int)Mathf.Ceil(Screen.width / UIContentScaler.scaleFactor);
+            _height = (int)Mathf.Ceil(Screen.height / UIContentScaler.scaleFactor);
             //DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);
+
+            //DebugManager.Instance.Log(UIContentScaler.scaleFactor);
 
             //加载公用ui包
             AddPackage("Common");
@@ -224,9 +229,14 @@ namespace WarGame.UI
             }
 
             if (null == panel)
+            {
                 panel = CreateUI<UIBase>(packageName, panelName, args);
+                panel.SetSize(_width, _height);
+            }
             else
+            {
                 _panelDic[panel.UILayer].Remove(panel);
+            }
 
             if (panel.UILayer == Enum.UILayer.PanelLayer)
             {

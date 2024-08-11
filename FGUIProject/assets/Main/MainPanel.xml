@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <loader id="n4_ez9s" name="bg" xy="0,0" pivot="0.5,0.5" size="1334,750" url="ui://ngubhyc3ez9s6" fill="scaleFree" clearOnPublish="true"/>
+    <loader id="n4_ez9s" name="bg" xy="0,0" pivot="0.5,0.5" size="1334,750" url="ui://ngubhyc3ez9s6" fill="scaleFree" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
     <list id="n2_nw17" name="recordList" xy="487,136" size="360,397" overflow="scroll" lineGap="10" defaultItem="ui://hx02grrpomu92" autoClearItems="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <item/>
       <item/>
       <item/>

@@ -9,7 +9,7 @@ namespace WarGame.UI
     {
         private List<GLoader> _clouds = new List<GLoader>();
         private Stack<GLoader> _cloudStack = new Stack<GLoader>();
-        private List<string> _cloudResPool = new List<string>() { "ui://Map/Cloud" };
+        private List<string> _cloudResPool = new List<string>() { "ui://Map/Cloud_0001", "ui://Map/Cloud_0002", "ui://Map/Cloud_0003", "ui://Map/Cloud_0004", "ui://Map/Cloud_0005" };
         private float _interval = 10.0f;
         private float _speed = 30.0f;
 
@@ -64,7 +64,11 @@ namespace WarGame.UI
             if (_cloudStack.Count > 0)
                 return _cloudStack.Pop();
             else
-                return new GLoader();
+            {
+                var cloud = new GLoader();
+                cloud.scale = Vector2.one / 2;
+                return cloud;
+            }
         }
 
         public override void Dispose(bool disposeGCom = false)

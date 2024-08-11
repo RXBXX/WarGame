@@ -4,7 +4,8 @@
   <displayList>
     <image id="n12_mj42" name="n12" src="kky8j" fileName="Images/Dialog_RoleBG.png" xy="27,-320" size="209,306" group="n13_mj42" scale="1.04,1.04"/>
     <component id="n5_e05z" name="role" src="e05z6" fileName="DialogHero.xml" xy="142,-11" group="n13_mj42"/>
-    <group id="n13_mj42" name="n13" xy="27,-320" size="215,309" advanced="true">
+    <richtext id="n14_oykc" name="name" xy="213,-155" pivot="0.5,0.5" anchor="true" size="69,39" group="n13_mj42" rotation="-72" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" letterSpacing="1" strokeColor="#000000" autoClearText="true" text="NUOYA"/>
+    <group id="n13_mj42" name="n13" xy="27,-320" size="221,309" advanced="true">
       <gearXY controller="type" pages="0,1" values="27,-320|848,-313"/>
     </group>
     <image id="n11_mj42" name="n11" src="kky8i" fileName="Images/DialogBG.png" xy="-1,0" size="1144,146"/>

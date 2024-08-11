@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <loader id="n3_nr69" name="bg" xy="0,0" size="1334,750" url="ui://pr0w8n6pt2gc6" fill="scaleFree" clearOnPublish="true">
-      <relation target="" sidePair="center-center,middle-middle"/>
+    <loader id="n3_nr69" name="bg" xy="0,0" size="1334,750" url="ui://pr0w8n6pt2gc6" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
     </loader>
     <text id="n0_rquy" name="title" xy="679,230" pivot="0.5,0.5" anchor="true" size="564,119" font="ui://hd0z4dz5omu90" fontSize="92" color="#ffb500" align="center" bold="true" strokeColor="#000000" autoClearText="true" text="The Five Elements">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
-    <component id="n12_t2gc" name="mainBtn" src="t2gc2s" fileName="LoginBtn.xml" xy="487,589"/>
+    <component id="n12_t2gc" name="mainBtn" src="t2gc2s" fileName="LoginBtn.xml" xy="487,589">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
   </displayList>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1"/>
 </component>

@@ -14,6 +14,7 @@ namespace WarGame.UI
         private WGArgsCallback _callback;
         private int _lastRole = 0;
         private int _soundID = 0;
+        private GTextField _name;
 
         public DialogBox(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -21,6 +22,7 @@ namespace WarGame.UI
             _role = GetGObjectChild<GButton>("role");
             _type = GetController("type");
             _te = new TypingEffect(_context);
+            _name = GetGObjectChild<GTextField>("name");
         }
 
         public override void Update(float deltaTime)
@@ -50,7 +52,9 @@ namespace WarGame.UI
                 _type.SetSelectedIndex(type);
             }
             _lastRole = roleID;
-            _role.icon = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleID).FullLengthIcon;
+            var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", roleID);
+            _role.icon = roleConfig.FullLengthIcon;
+            _name.text = roleConfig.GetTranslation("Name");
             _context.text = context;
             _te.Start();
             _te.Print();

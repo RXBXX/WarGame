@@ -4,13 +4,13 @@
     <loader id="n4_o61d" name="BG" xy="0,0" size="1334,750" align="center" vAlign="middle" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
-    <graph id="n2_a4gr" name="mask" xy="0,0" size="1334,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n2_a4gr" name="mask" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <component id="n0_a4gr" name="dialogBox" src="a4gr2" fileName="DialogBox.xml" xy="667,690" pivot="0.5,0.5" anchor="true">
       <relation target="" sidePair="center-center,bottom-bottom"/>
     </component>
-    <component id="n1_a4gr" name="autoBtn" src="a4gr5" fileName="DialogBtn.xml" xy="1098,118"/>
+    <component id="n1_a4gr" name="autoBtn" src="a4gr5" fileName="DialogBtn.xml" xy="1168,78"/>
     <list id="n3_cfrs" name="optionList" xy="975,405" size="522,300" scale="0.3,0.3" overflow="scroll" lineGap="5" defaultItem="ui://hx02grrpomu92" autoClearItems="true">
       <item/>
       <item/>

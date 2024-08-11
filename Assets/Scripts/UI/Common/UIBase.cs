@@ -102,6 +102,11 @@ namespace WarGame.UI
             return _gCom.height;
         }
 
+        public void SetSize(float width, float height)
+        {
+            _gCom.SetSize(width, height);
+        }
+
         /// <summary>
         /// Ïú»Ù×é¼þ
         /// </summary>

@@ -185,57 +185,77 @@ namespace WarGame
                 //SetHPVisible(true);
                 showWarning = true;
             }
-            else if (InScreen())
+            else if (Hexagon != _data.bornHexagonID)
             {
-                //在出生点和随机点之间移动
-                if (Hexagon == _data.bornHexagonID)
+                var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
+                if (null != movePath && movePath.Count > 0)
                 {
-                    var emptyMoveRegions = new List<MapManager.Cell>();
-                    foreach (var v in moveRegion)
+                    for (int i = movePath.Count - 1; i > 0; i--)
                     {
-                        if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
+                        if (movePath[i].g > GetMoveDis())
+                        {
+                            movePath.RemoveAt(i);
                             continue;
-
-                        emptyMoveRegions.Add(v.Value);
-                    }
-                    if (emptyMoveRegions.Count > 0)
-                    {
-                        var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
-                        var rdHexagon = emptyMoveRegions[randomHexagonIndex];
-                        if (rdHexagon.id != Hexagon)
-                        {
-                            path = new List<int>();
-                            while (null != rdHexagon)
-                            {
-                                path.Insert(0, rdHexagon.id);
-                                rdHexagon = rdHexagon.parent;
-                            }
                         }
+                        break;
                     }
-                }
-                else
-                {
-                    var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
-                    if (null != movePath && movePath.Count > 0)
-                    {
-                        for (int i = movePath.Count - 1; i > 0; i--)
-                        {
-                            if (movePath[i].g > GetMoveDis())
-                            {
-                                movePath.RemoveAt(i);
-                                continue;
-                            }
-                            break;
-                        }
 
-                        path = new List<int>();
-                        for (int i = 0; i < movePath.Count; i++)
-                            path.Add(movePath[i].id);
-                    }
+                    path = new List<int>();
+                    for (int i = 0; i < movePath.Count; i++)
+                        path.Add(movePath[i].id);
                 }
-
-                //SetHPVisible(false);
             }
+            //else if (InScreen())
+            //{
+            //    //在出生点和随机点之间移动
+            //    if (Hexagon == _data.bornHexagonID)
+            //    {
+            //        var emptyMoveRegions = new List<MapManager.Cell>();
+            //        foreach (var v in moveRegion)
+            //        {
+            //            if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
+            //                continue;
+
+            //            emptyMoveRegions.Add(v.Value);
+            //        }
+            //        if (emptyMoveRegions.Count > 0)
+            //        {
+            //            var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
+            //            var rdHexagon = emptyMoveRegions[randomHexagonIndex];
+            //            if (rdHexagon.id != Hexagon)
+            //            {
+            //                path = new List<int>();
+            //                while (null != rdHexagon)
+            //                {
+            //                    path.Insert(0, rdHexagon.id);
+            //                    rdHexagon = rdHexagon.parent;
+            //                }
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
+            //        if (null != movePath && movePath.Count > 0)
+            //        {
+            //            for (int i = movePath.Count - 1; i > 0; i--)
+            //            {
+            //                if (movePath[i].g > GetMoveDis())
+            //                {
+            //                    movePath.RemoveAt(i);
+            //                    continue;
+            //                }
+            //                break;
+            //            }
+
+            //            path = new List<int>();
+            //            for (int i = 0; i < movePath.Count; i++)
+            //                path.Add(movePath[i].id);
+            //        }
+            //    }
+
+            //    //SetHPVisible(false);
+            //}
             //else
             //{
             //    SetHPVisible(false);
@@ -252,15 +272,23 @@ namespace WarGame
 
             var skillID = SelectSkill();
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID });
-            yield return new WaitForSeconds(1.0F);
+            //yield return new WaitForSeconds(1.0F);
+            //yield return null;
 
             //DebugManager.Instance.Log(path.Count);
             if (null != path && path.Count > 1)
+            {
                 Move(path);
+                DebugManager.Instance.Log("Move:" + ID);
+            }
             else if (null != target)
+            {
                 MoveEnd();
+            }
             else
+            {
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Over, new object[] { 0 });
+            }
 
             _coroutine = null;
         }
