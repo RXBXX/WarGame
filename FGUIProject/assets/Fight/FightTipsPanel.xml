@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750">
   <displayList>
-    <graph id="n1_dsuy" name="bg" xy="0,-1" size="1334,750" alpha="0.7" type="rect" fillColor="#ff000000"/>
-    <image id="n8_kky8" name="n8" src="upau1r" fileName="Images/FightBG.png" xy="666,339" pivot="0.5,0.5" anchor="true" size="639,461"/>
-    <text id="n3_dsuy" name="title" xy="667,139" pivot="0.5,0.5" anchor="true" size="45,36" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="TIPS"/>
-    <text id="n13_upau" name="desc" xy="392,204" size="557,24" fontSize="16" color="#ffffff" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
-    <text id="n2_dsuy" name="tips" xy="663,518" pivot="0.5,0.5" anchor="true" size="557,19" fontSize="12" color="#ffffff" align="center" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
-    <component id="n5_dsuy" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="388,451" size="240,46" scale="0.6,0.6" controller="style,1">
+    <graph id="n1_dsuy" name="bg" xy="0,-1" size="1334,750" alpha="0.7" type="rect" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <image id="n8_kky8" name="n8" src="upau1r" fileName="Images/FightBG.png" xy="666,339" pivot="0.5,0.5" anchor="true" size="639,461" group="n14_gry6"/>
+    <text id="n3_dsuy" name="title" xy="667,139" pivot="0.5,0.5" anchor="true" size="45,36" group="n14_gry6" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="TIPS"/>
+    <text id="n13_upau" name="desc" xy="392,204" size="557,24" group="n14_gry6" fontSize="16" color="#ffffff" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
+    <text id="n2_dsuy" name="tips" xy="663,518" pivot="0.5,0.5" anchor="true" size="557,19" group="n14_gry6" fontSize="12" color="#ffffff" align="center" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
+    <component id="n5_dsuy" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="388,451" size="240,46" group="n14_gry6" scale="0.6,0.6" controller="style,1">
       <Button title="Start"/>
     </component>
-    <component id="n6_dsuy" name="cancelBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="697,451" size="240,46" scale="0.6,0.6" controller="style,1">
+    <component id="n6_dsuy" name="cancelBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="697,451" size="240,46" group="n14_gry6" scale="0.6,0.6" controller="style,1">
       <Button title="Cancel"/>
     </component>
-    <component id="n12_upau" name="restartBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="541,451" size="240,46" scale="0.6,0.6" controller="style,1">
+    <component id="n12_upau" name="restartBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="541,451" size="240,46" group="n14_gry6" scale="0.6,0.6" controller="style,1">
       <Button title="Restart"/>
     </component>
-    <image id="n9_kky8" name="n9" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="374,191" size="600,2" alpha="0.2"/>
-    <image id="n10_kky8" name="n10" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="374,431" size="600,2" alpha="0.2"/>
+    <image id="n9_kky8" name="n9" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="374,191" size="600,2" group="n14_gry6" alpha="0.2"/>
+    <image id="n10_kky8" name="n10" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="374,431" size="600,2" group="n14_gry6" alpha="0.2"/>
+    <group id="n14_gry6" name="n14" xy="346,108" size="639,461" advanced="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
   </displayList>
 </component>

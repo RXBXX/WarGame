@@ -67,6 +67,7 @@ namespace WarGame.UI
             {
                 var cloud = new GLoader();
                 cloud.scale = Vector2.one / 2;
+                cloud.alpha = 0.7F;
                 return cloud;
             }
         }
