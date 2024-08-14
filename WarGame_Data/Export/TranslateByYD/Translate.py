@@ -41,42 +41,58 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     # 打开 Excel 文件
     workbook = xlrd.open_workbook(excel_file)
     worksheet = workbook.sheet_by_index(0)
+    
+    srcDict = {}
+    row_index = 1
+    total_rows = worksheet.nrows - 1  # 总行数，减去标题行
+    while(row_index <= total_rows):
+        srcDict[worksheet.cell_value(row_index, 0)] = {'value':worksheet.cell_value(row_index, 1), 'dirty': worksheet.cell_value(row_index, 2)}
+        row_index = row_index + 1
 
     # 打开现有的xls文件
     destWB = xlrd.open_workbook(dest_excel_file)
     destWS = destWB.sheet_by_index(0)
     
-    wb = copy(destWB)
-    ws = wb.get_sheet(0)
-    ws.write(0, 0, 'ID')
-    ws.write(0, 1, 'Str')
-    ws.write(0, 2, 'Translated')
+    destDict = {}
+    row_index = 1
+    total_rows = destWS.nrows - 1  # 总行数，减去标题行
+    while(row_index <= total_rows):
+        destDict[destWS.cell_value(row_index, 0)] = {'value':destWS.cell_value(row_index, 1)}
+        row_index = row_index + 1
+
+    # 创建一个新的工作簿
+    newWorkbook = xlwt.Workbook()
+    # 添加一个工作表
+    newWorksheet = newWorkbook.add_sheet('Sheet1')
+
+    # 向单元格写入数据
+    newWorksheet.write(0, 0, 'ID')
+    newWorksheet.write(0, 1, 'Str') 
 
     try:
-        total_rows = worksheet.nrows - 1  # 总行数，减去标题行
         row_index = 1
-        while(row_index <= total_rows):
-            if destWS.nrows < row_index + 1 or destWS.ncols < 3 or destWS.cell_value(row_index, 2) != 'true':
-                original_text = worksheet.cell_value(row_index, 1)
-                success, translated_text = createRequest(original_text, worksheet.cell_value(row_index, 0), lang_from, lang_to)
+        total_rows = srcDict.len
+        for key, value in srcDict.items():
+            if value['dirty'] == 'true' or not destDict.__contains__(key):
+                success, translated_text = createRequest(value['value'], key, lang_from, lang_to)
                 if success:
                    print(f"Processing {row_index}/{total_rows} ({(row_index / total_rows) * 100:.2f}%) {dest_excel_file}")
-                   ws.write(row_index, 2, 'true')
-                   ws.write(row_index, 0, worksheet.cell_value(row_index, 0))
-                   ws.write(row_index, 1, translated_text)
+                   newWorksheet.write(row_index, 0, key)
+                   newWorksheet.write(row_index, 1, translated_text)
                    row_index = row_index + 1
                 else:
                    time.sleep(1)
             else:
+                newWorksheet.write(row_index, 0, key)
+                newWorksheet.write(row_index, 1, destDict[key]['value'])
                 row_index = row_index + 1
-        # 保存新的 Excel 文件
-        wb.save(dest_excel_file)
+         # 保存新的 Excel 文件
+        newWorkbook.save(dest_excel_file)
         print(f"Translation complete. File saved as {dest_excel_file}")
     except Exception as e:
         # 保存新的 Excel 文件
-        wb.save(dest_excel_file)
+        newWorkbook.save(dest_excel_file)
         traceback.print_exc();
-    
 
 # 读取 TranslationRules.txt 文件并执行翻译任务
 def main():
