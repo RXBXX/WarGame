@@ -59,7 +59,6 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     while(row_index <= total_rows):
         destDict[destWS.cell_value(row_index, 0)] = {'value':destWS.cell_value(row_index, 1)}
         row_index = row_index + 1
-
     # 创建一个新的工作簿
     newWorkbook = xlwt.Workbook()
     # 添加一个工作表
@@ -71,8 +70,11 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
 
     try:
         row_index = 1
-        total_rows = srcDict.len
+        total_rows = len(srcDict)
         for key, value in srcDict.items():
+            # print(key)
+            # print(value['dirty'] == 'true')
+            # print(not destDict.__contains__(key))
             if value['dirty'] == 'true' or not destDict.__contains__(key):
                 success, translated_text = createRequest(value['value'], key, lang_from, lang_to)
                 if success:
