@@ -82,6 +82,7 @@ namespace WarGame
                     }));
                     var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
                     var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
+                    DebugManager.Instance.Log(levelRoleData.HP + "_" + levelRoleData.GetAttribute(Enum.AttrType.HP));
                     var role = RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     role.GoIntoBattle();
                     _levelData.heros.Add(levelRoleData);

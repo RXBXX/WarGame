@@ -47,7 +47,37 @@ namespace WarGame.UI
             }
         }
 
-        private void OnClickLevelUp()
+        private void OnClickLevelUp(EventContext context)
+        {
+            var pos = context.inputEvent.position;
+            pos = GRoot.inst.GlobalToLocal(pos);
+
+            var starConfig = DatasMgr.Instance.GetRoleData(_roleUID).GetStarConfig();
+            var attrs = starConfig.Attrs;
+            List<AttrStruct> attrsData = new List<AttrStruct>();
+            foreach (var v in attrs)
+            {
+                attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
+            }
+
+            WGCallback callback = OnLevelUp;
+            var args = new object[] {
+                "Lv."+_level,
+                "",
+                attrsData,
+                pos,
+                true,
+                "Éý¼¶",
+                string.Format("{0}/{1}", DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes), starConfig.Cost),
+                true,
+                callback
+            };
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Talent, args);
+            //DatasMgr.Instance.HeroLevelUpC2S(_roleUID, _level);
+        }
+
+        private void OnLevelUp()
         {
             DatasMgr.Instance.HeroLevelUpC2S(_roleUID, _level);
         }

@@ -36,7 +36,7 @@ namespace WarGame.UI
         {
             if (!_attrItemsDic.ContainsKey(item.id))
             {
-                _attrItemsDic[item.id] = new CommonAttrItem((GComponent)item);
+                _attrItemsDic[item.id] = new CommonSmallAttrItem((GComponent)item);
             }
             _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
         }

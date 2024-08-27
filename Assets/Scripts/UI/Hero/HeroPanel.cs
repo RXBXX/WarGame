@@ -43,11 +43,11 @@ namespace WarGame.UI
             });
 
             GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
+
             EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
-
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;

@@ -59,7 +59,47 @@ namespace WarGame.UI
             var pos = context.inputEvent.position;
             pos = GRoot.inst.GlobalToLocal(pos);
 
-            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Attrs, new object[] { _UID, _owner, _selectedRoleUID, pos});
+            var equipData = DatasMgr.Instance.GetEquipmentData(_UID);
+
+            List<AttrStruct> _attrsData = new List<AttrStruct>();
+            foreach (var v in equipData.GetAttrs())
+            {
+                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
+            }
+
+            var btnTitle = "";
+            if (_selectedRoleUID == _owner)
+            {
+                btnTitle = "Ð¶ÏÂ";
+            }
+            else
+            {
+                btnTitle = "´©´÷";
+            }
+
+
+            WGCallback callback = OnWearCallback;
+            var args = new object[] {
+                equipData.GetName(),
+            equipData.GetConfig().GetTranslation("Desc"),
+            _attrsData,
+                pos,
+                true,
+                btnTitle,
+                "",
+                false,
+                callback
+            };
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Talent, args);
+        }
+
+        private void OnWearCallback()
+        {
+            if (_owner == _selectedRoleUID)
+                DatasMgr.Instance.UnwearEquipC2S(_selectedRoleUID, _UID);
+            else
+                DatasMgr.Instance.WearEquipC2S(_selectedRoleUID, _UID);
         }
     }
 }

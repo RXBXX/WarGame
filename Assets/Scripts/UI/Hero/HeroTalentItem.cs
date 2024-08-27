@@ -32,7 +32,38 @@ namespace WarGame.UI
         private void OnClick(EventContext context)
         {
             var pos = GRoot.inst.GlobalToLocal(context.inputEvent.position);
-            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Talent, new object[] {_heroUID, _id, pos });
+            var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _id);
+            List<AttrStruct> _attrsData = new List<AttrStruct>();
+            foreach (var v in talentConfig.Attrs)
+            {
+                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
+            }
+
+
+            var btnVisible = false;
+            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes);
+            if (!DatasMgr.Instance.IsHeroTalentActive(_heroUID, _id))
+            {
+                if (DatasMgr.Instance.CanHeroTalentActive(_heroUID, _id))
+                {
+                    if (resCount >= talentConfig.Cost)
+                        btnVisible = true;
+                }
+            }
+
+            WGCallback callback = OnActiveCallback;
+            var args = new object[] {
+                talentConfig.GetTranslation("Name"),
+                talentConfig.GetTranslation("Desc"),
+                _attrsData,
+                pos,
+                btnVisible,
+                "¼¤»î",
+                string.Format("{0}/{1}", resCount, talentConfig.Cost),
+                true,
+                callback
+            };
+            EventDispatcher.Instance.PostEvent(Enum.Event.Hero_Show_Talent, args);
         }
 
         public int GetID()
@@ -45,6 +76,11 @@ namespace WarGame.UI
             _isActive = true;
             _gCom.grayed = !_isActive;
             _active.Play();
+        }
+
+        private void OnActiveCallback()
+        {
+            DatasMgr.Instance.HeroTalentActiveC2S(_heroUID, _id);
         }
     }
 }

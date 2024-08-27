@@ -16,6 +16,7 @@ namespace WarGame.UI
         private GButton _activeBtn;
         private Controller _type;
         private GTextField _costTxt;
+        private WGCallback _callback;
 
         public HeroTalentInfo(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
@@ -38,54 +39,49 @@ namespace WarGame.UI
         {
             if (!_attrItemsDic.ContainsKey(item.id))
             {
-                _attrItemsDic[item.id] = new CommonAttrItem((GComponent)item);
+                _attrItemsDic[item.id] = new CommonSmallAttrItem((GComponent)item);
             }
             _attrItemsDic[item.id].Update(_attrsData[index].name, _attrsData[index].desc);
         }
 
+        /// <summary>
+        /// title
+        /// desc
+        /// attrs
+        /// pos
+        /// btnVisible
+        /// btnTitle
+        /// value
+        /// valueVisible
+        /// btnCallback
+        /// </summary>
+        /// <param name="args"></param>
         private void OnShowTalent(params object[] args)
         {
-            _heroUID = (int)args[0];
-            _talentID = (int)args[1];
+            _title.text = args[0].ToString();
+            _desc.text = args[1].ToString();
 
-            var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _talentID);
-
-            _title.text = talentConfig.GetTranslation("Name");
-            _desc.text = talentConfig.GetTranslation("Desc");
-
-            _attrsData.Clear();
-            foreach (var v in talentConfig.Attrs)
-            {
-                _attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
-            }
+            _attrsData = (List<AttrStruct>)args[2];
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();
 
-            SetPosition((Vector2)args[2]);
+            SetPosition((Vector2)args[3]);
             SetVisible(true);
 
-            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes);
-            if (DatasMgr.Instance.IsHeroTalentActive(_heroUID, _talentID))
-                _type.SetSelectedIndex(0);
-            else
-            {
-                if (!DatasMgr.Instance.CanHeroTalentActive(_heroUID, _talentID))
-                    _type.SetSelectedIndex(3);
-                else
-                {
-                    if (resCount >= talentConfig.Cost)
-                        _type.SetSelectedIndex(1);
-                    else
-                        _type.SetSelectedIndex(2);
-                }
-            }
-            _costTxt.text = string.Format("{0}/{1}", resCount, talentConfig.Cost);
+            _activeBtn.visible = (bool)args[4];
+            _activeBtn.title = args[5].ToString();
+
+            _costTxt.text = args[6].ToString();
+            _costTxt.visible = (bool)args[7];
+
+            _callback = (WGCallback)args[8];
         }
 
         private void OnClick()
         {
             SetVisible(false);
-            DatasMgr.Instance.HeroTalentActiveC2S(_heroUID, _talentID);
+            if (null != _callback)
+                _callback.Invoke();
         }
 
         private void OnTouchBegin()

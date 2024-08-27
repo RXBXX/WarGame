@@ -397,6 +397,9 @@ namespace WarGame
         public void HeroLevelUpC2S(int roleUID, int level)
         {
             var roleData = GetRoleData(roleUID);
+            if (roleData.GetStarConfig().Cost > GetItem((int)Enum.ItemType.LevelRes))
+                return;
+
             roleData.level = level;
             _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.LevelRes, roleData.GetStarConfig().Cost);
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });

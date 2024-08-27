@@ -153,7 +153,15 @@ namespace WarGame
                 }
             }
 
-            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+            var attrConfigID = (int)attrType;
+            var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", attrConfigID);
+            if (null == attrConfig)
+            {
+                DebugManager.Instance.Log("Didn't find Attr:" + attrConfigID);
+                return value;
+            }
+
+            if (attrConfig.ValueType == Enum.ValueType.Percentage)
                 return value / 100.0f;
             else
                 return value;
@@ -176,7 +184,15 @@ namespace WarGame
                 }
             }
 
-            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+            var attrConfigID = (int)attrType;
+            var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", attrConfigID);
+            if (null == attrConfig)
+            {
+                DebugManager.Instance.Log("Didn't find Attr:" + attrConfigID);
+                return value;
+            }
+
+            if (attrConfig.ValueType == Enum.ValueType.Percentage)
                 return value / 100.0f;
             else
                 return value;
@@ -208,7 +224,16 @@ namespace WarGame
                 }
             }
 
-            if (ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", (int)attrType).ValueType == Enum.ValueType.Percentage)
+
+            var attrConfigID = (int)attrType;
+            var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", attrConfigID);
+            if (null == attrConfig)
+            {
+                DebugManager.Instance.Log("Didn't find Attr:" + attrConfigID);
+                return value;
+            }
+
+            if (attrConfig.ValueType == Enum.ValueType.Percentage)
                 return value / 100.0f;
             else
                 return value;
@@ -267,12 +292,12 @@ namespace WarGame
         {
             this.equipDataDic = equipDataDic;
             this.state = state;
-            this.HP = GetAttribute(Enum.AttrType.HP);
             this.Rage = 0;
             this.bornHexagonID = bornHexagonID;
             this.hexagonID = bornHexagonID;
             if (null != talents)
                 this.talents = talents;
+            this.HP = GetAttribute(Enum.AttrType.HP);
         }
 
         public override float GetAttribute(Enum.AttrType attrType)
