@@ -22,14 +22,25 @@ namespace WarGame
         private bool _isLocking
         {
             get { return _lockCount > 0; }
-            set { _lockCount += (value ? 1 : -1); }
+            set
+            {
+                _lockCount += (value ? 1 : -1);
+                if (_lockCount < 0)
+                    _lockCount = 0;
+            }
+
         }
 
         private int _lockTargetCount = 0;
         private bool _isLockingTarget
         {
             get { return _lockTargetCount > 0; }
-            set { _lockTargetCount += (value ? 1 : -1); }
+            set 
+            { 
+                _lockTargetCount += (value ? 1 : -1);
+                if (_lockTargetCount < 0)
+                    _lockTargetCount = 0;
+            }
         }
 
         public Camera MainCamera
@@ -382,7 +393,8 @@ namespace WarGame
             var target = RoleManager.Instance.GetRole(_targetID);
             _floatSeq.Append(MainCamera.transform.DOMove(target.GetPosition() - camDis, 1.0F).SetEase(Ease.InOutQuad));
 
-            _floatSeq.AppendCallback(()=> { 
+            _floatSeq.AppendCallback(() =>
+            {
                 callback();
                 _floatSeq = null;
             });

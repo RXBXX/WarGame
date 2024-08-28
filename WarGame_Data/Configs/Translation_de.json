@@ -888,6 +888,10 @@
         "Str": "Reichweite?"
     },
     {
+        "ID": "AttrConfig_18_Name",
+        "Str": "Leitung."
+    },
+    {
         "ID": "ElementConfig_1_Name",
         "Str": "."
     },
@@ -1234,14 +1238,6 @@
     {
         "ID": "SettingsPanel_BattlePerformance",
         "Str": "Unsere vorstellung des kampfes."
-    },
-    {
-        "ID": "SettingsPanel_Off",
-        "Str": "."
-    },
-    {
-        "ID": "SettingsPanel_On",
-        "Str": "."
     },
     {
         "ID": "SettingsPanel_TextLanguage",
@@ -1728,6 +1724,14 @@
         "Str": "Okay. - okay."
     },
     {
+        "ID": "DialogConfig_10001006_Context",
+        "Str": "Sind sie bereits in gefahr, müssen wir schneller handeln und rausfinden, was genau passiert ist. Wir können nicht riskieren, dass es ihnen schlecht geht."
+    },
+    {
+        "ID": "DialogConfig_10001007_Context",
+        "Str": "Ok, sie haben recht. Wir müssen uns schnell informieren."
+    },
+    {
         "ID": "DialogConfig_10002001_Context",
         "Str": "Vielen dank, dass sie ihre feinde so forsch zurückgelassen haben, wie es scheint, und Von denen, die ich zuerst auf dem weg zu weisen sah, auf der suche nach intelligenz, eingeschlossen Waren."
     },
@@ -1766,6 +1770,14 @@
     {
         "ID": "DialogConfig_10003002_Context",
         "Str": "Wir versuchten, eine sehr viel komplizierte situation zu lösen. Die, die die blockade absichtlich gemacht haben."
+    },
+    {
+        "ID": "DialogConfig_10003003_Context",
+        "Str": "Ja. Ich wusste nicht, dass sie so feindselig sind. Es war allerdings eine große enttäuschung, dass die mission nicht erfolgreich war. Der alte weise mann wird nicht glücklich sein."
+    },
+    {
+        "ID": "DialogConfig_10003004_Context",
+        "Str": "Der misserfolg ist eine lektion. Wir müssen unsere strategie überdenken und vielleicht sogar noch vorsichtiger sein."
     },
     {
         "ID": "DialogConfig_20001001_Context",
@@ -1820,6 +1832,14 @@
         "Str": "Gleichzeitig nahmen sie auch den starlight walk ein und taten etwas gegen die stadt. Im moment sieht es nicht gut aus, aber auch andere städte scheinen in ihren plänen zu stehen. Wir müssen uns beeilen."
     },
     {
+        "ID": "DialogConfig_20002006_Context",
+        "Str": "Diese führten nicht nur den wald an, sondern auch eine stadt aus wasser. Die Lage ist düster, und es stehen andere städte auf der tagesordnung. Wir müssen zeit verschwenden, um reaktionen auszuarbeiten."
+    },
+    {
+        "ID": "DialogConfig_20002007_Context",
+        "Str": "Unser ziel ist jetzt nicht mehr nur, defensiv zu sein, sondern so stark wie möglich zu werden, bevor der feind völlig ausbricht. Er ist Von äußerster wichtigkeit und darf auf keinen fall in die falschen hände geraten."
+    },
+    {
         "ID": "DialogConfig_20002008_Context",
         "Str": "\"Im denken an ordnung und planung\" erfordert eine rasche zuweisung Von ressourcen. Alicia, sie und ich werden mit nach aquatown gehen. Organisieren sie eine verteidigung und untersuchen sie die pläne der feindseligen. Alter weise und Calvin, ihr bleibt hier, sorgt für sicherheit in den sternenmond-wäldern und gebt jede menge informationen Von euren feinden."
     },
@@ -1844,6 +1864,18 @@
         "Str": "Wir sind immer noch zu schwach!"
     },
     {
+        "ID": "DialogConfig_20003002_Context",
+        "Str": "\"Auf seine knie, mit einer kaputten waffe in den händen und einem niedergeschlagenen blick.\" nicht hätt ich die stärke des feindes vorausgesehen. Die vorgesehenen verteidigungsanlagen können ihrer offensive nicht standhalten. Warum sollten wir einen feind unterschätzen?"
+    },
+    {
+        "ID": "DialogConfig_20003003_Context",
+        "Str": "Eine mit wehmut in den augen überzeugte sache. Wir unterschätzen die stärke unseres feindes, aber wir haben nicht die zeit, uns vorwürfe zu machen. Wir müssen uns so bald wie möglich erholen, unsere verteidigungslinie neu formieren und den schaden Von der feindschaft möglichst gering halten."
+    },
+    {
+        "ID": "DialogConfig_20003004_Context",
+        "Str": "Die gegnerischen armeen (gehen zur seite, durchschauen die Lage auf dem schlachtfeld und sehen düster aus) sind tödlicher, als wir dachten. Ihre strategie war wohl durchdacht, was vielleicht etwas mit dem zustand der elemente zu tun hat. Unsere verteidigung ist nur unzureichend vorbereitet, und der feind nutzt unsere schlupflöcher."
+    },
+    {
         "ID": "DialogConfig_20003005_Context",
         "Str": "Das war eine bittere lektion für mich. Wir haben ernsthafte probleme mit unserer einschätzung des feindes und müssen die tieferen ursachen für dieses versagen finden. Das darf nicht wieder vorkommen."
     },
@@ -1862,6 +1894,22 @@
     {
         "ID": "DialogConfig_20003009_Context",
         "Str": "Jetzt kommt es darauf an, clean zu bleiben und sich wieder zu erholen. Wir müssen zerstörte einrichtungen reparieren, neue energien aufbauen und einen offenen informationsfluss gewährleisten. Inseln der information sollten vermieden werden, bevor die feinde wieder eindringen."
+    },
+    {
+        "ID": "DialogConfig_20003010_Context",
+        "Str": "Wir müssen so schnell wie möglich mit anderen städten in kontakt kommen, um sicherzustellen, dass sie nicht zum ziel ihrer rücktritte werden. Besonders in lakeshire ist die Lage vielleicht noch viel gefährlicher."
+    },
+    {
+        "ID": "DialogConfig_20003011_Context",
+        "Str": "Egal wie schwer wir das nehmen wir können nicht aufgeben. Wir müssen zusammenhalten, um aus den fehlern zu lernen und unsere strategien und taktiken zu verbessern."
+    },
+    {
+        "ID": "DialogConfig_20003012_Context",
+        "Str": "(sie spricht Von noah mit einer kühlen sprache) wir müssen auch die strategien und aktionspläne unserer feinde überdenken und insbesondere herausfinden, wie sie unsere schwächen ausnutzen werden. Dieser prozess kann schwierig sein, aber wir können nur wirksam zurückschlagen, wenn wir die absichten des feindes gründlich kennen."
+    },
+    {
+        "ID": "DialogConfig_20003013_Context",
+        "Str": "Mit fester entschlossenheit in der stimme werden wir die niederlage überwinden. Wir haben die herausforderung dieses mal, aber wir lassen uns davon nicht einschüchtern. Es ist an der zeit, uns neu zu formieren und den kommenden kampf mit mehr nachdruck zu begrüßen."
     },
     {
         "ID": "DialogConfig_30001001_Context",
@@ -1924,6 +1972,22 @@
         "Str": "Wir sind immer noch zu schwach!"
     },
     {
+        "ID": "DialogConfig_30003002_Context",
+        "Str": "Ja, der feind hatte unsere pläne gründlich durchschaut. Sie bewegen sich schneller, als wir dachten. Die verteidigungslinie des star-mond-waldes brach zusammen, und wir konnten sie nicht halten."
+    },
+    {
+        "ID": "DialogConfig_30003003_Context",
+        "Str": "Wir dachten, wir könnten dieses problem mit mut und kraft lösen, aber offensichtlich hatte der feind nicht nur die große armee, sondern auch die bessere planung. Jetzt müssen wir die ursachen dieses fehlschlags finden."
+    },
+    {
+        "ID": "DialogConfig_30003004_Context",
+        "Str": "Der feind bereitet sich offensichtlich ausreichend darauf vor, und wir unterschätzen seine fähigkeiten und strategien. Ihre angriffe auf die wälder der starling und die wasserstadt verrieten den ausgefeilten plan. Der grund für die niederlage Waren nicht nur unsere taktik, sondern auch mangelnde informationen über unsere feinde."
+    },
+    {
+        "ID": "DialogConfig_30003005_Context",
+        "Str": "Wir sind wohl alle auf dem holzweg. Hätten wir die absichten unseres feindes früher herausgefunden, wäre es vielleicht Anders gelaufen. Nun müssen wir überlegen, wie wir den verlust wiedergutmachen und darf den misserfolg nicht weiter verschlimmern."
+    },
+    {
         "ID": "DialogConfig_30003006_Context",
         "Str": "Eine todsichere niederlage kann man nur auf die harte tour lernen. Als erstes müssen wir die funktionsweise und die schwächen unserer gegner überprüfen. Anschließend müssen wir die ressourcen rasch konsolidieren und für den nächsten kampf gerüstet sein."
     },
@@ -1942,6 +2006,18 @@
     {
         "ID": "DialogConfig_30003010_Context",
         "Str": "Wir werden auch die kommunikation und die koordinierung innerhalb der vereinten nationen stärken müssen, um zu gewährleisten, dass alle bei den kommenden kämpfen eine rolle spielen. Wir haben nur zeit und kampfkraft verloren, aber wir müssen zusammenhalten, um weiter voranzukommen."
+    },
+    {
+        "ID": "DialogConfig_30003011_Context",
+        "Str": "Auf die schnelle zurück zu den verlorenen opfern und die änderung unserer strategien. Wir sind stärker als gedacht, und wir müssen uns anpassen, um noch größere herausforderungen zu bewältigen."
+    },
+    {
+        "ID": "DialogConfig_30003012_Context",
+        "Str": "Trotz des rückschläge können wir einen umschwung erzielen, wenn wir bereit sind und die richtigen lehren ziehen. Der schlüssel dazu ist, die nerven zu behalten und allmählich unsere stärken wiederzuerlangen."
+    },
+    {
+        "ID": "DialogConfig_30003013_Context",
+        "Str": "Wir dürfen uns nicht durchlöchern lassen und müssen uns den herausforderungen der zukunft stellen. Lasst uns die strategie neu ausdenken, unsere strategie neu überdenken und gemeinsam darauf hoffen, den Sieg über die nächste operation zu erringen!"
     },
     {
         "ID": "DialogConfig_40001001_Context",
@@ -2016,6 +2092,22 @@
         "Str": "Geh zu noah und lächle. - gute arbeit, noah. Auch wenn wir vor großen herausforderungen stehen, haben uns euer mut und eure entschlossenheit zum Sieg geführt. Wir dürfen uns allerdings nicht ausruhen und sind nach wie vor auf weitere untersuchungen und vorbereitungen angewiesen."
     },
     {
+        "ID": "DialogConfig_40002004_Context",
+        "Str": "Dachten sie wirklich, das würde uns aufhalten, wenn sie \"vor der bitteren kälte des lebens\" schreien? Sie sind uns nur im weg. Die wahre herausforderung beginnt."
+    },
+    {
+        "ID": "DialogConfig_40002005_Context",
+        "Str": "Mann (mit kalter stimme) : sie Wissen, was sie vorhaben. Und selbst wenn sie andere pläne haben, lassen wir sie niemals durchkommen. Wir werden unser haus weiter beschützen und dafür sorgen, dass eure verschwörungen nicht gelingen."
+    },
+    {
+        "ID": "DialogConfig_40002006_Context",
+        "Str": "(blick umher, ruhig) wir müssen das gelände und die umgebung unter kontrolle halten und versichern, dass keine spuren Von anderen feinden erkennbar sind. Obwohl wir den kampf gewonnen haben, dürfen wir nicht schutzlos sein. Es kann sein, dass der gegner noch nachgeht."
+    },
+    {
+        "ID": "DialogConfig_40002007_Context",
+        "Str": "Sorgen sie dafür, dass keine feinde übersehen werden Oder eine gefahr besteht. Und gerade in dieser stadt müssen wir sofort nachsehen, ob die luft rein ist."
+    },
+    {
         "ID": "DialogConfig_40002008_Context",
         "Str": "Wenden sie sich an Finn mit einer entschlossenheit in seiner stimme. Ihre pläne sind vorbei. Dann steht ihnen eine gerechte verhandlung bevor. Wir übergeben sie den zuständigen behörden, damit sie für ihre verbrechen bezahlen."
     },
@@ -2034,6 +2126,18 @@
     {
         "ID": "DialogConfig_40002012_Context",
         "Str": "(tiefe atemzüge, ernste gefühle) ja. Wir werden unsere reihen geschlossen halten, unsere verteidigungslinien weiter verstärken und unsere heimat in sicherheit bringen. Machen wir diesen Sieg zu einem neuen anfang, und lassen wir es uns nicht kaputt machen!"
+    },
+    {
+        "ID": "DialogConfig_40002013_Context",
+        "Str": "Jetzt müssen wir uns auf die aufgabe konzentrieren, die uns noch bleibt. Vorrücken, sicherstellen, dass alle städte geschützt sind, und sicherstellen, dass wir keine weitere bedrohung dieser art bekommen."
+    },
+    {
+        "ID": "DialogConfig_40002014_Context",
+        "Str": "Der Sieg gibt uns zuversicht (lächeln, mit überzeugung), aber die wahre herausforderung liegt noch vor uns. Angetrieben Von diesem Sieg, wollen wir unseren marsch fortsetzen. Für die heimat, für die menschen."
+    },
+    {
+        "ID": "DialogConfig_40002015_Context",
+        "Str": "(ein lächeln, ein hoffnungsschimmer) lass uns gemeinsam arbeiten, immer wieder für den schutz dessen kämpfen, was uns lieb und teuer ist. Der Sieg ist erst der anfang, und der weg, der vor uns liegt, ist immer noch voller herausforderungen, doch wir müssen alle schwierigkeiten überwinden."
     },
     {
         "ID": "DialogConfig_40003001_Context",
@@ -2058,6 +2162,22 @@
     {
         "ID": "DialogConfig_40003006_Context",
         "Str": "Sprechen sie mit noah, seien sie ruhig. Das ist kein guter zeitpunkt, um sich vorwürfe zu machen. Wir müssen die lehren aus diesem misserfolg ziehen und unsere strategie überdenken. Der feind ist eindeutig mächtiger als wir denken, und wir müssen ihre fähigkeiten und ihre pläne neu bewerten."
+    },
+    {
+        "ID": "DialogConfig_40003007_Context",
+        "Str": "(erhebt euch, tief einatmen und mit nachdruck) wir müssen schnell wieder daran arbeiten, dass es in unseren kampfkräften nicht zu einer weiteren aushöhlung kommt. Zudem wird es erforderlich sein, sich so schnell wie möglich mit anderen überlebenden städten in verbindung zu setzen, um sicherzugehen, dass sie die feindlichen bewegungen kennen und abwehrbereit sind."
+    },
+    {
+        "ID": "DialogConfig_40003008_Context",
+        "Str": "Ihre unfähigkeit, sich zu wehren, macht sie nur noch gründlicher. (mit einem respektlosen lächeln, einem kalten lächeln) Trotz des kampfes haben wir die Lage unter kontrolle. Ihre zurückhaltung war nur ein kleines zwischenspiel."
+    },
+    {
+        "ID": "DialogConfig_40003009_Context",
+        "Str": "Ganz ruhig bleiben. Beißen sie sich zusammen. Es war eine bittere niederlage. Wir müssen unsere kräfte und strategien neu ausrichten, um den herausforderungen der zukunft gerecht zu werden."
+    },
+    {
+        "ID": "DialogConfig_40003010_Context",
+        "Str": "(voller entschlossenheit) außerdem müssen wir die ursachen für das versagen umfassend untersuchen. Das verhalten unserer feinde ist eine ernsthafte bedrohung unserer verteidigung geworden, und es gilt, unsere verteidigungskapazitäten zu stärken."
     },
     {
         "ID": "DialogConfig_40003011_Context",
@@ -2100,6 +2220,18 @@
         "Str": "Ha, ha. Noah hat recht. Trocken ist tot."
     },
     {
+        "ID": "DialogConfig_50001006_Context",
+        "Str": "(wenden sie sich Finn zu: across the challenge.) es scheint, als ob sie diesen ansatz teilen. Dann lassen wir uns keine zeit verlieren. Macht euch auf diesen kampf gefasst, dann tun wir, was nötig ist, um zu beweisen, wer gewonnen hat!"
+    },
+    {
+        "ID": "DialogConfig_50001007_Context",
+        "Str": "Die Lage ist äußerst dringlich, auch wenn ich nicht ganz ihrer meinung bin. Wenn kämpfen die einzige wahl ist, dann müssen wir alle unser bestes geben. Doch wir müssen alles in unserer macht stehende tun, um die unschuldigen zu schützen und den durch die schlacht verursachten unnötigen schaden zu begrenzen."
+    },
+    {
+        "ID": "DialogConfig_50001008_Context",
+        "Str": "Und die regentschaft? - ja, ich tue es. In echten kämpfen ist das nur ein guter wunsch. Der sieger ist derjenige, der ruhig bleibt und die situation im griff hat. Bereitet euch auf die herausforderung vor!"
+    },
+    {
         "ID": "DialogConfig_50001009_Context",
         "Str": "Ja, wir werden nie zurückweichen, egal wie stark der feind auch ist. Für unsere sache kämpfen wir bis zum ende, so gut wir können."
     },
@@ -2132,6 +2264,22 @@
         "Str": "Keine angst, wie schwierig die herausforderung auch sein mag, wir werden unser bestes geben. Wir haben unsere stärke bewiesen, und wir werden weiter daran arbeiten und uns weiterentwickeln. Wir bewegen uns nun in bewegung."
     },
     {
+        "ID": "DialogConfig_50002005_Context",
+        "Str": "(und mit einem gewissen mut zu noah gehen) trotz der erfolglosen ergebnisse des kampfes, sollten wir jedoch daraus lernen. In zukünftigen kampfhandlungen ist es unsere pflicht, unnötige konflikte zu vermeiden, alle unschuldigen zu schützen und friedliche lösungen zu finden."
+    },
+    {
+        "ID": "DialogConfig_50002006_Context",
+        "Str": "Ich habe verstanden, was du gemeint hast. Manchmal ist gewalt zwar notwendig, aber es gilt auch zu lernen, unser verhalten nach einem kampf zu überprüfen. Der schutz der unschuldigen und die suche nach einer friedlichen lösung sind unsere künftigen ziele."
+    },
+    {
+        "ID": "DialogConfig_50002007_Context",
+        "Str": "Ihr werdet den kampf vielleicht gewinnen, aber unsere pläne werden damit nicht enden. Ihr werdet sehen, das ist erst der anfang. Unser handeln hat gerade erst begonnen und es wird noch mehr prüfungen geben."
+    },
+    {
+        "ID": "DialogConfig_50002008_Context",
+        "Str": "Unsere entschlossenheit steht fest: egal, wie groß die herausforderung auch sein mag. Wir haben unsere entschlossenheit und unsere kraft unter beweis gestellt und wir werden weiter für unsere sache kämpfen. Eure drohungen werden unseren glauben nicht erschüttern."
+    },
+    {
         "ID": "DialogConfig_50002009_Context",
         "Str": "(mit sanftem, aber solidem ton) ok, wir haben zwar den kampf gewonnen, aber uns bleibt viel zu tun. Wir müssen sicherstellen, dass wir gelassenheit und vernunft bewahren und gleichzeitig uns und andere schützen."
     },
@@ -2148,12 +2296,28 @@
         "Str": "Das kann uns zwar überraschen, aber wir sollten uns nicht entmutigen lassen. Misserfolg ist der grundstein für den erfolg, wir müssen daraus lernen und unsere schwächen schwächen."
     },
     {
+        "ID": "DialogConfig_50003003_Context",
+        "Str": "(seite an seite, mit dem aufrechten blick auf noah und seine leute, mit dem wink des schmeichelns.) siehe, sie haben uns unterschätzt. Ihr seid noch lange nicht bereit, der echten herausforderung zu begegnen. Der kampf war gewonnen, aber es war nur der anfang."
+    },
+    {
         "ID": "DialogConfig_50003004_Context",
         "Str": "(gesicht nach Finn, mit fester überzeugung) wir werden nicht so schnell aufgeben, selbst wenn wir scheitern. Wir werden die erfahrung zusammenfassen und unsere strategien verbessern. So schwer es auch sein mag, wir werden wieder aufstehen und weitermachen."
     },
     {
         "ID": "DialogConfig_50003005_Context",
         "Str": "Ja, wir müssen die diskussion hinter uns lassen und zurückgehen. Wir müssen uns besser abstimmen und einen besseren plan erarbeiten, damit wir im nächsten kampf besser dastehen. Gleichzeitig müssen wir sicherstellen, dass unsere strategien und methoden so umfassend wie möglich sind."
+    },
+    {
+        "ID": "DialogConfig_50003006_Context",
+        "Str": "Das könnt ihr sagen, aber die realität ändert sich nicht so leicht. Du wirst noch schwerer. Ich hoffe, ihr könnt aus diesem misserfolg lernen, denn das nächste mal wird es vielleicht schwieriger."
+    },
+    {
+        "ID": "DialogConfig_50003007_Context",
+        "Str": "(die feste antwort) wir werden aus unseren fehlschlägen lernen und uns mehr anstrengen. Die niederlage ist nur eine vorübergehende phase, und wir werden sie neu organisieren und stärken, um später im kampf Siegen zu können."
+    },
+    {
+        "ID": "DialogConfig_50003008_Context",
+        "Str": "(nicken und mit entschlossenheit) - diesmal haben wir es nicht geschafft, aber wir setzen unseren kurs fort. Wir müssen diese erfahrung in einen impuls umsetzen, der mut und klugheit zeigt und bereit ist, die nächste herausforderung anzunehmen."
     },
     {
         "ID": "DialogConfig_50003009_Context",
@@ -2200,6 +2364,18 @@
         "Str": "(mit einem sarkastischen ton gegenüber noah) es scheint, als ob eure beharrlichkeit zum scheitern verurteilt wäre. Unser plan ist gut durchdacht, und deine bemühungen sind nur vergeblich."
     },
     {
+        "ID": "DialogConfig_60001009_Context",
+        "Str": "Ob sie es wollen Oder nicht unsere aufgabe ist immer noch erfüllt. Unsere schritte werden nicht Von eurem widerstand abweichen, und wir müssen die nächsten schritte noch beschleunigen."
+    },
+    {
+        "ID": "DialogConfig_60001010_Context",
+        "Str": "Wir sind bereit. (tief einatmen, fester blick) Egal, wie Ernst die Lage auch ist, wir werden uns bemühen. Das wird nicht funktionieren, und wir tun, was wir können, um diesen kontinent zu schützen."
+    },
+    {
+        "ID": "DialogConfig_60001011_Context",
+        "Str": "Wir müssen schnell handeln und sicherstellen, dass jeder schritt das beste ist. Wir dürfen um des friedens und der sicherheit auf dem kontinent willen nicht zurückweichen."
+    },
+    {
         "ID": "DialogConfig_60002001_Context",
         "Str": "Haben wir uns geirrt?"
     },
@@ -2232,8 +2408,24 @@
         "Str": "(nicken, entschlossenheit in diesem blick). Nun, da wir unsere gemeinsamen ziele gefunden haben, sollten wir gemeinsam handeln. Wir werden alles in unserer macht stehende tun, um euch zu unterstützen und unsere kraft für den frieden und wohlstand der zukunft einzusetzen."
     },
     {
+        "ID": "DialogConfig_60002009_Context",
+        "Str": "Lassen sie uns unseren alten streit vergessen und uns stattdessen auf die verwirklichung einer gemeinsamen vision konzentrieren. Wir werden zusammenarbeiten, um sicherzustellen, dass auf dem kontinent echter frieden entsteht."
+    },
+    {
+        "ID": "DialogConfig_60002010_Context",
+        "Str": "Ja, jetzt, wo wir eins sind, wollen wir gemeinsam ein stück in die zukunft tragen. So schwierig der weg auch sein mag, er wird in einheit bewältigt werden. Unser ziel ist, den kontinent zu schützen und echten frieden herbeizuführen."
+    },
+    {
+        "ID": "DialogConfig_60002011_Context",
+        "Str": "Sie sind eine gastfreundschaft mit gareth und justin, mit optimismus. Vielen dank für ihre entscheidung. Lassen sie uns gemeinsam eine bessere zukunft schaffen. Wir haben den ersten schritt getan, doch müssen wir nun nach vorne schauen, um sicherzustellen, dass unser handeln zu echten veränderungen führt."
+    },
+    {
         "ID": "DialogConfig_60003001_Context",
         "Str": "Ein verlust Von $10006"
+    },
+    {
+        "ID": "DialogConfig_60003002_Context",
+        "Str": "(umarmt noah mit einer furcht), wir unterschätzen die stärke unserer feinde, und manchmal sind wir auf andere weise unzureichend vorbereitet. Jetzt müssen wir ruhig bleiben und analysieren, warum wir gescheitert sind, und nach lösungen suchen."
     },
     {
         "ID": "DialogConfig_60003003_Context",
@@ -2254,6 +2446,18 @@
     {
         "ID": "DialogConfig_60003007_Context",
         "Str": "(gehen sie zu noah mit einem ratschlag in seiner stimme) wir müssen die geheimdienste verstärken, um die wahren absichten unserer feinde zu verstehen. Vielleicht können wir durch spionage Oder andere mittel mehr über unsere feinde erfahren und uns einen präzisereren überblick verschaffen."
+    },
+    {
+        "ID": "DialogConfig_60003008_Context",
+        "Str": "(nicken, drinnen mit überzeugung) wir können diesen misserfolg nutzen um unsere strategie zu optimieren. Die teams zur zusammenarbeit zu befähigen, die einzelnen kampffähigkeiten zu erweitern und ganzheitlich darauf vorbereitet zu sein. Der misserfolg ist nur vorläufig, und unsere entschlossenheit wird sich nicht ändern."
+    },
+    {
+        "ID": "DialogConfig_60003009_Context",
+        "Str": "Und wir sollten den kommenden herausforderungen entschlossener begegnen mit einem wort der ermutigung. Bessere gewohnheiten, größerer glaube und zusammenhalt sind der schlüssel, um aus diesem dilemma herauszukommen. Wir müssen in jeder schwierigen Lage weiterkommen."
+    },
+    {
+        "ID": "DialogConfig_60003010_Context",
+        "Str": "(nicken mit festem vorsatz und nicken im ton) wir steigen aus unserem scheitern aus, ändern unsere strategie und gehen weiter. Unser ziel bleibt es, den kontinent zu schützen und frieden und sicherheit zu gewährleisten. Misserfolge machen uns nicht zu fall, sondern machen uns stärker."
     },
     {
         "ID": "DialogConfig_60003011_Context",
@@ -2288,6 +2492,22 @@
         "Str": "Kane macht dich gefährlich, aber er macht uns auch aufmerksam. Wir brauchen strategien, die sicherstellen, dass jeder schritt unsere stärken maximieren und uns vor angriffen schützen kann."
     },
     {
+        "ID": "DialogConfig_70001008_Context",
+        "Str": "Bereit zu kämpfen (mit entschlossenheit) wir sind bereit für die herausforderung. Egal wie stark du auch bist, wir werden unser bestes geben, um alles zu schützen, was uns lieb und teuer ist. Das lassen wir nicht zu."
+    },
+    {
+        "ID": "DialogConfig_70001009_Context",
+        "Str": "Konzentrieren sie sich und halten sie die gruppe zusammen Obwohl die bedrohung durch kane groß ist, teilen wir ein gemeinsames ziel und setzen uns voll und ganz durch. So leicht wird das nicht enden, wir müssen ihn besiegen."
+    },
+    {
+        "ID": "DialogConfig_70001010_Context",
+        "Str": "Ihr mut und ihre entschlossenheit sind unbestreitbar, aber das endergebnis kann nur im kampf entschieden werden. Bereitet euch auf euer schicksal vor, dieser krieg wird über alles entscheiden."
+    },
+    {
+        "ID": "DialogConfig_70001011_Context",
+        "Str": "Wir atmen tief durch, mit entschlossenheit. Auf eure drohung reagieren wir mit taten. Wir müssen in jedem fall unseren rückzug fortsetzen. Und jetzt lasst uns diesen schicksalskampf anfangen!"
+    },
+    {
         "ID": "DialogConfig_70001012_Context",
         "Str": "(winkt mit beiden händen, der kampf kommt jetzt mit erwartung) - gut, dann zeigt uns, wer ihr wirklich seid. Der nächste kampf wird ihre größte prüfung werden."
     },
@@ -2310,6 +2530,22 @@
     {
         "ID": "DialogConfig_70002005_Context",
         "Str": "Kane's misserfolg bedeutet, dass wir einen großen schritt nach vorn getan haben, um ihn zu stoppen. Allerdings ist dies erst der erste schritt zur lösung des problems, und wir müssen auch weiterhin die kommenden entwicklungen beobachten."
+    },
+    {
+        "ID": "DialogConfig_70002006_Context",
+        "Str": "Kane (nicken, aufmerksamkeit in tonfall) ist besiegt, aber seine helfer und pläne bestehen weiter. Wir müssen sicherstellen, dass alle probleme umfassend gelöst werden, um zu verhindern, dass sich derartige bedrohungen wiederholen."
+    },
+    {
+        "ID": "DialogConfig_70002007_Context",
+        "Str": "Man: jeder im team spricht mit dank und glauben. Allen geht es gut. Alle mußten mit großer not kämpfen, doch durch gemeinsame anstrengung und zusammenarbeit besiegten wir den feind. Jetzt müssen wir weiter ziehen bis zum ende unserer mission."
+    },
+    {
+        "ID": "DialogConfig_70002008_Context",
+        "Str": "Der ton, mit dem wir ihn näher betrachten, lässt uns eine wichtige lehre daraus ziehen: die bedrohung durch feinde ist häufig komplexer als wir erwartet hatten. Wir müssen unseren nächsten schritt sehr viel gezielter planen."
+    },
+    {
+        "ID": "DialogConfig_70002009_Context",
+        "Str": "Nur weil wir kane besiegt haben, nehmen wir ihm nicht den rücken zu. Ebenso wichtig ist es jetzt, dass wir sicherstellen, dass unser Sieg zu dauerhaftem frieden führt und nicht nur zum stillstand kommt."
     },
     {
         "ID": "DialogConfig_70002010_Context",
@@ -2336,6 +2572,18 @@
         "Str": "Wir sind immer noch zu schwach!"
     },
     {
+        "ID": "DialogConfig_70003002_Context",
+        "Str": "Es ist wirklich so Der fehlschlag war gründlich. Wir unterschätzen die macht des feindes, weil wir seine probleme nicht lösen können."
+    },
+    {
+        "ID": "DialogConfig_70003003_Context",
+        "Str": "Wir haben versagt. Aber jetzt müssen wir alle einen kühlen kopf bewahren. Die ursachen für dieses versagen zu analysieren und nach alternativen zu suchen, um eine echte lösung für die unmittelbar drohende situation zu finden."
+    },
+    {
+        "ID": "DialogConfig_70003004_Context",
+        "Str": "(seht kane, schweren herzens) der missgeschlagene kampf zeigt uns die stärke des feindes. Wir müssen unsere strategie und unsere vorbereitung auf den punkt überprüfen, damit wir nicht wieder denselben fehler begehen."
+    },
+    {
         "ID": "DialogConfig_70003005_Context",
         "Str": "Wir haben zwar alle unser bestes gegeben, aber wir haben eindeutig nicht alle unsere mängel. Wir müssen die bestehenden probleme sorgfältig analysieren und unsere pläne verbessern, damit wir die kommenden herausforderungen bewältigen können."
     },
@@ -2354,6 +2602,18 @@
     {
         "ID": "DialogConfig_70003009_Context",
         "Str": "Ein versagen, das in seiner betonung Von entschlossenheit zum ausdruck kommt, ist enttäuschend, zeigt aber auch ein zeichen unserer eigenen unvollkommenheit. Wir müssen unsere teams besser koordinieren, unsere individuellen fähigkeiten ausbauen und besser darauf vorbereitet sein."
+    },
+    {
+        "ID": "DialogConfig_70003010_Context",
+        "Str": "Natürlich sind wir frustriert, aber wenn wir glauben und in unserem eifer fortfahren, werden wir stets eine lösung finden. Wir dürfen uns nicht durch eine niederlage entmutigen lassen."
+    },
+    {
+        "ID": "DialogConfig_70003011_Context",
+        "Str": "(mit kalter stimme und drohungen) euer scheitern ist nur der anfang. Wenn sie sich weiterhin in unsere pläne einmischen, wird die zukunft schwieriger. Besser, sie stellen sich der kommenden herausforderung."
+    },
+    {
+        "ID": "DialogConfig_70003012_Context",
+        "Str": "Man gibt nicht auf, weil man gescheitert ist. Daraus werden wir die lehren ziehen und weiter ziehen. Wir werden so weitermachen, wie es für uns erforderlich ist, um die erfüllung unserer mission zu erreichen."
     },
     {
         "ID": "DialogConfig_70003013_Context",
@@ -2404,6 +2664,22 @@
         "Str": "Gut möglich"
     },
     {
+        "ID": "DialogConfig_80002003_Context",
+        "Str": "Markus und lian sehen: vielen dank für ihr verständnis. Wir werden alles tun, was wir können, um die welt zu verändern und um unsere opfer zu vermeiden. Jedenfalls hoffen wir, dass sich das bestätigt."
+    },
+    {
+        "ID": "DialogConfig_80002004_Context",
+        "Str": "Sitzend und lächelnd: es scheint, als könnten auch unsere gegner licht der hoffnung erblicken. Wir müssen ihre gegner nicht nur besiegen, sondern ihnen auch klarmachen, dass der einzige weg vorwärts in alle richtungen besteht. Jetzt arbeiten wir zusammen für die zukunft dieser welt."
+    },
+    {
+        "ID": "DialogConfig_80002005_Context",
+        "Str": "(nicken und erlösung) : dieser weg ist voller dornen, aber wenn wir unsere richtung gemeinsam finden, könnte die zukunft Anders aussehen. Wir können unsere differenzen für eine weile beilegen und gemeinsam unsere ziele erreichen."
+    },
+    {
+        "ID": "DialogConfig_80002006_Context",
+        "Str": "Tief einatmen, frieden erzielen: wir werden euch bei euren bemühungen unterstützen. Unsere zweifel bleiben vielleicht bestehen, aber sobald die saat der hoffnung gelegt wird, sind wir bereit, dafür zu kämpfen."
+    },
+    {
         "ID": "DialogConfig_80002007_Context",
         "Str": "(voller dankbarkeit) : ihre unterstützung bedeutet viel. Lassen sie uns die kommenden herausforderungen gemeinsam meistern und damit der vision entsprechen, die wir alle haben."
     },
@@ -2426,6 +2702,22 @@
     {
         "ID": "DialogConfig_80003003_Context",
         "Str": "(mit einem kalten lächeln im mund) : wie, kane? Ihre hoffnungen scheinen ein wenig brüchig zu sein. Und was wir realismus nennen, ist ihnen klar geworden."
+    },
+    {
+        "ID": "DialogConfig_80003004_Context",
+        "Str": "Hoch schauen, langsam angehen lassen: auch wenn wir verloren haben, bedeutet der misserfolg nicht, dass alles vorbei ist. Wir müssen die lehren daraus ziehen und unsere strategie überdenken."
+    },
+    {
+        "ID": "DialogConfig_80003005_Context",
+        "Str": "(fester blick, aber anstrengend) : ja, wir lernen aus dem misserfolg und modifizieren die pläne. Wir lassen uns nicht im stich."
+    },
+    {
+        "ID": "DialogConfig_80003006_Context",
+        "Str": "Immer tief einatmen, immer einen festen blick setzen: die folgen Von misserfolgen dürfen uns nicht entmutigen. Wir müssen uns auf die nächste herausforderung einstellen."
+    },
+    {
+        "ID": "DialogConfig_80003007_Context",
+        "Str": "(mit einem respektlosen lächeln im mund) : haha. Was ist mit mehr versagern? Dieser krieg ist noch lange nicht vorbei, da müsst ihr noch mehr tun."
     },
     {
         "ID": "DialogConfig_80003008_Context",
@@ -2460,6 +2752,18 @@
         "Str": "(nicken, blick fest) : wir werden alles tun, damit unser ziel nicht in gefahr gerät. Seien sie bereit für die härteste schlacht ihres lebens!"
     },
     {
+        "ID": "DialogConfig_90001006_Context",
+        "Str": "(lacht leise mit den waffen) : ihr selbstvertrauen zu hören, sollte uns auf die probe stellen. Bereitet euch auf unsere herausforderung vor, die heute euer schmerz sein wird."
+    },
+    {
+        "ID": "DialogConfig_90001007_Context",
+        "Str": "(lachen, schnelle blicke) : na dann, die schlacht geht los. Wir werden handeln und zeigen, wer die wahre bedrohung ist und wer die sieger sein wird."
+    },
+    {
+        "ID": "DialogConfig_90001008_Context",
+        "Str": "Schwierige kampfbereitschaft mit ruhiger stimme: die einzige möglichkeit, ein problem zu lösen, ist sie. Wir sind bereit, unsere kraft einzusetzen, um das ende der sache bestimmen zu können."
+    },
+    {
         "ID": "DialogConfig_90001009_Context",
         "Str": "(schritt vor: schnelle schritte mit scharfen augen) : wenn ihr euch nicht einig seid, dann lasst die schlacht beginnen. Wie auch immer das endet, wir werden uns heute durch taten beweisen."
     },
@@ -2484,6 +2788,22 @@
         "Str": "(mit nachdruck) : die gründe für das versagen müssen wir gründlich durchdenken. Der feind ist sicher mächtig, doch wir sind immer noch nicht perfekt. Es gilt, unsere strategien und taktiken zu überdenken."
     },
     {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(geballte fäuste, gefüllt mit wut in den augen) : das war nicht nur ein fehlschlag, sondern ein enormer vertrauensverlust. Wir dürfen uns nicht in einem unserer konflikte verlieren, sondern müssen eine lösung finden und uns auf die nächste herausforderung vorbereiten."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(tief einatmen, versuchen, die nerven zu beruhigen) : wir dürfen nicht zulassen, dass uns die niederlage heimkostet. Das heißt nicht, dass es vorbei ist. Wir lernen daraus, unseren plan zu ändern."
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(nicken und einen moment mit überzeugung in den augen) : ja, wir müssen die ruhe bewahren und jede einzelheit des kampfes analysieren. In diesem fall könnte es für uns eine gelegenheit sein, erwachsen zu werden und die dinge zu ändern, wenn wir uns genügend mühe geben."
+    },
+    {
+        "ID": "DialogConfig_90002009_Context",
+        "Str": "(tief atmen, versuchen, die emotionen zu beruhigen) : auch wenn es jetzt schwer ist, erinnert uns das daran, dass kampf nicht nur ein kampf der kraft, sondern auch ein kampf der weisheit und taktik ist. Wir müssen vorsichtiger sein und gut vorbereitet."
+    },
+    {
         "ID": "DialogConfig_90002010_Context",
         "Str": "(aufgestanden sein, blick hart schauen) : ja, wir lernen aus diesem misserfolg, unsere strategien anzupassen und unsere stärken zu stärken. Nächstes mal machen wir den gleichen fehler nicht. Wir haben noch immer klare ziele und wir machen weiter."
     },
@@ -2506,6 +2826,18 @@
     {
         "ID": "DialogConfig_90003003_Context",
         "Str": "Verletzte rufen den zorn Oder die enttäuschung hervor: der kampf hat unsere erwartungen übertroffen. Sie haben mehr macht, als wir dachten, und unsere aufklärung ist eindeutig gestört."
+    },
+    {
+        "ID": "DialogConfig_90003004_Context",
+        "Str": "(schwer, aber bestimmt) : wir haben nicht mit ihrer stärke gerechnet, und der misserfolg ist ein ernstes warnsignal. Wir müssen die ursachen dieses fehlschlags analysieren und herausfinden, was das problem ist."
+    },
+    {
+        "ID": "DialogConfig_90003005_Context",
+        "Str": "(blickt zum partner auf, steht fest in den augen) : wenn wir scheitern, darf es uns nicht entmutigen. Wir müssen die lehren daraus ziehen und unsere strategie überdenken."
+    },
+    {
+        "ID": "DialogConfig_90003006_Context",
+        "Str": "(beißen und versuchen, ruhig zu bleiben) : scheitern ist nicht das ende, sondern der anfang vom anfang. Wir müssen daraus lernen, damit wir es das nächste mal besser machen können."
     },
     {
         "ID": "DialogConfig_90003007_Context",
@@ -2540,6 +2872,22 @@
         "Str": "Da seh ich keinen grund: ich habe nicht vor, gegen euch zu kämpfen, aber wenn ihr unbedingt weiterziehen wollt, dann kann ich euch nur aufhalten. Sie müssen verstehen, dass die bedrohung hier viel größer ist, als sie denken."
     },
     {
+        "ID": "DialogConfig_100001005_Context",
+        "Str": "Hinter einem wort: wir haben uns entschieden, mira: Und wir marschieren weiter auch im angesicht des todes. Stoppen ist zwecklos. Unsere mission muss erfüllt werden."
+    },
+    {
+        "ID": "DialogConfig_100001006_Context",
+        "Str": "(mit kalter stille für noah und kane, mit ernstem ton) : wenn sie darauf bestehen, dann müssen wir handeln. Wir werden alles tun, um euch daran zu hindern, weiterzuziehen."
+    },
+    {
+        "ID": "DialogConfig_100001007_Context",
+        "Str": "Waffen bereithalten, nervös: ich tue, was ich kann, aber denkt daran: ich tu das zu eurer sicherheit. Wenn es eine andere möglichkeit gibt, bitte ich sie, sie aufzugeben."
+    },
+    {
+        "ID": "DialogConfig_100001008_Context",
+        "Str": "Hand in hand, entschlossenheit. Wir lassen uns nicht einschüchtern. Selbst du kannst unseren entschluss nicht aufhalten. Wir müssen allerdings bis zur erreichung unserer ziele weiterkämpfen."
+    },
+    {
         "ID": "DialogConfig_100001009_Context",
         "Str": "(wütend, neben mira) : wenn ihr nicht auf den rat hört, dann lasst uns versuchen, dieses problem zu lösen. Geben sie uns nicht die schuld. Wir wollen ihnen nur eine auszeit ersparen."
     },
@@ -2572,6 +2920,18 @@
         "Str": "(nicken und mit der stimme stärker werden) : wenn es möglich ist, einen unsichtbaren lord zu besiegen, sind wir bereit, mit euch zusammenzuarbeiten. Trotz der gewaltigen herausforderung dürfen wir die hoffnung nicht aufgeben."
     },
     {
+        "ID": "DialogConfig_100002007_Context",
+        "Str": "Mit ein bisschen mehr optimismus: die entscheidenden fragen werden beantwortet. Die bedrohung durch die leeren lords muss neutralisiert werden und wir müssen alle kraft in sie setzen."
+    },
+    {
+        "ID": "DialogConfig_100002008_Context",
+        "Str": "Halten die waffe in der hand zögern: wir sind bereit. Trotz der größe unseres feindes glauben wir, dass wir die leeren lords durch unser gemeinsames bemühen besiegen können."
+    },
+    {
+        "ID": "DialogConfig_100002009_Context",
+        "Str": "(tief einatmen, voller vertrauen) : kooperation ist der schlüssel zur lösung des problems. Jetzt müssen wir alle kräfte zusammentun, um zu gewinnen und um der zukunft dieser welt willen müssen wir die leeren lords bezwingen."
+    },
+    {
         "ID": "DialogConfig_100002010_Context",
         "Str": "(sie spricht mit mira) : tun wir es gemeinsam. Die bedrohung durch die leeren lords hat ein ende, und unsere einigkeit wird der schlüssel zum Sieg sein."
     },
@@ -2594,6 +2954,22 @@
     {
         "ID": "DialogConfig_100003004_Context",
         "Str": "Enttäuscht Von der oberfläche zu schauen und schwer zu sagen: wir haben alles getan, was wir konnten. Dennoch konnten wir die leeren lords nicht besiegen. Es wird nicht nur ein schock für uns sein, sondern ein test unserer überzeugung."
+    },
+    {
+        "ID": "DialogConfig_100003005_Context",
+        "Str": "(heftig dröhnt auf) : ich wünschte, ich hätte ihnen mehr helfen können, aber es scheint, als würden wir die macht der leeren laren immer noch unterschätzen. Wir müssen diese tatsache akzeptieren und neue lösungen finden."
+    },
+    {
+        "ID": "DialogConfig_100003006_Context",
+        "Str": "(zähne beißen, die stimmen zittern) : die niederlage hat uns gezeigt, wie viele schwächen wir gegenüber einem solchen feind haben. Wir müssen die lehren daraus ziehen und uns besser auf die nächste herausforderung vorbereiten."
+    },
+    {
+        "ID": "DialogConfig_100003007_Context",
+        "Str": "(ich versuche, mich zu beruhigen mit einem starken gefühl.) : auch wenn wir scheitern, bedeutet das nicht, dass es vorbei ist. Wir müssen die erfahrung sammeln, unsere strategie überdenken und einen weg finden, um die leeren lords zu besiegen."
+    },
+    {
+        "ID": "DialogConfig_100003008_Context",
+        "Str": "(der blick auf den partner mit einem funken entschlossenheit in den augen: wir lassen uns nicht entmutigen. Auch wenn es jetzt verzweifelt erscheint, müssen wir weiter nach einem Sieg suchen. Die zukunft der welt ist noch immer in unseren händen."
     },
     {
         "ID": "DialogConfig_100003009_Context",
@@ -2640,12 +3016,28 @@
         "Str": "(mit den waffen bewaffnet, mit entschlossenheit in den blick gefasst) : wir werden auch angesichts der konfrontation nicht zurückweichen. Wir kämpfen bis zum letzten atemzug für die zukunft dieser welt."
     },
     {
+        "ID": "DialogConfig_110001009_Context",
+        "Str": "(großer blick, tiefe stimme) : so lasst uns diesen kampf beginnen. Wir werden in unseren überzeugungen durch taten bestärkt."
+    },
+    {
+        "ID": "DialogConfig_110001010_Context",
+        "Str": "Bereitmachen zum kämpfen (resolut) : sie sind unvermeidlich, und sie sollten unsere einzige lösung der probleme werden, weil wir einander auf der entgegengesetzten seite stehen."
+    },
+    {
         "ID": "DialogConfig_110002001_Context",
         "Str": "Ihr habt gewonnen. Ihr habt die macht, die welt zu verändern, aber die welt verändert sich nicht unbedingt, wie man es will."
     },
     {
         "ID": "DialogConfig_110002002_Context",
         "Str": "Dir gehört die welt auch. Diese welt ist vielleicht schlecht, aber wenn du dein bestes tust, sie zu verändern, wird sie immer ein kleines bisschen Von dir beleuchtet werden, nicht wahr? Machen sie mit. Wir brauchen ihre kraft."
+    },
+    {
+        "ID": "DialogConfig_110002003_Context",
+        "Str": "(schaut elinas hand an, mit ein wenig zweifel und frustration) : eure ideale sind schön, aber die wirklichkeit ist oft grausamer als die ziele. Aber selbst wenn wir uns euch anschließen, wird der wandel nicht so einfach sein und noch mehr herausforderungen mit sich bringen."
+    },
+    {
+        "ID": "DialogConfig_110002004_Context",
+        "Str": "(sie schaut ryan mit hoffnung an) : wir müssen uns den neuen herausforderungen stellen und sie überwinden. Ihre erfahrung und ihre stärke sind uns Von entscheidender bedeutung. Wir können die welt tatsächlich zu einem besseren ort machen, wenn wir alle zusammenhalten."
     },
     {
         "ID": "DialogConfig_110002005_Context",
@@ -2666,6 +3058,18 @@
     {
         "ID": "DialogConfig_110002009_Context",
         "Str": "(lächeln, wertschätzung in den augen) : danke, ryan. Euer beitritt ist nicht nur unsere kraft, sondern auch unsere gemeinsame hoffnung. Dann machen wir es gemeinsam und kämpfen wir für eine bessere zukunft."
+    },
+    {
+        "ID": "DialogConfig_110002010_Context",
+        "Str": "(nicken, mit nachdruck) : willkommen im team. Unser ziel ist weiterhin klar, und wir werden gemeinsam handeln und alles für die zukunft der welt tun."
+    },
+    {
+        "ID": "DialogConfig_110002011_Context",
+        "Str": "(lächeln, tonfall voll vertrauen) : machen wir es gemeinsam. Durch unsere gemeinsamen bemühungen werden wir die welt zum besseren wenden können."
+    },
+    {
+        "ID": "DialogConfig_110002012_Context",
+        "Str": "Lasst uns ein neues kapitel anschlagen. Der weg ist zwar steinig, aber gemeinsam können wir der zukunft entgegenblicken."
     },
     {
         "ID": "DialogConfig_110003001_Context",
@@ -2690,6 +3094,22 @@
     {
         "ID": "DialogConfig_110003006_Context",
         "Str": "Tränen Kamen, die stimme zitterte: trotz aller bemühungen war das endergebnis so enttäuschend. Das hat uns gezeigt, dass der weg, die welt zu verändern, viel schwieriger war, als wir dachten."
+    },
+    {
+        "ID": "DialogConfig_110003007_Context",
+        "Str": "(ein seufzer, voller gefühl) : alles, was wir durchmachen, hilft uns, die komplexität der welt besser zu verstehen. Auch wenn unsere bemühungen scheitern, müssen wir die realität akzeptieren und darüber nachdenken, wie wir weitermachen können."
+    },
+    {
+        "ID": "DialogConfig_110003008_Context",
+        "Str": "(feste faust, fester ton) : auch wenn wir scheitern, darf man die hoffnung nicht aufgeben. Wir müssen die lehren daraus ziehen, unsere strategien erneut überdenken und uns auf die neue herausforderung einstellen."
+    },
+    {
+        "ID": "DialogConfig_110003009_Context",
+        "Str": "(tief einatmen, schwer) : scheitern hat uns zwar traurig gemacht, aber wir können es nicht einfach dabei belassen. Die welt braucht uns noch immer."
+    },
+    {
+        "ID": "DialogConfig_110003010_Context",
+        "Str": "(nicken, möglichst versuchen, die fassung zu bewahren) : wir werden aus dem misserfolg lernen und unsere pläne anpassen. So schmerzhaft es jetzt auch ist, wir müssen weiter daran glauben und uns dem Sieg zuwenden."
     },
     {
         "ID": "DialogConfig_110003011_Context",
@@ -2740,6 +3160,22 @@
         "Str": "(mit kalten drohungen) : euer bemühen mag vergeblich sein. Niemand ist gegen seine herrschaft machtlos, und jeder widerstand wird zugrunde gehen."
     },
     {
+        "ID": "DialogConfig_120001012_Context",
+        "Str": "Entschlossenheit und zielstrebigkeit: egal wie stark der gegner ist, wir werden nicht aufgeben. Jetzt müssen wir alle kräfte bündeln, die elemente finden und zurückschlagen. Die zukunft der welt hängt Von uns ab."
+    },
+    {
+        "ID": "DialogConfig_120001013_Context",
+        "Str": "(nicken und mit nachdruck) : wir werden unser bestes geben, und wir werden unabhängig Von den möglichen herausforderungen nicht zurückweichen. Um die welt zu retten, müssen wir zusammenhalten, um den kommenden kampf zu überstehen."
+    },
+    {
+        "ID": "DialogConfig_120001014_Context",
+        "Str": "(öffnen sie bücher, suchen sie nach hinweisen) : ich suche nach mehr informationen über die macht der elemente, um ihnen bei der planung zu helfen. Wir müssen alle ressourcen in vollem umfang nutzen, um die Lage entschärfen zu können."
+    },
+    {
+        "ID": "DialogConfig_120001015_Context",
+        "Str": "14.) bereitschaft zum handeln, entschlossenheit in den augen) : lass uns schnell handeln und bündeln. Selbst vor dem erbittertsten feind tun wir alles, was wir können, um die zukunft dieser welt zu sichern."
+    },
+    {
         "ID": "DialogConfig_120002001_Context",
         "Str": "Dafür ist keine zeit mehr. Du gewinnst mich."
     },
@@ -2764,6 +3200,18 @@
         "Str": "(tief seufzt, mit einem atemzug voller erleichterung) : sie haben mut und entschlossenheit gezeigt. Ich weiß, dass das alles nutzlos sein kann, aber ich hoffe, ihr findet die hoffnung und die kraft, die ihr braucht."
     },
     {
+        "ID": "DialogConfig_120002007_Context",
+        "Str": "(resolute nicken, glaubensvoll) : wir bewegen uns trotz aller schwierigkeiten weiter. Ihre hindernisse sind stärker, aber unsere überzeugung stärker. Und dabei bleiben wir nie stehen."
+    },
+    {
+        "ID": "DialogConfig_120002008_Context",
+        "Str": "(lächeln, wertschätzung in den augen) : vielen dank, dass sie uns diese chance gegeben haben. Auch wenn es unwahrscheinlich ist, werden wir unser bestes geben. Jeder moment des kampfes ist ein beweis dafür, dass wir nicht aufgeben."
+    },
+    {
+        "ID": "DialogConfig_120002009_Context",
+        "Str": "(ein buch geschlossen, eine hoffnung im ton) : wir werden alle verfügbaren kenntnisse und kraft nutzen, um das schicksal der welt zu ändern. Der weg, der vor uns liegt, ist zwar schwierig, doch wir haben keine wahl."
+    },
+    {
         "ID": "DialogConfig_120002010_Context",
         "Str": "Danke schön, dass ihr standhaft seid. Wir werden für die zukunft dieser welt, für alles, was uns lieb und teuer ist, kämpfen."
     },
@@ -2786,6 +3234,22 @@
     {
         "ID": "DialogConfig_120003004_Context",
         "Str": "(im text des buches sturheit ist deutlich zu erkennen, dass wir die bedrohung durch eitelkeit unterschätzt haben.) Auch wenn die existenz der elementarkraft ein hoffnungsschimmer für uns ist, reicht sie doch offensichtlich nicht aus, um dieser gewaltigen macht entgegenzutreten."
+    },
+    {
+        "ID": "DialogConfig_120003005_Context",
+        "Str": "Enttäuscht schauen wir uns den anderen an, aber das endergebnis war ein fehlschlag. So gerne wir es auch ablehnen, die realität ist einfach."
+    },
+    {
+        "ID": "DialogConfig_120003006_Context",
+        "Str": "Mit einem atemzug voller verachtung: euer scheitern hat es bewiesen. Unsere mühesame macht lässt sich nicht durchbrechen, euer bemühen ist zu einem fruchtlosen kampf geworden."
+    },
+    {
+        "ID": "DialogConfig_120003007_Context",
+        "Str": "(hebt bereits ein wenig fester hervor) : wir werden nicht leicht aufgeben, selbst wenn wir scheitern. Die zukunft dieser welt liegt noch in unseren händen und wir werden weiter nach alternativen lösungen suchen."
+    },
+    {
+        "ID": "DialogConfig_120003008_Context",
+        "Str": "(tränen, zittern im auge) : selbst vor der niederlage macht uns dieses erlebnis umso mehr bewusst, wie kompliziert die welt ist. Wir müssen aus dem misserfolg lernen, neue hoffnung schöpfen und neue wege finden."
     },
     {
         "ID": "DialogConfig_120003009_Context",
@@ -2820,6 +3284,22 @@
         "Str": "Sie ist mein zeuge."
     },
     {
+        "ID": "DialogConfig_130001004_Context",
+        "Str": "(neben noah mit einer entschlossenheit im ton) : wir werden nicht so schnell zurückweichen, auch wenn du stark bist. Wir sind bereit, dich zu bedrohen, koste es, was es wolle."
+    },
+    {
+        "ID": "DialogConfig_130001005_Context",
+        "Str": "\"Loslegen, informationen suchen, ton halten\" : quintons macht macht angst, aber wir können nicht aufgeben. Die kombination der elemente kann der nonchalanz widerstehen, und wir brauchen alle verfügbaren ressourcen."
+    },
+    {
+        "ID": "DialogConfig_130001006_Context",
+        "Str": "(waffe hält die augen fest) : so stark diese waffe auch sein mag, wir können nicht zulassen, dass sie die welt weiter bedroht. Wir werden alles in unserer macht stehende tun, um ihn zu bekämpfen."
+    },
+    {
+        "ID": "DialogConfig_130001007_Context",
+        "Str": "(lachen, mit ironie im tonfall) : eure entschlossenheit ist bewundernswert, aber vor dem nichts wird alles unbedeutend. Mal sehen, ob ihr mit eurem \"ganzen herzen\" meine kraft vernichten könnt."
+    },
+    {
         "ID": "DialogConfig_130001008_Context",
         "Str": "(ruhige augen, mit fester stimme) : auch wenn wir stark sind, lassen wir nicht zurück. Das schicksal dieser welt liegt in unseren händen, und wir werden nicht zulassen, dass ihr es weiter vermasselt."
     },
@@ -2840,12 +3320,24 @@
         "Str": "(ein gelächter löst eine drohung aus) : los, versucht doch mal, ob eure bemühungen das ende ändern. Als zeuge werde ich euer versagen und euer nichtsieg bezeugen."
     },
     {
+        "ID": "DialogConfig_130001013_Context",
+        "Str": "(ein bisschen lachen, mit festen augen) : ganz gleich, wie stark du auch bist, wir werden ihn mit allen kräften bekämpfen. Wir werden für die welt alle schwierigkeiten überwinden und zum endgültigen Sieg gelangen."
+    },
+    {
         "ID": "DialogConfig_130002001_Context",
         "Str": "Unglaublich, dass es in dieser zeit noch jemanden gibt, der mich abzockt."
     },
     {
         "ID": "DialogConfig_130002002_Context",
         "Str": "Hast du noch nie den satz gehört: \"ein kleiner wurm ist was mit einem wurm\"?"
+    },
+    {
+        "ID": "DialogConfig_130002003_Context",
+        "Str": "Kopfschütteln, mit schockierende entsetzen im gesicht: ihr habt es tatsächlich geschafft! Ich bin überrascht, sie mit einem haufen Eure macht wird Siegen. Die mir den schritt vermiesen."
+    },
+    {
+        "ID": "DialogConfig_130002004_Context",
+        "Str": "Schritt vor mit triumph: endlich haben wir es geschafft! Trotz eures mächtigen feindes haben uns unsere einigkeit und unsere entschlossenheit den Sieg über alles gegeben."
     },
     {
         "ID": "DialogConfig_130002005_Context",
@@ -2866,6 +3358,22 @@
     {
         "ID": "DialogConfig_130002009_Context",
         "Str": "(ton: dankbarkeit und entschlossenheit) : wir haben aus fehlschlägen gelernt, und der Sieg heute gehört jedem, der sich auf seinen kampf einstellte. Unsere arbeit fängt gerade erst an."
+    },
+    {
+        "ID": "DialogConfig_130002010_Context",
+        "Str": "(nicken, hoffnung im ton) : quintons niederlage hat gezeigt, dass wir alle schwierigkeiten überwinden können, wenn wir uns einig sind. Der weg liegt noch weit vor uns, aber wir sind zuversichtlich."
+    },
+    {
+        "ID": "DialogConfig_130002011_Context",
+        "Str": "(schritt nach vorne mit fester stimme) : dies ist unser Sieg, aber auch ein neuanfang Wir gehen voran und verteidigen weiterhin frieden und stabilität in dieser welt."
+    },
+    {
+        "ID": "DialogConfig_130002012_Context",
+        "Str": "(ein bisschen respekt im letzten blick!) : ihre ausdauer und ihr mut haben mich beeindruckt. Trotz meines versagens muss ich doch eingestehen, dass eure stärke und entschlossenheit bewundernswert sind."
+    },
+    {
+        "ID": "DialogConfig_130002013_Context",
+        "Str": "(lächeln, mit überzeugung) : vielen dank für ihre zustimmung. Wir werden weiter für die zukunft dieser welt kämpfen und keine dunkelheit mehr zulassen."
     },
     {
         "ID": "DialogConfig_130003001_Context",
@@ -2890,6 +3398,22 @@
     {
         "ID": "DialogConfig_130003006_Context",
         "Str": "(glücklich lächeln, aber ironisch) : ihr habt euch wirklich angestrengt. Selbst mit einer maßvollen anstrengung wird das schicksal nicht ändern. Die macht des nichts ist nicht mehr aufzuhalten."
+    },
+    {
+        "ID": "DialogConfig_130003007_Context",
+        "Str": "Der schweinehund mit fester überzeugung in den augen: scheitern wir, geben wir nicht auf. Auch wenn wir derzeit nichts daran ändern können, werden wir weiter nach lösungen suchen."
+    },
+    {
+        "ID": "DialogConfig_130003008_Context",
+        "Str": "(die stimmen zittern, vor lauter trauer) : die trauer über unseren fehlschlag ist tief. Aber wir müssen immer noch daraus lernen, damit wir neue hoffnung für die zukunft finden."
+    },
+    {
+        "ID": "DialogConfig_130003009_Context",
+        "Str": "(menge wehen) : auch wenn wir gescheitert sind, können wir nicht einfach aufgeben. Die macht des nichts ist groß, aber wir müssen weiter nach lösungen suchen."
+    },
+    {
+        "ID": "DialogConfig_130003010_Context",
+        "Str": "Tiefe atemzüge mit entschlossenheit: auch wenn wir jetzt scheitern, müssen wir weitergehen. Die vor uns liegenden herausforderungen sind immer noch da, und wir können uns Von ihnen nicht einschüchtern lassen."
     },
     {
         "ID": "DialogConfig_130003011_Context",
@@ -2974,5 +3498,29 @@
     {
         "ID": "DialogConfig_200002008_Context",
         "Str": "Wir müssen vorsichtig sein. Diesmal begleite ich euch persönlich zu den sternen in den wald. Wir müssen ihren wahren zweck verstehen und dieser bedrohung so bald wie möglich begegnen."
+    },
+    {
+        "ID": "DialogConfig_200002009_Context",
+        "Str": "Ganz meiner meinung. Es ist klug, sich frühzeitig vorzubereiten."
+    },
+    {
+        "ID": "DialogConfig_200002010_Context",
+        "Str": "Dann schwärmt aus. Wir müssen dafür sorgen, dass diesmal keine unfälle mehr passieren und die angelegenheit endgültig geklärt wird."
+    },
+    {
+        "ID": "DialogConfig_200002011_Context",
+        "Str": "Wir ziehen los, sobald alle vorbereitungen getroffen sind. Vielleicht erfahren wir diesmal die wahrheit und drohen damit, alle zu vernichten."
+    },
+    {
+        "ID": "FightTipsPanel_Desc",
+        "Str": "Der neustart verliert sämtliche einträge der kontrollstufe. Erneut startet man?"
+    },
+    {
+        "ID": "SettingsPanel_Off",
+        "Str": "zumachen"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "öffnen"
     }
 ]

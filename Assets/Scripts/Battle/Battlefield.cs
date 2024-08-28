@@ -390,7 +390,10 @@ namespace WarGame
 
         public void RightClickBegin(GameObject obj)
         {
-            //DebugManager.Instance.Log("RIghtClickBegin");
+            DebugManager.Instance.Log("RIghtClickBegin");
+            if (_isLockingCamera)
+                return;
+
             var tag = obj.tag;
             if (tag == Enum.Tag.Hero.ToString() || tag == Enum.Tag.Enemy.ToString())
             {
@@ -405,7 +408,7 @@ namespace WarGame
 
         public void RightClickEnd()
         {
-            //DebugManager.Instance.Log("RIghtClickEnd");
+            DebugManager.Instance.Log("RightClickEnd");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_RoleInfo);
             if (_isLockingCamera)
             {

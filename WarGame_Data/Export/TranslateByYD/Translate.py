@@ -46,7 +46,8 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     row_index = 1
     total_rows = worksheet.nrows - 1  # 总行数，减去标题行
     while(row_index <= total_rows):
-        # print(f"{worksheet.cell_value(row_index, 0)}: {worksheet.cell_value(row_index, 2)}")
+        # if worksheet.cell_value(row_index, 2) == True:
+            # print(f"{worksheet.cell_value(row_index, 0)}: {worksheet.cell_value(row_index, 2)}")
         srcDict[worksheet.cell_value(row_index, 0)] = {'value':worksheet.cell_value(row_index, 1), 'dirty': worksheet.cell_value(row_index, 2)}
         row_index = row_index + 1
 
@@ -77,12 +78,13 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
         row_index = 1
         total_rows = len(srcDict)
         for key, value in srcDict.items():
-            if value['dirty'] == 'true' or not destDict.__contains__(key):
+            if value['dirty'] or not destDict.__contains__(key):
                 updateArray.append(key)
             else:
                 newWorksheet.write(row_index, 0, key)
                 newWorksheet.write(row_index, 1, destDict[key]['value'])
                 row_index = row_index + 1
+        # print(len(updateArray))
         
         count = 0
         total_rows = len(updateArray)

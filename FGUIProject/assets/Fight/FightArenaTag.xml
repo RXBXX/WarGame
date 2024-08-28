@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="320,100" overflow="hidden" opaque="false" extention="Button">
+<component size="264,74" overflow="hidden" opaque="false" extention="Button">
   <displayList>
-    <graph id="n1_ru2x" name="n1" xy="0,0" size="320,100" type="rect" lineSize="0" fillColor="#ffce4a35"/>
-    <text id="n2_ru2x" name="title" xy="35,10" size="249,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Vercital Hit"/>
+    <graph id="n1_ru2x" name="n1" xy="0,0" size="264,74" type="rect" lineSize="0" fillColor="#ffce4a35">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n2_ru2x" name="title" xy="18,0" size="232,74" font="ui://hd0z4dz5omu90" fontSize="56" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Vercital Hit"/>
   </displayList>
   <Button/>
+  <relation target="n2_ru2x" sidePair="rightext-right"/>
 </component>

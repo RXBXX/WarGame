@@ -888,6 +888,10 @@
         "Str": "Alcance do ataque"
     },
     {
+        "ID": "AttrConfig_18_Name",
+        "Str": "Liderança em"
+    },
+    {
         "ID": "ElementConfig_1_Name",
         "Str": "king"
     },
@@ -1234,14 +1238,6 @@
     {
         "ID": "SettingsPanel_BattlePerformance",
         "Str": "Show de batalha"
-    },
-    {
-        "ID": "SettingsPanel_Off",
-        "Str": "fechada"
-    },
-    {
-        "ID": "SettingsPanel_On",
-        "Str": "abrir"
     },
     {
         "ID": "SettingsPanel_TextLanguage",
@@ -1752,6 +1748,18 @@
         "Str": "Parece que o problema está a tornar-se cada vez mais complicado."
     },
     {
+        "ID": "DialogConfig_10002005_Context",
+        "Str": "Sim, o surgimento das forças das trevas pode significar uma crise maior, e devemos ser mais cuidadosos. Um sábio pode ser capaz de fornecer algumas pistas-chave ou orientações."
+    },
+    {
+        "ID": "DialogConfig_10002006_Context",
+        "Str": "Eu concordo. Temos de ser mais cuidadosos em cada passo que damos. Esperemos que os sábios nos ajudem a entender a origem e o propósito desses poderes das trevas."
+    },
+    {
+        "ID": "DialogConfig_10002007_Context",
+        "Str": "Vamos nos apressar. Quanto mais cedo o sábio for encontrado, mais cedo resolveremos o problema."
+    },
+    {
         "ID": "DialogConfig_10002008_Context",
         "Str": "Ok, vamos embora imediatamente. Espero que, desta vez, os sábios nos dêem orientações claras que nos ajudem a resolver estes problemas."
     },
@@ -1828,6 +1836,18 @@
         "Str": "(respirem fundo e tentem organizar a linguagem) desta vez, eles não atacaram apenas a floresta da lua estrelada, mas também a cidade da água. A situação não é otimista e é provável que outras cidades estejam dentro dos seus planos. Temos de lutar contra o relógio e definir uma estratégia de resposta o mais rapidamente possível."
     },
     {
+        "ID": "DialogConfig_20002007_Context",
+        "Str": "(aceno com a cabeça, expressão firme) o objetivo agora não é apenas defender, mas também enfraquecer o inimigo o mais possível antes que ele se desenvolva completamente. A cidade da água é um ponto estratégico e não devemos permitir que caia nas mãos do inimigo."
+    },
+    {
+        "ID": "DialogConfig_20002008_Context",
+        "Str": "Precisamos distribuir recursos rapidamente, com uma divisão clara do trabalho. Alia, você e eu vamos para a cidade da água para organizar imediatamente a defesa e investigar os planos do inimigo. Velho sábio e calvin, fiquem aqui para manter a floresta da lua-estrela segura, enquanto obtêm o máximo de inteligência possível sobre o inimigo."
+    },
+    {
+        "ID": "DialogConfig_20002009_Context",
+        "Str": "(aceno com a cabeça e alguma hesitação) entendi. Temos que ter certeza de que todas as operações estão sob controle e minimizar os danos do inimigo antes que ele realmente comece. Enquanto isso, vou tentar encontrar pistas sobre o elemento de madeira, se necessário."
+    },
+    {
         "ID": "DialogConfig_20002010_Context",
         "Str": "Agir rapidamente, não temos tempo a perder. Noé, simon, mantenham esta floresta segura. Sua tarefa, calvin, também é muito importante. Todos precisamos cooperar e apoiar uns aos outros."
     },
@@ -1852,6 +1872,22 @@
         "Str": "É verdade que subestimamos a força do inimigo, mas este não é o momento para nos culparmos. É preciso recuperar o mais rapidamente possível, reorganizar as linhas e minimizar os danos causados pelo inimigo."
     },
     {
+        "ID": "DialogConfig_20003004_Context",
+        "Str": "A ofensiva do inimigo é muito mais violenta do que imaginávamos. A sua estratégia é aparentemente muito meticulosa, o que talvez tenha a ver com o estado do elemento muzhi. A nossa linha defensiva não estava suficientemente preparada e o inimigo aproveitou as nossas lacunas."
+    },
+    {
+        "ID": "DialogConfig_20003005_Context",
+        "Str": "(bate no chão com raiva, rouca) foi uma lição muito dura. Temos sérios problemas na avaliação do inimigo, e temos de encontrar as causas fundamentais desta derrota. Esta situação não pode repetir-se."
+    },
+    {
+        "ID": "DialogConfig_20003006_Context",
+        "Str": "(olhar para cima, pálido) as nossas tropas também sofreram grandes perdas e o moral sofreu um grande golpe. Agora é preciso não só reconstruir a linha defensiva, mas também acalmar os corações. O tempo perdido e os guerreiros não podem ser facilmente compensados, mas temos de nos animar."
+    },
+    {
+        "ID": "DialogConfig_20003007_Context",
+        "Str": "(aproxime-se do simon e toque-lhe no ombro) temos de rever a estratégia anterior e descobrir onde está a falha. O inimigo demonstrou o seu poder e não podemos deixar-nos levar pelas suas artimanhas."
+    },
+    {
         "ID": "DialogConfig_20003008_Context",
         "Str": "Precisamos de uma análise detalhada do pós-guerra imediatamente. Os inimigos aproveitaram nossas falhas de defesa, especialmente depois que o elemento kinomiya foi extraído e nossa força foi muito reduzida. Trata-se de um enorme problema, para o qual temos de encontrar uma solução."
     },
@@ -1870,6 +1906,10 @@
     {
         "ID": "DialogConfig_20003012_Context",
         "Str": "Também precisamos reavaliar as estratégias e os planos de ação do inimigo, especialmente como eles exploram nossas fraquezas. O processo pode ser difícil, mas só com uma compreensão completa das intenções do inimigo podemos lutar eficazmente."
+    },
+    {
+        "ID": "DialogConfig_20003013_Context",
+        "Str": "(olhos firmes, voz com firme determinação) vamos sair deste fracasso. Apesar dos enormes desafios que enfrentamos desta vez, não vamos de modo algum recuar perante isso. Este é o momento da recuperação, e temos de enfrentar as batalhas que se seguem com uma postura mais forte."
     },
     {
         "ID": "DialogConfig_30001001_Context",
@@ -1908,6 +1948,14 @@
         "Str": "A alia tem razão. A julgar pelo que aconteceu na floresta da lua estrelada, o inimigo não vai ficar com este lote. Vamos nos apressar."
     },
     {
+        "ID": "DialogConfig_30002004_Context",
+        "Str": "Temos de encontrar o alvo e a força principal do inimigo o mais rapidamente possível. Watertown pode estar em perigo. Temos de nos apressar até watertown para impedir o próximo passo do inimigo."
+    },
+    {
+        "ID": "DialogConfig_30002005_Context",
+        "Str": "(acenando com a cabeça para a alia e o simon). Não vamos deixar que estes tipos consigam. Prossigam, assegurem-se de que as nossas operações não sejam interrompidas, localizem as forças principais do inimigo e combatam os seus planos."
+    },
+    {
         "ID": "DialogConfig_30002006_Context",
         "Str": "Temos de sair daqui o mais rápido possível. O inimigo pode ter percecionado o nosso paradeiro. Fique alerta e nunca mais cometa nenhum erro."
     },
@@ -1932,6 +1980,22 @@
         "Str": "(senta-te, inclina-te) pensávamos que podíamos resolver os problemas com coragem e força, mas é óbvio que o inimigo não só tinha um exército poderoso, mas também um plano muito mais elaborado. Agora temos de identificar as causas profundas do fracasso."
     },
     {
+        "ID": "DialogConfig_30003004_Context",
+        "Str": "[olhar digno, folhear os registos de batalha] o inimigo está claramente preparado, e subestimamos as suas capacidades e estratégias. Os seus ataques à floresta da lua estrelada e à cidade da água mostram como os seus planos são sofisticados. A razão desta derrota não reside apenas na nossa táctica, mas também na falta de inteligência sobre o inimigo."
+    },
+    {
+        "ID": "DialogConfig_30003005_Context",
+        "Str": "(apertando os punhos com raiva) estamos todos errados! Se tivéssemos descoberto mais cedo as verdadeiras intenções do inimigo, talvez o resultado tivesse sido diferente. Agora temos de encontrar uma forma de reparar os danos e não permitir que este fracasso continue a arrastar-nos."
+    },
+    {
+        "ID": "DialogConfig_30003006_Context",
+        "Str": "(tom firme) embora o fracasso seja doloroso, temos de aprender com ele. Primeiro, reexaminaremos os padrões de ação do inimigo e identificaremos suas fraquezas. Em seguida, reunir rapidamente os recursos e preparar-se para a próxima batalha."
+    },
+    {
+        "ID": "DialogConfig_30003007_Context",
+        "Str": "(levantem-se, olhar firme) também precisamos de contactar as cidades sobreviventes e os nossos aliados o mais rapidamente possível, para nos assegurarmos de que compreendem a nossa situação e estejam prontos para uma maior defesa. O inimigo não pode continuar a ter nada a ganhar."
+    },
+    {
         "ID": "DialogConfig_30003008_Context",
         "Str": "(aceno, olhar sério) a situação do elemento de madeira também precisa de ser resolvida imediatamente. O inimigo pode saber o seu valor e usá-lo. Devemos reparar ou recuperar o elemento de madeira o mais rápido possível para nos fortalecer."
     },
@@ -1950,6 +2014,10 @@
     {
         "ID": "DialogConfig_30003012_Context",
         "Str": "(respire fundo, tom calmo) apesar de termos sofrido um grande revés desta vez, se estivermos bem preparados e aprendermos as lições, certamente seremos capazes de reverter a situação. A chave é manter a calma e recuperar gradualmente a nossa vantagem."
+    },
+    {
+        "ID": "DialogConfig_30003013_Context",
+        "Str": "Não podemos deixar-nos vencer por este fracasso e temos de nos levantar para enfrentar os desafios que nos esperam. Vamos reorganizar nossas ideias, alinhar nossas estratégias e trabalhar juntos para vencer na próxima operação!"
     },
     {
         "ID": "DialogConfig_40001001_Context",
@@ -1996,6 +2064,18 @@
         "Str": "Então, vamos."
     },
     {
+        "ID": "DialogConfig_40001012_Context",
+        "Str": "(risos com um pouco de desdém, seguido de uma postura de luta) sendo assim, vamos ver quem é o vencedor final. Pronto para o desafio?"
+    },
+    {
+        "ID": "DialogConfig_40001013_Context",
+        "Str": "L simon :(olhando de lado para noé, cheio de determinação nos olhos) temos que ir com todas as nossas forças, independentemente dos motivos do inimigo, aqui deve ser mantido. Todos, preparem-se!"
+    },
+    {
+        "ID": "DialogConfig_40001014_Context",
+        "Str": "(segure a arma, olhe com cuidado para se proteger. O inimigo pode ter mais intrigas e meios. Temos de estar bem preparados para garantir que esta batalha não nos coloque numa situação ainda mais difícil."
+    },
+    {
         "ID": "DialogConfig_40001015_Context",
         "Str": "(respire fundo, a voz está cheia de firmeza) ok, vamos. Não nos recuaremos, sejam quais forem as dificuldades enfrentadas. Vamos descobrir a verdade na batalha e proteger a nossa casa!"
     },
@@ -2024,6 +2104,18 @@
         "Str": "(olhe ao redor, tom calmo) temos de examinar o campo de batalha e as redondezas para garantir que não restam mais inimigos. Embora tenhamos vencido a batalha, não podemos baixar a guarda. O inimigo pode vir a seguir."
     },
     {
+        "ID": "DialogConfig_40002007_Context",
+        "Str": "(acene com a cabeça, comande a equipa rapidamente) separem-se e assegurem-se de que não faltam inimigos ou perigos ocultos. Especialmente no que se refere à situação em watertown, temos de verificar imediatamente a sua segurança."
+    },
+    {
+        "ID": "DialogConfig_40002008_Context",
+        "Str": "(voltando-se para fane, com determinação) os vossos planos foram completamente destruídos. Agora, você enfrentará um julgamento justo. Vamos colocá-lo à disposição das autoridades para que você pague pelos seus crimes."
+    },
+    {
+        "ID": "DialogConfig_40002009_Context",
+        "Str": "(ranger de dentes e olhos de fúria) e vos arrependereis. Vocês pensam que ganharam, mas o verdadeiro teste está apenas começando. Nós vamos fazer com que você pague."
+    },
+    {
         "ID": "DialogConfig_40002010_Context",
         "Str": "(um momento de reflexão, um tom firme) embora tenhamos vencido desta vez, precisamos também resumir as experiências e as lições desta batalha. É evidente que o inimigo é muito perigoso e temos de reforçar a nossa preparação para eventuais ameaças futuras."
     },
@@ -2044,8 +2136,24 @@
         "Str": "(sorrindo, falando com firmeza) esta vitória nos dá confiança, mas o verdadeiro desafio está pela frente. Tomemos esta vitória como motivação e sigamos em frente, pelo bem da nossa pátria e de todos!"
     },
     {
+        "ID": "DialogConfig_40002015_Context",
+        "Str": "(um pequeno sorriso, um brilho de esperança nos olhos) vamos trabalhar juntos, continuar lutando, para proteger tudo o que valorizamos. A vitória é apenas o começo e o caminho pela frente ainda é desafiador, mas certamente seremos capazes de superar todas as dificuldades."
+    },
+    {
         "ID": "DialogConfig_40003001_Context",
         "Str": "Ainda somos muito fracos!"
+    },
+    {
+        "ID": "DialogConfig_40003002_Context",
+        "Str": "(suspiro profundo e dor nos olhos) pensávamos que podíamos resolver os problemas com a nossa força e estratégia, mas a realidade é tão cruel. O plano inimigo não é apenas complicado, é excepcionalmente eficaz."
+    },
+    {
+        "ID": "DialogConfig_40003003_Context",
+        "Str": "(sentado no chão, com um olhar deprimido e um tom baixo) é lamentável. O nosso plano falhou completamente e perdemos muitos combatentes. O inimigo parecia ter compreendido as leis de nossas ações e levado a este fiasco."
+    },
+    {
+        "ID": "DialogConfig_40003004_Context",
+        "Str": "(de pé à distância, olhando para eles friamente, com um toque de zombaria no tom) lol, parece que a vossa resistência ainda é muito fraca. Mesmo que façam o melhor que podem, é em vão. O verdadeiro desafio está pela frente."
     },
     {
         "ID": "DialogConfig_40003005_Context",
@@ -2066,6 +2174,22 @@
     {
         "ID": "DialogConfig_40003009_Context",
         "Str": "(acalme-se, aperte os dentes) por doloroso que seja este fracasso, temos de pensar com calma. Temos de reintegrar as nossas forças e adaptar as nossas estratégias para enfrentar os possíveis desafios futuros."
+    },
+    {
+        "ID": "DialogConfig_40003010_Context",
+        "Str": "(o tom está cheio de determinação) precisamos também de examinar completamente as lacunas da batalha e descobrir a causa raiz do fracasso. O padrão de ação do inimigo já representa uma séria ameaça às nossas linhas de defesa e devemos fortalecer nossas capacidades de defesa."
+    },
+    {
+        "ID": "DialogConfig_40003011_Context",
+        "Str": "(aceno com a cabeça e tenacidade no tom) por mais pesado que seja este fracasso, temos de manter a calma. O mais importante agora é reparar os danos e reorganizar as equipes para garantir que possamos jogar o melhor possível nas próximas batalhas."
+    },
+    {
+        "ID": "DialogConfig_40003012_Context",
+        "Str": "(respire fundo, os olhos brilham de firmeza) não seremos esmagados por este fracasso. Temos de seguir em frente, descobrir as verdadeiras intenções do inimigo e impedir que ele avance. Temos a certeza de que seremos capazes de recuperar deste fracasso e de o fazer melhor."
+    },
+    {
+        "ID": "DialogConfig_40003013_Context",
+        "Str": "(olhar firme, tom confiante) devemos usar este fracasso como um impulso para avançar, aprender lições e ajustar a nossa estratégia. O nosso objectivo é proteger a nossa casa e temos de ser inabaláveis, independentemente dos desafios que enfrentamos."
     },
     {
         "ID": "DialogConfig_40003014_Context",
@@ -2108,6 +2232,18 @@
         "Str": "(olhar para a alina com indiferença, com os cantos da boca ligeiramente afiados) reduzir os danos? Na verdadeira batalha, são apenas boas intenções. Quem consegue manter a calma no caos e controlar a situação é o verdadeiro vencedor. Vocês estão prontos para o desafio!"
     },
     {
+        "ID": "DialogConfig_50001009_Context",
+        "Str": "(aceno firme com a cabeça, tom cheio de determinação) sim, não recuamos, por mais forte que seja o inimigo. Por nossos objetivos, lutaremos com o máximo de energia até o último momento."
+    },
+    {
+        "ID": "DialogConfig_50001010_Context",
+        "Str": "(com determinação de rosto e olhos firmes) bem, vamos dar o nosso melhor. Embora as nossas opções sejam limitadas, temos de lidar com calma e proteger todos, tanto quanto possível. Nosso objetivo é vencer, mantendo nossos princípios e ética."
+    },
+    {
+        "ID": "DialogConfig_50001011_Context",
+        "Str": "(um toque de arrepio nos lábios, prontos para o desafio) vamos lá, vamos ver o que vocês realmente são fortes. A luta é a medida por que tudo é testado, e não importa quantos planos tenhais, o resultado final será revelado na batalha!"
+    },
+    {
         "ID": "DialogConfig_50001012_Context",
         "Str": "(com o fogo da batalha nos olhos, olhando firmemente para o campo de batalha) sim, não recuamos. Não importa quão forte seja o inimigo, vamos dar tudo. Demonstremos a nossa determinação com os nossos actos e lutaremos até ao fim para proteger tudo o que nos é caro!"
     },
@@ -2140,8 +2276,28 @@
         "Str": "Podem ter vencido a batalha, mas os nossos planos não param por aí. Como verão, isto é apenas o começo. As nossas operações estão apenas a começar, e ireis ver mais provas."
     },
     {
+        "ID": "DialogConfig_50002008_Context",
+        "Str": "(reagindo com firmeza) por muito difíceis que sejam os desafios que temos pela frente, não recuaremos. Demonstrámos a nossa determinação e a nossa força e continuaremos a lutar pelos nossos objectivos. As vossas ameaças não vão abalar as nossas convicções."
+    },
+    {
+        "ID": "DialogConfig_50002009_Context",
+        "Str": "(voltando-se para noé, com tom suave, mas firme) ok, nós ganhamos a batalha, mas a tarefa que se segue ainda é pesada. Temos de nos certificar de que, ao mesmo tempo que nos protegemos a nós próprios e aos outros, permanecemos calmos e sensatos e avançamos."
+    },
+    {
+        "ID": "DialogConfig_50002010_Context",
+        "Str": "(respire fundo, o olhar está cheio de determinação) sim. Não importa o desafio, vamos avançar. Lutar por nossos objetivos, a fim de proteger tudo o que valorizamos, sempre permaneceremos firmes em nossa fé e ação."
+    },
+    {
         "ID": "DialogConfig_50003001_Context",
         "Str": "Ainda somos muito fracos!"
+    },
+    {
+        "ID": "DialogConfig_50003002_Context",
+        "Str": "(aproximando-se de noé, com preocupação e cansaço no tom) foi realmente um acidente desta vez, mas não devemos desânimo por isso. O fracasso é a base do sucesso, e temos de aprender com ele e identificar as nossas deficiências."
+    },
+    {
+        "ID": "DialogConfig_50003003_Context",
+        "Str": "(ficar ao lado, olhando fríamente para noé e outros, com um pouco de satisfação em seus rostos) lol, parece que você nos subestima um pouco. Vocês estão longe de estar prontos para o verdadeiro desafio. Embora esta batalha tenha sido ganhada, é apenas o começo."
     },
     {
         "ID": "DialogConfig_50003004_Context",
@@ -2162,6 +2318,18 @@
     {
         "ID": "DialogConfig_50003008_Context",
         "Str": "(aceno, com a cabeça no tom) embora não tenhamos conseguido desta vez, vamos continuar a tentar. Temos de transformar esta experiência numa motivação para seguir em frente, mantendo-nos calmos e sábios e bem preparados para o próximo desafio."
+    },
+    {
+        "ID": "DialogConfig_50003009_Context",
+        "Str": "(olhou indiferente para noah e alina e virou-se) espero que estejam prontos na próxima vez. Vamos continuar, não vamos parar por causa de uma vitória. Até logo!"
+    },
+    {
+        "ID": "DialogConfig_50003010_Context",
+        "Str": "(olhos cheios de determinação e firmeza ao ver finn partir) não podemos ser derrubados, não importa o caminho a seguir. Transformamos o fracasso em motivação e nos tornamos mais fortes. Para o nosso objectivo, iremos certamente continuar e enfrentar os desafios do futuro."
+    },
+    {
+        "ID": "DialogConfig_50003011_Context",
+        "Str": "(palmadinha encorajadora no ombro de noé, com firmeza e apoio no tom) sim, vamos conseguir. A derrota é temporária, e a próxima vitória será saudada com uma fé e ação ainda mais fortes."
     },
     {
         "ID": "DialogConfig_60001001_Context",
@@ -2220,6 +2388,18 @@
         "Str": "Precisamos da sua ajuda. Junte-se a nós."
     },
     {
+        "ID": "DialogConfig_60002004_Context",
+        "Str": "(silêncio por um momento, seguido de inclinar a cabeça com peso no tom) nunca pensei que chegasse a este ponto. Os nossos objectivos e os nossos meios são diferentes, mas também queremos ver um futuro melhor. Se nos puder ajudar a encontrar o caminho certo, estou disposto a considerar a sua proposta."
+    },
+    {
+        "ID": "DialogConfig_60002005_Context",
+        "Str": "(olhando para noé, com esperança no tom) a vossa vitória provou a vossa força e fez-nos rever os nossos objectivos. Se conseguirmos alcançar os nossos ideais comuns através da cooperação, estou disposto a juntar-me a vós e a lutar juntos pelo futuro."
+    },
+    {
+        "ID": "DialogConfig_60002006_Context",
+        "Str": "(sorriso, tom de confiança) é exatamente isso que queremos ouvir. A unidade é a chave para vencer todas as dificuldades. Juntos, seremos certamente capazes de encontrar soluções para os problemas e alcançar os nossos objectivos comuns."
+    },
+    {
         "ID": "DialogConfig_60002007_Context",
         "Str": "Agora, juntos, podemos planear acções futuras. Queremos garantir que todas as medidas sejam tomadas no sentido de uma verdadeira paz e segurança. A sua adesão será uma força importante para o nosso progresso."
     },
@@ -2244,6 +2424,22 @@
         "Str": "Nível 10006 falha"
     },
     {
+        "ID": "DialogConfig_60003002_Context",
+        "Str": "(segure noé, com apreensão no tom) nós subestimamos a força do inimigo, e talvez não estejamos suficientemente preparados em alguns aspectos. Agora temos de acalmar-nos, analisar as causas do fracasso e procurar soluções."
+    },
+    {
+        "ID": "DialogConfig_60003003_Context",
+        "Str": "(olhar à nossa volta) este fracasso deu-nos um grande golpe. Temos de reavaliar as nossas táticas e estratégias e garantir que podemos fazer melhor da próxima vez. As ações do inimigo tornaram-se mais ocultas e astutas, e precisamos estar mais vigilantes."
+    },
+    {
+        "ID": "DialogConfig_60003004_Context",
+        "Str": "(um pouco deprimido, mas ainda determinado no tom) falhámos, mas isso não significa que tudo tenha acabado. Precisamos adaptar rapidamente os planos para identificar as causas do fracasso e desenvolver novos cenários para lidar com a ameaça do inimigo."
+    },
+    {
+        "ID": "DialogConfig_60003005_Context",
+        "Str": "(aceno com a cabeça no tom) não podemos deixar-nos desencorajar por um único fracasso. Cada revés é uma oportunidade de crescimento. Temos de aprender com isso e garantir que podemos fazer melhor no futuro. Agora, precisamos de novos planos."
+    },
+    {
         "ID": "DialogConfig_60003006_Context",
         "Str": "(respire fundo e tente recuperar a calma) temos de considerar os possíveis próximos movimentos do inimigo e como podemos reforçar a nossa defesa. Não podemos continuar a deixá-los à mercê. Reestruturar nossas equipes e prepará-las para os desafios do futuro."
     },
@@ -2264,6 +2460,10 @@
         "Str": "(acenando com a cabeça, com uma firme determinação no tom) vamos sair do fracasso, ajustar a estratégia e seguir em frente. O nosso objectivo continua a ser proteger o continente e garantir a paz e a segurança. O fracasso não nos derruba, mas nos fortalece."
     },
     {
+        "ID": "DialogConfig_60003011_Context",
+        "Str": "(esperança no tom) vamos recuperar rapidamente, ajustar o estado e estar prontos para a próxima ação. Enfrentaremos o inimigo com uma preparação ainda mais completa, garantindo que seremos capazes de vencer qualquer desafio e alcançar nossos objetivos."
+    },
+    {
         "ID": "DialogConfig_70001001_Context",
         "Str": "Que dor de cabeça. Vocês são como baratas, por todo o lado."
     },
@@ -2274,6 +2474,18 @@
     {
         "ID": "DialogConfig_70001003_Context",
         "Str": "Então, deixe-me terminar com isso."
+    },
+    {
+        "ID": "DialogConfig_70001004_Context",
+        "Str": "(aproximando-se de noah, com um tom preocupado) kane aparentemente decidiu que iria resolver-nos de uma vez por todas. Temos de estar vigilantes e prontos para as batalhas mais difíceis. Ele não pode realizar o seu plano facilmente."
+    },
+    {
+        "ID": "DialogConfig_70001005_Context",
+        "Str": "(olhe para kane com calma, com um tom desafiador) você acha que pode acabar com tudo com uma luta? Não podemos ser derrubados tão facilmente. Nós já passamos por muitas provações para nunca recuar neste momento."
+    },
+    {
+        "ID": "DialogConfig_70001006_Context",
+        "Str": "(risos, com ameaça no tom) a vossa tenacidade é louvável, mas os vossos esforços são empálidos perante as ameaças reais. Deixe-me mostrar o que é o verdadeiro poder."
     },
     {
         "ID": "DialogConfig_70001007_Context",
@@ -2296,8 +2508,20 @@
         "Str": "(respire fundo, o tom está cheio de determinação) nós respondemos à sua ameaça com ações práticas. Não vamos dar um passo atrás, por mais difícil que seja. Agora, vamos começar esta batalha fatalista!"
     },
     {
+        "ID": "DialogConfig_70001012_Context",
+        "Str": "(sinal da mão, a batalha está prestes a começar, o tom está cheio de expectativa) muito bem, então vamos ver a vossa verdadeira força. A batalha que se segue, será a vossa prova mais dura."
+    },
+    {
         "ID": "DialogConfig_70002001_Context",
         "Str": "Parece que ainda somos fortes!"
+    },
+    {
+        "ID": "DialogConfig_70002002_Context",
+        "Str": "(de pé nos escombros da batalha, sem fôlego, com a alegria da vitória no olhar) parece que a vossa arrogância realmente não significa nada. Agora que a vossa ameaça foi finalmente removida, podemos seguir em frente."
+    },
+    {
+        "ID": "DialogConfig_70002003_Context",
+        "Str": "(aproximando-se de noah com um suspiro de alívio no tom) nós finalmente ganhámos. Apesar da luta ser excepcionalmente difícil, conseguimos derrotar kane. Agora, podemos lidar com o que se segue em paz."
     },
     {
         "ID": "DialogConfig_70002004_Context",
@@ -2318,6 +2542,22 @@
     {
         "ID": "DialogConfig_70002008_Context",
         "Str": "O fracasso de kane ensinou-nos uma lição importante: as ameaças do inimigo são muitas vezes mais complexas do que pensávamos. Temos de ser mais meticulosos no planeamento dos nossos próximos passos."
+    },
+    {
+        "ID": "DialogConfig_70002009_Context",
+        "Str": "[o tom está cheio de determinação] nós não podemos tomar isso de ânimo leve só por ter derrotado kane. As acções que se seguem são igualmente importantes para assegurar que a nossa vitória trará a paz a longo prazo, em vez de ficar apenas à vista."
+    },
+    {
+        "ID": "DialogConfig_70002010_Context",
+        "Str": "(olhando para os outros membros, o tom é encorajador) esta vitória não é apenas uma verificação da nossa capacidade, mas também um testemunho da nossa unidade e cooperação. Mantenhamos o ímpeto e continuemos a trabalhar em prol da protecção deste continente."
+    },
+    {
+        "ID": "DialogConfig_70002011_Context",
+        "Str": "(sorrisos, confiança no tom) demonstrámos a nossa força e a nossa persistência na justiça. Os próximos desafios esperam-nos, mas juntos seremos capazes de enfrentar todas as dificuldades."
+    },
+    {
+        "ID": "DialogConfig_70002012_Context",
+        "Str": "(sinal de cabeça, tom cheio de determinação) em seguida, precisamos limpar o campo de batalha, lidar com os inimigos restantes, e rever a nossa estratégia. O nosso objectivo é garantir a paz e a segurança e não apenas ganhar uma batalha."
     },
     {
         "ID": "DialogConfig_70002013_Context",
@@ -2344,6 +2584,22 @@
         "Str": "(olhando para kane, com um olhar pesado) a derrota desta batalha mostra-nos a força do inimigo. Temos de rever a nossa estratégia e a nossa preparação para garantir que não voltaremos a cometer os mesmos erros da próxima vez."
     },
     {
+        "ID": "DialogConfig_70003005_Context",
+        "Str": "(suspiro, com um tom de desapontamento) embora tenhamos feito tudo o que podíamos, é evidente que ainda há muito a fazer. Precisamos analisar cuidadosamente os problemas da batalha e melhorar nosso planejamento para estar em condições de enfrentar os desafios que se seguem."
+    },
+    {
+        "ID": "DialogConfig_70003006_Context",
+        "Str": "(olhando para simon, o tom está cheio de atenção) temos de ajustar o estado o mais rápido possível. Kane e seus homens ganharam claramente a batalha, mas não podemos desistir por isso. Temos de nos reagrupar e encontrar uma resposta."
+    },
+    {
+        "ID": "DialogConfig_70003007_Context",
+        "Str": "(luta para levantar-se, um vislumbra de determinação nos olhos) embora tenhamos falhado, não foi o fim. Precisamos fazer um balanço das nossas experiências e reformular os nossos planos para garantir que possamos vencer na próxima batalha."
+    },
+    {
+        "ID": "DialogConfig_70003008_Context",
+        "Str": "(aceno com a cabeça, alerta no tom) temos de analisar minuciosamente cada elo da batalha e descobrir as nossas deficiências. O inimigo é claramente mais forte do que pensávamos e não podemos continuar a tomá-lo de ânimo leve."
+    },
+    {
         "ID": "DialogConfig_70003009_Context",
         "Str": "(o tom está cheio de determinação) embora o fracasso seja decepcionante, também nos permite ver o nosso próprio shortboard. Temos de coordenar melhor as equipas, promover as capacidades individuais e estar mais bem preparados."
     },
@@ -2364,6 +2620,10 @@
         "Str": "(caminhando para os outros membros da equipe, cheio de esperança no tom) vamos rapidamente recuperar a forma, resumir as experiências falhadas e desenvolver uma nova estratégia. O nosso objectivo continua a ser a protecção deste continente e, com certeza, seremos capazes de superar as dificuldades e enfrentar novos desafios."
     },
     {
+        "ID": "DialogConfig_70003014_Context",
+        "Str": "(finalmente, olhando para a fila, com firmeza e esperança no tom) esta derrota, embora frustrante, também nos oferece uma valiosa experiência. Vamos enfrentar os desafios do futuro com uma atitude mais determinada e tentar alcançar os nossos objectivos."
+    },
+    {
         "ID": "DialogConfig_80001001_Context",
         "Str": "Kane, um traidor que não conseguiu cumprir a sua missão e traiu o seu mestre."
     },
@@ -2382,6 +2642,18 @@
     {
         "ID": "DialogConfig_80001005_Context",
         "Str": "Hahaha, você também é muito pequeno para nós. Meme it"
+    },
+    {
+        "ID": "DialogConfig_80001006_Context",
+        "Str": "(caminhando em frente, lutando nos olhos) : leanne tem razão. Nunca subestimámos a vossa força, mas nunca vos permitiremos interferir nos nossos planos. Os vossos ideais não se cruzam com os nossos. A batalha decisiva de hoje determinará o futuro deste mundo."
+    },
+    {
+        "ID": "DialogConfig_80001007_Context",
+        "Str": "(firmemente entre noé e marcus) : acreditamos que, apesar do caminho cheio de espinhos, ainda há uma esperança brilhante esperando por nós. Mesmo diante de um inimigo poderoso, não recuaremos. Temos de lutar pelo futuro deste mundo, custe o que custar."
+    },
+    {
+        "ID": "DialogConfig_80001008_Context",
+        "Str": "(tire as armas da bainha com calma) : prepare-se para enfrentar a batalha. A inutilidade das palavras tornou-se evidente; agora, os actos provam tudo. Dar tudo para um futuro melhor ou enfrentar nossas vitórias inquestionáveis."
     },
     {
         "ID": "DialogConfig_80002001_Context",
@@ -2412,8 +2684,20 @@
         "Str": "(com gratidão) : o vosso apoio significa muito. Enfrentemos juntos os desafios que nos aguardam e estejamos à altura da visão que partilhamos."
     },
     {
+        "ID": "DialogConfig_80002008_Context",
+        "Str": "(armas de lado, um pouco de riso) : então, já que estamos no mesmo objetivo agora, que as ações demonstrem todas as nossas convicções. O futuro é longo e teremos a responsabilidade de mudar."
+    },
+    {
+        "ID": "DialogConfig_80002009_Context",
+        "Str": "(risos com o marcus) : ok, o nosso objectivo é claro. Esperemos que os nossos esforços conjuntos produzam os resultados que esperamos."
+    },
+    {
         "ID": "DialogConfig_80003001_Context",
         "Str": "Ainda somos muito fracos!"
+    },
+    {
+        "ID": "DialogConfig_80003002_Context",
+        "Str": "(frio a olhar para o chão, voz cheia de exaustão) : este fracasso custou-nos muito caro. Temos de reconhecer que, nesta fase, não somos suficientes para contrariar o seu poderoso poder."
     },
     {
         "ID": "DialogConfig_80003003_Context",
@@ -2436,6 +2720,18 @@
         "Str": "(com um sorriso de desdém nos lábios) : lol, podem ter mais fracassos? Esta guerra está longe de terminar, e você precisa trabalhar mais para fazê-lo."
     },
     {
+        "ID": "DialogConfig_80003008_Context",
+        "Str": "(aceno, tom calmo) : vamos continuar, por mais difícil que seja. A derrota faz parte do crescimento. A vitória final é o objetivo que buscamos."
+    },
+    {
+        "ID": "DialogConfig_80003009_Context",
+        "Str": "(com um olhar afetuoso para o nosso companheiro) : não importa quantos obstáculos encontremos, devemos perseverar. Embora a esperança seja longínquo, não podemos deixar que a frustração derrube a nossa determinação."
+    },
+    {
+        "ID": "DialogConfig_80003010_Context",
+        "Str": "(resposta firme) : vamos sair da derrota e continuar a lutar por nossos objetivos. A derrota é temporária e a nossa luta continuará."
+    },
+    {
         "ID": "DialogConfig_90001001_Context",
         "Str": "Vocês são os que estão bloqueando nossos planos, e antes que eu vá até vocês, vocês estão aqui. Resolve o problema."
     },
@@ -2446,6 +2742,10 @@
     {
         "ID": "DialogConfig_90001003_Context",
         "Str": "Vocês são um monte de tretas. Batam e batam."
+    },
+    {
+        "ID": "DialogConfig_90001004_Context",
+        "Str": "(olhe com calma, com um tom sério) : noé estava certo. As palavras são inúteis, os actos são a chave. Já que estais obstinados em impedir os nossos planos, vamos decidir tudo através da luta."
     },
     {
         "ID": "DialogConfig_90001005_Context",
@@ -2472,6 +2772,22 @@
         "Str": "Que tal? Nós somos fortes. Junte-se a nós."
     },
     {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "Em verdade, a batalha é muito mais dura do que pensávamos. Eles são muito mais fortes do que esperávamos e nós os subestimamos."
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(sentado ao chão, pálido, com raiva) : como é que isso aconteceu? Estávamos claramente bem preparados e este fracasso é simplesmente inaceitável. O que é que correu mal?"
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(batendo no chão com raiva) : nós tínhamos uma chance clara de ganhar a batalha, mas perdemos por causa de alguns erros de detalhe. Este fiasco foi realmente um grande golpe."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(esforçando-se para se levantar, com um olhar digno) : temos de fazer uma revisão séria e descobrir as razões do fracasso. É verdade que a força do inimigo é forte, mas também não conseguimos a perfeição. Temos de rever as nossas estratégias e táticas."
+    },
+    {
         "ID": "DialogConfig_90002006_Context",
         "Str": "(apertar os punhos com força e olhar cheio de raiva) : não foi apenas um fracasso, mas um grande golpe na nossa confiança. Não podemos desistir porque falhamos uma vez. Temos que encontrar soluções e estar prontos para o próximo desafio."
     },
@@ -2492,8 +2808,20 @@
         "Str": "(levantem-se, olhem resolutamente) : sim, vamos aprender com este fracasso, ajustar a nossa estratégia e aumentar a nossa força. Da próxima vez, não vamos cometer o mesmo erro. O nosso objectivo continua claro e vamos avançar."
     },
     {
+        "ID": "DialogConfig_90002011_Context",
+        "Str": "(respiração profunda, tom firme) : este fracasso é apenas um retrocesso momentâneo, e a nossa determinação não vai mudar. Vamos fazer um balanço das nossas experiências e enfrentar os desafios do futuro. A vitória tem um preço, e vamos trabalhar continuamente para a vitória final."
+    },
+    {
+        "ID": "DialogConfig_90002012_Context",
+        "Str": "(aceno com a cabeça, tom firme) : sim, vamos provar com ações reais. Por mais difícil que seja, não recuaremos. Agora é tempo de nos refrescarmos e nos prepararmos para os próximos desafios."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Ainda somos muito fracos!"
+    },
+    {
+        "ID": "DialogConfig_90003002_Context",
+        "Str": "(cair ao chão, pálido, voz cheia de frustração) : fomos tão bem preparados e ainda assim fomos tão espancados. O custo do fracasso é muito mais elevado do que pensamos."
     },
     {
         "ID": "DialogConfig_90003003_Context",
@@ -2516,6 +2844,18 @@
         "Str": "(levanta-se com dor, voz apática) : esta derrota mostra-nos que a luta não é apenas uma luta de forças, mas requer um planeamento minucioso e uma execução precisa. Temos que nos elevar para vencer na próxima."
     },
     {
+        "ID": "DialogConfig_90003008_Context",
+        "Str": "(aceno, tom firme) : vamos manter a calma e analisar todos os detalhes. O fracasso é temporário, os desafios do futuro ainda estão à nossa frente e temos de nos preparar para isso."
+    },
+    {
+        "ID": "DialogConfig_90003009_Context",
+        "Str": "(respiração profunda, tom firme) : não podemos desistir, seja qual for o resultado. O fracasso é apenas uma fase e o nosso objectivo continua à frente. Tiremos força deste revés e prossigamos."
+    },
+    {
+        "ID": "DialogConfig_90003010_Context",
+        "Str": "(calma, olhar firme) : vamos provar-nos com ações reais. Este fracasso não nos vai derrubar, mas sim fortalecer-nos. Prepare-se para o próximo desafio. Nós certamente melhoraremos."
+    },
+    {
         "ID": "DialogConfig_100001001_Context",
         "Str": "Não pensei que estivessem aqui. Voltem para trás. Não quero magoar-vos. Os monstros que estão por trás não são para vocês lutar."
     },
@@ -2526,6 +2866,10 @@
     {
         "ID": "DialogConfig_100001003_Context",
         "Str": "Mira, pára de falar com eles. Vamos levá-los de volta juntos."
+    },
+    {
+        "ID": "DialogConfig_100001004_Context",
+        "Str": "(suspiro, com um tom de ressentimento) : não quero ser contra vós, mas, se estiverdes determinados a seguir em frente, não poderei senão impedir-vos. Você precisa entender que a ameaça aqui é muito maior do que você imagina."
     },
     {
         "ID": "DialogConfig_100001005_Context",
@@ -2548,6 +2892,10 @@
         "Str": "(em fúria, ao lado de mira) : já que não ouviste o conselho, vamos resolver o problema. Não nos culpe por sermos impiedosos, estamos apenas aqui para evitar que você entre na parede."
     },
     {
+        "ID": "DialogConfig_100001010_Context",
+        "Str": "(um rasto de dor nos olhos, sussurro) : espero que compreendam a minha intenção, mas se é essa a vossa escolha, só posso fazer um último esforço pela vossa segurança."
+    },
+    {
         "ID": "DialogConfig_100002001_Context",
         "Str": "Eu admito que você é forte, mas com sua força atual não pode lutar contra o senhor do nada. Você precisa da nossa ajuda."
     },
@@ -2558,6 +2906,18 @@
     {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Talvez seja possível."
+    },
+    {
+        "ID": "DialogConfig_100002004_Context",
+        "Str": "(respiração rápida, olhos cheios de determinação) : uma vez que agora é possível vencer o senhor do nada, temos de lutar com todas as nossas forças para vencer. Não nos recuaremos perante as dificuldades. É tempo de trabalharmos juntos."
+    },
+    {
+        "ID": "DialogConfig_100002005_Context",
+        "Str": "(com um sorriso e um olhar firme) : mira, o seu apoio é vital para nós. Embora o inimigo seja forte, acreditamos que juntos seremos capazes de vencer o senhor do nada."
+    },
+    {
+        "ID": "DialogConfig_100002006_Context",
+        "Str": "(acenando com a cabeça) : bem, se for possível derrotar os senhores do nada, estamos dispostos a trabalhar convosco. Embora o desafio seja difícil, não podemos perder a esperança."
     },
     {
         "ID": "DialogConfig_100002007_Context",
@@ -2584,6 +2944,18 @@
         "Str": "Ainda somos muito fracos!"
     },
     {
+        "ID": "DialogConfig_100003002_Context",
+        "Str": "(deitados no chão, parecendo abatidos e cansados) : fizemos o nosso melhor, mas o poder do senhor do nada ultrapassou a nossa imaginação. Mesmo com todas as nossas forças, ainda não conseguimos superar esta enorme ameaça."
+    },
+    {
+        "ID": "DialogConfig_100003003_Context",
+        "Str": "(pálido, tom baixo) : é verdade que a batalha é muito mais difícil do que esperávamos. Nossos planos e força parecem inúteis diante dos senhores do nada."
+    },
+    {
+        "ID": "DialogConfig_100003004_Context",
+        "Str": "(olhar desapontado para o chão, tom pesado) : fizemos tudo o que podíamos, mas não conseguimos derrotar o senhor do nada. Este fracasso não é apenas um golpe para nós, é um teste à nossa fé."
+    },
+    {
         "ID": "DialogConfig_100003005_Context",
         "Str": "(com um olhar digno e ressentimento) : gostaria de ter ajudado mais, mas parece que estamos a subestimar o poder dos senhores do nada. Temos de aceitar esta realidade e encontrar novas soluções."
     },
@@ -2602,6 +2974,14 @@
     {
         "ID": "DialogConfig_100003009_Context",
         "Str": "(respiração profunda, com um toque de firmeza na voz) : temos de nos acalmar e rever os nossos planos. A ameaça dos senhores do nada permanece, mas podemos encontrar novos pontos de ruptura a partir do fracasso."
+    },
+    {
+        "ID": "DialogConfig_100003010_Context",
+        "Str": "(tente levantar-se, mantenha o tom firme) : vamos usar este fracasso como motivação e estar prontos para o próximo desafio. A vitória está longe, mas devemos perseverar e não perder nenhuma esperança."
+    },
+    {
+        "ID": "DialogConfig_100003011_Context",
+        "Str": "(aceno com a cabeça e determinação nos olhos) : o fracasso é temporário, o nosso objectivo ainda está à nossa frente. Se continuarmos a trabalhar, seremos capazes de encontrar uma maneira de vencer o senhor do nada."
     },
     {
         "ID": "DialogConfig_110001001_Context",
@@ -2626,6 +3006,14 @@
     {
         "ID": "DialogConfig_110001006_Context",
         "Str": "Vamos para a guerra, estamos em situações diferentes e falar muito não ajuda."
+    },
+    {
+        "ID": "DialogConfig_110001007_Context",
+        "Str": "(respiração profunda, tom sério) : agora que decidiram lutar para resolver isso, preparem-se para o desafio. Demonstraremos com as nossas acções que as nossas convicções e os nossos objectivos não são abalados pela vossa hostilidade."
+    },
+    {
+        "ID": "DialogConfig_110001008_Context",
+        "Str": "(armas apertadas, olhos firmes) : mesmo diante do confronto, não recuaremos. Continuaremos lutando até o último momento pelo futuro deste mundo."
     },
     {
         "ID": "DialogConfig_110001009_Context",
@@ -2656,6 +3044,18 @@
         "Str": "(um momento de silêncio, um pouco de hesitação nos olhos) : as vossas palavras fizeram-me começar a repensar as nossas escolhas. Embora tenhamos passado por muito, talvez juntar-se a vocês e fazer parte da mudança possa ser um novo começo."
     },
     {
+        "ID": "DialogConfig_110002006_Context",
+        "Str": "(ao lado de alina, com um tom sincero) : o que estamos procurando não é apenas uma vitória individual, mas o futuro de todo o mundo. A sua adesão não é apenas um complemento da nossa força, é também uma esperança para o futuro."
+    },
+    {
+        "ID": "DialogConfig_110002007_Context",
+        "Str": "(perto de ryan, tom suave) : entendemos que o processo de mudança pode ser difícil, mas é graças a parceiros como você que temos a chance de alcançar nossos objetivos. Por favor, pense nisso e junte-se a nós. Vamos trabalhar juntos para criar um futuro melhor."
+    },
+    {
+        "ID": "DialogConfig_110002008_Context",
+        "Str": "(respire fundo e, finalmente, um pouco de sorriso) : as vossas palavras dão-me esperança. Talvez, apesar dos desafios do mundo, ele possa mudar para melhor com nossos esforços. Gostaria de me juntar a vós e lutar juntos por este objectivo."
+    },
+    {
         "ID": "DialogConfig_110002009_Context",
         "Str": "(sorriso, olhos gratos) : obrigado ryan. A sua adesão não é apenas a nossa força, é também a nossa esperança de trabalharmos juntos. Vamos trabalhar juntos e lutar por um futuro melhor."
     },
@@ -2678,6 +3078,22 @@
     {
         "ID": "DialogConfig_110003002_Context",
         "Str": "(segure o ryan, com um toque de perda no tom) : mesmo que falhemos, não podemos negar o seu esforço e determinação. É verdade que o mundo é complexo, mas ainda há esperança se fizermos o nosso melhor para mudar."
+    },
+    {
+        "ID": "DialogConfig_110003003_Context",
+        "Str": "(abanando a cabeça, com um olhar de desespero) : fizemos o nosso melhor, mas parece que os nossos esforços ainda não foram suficientes. A escuridão deste mundo parece insondável e a mudança é realmente difícil de alcançar."
+    },
+    {
+        "ID": "DialogConfig_110003004_Context",
+        "Str": "(um momento de silêncio, frustração no tom) : mesmo quando falhamos, acreditamos na possibilidade de mudança. Embora agora não tenhamos alcançado o nosso objectivo, isso não significa que tudo tenha acabado."
+    },
+    {
+        "ID": "DialogConfig_110003005_Context",
+        "Str": "(o tom está cheio de decepção) : o fracasso desta vez nos pesa. Tentámos arduamente, mas a nossa força parece insignificante face a um desafio tão grande."
+    },
+    {
+        "ID": "DialogConfig_110003006_Context",
+        "Str": "(lágrimas nos olhos, voz tremendo) : embora tenhamos feito o nosso melhor, o resultado final foi tão decepcionante. Este fracasso mostra-nos que o caminho para mudar o mundo é muito mais difícil do que pensávamos."
     },
     {
         "ID": "DialogConfig_110003007_Context",
@@ -2728,6 +3144,22 @@
         "Str": "Então, temos de nos apressar."
     },
     {
+        "ID": "DialogConfig_120001008_Context",
+        "Str": "(olhando para simon, o tom está cheio de ansiedade) : sábio, podemos usar a força elemental contra a força do nada? Existe alguma forma de reverter a situação?"
+    },
+    {
+        "ID": "DialogConfig_120001009_Context",
+        "Str": "(um momento de reflexão, a esperança é revelada na voz) : a força elemental é realmente a chave para manter o equilíbrio do mundo. Se for possível combinar essas forças, talvez seja possível combater a força do nada. Mas precisamos de uma informação mais detalhada e de uma preparação mais pormenorizada para a forma como vamos proceder."
+    },
+    {
+        "ID": "DialogConfig_120001010_Context",
+        "Str": "(com firmeza) : sendo assim, precisamos agir agora. É preciso encontrar e reunir as forças elementais para impedir a expansão da força do nada. O tempo urge e não podemos adiar mais."
+    },
+    {
+        "ID": "DialogConfig_120001011_Context",
+        "Str": "(e olhais friamente para eles, com um tom de ameaça). Talvez vossos esforços tenham sido vãos. O domínio do mestre sobre a força do nada é incomparável, e qualquer revolta terá um fim destrutivo."
+    },
+    {
         "ID": "DialogConfig_120001012_Context",
         "Str": "(cheio de determinação, com um olhar resoluto) : não importa quão forte seja o adversário, nunca desistiremos. Agora, devemos concentrar todas as nossas forças para encontrar a força elemental e contra-atacar. O futuro do mundo depende de nós."
     },
@@ -2750,6 +3182,22 @@
     {
         "ID": "DialogConfig_120002002_Context",
         "Str": "(ofegante, firme) : por mais grave que seja a situação, estamos preparados. Agora, a chave é encontrar maneiras de combater a força do nada. Não perdemos a esperança."
+    },
+    {
+        "ID": "DialogConfig_120002003_Context",
+        "Str": "(aproximando-se de thomas, com um toque de preocupação no tom) : mesmo que o seu plano esteja quase concluído, ainda é possível encontrar uma solução. Temos de encontrar as fissuras e aproveitar todas as oportunidades possíveis para mudar a situação."
+    },
+    {
+        "ID": "DialogConfig_120002004_Context",
+        "Str": "(transcrição do livro, tom calmo) : o poder do nada é poderoso, mas o poder do mundo não se limita a isso. A presença da força elemental continua a ser um raio de esperança para nós. Se pudermos combinar essas forças, talvez contra a força do nada."
+    },
+    {
+        "ID": "DialogConfig_120002005_Context",
+        "Str": "(tom firme, olhos com determinação) : mesmo que agora pareça sem esperança, ainda temos a oportunidade de inverter a situação. Reuniremos todas as nossas forças para encontrar e usar as forças elementais e tentar mudar o destino do mundo."
+    },
+    {
+        "ID": "DialogConfig_120002006_Context",
+        "Str": "(com um suspiro profundo e um ligeiro alívio no tom) : vocês estão realmente cheios de coragem e determinação. Embora eu saiba que tudo isso pode ser inútil, espero que vocês encontrem a esperança e a força de que precisam."
     },
     {
         "ID": "DialogConfig_120002007_Context",
@@ -2776,6 +3224,18 @@
         "Str": "Ainda somos muito fracos!"
     },
     {
+        "ID": "DialogConfig_120003002_Context",
+        "Str": "(olhares deprimidos, tom pesado) : fizemos tudo o que podíamos, mas não o suficiente. Perante uma força tão poderosa do nada, os nossos esforços parecem incapazes de mudar a situação."
+    },
+    {
+        "ID": "DialogConfig_120003003_Context",
+        "Str": "(cabeça baixa, com desapontamento na voz) : mesmo que tenhamos tentado de todas as maneiras possíveis, não conseguimos reverter a situação. O fracasso doeu-nos muitíssimo, mas temos de encarar a realidade."
+    },
+    {
+        "ID": "DialogConfig_120003004_Context",
+        "Str": "(ressentimento no tom) : nós realmente subestimamos a ameaça da força do nada. Mesmo que a presença da força elemental seja um raio de esperança para nós, é evidente que não é suficiente para combater uma força tão poderosa."
+    },
+    {
         "ID": "DialogConfig_120003005_Context",
         "Str": "[olhando para o outro lado desapontado, com um tom de resignação] : fizemos um grande esforço, mas o resultado final foi um fracasso. A realidade é tão cruel, embora não queiramos aceitá-la."
     },
@@ -2794,6 +3254,22 @@
     {
         "ID": "DialogConfig_120003009_Context",
         "Str": "(voz triste, mas firme) : embora não tenhamos sido bem sucedidos, temos de resumir as nossas experiências e procurar novas direções. A força do nada, embora poderosa, não pode ser abandonada."
+    },
+    {
+        "ID": "DialogConfig_120003010_Context",
+        "Str": "(tentando acalmar as emoções, com determinação no tom) : mesmo que tudo pareça sem esperança agora, temos de manter a fé. O caminho que temos pela frente é difícil, mas continuaremos a trabalhar e a lutar pelo futuro deste mundo."
+    },
+    {
+        "ID": "DialogConfig_120003011_Context",
+        "Str": "(com um pequeno sorriso de indiferença, com uma última ironia no tom) : é verdade que a vossa persistência é admirável, mas os vossos esforços parecem insignificantes diante do nada. Os vossos fracassos também são apenas um microcosmo do mundo."
+    },
+    {
+        "ID": "DialogConfig_120003012_Context",
+        "Str": "(respire fundo, tom firme) : embora o fracasso nos seja doloroso, temos de aprender com ele. Não vamos desistir de tudo isso, vamos continuar a procurar uma nova esperança e lutar pelo futuro do mundo."
+    },
+    {
+        "ID": "DialogConfig_120003013_Context",
+        "Str": "(lágrimas apagadas, olhos cheios de determinação) : mesmo diante dos momentos mais sombrios, temos de continuar. O nosso objectivo continua claro e o caminho que temos pela frente, embora acidentado, continuará a ser o nosso."
     },
     {
         "ID": "DialogConfig_130001001_Context",
@@ -2828,6 +3304,18 @@
         "Str": "(com firmeza nos olhos e tenacidade no tom) : mesmo diante de um inimigo poderoso, não recuamos. O destino deste mundo está em nossas mãos e nunca permitiremos que você continue a destruí-lo."
     },
     {
+        "ID": "DialogConfig_130001009_Context",
+        "Str": "(olhos confiantes, tom firme) : estamos prontos para o desafio. Mesmo que quentin seja forte, lutaremos com inteligência e coragem para encontrar uma maneira de vencer você."
+    },
+    {
+        "ID": "DialogConfig_130001010_Context",
+        "Str": "(abre livros antigos e revela esperança no tom) : de acordo com relatos antigos, embora o poder do senhor do nada seja poderoso, existem maneiras de decifrá-lo. Temos que encontrar e usar esses métodos para que seja possível vencer quentin."
+    },
+    {
+        "ID": "DialogConfig_130001011_Context",
+        "Str": "(respiração profunda, o tom está cheio de determinação) : estamos prontos. Apesar dos desafios que temos pela frente, vamos dar o nosso melhor e lutar até o fim. Quentin, o teu fim está à porta."
+    },
+    {
         "ID": "DialogConfig_130001012_Context",
         "Str": "(um toque de frieza nos lábios, um tom de ameaça) : vamos lá, vamos ver se os vossos esforços podem mudar o final. Testemunharei pessoalmente a vossa derrota e a vitória do nada."
     },
@@ -2856,6 +3344,22 @@
         "Str": "(folheando os livros, com alívio no tom) : o poder de quentin, apesar de poderoso, encontrámos uma forma de o ultrapassar com inteligência e tenacidade. Conseguimos deter a ameaça do nada."
     },
     {
+        "ID": "DialogConfig_130002006_Context",
+        "Str": "(sorriso, tom cheio de orgulho) : parece que, apesar da nossa pequena força, é a acumulação destes pequenos esforços que nos permite vencer um inimigo tão grande. Nós fizemos isso!"
+    },
+    {
+        "ID": "DialogConfig_130002007_Context",
+        "Str": "(perda gradual de poder, tom com relutância) : apesar de ganharem, a sombra do nada permanece. Se a vossa vitória pode realmente mudar tudo, talvez nunca saiba."
+    },
+    {
+        "ID": "DialogConfig_130002008_Context",
+        "Str": "E a nossa vitória é apenas o começo. Continuaremos a trabalhar para garantir que a ameaça do nada não volte a ressurgir. O mundo precisa de nós e não vamos parar."
+    },
+    {
+        "ID": "DialogConfig_130002009_Context",
+        "Str": "(tom cheio de gratidão e determinação) : aprendemos com a derrota, e a vitória de hoje pertence a todos os que perseveram na luta. O nosso trabalho está apenas no início."
+    },
+    {
         "ID": "DialogConfig_130002010_Context",
         "Str": "(aceno com a cabeça e tom de esperança) : a derrota de quentin é a prova de que, se nos unimos, podemos vencer qualquer dificuldade. O caminho é ainda longo, mas estamos confiantes."
     },
@@ -2880,6 +3384,22 @@
         "Str": "(ofegante, parecer frustrado) : fizemos o nosso melhor, mas no final não conseguimos parar o teu plano. A força do nada é mais forte do que esperávamos."
     },
     {
+        "ID": "DialogConfig_130003003_Context",
+        "Str": "(desapontado) : fizemos o nosso melhor, mas parece que as nossas forças ainda não são suficientes. O fracasso é incomensuravelmente doloroso, mas a realidade é essa."
+    },
+    {
+        "ID": "DialogConfig_130003004_Context",
+        "Str": "(folheando os livros, o tom está cheio de ressentimento) : apesar de termos tentado muito, não conseguimos encontrar uma solução eficaz face ao poder do nada. O nível de complexidade de tudo isso está além da nossa imaginação."
+    },
+    {
+        "ID": "DialogConfig_130003005_Context",
+        "Str": "(cabeça baixa, tom pesado) : fizemos tudo o que podíamos e, no final, falhámos. Parece que o nosso conhecimento da força do nada ainda é muito superficial."
+    },
+    {
+        "ID": "DialogConfig_130003006_Context",
+        "Str": "(sorriso triunfante e ironia no tom) : o vosso esforço é ridículo. Mesmo que façam o melhor que puderem, não podem mudar o destino. O domínio da força do nada já é imparável."
+    },
+    {
         "ID": "DialogConfig_130003007_Context",
         "Str": "(com a cabeça levantada e um pouco de firmeza nos olhos) : mesmo quando falhamos, não desistimos completamente. Embora não possamos alterar a situação neste momento, continuaremos a procurar uma solução."
     },
@@ -2898,6 +3418,14 @@
     {
         "ID": "DialogConfig_130003011_Context",
         "Str": "E olhais fríamente para eles, com um último desprezo. Eu continuarei a dominar o mundo até que ele afunda completamente."
+    },
+    {
+        "ID": "DialogConfig_130003012_Context",
+        "Str": "(com firmeza) : apesar dos nossos fracassos, a nossa determinação não vacilará. Aprendemos com a derrota e realinhamos nossas estratégias para a vitória final."
+    },
+    {
+        "ID": "DialogConfig_130003013_Context",
+        "Str": "(um pequeno aceno com a cabeça e um tom firme) : continuaremos a lutar, por mais difícil que seja. O fracasso é temporário, e ainda trabalharemos para o futuro do mundo."
     },
     {
         "ID": "DialogConfig_200001001_Context",
@@ -2964,6 +3492,14 @@
         "Str": "Eles não tiveram sucesso nessa operação e devem voltar para a floresta estrelada novamente. Parece que temos de fazer outra viagem, e desta vez vou com vocês para evitar algum perigo desconhecido."
     },
     {
+        "ID": "DialogConfig_200002007_Context",
+        "Str": "Temos, portanto, de reavaliar a situação actual."
+    },
+    {
+        "ID": "DialogConfig_200002008_Context",
+        "Str": "Sim, não devemos tomar isso de ânimo leve. Desta vez irei pessoalmente convosco para a floresta da lua estrelada, em caso de perigo desconhecido. Precisamos entender o seu verdadeiro propósito e resolver esta ameaça o mais rapidamente possível."
+    },
+    {
         "ID": "DialogConfig_200002009_Context",
         "Str": "Eu concordo. É inteligente se preparar com antecedência."
     },
@@ -2973,6 +3509,18 @@
     },
     {
         "ID": "DialogConfig_200002011_Context",
-        "Str": "Pronto, vamos embora assim que estiver pronto. Esperemos que desta vez possamos descobrir a verdade sobre as coisas e erradicar a ameaça de uma vez por todas."
+        "Str": "Sim, não devemos tomar isso de ânimo leve. Desta vez irei pessoalmente convosco para a floresta da lua estrelada, em caso de perigo desconhecido. Precisamos entender o seu verdadeiro propósito e resolver esta ameaça o mais rapidamente possível."
+    },
+    {
+        "ID": "FightTipsPanel_Desc",
+        "Str": "Reiniciar perderá os registros existentes para esse nível. Você confirma o reinício?"
+    },
+    {
+        "ID": "SettingsPanel_Off",
+        "Str": "fechada"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "abrir"
     }
 ]

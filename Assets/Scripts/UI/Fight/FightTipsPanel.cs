@@ -81,7 +81,7 @@ namespace WarGame.UI
                 UIManager.Instance.ClosePanel("MapPanel");
                 SceneMgr.Instance.OpenBattleField(_levelID, true);
             };
-            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { "重新开始会丢失该关卡已有的记录，是否确认重新开始？", cb });
+            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { ConfigMgr.Instance.GetTranslation("FightTipsPanel_Desc"), cb });
         }
     }
 }

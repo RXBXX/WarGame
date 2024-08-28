@@ -888,6 +888,10 @@
         "Str": "Saldırı menzili"
     },
     {
+        "ID": "AttrConfig_18_Name",
+        "Str": "Liderlik"
+    },
+    {
         "ID": "ElementConfig_1_Name",
         "Str": "altın"
     },
@@ -1234,14 +1238,6 @@
     {
         "ID": "SettingsPanel_BattlePerformance",
         "Str": "Savaş gösterileri"
-    },
-    {
-        "ID": "SettingsPanel_Off",
-        "Str": "kapatmak"
-    },
-    {
-        "ID": "SettingsPanel_On",
-        "Str": "açık"
     },
     {
         "ID": "SettingsPanel_TextLanguage",
@@ -1760,8 +1756,20 @@
         "Str": "Kabul Ediyorum. Attığımız her adımda daha temkinli olmamız gerekiyor. Umarım, bilge adamlar bu karanlık güçlerin kaynağını ve amacını anlamamıza yardımcı olurlar."
     },
     {
+        "ID": "DialogConfig_10002007_Context",
+        "Str": "Hadi harekete geçelim. Bilge olanı ne kadar erken bulursak, sorunu o kadar çabuk çözebiliriz."
+    },
+    {
+        "ID": "DialogConfig_10002008_Context",
+        "Str": "Tamam, hemen gidelim. Umarım bu bilge adam, bu ikilemleri çözmemize yardımcı olmak için bize net bir yön verir."
+    },
+    {
         "ID": "DialogConfig_10003001_Context",
         "Str": "Hala çok zayıfız!"
+    },
+    {
+        "ID": "DialogConfig_10003002_Context",
+        "Str": "Elimizden gelenin en iyisini yapmaya çalıştık ve durum düşündüğümüzden çok daha karmaşıktı. Bu insanlar açıkça kasıtlı olarak engeller koydular."
     },
     {
         "ID": "DialogConfig_10003003_Context",
@@ -1836,6 +1844,18 @@
         "Str": "Kaynakları hızlı bir şekilde tahsis etmemiz ve net bir iş bölümüne sahip olmamız gerekiyor. Arya, sen ve ben hemen bir savunma organize etmek ve düşmanın planlarını araştırmak için Watertown'a gidiyoruz. Bilge Yaşlı Adam ve Calvin, burada kalın ve düşmanlarınız hakkında olabildiğince fazla bilgi edinirken Yıldız-Ay Ormanı'nı güvence altına alın."
     },
     {
+        "ID": "DialogConfig_20002009_Context",
+        "Str": "(kalbinde biraz tereddütle onaylayarak başını sallayarak) Anladım. Tüm operasyonların kontrol altında olduğundan ve düşmanın gerçekten yapmadan önce verdiği zararı en aza indirdiğimizden emin olmalıyız. Aynı zamanda, ihtiyacım olursa diye ahşap elemental hakkında ipuçları bulmaya çalışıyorum."
+    },
+    {
+        "ID": "DialogConfig_20002010_Context",
+        "Str": "Hızlı hareket edin, kaybedecek zamanımız yok. Noah, Simon, bu ormanın güvenli olduğundan emin ol. Calvin, senin görevin de çok önemli ve hepimizin birbirimizin işbirliğine ve desteğine ihtiyacı var."
+    },
+    {
+        "ID": "DialogConfig_20002011_Context",
+        "Str": "Ayrıca, olası düşman pusularına ve tuzaklarına karşı dikkatli olun. Bizi durdurmak için ellerinden gelen her şeyi yapacaklar, uyanık olduğunuzdan emin olun."
+    },
+    {
         "ID": "DialogConfig_20002012_Context",
         "Str": "(Derin bir nefes alın) Doğru, şimdi sadece düşmanın ordusuyla değil, aynı zamanda hileleri ve entrikalarıyla da karşı karşıyayız. Herkes iletişimi açık tutmalı ve herhangi bir durumu mümkün olan en kısa sürede bildirmelidir."
     },
@@ -1860,6 +1880,14 @@
         "Str": "(öfkeyle yere vurulmuş, kısık) Bu acı verici bir ders. Düşmanı değerlendirmemizde ciddi sorunlar var ve bu yenilginin temel nedenini bulmalıyız. Bunun tekrar olmasına izin verilemez."
     },
     {
+        "ID": "DialogConfig_20003006_Context",
+        "Str": "(Başı kalkmış, solgun) birliklerimiz de ağır kayıplar verdi ve moralleri büyük ölçüde zarar gördü. Şimdi sadece savunma hattını yeniden inşa etmek değil, aynı zamanda insanlara güven vermek de gerekiyor. Ne kaybedilen zamanın ne de savaşçıların yeri kolayca doldurulabilir, ancak kendimizi toparlamamız gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_20003007_Context",
+        "Str": "Önceki stratejimizi tekrar gözden geçirmeli ve boşlukları bulmalıyız. Düşman gücünü gösterdi ve artık onların hilelerine kapılamayız."
+    },
+    {
         "ID": "DialogConfig_20003008_Context",
         "Str": "(bir an düşünerek, sakin bir tonda konuşarak) Derhal ayrıntılı bir savaş sonrası analiz yapmamız gerekiyor. Düşman, özellikle Odun Elementali çıkarıldıktan sonra savunmamızdaki deliklerden yararlandı ve gücümüz büyük ölçüde zayıfladı. Bu çok büyük bir sorun ve bunu düzeltmenin bir yolunu bulmalıyız."
     },
@@ -1878,6 +1906,10 @@
     {
         "ID": "DialogConfig_20003012_Context",
         "Str": "Ayrıca düşmanın taktiklerini ve eylem planlarını, özellikle de zayıflıklarımızı nasıl kullandıklarını yeniden değerlendirmemiz gerekiyor. Süreç zor olabilir, ancak ancak düşmanın niyetlerini tam olarak anlarsak etkili bir şekilde savaşabiliriz."
+    },
+    {
+        "ID": "DialogConfig_20003013_Context",
+        "Str": "(Gözlerinde sağlam, seslerinde sağlam kararlılık) Bu başarısızlıktan çıkacağız. Bu sefer büyük bir zorlukla karşı karşıya kalmış olsak da, bunun belirlenmesine izin vermeyeceğiz. Şimdi yeniden bir araya gelme zamanı ve bir sonraki savaş için zirveye çıkmalıyız."
     },
     {
         "ID": "DialogConfig_30001001_Context",
@@ -1916,6 +1948,14 @@
         "Str": "Arya'nın dediği mantıklı, Yıldız ve Ay Ormanı'nda olanlara bakılırsa, düşman kesinlikle bu partide olmayacak, hadi acele edelim."
     },
     {
+        "ID": "DialogConfig_30002004_Context",
+        "Str": "Artık düşmanın gerçek hedefini ve ana gücünü mümkün olan en kısa sürede bulmamız gerekiyor ve Mizujo'nun tehlikede olması muhtemel. Watertown'a acele etmeli ve düşmanın bir sonraki hamlesini durdurmalıyız."
+    },
+    {
+        "ID": "DialogConfig_30002005_Context",
+        "Str": "(Arya ve Simon'a sert bir tonda başını sallayarak) Anlaşıldı. Bu adamların istediklerini elde etmelerine izin vermeyeceğiz. Devam edin, hareketlerimizin aksamaması için emin olun, düşmanın ana kuvvetlerini bulduğunuzdan ve planlarına saldırdığınızdan emin olun."
+    },
+    {
         "ID": "DialogConfig_30002006_Context",
         "Str": "Buradan bir an önce çıkmamız gerekiyor, düşman zaten nerede olduğumuzun farkında olabilir. Uyanık olun ve asla daha fazla hata yapmayın."
     },
@@ -1940,6 +1980,18 @@
         "Str": "Sorunu cesaret ve güçle çözebileceğimizi düşündük, ancak düşmanın sadece güçlü bir ordusu değil, aynı zamanda daha ayrıntılı bir planı olduğu da açık. Şimdi başarısızlığın temel nedenini bulmamız gerekiyor."
     },
     {
+        "ID": "DialogConfig_30003004_Context",
+        "Str": "Düşman açıkça iyi hazırlanmış ve yeteneklerini ve stratejilerini hafife alıyoruz. Yıldız-Ay Ormanı'na ve Su Şehri'ne yaptıkları saldırılar, planlarının ne kadar karmaşık olduğunu gösterdi. Bu yenilginin nedeni sadece taktiklerimiz değil, aynı zamanda düşmana karşı istihbarat eksikliğiydi."
+    },
+    {
+        "ID": "DialogConfig_30003005_Context",
+        "Str": "(öfkeyle sıkılı yumruklar) Daha fazla yanılıyor olamazdık! Düşmanın gerçek niyetini daha önce keşfetmiş olsaydık, belki de sonuç farklı olurdu. Şimdi kayıpları telafi etmenin bir yolunu bulmalı ve bu yenilginin bizi aşağı çekmeye devam etmesine izin vermemeliyiz."
+    },
+    {
+        "ID": "DialogConfig_30003006_Context",
+        "Str": "Başarısızlık acı vericidir, ancak bundan ders almalıyız. İlk olarak, düşmanın eylem kalıplarını tekrar gözden geçirmeli ve zayıflıklarını belirlemeliyiz. Ardından, kaynakları hızla toplayın ve bir sonraki savaşa hazırlanın."
+    },
+    {
         "ID": "DialogConfig_30003007_Context",
         "Str": "Ayrıca, durumumuzu anladıklarından ve daha fazla savunmaya hazırlandıklarından emin olmak için hayatta kalan şehirlere ve müttefiklere mümkün olan en kısa sürede ulaşmamız gerekiyor. Düşmana artık hiç şans tanınmamalıdır."
     },
@@ -1958,6 +2010,14 @@
     {
         "ID": "DialogConfig_30003011_Context",
         "Str": "(ağır bir tonda) kayıpları mümkün olan en kısa sürede telafi etmek ve stratejimizi yeniden ayarlamak. Düşman düşündüğümüzden daha güçlü ve daha ciddi zorluklarla yüzleşmek için buna göre uyum sağlamamız gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_30003012_Context",
+        "Str": "Bu sefer büyük bir gerileme yaşamış olsak da, iyi hazırlanırsak ve derslerden ders alırsak, durumu kesinlikle tersine çevirebiliriz. Önemli olan sakin kalmak ve yavaş yavaş güçlü yönlerimizi yeniden kazanmaktır."
+    },
+    {
+        "ID": "DialogConfig_30003013_Context",
+        "Str": "Bu başarısızlık altında ezilmemeli, ayağa kalkmalı ve önümüzdeki zorlukların üstesinden gelmeliyiz. Düşüncelerimizi yeniden düzenleyelim, stratejimizi ayarlayalım ve bir sonraki operasyonda kazanmak için birlikte çalışalım!"
     },
     {
         "ID": "DialogConfig_40001001_Context",
@@ -2004,6 +2064,10 @@
         "Str": "O zaman hadi."
     },
     {
+        "ID": "DialogConfig_40001012_Context",
+        "Str": "(hafifçe küçümseyerek gülümseyerek, sonra bir savaş duruşu alarak) Bu durumda, nihai kazananın kim olduğunu görelim. Meydan okumaya hazır mısın?"
+    },
+    {
         "ID": "DialogConfig_40001013_Context",
         "Str": "Simon: (Nuh'a yan gözle bakar, gözler kararlılık dolu) Düşmanın niyeti ne olursa olsun, her şeyimizi vermeliyiz, bu yer tutulmalı. Herkes, hazır olun!"
     },
@@ -2032,6 +2096,18 @@
         "Str": "Bunun bizi durduracağını gerçekten düşünüyor musunuz? Siz sadece bazı planlarımızı engelliyorsunuz ve asıl zorluk daha yeni başlıyor."
     },
     {
+        "ID": "DialogConfig_40002005_Context",
+        "Str": "(Finn'e soğuk bir şekilde bakar, ses tonu serttir) Komplonuz bizim tarafımızdan ortaya çıkarıldı. Başka planlarınız olsa bile, başarılı olmanıza izin vermeyeceğiz. Vatanımızı korumaya devam edeceğiz ve arsanızın başarılı olmamasını sağlayacağız."
+    },
+    {
+        "ID": "DialogConfig_40002006_Context",
+        "Str": "Başka düşman kalmadığından emin olmak için savaş alanını ve çevredeki durumu kontrol etmeliyiz. Bu savaşı kazanmış olsak da, gardımızı düşüremeyiz. Düşmandan da takipler olabilir."
+    },
+    {
+        "ID": "DialogConfig_40002007_Context",
+        "Str": "(başını sallayarak, ekibi hızla yönlendirerek) Hiçbir düşmanın veya gizli tehlikenin kaçırılmadığından emin olmak için herkes ayrılır. Özellikle Watertown söz konusu olduğunda, güvenliklerini sağlamak için derhal kontrol etmeliyiz."
+    },
+    {
         "ID": "DialogConfig_40002008_Context",
         "Str": "(ses tonunda kararlılıkla Finn'e dönerek) Planlarınız tamamen mahvoldu. Şimdi adil bir yargıyla karşı karşıya kalacaksınız. Sizi yetkililere teslim edeceğiz ve işlediğiniz suçların bedelini ödeteceğiz."
     },
@@ -2050,6 +2126,18 @@
     {
         "ID": "DialogConfig_40002012_Context",
         "Str": "(derin bir nefes alır ve ciddi görünür) Doğru. Evlerimizin güvenliğini sağlamak için birlik olmaya ve savunma hatlarımızı güçlendirmeye devam edeceğiz. Bu zaferi yeni bir başlangıç noktası olarak kabul edelim ve hiçbir tehdidin geleceğimizi etkilemesine izin vermeden çalışmalarımıza devam edelim."
+    },
+    {
+        "ID": "DialogConfig_40002013_Context",
+        "Str": "Şimdi, önümüzdeki göreve odaklanmamız gerekiyor. Devam edin ve tüm şehirlerin korunduğundan ve benzer tehditlerle bir daha karşılaşmadığımızdan emin olun."
+    },
+    {
+        "ID": "DialogConfig_40002014_Context",
+        "Str": "Bu zafer bize güven verdi, ancak asıl zorluk önümüzde duruyor. Bu zaferi motivasyon olarak kabul edelim ve vatanımız için, herkes için yolumuza devam edelim!"
+    },
+    {
+        "ID": "DialogConfig_40002015_Context",
+        "Str": "Birlikte çalışalım ve değer verdiğimiz her şeyi korumak için savaşmaya devam edelim. Zafer sadece bir başlangıç ve önümüzdeki yol hala zorluklarla dolu, ancak kesinlikle tüm zorlukların üstesinden gelebileceğiz."
     },
     {
         "ID": "DialogConfig_40003001_Context",
@@ -2076,6 +2164,14 @@
         "Str": "(Nuh'a doğru yürüyor, sesi sakin) Şimdi kendini suçlamanın zamanı değil. Bu başarısızlıktan ders çıkarmalı ve stratejimizi yeniden gözden geçirmeliyiz. Düşman açıkça düşündüğümüzden daha güçlü ve yeteneklerini ve planlarını yeniden değerlendirmemiz gerekiyor."
     },
     {
+        "ID": "DialogConfig_40003007_Context",
+        "Str": "Savaş etkinliğimizin daha fazla zayıflamamasını sağlamak için hızlı bir şekilde toparlanmamız gerekiyor. Aynı zamanda, düşmanın hareketlerinden haberdar olduklarından ve savunmaya hazır olduklarından emin olmak için hayatta kalan diğer şehirlerle de mümkün olan en kısa sürede iletişime geçmek gerekir."
+    },
+    {
+        "ID": "DialogConfig_40003008_Context",
+        "Str": "(yüzünde küçümseyici bir gülümsemeyle, soğuk bir sesle dedi) Direnme konusundaki güçsüzlüğünüz, yenilginizi yalnızca daha eksiksiz hale getirecektir. Siz mücadele etmeye devam ediyorsunuz ama kontrol bizde. Tıkanıklığınız bizim için sadece küçük bir bölüm."
+    },
+    {
         "ID": "DialogConfig_40003009_Context",
         "Str": "Bu yenilgi acı verici olsa da sakince düşünmeliyiz. Güçlerimizi yeniden bir araya getirmeli ve stratejilerimizi önümüzdeki zorluklarla başa çıkacak şekilde ayarlamalıyız."
     },
@@ -2094,6 +2190,14 @@
     {
         "ID": "DialogConfig_40003013_Context",
         "Str": "Bu başarısızlığı ilerlemek, ondan öğrenmek ve stratejimizi ayarlamak için bir motivasyon olarak kullanmamız gerekiyor. Amacımız vatanımızı korumaktır ve karşılaştığımız zorluklar ne olursa olsun kararlı kalmalıyız."
+    },
+    {
+        "ID": "DialogConfig_40003014_Context",
+        "Str": "Başarısızlık yaşamış olsak da, hedeflerimiz net. Bu gerilemeyi kendimizi tekrar toparlamak ve önümüzdeki savaşlara tamamen hazırlıklı olmak için bir fırsat olarak kullanalım."
+    },
+    {
+        "ID": "DialogConfig_40003015_Context",
+        "Str": "(ses tonunda kararlılıkla başını sallayarak) devam etmek, yeniden toplanmak ve yeni bir mücadeleye hazırlanmak için. Düşman ne kadar güçlü olursa olsun, pes etmeyeceğiz. Vatanımız uğruna kesinlikle sonuna kadar savaşacağız!"
     },
     {
         "ID": "DialogConfig_50001001_Context",
@@ -2116,6 +2220,10 @@
         "Str": "Hahaha, Noah haklı, bitti."
     },
     {
+        "ID": "DialogConfig_50001006_Context",
+        "Str": "Görünüşe göre bu yaklaşıma katılıyorsunuz. Bu durumda hiç zaman kaybetmemiş oluruz. Bu savaşa hazır olun ve kimin kazandığını kanıtlayalım!"
+    },
+    {
         "ID": "DialogConfig_50001007_Context",
         "Str": "(derin bir nefes alır, ses tonu kararlılık doludur) Sana tamamen katılmasam da durum acil. Eğer savaşmak tek seçenekse, her şeyimizi vermeliyiz. Ancak durumu kontrol etmeye, masumları korumaya ve savaştan kaynaklanan gereksiz zararı en aza indirmeye çalışmalıyız."
     },
@@ -2136,6 +2244,10 @@
         "Str": "(Ağzının köşelerinde küçümseyici bir kıvrılıyor, meydan okumaya hazır) Hadi, gerçek gücünü görelim. Savaş her şeyin sınavıdır ve ne kadar plan yaparsanız yapın, sonuç savaşta ortaya çıkacaktır!"
     },
     {
+        "ID": "DialogConfig_50001012_Context",
+        "Str": "(Gözlerinde savaş ateşi parlarken, savaş alanına sıkıca baktı) Doğru, geri adım atmayız, düşman ne kadar güçlü olursa olsun, her şeyimizi vereceğiz. Kararlılığımızı eylemlerimizle kanıtlayalım ve değer verdiğimiz her şeyi korumak için sonuna kadar savaşacağız!"
+    },
+    {
         "ID": "DialogConfig_50002001_Context",
         "Str": "Kaybedersin, patronunu çağırırsın, çok zayıfsın."
     },
@@ -2146,6 +2258,14 @@
     {
         "ID": "DialogConfig_50002003_Context",
         "Str": "Ne aptal gibi davranıyorsun, şimdi hala inatçıydın."
+    },
+    {
+        "ID": "DialogConfig_50002004_Context",
+        "Str": "(Sakin bir şekilde Fein'e bakarak, sert bir ses tonuyla) Meydan okuma ne kadar zor olursa olsun, her şeyimizi vereceğiz. Kendimizi kanıtladık ve kendimizi geliştirmek için çok çalışmaya devam edeceğiz. Yılmayacağız ve yolumuza devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_50002005_Context",
+        "Str": "(Ses tonunda bir cesaret belirtisi ile Nuh'a doğru yürüyor) Bu savaşın sonucu muzaffer olsa da, bundan da ders almalıyız. Önümüzdeki savaşlarda gereksiz çatışmalardan kaçınmaya, tüm masum insanları korumaya ve barışçıl çözümler bulmaya çalışmalıyız."
     },
     {
         "ID": "DialogConfig_50002006_Context",
@@ -2172,6 +2292,14 @@
         "Str": "Hala çok zayıfız!"
     },
     {
+        "ID": "DialogConfig_50003002_Context",
+        "Str": "(Nuh'a yakın, ses tonunda endişe ve bitkinlikle) Bu gerçekten bir kazaydı, ama bundan dolayı cesaretimizi kırmamalıyız. Başarısızlık, başarının habercisidir ve bundan ders almamız ve kendi eksikliklerimizi bulmamız gerekir."
+    },
+    {
+        "ID": "DialogConfig_50003003_Context",
+        "Str": "(Kenarda durup, Nuh'a ve diğerlerine soğuk bir şekilde bakarak, yüzünde bir kendini beğenmişlik belirtisiyle) Haha, görünüşe göre bizi hafife alıyorsun. Gerçek zorlukla yüzleşmeye hazır olmaktan çok uzaksınız. Bu savaşı kazanmamıza rağmen, bu sadece başlangıç."
+    },
+    {
         "ID": "DialogConfig_50003004_Context",
         "Str": "(Finn'e bakar, ses tonu kararlılık doluydu) Bu sefer başarısız olsak bile, kolay kolay pes etmeyeceğiz. Deneyimlerden öğreneceğiz ve stratejimizi geliştireceğiz. Zorluk ne kadar zor olursa olsun, ayaklarımızın üzerinde duracağız ve yolumuza devam edeceğiz."
     },
@@ -2190,6 +2318,18 @@
     {
         "ID": "DialogConfig_50003008_Context",
         "Str": "(başını sallayarak, ses tonunda kararlılıkla) Bu sefer başarılı olamasak da, denemeye devam edeceğiz. Bu deneyimi ilerlemek, sakin ve bilge kalmak ve bir sonraki zorluğa tamamen hazır olmak için motivasyona dönüştürmemiz gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_50003009_Context",
+        "Str": "(Noah ve Alina'ya kayıtsız bir bakış atar ve ayrılmak için döner) Umarım bir dahaki sefere hazır olabilirsin. Yolumuza devam edeceğiz ve bir galibiyet için durmayacağız. Hoşça kal!"
+    },
+    {
+        "ID": "DialogConfig_50003010_Context",
+        "Str": "(Finn'in gidişini izlerken, gözleri kararlılık ve kararlılıkla doluydu) Önümüzde ne olursa olsun, yıkılmayacağız. Başarısızlıklarımızı motivasyona dönüştürecek ve daha güçlü olacağız. Hedeflerimiz uğruna, geleceğin zorluklarını karşılamak için kesinlikle çok çalışmaya devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_50003011_Context",
+        "Str": "(Nuh'un omzuna bir okşama cesaretlendirerek, ses tonunda sertlik ve destekle) Evet, yapabiliriz. Yenilgi sadece geçicidir ve bir sonraki zaferi daha sağlam bir inanç ve eylemle karşılamalıyız."
     },
     {
         "ID": "DialogConfig_60001001_Context",
@@ -2248,6 +2388,18 @@
         "Str": "Yardımınıza ihtiyacımız var, bize katılın."
     },
     {
+        "ID": "DialogConfig_60002004_Context",
+        "Str": "(Bir an sessizlik, sonra başımı eğerek, sesimde ağır bir tonla) Bu kadar ileri gideceğini hiç düşünmemiştim. Hedeflerimiz ve araçlarımız farklı ama aynı zamanda daha iyi bir gelecek görmek istiyoruz. Doğru yönü bulmamıza yardımcı olabilirseniz, teklifinizi dikkate alırım."
+    },
+    {
+        "ID": "DialogConfig_60002005_Context",
+        "Str": "(ses tonunda umutla Nuh'a bakar) Zaferiniz gücünüzü kanıtladı ve hedeflerimizi yeniden gözden geçirmemizi sağladı. İşbirliği yoluyla ortak ideallerimize ulaşabilirsek, gelecek için mücadelede size katılmaya hazırım."
+    },
+    {
+        "ID": "DialogConfig_60002006_Context",
+        "Str": "(gülümseyerek, ses tonuna güvenerek) tam olarak duymak istediğimiz şey bu. Dayanışma, tüm zorlukların üstesinden gelmenin anahtarıdır. Kalplerimiz bir arada olduğu sürece sorunlara çözüm bulabileceğiz ve ortak hedeflerimize ulaşabileceğiz."
+    },
+    {
         "ID": "DialogConfig_60002007_Context",
         "Str": "Artık gelecekteki eylemler için birlikte plan yapabiliriz. Tüm adımların gerçek barış ve güvenlik için olduğundan emin olmak istiyoruz. Katılımınız, ilerlememiz için önemli bir güç olacaktır."
     },
@@ -2272,6 +2424,18 @@
         "Str": "Seviye 10006 başarısız oluyor"
     },
     {
+        "ID": "DialogConfig_60003002_Context",
+        "Str": "Düşmanın gücünü hafife aldık ve belki de bazı bölgelerde yeterince hazırlıklı değildik. Şimdi sakinleşmeli, başarısızlığın nedenlerini analiz etmeli ve çözüm aramalıyız."
+    },
+    {
+        "ID": "DialogConfig_60003003_Context",
+        "Str": "(yüzünü buruşturarak, etrafına bakarak) Bu yenilgi bizi gerçekten çok etkiledi. Bir dahaki sefere daha iyisini yapabileceğimizden emin olmak için taktiklerimizi ve stratejilerimizi yeniden değerlendirmemiz gerekiyor. Düşmanın eylemleri daha sinsi ve kurnaz hale geldi ve daha uyanık olmamız gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_60003004_Context",
+        "Str": "(biraz sinirli, ama yine de tonda kararlı) başarısız olduk, ama bu her şeyin bittiği anlamına gelmiyor. Planlarımızı hızla ayarlamamız, başarısızlıklarımızın temel nedenlerini bulmamız ve düşman tehdidiyle başa çıkmak için yeni senaryolar geliştirmemiz gerekiyor."
+    },
+    {
         "ID": "DialogConfig_60003005_Context",
         "Str": "(ses tonunda kararlılıkla başını sallayarak) Tek bir başarısızlık bile cesaretimizi kırmamalıdır. Her aksilik büyümek için bir fırsattır. Bundan ders çıkarmalı ve gelecekte daha iyisini yapabileceğimizden emin olmalıyız. Şimdi yeni bir plan yapmamız gerekiyor."
     },
@@ -2292,6 +2456,14 @@
         "Str": "Önümüzdeki zorluklarla daha kararlı bir tutumla yüzleşmemiz gerekiyor. Zihniyetimizi ayarlamak, güvenimizi artırmak ve kendimizi birleştirmek, bu zor durumdan çıkmanın anahtarıdır. Olasılıklar ne olursa olsun, ilerlemeye devam etmeliyiz."
     },
     {
+        "ID": "DialogConfig_60003010_Context",
+        "Str": "Başarısızlıklarımızdan yükseleceğiz, stratejimizi ayarlayacağız ve yolumuza devam edeceğiz. Amacımız kıtayı korumak, barış ve güvenliği sağlamaktır. Başarısızlık bizi kırmaz, aksine güçlendirir."
+    },
+    {
+        "ID": "DialogConfig_60003011_Context",
+        "Str": "Hızlı bir şekilde toparlanalım, uyum sağlayalım ve bir sonraki hamleye hazır olalım. Düşmanla yüzleşmek için daha hazırlıklı olacağız ve her türlü zorluğun üstesinden gelebilmemizi ve hedeflerimize ulaşabilmemizi sağlayacağız."
+    },
+    {
         "ID": "DialogConfig_70001001_Context",
         "Str": "Bu gerçek bir baş ağrısı, siz her yerde hamamböceği gibisiniz."
     },
@@ -2302,6 +2474,10 @@
     {
         "ID": "DialogConfig_70001003_Context",
         "Str": "İşte bu kadar, hepsini bitirmeme izin verin."
+    },
+    {
+        "ID": "DialogConfig_70001004_Context",
+        "Str": "(ses tonunda endişeyle Nuh'a doğru yürür) Kane açıkça bizi bir kez ve herkes için halletmeye karar verdi. En zorlu savaşlar için uyanık ve hazır kalmalıyız. Planlarını kolayca gerçekleştirmesine izin verilemez."
     },
     {
         "ID": "DialogConfig_70001005_Context",
@@ -2322,6 +2498,14 @@
     {
         "ID": "DialogConfig_70001009_Context",
         "Str": "(Noah ve diğerlerini neşelendirerek, ses tonunda sertlikle) Herkes odaklanmış ve ekip koordineli durumda. Kane'in tehdidi büyük, ancak ortak bir hedefi ve güçlü bir inancı paylaşıyoruz. Kolay kolay bitmeyecek ve onu yeneceğiz."
+    },
+    {
+        "ID": "DialogConfig_70001010_Context",
+        "Str": "Cesaretiniz ve kararlılığınız yadsınamaz, ancak nihai sonuç ancak savaş tarafından belirlenebilir. Kaderinize hazır olun, bu savaş her şeye karar verecek."
+    },
+    {
+        "ID": "DialogConfig_70001011_Context",
+        "Str": "(Ses tonunuzda kararlılıkla derin bir nefes alın) Tehditlerinize somut eylemlerle yanıt vereceğiz. Olasılıklar ne olursa olsun, geri adım atmayız. Şimdi, bu kader savaşına başlayalım!"
     },
     {
         "ID": "DialogConfig_70001012_Context",
@@ -2348,6 +2532,18 @@
         "Str": "Kane'in yenilgisi, onun komplosunu durdurmak için önemli bir adım attığımız anlamına geliyor. Ancak bu, sorunu çözmenin yalnızca ilk adımıdır ve yine de bir sonraki duruma odaklanmamız gerekir."
     },
     {
+        "ID": "DialogConfig_70002006_Context",
+        "Str": "Kane yenildi ama adamları ve planları hala orada. Benzer tehditlerin tekrarlanmasını önlemek için tüm sorunların kapsamlı bir şekilde ele alındığından emin olmamız gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_70002007_Context",
+        "Str": "(Gruptaki herkese dönerek, ses tonuna minnettarlık ve güvenle) herkes harika bir iş çıkardı. Büyük zorluklarla karşılaştık ama sonunda herkesin çabası ve işbirliği ile düşmanı yenmeyi başardık. Şimdi yolumuza devam etmemiz ve görevimizi yerine getirmemiz gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_70002008_Context",
+        "Str": "Kane'in yenilgisi bize önemli bir ders verdi: Düşman tehdidi genellikle beklediğimizden daha karmaşıktır. Bir sonraki hamlemizi daha detaylı planlamamız gerekiyor."
+    },
+    {
         "ID": "DialogConfig_70002009_Context",
         "Str": "Kane'i hafife alamayız. Sonraki adımlar, zaferimizin sadece şu an için değil, uzun vadeli barışa yol açmasını sağlamak için eşit derecede önemlidir."
     },
@@ -2368,8 +2564,20 @@
         "Str": "(Öne doğru yürüyün, ekibe komuta edin, ses tonunuzda hareketle) Herkes hızla iyileşti, ekipmanı çözdü, daha yapacak çok işimiz var. Zaferi yeni bir başlangıç noktası olarak kabul edelim, devam edelim ve görevimizi tamamlayalım."
     },
     {
+        "ID": "DialogConfig_70002014_Context",
+        "Str": "(Sonunda takıma bakarak, ses tonunda umut ve cesaretle) Zaferimiz sadece yeni bir başlangıç. Tetikte olun ve devam edin, tüm zorlukların üstesinden gelebileceğiz ve gerçek barışı getirebileceğiz."
+    },
+    {
         "ID": "DialogConfig_70003001_Context",
         "Str": "Hala çok zayıfız!"
+    },
+    {
+        "ID": "DialogConfig_70003002_Context",
+        "Str": "(Yerde yatıyor, nefes nefese, yüzünde hayal kırıklığı ifadesiyle) Bu gerçekten ...... Tamamen başarısız oldu. Düşmanın gücünü hafife aldık ve sorunu istediğimiz gibi çözemedik."
+    },
+    {
+        "ID": "DialogConfig_70003003_Context",
+        "Str": "Başarısız olduk ama şimdi sakinleşmemiz gerekiyor. Sadece başarısızlığın nedenlerini analiz ederek ve bir çıkış yolu bularak önümüzdeki ikilemi gerçekten çözebiliriz."
     },
     {
         "ID": "DialogConfig_70003004_Context",
@@ -2390,6 +2598,18 @@
     {
         "ID": "DialogConfig_70003008_Context",
         "Str": "Savaşın her yönünü iyice analiz etmeli ve eksikliklerimizi bulmalıyız. Düşman açıkça beklediğimizden daha güçlü ve artık onu hafife alamayız."
+    },
+    {
+        "ID": "DialogConfig_70003009_Context",
+        "Str": "Başarısızlık hayal kırıklığı yaratır, ancak aynı zamanda kendi eksikliklerimizi de görmemizi sağlar. Ekiplerimizi daha iyi koordine etmemiz, bireysel yeteneklerimizi geliştirmemiz ve daha iyi hazırlanmamız gerekiyor."
+    },
+    {
+        "ID": "DialogConfig_70003010_Context",
+        "Str": "Her ne kadar şu an için aksilikler yaşamış olsak da, inanmaya devam ettiğimiz ve çok çalışmaya devam ettiğimiz sürece, soruna mutlaka bir çözüm bulacağız. Tek bir başarısızlık bizi yıldıramaz."
+    },
+    {
+        "ID": "DialogConfig_70003011_Context",
+        "Str": "(onlara soğuk bir şekilde bakarak, tehdit edici bir tonda) Yenilginiz sadece başlangıç. Planlarımıza müdahale etmeye devam ederseniz, gelecek daha da zor olacak. Önünüzdeki zorluklarla yüzleşmeye hazırlıklı olsanız iyi olur."
     },
     {
         "ID": "DialogConfig_70003012_Context",
@@ -2432,12 +2652,20 @@
         "Str": "(Nuh ve Marcus arasında sağlam bir şekilde duruyor): Önümüzdeki dikenli yola rağmen, bizi bekleyen parlak bir umut olduğuna inanıyoruz. Zorlu bir düşman karşısında bile geri adım atmayacağız. Ne pahasına olursa olsun bu dünyanın geleceği için savaşmalıyız."
     },
     {
+        "ID": "DialogConfig_80001008_Context",
+        "Str": "(sakince silahı kınından çeker): Savaşa hazır olun. Kelimelerin işe yaramazlığı zaten açık, şimdi eylemlerin kendileri için konuşmasına izin verin. Daha iyi bir gelecek için her şeyinizi ortaya koyun ya da şüphesiz zaferimizle yüzleşin."
+    },
+    {
         "ID": "DialogConfig_80002001_Context",
         "Str": "Dünyayı kurtarmak istiyorsan, gücümüze ihtiyacın var Marcus ve bu insanlar bunu yapabilir."
     },
     {
         "ID": "DialogConfig_80002002_Context",
         "Str": "Belki."
+    },
+    {
+        "ID": "DialogConfig_80002003_Context",
+        "Str": "(Marcus ve Lean'e beklentiyle bakar): Anlayışınız için teşekkür ederiz. Bu dünyada bir fark yaratmak için elimizden gelenin en iyisini yapacağız ve fedakarlığınızın boşa gitmesine izin vermeyeceğiz. Her durumda, inançlarınızın doğrulanacağını umuyoruz."
     },
     {
         "ID": "DialogConfig_80002004_Context",
@@ -2460,8 +2688,20 @@
         "Str": "(Silahını bırakır ve gülümser): Öyleyse, şimdi aynı sayfada olduğumuza göre, eylemlerin tüm inancımızı kanıtlamasına izin verin. Hala gidilecek uzun bir yol var ve değişim için sorumluluk alacağız."
     },
     {
+        "ID": "DialogConfig_80002009_Context",
+        "Str": "(Marcus'a gülümseyerek): Tamam, hedefimiz açık. İnşallah ortak çabalarımız beklediğimiz sonuçları getirecektir."
+    },
+    {
         "ID": "DialogConfig_80003001_Context",
         "Str": "Hala çok zayıfız!"
+    },
+    {
+        "ID": "DialogConfig_80003002_Context",
+        "Str": "(soğuk bir şekilde yere bakarak, bitkinlik dolu sesi): Bu yenilgi bize çok pahalıya mal oldu. İtiraf etmeliyiz ki, bu aşamada onların müthiş güçlerine karşı koymak için yeterli değiliz."
+    },
+    {
+        "ID": "DialogConfig_80003003_Context",
+        "Str": "(onlara soğuk bir şekilde bakar, ses tonunda bir alay belirtisi vardır): Nasıl gidiyor, Kane? Umutlarınız kırılgan görünüyor. Konuştuğumuz şeyin gerçekliği sizin için netleşiyor gibi görünüyor."
     },
     {
         "ID": "DialogConfig_80003004_Context",
@@ -2484,6 +2724,14 @@
         "Str": "(başını sallayarak, sakin bir tonla): Olasılıklar ne olursa olsun devam edeceğiz. Başarısızlık büyümenin bir parçasıdır ve nihai zafer peşinde olduğumuz hedeftir."
     },
     {
+        "ID": "DialogConfig_80003009_Context",
+        "Str": "(Arkadaşlarımıza sevgiyle bakarak): Ne kadar engelle karşılaşırsak karşılaşalım, sebat etmeliyiz. Umut çok uzakta, ancak aksiliklerin kararlılığımızı bastırmasına izin vermemeliyiz."
+    },
+    {
+        "ID": "DialogConfig_80003010_Context",
+        "Str": "(Kesin bir şekilde cevaplandı): Başarısızlıklarımızdan yükseleceğiz ve hedeflerimiz için savaşmaya devam edeceğiz. Yenilgi sadece geçicidir ve mücadelemiz devam edecektir."
+    },
+    {
         "ID": "DialogConfig_90001001_Context",
         "Str": "Planlarımızı engellediğin ortaya çıktı ve ben sana gitmeden önce buradasın. Sadece sorunu çözer."
     },
@@ -2494,6 +2742,10 @@
     {
         "ID": "DialogConfig_90001003_Context",
         "Str": "Siz çok konuşuyorsunuz, sadece yenin."
+    },
+    {
+        "ID": "DialogConfig_90001004_Context",
+        "Str": "(sakince diğer kişiye ciddi bir tonda bakar): Nuh haklı. Kelimeler işe yaramaz, eylemler anahtardır. Madem planlarımızı bozmaya kararlısınız, biz her şeye savaşarak karar verelim."
     },
     {
         "ID": "DialogConfig_90001005_Context",
@@ -2520,6 +2772,14 @@
         "Str": "Pekala, biz oldukça güçlüyüz, bize katılın."
     },
     {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(Yere düşmek, acı çekmiş görünmek): Savaş gerçekten de beklediğimizden çok daha zordu. Beklediğimizden çok daha iyiler ve onları hafife aldık."
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(Yerde oturuyor, solgun, kızgın): Nasıl yani! İyi hazırlanmıştık, ancak bu başarısızlık kabul edilemezdi. Yanlış giden neydi?"
+    },
+    {
         "ID": "DialogConfig_90002004_Context",
         "Str": "(hayal kırıklığına uğramış gibi görünerek öfkeyle yere vuruyor): Bu savaşı kazanma şansımız vardı ama detaylardaki bir hata yüzünden kaybettik. Bu fiyasko gerçekten çok büyük bir darbe."
     },
@@ -2538,6 +2798,18 @@
     {
         "ID": "DialogConfig_90002008_Context",
         "Str": "(başını sallayarak, gözlerinde bir kararlılık belirtisi parlıyor): Evet, sakinleşmeli ve savaşın her detayını analiz etmeliyiz. Bu başarısızlık büyümemiz için bir fırsat olacak ve yeterince sıkı çalışırsak, gidişatı tersine çevirebileceğiz."
+    },
+    {
+        "ID": "DialogConfig_90002009_Context",
+        "Str": "(Derin bir nefes almak ve sakinleşmeye çalışmak): Şu anda acı verici olsa da, aynı zamanda bize savaşın sadece bir güç yarışması değil, aynı zamanda bir bilgelik ve strateji yarışması olduğunu da hatırlatıyor. Daha temkinli ve hazırlıklı olmalıyız."
+    },
+    {
+        "ID": "DialogConfig_90002010_Context",
+        "Str": "(Duruyor, gözler kararlı): Evet, bu başarısızlıktan ders alacağız, stratejimizi ayarlayacağız ve gücümüzü artıracağız. Bir dahaki sefere aynı hatayı tekrar yapmayacağız. Hedeflerimiz net ve yolumuza devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_90002011_Context",
+        "Str": "(derin bir nefes alır, ses tonu serttir): Bu yenilgi sadece geçici bir yenilgidir ve kararlılığımız değişmeyecektir. Deneyimlerimizi birlikte özetleyelim ve geleceğin zorluklarının üstesinden gelelim. Kazanmanın bir bedeli var ve oraya ulaşmak için çok çalışacağız."
     },
     {
         "ID": "DialogConfig_90002012_Context",
@@ -2562,6 +2834,18 @@
     {
         "ID": "DialogConfig_90003005_Context",
         "Str": "(gözlerinde kararlılıkla arkadaşına bakar): Başarısız olmuş olsak da, bundan dolayı cesaretimizi kırmamalıyız. Derslerden ders çıkarmalı ve stratejimizi yeniden gözden geçirmeliyiz."
+    },
+    {
+        "ID": "DialogConfig_90003006_Context",
+        "Str": "(dişlerini gıcırdatmak ve sakin kalmaya çalışmak): Başarısızlık bir son değil, yeni bir başlangıcın başlangıcıdır. Bundan ders çıkarmalı ve bir dahaki sefere daha iyisini yaptığımızdan emin olmalıyız."
+    },
+    {
+        "ID": "DialogConfig_90003007_Context",
+        "Str": "(acı içinde ayağa kalkar, sesi soğuktur): Bu yenilgi bize savaşın sadece bir güç yarışması olmadığını, aynı zamanda dikkatli bir planlama ve hassas uygulama gerektirdiğini öğretti. Bir dahaki sefere kazanmak için kendimizi geliştirmeliyiz."
+    },
+    {
+        "ID": "DialogConfig_90003008_Context",
+        "Str": "(başını sallayarak, kararlı): Sakin kalmalı ve her ayrıntıyı analiz etmeliyiz. Başarısızlık geçicidir ve önümüzdeki zorluklara hazırlıklı olmalıyız."
     },
     {
         "ID": "DialogConfig_90003009_Context",
@@ -2596,6 +2880,18 @@
         "Str": "(Soğuk bir şekilde Noah ve Kane'e bakıyor, sesi ciddi): Eğer ısrar etmek zorundaysanız, o zaman harekete geçmeliyiz. Devam etmenizi önlemek için, sizi geri götürmek için elimizden gelenin en iyisini yapacağız."
     },
     {
+        "ID": "DialogConfig_100001007_Context",
+        "Str": "(Silahlar hazır, gergin): Seni durdurmak için elimden geleni yapacağım ama unutma, bunu senin güvenliğin için yapıyorum. Başka bir yol bulabilirsem, umarım vazgeçmeyi seçersin."
+    },
+    {
+        "ID": "DialogConfig_100001008_Context",
+        "Str": "(yumruklar sıkılı, kararlı): Geri adım atmayacağız. Kararlılığımızı siz bile durduramazsınız. Her durumda, hedefimize ulaşana kadar ilerlemeye devam etmeliyiz."
+    },
+    {
+        "ID": "DialogConfig_100001009_Context",
+        "Str": "(Öfkeli, Mira'nın yanında duruyor): Tavsiye dinlemediğine göre, bu sorunu çözelim. Acımasız olduğumuz için bizi suçlamayın, biz sadece sizi köşeye sıkıştırmaktan alıkoymak için buradayız."
+    },
+    {
         "ID": "DialogConfig_100001010_Context",
         "Str": "(gözlerinde bir miktar acıyla fısıldıyor): Umarım sıkıntımı anlayabilirsin, ama eğer bu senin seçiminse, o zaman güvenliğin için sadece son bir çaba gösterebilirim."
     },
@@ -2628,6 +2924,14 @@
         "Str": "(hafifçe başını sallayarak, tavrı daha olumlu hale gelir): Bu durumda, son savaşa hazırız. Hiçlik Lordu tehdidi ortadan kaldırılmalı ve her şeyimizi vermeliyiz."
     },
     {
+        "ID": "DialogConfig_100002008_Context",
+        "Str": "(Silah kavranmış, bakışlar kararlı): Hazırız. Düşman güçlü olsa da, ortak çabalarımızla Hiçlik Lordu'nu yenebileceğimize inanıyoruz."
+    },
+    {
+        "ID": "DialogConfig_100002009_Context",
+        "Str": "(Derin bir nefes alın ve kendinize güvenin): İşbirliği, sorunları çözmenin anahtarıdır. Şimdi tüm güçlerimizi bir araya getirmeliyiz ve zafer uğruna, bu dünyanın geleceği uğruna, Hiçlik Lordunu kesinlikle yeneceğiz."
+    },
+    {
         "ID": "DialogConfig_100002010_Context",
         "Str": "(Mira'nın yanında durarak, kararlı bir ses tonuyla): Hadi birlikte yapalım. Hiçlik Lordu tehdidi devam edemez ve birleşik güçlerimiz zaferin son anahtarı olacaktır."
     },
@@ -2650,6 +2954,18 @@
     {
         "ID": "DialogConfig_100003004_Context",
         "Str": "(hayal kırıklığı içinde yere bakar, ses tonu ağırdır): Elimizden gelen her şeyi yaptık ama yine de Hiçlik Lordu'nu yenemedik. Bu yenilgi sadece bizim için bir darbe değil, aynı zamanda inancımız için bir sınavdır."
+    },
+    {
+        "ID": "DialogConfig_100003005_Context",
+        "Str": "(ciddi, çaresiz görünüyor): Keşke daha yardımcı olabilseydim, ama görünüşe göre hala Hiçlik Lordu'nun gücünü hafife alıyoruz. Bu gerçeği kabul etmeli ve yeni çözümler bulmalıyız."
+    },
+    {
+        "ID": "DialogConfig_100003006_Context",
+        "Str": "(dişlerini gıcırdatıyor, sesi titriyor): Bu yenilgi bize böyle bir düşman karşısında daha yapacak çok işimiz olduğunu öğretti. Bundan ders çıkarmalı ve bir sonraki zorluğa daha iyi hazırlanmalıyız."
+    },
+    {
+        "ID": "DialogConfig_100003007_Context",
+        "Str": "(Duygularınızı sakinleştirmeye çalışın ve kesin bir şekilde konuşun): Başarısız olmamıza rağmen, bu her şeyin bittiği anlamına gelmez. Deneyimlerimizden öğrenmeli, stratejimizi ayarlamalı ve Hiçliğin Efendilerini yenmenin bir yolunu bulmalıyız."
     },
     {
         "ID": "DialogConfig_100003008_Context",
@@ -2696,6 +3012,14 @@
         "Str": "(derin bir nefes alır ve ciddi bir tonda şöyle der): Artık savaşla halletmeye karar verdiğinize göre, meydan okumaya hazır olun. İnançlarımızın ve hedeflerimizin sizin düşmanlığınız tarafından sarsılmayacağını eylemlerimizle göstereceğiz."
     },
     {
+        "ID": "DialogConfig_110001008_Context",
+        "Str": "(Kollarınızı sıkıca tutun, gözleriniz kararlı): Çatışma karşısında bile geri adım atmayacağız. Bu dünyanın geleceği için son ana kadar savaşmaya devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_110001009_Context",
+        "Str": "(soğuk bir şekilde bakar, sesi serttir): Öyleyse, bu savaşa başlayalım. Kimin en güçlü inanca sahip olduğunu belirlemek için pratik eylemler kullanacağız."
+    },
+    {
         "ID": "DialogConfig_110001010_Context",
         "Str": "(Savaşa hazırlanın, kararlı görünün): Savaş kaçınılmazdır ve karşı taraflarda olduğumuz için sorunu çözebilmemizin tek yolu bu kavga olsun."
     },
@@ -2724,6 +3048,18 @@
         "Str": "(Alina'nın yanında durarak, samimi bir ses tonuyla): Aradığımız şey sadece kişisel bir zafer değil, tüm dünyanın geleceğidir. Katılmanız sadece gücümüzün bir tamamlayıcısı değil, aynı zamanda gelecek için bir umuttur."
     },
     {
+        "ID": "DialogConfig_110002007_Context",
+        "Str": "Değişim sürecinin zor olacağını anlıyoruz, ancak sizin gibi ortaklar sayesinde hedeflerimize ulaşma fırsatına sahibiz. Lütfen düşünün, bize katılın ve daha iyi bir gelecek yaratmak için birlikte çalışalım."
+    },
+    {
+        "ID": "DialogConfig_110002008_Context",
+        "Str": "(derin bir nefes alır, sonunda gülümser): Sözlerin bana umut veriyor. Belki de, dünyanın zorluklarına rağmen, çabalarımızla gerçekten daha iyiye doğru değiştirilebilir. Bu amaç için mücadelede size katılmaya hazırım."
+    },
+    {
+        "ID": "DialogConfig_110002009_Context",
+        "Str": "(gülümsüyor, minnettarlık dolu gözler): Teşekkür ederim Ryan. Katılımınız sadece bizim gücümüz değil, aynı zamanda ortak çabalarımızın umududur. Daha iyi bir gelecek için birlikte çalışalım."
+    },
+    {
         "ID": "DialogConfig_110002010_Context",
         "Str": "(başını sallayarak, sert): Bize katılmaya hoş geldiniz. Hedeflerimiz açık ve birlikte bu dünyanın geleceği için elimizden gelenin en iyisini yapacağız."
     },
@@ -2746,6 +3082,18 @@
     {
         "ID": "DialogConfig_110003003_Context",
         "Str": "(başını sallar, çaresiz görünür): Elimizden gelenin en iyisini yaptık ama görünen o ki çabalarımız hala yeterli değil. Bu dünyanın karanlığı anlaşılmaz görünüyor ve değişimi başarmak gerçekten zor."
+    },
+    {
+        "ID": "DialogConfig_110003004_Context",
+        "Str": "(Ses tonunda bir anlık sessizlik, hayal kırıklığı var): Başarısız olsak bile, yine de değişimin olasılığına inanıyoruz. Şu anda hedefimize ulaşamamış olsak da, bu her şeyin bittiği anlamına gelmiyor."
+    },
+    {
+        "ID": "DialogConfig_110003005_Context",
+        "Str": "(Ses tonu hayal kırıklığıyla dolu): Bu başarısızlık bizi çok ağırlaştırdı, denedik, ancak böylesine büyük bir meydan okuma karşısında gücümüz hala önemsiz."
+    },
+    {
+        "ID": "DialogConfig_110003006_Context",
+        "Str": "(gözlerinde yaşlar ve titreyen bir sesle): Elimizden gelenin en iyisini yaptık ama sonuç çok hayal kırıklığı yarattı. Bu başarısızlık bize dünyayı değiştirme yolunun düşündüğümüzden çok daha zor olduğunu öğretti."
     },
     {
         "ID": "DialogConfig_110003007_Context",
@@ -2796,6 +3144,18 @@
         "Str": "O zaman acele etmemiz gerekiyor."
     },
     {
+        "ID": "DialogConfig_120001008_Context",
+        "Str": "(Simon'a bakar, ses tonu endişe doluydu): Bilge adam, elementlerin gücünü hiçliğin gücüne karşı kullanabilir miyiz? Mevcut durumu tersine çevirmenin bir yolu var mı?"
+    },
+    {
+        "ID": "DialogConfig_120001009_Context",
+        "Str": "(Bir an düşünür, sesi umudu ortaya çıkarır): Elemental güç gerçekten de dünyanın dengesini korumanın anahtarıdır. Bu güçler birleştirilebilirse, hiçliğin gücüne karşı koyabilirler. Ancak bunu nasıl yapacağımız, daha detaylı bilgiye ve hazırlığa ihtiyacımız var."
+    },
+    {
+        "ID": "DialogConfig_120001010_Context",
+        "Str": "(Kararlı bir şekilde): O durumda, şimdi harekete geçmeliyiz. Hiçlik gücünün daha fazla genişlemesini durdurmak için elementlerin gücünü bulmalı ve toplamalıyız. Zaman daralıyor ve daha fazla gecikmeyi göze alamayız."
+    },
+    {
         "ID": "DialogConfig_120001011_Context",
         "Str": "(onlara soğuk bir şekilde bakar, tehdit edici bir tonda): Çabalarınız boşuna olabilir. Efendinin hiçliğin gücü üzerindeki kontrolü eşsizdir ve herhangi bir direniş yıkımla sonuçlanacaktır."
     },
@@ -2820,6 +3180,18 @@
         "Str": "Çok geç, beni kazandın, işe yaramaz."
     },
     {
+        "ID": "DialogConfig_120002002_Context",
+        "Str": "(nefes nefese, sağlam): Durum ne kadar vahim olursa olsun, biz hazırız. Şimdi, anahtar, hiçliğin gücüne karşı savaşmanın bir yolunu nasıl bulacağınızdır. Umudumuzu kaybetmeyeceğiz."
+    },
+    {
+        "ID": "DialogConfig_120002003_Context",
+        "Str": "(Ses tonunda bir endişe belirtisiyle Thomas'a yaklaşarak): Planınız tamamlanmak üzere olsa bile, bir çözüm bulmamız hala mümkün. Buradaki çatlakları bulmalı ve statükoyu değiştirmek için mümkün olan her fırsatı kullanmalıyız."
+    },
+    {
+        "ID": "DialogConfig_120002004_Context",
+        "Str": "(Kitaptaki kayıtlara bakıldığında üslup sakin): Thomas'ın bahsettiği hiçliğin gücü gerçekten güçlüdür, ancak dünyanın gücü bununla sınırlı değildir. Temel kuvvetlerin varlığı bizim gümüş astarımız olmaya devam ediyor. Bu güçleri birleştirebilirsek, hiçliğin gücüne karşı koyabiliriz."
+    },
+    {
         "ID": "DialogConfig_120002005_Context",
         "Str": "(sert bir ses tonuyla, gözlerinde kararlılıkla): Şimdi umutsuz görünse bile, gidişatı tersine çevirmek için hala bir şansımız var. Dünyanın kaderini değiştirmek için elementlerin gücünü bulmak ve kullanmak için tüm güçlerimizi toplayacağız."
     },
@@ -2838,6 +3210,14 @@
     {
         "ID": "DialogConfig_120002009_Context",
         "Str": "(Kitabın kapanışında, üslup umudu ortaya koyuyor): Dünyanın kaderini değiştirmek için mevcut tüm bilgi ve gücü kullanacağız. Önümüzdeki yol engellerle dolu olsa bile, ilerlemek için savaşacağız."
+    },
+    {
+        "ID": "DialogConfig_120002010_Context",
+        "Str": "(Kesinlikle): Israrınız için teşekkür ederim. Bu dünyanın geleceği ve değer verdiğimiz her şey için savaşmaya devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_120002011_Context",
+        "Str": "(Onlara biraz pişmanlık ama aynı zamanda ses tonunda umutla bakarak): Umarım başarabilirsin. Eğer bir gün dünya gerçekten kurtulursa, seninle gurur duyacağım."
     },
     {
         "ID": "DialogConfig_120003001_Context",
@@ -2862,6 +3242,18 @@
     {
         "ID": "DialogConfig_120003006_Context",
         "Str": "(ses tonunda bir küçümseme belirtisiyle onlara soğuk bir şekilde bakar): Başarısızlıklarınız her şeyi kanıtladı. Boşluğun pençesi kırılamaz ve çabalarınız sadece beyhude bir mücadele olacaktır."
+    },
+    {
+        "ID": "DialogConfig_120003007_Context",
+        "Str": "(Ses tonunda bir miktar azimle yukarı bakar): Başarısız olsak bile, kolay kolay pes etmeyeceğiz. Bu dünyanın geleceği bizim elimizde ve diğer olası çözümleri aramaya devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_120003008_Context",
+        "Str": "(gözlerinde yaşlar, sesi titriyor): Başarısızlıkla karşı karşıya kalsak da, bu deneyim bizi dünyanın karmaşıklığının daha fazla farkına varmamızı sağladı. Başarısızlıklarımızdan ders almalı ve yeni umut ve yollar bulmalıyız."
+    },
+    {
+        "ID": "DialogConfig_120003009_Context",
+        "Str": "(Ses hüzün dolu, ama yine de kararlı): Her ne kadar başaramamış olsak da, deneyimden ders almalı ve yeni bir yön bulmalıyız. Hiçliğin gücü güçlüdür ama vazgeçemeyiz."
     },
     {
         "ID": "DialogConfig_120003010_Context",
@@ -2896,6 +3288,18 @@
         "Str": "(Nuh'un yanında duran, ses tonundaki kararlılıkla): Büyük bir gücünüz olsa bile, kolay kolay geri adım atmayacağız. Ne pahasına olursa olsun tehditlerinizle başa çıkmaya hazırız."
     },
     {
+        "ID": "DialogConfig_130001005_Context",
+        "Str": "(Kitabı açın, bilgi arayın, sakin olun): Quentin'in gücü gerçekten ürkütücü ama pes edemeyiz. Elemental güçlerin kombinasyonu hiçliğin gücüne direnebilir ve tüm kaynaklardan en iyi şekilde yararlanmamız gerekir."
+    },
+    {
+        "ID": "DialogConfig_130001006_Context",
+        "Str": "(sıkılı silah, gözler kararlı): Quentin ne kadar güçlü olursa olsun, dünyayı tehdit etmeye devam etmesine izin veremeyiz. Onunla savaşmak için elimizden gelen her şeyi yapacağız."
+    },
+    {
+        "ID": "DialogConfig_130001007_Context",
+        "Str": "(gülüyor, ses tonunda alaycı bir tonla): Kararlılığınız, takdire şayan olsa da, hiçlik karşısında bir hiçtir. Bakalım sizin sözde \"tam gücünüz\" benim gücüme karşı koyabilecek mi?"
+    },
+    {
         "ID": "DialogConfig_130001008_Context",
         "Str": "(Gözlerinde sert, ses tonunda inatla): Güçlü bir düşman karşısında bile geri adım atmayacağız. Bu dünyanın kaderi bizim elimizde ve onu yok etmeye devam etmenize asla izin vermeyeceğiz."
     },
@@ -2916,12 +3320,20 @@
         "Str": "(ağzının kenarlarında bir küçümseme ve ses tonunda tehditkar bir ton): Hadi, çabalarınızın sonucu değiştirip değiştiremeyeceğini görmeye çalışın. Yenilginize ve hiçliğin zaferine bizzat tanık olacağım."
     },
     {
+        "ID": "DialogConfig_130001013_Context",
+        "Str": "(Hafifçe gülümseyerek, kararlılık dolu gözlerle): Gücünüz ne kadar güçlü olursa olsun, tüm gücümüzle savaşacağız. Bu dünya uğruna tüm zorlukların üstesinden geleceğiz ve nihai zafere ulaşacağız."
+    },
+    {
         "ID": "DialogConfig_130002001_Context",
         "Str": "Mümkün değil, bu gün ve çağda, hala beni yenebilecek biri var, siz karıncalar."
     },
     {
         "ID": "DialogConfig_130002002_Context",
         "Str": "Bin millik setin bir karınca yuvasında çöktüğüne dair bir cümle duymadınız mı, karınca olsak bile, büyük geminiz bizim tarafımızdan yenilecek."
+    },
+    {
+        "ID": "DialogConfig_130002003_Context",
+        "Str": "(başını sallar, yüzünde şok ve isteksizlik görülür): Gerçekten başardın. Siz sözde \"karıncalar\" tarafından yenilmeyi beklemiyordum. Senin gücün...... Beni gerilemeye zorlayabilir."
     },
     {
         "ID": "DialogConfig_130002004_Context",
@@ -2942,6 +3354,18 @@
     {
         "ID": "DialogConfig_130002008_Context",
         "Str": "(Kesin bir şekilde söylemek gerekirse): zaferimiz sadece bir başlangıç. Hiçlik tehdidinin yeniden canlanmaması için çalışmaya devam edeceğiz. Dünyanın bize ihtiyacı var ve biz durmayacağız."
+    },
+    {
+        "ID": "DialogConfig_130002009_Context",
+        "Str": "Başarısızlıklarımızdan ders aldık ve bugünün zaferi sebat eden herkese ait. İşimiz daha yeni başladı."
+    },
+    {
+        "ID": "DialogConfig_130002010_Context",
+        "Str": "(başını sallayarak, umutlu bir tonda): Quentin'in yenilgisi, birlik olduğumuz sürece her türlü zorluğun üstesinden gelebileceğimizi kanıtlıyor. Daha gidilecek çok yol var ama kendimize güveniyoruz."
+    },
+    {
+        "ID": "DialogConfig_130002011_Context",
+        "Str": "(ileriye doğru adımlayarak, ses tonunda kararlı): Bu kazandığımız bir zafer ama aynı zamanda yeni bir başlangıç. Bu dünyada barış ve istikrarı korumak için ilerlemeye devam edeceğiz."
     },
     {
         "ID": "DialogConfig_130002012_Context",
@@ -2968,6 +3392,18 @@
         "Str": "(Kitapları karıştırırken, üslup çaresizlikle dolu): Çok denememize rağmen, hiçliğin gücü karşısında etkili bir çözüm bulamadık. Her şey hayal edebileceğimizden daha karmaşık."
     },
     {
+        "ID": "DialogConfig_130003005_Context",
+        "Str": "(başını eğmiş, ağır tonda): Elimizden gelen her şeyi yaptık ama sonunda başarısız olduk. Görünüşe göre hiçliğin gücüne dair anlayışımız hala çok sığ."
+    },
+    {
+        "ID": "DialogConfig_130003006_Context",
+        "Str": "(sırıtıyor, alaycı bir tonda): Çabalarınız gülünç. Elinizden gelenin en iyisini yapsanız bile, ölüme mahkum sonucu değiştiremezsiniz. Hiçliğin gücü zaten durdurulamaz."
+    },
+    {
+        "ID": "DialogConfig_130003007_Context",
+        "Str": "(Gözlerinde bir kararlılık belirtisiyle yukarı bakar): Başarısız olsak bile, tamamen pes etmeyiz. Şu anda bunu değiştiremesek de, çözüm aramaya devam edeceğiz."
+    },
+    {
         "ID": "DialogConfig_130003008_Context",
         "Str": "(Sesi titriyor, sesi hüzün taşıyor): Başarısızlıklarımız yürek parçalayıcı. Yine de, gelecek için yeni bir umut bulabilmemiz için öğrenmemiz gerekiyor."
     },
@@ -2986,6 +3422,10 @@
     {
         "ID": "DialogConfig_130003012_Context",
         "Str": "(Kesinlikle): Başarısızlıklarımıza rağmen, kararlılığımızda tereddüt etmeyeceğiz. Başarısızlıklarımızdan ders alacağız ve sonunda kazanmak için stratejimizi yeniden ayarlayacağız."
+    },
+    {
+        "ID": "DialogConfig_130003013_Context",
+        "Str": "(Hafifçe başını sallayarak, sert bir tonda): Önümüzde ne kadar zorluk olursa olsun, mücadele etmeye devam edeceğiz. Başarısızlık geçicidir ve dünyanın geleceği için çalışmaya devam edeceğiz."
     },
     {
         "ID": "DialogConfig_200001001_Context",
@@ -3052,6 +3492,14 @@
         "Str": "Bu operasyonda başarılı olamadılar ve tekrar Yıldız-Ay Ormanı'na dönmeleri gerekiyordu. Görünüşe göre tekrar gitmek zorunda kalacağız ve bu sefer bazı bilinmeyen tehlikelere karşı korunmak için seninle gidiyorum."
     },
     {
+        "ID": "DialogConfig_200002007_Context",
+        "Str": "Bu yüzden mevcut durumu yeniden değerlendirmek zorundayız."
+    },
+    {
+        "ID": "DialogConfig_200002008_Context",
+        "Str": "Evet, hafife alamayız. Bu sefer, bilinmeyen tehlikeler durumunda seninle birlikte Yıldız-Ay Ormanı'na bizzat gideceğim. Gerçek amaçlarını anlamalı ve bu tehdidi mümkün olan en kısa sürede ele almalıyız."
+    },
+    {
         "ID": "DialogConfig_200002009_Context",
         "Str": "Kabul Ediyorum. Önceden hazırlıklı olmak akıllıca olacaktır."
     },
@@ -3061,6 +3509,18 @@
     },
     {
         "ID": "DialogConfig_200002011_Context",
-        "Str": "Tamam, hazır olur olmaz gidelim. Umarım, bu sefer meselenin gerçeğini bulacağız ve tehdidi bir kez ve herkes için ortadan kaldıracağız."
+        "Str": "Evet, hafife alamayız. Bu sefer, bilinmeyen tehlikeler durumunda seninle birlikte Yıldız-Ay Ormanı'na bizzat gideceğim. Gerçek amaçlarını anlamalı ve bu tehdidi mümkün olan en kısa sürede ele almalıyız."
+    },
+    {
+        "ID": "FightTipsPanel_Desc",
+        "Str": "Yeniden başlatma, bu düzey için mevcut kayıtları kaybedecek, yeniden başlatmayı onaylamak istiyor musunuz?"
+    },
+    {
+        "ID": "SettingsPanel_Off",
+        "Str": "kapatmak"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "açık"
     }
 ]

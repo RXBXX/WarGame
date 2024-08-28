@@ -4,7 +4,7 @@
     <image id="n10_et47" name="n10" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="266,236">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n1_dd4m" name="name" xy="24,9" size="50,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="11111"/>
+    <text id="n1_dd4m" name="name" xy="17,11" size="47,32" font="ui://hd0z4dz5omu90" fontSize="22" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="11111"/>
     <list id="n0_dd4m" name="attrList" xy="32,100" size="210,114" touchable="false" overflow="scroll" lineGap="2" defaultItem="ui://kbw86fxtczz81l">
       <item/>
       <item/>
@@ -22,7 +22,7 @@
     <text id="n5_czz8" name="attrTitle" xy="35,76" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attr"/>
     <text id="n6_czz8" name="baseTitle" xy="142,88" pivot="0.5,0.5" anchor="true" size="30,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Base"/>
     <text id="n7_czz8" name="elementTitle" xy="204,88" pivot="0.5,0.5" anchor="true" size="48,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Element"/>
-    <loader id="n9_clt4" name="element" xy="222,28" pivot="0.5,0.5" anchor="true" size="18,18" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true"/>
+    <loader id="n9_clt4" name="element" xy="222,30" pivot="0.5,0.5" anchor="true" size="18,18" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true"/>
   </displayList>
   <relation target="n0_dd4m" sidePair="bottomext-bottom"/>
 </component>

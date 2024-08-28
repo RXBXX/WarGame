@@ -171,6 +171,9 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var add = GetElementAdd(levelElement, initiatorID, targetID);
             var curePower = initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add);
+
+            curePower = Mathf.Floor(curePower);
+
             if (addReport)
                 AddReport(initiatorID, Enum.AttrType.Cure, curePower);
             return curePower;
@@ -187,6 +190,9 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var add = GetElementAdd(levelElement, initiatorID, targetID);
             var ragePower = initiator.GetAttribute(Enum.AttrType.Inspire) * (1 + add);
+
+            ragePower = Mathf.Floor(ragePower);
+
             if (addReport)
                 AddReport(initiatorID, Enum.AttrType.Rage, ragePower);
             return ragePower;
@@ -208,6 +214,9 @@ namespace WarGame
 
             physicalHurt *= multiply;
             magicHurt *= multiply;
+
+            physicalHurt = Mathf.Floor(physicalHurt);
+            magicHurt = Mathf.Floor(magicHurt);
 
             if (addReport)
             {
