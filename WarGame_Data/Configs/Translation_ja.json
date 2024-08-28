@@ -1240,6 +1240,14 @@
         "Str": "戦闘ショーです"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "関です"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "開きます"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "テキスト言語です"
     },
@@ -3516,11 +3524,19 @@
         "Str": "再スタートするとそのステージの記録が失われます。再スタートを確認しましょうか?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "関です"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "アップグレードします"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "開きます"
+        "ID": "HeroPanel_Wear",
+        "Str": "着ることです"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "外します"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "活性化します"
     }
 ]

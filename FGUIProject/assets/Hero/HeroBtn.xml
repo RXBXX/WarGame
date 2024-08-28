@@ -3,7 +3,7 @@
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
     <graph id="n4_tsk1" name="n4" xy="0,0" size="100,40" type="rect" lineSize="0" fillColor="#ff5c8799"/>
-    <text id="n3_tsk1" name="title" xy="49,20" pivot="0.5,0.5" anchor="true" size="62,44" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Wear"/>
+    <text id="n3_tsk1" name="title" xy="49,20" pivot="0.5,0.5" anchor="true" size="94,44" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" strokeColor="#000000" autoClearText="true" text="Wear"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

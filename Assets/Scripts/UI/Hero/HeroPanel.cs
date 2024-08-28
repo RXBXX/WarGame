@@ -25,6 +25,7 @@ namespace WarGame.UI
         private GTextField _name;
         private List<Sequence> _seqList = new List<Sequence>();
         private CommonResComp _resComp;
+        private Dictionary<int, float> _attrsDicCache = new Dictionary<int, float>();
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -48,6 +49,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroChange_Before, OnHeroChangeBefore);
+            EventDispatcher.Instance.AddListener(Enum.Event.HeroChange_After, OnHeroChangeAfter);
 
             _heroList = GetGObjectChild<GList>("heroList");
             _heroList.itemRenderer = HeroItemRenderer;
@@ -62,7 +65,6 @@ namespace WarGame.UI
         public override void Update(float deltaTime)
         {
             _resComp.Update(deltaTime);
-
 
             if (_draging)
             {
@@ -403,6 +405,40 @@ namespace WarGame.UI
                 new TwoIntPair((int)Enum.ItemType.TalentRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes)),
                 new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
             });
+        }
+
+        private void OnHeroChangeBefore(params object[] args)
+        {
+            _attrsDicCache.Clear();
+
+            var roleUID = _roles[_roleIndex];
+            var role = DatasMgr.Instance.GetRoleData(roleUID);
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+            {
+                var value = role.GetAttribute((Enum.AttrType)config.ID);
+                if (value > 0)
+                    _attrsDicCache.Add(config.ID, value);
+            });
+        }
+
+        private void OnHeroChangeAfter(params object[] args)
+        {
+            var roleUID = _roles[_roleIndex];
+            var role = DatasMgr.Instance.GetRoleData(roleUID);
+            ConfigMgr.Instance.ForeachConfig<AttrConfig>("AttrConfig", (config) =>
+            {
+                var delta = 0.0f;
+                var value = role.GetAttribute((Enum.AttrType)config.ID);
+                if (!_attrsDicCache.ContainsKey(config.ID))
+                    delta = value;
+                else if (value != _attrsDicCache[config.ID])
+                    delta = value - _attrsDicCache[config.ID];
+
+                if (0 != delta)
+                    TipsMgr.Instance.Add(config.GetTranslation("Name") + ": " + BattleMgr.Instance.GetAttributeColorStr(config.ID, delta));
+            });
+
+            _attrsDicCache.Clear();
         }
 
         public override void Dispose(bool disposeGCom = false)

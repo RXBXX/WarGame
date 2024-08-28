@@ -1240,6 +1240,14 @@
         "Str": "Espectáculo de combate"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "encarcelado"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "\""
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Idioma del texto"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Reiniciar se pierde el registro existente en ese nivel. ¿Se confirma el reinicio?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "encarcelado"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "actualización"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "\""
+        "ID": "HeroPanel_Wear",
+        "Str": "vestido"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "descargar"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "activar"
     }
 ]

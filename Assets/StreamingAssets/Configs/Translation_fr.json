@@ -1240,6 +1240,14 @@
         "Str": "Spectacle de combat"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "douanier"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "ouverte"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Langue du texte"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Un redémarrage entraîne la perte des enregistrements déjà disponibles pour ce niveau. Confirmez-vous un redémarrage?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "douanier"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "l’escalade"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "ouverte"
+        "ID": "HeroPanel_Wear",
+        "Str": "Le port"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "déchargées"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "l’activation"
     }
 ]

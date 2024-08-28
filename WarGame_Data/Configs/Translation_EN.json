@@ -1240,6 +1240,14 @@
         "Str": "Battle show"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "close"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "open"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Text language"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Restart will lose the existing records of the level, do you want to restart?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "close"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "Upgrades"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "open"
+        "ID": "HeroPanel_Wear",
+        "Str": "wear"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "Unequip"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "Activate"
     }
 ]

@@ -1240,6 +1240,14 @@
         "Str": "전투 시범"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "관"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "열"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "텍스트 언어"
     },
@@ -3516,11 +3524,19 @@
         "Str": "다시 시작하면이 레벨에 대한 기존 기록이 없어집니다. 다시 시작하시겠습니까?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "관"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "업그레이드"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "열"
+        "ID": "HeroPanel_Wear",
+        "Str": "옷차림"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "짐"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "활성화"
     }
 ]

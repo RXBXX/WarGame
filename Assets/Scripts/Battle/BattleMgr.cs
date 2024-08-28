@@ -201,7 +201,20 @@ namespace WarGame
         public string GetAttributeStr(int id, float value)
         {
             var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", id);
-            return attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
+            var valueStr = attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
+            return value > 0 ? "+" + valueStr : valueStr;
+            //return attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
+        }
+
+        public string GetAttributeColorStr(int id, float value)
+        {
+            var attrConfig = ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", id);
+            var valueStr = attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
+            if (value > 0)
+                return "[color=#00a8ed]+" + valueStr + "[/color]";
+            else
+                return "[color=#ce4a35]" + valueStr + "[/color]";
+            //return attrConfig.ValueType == Enum.ValueType.Int ? value.ToString() : string.Format("{0}%", value * 100);
         }
 
 

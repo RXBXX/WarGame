@@ -1240,6 +1240,14 @@
         "Str": "Боевые действия."
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "закр"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "откр"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Текстовый язык"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Если мы начнем заново, то потеряем все существующие записи на этом уровне."
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "закр"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "эскалац"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "откр"
+        "ID": "HeroPanel_Wear",
+        "Str": "нос"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "разгруз"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "активирова"
     }
 ]

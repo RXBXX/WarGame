@@ -15,7 +15,7 @@ namespace WarGame
         {
             _tipsList = new List<TipsItem>();
             _tipsRecyclePool = new List<TipsItem>();
-            _startPos = new Vector2(GRoot.inst.width * 0.5F, GRoot.inst.height * 0.2F);
+            _startPos = new Vector2(GRoot.inst.width * 0.5F, GRoot.inst.height * 0.1F);
             return true;
         }
 
@@ -24,7 +24,7 @@ namespace WarGame
             var item = GetItem();
             item.SetPosition(_startPos + new Vector2(0, _tipsList.Count * item.GetHeight()));
             _tipsList.Add(item);
-            item.Show(desc, OnTipsOver);
+            item.Show(_tipsList.Count * 0.2F, desc, OnTipsOver);
         }
 
         private TipsItem GetItem()

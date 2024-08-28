@@ -1240,6 +1240,14 @@
         "Str": "Savaş gösterileri"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "kapatmak"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "açık"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Metin dili"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Yeniden başlatma, bu düzey için mevcut kayıtları kaybedecek, yeniden başlatmayı onaylamak istiyor musunuz?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "kapatmak"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "yükseltmek"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "açık"
+        "ID": "HeroPanel_Wear",
+        "Str": "giysi"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "Kaldırmak"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "Etkinleştirme"
     }
 ]

@@ -20,6 +20,7 @@ namespace WarGame.UI
             _resText = GetGObjectChild<GTextField>("resText");
 
             _levelUPBtn.onClick.Add(OnClickLevelUp);
+            _levelUPBtn.title = ConfigMgr.Instance.GetTranslation("HeroPanel_LevelUP");
         }
 
         public void UpdateItem(int roleUID, int index, int level)
@@ -67,7 +68,7 @@ namespace WarGame.UI
                 attrsData,
                 pos,
                 true,
-                "Éý¼¶",
+                ConfigMgr.Instance.GetTranslation("HeroPanel_LevelUP"),
                 string.Format("{0}/{1}", DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes), starConfig.Cost),
                 true,
                 callback

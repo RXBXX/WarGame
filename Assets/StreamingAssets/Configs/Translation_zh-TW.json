@@ -1240,6 +1240,14 @@
         "Str": "戰鬥表演"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "關"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "開"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "文本語言"
     },
@@ -3516,11 +3524,19 @@
         "Str": "重新開始會賴該關卡已有的記錄，是否確認重新開始？"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "關"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "升級"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "開"
+        "ID": "HeroPanel_Wear",
+        "Str": "穿戴"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "卸下"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "激活"
     }
 ]

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using FairyGUI;
+using DG.Tweening;
 
 namespace WarGame.UI
 {
@@ -9,6 +7,7 @@ namespace WarGame.UI
     {
         private Transition _show;
         private GTextField _desc;
+        private Sequence _seq;
 
         public TipsItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -17,10 +16,26 @@ namespace WarGame.UI
             _show = GetTransition("show");
         }
 
-        public void Show(string str, WGArgsCallback callback)
+        public void Show(float delay, string str, WGArgsCallback callback)
         {
+            SetVisible(false);
+
             _desc.text = str;
-            _show.Play(()=> { callback(this); });
+            _seq = DOTween.Sequence();
+            _seq.AppendInterval(delay);
+            _seq.AppendCallback(()=> {
+                SetVisible(true);
+                _show.Play(() => {
+                    SetVisible(false);
+                    callback(this); 
+                });
+            });
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            _seq.Kill();
+            base.Dispose(disposeGCom);
         }
     }
 }

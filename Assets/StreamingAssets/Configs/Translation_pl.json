@@ -1240,6 +1240,14 @@
         "Str": "Pokazy walki"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "zamykać"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "otwierać"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Język tekstu"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Ponowne uruchomienie spowoduje utratę istniejących rekordów dla tego poziomu, czy chcesz potwierdzić ponowne uruchomienie?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "zamykać"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "upgrade"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "otwierać"
+        "ID": "HeroPanel_Wear",
+        "Str": "odzież"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "wyładować"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "aktywacja"
     }
 ]

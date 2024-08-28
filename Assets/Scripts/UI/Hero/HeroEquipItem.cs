@@ -70,11 +70,11 @@ namespace WarGame.UI
             var btnTitle = "";
             if (_selectedRoleUID == _owner)
             {
-                btnTitle = "Ð¶ÏÂ";
+                btnTitle = ConfigMgr.Instance.GetTranslation("HeroPanel_Unwear");
             }
             else
             {
-                btnTitle = "´©´÷";
+                btnTitle = ConfigMgr.Instance.GetTranslation("HeroPanel_Wear");
             }
 
 

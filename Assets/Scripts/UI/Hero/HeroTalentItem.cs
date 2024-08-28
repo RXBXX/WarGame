@@ -58,7 +58,7 @@ namespace WarGame.UI
                 _attrsData,
                 pos,
                 btnVisible,
-                "¼¤»î",
+                ConfigMgr.Instance.GetTranslation("HeroPanel_ActiveTalent"),
                 string.Format("{0}/{1}", resCount, talentConfig.Cost),
                 true,
                 callback

@@ -1240,6 +1240,14 @@
         "Str": "Unsere vorstellung des kampfes."
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "zumachen"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "öffnen"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Die wortsprache"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Der neustart verliert sämtliche einträge der kontrollstufe. Erneut startet man?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "zumachen"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "Upgrade."
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "öffnen"
+        "ID": "HeroPanel_Wear",
+        "Str": "Zum anziehen."
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "Und last"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "Aktiviere jetzt."
     }
 ]

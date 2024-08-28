@@ -1240,6 +1240,14 @@
         "Str": "Show de batalha"
     },
     {
+        "ID": "SettingsPanel_Off",
+        "Str": "fechada"
+    },
+    {
+        "ID": "SettingsPanel_On",
+        "Str": "abrir"
+    },
+    {
         "ID": "SettingsPanel_TextLanguage",
         "Str": "Idioma do texto"
     },
@@ -3516,11 +3524,19 @@
         "Str": "Reiniciar perderá os registros existentes para esse nível. Você confirma o reinício?"
     },
     {
-        "ID": "SettingsPanel_Off",
-        "Str": "fechada"
+        "ID": "HeroPanel_LevelUP",
+        "Str": "A actualização"
     },
     {
-        "ID": "SettingsPanel_On",
-        "Str": "abrir"
+        "ID": "HeroPanel_Wear",
+        "Str": "A usar"
+    },
+    {
+        "ID": "HeroPanel_Unwear",
+        "Str": "descarregar"
+    },
+    {
+        "ID": "HeroPanel_ActiveTalent",
+        "Str": "activar"
     }
 ]
