@@ -46,6 +46,7 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     row_index = 1
     total_rows = worksheet.nrows - 1  # 总行数，减去标题行
     while(row_index <= total_rows):
+        # print(f"{worksheet.cell_value(row_index, 0)}: {worksheet.cell_value(row_index, 2)}")
         srcDict[worksheet.cell_value(row_index, 0)] = {'value':worksheet.cell_value(row_index, 1), 'dirty': worksheet.cell_value(row_index, 2)}
         row_index = row_index + 1
 
@@ -57,8 +58,11 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     row_index = 1
     total_rows = destWS.nrows - 1  # 总行数，减去标题行
     while(row_index <= total_rows):
+        # print(f"{destWS.cell_value(row_index, 0)}")
         destDict[destWS.cell_value(row_index, 0)] = {'value':destWS.cell_value(row_index, 1)}
+        # print(not destDict.__contains__(destWS.cell_value(row_index, 0)))
         row_index = row_index + 1
+        
     # 创建一个新的工作簿
     newWorkbook = xlwt.Workbook()
     # 添加一个工作表
@@ -67,28 +71,36 @@ def translate_excel(excel_file, dest_excel_file, lang_from, lang_to):
     # 向单元格写入数据
     newWorksheet.write(0, 0, 'ID')
     newWorksheet.write(0, 1, 'Str') 
-
+    
     try:
+        updateArray = []
         row_index = 1
         total_rows = len(srcDict)
         for key, value in srcDict.items():
-            # print(key)
-            # print(value['dirty'] == 'true')
-            # print(not destDict.__contains__(key))
             if value['dirty'] == 'true' or not destDict.__contains__(key):
-                success, translated_text = createRequest(value['value'], key, lang_from, lang_to)
-                if success:
-                   print(f"Processing {row_index}/{total_rows} ({(row_index / total_rows) * 100:.2f}%) {dest_excel_file}")
-                   newWorksheet.write(row_index, 0, key)
-                   newWorksheet.write(row_index, 1, translated_text)
-                   row_index = row_index + 1
-                else:
-                   time.sleep(1)
+                updateArray.append(key)
             else:
                 newWorksheet.write(row_index, 0, key)
                 newWorksheet.write(row_index, 1, destDict[key]['value'])
                 row_index = row_index + 1
-         # 保存新的 Excel 文件
+        
+        count = 0
+        total_rows = len(updateArray)
+        while(count < total_rows):
+            key = updateArray[count]
+            success, translated_text = createRequest(srcDict[key]['value'], key, lang_from, lang_to)
+            if success:
+                print(f"Processing {count}/{total_rows} ({(count / total_rows) * 100:.2f}%) {dest_excel_file}")
+                # print(key)
+                # print(translated_text)
+                newWorksheet.write(row_index, 0, key)
+                newWorksheet.write(row_index, 1, translated_text)
+                row_index = row_index + 1
+                count = count + 1
+            else:
+                time.sleep(1)
+                
+        # 保存新的 Excel 文件
         newWorkbook.save(dest_excel_file)
         print(f"Translation complete. File saved as {dest_excel_file}")
     except Exception as e:

@@ -54,7 +54,7 @@ namespace WarGame.UI
             WGCallback callback = OnActiveCallback;
             var args = new object[] {
                 talentConfig.GetTranslation("Name"),
-                talentConfig.GetTranslation("Desc"),
+                "",//talentConfig.GetTranslation("Desc"),
                 _attrsData,
                 pos,
                 btnVisible,
