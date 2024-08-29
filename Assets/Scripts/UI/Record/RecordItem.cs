@@ -28,7 +28,7 @@ namespace WarGame.UI
             if (null != id)
             {
                 var gd = DatasMgr.Instance.GetRecord(id);
-                _title.text = gd.title;
+                _title.text = ConfigMgr.Instance.GetTranslation("Record_Title") + "_" + gd.title;
                 _time.text = ConfigMgr.Instance.GetTranslation("RecordItem_Time") + TimeMgr.Instance.GetFormatDateTime(gd.saveTime);
                 _duration.text = ConfigMgr.Instance.GetTranslation("RecordItem_Duration") + TimeMgr.Instance.GetFormatLeftTime(gd.duration);
             }

@@ -297,8 +297,9 @@ namespace WarGame
                 if (!fromWear)
                     EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_After);
             }
-            catch
+            catch(Exception e)
             {
+                DebugManager.Instance.Log(e);
                 EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null, fromWear) });
             }
         }

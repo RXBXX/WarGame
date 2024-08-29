@@ -466,6 +466,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroChange_Before, OnHeroChangeBefore);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.HeroChange_After, OnHeroChangeAfter);
 
             base.Dispose(disposeGCom);
         }

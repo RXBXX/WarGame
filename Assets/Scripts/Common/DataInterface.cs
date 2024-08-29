@@ -657,7 +657,7 @@ namespace WarGame
 
         public string GetTitle()
         {
-            return ConfigMgr.Instance.GetTranslation("Record_Title") + "_" + (_customRecordDic.Count + 1);
+            return (_customRecordDic.Count + 1).ToString();
         }
 
         public void StartNewGame()
