@@ -80,7 +80,10 @@ namespace WarGame.UI
                 return;
 
             if (_isAutoPlay)
-                return;
+            {
+                _isAutoPlay = false;
+                _autoBtn.GetTransition("loop").Stop();
+            }
 
             if (_dialogBox.IsPlaying())
             {
@@ -97,10 +100,12 @@ namespace WarGame.UI
             context.StopPropagation();
 
             _isAutoPlay = !_isAutoPlay;
+
             if (_isAutoPlay)
                 _autoBtn.GetTransition("loop").Play(-1, 0, null);
             else
                 _autoBtn.GetTransition("loop").Stop();
+
             if (_isAutoPlay && !_dialogBox.IsPlaying())
             {
                 NextDialog();

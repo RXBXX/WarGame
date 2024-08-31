@@ -1055,6 +1055,13 @@ namespace WarGame
         {
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Role_Dispose, new object[] { ID });
 
+            var allRoles = RoleManager.Instance.GetAllRoles();
+            foreach (var v in allRoles)
+            {
+                if (v.ID == ID)
+                    continue;
+                v.RemoveElementEffect(ID);
+            }
             foreach (var v in _elementEffectDic)
                 v.Value.Dispose();
             _elementEffectDic.Clear();

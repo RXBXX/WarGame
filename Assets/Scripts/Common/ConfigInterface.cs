@@ -189,6 +189,7 @@ namespace WarGame
         public string Music;
         public Enum.Element Element;
         public string TargetDesc;
+        public string Icon;
     }
 
     //µ–»À±Ì

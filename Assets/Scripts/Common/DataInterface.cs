@@ -126,6 +126,7 @@ namespace WarGame
 
         public RoleStarConfig GetStarConfig()
         {
+            //DebugManager.Instance.Log(configId * 1000 + level);
             return ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", configId * 1000 + level);
         }
 
@@ -562,6 +563,21 @@ namespace WarGame
         public bool ContainEquip(int id)
         {
             return equipDataDic.ContainsKey(id);
+        }
+
+        public string GetIcon()
+        {
+            var lastMainLevel = 10001;
+            foreach (var v in levelDataDic)
+            {
+                var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", v.Key);
+                if (config.Type == Enum.LevelType.Main && config.ID > lastMainLevel)
+                {
+                    lastMainLevel = config.ID;
+                }
+            }
+
+            return ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", lastMainLevel).Icon;
         }
 
         public RecordData Clone()
