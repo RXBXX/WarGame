@@ -61,8 +61,6 @@ namespace WarGame
 
         public virtual void Play()
         {
-            DebugManager.Instance.Log("CancelPreview");
-
             _isPlaing = true;
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Battle);
 
@@ -73,6 +71,8 @@ namespace WarGame
 
         protected virtual IEnumerator DoPlay()
         {
+            CancelPreview();
+
             Prepare();
 
             if (!DatasMgr.Instance.GetSkipBattle())
@@ -260,11 +260,13 @@ namespace WarGame
             {
                 if (0 != _touchingID)
                 {
+                    DebugManager.Instance.Log("CancelPreview");
                     CancelPreview();
                     _touchingID = 0;
                 }
                 if (0 != touchingID)
                 {
+                    DebugManager.Instance.Log("Preview");
                     _touchingID = touchingID;
                     Preview(_touchingID);
                 }

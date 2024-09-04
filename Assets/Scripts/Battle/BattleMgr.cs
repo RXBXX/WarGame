@@ -262,7 +262,7 @@ namespace WarGame
                 }
                 else
                 {
-                    var hurt = GetAttackValue(levelElement, initiatorID, v);
+                    var hurt = GetAttackValue(levelElement, initiatorID, v, true);
                     target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                     target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                     CameraMgr.Instance.ShakePosition();
@@ -281,7 +281,7 @@ namespace WarGame
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                var hurt = GetAttackValue(levelElement, initiatorID, v);
+                var hurt = GetAttackValue(levelElement, initiatorID, v, true);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
                 CameraMgr.Instance.ShakePosition();
@@ -301,7 +301,7 @@ namespace WarGame
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
-                var hurt = GetAttackValue(levelElement, initiatorID, v);
+                var hurt = GetAttackValue(levelElement, initiatorID, v, true);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             }
@@ -578,9 +578,19 @@ namespace WarGame
             //if (null == _reportDic)
             //    _reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();
 
+            var initiator = RoleManager.Instance.GetRole(id);
+            foreach (var v in RoleManager.Instance.GetAllRoles())
+            {
+                if (id == v.Data.cloneRole)
+                {
+                    id = v.ID;
+                    break;
+                }
+            }
+
             var role = RoleManager.Instance.GetRole(id);
             if (!_reportDic.ContainsKey(role.Type))
-            {
+            { 
                 _reportDic[role.Type] = new Dictionary<int, Dictionary<Enum.AttrType, float>>();
             }
             if (!_reportDic[role.Type].ContainsKey(id))

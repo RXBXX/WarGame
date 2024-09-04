@@ -1005,7 +1005,8 @@ namespace WarGame
                 {
                     var GO = GameObject.Instantiate<GameObject>(go);
                     GO.transform.SetParent(_gameObject.transform, false);
-                    GO.transform.localPosition = Vector3.zero;
+                    //GO.transform.localPosition = Vector3.zero;
+                    GO.transform.position = GetEffectPos();
                     newAP.Obj = GO;
                 });
                 _buffEffectDic[id].Add(newAP);

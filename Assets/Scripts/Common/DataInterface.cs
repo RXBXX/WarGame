@@ -415,13 +415,14 @@ namespace WarGame
                 cloneEquipDataDic.Add(v.Key, v.Value.Clone());
             }
 
-            var talents = new List<int>();
+            var cloneTalents = new List<int>();
             foreach (var v in talents)
             {
-                talents.Add(v);
+                cloneTalents.Add(v);
             }
+            DebugManager.Instance.Log(cloneTalents.Count);
 
-            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, talents);
+            var clone = new LevelRoleData(this.UID, this.configId, this.level, bornHexagonID, state, cloneEquipDataDic, cloneTalents);
             clone.hexagonID = hexagonID;
             clone.bornHexagonID = bornHexagonID;
             clone.HP = HP;

@@ -51,7 +51,7 @@ namespace WarGame
             data.UID = cloneUID;
             var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", cloneUID);
             data.configId = heroConfig.RoleID;
-            data.level = heroConfig.Level;
+            data.level = _data.level;
             data.hexagonID = hexagon;
             data.bornHexagonID = hexagon;
 

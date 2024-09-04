@@ -156,6 +156,7 @@ namespace WarGame.UI
 
         public void CancelPreview()
         {
+            DebugManager.Instance.Log("CancelPreview:"+_hpValue);
             GTween.Kill(_hp);
             _hp.value = _hpValue;
         }

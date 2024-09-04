@@ -71,11 +71,14 @@ namespace WarGame
                             continue;
 
                         var hexagon = MapManager.Instance.GetHexagon(hexKey);
-                        if (hexagon.IsReachable())
-                        {
-                            _targetHexagon = hexagon;
-                            break;
-                        }
+
+                        if (null == hexagon)
+                            continue;
+
+                        if (!hexagon.IsReachable())
+                            continue;
+
+                        _targetHexagon = hexagon;
                     }
                 }
 

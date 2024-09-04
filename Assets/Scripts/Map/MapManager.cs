@@ -127,6 +127,12 @@ namespace WarGame
                 pair.Value.Dispose();
             }
             _bonfiresDic.Clear();
+
+            foreach (var pair in _ornamentsDic)
+            {
+                pair.Value.Dispose();
+            }
+            _ornamentsDic.Clear();
         }
 
         public bool ContainHexagon(int key)
