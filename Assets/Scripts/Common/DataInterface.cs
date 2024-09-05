@@ -33,6 +33,7 @@ namespace WarGame
 
         public EquipmentConfig GetConfig()
         {
+            DebugManager.Instance.Log(id);
             return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id);
         }
 
@@ -453,13 +454,18 @@ namespace WarGame
         public Enum.LevelStage Stage = Enum.LevelStage.None;
         public int Round;
         public Enum.ActionType actionType;
-        public List<LevelRoleData> heros = new List<LevelRoleData>();
-        public List<LevelRoleData> enemys = new List<LevelRoleData>();
-        public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
+        public List<LevelRoleData> heros;
+        public List<LevelRoleData> enemys;
+        public Dictionary<int, int> itemsDic;
+        public Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> reportDic;
 
         public LevelData(int configId)
         {
             this.configId = configId;
+            this.heros = new List<LevelRoleData>();
+            this.enemys = new List<LevelRoleData>();
+            this.itemsDic = new Dictionary<int, int>();
+            this.reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();
         }
 
         public void Clear()

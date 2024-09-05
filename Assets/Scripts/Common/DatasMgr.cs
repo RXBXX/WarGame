@@ -435,14 +435,16 @@ namespace WarGame
             var cost = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id).Cost;
             if (GetItem((int)Enum.ItemType.EquipRes) < cost)
             {
-                return;
+                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { Enum.ErrorCode.SrcNotEnough});
             }
-            _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.EquipRes, cost);
-            var equipID = _data.GetUsingRecord().AddEquip(id);
-
-            EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { equipID });
-
-            Save();
+            else
+            {
+                _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.EquipRes, cost);
+                var equipID = _data.GetUsingRecord().AddEquip(id);
+                DebugManager.Instance.Log(equipID);
+                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] {Enum.ErrorCode.Success, equipID });
+                Save();
+            }
         }
 
         public void DeleteRecordC2S(string id)

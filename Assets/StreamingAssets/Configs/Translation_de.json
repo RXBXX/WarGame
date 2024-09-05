@@ -2856,6 +2856,38 @@
         "Str": "(schritt vor: schnelle schritte mit scharfen augen) : wenn ihr euch nicht einig seid, dann lasst die schlacht beginnen. Wie auch immer das endet, wir werden uns heute durch taten beweisen."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "Mit einem sieger, müde, aber dennoch entschlossen: die schlacht ist vorbei, und ihre pläne wurden vollständig vereitelt."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "Wütend und schwer zu atem kommen: niemals! Wie kann so was nur passieren? Wie habt ihr das geschafft, wo wir doch alle so hart gearbeitet haben?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(mit eisigem lachen, versuchen ruhig zu bleiben) : der kampf schien nicht so gut gelaufen zu sein, wie wir dachten. Sie haben uns eine lehre gegeben! Es ist, als würden wir sie nicht vollständig bewerten."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "Nähern wir uns Oliver mit der festen entschlossenheit: dein ehrgeiz ist Von uns gescheitert, Oliver. Ihre pläne werden auch hier einen abschluss finden. Wir werden keine chance mehr geben."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(seufzen, regungslos) : ja, der erste war ziemlich schlecht. Vergesst aber nicht, die echten gegner sind weit weg. Die siege sind nur temporär, damit ist unser plan nicht zu ende."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "Schnelle, unverrückbare augenlider: wir sind bereit, wenn ihr weiter kämpfen wollt. Der heutige Sieg ist nur der anfang und wir wachen wie immer, bis alle bedrohungen aus dem weg sind."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "9. \"wir müssen uns an den boden mit den zähnen erinnern.\" Das nächste mal kommen wir mit größerer macht, und der eid wird euch nie wieder ergehen!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(zuletzt noch ein blick auf noah, umdrehen und weggehen) : vergessen sie nicht, dass nicht jede niederlage das ende ist. Das ist erst der anfang."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Wir sind immer noch zu schwach!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "Aktiviere jetzt."
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "Mit einem sieger, müde, aber dennoch entschlossen: die schlacht ist vorbei, und ihre pläne wurden vollständig vereitelt."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Eine physische attacke."
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "Wütend und schwer zu atem kommen: niemals! Wie kann so was nur passieren? Wie habt ihr das geschafft, wo wir doch alle so hart gearbeitet haben?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Magische gewalt."
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(mit eisigem lachen, versuchen ruhig zu bleiben) : der kampf schien nicht so gut gelaufen zu sein, wie wir dachten. Sie haben uns eine lehre gegeben! Es ist, als würden wir sie nicht vollständig bewerten."
+        "ID": "FightOverPanel_Cure",
+        "Str": "Heil!"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "Nähern wir uns Oliver mit der festen entschlossenheit: dein ehrgeiz ist Von uns gescheitert, Oliver. Ihre pläne werden auch hier einen abschluss finden. Wir werden keine chance mehr geben."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "Physische abwehr."
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(seufzen, regungslos) : ja, der erste war ziemlich schlecht. Vergesst aber nicht, die echten gegner sind weit weg. Die siege sind nur temporär, damit ist unser plan nicht zu ende."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "Verteidigung: magische kräfte."
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "Schnelle, unverrückbare augenlider: wir sind bereit, wenn ihr weiter kämpfen wollt. Der heutige Sieg ist nur der anfang und wir wachen wie immer, bis alle bedrohungen aus dem weg sind."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Gratuliere zu eurer ausrüstung."
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "9. \"wir müssen uns an den boden mit den zähnen erinnern.\" Das nächste mal kommen wir mit größerer macht, und der eid wird euch nie wieder ergehen!"
+        "ID": "FightOverPanel_Win",
+        "Str": "Der Sieg."
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(zuletzt noch ein blick auf noah, umdrehen und weggehen) : vergessen sie nicht, dass nicht jede niederlage das ende ist. Das ist erst der anfang."
+        "ID": "FightOverPanel_Failed",
+        "Str": "Gescheitert."
     }
 ]

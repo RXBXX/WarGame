@@ -67,8 +67,9 @@
     <Compile Include="Assets\Scripts\Battle\Skills\AttackAndRelocateSkill.cs" />
     <Compile Include="Assets\Scripts\Common\EventDispatcher.cs" />
     <Compile Include="Assets\FairyGUI\Examples\TurnPage\TurnPageMain.cs" />
-    <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightEnemyReportItem.cs" />
     <Compile Include="Assets\Scripts\UI\Hero\HeroTalentItem.cs" />
+    <Compile Include="Assets\FairyGUI\Scripts\Core\BlendMode.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Text\Emoji.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Basics\BasicsMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Action\ControllerAction.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\Container.cs" />
     <Compile Include="Assets\Scripts\UI\Settings\SettingsLanguageItem.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Bag\BagMain.cs" />
+    <Compile Include="Assets\Scripts\UI\Smithy\SmithyRewardPanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Mesh\MeshFactory.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\IUISource.cs" />
     <Compile Include="Assets\Scripts\Render\CameraRender.cs" />
@@ -238,6 +240,7 @@
     <Compile Include="Assets\FairyGUI\Examples\VirtualList\VirtualListMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\UIObjectFactory.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GGroup.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightOverComp.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GMovieClip.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GRoot.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GScrollBar.cs" />
@@ -293,6 +296,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\UI\GLoader.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Image.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Gears\GearBase.cs" />
+    <Compile Include="Assets\Scripts\UI\Smithy\SmithyReward.cs" />
     <Compile Include="Assets\FairyGUI\Examples\Perspetive\PerspectiveMain.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\Margin.cs" />
     <Compile Include="Assets\Scripts\Battle\LocatingArrow.cs" />
@@ -412,6 +416,7 @@
     <Compile Include="Assets\Scripts\UI\Common\CommonAttrItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Equip.cs" />
     <Compile Include="Assets\Scripts\UI\Common\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Fight\FightHeroReportItem.cs" />
     <Compile Include="Assets\Scripts\Map\WaterHexagon.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\GTextInput.cs" />
     <Compile Include="Assets\Scripts\Common\Enum.cs" />

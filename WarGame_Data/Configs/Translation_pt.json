@@ -2856,6 +2856,38 @@
         "Str": "(um passo à frente, olhos penetrantes) : já que estão todos tão decididos, que comece a batalha. Seja qual for o fim, hoje vamos provar-nos com acções concretas."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(com um sorriso vitorioso, cansado, mas resoluto) : a batalha terminou e os vossos planos foram completamente frustrados."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(em raiva, ofegante) : impossível! Como é que isto aconteceu? Como é que vão ganhar quando já estamos a dar o nosso melhor?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(tentando ficar calmo com um sorriso de derrota) : parece que a luta não correu tão bem como esperávamos. O senhor presidente deu-nos uma lição, e parece que não a avaliámos suficientemente."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(aproximando-se de oliver, com uma firme determinação nos olhos) : oliver, as vossas ambições terminaram connosco. Também aqui o vosso programa terá um fim. Não vos vamos dar mais hipóteses."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(suspiro, tom frio) : na verdade, esta batalha foi uma derrota para nós. No entanto, você também deve ter em mente que o verdadeiro adversário ainda está longe. A vitória é temporária e o nosso plano não termina aí."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(olhos penetrantes, inabaláveis) : se quiserdes continuar a luta, estaremos prontos a recebê-la. A vitória de hoje é apenas o começo, e continuaremos a defender os nossos objectivos como sempre, até que todas as ameaças sejam completamente eliminadas."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(olhar para o chão com raiva, ranger os dentes) : vamos lembrar-nos de tudo por hoje. Da próxima vez, voltaremos com uma postura mais forte e prometemos que nunca mais vos deixaremos vencer!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(e, olhando para noé pela última vez, virou-se) : lembre-se que nem todas as derrotas são o fim. Este é apenas mais um começo."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Ainda somos muito fracos!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "activar"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(com um sorriso vitorioso, cansado, mas resoluto) : a batalha terminou e os vossos planos foram completamente frustrados."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Um ataque físico"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(em raiva, ofegante) : impossível! Como é que isto aconteceu? Como é que vão ganhar quando já estamos a dar o nosso melhor?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "O ataque mágico"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(tentando ficar calmo com um sorriso de derrota) : parece que a luta não correu tão bem como esperávamos. O senhor presidente deu-nos uma lição, e parece que não a avaliámos suficientemente."
+        "ID": "FightOverPanel_Cure",
+        "Str": "tratamento"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(aproximando-se de oliver, com uma firme determinação nos olhos) : oliver, as vossas ambições terminaram connosco. Também aqui o vosso programa terá um fim. Não vos vamos dar mais hipóteses."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "A defesa física"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(suspiro, tom frio) : na verdade, esta batalha foi uma derrota para nós. No entanto, você também deve ter em mente que o verdadeiro adversário ainda está longe. A vitória é temporária e o nosso plano não termina aí."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "A defesa mágica"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(olhos penetrantes, inabaláveis) : se quiserdes continuar a luta, estaremos prontos a recebê-la. A vitória de hoje é apenas o começo, e continuaremos a defender os nossos objectivos como sempre, até que todas as ameaças sejam completamente eliminadas."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Parabéns pelo equipamento"
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "(olhar para o chão com raiva, ranger os dentes) : vamos lembrar-nos de tudo por hoje. Da próxima vez, voltaremos com uma postura mais forte e prometemos que nunca mais vos deixaremos vencer!"
+        "ID": "FightOverPanel_Win",
+        "Str": "vitória"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(e, olhando para noé pela última vez, virou-se) : lembre-se que nem todas as derrotas são o fim. Este é apenas mais um começo."
+        "ID": "FightOverPanel_Failed",
+        "Str": "fracasso"
     }
 ]

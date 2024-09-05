@@ -2856,6 +2856,38 @@
         "Str": "(steps forward, eyes sharp) : Since you're both so determined, let the fight begin. No matter what the outcome, today we will prove ourselves with practical actions."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(With a triumphant smile on his face, tired but determined) : The battle is over, and your plans have been utterly foiled."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(Angry, panting) : No way! How did that happen? How can you win when we're doing everything we can?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(With a defeated sneer, trying to keep his composure) : It seems that the battle didn't go as well as we expected. You did teach us a lesson, and it seems that our assessment of you was not thorough enough."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(Approaching Oliver with determination in his eyes) : Oliver, we have ended your ambitions. This is where your plans will end. We're not gonna give you another chance."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(Sighs, tone of indifference) : Indeed, we lost the battle very well. But remember, too, that the real adversary is far away. The victory is only temporary, and our plan does not end there."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(Eyes sharp, unwavering) : If you want to continue the struggle, we are ready to meet you. Today's victory is only the beginning, and we will continue to defend our goals until all threats are eliminated."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(looking angrily to the ground, gnashing his teeth) : We will remember today. Next time, we will return stronger and vow to never let you succeed again!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(Takes one last look at Noah and turns away) : Remember, not every failure is the end. This is just another start."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "We're still too weak!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "Activate"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(With a triumphant smile on his face, tired but determined) : The battle is over, and your plans have been utterly foiled."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Physical attack"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(Angry, panting) : No way! How did that happen? How can you win when we're doing everything we can?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Magic attack"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(With a defeated sneer, trying to keep his composure) : It seems that the battle didn't go as well as we expected. You did teach us a lesson, and it seems that our assessment of you was not thorough enough."
+        "ID": "FightOverPanel_Cure",
+        "Str": "heal"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(Approaching Oliver with determination in his eyes) : Oliver, we have ended your ambitions. This is where your plans will end. We're not gonna give you another chance."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "Physical defense"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(Sighs, tone of indifference) : Indeed, we lost the battle very well. But remember, too, that the real adversary is far away. The victory is only temporary, and our plan does not end there."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "Magical defense"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(Eyes sharp, unwavering) : If you want to continue the struggle, we are ready to meet you. Today's victory is only the beginning, and we will continue to defend our goals until all threats are eliminated."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Congratulations on getting the gear."
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "(looking angrily to the ground, gnashing his teeth) : We will remember today. Next time, we will return stronger and vow to never let you succeed again!"
+        "ID": "FightOverPanel_Win",
+        "Str": "win"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(Takes one last look at Noah and turns away) : Remember, not every failure is the end. This is just another start."
+        "ID": "FightOverPanel_Failed",
+        "Str": "Lose"
     }
 ]

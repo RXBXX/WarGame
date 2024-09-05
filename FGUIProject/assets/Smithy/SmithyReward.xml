@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="160,160" pivot="0.5,0.5" extention="Button" mask="n29_vqm0">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <graph id="n29_vqm0" name="n29" xy="80,80" pivot="0.5,0.5" anchor="true" size="160,0" type="rect" lineSize="0"/>
+    <component id="n30_vqm0" name="equip" src="c2cw12" fileName="Components/CommonEquip.xml" pkg="hx02grrp" xy="0,0" size="160,160"/>
+  </displayList>
+  <Button mode="Radio"/>
+  <transition name="t0" autoPlay="true">
+    <item time="6" type="Size" target="n29_vqm0" tween="true" startValue="160,0" endValue="160,160" duration="6" ease="Quart.In"/>
+  </transition>
+</component>

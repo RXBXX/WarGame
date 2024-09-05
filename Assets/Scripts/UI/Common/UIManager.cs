@@ -62,6 +62,7 @@ namespace WarGame.UI
             GRoot.inst.SetContentScaleFactor(1334, 750, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
             _width = (int)Mathf.Ceil(Screen.width / UIContentScaler.scaleFactor);
             _height = (int)Mathf.Ceil(Screen.height / UIContentScaler.scaleFactor);
+            DebugManager.Instance.Log(_width);
             //DebugManager.Instance.Log("Screen:" + Screen.width + "_" + Screen.height);
             //DebugManager.Instance.Log("Stage:" + Stage.inst.width + "_" + Stage.inst.height);
             //DebugManager.Instance.Log("GRoot:" + GRoot.inst.width + "_" + GRoot.inst.height);

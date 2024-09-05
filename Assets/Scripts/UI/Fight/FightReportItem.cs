@@ -1,6 +1,7 @@
 using FairyGUI;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
 
 namespace WarGame.UI
 {
@@ -8,6 +9,10 @@ namespace WarGame.UI
     {
         private GTextField _PA, _MA, _Cure, _PD, _MD;
         private GButton _hero;
+        private Transition _inLeft;
+        private Transition _inRight;
+        private Sequence _seq;
+
         public FightReportItem(GComponent gCom, string customName = null, params object[] args) : base(gCom, customName, args)
         {
             _hero = GetGObjectChild<GButton>("hero");
@@ -16,17 +21,53 @@ namespace WarGame.UI
             _Cure = GetGObjectChild<GTextField>("Cure");
             _PD = GetGObjectChild<GTextField>("PD");
             _MD = GetGObjectChild<GTextField>("MD");
+
+            _inLeft = GetTransition("inLeft");
+            _inRight = GetTransition("inRight");
         }
 
         public void UpdateItem(string icon, Dictionary<Enum.AttrType, float> attrsDic)
         {
             _hero.icon = icon;
 
-            _PA.text = attrsDic.ContainsKey(Enum.AttrType.PhysicalAttack) ? attrsDic[Enum.AttrType.PhysicalAttack].ToString() : "0";
-            _MA.text = attrsDic.ContainsKey(Enum.AttrType.MagicAttack) ? attrsDic[Enum.AttrType.MagicAttack].ToString() : "0";
-            _Cure.text = attrsDic.ContainsKey(Enum.AttrType.Cure) ? attrsDic[Enum.AttrType.Cure].ToString() : "0";
-            _PD.text = attrsDic.ContainsKey(Enum.AttrType.PhysicalDefense) ? attrsDic[Enum.AttrType.PhysicalDefense].ToString() : "0";
-            _MD.text = attrsDic.ContainsKey(Enum.AttrType.MagicDefense) ? attrsDic[Enum.AttrType.MagicDefense].ToString() : "0";
+            _PA.text = attrsDic.ContainsKey(Enum.AttrType.PhysicalAttack) ? Mathf.Floor(attrsDic[Enum.AttrType.PhysicalAttack]).ToString() : "0";
+            _MA.text = attrsDic.ContainsKey(Enum.AttrType.MagicAttack) ? Mathf.Floor(attrsDic[Enum.AttrType.MagicAttack]).ToString() : "0";
+            _Cure.text = attrsDic.ContainsKey(Enum.AttrType.Cure) ? Mathf.Floor(attrsDic[Enum.AttrType.Cure]).ToString() : "0";
+            _PD.text = attrsDic.ContainsKey(Enum.AttrType.PhysicalDefense) ? Mathf.Floor(attrsDic[Enum.AttrType.PhysicalDefense]).ToString() : "0";
+            _MD.text = attrsDic.ContainsKey(Enum.AttrType.MagicDefense) ? Mathf.Floor(attrsDic[Enum.AttrType.MagicDefense]).ToString() : "0";
+        }
+
+        public void PlayInLeft(float delay)
+        {
+            _seq = DOTween.Sequence();
+            _seq.AppendInterval(delay);
+            _seq.AppendCallback(() =>
+            {
+                _inLeft.Play();
+            });
+        }
+
+        public void PlayInRight(float delay)
+        {
+            DebugManager.Instance.Log("PlayInRight");
+            _seq = DOTween.Sequence();
+            _seq.AppendInterval(delay);
+            _seq.AppendCallback(() =>
+            {
+                DebugManager.Instance.Log("PlayInRight Play");
+                _inRight.Play();
+            });
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            if (null != _seq)
+            {
+                _seq.Kill();
+                _seq = null;
+            }
+
+            base.Dispose(disposeGCom);
         }
     }
 }

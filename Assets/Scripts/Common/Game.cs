@@ -32,8 +32,10 @@ namespace WarGame
             BattleMgr.Instance.Init();
             EventMgr.Instance.Init();
 
-            DOTween.Init(true, true);
+            DOTween.Init(true, false);
             DOTween.debugMode = true;
+
+            
 
             return true;
         }

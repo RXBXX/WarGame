@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,16">
+  <controller name="color" exported="true" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <graph id="n0_kawv" name="n0" xy="0,0" size="1334,16" alpha="0.1" type="rect" lineSize="0" fillColor="#ff00a8ed">
+      <gearColor controller="color" pages="0,1,2" values="#00a8ed|#ffb500|#ce4a35"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n0_kawv" tween="true" startValue="-1334,0" endValue="1334,0" duration="48" ease="Linear"/>
+  </transition>
+</component>

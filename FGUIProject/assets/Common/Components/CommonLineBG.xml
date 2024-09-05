@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750" opaque="false">
+  <displayList>
+    <component id="n1_kawv" name="n1" src="kawv2w" fileName="Components/CommonLine.xml" xy="534,-547" size="1334,20" rotation="130" touchable="false">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
+    <component id="n2_kawv" name="n2" src="kawv2w" fileName="Components/CommonLine.xml" xy="192,-51" size="1334,20" rotation="130" touchable="false" controller="color,1">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
+    <component id="n3_kawv" name="n3" src="kawv2w" fileName="Components/CommonLine.xml" xy="358,-167" size="1334,20" rotation="130" touchable="false" controller="color,2">
+      <relation target="" sidePair="left-left,top-top"/>
+    </component>
+    <component id="n7_kawv" name="n7" src="kawv2w" fileName="Components/CommonLine.xml" xy="1651,2" rotation="130" touchable="false">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </component>
+    <component id="n8_kawv" name="n8" src="kawv2w" fileName="Components/CommonLine.xml" xy="1909,-222" rotation="130" touchable="false" controller="color,1">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </component>
+    <component id="n9_kawv" name="n9" src="kawv2w" fileName="Components/CommonLine.xml" xy="1776,22" rotation="130" touchable="false" controller="color,2">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+    </component>
+    <component id="n10_vqm0" name="n10" src="kawv2w" fileName="Components/CommonLine.xml" xy="1602,-1051" size="1334,24" rotation="130" touchable="false">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n11_vqm0" name="n11" src="kawv2w" fileName="Components/CommonLine.xml" xy="1870,-1275" size="1334,24" rotation="130" touchable="false" controller="color,1">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n12_vqm0" name="n12" src="kawv2w" fileName="Components/CommonLine.xml" xy="1747,-1031" size="1334,24" rotation="130" touchable="false" controller="color,2">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n13_vqm0" name="n13" src="kawv2w" fileName="Components/CommonLine.xml" xy="-112,992" size="1334,24" rotation="130" touchable="false">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n14_vqm0" name="n14" src="kawv2w" fileName="Components/CommonLine.xml" xy="156,768" size="1334,24" rotation="130" touchable="false" controller="color,1">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+    <component id="n15_vqm0" name="n15" src="kawv2w" fileName="Components/CommonLine.xml" xy="33,1012" size="1334,24" rotation="130" touchable="false" controller="color,2">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
+  </displayList>
+</component>

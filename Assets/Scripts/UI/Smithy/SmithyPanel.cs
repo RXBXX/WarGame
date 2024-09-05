@@ -130,9 +130,13 @@ namespace WarGame.UI
 
         private void OnBuyEquipS2C(params object[] args)
         {
+            if ((Enum.ErrorCode)args[0] != Enum.ErrorCode.Success)
+                return;
+
             _resComp.UpdateComp(new List<TwoIntPair> {
                 new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
             });
+            UIManager.Instance.OpenPanel("Smithy", "SmithyRewardPanel", new object[] { args[1]});
         }
 
         private void OnClickClose()

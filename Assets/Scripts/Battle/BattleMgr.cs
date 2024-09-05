@@ -8,6 +8,18 @@ namespace WarGame
     {
         private Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> _reportDic;
 
+        public void InitReports(Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> reportDic)
+        {
+            _reportDic = reportDic;
+            //_reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();
+            //_reportDic[Enum.RoleType.Hero] = new Dictionary<int, Dictionary<Enum.AttrType, float>>();
+            //_reportDic[Enum.RoleType.Enemy] = new Dictionary<int, Dictionary<Enum.AttrType, float>>();
+            //foreach (var v in RoleManager.Instance.GetAllRoles())
+            //{
+            //    _reportDic[v.Type][v.ID] = new Dictionary<Enum.AttrType, float>();
+            //}
+        }
+
         ///计算元素克制加成
         public float GetElementAdd(Enum.Element levelElement, int _initiatorID, int targetID = 0)
         {
@@ -222,8 +234,12 @@ namespace WarGame
         {
             var physicalDefense = GetPhysicalDefensePower(levelElement, initiatorID, targetID);
             var magicDefense = GetMagicDefensePower(levelElement, initiatorID, targetID);
-            var physicalHurt = Mathf.Max(0, GetPhysicalAttackPower(levelElement, initiatorID, targetID) - physicalDefense);
-            var magicHurt = Mathf.Max(0, GetMagicAttackPower(levelElement, initiatorID, targetID) - magicDefense);
+
+            var phyAttack = GetPhysicalAttackPower(levelElement, initiatorID, targetID);
+            var magAttack = GetMagicAttackPower(levelElement, initiatorID, targetID);
+
+            var physicalHurt = Mathf.Max(0, phyAttack - physicalDefense);
+            var magicHurt = Mathf.Max(0, magAttack - magicDefense);
 
             physicalHurt *= multiply;
             magicHurt *= multiply;
@@ -235,8 +251,8 @@ namespace WarGame
             {
                 AddReport(targetID, Enum.AttrType.PhysicalDefense, physicalDefense);
                 AddReport(targetID, Enum.AttrType.MagicDefense, magicDefense);
-                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, physicalHurt);
-                AddReport(initiatorID, Enum.AttrType.MagicAttack, magicHurt);
+                AddReport(initiatorID, Enum.AttrType.PhysicalAttack, phyAttack);
+                AddReport(initiatorID, Enum.AttrType.MagicAttack, magAttack);
             }
 
             return physicalHurt + magicHurt;
@@ -562,17 +578,6 @@ namespace WarGame
                 return rageEnough;
         }
 
-        public void InitReports()
-        {
-            _reportDic = new Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>();
-            _reportDic[Enum.RoleType.Hero] = new Dictionary<int, Dictionary<Enum.AttrType, float>>();
-            _reportDic[Enum.RoleType.Enemy] = new Dictionary<int, Dictionary<Enum.AttrType, float>>();
-            foreach (var v in RoleManager.Instance.GetAllRoles())
-            {
-                _reportDic[v.Type][v.ID] = new Dictionary<Enum.AttrType, float>();
-            }
-        }
-
         public void AddReport(int id, Enum.AttrType attrType, float value)
         {
             //if (null == _reportDic)
@@ -601,6 +606,7 @@ namespace WarGame
             {
                 _reportDic[role.Type][id][attrType] = 0;
             }
+
             _reportDic[role.Type][id][attrType] += value;
         }
 

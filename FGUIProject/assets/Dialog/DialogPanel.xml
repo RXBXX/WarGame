@@ -7,6 +7,9 @@
     <graph id="n2_a4gr" name="mask" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
+    <component id="n5_vqm0" name="n5" src="kawv2x" fileName="Components/CommonLineBG.xml" pkg="hx02grrp" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
     <component id="n0_a4gr" name="dialogBox" src="a4gr2" fileName="DialogBox.xml" xy="667,690" pivot="0.5,0.5" anchor="true">
       <relation target="" sidePair="center-center,bottom-bottom"/>
     </component>

@@ -4,6 +4,9 @@
     <graph id="n1_dsuy" name="bg" xy="0,0" size="1334,750" alpha="0.7" type="rect" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
+    <component id="n12_kawv" name="n12" src="kawv2x" fileName="Components/CommonLineBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
     <image id="n8_kky8" name="n8" src="kky823" fileName="Images/PopBG.png" xy="666,339" pivot="0.5,0.5" anchor="true" size="639,461" group="n11_gry6"/>
     <text id="n2_dsuy" name="desc" xy="396,211" size="557,51" group="n11_gry6" fontSize="18" color="#ffffff" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备，一旦进入将无法再为英雄进行升级等操作，直至赢得胜利。"/>
     <text id="n3_dsuy" name="title" xy="640,117" size="54,44" group="n11_gry6" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="TIPS"/>

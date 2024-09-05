@@ -2856,6 +2856,38 @@
         "Str": "(un pas en avant, un regard vif) : puisque vous êtes tous si décidés, que la bataille commence. Quelle que soit la fin, nous nous montrerons aujourd’hui par des actes concrets."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(sourire triomphant, fatigué mais résolu) : la bataille est terminée et vos plans sont complètement déçus."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(en colère, haletant) : impossible! Comment cela se fait-il? Comment pouvez-vous gagner quand nous avons fait tout ce que nous avons fait?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(avec un sourire de défaite, en essayant de rester calme) : il semble que la bataille ne se soit pas déroulée aussi bien que nous l’attendions. Vous nous avez donné une leçon, et il semble que nous ne vous ayons pas suffisamment évalué."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(approchez oliver, avec une ferme détermination dans les yeux) : oliver, nous avons mis fin à vos ambitions. C’est là aussi que votre programme prendra fin. Nous ne vous laisserons plus aucune chance."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(soupirs, ton indifférent) : en effet, nous avons perdu cette bataille. Mais n’oubliez pas que le vrai adversaire est encore loin. La victoire n’est que temporaire et notre plan ne s’arrête pas là."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(regard pénétrant, inébranlable) : si vous voulez continuer la lutte, nous serons prêts à l’accueillir. La victoire d’aujourd’hui n’est que le début et nous garderons nos objectifs comme toujours jusqu’à ce que toutes les menaces soient complètement éliminées."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(regard furieux vers le sol, grincement de dents) : nous nous souviendrons de tout pour aujourd’hui. La prochaine fois, nous reviendrons avec plus de force et promettons de ne plus jamais vous faire le jeu!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(après avoir jeté un dernier regard sur noé et tourné le dos) : rappelez-vous que chaque défaite n’est pas la fin. Ce n’est qu’un autre début."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Nous sommes encore trop faibles!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "l’activation"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(sourire triomphant, fatigué mais résolu) : la bataille est terminée et vos plans sont complètement déçus."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Une attaque physique"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(en colère, haletant) : impossible! Comment cela se fait-il? Comment pouvez-vous gagner quand nous avons fait tout ce que nous avons fait?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Une attaque magique"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(avec un sourire de défaite, en essayant de rester calme) : il semble que la bataille ne se soit pas déroulée aussi bien que nous l’attendions. Vous nous avez donné une leçon, et il semble que nous ne vous ayons pas suffisamment évalué."
+        "ID": "FightOverPanel_Cure",
+        "Str": "Le traitement"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(approchez oliver, avec une ferme détermination dans les yeux) : oliver, nous avons mis fin à vos ambitions. C’est là aussi que votre programme prendra fin. Nous ne vous laisserons plus aucune chance."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "La défense physique"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(soupirs, ton indifférent) : en effet, nous avons perdu cette bataille. Mais n’oubliez pas que le vrai adversaire est encore loin. La victoire n’est que temporaire et notre plan ne s’arrête pas là."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "La défense magique"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(regard pénétrant, inébranlable) : si vous voulez continuer la lutte, nous serons prêts à l’accueillir. La victoire d’aujourd’hui n’est que le début et nous garderons nos objectifs comme toujours jusqu’à ce que toutes les menaces soient complètement éliminées."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Félicitations pour l’équipement"
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "(regard furieux vers le sol, grincement de dents) : nous nous souviendrons de tout pour aujourd’hui. La prochaine fois, nous reviendrons avec plus de force et promettons de ne plus jamais vous faire le jeu!"
+        "ID": "FightOverPanel_Win",
+        "Str": "La victoire"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(après avoir jeté un dernier regard sur noé et tourné le dos) : rappelez-vous que chaque défaite n’est pas la fin. Ce n’est qu’un autre début."
+        "ID": "FightOverPanel_Failed",
+        "Str": "l’échec"
     }
 ]

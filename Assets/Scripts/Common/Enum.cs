@@ -101,6 +101,7 @@ namespace WarGame
             Over = 7,
         }
 
+        [Serializable]
         public enum RoleType
         {
             None = 0,
@@ -221,6 +222,7 @@ namespace WarGame
         {
             Success = 0,
             Error = 1,
+            SrcNotEnough = 2,
         }
 
         public enum PostProcessingType

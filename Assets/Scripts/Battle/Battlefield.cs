@@ -53,6 +53,7 @@ namespace WarGame
         private void Init()
         {
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
+            BattleMgr.Instance.InitReports(_levelData.reportDic);
 
             if (_levelData.Stage == Enum.LevelStage.Passed)
             {
@@ -61,7 +62,7 @@ namespace WarGame
             }
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
-            _levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + mapDir);
+            _levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + "Maps/Empty_Test.json");
             MapManager.Instance.CreateMap(_levelPlugin.hexagons, _levelPlugin.bonfires, _levelPlugin.ornaments, _levelPlugin.lightingPlugin);
             if (_levelData.Stage < Enum.LevelStage.Entered)
             {
@@ -253,7 +254,6 @@ namespace WarGame
             }
 
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
-            BattleMgr.Instance.InitReports();
             RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Fog);
             RenderMgr.Instance.OpenPostProcessiong(Enum.PostProcessingType.Palette, new object[] { CommonParams.GetPalette(levelConfig.Element) });
             //DebugManager.Instance.Log(TimeMgr.Instance.GetUnixTimestamp());

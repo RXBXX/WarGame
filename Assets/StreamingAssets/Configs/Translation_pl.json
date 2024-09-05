@@ -2856,6 +2856,38 @@
         "Str": "(robi krok do przodu, jego oczy są bystre): Skoro wszyscy jesteście tak zdeterminowani, niech rozpocznie się bitwa. Niezależnie od wyniku, dziś sprawdzimy się praktycznymi działaniami."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(z uśmiechem zwycięstwa, zmęczony, ale zdecydowany): Bitwa się skończyła, a twoje plany zostały całkowicie udaremnione."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(wściekły, dysząc): Niemożliwe! W jaki sposób? Poszliśmy na całość, więc jak możesz wygrać?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(z pokonanym szyderczym uśmiechem, starając się zachować spokój): Wygląda na to, że walka nie poszła tak gładko, jak się spodziewaliśmy. Rzeczywiście dał nam pan nauczkę i wygląda na to, że nasza ocena pana nie jest wystarczająco wyczerpująca."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(Zwracając się do Olivera z determinacją w oczach): Oliver, twoje ambicje zostały przez nas położone kresowi. Na tym Twoje plany dobiegną końca. Nie damy Ci kolejnej szansy."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(wzdycha chłodnym tonem): Rzeczywiście, byliśmy przekonani o naszej porażce w tej bitwie. Trzeba jednak pamiętać też, że do prawdziwego przeciwnika jest jeszcze daleko. Zwycięstwo było chwilowe i na tym nasze plany się nie kończyły."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(Bystrooki, niezachwiany): Jeśli nadal chcesz kontynuować walkę, będziemy gotowi się z tobą spotkać. Dzisiejsze zwycięstwo to dopiero początek i będziemy bronić naszych celów, dopóki wszystkie zagrożenia nie zostaną wyeliminowane."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(ze złością spogląda na ziemię, zgrzytając zębami): Dzisiaj wszystko sobie przypomnimy. Następnym razem wrócimy z silniejszą postawą i przysięgamy, że nigdy więcej nie pozwolimy Ci odnieść sukcesu!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(Ostatnie spojrzenie na Noego, odwraca się): Pamiętaj, nie każda porażka jest końcem. To dopiero kolejny początek."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Wciąż jesteśmy za słabi!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "aktywacja"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(z uśmiechem zwycięstwa, zmęczony, ale zdecydowany): Bitwa się skończyła, a twoje plany zostały całkowicie udaremnione."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Ataki fizyczne"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(wściekły, dysząc): Niemożliwe! W jaki sposób? Poszliśmy na całość, więc jak możesz wygrać?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Magiczny atak"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(z pokonanym szyderczym uśmiechem, starając się zachować spokój): Wygląda na to, że walka nie poszła tak gładko, jak się spodziewaliśmy. Rzeczywiście dał nam pan nauczkę i wygląda na to, że nasza ocena pana nie jest wystarczająco wyczerpująca."
+        "ID": "FightOverPanel_Cure",
+        "Str": "traktować"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(Zwracając się do Olivera z determinacją w oczach): Oliver, twoje ambicje zostały przez nas położone kresowi. Na tym Twoje plany dobiegną końca. Nie damy Ci kolejnej szansy."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "Obrona fizyczna"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(wzdycha chłodnym tonem): Rzeczywiście, byliśmy przekonani o naszej porażce w tej bitwie. Trzeba jednak pamiętać też, że do prawdziwego przeciwnika jest jeszcze daleko. Zwycięstwo było chwilowe i na tym nasze plany się nie kończyły."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "Magiczna obrona"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(Bystrooki, niezachwiany): Jeśli nadal chcesz kontynuować walkę, będziemy gotowi się z tobą spotkać. Dzisiejsze zwycięstwo to dopiero początek i będziemy bronić naszych celów, dopóki wszystkie zagrożenia nie zostaną wyeliminowane."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Gratulujemy zdobycia sprzętu"
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "(ze złością spogląda na ziemię, zgrzytając zębami): Dzisiaj wszystko sobie przypomnimy. Następnym razem wrócimy z silniejszą postawą i przysięgamy, że nigdy więcej nie pozwolimy Ci odnieść sukcesu!"
+        "ID": "FightOverPanel_Win",
+        "Str": "zwycięstwo"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(Ostatnie spojrzenie na Noego, odwraca się): Pamiętaj, nie każda porażka jest końcem. To dopiero kolejny początek."
+        "ID": "FightOverPanel_Failed",
+        "Str": "zawieść"
     }
 ]

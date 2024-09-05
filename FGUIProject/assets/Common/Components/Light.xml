@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="300,300">
+  <displayList>
+    <image id="n0_vqm0" name="n0" src="vqm02y" fileName="Images/Light.png" xy="150,150" pivot="0.5,0.5" anchor="true" alpha="0.7">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+  </displayList>
+  <transition name="t1" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="Rotation" target="n0_vqm0" tween="true" startValue="0" endValue="72" duration="12" ease="Linear"/>
+  </transition>
+</component>

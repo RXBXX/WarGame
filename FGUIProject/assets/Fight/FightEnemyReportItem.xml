@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="540,63" overflow="hidden">
+  <displayList>
+    <graph id="n1_li0q" name="n1" xy="0,-8" size="540,80" group="n10_kawv" type="polygon" lineSize="0" lineColor="#ffffffff" fillColor="#ff1e1e1e" points="0,40,23.2288,-0.4096251,540,0,540,40,518,80.21606,0,80"/>
+    <component id="n0_li0q" name="hero" src="pfj84" fileName="Components/CommonHero.xml" pkg="hx02grrp" xy="20,0" group="n10_kawv" scale="0.8,0.8"/>
+    <text id="n3_li0q" name="PA" xy="142,32" pivot="0.5,0.5" anchor="true" size="26,26" group="n10_kawv" font="ui://hd0z4dz5omu90" fontSize="18" color="#ce4a35" align="center" vAlign="middle" strokeColor="#000000" text="100"/>
+    <text id="n4_li0q" name="MA" xy="224,32" pivot="0.5,0.5" anchor="true" size="26,26" group="n10_kawv" font="ui://hd0z4dz5omu90" fontSize="18" color="#ce4a35" align="center" vAlign="middle" strokeColor="#000000" text="100"/>
+    <text id="n5_li0q" name="Cure" xy="306,32" pivot="0.5,0.5" anchor="true" size="26,26" group="n10_kawv" font="ui://hd0z4dz5omu90" fontSize="18" color="#5c8799" align="center" vAlign="middle" strokeColor="#000000" text="100"/>
+    <text id="n8_li0q" name="PD" xy="388,32" pivot="0.5,0.5" anchor="true" size="26,26" group="n10_kawv" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" text="100"/>
+    <text id="n9_li0q" name="MD" xy="470,32" pivot="0.5,0.5" anchor="true" size="26,26" group="n10_kawv" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" text="100"/>
+    <group id="n10_kawv" name="n10" xy="0,-8" size="540,88" visible="false" advanced="true"/>
+  </displayList>
+  <transition name="inRight">
+    <item time="0" type="Visible" target="n10_kawv" value="true"/>
+    <item time="0" type="XY" target="n10_kawv" tween="true" startValue="540,-8" endValue="0,-8" duration="12" ease="Quart.In"/>
+    <item time="12" type="Visible" target="n10_kawv" value="true"/>
+  </transition>
+</component>

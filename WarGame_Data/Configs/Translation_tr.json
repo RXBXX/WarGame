@@ -2856,6 +2856,38 @@
         "Str": "(öne doğru bir adım atar, gözleri keskindir): Madem bu kadar kararlısınız, savaş başlasın. Sonuç ne olursa olsun, bugün pratik eylemlerle kendimizi kanıtlayacağız."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(zafer gülümsemesiyle, yorgun ama kararlı): Savaş bitti ve planlarınız tamamen bozuldu."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(öfkeli, nefes nefese): İmkansız! Nasıl yani? Her şeyimizi ortaya koyduk, peki siz nasıl kazanabilirsiniz?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(mağlup bir küçümsemeyle, soğukkanlılığını korumaya çalışarak): Görünüşe göre dövüş beklediğimiz kadar sorunsuz gitmedi. Bize gerçekten bir ders verdiniz ve görünüşe göre sizinle ilgili değerlendirmemiz yeterince kapsamlı değil."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(Oliver'a yaklaşıyor, gözlerinde kararlılıkla): Oliver, hırsların bizim tarafımızdan sona erdirildi. Planlarınız burada sona erecek. Size başka bir şans vermeyeceğiz."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(soğuk bir tonda iç çeker): Gerçekten de, bu savaştaki yenilgimize ikna olmuştuk. Ancak, gerçek rakibin hala çok uzakta olduğunu da unutmamalısınız. Zafer geçiciydi ve planlarımız burada bitmedi."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(Keskin gözlü, sarsılmaz): Hala mücadeleye devam etmek istiyorsanız, sizinle tanışmaya hazır olacağız. Bugünün zaferi sadece bir başlangıç ve tüm tehditler ortadan kalkana kadar hedeflerimizi savunmaya devam edeceğiz."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "(öfkeyle yere bakarak, dişlerini gıcırdatarak): Bugün her şeyi hatırlayacağız. Bir dahaki sefere, daha güçlü bir duruşla geri döneceğiz ve bir daha asla başarılı olmanıza izin vermeyeceğimize yemin edeceğiz!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "(Nuh'a son bir bakış, arkasını dönerek): Unutma, her başarısızlık son değildir. Bu sadece başka bir başlangıç."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "Hala çok zayıfız!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "Etkinleştirme"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(zafer gülümsemesiyle, yorgun ama kararlı): Savaş bitti ve planlarınız tamamen bozuldu."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Fiziksel saldırılar"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(öfkeli, nefes nefese): İmkansız! Nasıl yani? Her şeyimizi ortaya koyduk, peki siz nasıl kazanabilirsiniz?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Büyü Saldırısı"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(mağlup bir küçümsemeyle, soğukkanlılığını korumaya çalışarak): Görünüşe göre dövüş beklediğimiz kadar sorunsuz gitmedi. Bize gerçekten bir ders verdiniz ve görünüşe göre sizinle ilgili değerlendirmemiz yeterince kapsamlı değil."
+        "ID": "FightOverPanel_Cure",
+        "Str": "tedavi etmek"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(Oliver'a yaklaşıyor, gözlerinde kararlılıkla): Oliver, hırsların bizim tarafımızdan sona erdirildi. Planlarınız burada sona erecek. Size başka bir şans vermeyeceğiz."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "Fiziksel savunma"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(soğuk bir tonda iç çeker): Gerçekten de, bu savaştaki yenilgimize ikna olmuştuk. Ancak, gerçek rakibin hala çok uzakta olduğunu da unutmamalısınız. Zafer geçiciydi ve planlarımız burada bitmedi."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "Büyülü Savunma"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(Keskin gözlü, sarsılmaz): Hala mücadeleye devam etmek istiyorsanız, sizinle tanışmaya hazır olacağız. Bugünün zaferi sadece bir başlangıç ve tüm tehditler ortadan kalkana kadar hedeflerimizi savunmaya devam edeceğiz."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Teçhizatı aldığınız için tebrikler"
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "(öfkeyle yere bakarak, dişlerini gıcırdatarak): Bugün her şeyi hatırlayacağız. Bir dahaki sefere, daha güçlü bir duruşla geri döneceğiz ve bir daha asla başarılı olmanıza izin vermeyeceğimize yemin edeceğiz!"
+        "ID": "FightOverPanel_Win",
+        "Str": "zafer"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "(Nuh'a son bir bakış, arkasını dönerek): Unutma, her başarısızlık son değildir. Bu sadece başka bir başlangıç."
+        "ID": "FightOverPanel_Failed",
+        "Str": "Başarısız"
     }
 ]

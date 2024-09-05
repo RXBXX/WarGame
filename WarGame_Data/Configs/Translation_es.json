@@ -2856,6 +2856,38 @@
         "Str": "(un paso adelante, ojos penetrantes) : ya que todos están tan decididos, que comience la batalla. Sea cual sea el final, hoy nos demostraremos con hechos prácticos."
     },
     {
+        "ID": "DialogConfig_90002001_Context",
+        "Str": "(con una sonrisa triunfante, cansada pero decidida) : la batalla ha terminado y vuestros planes han sido completamente frustrados."
+    },
+    {
+        "ID": "DialogConfig_90002002_Context",
+        "Str": "(furioso, sin aliento) : ¡Imposible! ¿Por qué? ¿Cómo es posible que ganen cuando hemos dado todo lo que podíamos?"
+    },
+    {
+        "ID": "DialogConfig_90002003_Context",
+        "Str": "(tratando de mantener la calma con chiste derrotado) : parece que la batalla no ha ido tan bien como esperábamos. Usted nos ha enseñado una lección y parece que no lo hemos evaluado suficientemente bien."
+    },
+    {
+        "ID": "DialogConfig_90002004_Context",
+        "Str": "(acercándose a oliver, con una firme determinación en los ojos) : oliver, tu ambición ha terminado con nosotros. Su programa también terminará aquí. No les dejaremos otra oportunidad."
+    },
+    {
+        "ID": "DialogConfig_90002005_Context",
+        "Str": "(suspiro, tono indiferente) : en efecto, hemos perdido esta batalla. Sin embargo, también deben tener en cuenta que el verdadero adversario está lejos. La victoria es sólo temporal y nuestro plan no termina ahí."
+    },
+    {
+        "ID": "DialogConfig_90002006_Context",
+        "Str": "(mirada penetrante, inquebrantable) : si quieres seguir luchando, estaremos listos para recibirlo. La victoria de hoy es solo el comienzo, y como siempre velaremos por nuestros objetivos hasta que todas las amenazas sean completamente eliminadas."
+    },
+    {
+        "ID": "DialogConfig_90002007_Context",
+        "Str": "Vamos a recordar todo por hoy. ¡La próxima vez volveremos con una postura más fuerte y prometemos que nunca más lo lograremos!"
+    },
+    {
+        "ID": "DialogConfig_90002008_Context",
+        "Str": "No todos los fracasos son un fin. Esto es sólo otro comienzo."
+    },
+    {
         "ID": "DialogConfig_90003001_Context",
         "Str": "¡Seguimos siendo demasiado débiles!"
     },
@@ -3572,35 +3604,35 @@
         "Str": "activar"
     },
     {
-        "ID": "DialogConfig_90002001_Context",
-        "Str": "(con una sonrisa triunfante, cansada pero decidida) : la batalla ha terminado y vuestros planes han sido completamente frustrados."
+        "ID": "FightOverPanel_PhyAttack",
+        "Str": "Ataque físico"
     },
     {
-        "ID": "DialogConfig_90002002_Context",
-        "Str": "(furioso, sin aliento) : ¡Imposible! ¿Por qué? ¿Cómo es posible que ganen cuando hemos dado todo lo que podíamos?"
+        "ID": "FightOverPanel_MagAttack",
+        "Str": "Ataque mágico"
     },
     {
-        "ID": "DialogConfig_90002003_Context",
-        "Str": "(tratando de mantener la calma con chiste derrotado) : parece que la batalla no ha ido tan bien como esperábamos. Usted nos ha enseñado una lección y parece que no lo hemos evaluado suficientemente bien."
+        "ID": "FightOverPanel_Cure",
+        "Str": "El tratamiento"
     },
     {
-        "ID": "DialogConfig_90002004_Context",
-        "Str": "(acercándose a oliver, con una firme determinación en los ojos) : oliver, tu ambición ha terminado con nosotros. Su programa también terminará aquí. No les dejaremos otra oportunidad."
+        "ID": "FightOverPanel_PhyDefense",
+        "Str": "Defensa física"
     },
     {
-        "ID": "DialogConfig_90002005_Context",
-        "Str": "(suspiro, tono indiferente) : en efecto, hemos perdido esta batalla. Sin embargo, también deben tener en cuenta que el verdadero adversario está lejos. La victoria es sólo temporal y nuestro plan no termina ahí."
+        "ID": "FightOverPanel_MagDefense",
+        "Str": "Defensa mágica"
     },
     {
-        "ID": "DialogConfig_90002006_Context",
-        "Str": "(mirada penetrante, inquebrantable) : si quieres seguir luchando, estaremos listos para recibirlo. La victoria de hoy es solo el comienzo, y como siempre velaremos por nuestros objetivos hasta que todas las amenazas sean completamente eliminadas."
+        "ID": "SmithyRewardPanel_Title",
+        "Str": "Felicitaciones por el equipo"
     },
     {
-        "ID": "DialogConfig_90002007_Context",
-        "Str": "Vamos a recordar todo por hoy. ¡La próxima vez volveremos con una postura más fuerte y prometemos que nunca más lo lograremos!"
+        "ID": "FightOverPanel_Win",
+        "Str": "victoria"
     },
     {
-        "ID": "DialogConfig_90002008_Context",
-        "Str": "No todos los fracasos son un fin. Esto es sólo otro comienzo."
+        "ID": "FightOverPanel_Failed",
+        "Str": "El fracaso"
     }
 ]

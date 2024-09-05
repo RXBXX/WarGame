@@ -17,11 +17,14 @@
     <image id="czz8g" name="FightTips2.png" path="/Images/"/>
     <image id="m8jm1m" name="FightTips3.png" path="/Images/"/>
     <image id="m8jm1n" name="FightTips4.png" path="/Images/"/>
-    <component id="li0q1o" name="HeroReportItem.xml" path="/"/>
+    <component id="li0q1o" name="FightEnemyReportItem.xml" path="/"/>
     <component id="ru2x1p" name="FightArenaTag.xml" path="/" exported="true"/>
     <component id="nuya1q" name="FightEnemyTips.xml" path="/"/>
     <component id="upau29" name="FightTipsPanel.xml" path="/" exported="true"/>
     <image id="upau1r" name="FightBG.png" path="/Images/"/>
+    <image id="kawv2a" name="Trophy.png" path="/Images/"/>
+    <component id="kawv2b" name="FightOverComp.xml" path="/" exported="true"/>
+    <component id="kawv2c" name="FightHeroReportItem.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
