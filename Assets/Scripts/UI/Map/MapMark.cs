@@ -16,6 +16,7 @@ namespace WarGame.UI
         private Controller _showBtnC;
         //private GButton _goOnBtn;
         //private GButton _restartBtn;
+        private Controller _isPass;
 
         public MapMark(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -24,6 +25,7 @@ namespace WarGame.UI
             _typeC = GetController("type");
             //_lock = GetGObjectChild<GObject>("lock");
             _showBtnC = GetController("showBtn");
+            _isPass = GetController("isPass");
             //_goOnBtn = GetGObjectChild<GButton>("goOnBtn");
             //_goOnBtn.onClick.Add(OnClickGoOn);
             //_restartBtn = GetGObjectChild<GButton>("restartBtn");
@@ -38,20 +40,21 @@ namespace WarGame.UI
             base.Dispose(disposeGCom);
         }
 
-        public void Init(int levelID, bool isOpen, Enum.LevelType type, string name, string desc)
+        public void Init(int levelID)
         {
-            _levelType = type;
             _levelID = levelID;
-            _name.text = name;
-            _desc.text = desc;
-            //_typeC.SetSelectedIndex((int)type - 1);
-            _gCom.grayed = !isOpen;
-            //_lock.visible = !isOpen;
+            var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
+            _levelType = config.Type;
+            _name.text = config.GetTranslation("Name");
+            _desc.text = config.GetTranslation("Desc");
+            _isPass.SetSelectedIndex(DatasMgr.Instance.IsLevelPass(_levelID) ? 1 : 0);
+            SetPosition(config.UIPos);
+            SetVisible(DatasMgr.Instance.IsLevelOpen(_levelID));
         }
 
         private void OnClick()
         {
-            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Map_Open_Event, new object[] { _levelID, false });
 
             //_showBtnC.SetSelectedIndex(1);
         }
@@ -112,7 +115,8 @@ namespace WarGame.UI
 
         public void Active()
         {
-            _gCom.grayed = false;
+            SetVisible(true);
+            //_gCom.grayed = false;
             //_lock.visible = false;
         }
     }

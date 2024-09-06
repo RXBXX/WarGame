@@ -139,6 +139,8 @@ namespace WarGame
             var gd = _data.GetUsingRecord();
             if (!gd.levelDataDic.ContainsKey(levelID))
                 return false;
+            if (gd.levelDataDic[levelID].Stage == Enum.LevelStage.Failed)
+                return false;
             return gd.levelDataDic[levelID].Stage >= Enum.LevelStage.Passed;
         }
 

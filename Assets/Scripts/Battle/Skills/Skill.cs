@@ -54,7 +54,11 @@ namespace WarGame
                 _attackCoroutine = null;
             }
 
-            CloseBattleArena();
+            if (!DatasMgr.Instance.GetSkipBattle())
+            {
+                CloseBattleArena();
+            }
+
             RemoveListeners();
             CameraMgr.Instance.UnlockTarget();
         }
@@ -71,8 +75,6 @@ namespace WarGame
 
         protected virtual IEnumerator DoPlay()
         {
-            CancelPreview();
-
             Prepare();
 
             if (!DatasMgr.Instance.GetSkipBattle())
@@ -138,7 +140,7 @@ namespace WarGame
             yield return new WaitForSeconds(moveDuration);
 
             var skillName = GetConfig().GetTranslation("Name");
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName });
             yield return new WaitForSeconds(1.0f);
         }
 

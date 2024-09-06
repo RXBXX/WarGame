@@ -8,18 +8,6 @@ using System.Text.RegularExpressions;
 
 namespace WarGame.UI
 {
-    public struct MapLevelPair
-    {
-        public int configId;
-        public bool open;
-
-        public MapLevelPair(int configId, bool pass)
-        {
-            this.configId = configId;
-            this.open = pass;
-        }
-    }
-
     public class MapPanel : UIBase
     {
         private MapScroll _map;
@@ -42,14 +30,14 @@ namespace WarGame.UI
 
         private void InitMap()
         {
-            List<MapLevelPair> levels = new List<MapLevelPair>();
+            List<int> levels = new List<int>();
             ConfigMgr.Instance.ForeachConfig<LevelConfig>("LevelConfig", (config) =>
             {
-                var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
-                if (config.Type == Enum.LevelType.Main || isOpen)
-                {
-                    levels.Add(new MapLevelPair(config.ID, isOpen));
-                }
+                //var isOpen = DatasMgr.Instance.IsLevelOpen(config.ID);
+                //if (isOpen)
+                //{
+                levels.Add(config.ID);
+                //}
             });
             _map.Init("UI/Background/Map", levels);
         }

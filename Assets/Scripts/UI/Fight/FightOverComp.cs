@@ -14,13 +14,15 @@ namespace WarGame.UI
         private Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> _reportDic;
         private Dictionary<string, FightReportItem> _heroReportsDic = new Dictionary<string, FightReportItem>();
         private Dictionary<string, FightReportItem> _enemyReportsDic = new Dictionary<string, FightReportItem>();
+        private Transition _in;
 
         public FightOverComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _title = GetGObjectChild<GLabel>("title");
+            _in = GetTransition("in");
         }
 
-        public void UpdateComp(params object[] args)
+        public void UpdateComp(object[] args, WGCallback callback)
         {
             if ((bool)args[0])
             {
@@ -38,7 +40,7 @@ namespace WarGame.UI
             _enemysList.itemRenderer = OnEnemyRender;
 
 
-            GetTransition("in").SetHook("hook", () =>
+            _in.SetHook("hook", () =>
             {
                 _reportDic = (Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>>)args[2];
                 foreach (var v in _reportDic[Enum.RoleType.Hero])
@@ -53,6 +55,7 @@ namespace WarGame.UI
                 }
                 _enemysList.numItems = _enemys.Count;
             });
+            _in.Play(()=> { callback(); });
 
             GetGObjectChild<GTextField>("heroPhyAttack").text = GetGObjectChild<GTextField>("enemyPhyAttack").text = ConfigMgr.Instance.GetTranslation("FightOverPanel_PhyAttack");
             GetGObjectChild<GTextField>("heroMagAttack").text = GetGObjectChild<GTextField>("enemyMagAttack").text = ConfigMgr.Instance.GetTranslation("FightOverPanel_MagAttack");

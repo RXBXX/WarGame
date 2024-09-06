@@ -62,7 +62,7 @@ namespace WarGame
             }
 
             var mapDir = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Map;
-            _levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + "Maps/Empty_Test.json");
+            _levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(Application.streamingAssetsPath + "/" + mapDir);
             MapManager.Instance.CreateMap(_levelPlugin.hexagons, _levelPlugin.bonfires, _levelPlugin.ornaments, _levelPlugin.lightingPlugin);
             if (_levelData.Stage < Enum.LevelStage.Entered)
             {

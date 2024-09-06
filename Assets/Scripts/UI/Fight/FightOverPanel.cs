@@ -6,17 +6,27 @@ namespace WarGame.UI
     {
         private int _blurID;
         private FightOverComp _fightComp;
+        private GGraph _mask;
+        private GComponent _tips;
 
         public FightOverPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
             _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("bg"));
             _gCom.GetController("type").SetSelectedIndex((bool)args[0] ? 0 : 1);
+            _mask = GetGObjectChild<GGraph>("mask");
+            _tips = GetGObjectChild<GComponent>("tips");
 
-            GetGObjectChild<GGraph>("mask").onClick.Add(OnClick);
+            _mask.touchable = false;
+            _tips.visible = false;
+
+            _mask.onClick.Add(OnClick);
 
             _fightComp = GetChild<FightOverComp>("fightComp");
-            _fightComp.UpdateComp(args);
+            _fightComp.UpdateComp(args, ()=> {
+                _mask.touchable = true;
+                _tips.visible = true;
+            });
         }
 
         private void OnClick()

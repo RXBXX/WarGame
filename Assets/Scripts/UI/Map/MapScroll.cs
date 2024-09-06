@@ -26,17 +26,15 @@ namespace WarGame.UI
             _sky = GetChild<MapSky>("sky");
         }
 
-        public void Init(string bg, List<MapLevelPair> levels)
+        public void Init(string bg, List<int> levels)
         {
             SetIcon(bg);
             for (int i = 0; i < levels.Count; i++)
             {
-                var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levels[i].configId);
                 var ui = UIManager.Instance.CreateUI<MapMark>("Map", "MapMark");
-                ui.Init(levels[i].configId, levels[i].open, config.Type, config.GetTranslation("Name"), config.GetTranslation("Desc"));
+                ui.Init(levels[i]);
                 GCom.AddChildAt(ui.GCom, GCom.numChildren - 1);
-                ui.SetPosition(config.UIPos);
-                _levelsDic.Add(levels[i].configId, ui);
+                _levelsDic.Add(levels[i], ui);
             }
         }
 

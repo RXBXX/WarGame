@@ -33,7 +33,6 @@ namespace WarGame
 
         public EquipmentConfig GetConfig()
         {
-            DebugManager.Instance.Log(id);
             return ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id);
         }
 

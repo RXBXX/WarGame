@@ -103,6 +103,8 @@ namespace WarGame
 
         protected virtual void ExitGrayedMode()
         {
+            CancelPreview();
+
             var roles = RoleManager.Instance.GetAllRoles();
             for (int i = 0; i < roles.Count; i++)
             {

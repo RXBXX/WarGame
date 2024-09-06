@@ -138,6 +138,10 @@ namespace WarGame
             Play();
         }
 
+        /// <summary>
+        /// ‘§¿¿
+        /// </summary>
+        /// <param name="touchingID"></param>
         protected override void Preview(int touchingID)
         {
             //DebugManager.Instance.Log("Preview");
@@ -154,6 +158,9 @@ namespace WarGame
             }
         }
 
+        /// <summary>
+        /// »°œ˚‘§¿¿
+        /// </summary>
         protected override void CancelPreview()
         {
             //DebugManager.Instance.Log("CancelPreview");

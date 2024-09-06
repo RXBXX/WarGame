@@ -712,6 +712,7 @@ namespace WarGame
 
         public void SetHUDRoleVisible(bool visible)
         {
+            DebugManager.Instance.Log("HUDRoleVisible:"+visible);
             GetHUDRole().SetVisible(visible);
         }
 
