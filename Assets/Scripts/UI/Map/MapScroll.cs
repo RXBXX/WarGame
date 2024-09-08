@@ -163,17 +163,15 @@ namespace WarGame.UI
 
         public void ScrollToLevel(int levelID)
         {
-            if (null != _tweener)
-            {
-                _tweener.Kill();
-                _tweener = null;
-            }
+            GTween.Kill(_gCom);
 
             var config = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", levelID);
             var pos = GRoot.inst.size / 2 - config.UIPos;
             if (IsMoveCrossBorder(ref pos, _gCom.scale))
                 return;
-            _tweener = _gCom.TweenMove(pos, 0.5F);
+            _tweener = _gCom.TweenMove(pos, 0.5F).OnComplete(()=> {
+                GTween.Kill(_gCom);
+            });
         }
 
         public void OpenLevel(int level)
@@ -195,11 +193,8 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
-            if (null == _tweener)
-            {
-                _tweener.Kill();
-                _tweener = null;
-            }
+            GTween.Kill(_gCom);
+
             foreach (var v in _levelsDic)
             {
                 v.Value.Dispose();

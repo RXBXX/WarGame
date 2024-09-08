@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="110,40" extention="Button">
+<component size="116,40" extention="Button">
   <displayList>
-    <text id="n1_nmz4" name="value" xy="54,10" size="33,29" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" strokeColor="#000000" autoClearText="true" text="1011"/>
+    <text id="n1_nmz4" name="value" xy="54,10" size="39,29" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" strokeColor="#000000" autoClearText="true" text="10111"/>
     <loader id="n2_nmz4" name="icon" xy="19,1" size="36,41" url="ui://hx02grrpupau2m" align="center" vAlign="middle" fill="scaleMatchWidth" clearOnPublish="true"/>
-    <image id="n4_upau" name="n4" src="kky822" fileName="Images/Line.png" xy="111,44" size="60,2" alpha="0.7" rotation="-110" color="#000000">
+    <image id="n4_upau" name="n4" src="kky822" fileName="Images/Line.png" xy="117,44" size="60,2" alpha="0.7" rotation="-110" color="#000000">
       <relation target="" sidePair="right-right"/>
     </image>
   </displayList>

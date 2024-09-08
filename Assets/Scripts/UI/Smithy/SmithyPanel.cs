@@ -18,6 +18,7 @@ namespace WarGame.UI
         private CommonResComp _resComp;
         private GTextField _name;
         private GTextField _cost;
+        private GTextField _desc;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -43,6 +44,7 @@ namespace WarGame.UI
                 
             _name = GetGObjectChild<GTextField>("name");
             _cost = GetGObjectChild<GTextField>("costTxt");
+            _desc = GetGObjectChild<GTextField>("desc");
 
             EventDispatcher.Instance.AddListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
 
@@ -92,6 +94,7 @@ namespace WarGame.UI
             {
                 _cost.text = "[color=#CE4A35]" + ownNum + "/" + equipConfig.Cost + "[/color]";
             }
+            _desc.text = equipConfig.GetTranslation("Desc");
         }
 
         private void OnEquipRenderer(int index, GObject item)

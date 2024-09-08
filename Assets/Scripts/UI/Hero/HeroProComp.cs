@@ -44,6 +44,7 @@ namespace WarGame.UI
             _heroUID = UID;
 
             _skillsData.Clear();
+
             _attrComp.UpdateComp(UID);
             var role = DatasMgr.Instance.GetRoleData(UID);
             _skillsData.Add(role.GetConfig().CommonSkill);

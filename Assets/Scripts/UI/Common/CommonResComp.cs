@@ -37,6 +37,7 @@ namespace WarGame.UI
                     continue;
                 _itemDic[v.id].UpdateItem(v.value);
             }
+            _resList.ResizeToFit();
         }
 
         public override void Update(float deltaTime)

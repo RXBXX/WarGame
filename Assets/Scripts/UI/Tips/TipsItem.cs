@@ -23,18 +23,32 @@ namespace WarGame.UI
             _desc.text = str;
             _seq = DOTween.Sequence();
             _seq.AppendInterval(delay);
-            _seq.AppendCallback(()=> {
+            _seq.AppendCallback(() =>
+            {
+                DebugManager.Instance.Log("TipsVisible:true");
                 SetVisible(true);
-                _show.Play(() => {
+                _show.Play(() =>
+                {
+                    if (null != _seq)
+                    {
+                        _seq.Kill();
+                        _seq = null;
+                    }
+
+                    DebugManager.Instance.Log("TipsVisible:false");
                     SetVisible(false);
-                    callback(this); 
+                    callback(this);
                 });
             });
         }
 
         public override void Dispose(bool disposeGCom = false)
         {
-            _seq.Kill();
+            if (null != _seq)
+            {
+                _seq.Kill();
+                _seq = null;
+            }
             base.Dispose(disposeGCom);
         }
     }

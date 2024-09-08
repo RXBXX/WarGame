@@ -51,6 +51,12 @@ namespace WarGame.UI
                 }
             }
 
+            var resTxt = "";
+            if (resCount >= talentConfig.Cost)
+                resTxt = "[color=#00a8ed]" + string.Format("{0}/{1}", resCount, talentConfig.Cost) + "[/color]";
+            else
+                resTxt = "[color=#ce4a35]" + string.Format("{0}/{1}", resCount, talentConfig.Cost) + "[/color]";
+
             WGCallback callback = OnActiveCallback;
             var args = new object[] {
                 talentConfig.GetTranslation("Name"),
@@ -59,7 +65,7 @@ namespace WarGame.UI
                 pos,
                 btnVisible,
                 ConfigMgr.Instance.GetTranslation("HeroPanel_ActiveTalent"),
-                string.Format("{0}/{1}", resCount, talentConfig.Cost),
+                resTxt,
                 true,
                 callback
             };
@@ -80,6 +86,14 @@ namespace WarGame.UI
 
         private void OnActiveCallback()
         {
+            var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", _id);
+            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes);
+            if (resCount < talentConfig.Cost)
+            {
+                TipsMgr.Instance.Add("µÀ¾ß²»×ã£¡");
+                return;
+            }
+
             DatasMgr.Instance.HeroTalentActiveC2S(_heroUID, _id);
         }
     }

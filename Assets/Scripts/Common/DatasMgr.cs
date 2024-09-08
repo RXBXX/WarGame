@@ -423,8 +423,8 @@ namespace WarGame
 
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_Before);
 
-            roleData.level = level;
             _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.LevelRes, roleData.GetStarConfig().Cost);
+            roleData.level = level;
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroLevelUpS2C, new object[] { roleUID, level });
 
             Save();

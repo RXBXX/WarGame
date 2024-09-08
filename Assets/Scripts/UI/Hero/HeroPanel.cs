@@ -384,8 +384,9 @@ namespace WarGame.UI
             {
                 animator.SetBool("Jump", false);
                 animator.SetBool("Idle", true);
-
+                DebugManager.Instance.Log("Remove Seq");
                 _seqList.Remove(seq);
+                DebugManager.Instance.Log("Seq Count:" + _seqList.Count);
             });
 
             _seqList.Add(seq);
@@ -448,6 +449,7 @@ namespace WarGame.UI
                 v.Kill();
             }
             _seqList.Clear();
+
 
             foreach (var v in _rolesGO)
             {

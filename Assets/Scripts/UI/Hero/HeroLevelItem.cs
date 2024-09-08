@@ -8,7 +8,6 @@ namespace WarGame.UI
         private GTextField _name;
         private Controller _type;
         private GButton _levelUPBtn;
-        private GTextField _resText;
         private int _roleUID;
         private int _level;
 
@@ -17,7 +16,6 @@ namespace WarGame.UI
             _name = GetGObjectChild<GTextField>("name");
             _type = GetController("type");
             _levelUPBtn = GetGObjectChild<GButton>("levelUpBtn");
-            _resText = GetGObjectChild<GTextField>("resText");
 
             _levelUPBtn.onClick.Add(OnClickLevelUp);
             _levelUPBtn.title = ConfigMgr.Instance.GetTranslation("HeroPanel_LevelUP");
@@ -61,6 +59,13 @@ namespace WarGame.UI
                 attrsData.Add(new AttrStruct(ConfigMgr.Instance.GetConfig<AttrConfig>("AttrConfig", v.id).GetTranslation("Name"), v.value.ToString()));
             }
 
+            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes);
+            var resTxt = "";
+            if (resCount >= starConfig.Cost)
+                resTxt = "[color=#00a8ed]" + string.Format("{0}/{1}", resCount, starConfig.Cost) + "[/color]";
+            else
+                resTxt = "[color=#ce4a35]" + string.Format("{0}/{1}", resCount, starConfig.Cost) + "[/color]";
+
             WGCallback callback = OnLevelUp;
             var args = new object[] {
                 "Lv."+_level,
@@ -69,7 +74,7 @@ namespace WarGame.UI
                 pos,
                 true,
                 ConfigMgr.Instance.GetTranslation("HeroPanel_LevelUP"),
-                string.Format("{0}/{1}", DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes), starConfig.Cost),
+                resTxt,
                 true,
                 callback
             };
@@ -80,6 +85,14 @@ namespace WarGame.UI
 
         private void OnLevelUp()
         {
+            var starConfig = DatasMgr.Instance.GetRoleData(_roleUID).GetStarConfig();
+            var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes);
+            if (resCount < starConfig.Cost)
+            {
+                TipsMgr.Instance.Add("µÀ¾ß²»×ã£¡");
+                return;
+            }
+
             DatasMgr.Instance.HeroLevelUpC2S(_roleUID, _level);
         }
     }

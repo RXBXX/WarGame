@@ -19,7 +19,7 @@
     <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="149,238" scale="0.6,0.6">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </component>
-    <text id="n37_sqcv" name="cost" xy="157,244" pivot="1,0" anchor="true" size="31,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#ffffff" strokeColor="#000000" autoClearText="true" text="12/20">
+    <text id="n37_sqcv" name="cost" xy="157,244" pivot="1,0" anchor="true" size="31,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="12/20">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </text>
   </displayList>

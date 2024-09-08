@@ -11,7 +11,7 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001002,
@@ -25,7 +25,7 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001003,
@@ -39,7 +39,7 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001004,
@@ -53,7 +53,7 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001005,
@@ -67,7 +67,7 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001006,
@@ -81,11 +81,11 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001007,
-        "Name": "天赋8",
+        "Name": "天赋7",
         "Desc": "怒气回复+10",
         "Attrs": [
             {
@@ -95,81 +95,81 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001008,
-        "Name": "天赋9",
-        "Desc": "闪避+10%",
+        "Name": "天赋8",
+        "Desc": "闪避+2%",
         "Attrs": [
             {
                 "id": 10,
-                "value": 10
+                "value": 2
             }
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001009,
-        "Name": "天赋10",
-        "Desc": "物理穿透+10%",
+        "Name": "天赋9",
+        "Desc": "物理穿透+2%",
         "Attrs": [
             {
                 "id": 11,
-                "value": 10
+                "value": 2
             }
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001010,
-        "Name": "天赋11",
-        "Desc": "魔法穿透+10%",
+        "Name": "天赋10",
+        "Desc": "魔法穿透+2%",
         "Attrs": [
             {
                 "id": 12,
-                "value": 10
+                "value": 2
             }
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001011,
-        "Name": "天赋12",
-        "Desc": "物理增伤+10%",
+        "Name": "天赋11",
+        "Desc": "物理增伤+2%",
         "Attrs": [
             {
                 "id": 13,
-                "value": 10
+                "value": 2
             }
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001012,
-        "Name": "天赋13",
-        "Desc": "魔法增伤+10%",
+        "Name": "天赋12",
+        "Desc": "魔法增伤+2%",
         "Attrs": [
             {
                 "id": 14,
-                "value": 10
+                "value": 2
             }
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001013,
-        "Name": "天赋7",
+        "Name": "天赋13",
         "Desc": "移动距离+1",
         "Attrs": [
             {
@@ -179,11 +179,11 @@
         ],
         "LastTalent": 0,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 2
+        "Cost": 20
     },
     {
         "ID": 10001014,
-        "Name": "天赋8",
+        "Name": "天赋14",
         "Desc": "生命+15",
         "Attrs": [
             {
@@ -193,11 +193,11 @@
         ],
         "LastTalent": 10001001,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001015,
-        "Name": "天赋9",
+        "Name": "天赋15",
         "Desc": "物理攻击+15",
         "Attrs": [
             {
@@ -207,11 +207,11 @@
         ],
         "LastTalent": 10001002,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001016,
-        "Name": "天赋10",
+        "Name": "天赋16",
         "Desc": "魔法攻击+15",
         "Attrs": [
             {
@@ -221,11 +221,11 @@
         ],
         "LastTalent": 10001003,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001017,
-        "Name": "天赋11",
+        "Name": "天赋17",
         "Desc": "治疗+15",
         "Attrs": [
             {
@@ -235,11 +235,11 @@
         ],
         "LastTalent": 10001004,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001018,
-        "Name": "天赋12",
+        "Name": "天赋18",
         "Desc": "物理防御+15",
         "Attrs": [
             {
@@ -249,11 +249,11 @@
         ],
         "LastTalent": 10001005,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001019,
-        "Name": "天赋13",
+        "Name": "天赋19",
         "Desc": "魔法防御+15",
         "Attrs": [
             {
@@ -263,11 +263,11 @@
         ],
         "LastTalent": 10001006,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001020,
-        "Name": "天赋14",
+        "Name": "天赋20",
         "Desc": "怒气回复+15",
         "Attrs": [
             {
@@ -277,81 +277,81 @@
         ],
         "LastTalent": 10001007,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001021,
-        "Name": "天赋15",
-        "Desc": "闪避+15%",
+        "Name": "天赋21",
+        "Desc": "闪避+3%",
         "Attrs": [
             {
                 "id": 10,
-                "value": 15
+                "value": 3
             }
         ],
         "LastTalent": 10001008,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001022,
-        "Name": "天赋16",
-        "Desc": "物理穿透+15%",
+        "Name": "天赋22",
+        "Desc": "物理穿透+3%",
         "Attrs": [
             {
                 "id": 11,
-                "value": 15
+                "value": 3
             }
         ],
         "LastTalent": 10001009,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001023,
-        "Name": "天赋17",
-        "Desc": "魔法穿透+15%",
+        "Name": "天赋23",
+        "Desc": "魔法穿透+3%",
         "Attrs": [
             {
                 "id": 12,
-                "value": 15
+                "value": 3
             }
         ],
         "LastTalent": 10001010,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001024,
-        "Name": "天赋18",
-        "Desc": "物理增伤+15%",
+        "Name": "天赋24",
+        "Desc": "物理增伤+3%",
         "Attrs": [
             {
                 "id": 13,
-                "value": 15
+                "value": 3
             }
         ],
         "LastTalent": 10001011,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001025,
-        "Name": "天赋19",
-        "Desc": "魔法增伤+15%",
+        "Name": "天赋25",
+        "Desc": "魔法增伤+3%",
         "Attrs": [
             {
                 "id": 14,
-                "value": 15
+                "value": 3
             }
         ],
         "LastTalent": 10001012,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001026,
-        "Name": "天赋7",
+        "Name": "天赋26",
         "Desc": "移动距离+1",
         "Attrs": [
             {
@@ -361,179 +361,179 @@
         ],
         "LastTalent": 10001013,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 5
+        "Cost": 30
     },
     {
         "ID": 10001027,
-        "Name": "天赋8",
-        "Desc": "生命+15",
+        "Name": "天赋27",
+        "Desc": "生命+20",
         "Attrs": [
             {
                 "id": 1,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001014,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001028,
-        "Name": "天赋9",
-        "Desc": "物理攻击+15",
+        "Name": "天赋28",
+        "Desc": "物理攻击+20",
         "Attrs": [
             {
                 "id": 3,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001015,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001029,
-        "Name": "天赋10",
-        "Desc": "魔法攻击+15",
+        "Name": "天赋29",
+        "Desc": "魔法攻击+20",
         "Attrs": [
             {
                 "id": 4,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001016,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001030,
-        "Name": "天赋11",
-        "Desc": "治疗+15",
+        "Name": "天赋30",
+        "Desc": "治疗+20",
         "Attrs": [
             {
                 "id": 5,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001017,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001031,
-        "Name": "天赋12",
-        "Desc": "物理防御+15",
+        "Name": "天赋31",
+        "Desc": "物理防御+20",
         "Attrs": [
             {
                 "id": 6,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001018,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001032,
-        "Name": "天赋13",
-        "Desc": "魔法防御+15",
+        "Name": "天赋32",
+        "Desc": "魔法防御+20",
         "Attrs": [
             {
                 "id": 7,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001019,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001033,
-        "Name": "天赋14",
-        "Desc": "怒气回复+15",
+        "Name": "天赋33",
+        "Desc": "怒气回复+20",
         "Attrs": [
             {
                 "id": 15,
-                "value": 15
+                "value": 20
             }
         ],
         "LastTalent": 10001020,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001034,
-        "Name": "天赋15",
-        "Desc": "闪避+15%",
+        "Name": "天赋34",
+        "Desc": "闪避+4%",
         "Attrs": [
             {
                 "id": 10,
-                "value": 15
+                "value": 4
             }
         ],
         "LastTalent": 10001021,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001035,
-        "Name": "天赋16",
-        "Desc": "物理穿透+15%",
+        "Name": "天赋35",
+        "Desc": "物理穿透+4%",
         "Attrs": [
             {
                 "id": 11,
-                "value": 15
+                "value": 4
             }
         ],
         "LastTalent": 10001022,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001036,
-        "Name": "天赋17",
-        "Desc": "魔法穿透+15%",
+        "Name": "天赋36",
+        "Desc": "魔法穿透+4%",
         "Attrs": [
             {
                 "id": 12,
-                "value": 15
+                "value": 4
             }
         ],
         "LastTalent": 10001023,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001037,
-        "Name": "天赋18",
-        "Desc": "物理增伤+15%",
+        "Name": "天赋37",
+        "Desc": "物理增伤+4%",
         "Attrs": [
             {
                 "id": 13,
-                "value": 15
+                "value": 4
             }
         ],
         "LastTalent": 10001024,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001038,
-        "Name": "天赋19",
-        "Desc": "魔法增伤+15%",
+        "Name": "天赋38",
+        "Desc": "魔法增伤+4%",
         "Attrs": [
             {
                 "id": 14,
-                "value": 15
+                "value": 4
             }
         ],
         "LastTalent": 10001025,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
     },
     {
         "ID": 10001039,
-        "Name": "天赋7",
+        "Name": "天赋39",
         "Desc": "移动距离+1",
         "Attrs": [
             {
@@ -543,6 +543,188 @@
         ],
         "LastTalent": 10001026,
         "Icon": "UI/Icons/Role/10001",
-        "Cost": 10
+        "Cost": 40
+    },
+    {
+        "ID": 10001040,
+        "Name": "天赋40",
+        "Desc": "生命+25",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001027,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001041,
+        "Name": "天赋41",
+        "Desc": "物理攻击+25",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001028,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001042,
+        "Name": "天赋42",
+        "Desc": "魔法攻击+25",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001029,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001043,
+        "Name": "天赋43",
+        "Desc": "治疗+25",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001030,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001044,
+        "Name": "天赋44",
+        "Desc": "物理防御+25",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001031,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001045,
+        "Name": "天赋45",
+        "Desc": "魔法防御+25",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001032,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001046,
+        "Name": "天赋46",
+        "Desc": "怒气回复+25",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 25
+            }
+        ],
+        "LastTalent": 10001033,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001047,
+        "Name": "天赋47",
+        "Desc": "闪避+5%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": 5
+            }
+        ],
+        "LastTalent": 10001034,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001048,
+        "Name": "天赋48",
+        "Desc": "物理穿透+5%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": 5
+            }
+        ],
+        "LastTalent": 10001035,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001049,
+        "Name": "天赋49",
+        "Desc": "魔法穿透+5%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": 5
+            }
+        ],
+        "LastTalent": 10001036,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001050,
+        "Name": "天赋50",
+        "Desc": "物理增伤+5%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": 5
+            }
+        ],
+        "LastTalent": 10001037,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001051,
+        "Name": "天赋51",
+        "Desc": "魔法增伤+5%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": 5
+            }
+        ],
+        "LastTalent": 10001038,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
+    },
+    {
+        "ID": 10001052,
+        "Name": "天赋52",
+        "Desc": "移动距离+1",
+        "Attrs": [
+            {
+                "id": 8,
+                "value": 1
+            }
+        ],
+        "LastTalent": 10001039,
+        "Icon": "UI/Icons/Role/10001",
+        "Cost": 50
     }
 ]
