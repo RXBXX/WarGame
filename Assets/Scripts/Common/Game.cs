@@ -63,6 +63,9 @@ namespace WarGame
             RoleManager.Instance.Update(deltaTime);
             RenderMgr.Instance.Update(deltaTime);
             AudioMgr.Instance.Update(deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.A))
+                DialogMgr.Instance.OpenDialog(20003);
         }
 
         public override void LateUpdate()

@@ -42,7 +42,7 @@ namespace WarGame
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
-            if (restart || _levelData.Stage == Enum.LevelStage.Failed)
+            if (restart)
             {
                 _levelData.Clear();
             }
@@ -58,6 +58,11 @@ namespace WarGame
             if (_levelData.Stage == Enum.LevelStage.Passed)
             {
                 OnSuccess();
+                return;
+            }
+            else if (_levelData.Stage == Enum.LevelStage.Failed)
+            {
+                OnFailed();
                 return;
             }
 

@@ -10,6 +10,7 @@ namespace WarGame.UI
     {
         private SmithyReward _equip;
         private float _interval = 3.0f;
+        private int _soundID = 0;
 
         public SmithyRewardPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -18,6 +19,8 @@ namespace WarGame.UI
             GetGObjectChild<GLabel>("title").title = ConfigMgr.Instance.GetTranslation("SmithyRewardPanel_Title");
             _equip = GetChild<SmithyReward>("equip");
             _equip.UpdateComp((int)args[0]);
+
+            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Equip_Buy.wav");
         }
 
         public override void Update(float deltaTime)
@@ -29,6 +32,11 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
             _equip.Dispose();
             base.Dispose(disposeGCom);
         }

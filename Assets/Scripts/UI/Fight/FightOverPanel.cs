@@ -8,6 +8,7 @@ namespace WarGame.UI
         private FightOverComp _fightComp;
         private GGraph _mask;
         private GComponent _tips;
+        private int _soundID;
 
         public FightOverPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -27,6 +28,15 @@ namespace WarGame.UI
                 _mask.touchable = true;
                 _tips.visible = true;
             });
+
+            if ((bool)args[0])
+            {
+                _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Win.wav");
+            }
+            else
+            {
+                _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Failed.wav");
+            }
         }
 
         private void OnClick()
@@ -37,6 +47,12 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
+
             if (0 != _blurID)
             {
                 RenderMgr.Instance.ReleaseBlurBG(_blurID);

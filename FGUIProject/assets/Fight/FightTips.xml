@@ -2,25 +2,25 @@
 <component size="1500,200" overflow="hidden">
   <controller name="type" pages="0,我方回合,1,敌方回合" selected="0"/>
   <displayList>
-    <image id="n10_m8jm" name="n10" src="m8jm1n" fileName="Images/FightTips4.png" xy="0,0" group="n5_czz8" color="#5c8799">
+    <image id="n10_m8jm" name="n10" src="m8jm1n" fileName="Images/FightTips4.png" xy="-1,0" group="n5_czz8" color="#5c8799">
       <gearColor controller="type" pages="0,1" values="#5c8799|#ce4a35"/>
     </image>
-    <image id="n8_m8jm" name="n8" src="m8jm1m" fileName="Images/FightTips3.png" xy="0,0" group="n5_czz8"/>
-    <text id="n0_o8z3" name="title2" xy="784,35" size="178,129" group="n5_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="TURN"/>
-    <image id="n9_m8jm" name="n9" src="czz8g" fileName="Images/FightTips2.png" xy="0,0" group="n4_czz8" color="#5c8799">
+    <image id="n8_m8jm" name="n8" src="m8jm1m" fileName="Images/FightTips3.png" xy="-1,0" group="n5_czz8"/>
+    <text id="n0_o8z3" name="title2" xy="783,35" size="178,129" group="n5_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="TURN"/>
+    <image id="n9_m8jm" name="n9" src="czz8g" fileName="Images/FightTips2.png" xy="1,0" group="n4_czz8" color="#5c8799">
       <gearColor controller="type" pages="0,1" values="#5c8799|#ce4a35"/>
     </image>
-    <image id="n7_m8jm" name="n7" src="czz8f" fileName="Images/FightTips1.png" xy="0,0" group="n4_czz8"/>
-    <text id="n3_czz8" name="title" xy="710,99" pivot="1,0.5" anchor="true" size="144,129" group="n4_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="OUR">
+    <image id="n7_m8jm" name="n7" src="czz8f" fileName="Images/FightTips1.png" xy="1,0" group="n4_czz8"/>
+    <text id="n3_czz8" name="title" xy="711,99" pivot="1,0.5" anchor="true" size="144,129" group="n4_czz8" font="ui://hd0z4dz5omu90" fontSize="100" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="OUR">
       <gearText controller="type" pages="0" values="OUR" default="ENEMY"/>
     </text>
-    <group id="n4_czz8" name="n4" xy="0,0" size="1500,200" advanced="true"/>
-    <group id="n5_czz8" name="n5" xy="0,0" size="1500,200" advanced="true"/>
+    <group id="n4_czz8" name="n4" xy="1,0" size="1500,200" advanced="true"/>
+    <group id="n5_czz8" name="n5" xy="-1,0" size="1500,200" advanced="true"/>
   </displayList>
   <transition name="tips">
-    <item time="0" type="XY" target="n4_czz8" tween="true" startValue="-850,0" endValue="0,0" duration="6"/>
-    <item time="0" type="XY" target="n5_czz8" tween="true" startValue="861,0" endValue="0,0" duration="6"/>
-    <item time="6" type="XY" target="n4_czz8" tween="true" startValue="0,0" endValue="0,0" duration="6" ease="Cubic.Out"/>
-    <item time="6" type="XY" target="n5_czz8" tween="true" startValue="0,0" endValue="0,0" duration="6" ease="Bounce.InOut"/>
+    <item time="0" type="XY" target="n4_czz8" tween="true" startValue="-850,0" endValue="1,0" duration="6"/>
+    <item time="0" type="XY" target="n5_czz8" tween="true" startValue="861,0" endValue="-1,0" duration="6"/>
+    <item time="6" type="XY" target="n4_czz8" tween="true" startValue="1,0" endValue="1,0" duration="6" ease="Cubic.Out"/>
+    <item time="6" type="XY" target="n5_czz8" tween="true" startValue="-1,0" endValue="-1,0" duration="6" ease="Bounce.InOut"/>
   </transition>
 </component>

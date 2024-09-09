@@ -60,6 +60,8 @@ namespace WarGame.UI
             _te.Print();
             _start = true;
             _time = 0;
+
+            DebugManager.Instance.Log("PlaySound:" + _soundID);
             _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Print.mp3", true);
         }
 
@@ -70,6 +72,12 @@ namespace WarGame.UI
 
         public void Complete()
         {
+            if (0 != _soundID)
+            {
+                AudioMgr.Instance.StopSound(_soundID);
+                _soundID = 0;
+            }
+            _start = false;
             _te.Cancel();
         }
 
