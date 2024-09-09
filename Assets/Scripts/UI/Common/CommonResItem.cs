@@ -10,7 +10,7 @@ namespace WarGame.UI
         private int _value;
         private int _deltaValue;
         private GTextField _valueTxt;
-        private float _interval = 0.04F;
+        private float _interval = 0.02F;
 
         public CommonResItem(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
@@ -37,7 +37,7 @@ namespace WarGame.UI
             _interval -= deltaTime;
             if (_interval > 0)
                 return;
-            _interval = 0.06F;
+            _interval = 0.02F;
 
             var delta = _deltaValue / Mathf.Abs(_deltaValue);
             _deltaValue -= delta;

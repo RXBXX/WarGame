@@ -2166,68 +2166,68 @@
     },
     {
         "ID": "LevelConfig_10001_TargetDesc",
-        "Str": "击败全部敌人，找到先知",
-        "Translate": null
+        "Str": "击败所有敌人，与先知会面并寻找线索。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10002_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，阻止他们获取木之元素。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10003_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，查明他们在澜海的目的。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10004_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，阻止他们获取水之元素。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10005_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，查明他们在石城的目的。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10006_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，阻止他们获取土之元素。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10007_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，查明他们在焱都的目的。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10008_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，阻止他们获得火之元素。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10009_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，查明他们在耀都的目的。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10010_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，阻止他们夺取金之元素。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10011_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，追踪虚无领主的踪迹。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10012_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败所有敌人，结合线索追踪虚无领主的踪迹。",
+        "Translate": true
     },
     {
         "ID": "LevelConfig_10013_TargetDesc",
-        "Str": "击败全部敌人",
-        "Translate": null
+        "Str": "击败虚无领主，彻底粉碎邪恶势力的世界统治阴谋。",
+        "Translate": true
     },
     {
         "ID": "FightTipsPanel_Tips",
@@ -4677,6 +4677,11 @@
     {
         "ID": "FightOverPanel_Failed",
         "Str": "失败",
+        "Translate": null
+    },
+    {
+        "ID": "HeroPanel_Reset",
+        "Str": "确定要重置{0}吗？此操作将清空已激活的天赋，将等级重置为1，并返还所有资源。",
         "Translate": null
     }
 ]

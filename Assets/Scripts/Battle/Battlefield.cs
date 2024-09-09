@@ -237,7 +237,8 @@ namespace WarGame
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {
-                CameraMgr.Instance.FloatPoints(_levelPlugin.points, (args)=> {
+                CameraMgr.Instance.FloatPoints(_levelPlugin.points, (args) =>
+                {
                     EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
                     {
                         _levelData.Stage = Enum.LevelStage.Talked;
@@ -407,7 +408,7 @@ namespace WarGame
                 var screenPos = InputManager.Instance.GetMousePos();
                 screenPos.y = Screen.height - screenPos.y;
                 var uiPos = GRoot.inst.GlobalToLocal(screenPos);
-                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID, _levelID});
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_RoleInfo, new object[] { uiPos, obj.GetComponent<RoleBehaviour>().ID, _levelID });
             }
         }
 
@@ -548,7 +549,7 @@ namespace WarGame
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
-                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round});
+                EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round });
             }
         }
 
@@ -619,6 +620,8 @@ namespace WarGame
         private void OnSuccess()
         {
             _levelData.Stage = Enum.LevelStage.Passed;
+            if (_levelData.minPassRound > _levelData.Round)
+                _levelData.minPassRound = _levelData.Round;
 
             foreach (var v in _levelData.itemsDic)
                 DatasMgr.Instance.AddItem(v.Key, v.Value);
@@ -756,7 +759,7 @@ namespace WarGame
                 int assetID = 0;
                 assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
                 {
-                    var count = Mathf.Min(v.value, 5);   
+                    var count = Mathf.Min(v.value, 5);
                     for (int i = 0; i < count; i++)
                     {
                         var go = GameObject.Instantiate(prefab);

@@ -299,7 +299,7 @@ namespace WarGame
                 if (!fromWear)
                     EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_After);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 DebugManager.Instance.Log(e);
                 EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null, fromWear) });
@@ -437,14 +437,13 @@ namespace WarGame
             var cost = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", id).Cost;
             if (GetItem((int)Enum.ItemType.EquipRes) < cost)
             {
-                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { Enum.ErrorCode.SrcNotEnough});
+                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { Enum.ErrorCode.SrcNotEnough });
             }
             else
             {
                 _data.GetUsingRecord().RemoveItem((int)Enum.ItemType.EquipRes, cost);
                 var equipID = _data.GetUsingRecord().AddEquip(id);
-                DebugManager.Instance.Log(equipID);
-                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] {Enum.ErrorCode.Success, equipID });
+                EventDispatcher.Instance.PostEvent(Enum.Event.BuyEquipS2C, new object[] { Enum.ErrorCode.Success, equipID });
                 Save();
             }
         }
@@ -454,6 +453,44 @@ namespace WarGame
             _data.DeleteRecord(id);
             Save();
             EventDispatcher.Instance.PostEvent(Enum.Event.DeleteRecordS2C, new object[] { id });
+        }
+
+        public void ResetHeroC2S(int roleUID)
+        {
+            var roleData = GetRoleData(roleUID);
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_Before);
+
+            //重置等级
+            var level = roleData.level;
+            if (level >= 1)
+            {
+                var levelRes = 0;
+                for (int i = level - 1; i >= 1; i--)
+                {
+                    var levelConfig = ConfigMgr.Instance.GetConfig<RoleStarConfig>("RoleStarConfig", roleData.configId * 1000 + i);
+                    levelRes += levelConfig.Cost;
+                }
+                roleData.level = 1;
+                _data.GetUsingRecord().AddItem((int)Enum.ItemType.LevelRes, levelRes);
+            }
+
+            //重置天赋
+            if (roleData.talents.Count > 0)
+            {
+                var talentRes = 0;
+                foreach (var v in roleData.talents)
+                {
+                    talentRes += ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", v).Cost;
+                }
+                roleData.talents.Clear();
+                _data.GetUsingRecord().AddItem((int)Enum.ItemType.TalentRes, talentRes);
+            }
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.ResetHeroS2C, new object[] { Enum.ErrorCode.Success, roleUID });
+            Save();
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_After);
         }
         /// endregion -----------------------------------------------------------------------------------------------------
     }

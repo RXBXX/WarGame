@@ -49,6 +49,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.ResetHeroS2C, OnResetHeroS2C);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroChange_Before, OnHeroChangeBefore);
             EventDispatcher.Instance.AddListener(Enum.Event.HeroChange_After, OnHeroChangeAfter);
 
@@ -59,6 +60,8 @@ namespace WarGame.UI
             _roles = DatasMgr.Instance.GetAllRoles();
             _heroList.numItems = _roles.Length;
             _heroList.selectedIndex = 0;
+
+            GetGObjectChild<GButton>("resetBtn").onClick.Add(OnClickReset);
             SelectHero(0);
         }
 
@@ -278,8 +281,8 @@ namespace WarGame.UI
 
             UpdateAnimator(roleUID);
 
-            if (_roles[_roleIndex] == roleUID)
-                _proComp.UpdateComp(roleUID);
+            if (_roles[_roleIndex] == ndpu.roleUID)
+                _proComp.UpdateComp(ndpu.roleUID);
         }
 
         private void OnUnwearEquip(params object[] args)
@@ -311,8 +314,8 @@ namespace WarGame.UI
             {
                 UpdateAnimator(roleUID);
 
-                if (_roles[_roleIndex] == roleUID)
-                    _proComp.UpdateComp(roleUID);
+                if (_roles[_roleIndex] == ndpu.roleUID)
+                    _proComp.UpdateComp(ndpu.roleUID);
             }
         }
 
@@ -408,6 +411,19 @@ namespace WarGame.UI
             });
         }
 
+        private void OnResetHeroS2C(params object[] args)
+        {
+            if ((Enum.ErrorCode)args[0] != Enum.ErrorCode.Success)
+                return;
+
+            _resComp.UpdateComp(new List<TwoIntPair> {
+                new TwoIntPair((int)Enum.ItemType.TalentRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.TalentRes)),
+                new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
+            });
+            if (_roles[_roleIndex] == (int)args[1])
+                _proComp.UpdateComp((int)args[1]);
+        }
+
         private void OnHeroChangeBefore(params object[] args)
         {
             _attrsDicCache.Clear();
@@ -442,6 +458,20 @@ namespace WarGame.UI
             _attrsDicCache.Clear();
         }
 
+        private void OnClickReset(EventContext context)
+        {
+            var roleUID = _roles[_roleIndex];
+            var role = DatasMgr.Instance.GetRoleData(roleUID);
+
+            WGCallback cb = () =>
+            {
+                DatasMgr.Instance.ResetHeroC2S(roleUID);
+            };
+
+            var desc = string.Format(ConfigMgr.Instance.GetTranslation("HeroPanel_Reset"), role.GetConfig().GetTranslation("Name"));
+            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { desc, cb });
+        }
+
         public override void Dispose(bool disposeGCom = false)
         {
             foreach (var v in _seqList)
@@ -468,6 +498,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroLevelUpS2C, OnHeroLevelUpS2C);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroTalentActiveS2C, OnHeroTalentActiveS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.ResetHeroS2C, OnResetHeroS2C);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroChange_Before, OnHeroChangeBefore);
             EventDispatcher.Instance.RemoveListener(Enum.Event.HeroChange_After, OnHeroChangeAfter);
 

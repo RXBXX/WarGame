@@ -11,7 +11,7 @@
     <image id="n40_ovai" name="n40" src="ovaio" fileName="Images/ProBG.png" xy="791,-52" size="566,900">
       <relation target="" sidePair="height-height,right-right"/>
     </image>
-    <list id="n22_gy0s" name="heroList" xy="65,154" size="200,522" layout="flow_hz" overflow="scroll" lineGap="5" defaultItem="ui://ubnp7phxgy0sj" align="center" autoClearItems="true">
+    <list id="n22_gy0s" name="heroList" xy="65,95" size="200,614" layout="flow_hz" overflow="scroll" lineGap="5" defaultItem="ui://ubnp7phxgy0sj" align="center" autoClearItems="true">
       <relation target="" sidePair="left-left,bottomext-bottom"/>
       <item/>
       <item/>
@@ -26,11 +26,11 @@
       <relation target="" sidePair="right-right,top-top,bottomext-bottom"/>
     </component>
     <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
-    <graph id="n36_gy0s" name="n36" xy="465,641" pivot="0.5,0.5" anchor="true" size="230,76" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="n32_gy0s" sidePair="width-width"/>
-    </graph>
-    <text id="n32_gy0s" name="name" xy="468,641" pivot="0.5,0.5" anchor="true" size="158,84" font="ui://hd0z4dz5omu90" fontSize="64" color="#ffffff" strokeColor="#000000" text="AKUINA"/>
-    <component id="n43_ku3y" name="n43" src="ku3y20" fileName="HeroResetBtn.xml" xy="597,609"/>
+    <image id="n44_ku3y" name="n44" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="413,593" size="107,75" alpha="0.7" color="#000000">
+      <relation target="n32_gy0s" sidePair="rightext-right,leftext-left"/>
+    </image>
+    <text id="n32_gy0s" name="name" xy="468,631" pivot="0.5,0.5" anchor="true" size="10,74" font="ui://hd0z4dz5omu90" fontSize="56" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="诺亚"/>
+    <component id="n43_ku3y" name="resetBtn" src="ku3y20" fileName="HeroResetBtn.xml" xy="444,670"/>
     <component id="n38_gy0s" name="attrsInfo" src="kky81y" fileName="HeroEquipInfo.xml" xy="522,110" visible="false"/>
     <component id="n39_gy0s" name="talentInfo" src="gy0sm" fileName="HeroTalentInfo.xml" xy="827,112" visible="false"/>
     <component id="n41_nmz4" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true">

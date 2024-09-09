@@ -457,6 +457,7 @@ namespace WarGame
         public List<LevelRoleData> enemys;
         public Dictionary<int, int> itemsDic;
         public Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> reportDic;
+        public int minPassRound = 0;
 
         public LevelData(int configId)
         {

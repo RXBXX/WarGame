@@ -17,7 +17,15 @@ namespace WarGame.UI
             _levelID = (int)args[0];
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID);
             GetGObjectChild<GTextField>("title").text = levelConfig.GetTranslation("Name");
-            GetGObjectChild<GTextField>("desc").text = levelConfig.GetTranslation("TargetDesc");
+
+            var levelData = DatasMgr.Instance.GetLevelData(_levelID);
+            var desc = levelConfig.GetTranslation("TargetDesc");
+            if (0 != levelData.minPassRound)
+            {
+                desc = "最快通关记录：" + levelData.minPassRound + "\n" + desc;
+            }
+            GetGObjectChild<GTextField>("desc").text = desc;
+
             GetGObjectChild<GTextField>("tips").text = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Tips");
 
             var cancelBtn = GetGObjectChild<GButton>("cancelBtn");

@@ -454,6 +454,7 @@ namespace WarGame
             SetLanguageS2C = 10005,
             DeleteRecordS2C = 10006,
             WearEquipS2C = 10007,
+            ResetHeroS2C = 10008,  //英雄重置
         }
 
         //负责与服务器交互的协议，目前服务器是指DatasMgr管理类
