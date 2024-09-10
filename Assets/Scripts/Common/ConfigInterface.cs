@@ -223,8 +223,8 @@ namespace WarGame
         public string Desc;
         public List<IntFloatPair> Attrs;
         public int LastTalent;
-        public string Icon;
         public int Cost;
+        public int Level;
     }
 
     //στ»π±ν

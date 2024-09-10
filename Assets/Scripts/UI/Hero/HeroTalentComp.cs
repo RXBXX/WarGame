@@ -40,9 +40,8 @@ namespace WarGame.UI
                 var ui = UIManager.Instance.CreateUI<HeroTalentItem>("Hero", "HeroTalentItem");
                 ui.SetParent(GCom);
 
-                var insideDiameter = 80 * Mathf.Cos(30 / 180f * Mathf.PI);
-                ui.SetPosition(new Vector2(60 + line * 80 + column % 2 * 40, 60 + column * insideDiameter));
-                ui.UpdateItem(heroUID, config.ID, config.Icon);
+                ui.SetPosition(new Vector2(60 + line * 150, 40 + column * 60));
+                ui.UpdateItem(heroUID, config.ID);
                 _talents.Add(ui);
             });
 

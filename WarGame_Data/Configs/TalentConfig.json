@@ -1,7 +1,1016 @@
 [
     {
         "ID": 10001001,
-        "Name": "天赋1",
+        "Name": "生命",
+        "Level": 1,
+        "Desc": "生命+4",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001002,
+        "Name": "物理攻击",
+        "Level": 1,
+        "Desc": "物理攻击+4",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001003,
+        "Name": "魔法攻击",
+        "Level": 1,
+        "Desc": "魔法攻击+4",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001004,
+        "Name": "治疗",
+        "Level": 1,
+        "Desc": "治疗+4",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001005,
+        "Name": "物理防御",
+        "Level": 1,
+        "Desc": "物理防御+4",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001006,
+        "Name": "魔法防御",
+        "Level": 1,
+        "Desc": "魔法防御+4",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001007,
+        "Name": "怒气回复",
+        "Level": 1,
+        "Desc": "怒气回复+4",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 4
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001008,
+        "Name": "闪避",
+        "Level": 1,
+        "Desc": "闪避+0.8%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "0.8"
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001009,
+        "Name": "物理穿透",
+        "Level": 1,
+        "Desc": "物理穿透+0.8%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "0.8"
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001010,
+        "Name": "魔法穿透",
+        "Level": 1,
+        "Desc": "魔法穿透+0.8%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "0.8"
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001011,
+        "Name": "物理增伤",
+        "Level": 1,
+        "Desc": "物理增伤+0.8%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "0.8"
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001012,
+        "Name": "魔法增伤",
+        "Level": 1,
+        "Desc": "魔法增伤+0.8%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "0.8"
+            }
+        ],
+        "LastTalent": 0,
+        "Cost": 8
+    },
+    {
+        "ID": 10001013,
+        "Name": "生命",
+        "Level": 2,
+        "Desc": "生命+6",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001001,
+        "Cost": 12
+    },
+    {
+        "ID": 10001014,
+        "Name": "物理攻击",
+        "Level": 2,
+        "Desc": "物理攻击+6",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001002,
+        "Cost": 12
+    },
+    {
+        "ID": 10001015,
+        "Name": "魔法攻击",
+        "Level": 2,
+        "Desc": "魔法攻击+6",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001003,
+        "Cost": 12
+    },
+    {
+        "ID": 10001016,
+        "Name": "治疗",
+        "Level": 2,
+        "Desc": "治疗+6",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001004,
+        "Cost": 12
+    },
+    {
+        "ID": 10001017,
+        "Name": "物理防御",
+        "Level": 2,
+        "Desc": "物理防御+6",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001005,
+        "Cost": 12
+    },
+    {
+        "ID": 10001018,
+        "Name": "魔法防御",
+        "Level": 2,
+        "Desc": "魔法防御+6",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001006,
+        "Cost": 12
+    },
+    {
+        "ID": 10001019,
+        "Name": "怒气回复",
+        "Level": 2,
+        "Desc": "怒气回复+6",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 6
+            }
+        ],
+        "LastTalent": 10001007,
+        "Cost": 12
+    },
+    {
+        "ID": 10001020,
+        "Name": "闪避",
+        "Level": 2,
+        "Desc": "闪避+1.2%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001008,
+        "Cost": 12
+    },
+    {
+        "ID": 10001021,
+        "Name": "物理穿透",
+        "Level": 2,
+        "Desc": "物理穿透+1.2%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001009,
+        "Cost": 12
+    },
+    {
+        "ID": 10001022,
+        "Name": "魔法穿透",
+        "Level": 2,
+        "Desc": "魔法穿透+1.2%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001010,
+        "Cost": 12
+    },
+    {
+        "ID": 10001023,
+        "Name": "物理增伤",
+        "Level": 2,
+        "Desc": "物理增伤+1.2%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001011,
+        "Cost": 12
+    },
+    {
+        "ID": 10001024,
+        "Name": "魔法增伤",
+        "Level": 2,
+        "Desc": "魔法增伤+1.2%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001012,
+        "Cost": 12
+    },
+    {
+        "ID": 10001025,
+        "Name": "生命",
+        "Level": 3,
+        "Desc": "生命+7",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001013,
+        "Cost": 12
+    },
+    {
+        "ID": 10001026,
+        "Name": "物理攻击",
+        "Level": 3,
+        "Desc": "物理攻击+7",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001014,
+        "Cost": 12
+    },
+    {
+        "ID": 10001027,
+        "Name": "魔法攻击",
+        "Level": 3,
+        "Desc": "魔法攻击+7",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001015,
+        "Cost": 12
+    },
+    {
+        "ID": 10001028,
+        "Name": "治疗",
+        "Level": 3,
+        "Desc": "治疗+7",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001016,
+        "Cost": 12
+    },
+    {
+        "ID": 10001029,
+        "Name": "物理防御",
+        "Level": 3,
+        "Desc": "物理防御+7",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001017,
+        "Cost": 12
+    },
+    {
+        "ID": 10001030,
+        "Name": "魔法防御",
+        "Level": 3,
+        "Desc": "魔法防御+7",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001018,
+        "Cost": 12
+    },
+    {
+        "ID": 10001031,
+        "Name": "怒气回复",
+        "Level": 3,
+        "Desc": "怒气回复+7",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 7
+            }
+        ],
+        "LastTalent": 10001019,
+        "Cost": 12
+    },
+    {
+        "ID": 10001032,
+        "Name": "闪避",
+        "Level": 3,
+        "Desc": "闪避+1.2%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001020,
+        "Cost": 12
+    },
+    {
+        "ID": 10001033,
+        "Name": "物理穿透",
+        "Level": 3,
+        "Desc": "物理穿透+1.2%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001021,
+        "Cost": 12
+    },
+    {
+        "ID": 10001034,
+        "Name": "魔法穿透",
+        "Level": 3,
+        "Desc": "魔法穿透+1.2%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001022,
+        "Cost": 12
+    },
+    {
+        "ID": 10001035,
+        "Name": "物理增伤",
+        "Level": 3,
+        "Desc": "物理增伤+1.2%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001023,
+        "Cost": 12
+    },
+    {
+        "ID": 10001036,
+        "Name": "魔法增伤",
+        "Level": 3,
+        "Desc": "魔法增伤+1.2%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "1.2"
+            }
+        ],
+        "LastTalent": 10001024,
+        "Cost": 12
+    },
+    {
+        "ID": 10001037,
+        "Name": "生命",
+        "Level": 4,
+        "Desc": "生命+8",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001025,
+        "Cost": 18
+    },
+    {
+        "ID": 10001038,
+        "Name": "物理攻击",
+        "Level": 4,
+        "Desc": "物理攻击+8",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001026,
+        "Cost": 18
+    },
+    {
+        "ID": 10001039,
+        "Name": "魔法攻击",
+        "Level": 4,
+        "Desc": "魔法攻击+8",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001027,
+        "Cost": 18
+    },
+    {
+        "ID": 10001040,
+        "Name": "治疗",
+        "Level": 4,
+        "Desc": "治疗+8",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001028,
+        "Cost": 18
+    },
+    {
+        "ID": 10001041,
+        "Name": "物理防御",
+        "Level": 4,
+        "Desc": "物理防御+8",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001029,
+        "Cost": 18
+    },
+    {
+        "ID": 10001042,
+        "Name": "魔法防御",
+        "Level": 4,
+        "Desc": "魔法防御+8",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001030,
+        "Cost": 18
+    },
+    {
+        "ID": 10001043,
+        "Name": "怒气回复",
+        "Level": 4,
+        "Desc": "怒气回复+8",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001031,
+        "Cost": 18
+    },
+    {
+        "ID": 10001044,
+        "Name": "闪避",
+        "Level": 4,
+        "Desc": "闪避+1.8%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "1.8"
+            }
+        ],
+        "LastTalent": 10001032,
+        "Cost": 18
+    },
+    {
+        "ID": 10001045,
+        "Name": "物理穿透",
+        "Level": 4,
+        "Desc": "物理穿透+1.8%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "1.8"
+            }
+        ],
+        "LastTalent": 10001033,
+        "Cost": 18
+    },
+    {
+        "ID": 10001046,
+        "Name": "魔法穿透",
+        "Level": 4,
+        "Desc": "魔法穿透+1.8%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "1.8"
+            }
+        ],
+        "LastTalent": 10001034,
+        "Cost": 18
+    },
+    {
+        "ID": 10001047,
+        "Name": "物理增伤",
+        "Level": 4,
+        "Desc": "物理增伤+1.8%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "1.8"
+            }
+        ],
+        "LastTalent": 10001035,
+        "Cost": 18
+    },
+    {
+        "ID": 10001048,
+        "Name": "魔法增伤",
+        "Level": 4,
+        "Desc": "魔法增伤+1.8%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "1.8"
+            }
+        ],
+        "LastTalent": 10001036,
+        "Cost": 18
+    },
+    {
+        "ID": 10001049,
+        "Name": "生命",
+        "Level": 5,
+        "Desc": "生命+8",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001037,
+        "Cost": 16
+    },
+    {
+        "ID": 10001050,
+        "Name": "物理攻击",
+        "Level": 5,
+        "Desc": "物理攻击+8",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001038,
+        "Cost": 16
+    },
+    {
+        "ID": 10001051,
+        "Name": "魔法攻击",
+        "Level": 5,
+        "Desc": "魔法攻击+8",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001039,
+        "Cost": 16
+    },
+    {
+        "ID": 10001052,
+        "Name": "治疗",
+        "Level": 5,
+        "Desc": "治疗+8",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001040,
+        "Cost": 16
+    },
+    {
+        "ID": 10001053,
+        "Name": "物理防御",
+        "Level": 5,
+        "Desc": "物理防御+8",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001041,
+        "Cost": 16
+    },
+    {
+        "ID": 10001054,
+        "Name": "魔法防御",
+        "Level": 5,
+        "Desc": "魔法防御+8",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001042,
+        "Cost": 16
+    },
+    {
+        "ID": 10001055,
+        "Name": "怒气回复",
+        "Level": 5,
+        "Desc": "怒气回复+8",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 8
+            }
+        ],
+        "LastTalent": 10001043,
+        "Cost": 16
+    },
+    {
+        "ID": 10001056,
+        "Name": "闪避",
+        "Level": 5,
+        "Desc": "闪避+1.6%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "1.6"
+            }
+        ],
+        "LastTalent": 10001044,
+        "Cost": 16
+    },
+    {
+        "ID": 10001057,
+        "Name": "物理穿透",
+        "Level": 5,
+        "Desc": "物理穿透+1.6%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "1.6"
+            }
+        ],
+        "LastTalent": 10001045,
+        "Cost": 16
+    },
+    {
+        "ID": 10001058,
+        "Name": "魔法穿透",
+        "Level": 5,
+        "Desc": "魔法穿透+1.6%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "1.6"
+            }
+        ],
+        "LastTalent": 10001046,
+        "Cost": 16
+    },
+    {
+        "ID": 10001059,
+        "Name": "物理增伤",
+        "Level": 5,
+        "Desc": "物理增伤+1.6%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "1.6"
+            }
+        ],
+        "LastTalent": 10001047,
+        "Cost": 16
+    },
+    {
+        "ID": 10001060,
+        "Name": "魔法增伤",
+        "Level": 5,
+        "Desc": "魔法增伤+1.6%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "1.6"
+            }
+        ],
+        "LastTalent": 10001048,
+        "Cost": 16
+    },
+    {
+        "ID": 10001061,
+        "Name": "生命",
+        "Level": 6,
+        "Desc": "生命+12",
+        "Attrs": [
+            {
+                "id": 1,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001049,
+        "Cost": 24
+    },
+    {
+        "ID": 10001062,
+        "Name": "物理攻击",
+        "Level": 6,
+        "Desc": "物理攻击+12",
+        "Attrs": [
+            {
+                "id": 3,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001050,
+        "Cost": 24
+    },
+    {
+        "ID": 10001063,
+        "Name": "魔法攻击",
+        "Level": 6,
+        "Desc": "魔法攻击+12",
+        "Attrs": [
+            {
+                "id": 4,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001051,
+        "Cost": 24
+    },
+    {
+        "ID": 10001064,
+        "Name": "治疗",
+        "Level": 6,
+        "Desc": "治疗+12",
+        "Attrs": [
+            {
+                "id": 5,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001052,
+        "Cost": 24
+    },
+    {
+        "ID": 10001065,
+        "Name": "物理防御",
+        "Level": 6,
+        "Desc": "物理防御+12",
+        "Attrs": [
+            {
+                "id": 6,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001053,
+        "Cost": 24
+    },
+    {
+        "ID": 10001066,
+        "Name": "魔法防御",
+        "Level": 6,
+        "Desc": "魔法防御+12",
+        "Attrs": [
+            {
+                "id": 7,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001054,
+        "Cost": 24
+    },
+    {
+        "ID": 10001067,
+        "Name": "怒气回复",
+        "Level": 6,
+        "Desc": "怒气回复+12",
+        "Attrs": [
+            {
+                "id": 15,
+                "value": 12
+            }
+        ],
+        "LastTalent": 10001055,
+        "Cost": 24
+    },
+    {
+        "ID": 10001068,
+        "Name": "闪避",
+        "Level": 6,
+        "Desc": "闪避+2.4%",
+        "Attrs": [
+            {
+                "id": 10,
+                "value": "2.4"
+            }
+        ],
+        "LastTalent": 10001056,
+        "Cost": 24
+    },
+    {
+        "ID": 10001069,
+        "Name": "物理穿透",
+        "Level": 6,
+        "Desc": "物理穿透+2.4%",
+        "Attrs": [
+            {
+                "id": 11,
+                "value": "2.4"
+            }
+        ],
+        "LastTalent": 10001057,
+        "Cost": 24
+    },
+    {
+        "ID": 10001070,
+        "Name": "魔法穿透",
+        "Level": 6,
+        "Desc": "魔法穿透+2.4%",
+        "Attrs": [
+            {
+                "id": 12,
+                "value": "2.4"
+            }
+        ],
+        "LastTalent": 10001058,
+        "Cost": 24
+    },
+    {
+        "ID": 10001071,
+        "Name": "物理增伤",
+        "Level": 6,
+        "Desc": "物理增伤+2.4%",
+        "Attrs": [
+            {
+                "id": 13,
+                "value": "2.4"
+            }
+        ],
+        "LastTalent": 10001059,
+        "Cost": 24
+    },
+    {
+        "ID": 10001072,
+        "Name": "魔法增伤",
+        "Level": 6,
+        "Desc": "魔法增伤+2.4%",
+        "Attrs": [
+            {
+                "id": 14,
+                "value": "2.4"
+            }
+        ],
+        "LastTalent": 10001060,
+        "Cost": 24
+    },
+    {
+        "ID": 10001073,
+        "Name": "生命",
+        "Level": 7,
         "Desc": "生命+10",
         "Attrs": [
             {
@@ -9,13 +1018,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001061,
         "Cost": 20
     },
     {
-        "ID": 10001002,
-        "Name": "天赋2",
+        "ID": 10001074,
+        "Name": "物理攻击",
+        "Level": 7,
         "Desc": "物理攻击+10",
         "Attrs": [
             {
@@ -23,13 +1032,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001062,
         "Cost": 20
     },
     {
-        "ID": 10001003,
-        "Name": "天赋3",
+        "ID": 10001075,
+        "Name": "魔法攻击",
+        "Level": 7,
         "Desc": "魔法攻击+10",
         "Attrs": [
             {
@@ -37,13 +1046,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001063,
         "Cost": 20
     },
     {
-        "ID": 10001004,
-        "Name": "天赋4",
+        "ID": 10001076,
+        "Name": "治疗",
+        "Level": 7,
         "Desc": "治疗+10",
         "Attrs": [
             {
@@ -51,13 +1060,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001064,
         "Cost": 20
     },
     {
-        "ID": 10001005,
-        "Name": "天赋5",
+        "ID": 10001077,
+        "Name": "物理防御",
+        "Level": 7,
         "Desc": "物理防御+10",
         "Attrs": [
             {
@@ -65,13 +1074,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001065,
         "Cost": 20
     },
     {
-        "ID": 10001006,
-        "Name": "天赋6",
+        "ID": 10001078,
+        "Name": "魔法防御",
+        "Level": 7,
         "Desc": "魔法防御+10",
         "Attrs": [
             {
@@ -79,13 +1088,13 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001066,
         "Cost": 20
     },
     {
-        "ID": 10001007,
-        "Name": "天赋7",
+        "ID": 10001079,
+        "Name": "怒气回复",
+        "Level": 7,
         "Desc": "怒气回复+10",
         "Attrs": [
             {
@@ -93,97 +1102,83 @@
                 "value": 10
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001067,
         "Cost": 20
     },
     {
-        "ID": 10001008,
-        "Name": "天赋8",
-        "Desc": "闪避+2%",
+        "ID": 10001080,
+        "Name": "闪避",
+        "Level": 7,
+        "Desc": "闪避+2.0%",
         "Attrs": [
             {
                 "id": 10,
                 "value": 2
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001068,
         "Cost": 20
     },
     {
-        "ID": 10001009,
-        "Name": "天赋9",
-        "Desc": "物理穿透+2%",
+        "ID": 10001081,
+        "Name": "物理穿透",
+        "Level": 7,
+        "Desc": "物理穿透+2.0%",
         "Attrs": [
             {
                 "id": 11,
                 "value": 2
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001069,
         "Cost": 20
     },
     {
-        "ID": 10001010,
-        "Name": "天赋10",
-        "Desc": "魔法穿透+2%",
+        "ID": 10001082,
+        "Name": "魔法穿透",
+        "Level": 7,
+        "Desc": "魔法穿透+2.0%",
         "Attrs": [
             {
                 "id": 12,
                 "value": 2
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001070,
         "Cost": 20
     },
     {
-        "ID": 10001011,
-        "Name": "天赋11",
-        "Desc": "物理增伤+2%",
+        "ID": 10001083,
+        "Name": "物理增伤",
+        "Level": 7,
+        "Desc": "物理增伤+2.0%",
         "Attrs": [
             {
                 "id": 13,
                 "value": 2
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001071,
         "Cost": 20
     },
     {
-        "ID": 10001012,
-        "Name": "天赋12",
-        "Desc": "魔法增伤+2%",
+        "ID": 10001084,
+        "Name": "魔法增伤",
+        "Level": 7,
+        "Desc": "魔法增伤+2.0%",
         "Attrs": [
             {
                 "id": 14,
                 "value": 2
             }
         ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001072,
         "Cost": 20
     },
     {
-        "ID": 10001013,
-        "Name": "天赋13",
-        "Desc": "移动距离+1",
-        "Attrs": [
-            {
-                "id": 8,
-                "value": 1
-            }
-        ],
-        "LastTalent": 0,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 20
-    },
-    {
-        "ID": 10001014,
-        "Name": "天赋14",
+        "ID": 10001085,
+        "Name": "生命",
+        "Level": 8,
         "Desc": "生命+15",
         "Attrs": [
             {
@@ -191,13 +1186,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001001,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001073,
         "Cost": 30
     },
     {
-        "ID": 10001015,
-        "Name": "天赋15",
+        "ID": 10001086,
+        "Name": "物理攻击",
+        "Level": 8,
         "Desc": "物理攻击+15",
         "Attrs": [
             {
@@ -205,13 +1200,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001002,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001074,
         "Cost": 30
     },
     {
-        "ID": 10001016,
-        "Name": "天赋16",
+        "ID": 10001087,
+        "Name": "魔法攻击",
+        "Level": 8,
         "Desc": "魔法攻击+15",
         "Attrs": [
             {
@@ -219,13 +1214,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001003,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001075,
         "Cost": 30
     },
     {
-        "ID": 10001017,
-        "Name": "天赋17",
+        "ID": 10001088,
+        "Name": "治疗",
+        "Level": 8,
         "Desc": "治疗+15",
         "Attrs": [
             {
@@ -233,13 +1228,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001004,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001076,
         "Cost": 30
     },
     {
-        "ID": 10001018,
-        "Name": "天赋18",
+        "ID": 10001089,
+        "Name": "物理防御",
+        "Level": 8,
         "Desc": "物理防御+15",
         "Attrs": [
             {
@@ -247,13 +1242,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001005,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001077,
         "Cost": 30
     },
     {
-        "ID": 10001019,
-        "Name": "天赋19",
+        "ID": 10001090,
+        "Name": "魔法防御",
+        "Level": 8,
         "Desc": "魔法防御+15",
         "Attrs": [
             {
@@ -261,13 +1256,13 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001006,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001078,
         "Cost": 30
     },
     {
-        "ID": 10001020,
-        "Name": "天赋20",
+        "ID": 10001091,
+        "Name": "怒气回复",
+        "Level": 8,
         "Desc": "怒气回复+15",
         "Attrs": [
             {
@@ -275,456 +1270,77 @@
                 "value": 15
             }
         ],
-        "LastTalent": 10001007,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001079,
         "Cost": 30
     },
     {
-        "ID": 10001021,
-        "Name": "天赋21",
-        "Desc": "闪避+3%",
+        "ID": 10001092,
+        "Name": "闪避",
+        "Level": 8,
+        "Desc": "闪避+3.0%",
         "Attrs": [
             {
                 "id": 10,
                 "value": 3
             }
         ],
-        "LastTalent": 10001008,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001080,
         "Cost": 30
     },
     {
-        "ID": 10001022,
-        "Name": "天赋22",
-        "Desc": "物理穿透+3%",
+        "ID": 10001093,
+        "Name": "物理穿透",
+        "Level": 8,
+        "Desc": "物理穿透+3.0%",
         "Attrs": [
             {
                 "id": 11,
                 "value": 3
             }
         ],
-        "LastTalent": 10001009,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001081,
         "Cost": 30
     },
     {
-        "ID": 10001023,
-        "Name": "天赋23",
-        "Desc": "魔法穿透+3%",
+        "ID": 10001094,
+        "Name": "魔法穿透",
+        "Level": 8,
+        "Desc": "魔法穿透+3.0%",
         "Attrs": [
             {
                 "id": 12,
                 "value": 3
             }
         ],
-        "LastTalent": 10001010,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001082,
         "Cost": 30
     },
     {
-        "ID": 10001024,
-        "Name": "天赋24",
-        "Desc": "物理增伤+3%",
+        "ID": 10001095,
+        "Name": "物理增伤",
+        "Level": 8,
+        "Desc": "物理增伤+3.0%",
         "Attrs": [
             {
                 "id": 13,
                 "value": 3
             }
         ],
-        "LastTalent": 10001011,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001083,
         "Cost": 30
     },
     {
-        "ID": 10001025,
-        "Name": "天赋25",
-        "Desc": "魔法增伤+3%",
+        "ID": 10001096,
+        "Name": "魔法增伤",
+        "Level": 8,
+        "Desc": "魔法增伤+3.0%",
         "Attrs": [
             {
                 "id": 14,
                 "value": 3
             }
         ],
-        "LastTalent": 10001012,
-        "Icon": "UI/Icons/Role/10001",
+        "LastTalent": 10001084,
         "Cost": 30
-    },
-    {
-        "ID": 10001026,
-        "Name": "天赋26",
-        "Desc": "移动距离+1",
-        "Attrs": [
-            {
-                "id": 8,
-                "value": 1
-            }
-        ],
-        "LastTalent": 10001013,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 30
-    },
-    {
-        "ID": 10001027,
-        "Name": "天赋27",
-        "Desc": "生命+20",
-        "Attrs": [
-            {
-                "id": 1,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001014,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001028,
-        "Name": "天赋28",
-        "Desc": "物理攻击+20",
-        "Attrs": [
-            {
-                "id": 3,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001015,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001029,
-        "Name": "天赋29",
-        "Desc": "魔法攻击+20",
-        "Attrs": [
-            {
-                "id": 4,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001016,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001030,
-        "Name": "天赋30",
-        "Desc": "治疗+20",
-        "Attrs": [
-            {
-                "id": 5,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001017,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001031,
-        "Name": "天赋31",
-        "Desc": "物理防御+20",
-        "Attrs": [
-            {
-                "id": 6,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001018,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001032,
-        "Name": "天赋32",
-        "Desc": "魔法防御+20",
-        "Attrs": [
-            {
-                "id": 7,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001019,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001033,
-        "Name": "天赋33",
-        "Desc": "怒气回复+20",
-        "Attrs": [
-            {
-                "id": 15,
-                "value": 20
-            }
-        ],
-        "LastTalent": 10001020,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001034,
-        "Name": "天赋34",
-        "Desc": "闪避+4%",
-        "Attrs": [
-            {
-                "id": 10,
-                "value": 4
-            }
-        ],
-        "LastTalent": 10001021,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001035,
-        "Name": "天赋35",
-        "Desc": "物理穿透+4%",
-        "Attrs": [
-            {
-                "id": 11,
-                "value": 4
-            }
-        ],
-        "LastTalent": 10001022,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001036,
-        "Name": "天赋36",
-        "Desc": "魔法穿透+4%",
-        "Attrs": [
-            {
-                "id": 12,
-                "value": 4
-            }
-        ],
-        "LastTalent": 10001023,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001037,
-        "Name": "天赋37",
-        "Desc": "物理增伤+4%",
-        "Attrs": [
-            {
-                "id": 13,
-                "value": 4
-            }
-        ],
-        "LastTalent": 10001024,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001038,
-        "Name": "天赋38",
-        "Desc": "魔法增伤+4%",
-        "Attrs": [
-            {
-                "id": 14,
-                "value": 4
-            }
-        ],
-        "LastTalent": 10001025,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001039,
-        "Name": "天赋39",
-        "Desc": "移动距离+1",
-        "Attrs": [
-            {
-                "id": 8,
-                "value": 1
-            }
-        ],
-        "LastTalent": 10001026,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 40
-    },
-    {
-        "ID": 10001040,
-        "Name": "天赋40",
-        "Desc": "生命+25",
-        "Attrs": [
-            {
-                "id": 1,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001027,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001041,
-        "Name": "天赋41",
-        "Desc": "物理攻击+25",
-        "Attrs": [
-            {
-                "id": 3,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001028,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001042,
-        "Name": "天赋42",
-        "Desc": "魔法攻击+25",
-        "Attrs": [
-            {
-                "id": 4,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001029,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001043,
-        "Name": "天赋43",
-        "Desc": "治疗+25",
-        "Attrs": [
-            {
-                "id": 5,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001030,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001044,
-        "Name": "天赋44",
-        "Desc": "物理防御+25",
-        "Attrs": [
-            {
-                "id": 6,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001031,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001045,
-        "Name": "天赋45",
-        "Desc": "魔法防御+25",
-        "Attrs": [
-            {
-                "id": 7,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001032,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001046,
-        "Name": "天赋46",
-        "Desc": "怒气回复+25",
-        "Attrs": [
-            {
-                "id": 15,
-                "value": 25
-            }
-        ],
-        "LastTalent": 10001033,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001047,
-        "Name": "天赋47",
-        "Desc": "闪避+5%",
-        "Attrs": [
-            {
-                "id": 10,
-                "value": 5
-            }
-        ],
-        "LastTalent": 10001034,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001048,
-        "Name": "天赋48",
-        "Desc": "物理穿透+5%",
-        "Attrs": [
-            {
-                "id": 11,
-                "value": 5
-            }
-        ],
-        "LastTalent": 10001035,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001049,
-        "Name": "天赋49",
-        "Desc": "魔法穿透+5%",
-        "Attrs": [
-            {
-                "id": 12,
-                "value": 5
-            }
-        ],
-        "LastTalent": 10001036,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001050,
-        "Name": "天赋50",
-        "Desc": "物理增伤+5%",
-        "Attrs": [
-            {
-                "id": 13,
-                "value": 5
-            }
-        ],
-        "LastTalent": 10001037,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001051,
-        "Name": "天赋51",
-        "Desc": "魔法增伤+5%",
-        "Attrs": [
-            {
-                "id": 14,
-                "value": 5
-            }
-        ],
-        "LastTalent": 10001038,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
-    },
-    {
-        "ID": 10001052,
-        "Name": "天赋52",
-        "Desc": "移动距离+1",
-        "Attrs": [
-            {
-                "id": 8,
-                "value": 1
-            }
-        ],
-        "LastTalent": 10001039,
-        "Icon": "UI/Icons/Role/10001",
-        "Cost": 50
     }
 ]

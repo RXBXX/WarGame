@@ -29,7 +29,7 @@
     <image id="n44_ku3y" name="n44" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="413,593" size="107,75" alpha="0.7" color="#000000">
       <relation target="n32_gy0s" sidePair="rightext-right,leftext-left"/>
     </image>
-    <text id="n32_gy0s" name="name" xy="468,631" pivot="0.5,0.5" anchor="true" size="10,74" font="ui://hd0z4dz5omu90" fontSize="56" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="诺亚"/>
+    <text id="n32_gy0s" name="name" xy="468,631" pivot="0.5,0.5" anchor="true" size="0,60" font="ui://hd0z4dz5omu90" fontSize="56" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="诺亚"/>
     <component id="n43_ku3y" name="resetBtn" src="ku3y20" fileName="HeroResetBtn.xml" xy="444,670"/>
     <component id="n38_gy0s" name="attrsInfo" src="kky81y" fileName="HeroEquipInfo.xml" xy="522,110" visible="false"/>
     <component id="n39_gy0s" name="talentInfo" src="gy0sm" fileName="HeroTalentInfo.xml" xy="827,112" visible="false"/>

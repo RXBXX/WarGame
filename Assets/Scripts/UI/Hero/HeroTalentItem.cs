@@ -11,21 +11,28 @@ namespace WarGame.UI
         private bool _isActive;
         private Transition _active;
         private GLoader _icon;
+        private GTextField _title;
+        private GTextField _level;
 
         public HeroTalentItem(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
             _icon = GetGObjectChild<GLoader>("icon");
             _active = GetTransition("active");
+            _title = GetGObjectChild<GTextField>("title");
+            _level = GetGObjectChild<GTextField>("level");
             _gCom.onClick.Add(OnClick);
         }
 
-        public void UpdateItem(int heroUID, int id, string icon)
+        public void UpdateItem(int heroUID, int id)
         {
             _heroUID = heroUID;
             _id = id;
             _isActive = DatasMgr.Instance.IsHeroTalentActive(heroUID, id);
             _gCom.grayed = !_isActive;
-            _icon.url = icon;
+            var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", id);
+            _title.text = talentConfig.GetTranslation("Name");
+            _level.text = "Lv." + talentConfig.Level;
+            //_icon.url = icon;
         }
 
 
