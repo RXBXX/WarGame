@@ -23,6 +23,7 @@ namespace WarGame
         {
             var item = GetItem();
             item.SetPosition(_startPos + new Vector2(0, _tipsList.Count * item.GetHeight()));
+            //DebugManager.Instance.Log("TipsCount:" + _tipsList.Count);
             _tipsList.Add(item);
             item.Show(_tipsList.Count * 0.2F, desc, OnTipsOver);
         }
@@ -42,6 +43,7 @@ namespace WarGame
         private void OnTipsOver(params object[] args)
         {
             var item = (TipsItem)args[0];
+            //DebugManager.Instance.Log("OnTipsOver:" + _tipsList.Contains(item)+ _tipsList.Count);
             _tipsList.Remove(item);
             _tipsRecyclePool.Add(item);
 

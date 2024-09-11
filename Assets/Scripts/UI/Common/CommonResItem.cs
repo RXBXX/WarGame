@@ -9,8 +9,8 @@ namespace WarGame.UI
         private GLoader _icon;
         private int _value;
         private int _deltaValue;
+        private int _frameDeltaValue;
         private GTextField _valueTxt;
-        private float _interval = 0.02F;
 
         public CommonResItem(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
@@ -28,20 +28,22 @@ namespace WarGame.UI
         public void UpdateItem(int value)
         {
             _deltaValue = value - _value;
+            _frameDeltaValue = _deltaValue / 25;
         }
 
         public override void Update(float deltaTime)
         {
             if (0 == _deltaValue)
                 return;
-            _interval -= deltaTime;
-            if (_interval > 0)
-                return;
-            _interval = 0.02F;
 
-            var delta = _deltaValue / Mathf.Abs(_deltaValue);
-            _deltaValue -= delta;
-            _value += delta;
+            _deltaValue -= _frameDeltaValue;
+            if (_deltaValue < 0)
+            {
+                _frameDeltaValue += _deltaValue;
+                _deltaValue = 0;
+            }
+
+            _value += _frameDeltaValue;
             _valueTxt.text = _value.ToString();
         }
 

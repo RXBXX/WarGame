@@ -25,30 +25,30 @@ namespace WarGame.UI
             _seq.AppendInterval(delay);
             _seq.AppendCallback(() =>
             {
-                DebugManager.Instance.Log("TipsVisible:true");
+                //DebugManager.Instance.Log("TipsVisible:true");
                 SetVisible(true);
                 _show.Play(() =>
                 {
-                    if (null != _seq)
-                    {
-                        _seq.Kill();
-                        _seq = null;
-                    }
-
-                    DebugManager.Instance.Log("TipsVisible:false");
+                    //DebugManager.Instance.Log("TipsVisible:false");
                     SetVisible(false);
                     callback(this);
                 });
             });
+            _seq.onComplete = RemoveSeq;
         }
 
-        public override void Dispose(bool disposeGCom = false)
+        private void RemoveSeq()
         {
             if (null != _seq)
             {
                 _seq.Kill();
                 _seq = null;
             }
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            RemoveSeq();
             base.Dispose(disposeGCom);
         }
     }
