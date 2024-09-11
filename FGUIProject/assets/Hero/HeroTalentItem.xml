@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="120,46" pivot="0.5,0.5" anchor="true">
   <displayList>
-    <image id="n12_o71h" name="n12" src="o71h21" fileName="Images/Talent.png" xy="0,0" size="120,46"/>
-    <text id="n6_li0q" name="title" xy="59,13" pivot="0.5,0.5" anchor="true" size="36,24" font="HarmonyOS Sans SC" fontSize="16" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="移速"/>
-    <text id="n7_o71h" name="level" xy="59,34" pivot="0.5,0.5" anchor="true" size="21,22" font="ui://hd0z4dz5omu90" fontSize="14" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="Lv.1"/>
-    <graph id="n10_o71h" name="n10" xy="120,22" size="40,2" type="rect" lineSize="0" fillColor="#ffffb500"/>
-    <graph id="n11_o71h" name="n11" xy="10,25" size="100,1" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <image id="n12_o71h" name="n12" src="o71h21" fileName="Images/Talent.png" xy="0,0" size="120,46">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n6_li0q" name="title" xy="59,13" pivot="0.5,0.5" anchor="true" size="107,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffb500" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" autoClearText="true" text="1111111111111111"/>
+    <text id="n7_o71h" name="level" xy="59,34" pivot="0.5,0.5" anchor="true" size="21,21" font="ui://hd0z4dz5omu90" fontSize="14" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="Lv.1">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <graph id="n10_o71h" name="n10" xy="120,22" size="40,2" type="rect" lineSize="0" fillColor="#ffffb500">
+      <relation target="" sidePair="left-right"/>
+    </graph>
+    <graph id="n11_o71h" name="n11" xy="10,25" size="99,1" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,middle-middle"/>
+    </graph>
   </displayList>
   <transition name="active"/>
 </component>
