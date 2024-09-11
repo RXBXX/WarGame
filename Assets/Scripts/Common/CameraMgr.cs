@@ -392,12 +392,12 @@ namespace WarGame
             }
             var target = RoleManager.Instance.GetRole(_targetID);
             _floatSeq.Append(MainCamera.transform.DOMove(target.GetPosition() - camDis, 1.0F).SetEase(Ease.InOutQuad));
-
             _floatSeq.AppendCallback(() =>
             {
                 callback();
                 _floatSeq = null;
             });
+            _floatSeq.onComplete = StopFloatPoint;
         }
 
         public void StopFloatPoint()

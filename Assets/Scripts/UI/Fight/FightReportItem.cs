@@ -45,27 +45,34 @@ namespace WarGame.UI
             {
                 _inLeft.Play();
             });
+            _seq.onComplete = RemoveSeq;
         }
 
         public void PlayInRight(float delay)
         {
-            DebugManager.Instance.Log("PlayInRight");
+            //DebugManager.Instance.Log("PlayInRight");
             _seq = DOTween.Sequence();
             _seq.AppendInterval(delay);
             _seq.AppendCallback(() =>
             {
-                DebugManager.Instance.Log("PlayInRight Play");
+                //DebugManager.Instance.Log("PlayInRight Play");
                 _inRight.Play();
             });
+            _seq.onComplete = RemoveSeq;
         }
 
-        public override void Dispose(bool disposeGCom = false)
+        private void RemoveSeq()
         {
             if (null != _seq)
             {
                 _seq.Kill();
                 _seq = null;
             }
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            RemoveSeq();
 
             base.Dispose(disposeGCom);
         }

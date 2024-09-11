@@ -36,6 +36,7 @@ namespace WarGame.UI
             _seq.AppendCallback(()=> {
                 callback();
             });
+            _seq.onComplete = RemoveSequence;
         }
 
         private void RemoveSequence()

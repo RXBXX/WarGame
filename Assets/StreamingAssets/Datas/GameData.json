@@ -5,14 +5,14 @@
       "ID": "Record_1",
       "title": "1",
       "createTime": 1725718890010,
-      "saveTime": 1726039284686,
-      "duration": 15244923,
+      "saveTime": 1726041582254,
+      "duration": 15508656,
       "isNew": false,
       "roleDataDic": {
         "10001": {
           "UID": 10001,
           "configId": 10001,
-          "level": 3,
+          "level": 4,
           "equipmentDic": {
             "Right": 30003
           },
@@ -21,10 +21,8 @@
         "10002": {
           "UID": 10002,
           "configId": 10002,
-          "level": 2,
-          "equipmentDic": {
-            "Right": 30002
-          },
+          "level": 3,
+          "equipmentDic": {},
           "talents": []
         },
         "10003": {
@@ -32,7 +30,7 @@
           "configId": 10003,
           "level": 1,
           "equipmentDic": {
-            "Right": 30004
+            "Right": 30006
           },
           "talents": []
         },
@@ -40,17 +38,15 @@
           "UID": 10021,
           "configId": 10021,
           "level": 2,
-          "equipmentDic": {
-            "Right": 30007
-          },
+          "equipmentDic": {},
           "talents": []
         },
         "10005": {
           "UID": 10005,
           "configId": 10005,
-          "level": 1,
+          "level": 3,
           "equipmentDic": {
-            "Right": 30006
+            "Right": 30007
           },
           "talents": []
         },
@@ -85,11 +81,17 @@
         "10007": {
           "UID": 10007,
           "configId": 10007,
-          "level": 1,
-          "equipmentDic": {
-            "Right": 30001
-          },
-          "talents": []
+          "level": 4,
+          "equipmentDic": {},
+          "talents": [
+            10001001,
+            10001013,
+            10001025,
+            10001037,
+            10001002,
+            10001014,
+            10001026
+          ]
         }
       },
       "equipDataDic": {
@@ -2708,8 +2710,8 @@
       },
       "homeEvent": 0,
       "itemsDic": {
-        "1": 392,
-        "2": 710,
+        "1": 310,
+        "2": 34,
         "3": 516
       }
     }

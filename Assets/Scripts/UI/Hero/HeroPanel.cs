@@ -387,10 +387,13 @@ namespace WarGame.UI
             {
                 animator.SetBool("Jump", false);
                 animator.SetBool("Idle", true);
-                DebugManager.Instance.Log("Remove Seq");
-                _seqList.Remove(seq);
-                DebugManager.Instance.Log("Seq Count:" + _seqList.Count);
+                //DebugManager.Instance.Log("Remove Seq");
+                //DebugManager.Instance.Log("Seq Count:" + _seqList.Count);
             });
+            seq.onComplete = () =>
+            {
+                _seqList.Remove(seq);
+            };
 
             _seqList.Add(seq);
         }

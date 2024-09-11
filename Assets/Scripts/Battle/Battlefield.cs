@@ -772,11 +772,12 @@ namespace WarGame
                         seq.AppendCallback(() =>
                         {
                             _gos.Remove(go);
-                            _sequences.Remove(seq);
+                            //_sequences.Remove(seq);
                             _assets.Remove(assetID);
                             AudioMgr.Instance.ClearSound(go);
                             AssetsMgr.Instance.Destroy(go);
                         });
+                        seq.onComplete = () => { _sequences.Remove(seq); };
 
                         _gos.Add(go);
                         _sequences.Add(seq);
