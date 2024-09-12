@@ -182,6 +182,7 @@ namespace WarGame.UI
 
         private void OnClickHero()
         {
+            DebugManager.Instance.Log("OnClickHero");
             SceneMgr.Instance.OpenHeroScene();
         }
 

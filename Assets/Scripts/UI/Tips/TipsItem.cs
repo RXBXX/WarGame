@@ -19,7 +19,7 @@ namespace WarGame.UI
         public void Show(float delay, string str, WGArgsCallback callback)
         {
             SetVisible(false);
-
+            //DebugManager.Instance.Log("TipsShow:true");
             _desc.text = str;
             _seq = DOTween.Sequence();
             _seq.AppendInterval(delay);
@@ -34,7 +34,7 @@ namespace WarGame.UI
                     callback(this);
                 });
             });
-            _seq.onComplete = RemoveSeq;
+            //_seq.onComplete = RemoveSeq;
         }
 
         private void RemoveSeq()

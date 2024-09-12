@@ -19,6 +19,7 @@ namespace WarGame
 
             if (null != Stage.inst.touchTarget)
             {
+                DebugManager.Instance.Log(Stage.inst.touchTarget.name);
                 SceneMgr.Instance.FocusIn(null);
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -38,6 +39,7 @@ namespace WarGame
                 if (Input.GetMouseButtonUp(1))
                 {
                     SceneMgr.Instance.RightClickEnd();
+                    _rightMouseTime = 0;
                 }
                 return;
             }
@@ -82,7 +84,7 @@ namespace WarGame
             {
                 if (Input.GetMouseButtonDown(1))
                 {
-                    //DebugManager.Instance.Log("MouseButtonDown");
+                    DebugManager.Instance.Log("MouseButtonDown");
                     _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(_ray, out _hitInfo))
                     {

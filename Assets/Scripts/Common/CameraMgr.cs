@@ -260,7 +260,10 @@ namespace WarGame
             }
             else
             {
-                MainCamera.transform.position = target.GetFollowPos() - _cameraDis * MainCamera.transform.forward;
+                _cameraDis = _maxDistance;
+                var forward = (new Vector3(11.0F, 1.4F, 6.928F) - new Vector3(-4.946F, 12.79f, -8.28f)).normalized;
+                MainCamera.transform.forward = forward;
+                MainCamera.transform.position = target.GetFollowPos() - _cameraDis * forward;
             }
         }
 

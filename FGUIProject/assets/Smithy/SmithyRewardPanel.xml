@@ -16,6 +16,8 @@
     <component id="n17_vqm0" name="equip" src="vqm023" fileName="SmithyReward.xml" xy="587,281">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="360,107"/>
+    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="360,107">
+      <relation target="" sidePair="center-center,top-top"/>
+    </component>
   </displayList>
 </component>

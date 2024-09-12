@@ -16,7 +16,7 @@ Shader "Custom/PowerLineShader"
 	{ 
 			Tags
 			{
-				"Queue" = "Transparent+1"
+				"Queue" = "Transparent"
 				"RenderType" = "Transparent"
 		}
 

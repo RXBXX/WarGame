@@ -43,8 +43,9 @@ namespace WarGame
         private void OnTipsOver(params object[] args)
         {
             var item = (TipsItem)args[0];
-            //DebugManager.Instance.Log("OnTipsOver:" + _tipsList.Contains(item)+ _tipsList.Count);
+            //DebugManager.Instance.Log("OnTipsOver:" + _tipsList.Contains(item));
             _tipsList.Remove(item);
+            //DebugManager.Instance.Log("OnTipsOver:" + _tipsList.Count);
             _tipsRecyclePool.Add(item);
 
             for (int i = 0; i < _tipsList.Count; i++)

@@ -65,7 +65,13 @@ namespace WarGame.UI
             _attrList.numItems = _attrsData.Count;
             _attrList.ResizeToFit();
 
-            SetPosition((Vector2)args[3]);
+            var pos = (Vector2)args[3];
+            if (pos.y + GCom.height > GRoot.inst.height)
+            {
+                pos.y = GRoot.inst.height - GCom.height;
+            }
+            SetPosition(pos);
+
             SetVisible(true);
 
             _activeBtn.visible = (bool)args[4];
