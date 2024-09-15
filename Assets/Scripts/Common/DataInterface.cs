@@ -517,6 +517,8 @@ namespace WarGame
         public Dictionary<int, LevelData> levelDataDic = new Dictionary<int, LevelData>();
         public int homeEvent;
         public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
+        //ª∫¥Ê…œ’Ûµƒ”¢–€
+        public List<int> SelectedHeros;
 
         public RecordData(string ID, string title)
         {

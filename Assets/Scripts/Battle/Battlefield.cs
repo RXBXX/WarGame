@@ -73,31 +73,40 @@ namespace WarGame
             {
                 var heroDatas = DatasMgr.Instance.GetAllRoles();
                 var bornPoints = MapManager.Instance.GetHexagonsByType(Enum.HexagonType.Hex22);
-                var index = 0;
-                foreach (var p in bornPoints)
+                var selectedHeros = DatasMgr.Instance.GetSelectedHeros();
+                for (int i = 0; i < bornPoints.Count; i++)
                 {
-                    if (index >= heroDatas.Length)
-                        break;
-
+                    var pos = MapManager.Instance.GetHexagon(bornPoints[i]).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
                     _bornEffects.Add(AssetsMgr.Instance.LoadAssetAsync<GameObject>("Assets/Prefabs/Effects/CFX3_MagicAura_B_Runic.prefab", (GameObject prefab) =>
                     {
                         var go = GameObject.Instantiate<GameObject>(prefab);
-                        go.transform.position = MapManager.Instance.GetHexagon(p).GetPosition() + new Vector3(0.0f, 0.224f, 0.0f);
-
+                        go.transform.position = pos;
                         _bornEffectGOs.Add(go);
                     }));
-                    var roleData = DatasMgr.Instance.GetRoleData(heroDatas[index]);
-                    var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, p);
+
+                    RoleData roleData;
+                    if (null != selectedHeros && i < selectedHeros.Count)
+                    {
+                        roleData = DatasMgr.Instance.GetRoleData(selectedHeros[i]);
+                        heroDatas.Remove(roleData.UID);
+                    }
+                    else if (null != selectedHeros)
+                    {
+                        roleData = DatasMgr.Instance.GetRoleData(heroDatas[i - selectedHeros.Count]);
+                    }
+                    else
+                    {
+                        roleData = DatasMgr.Instance.GetRoleData(heroDatas[i]);
+                    }
+
+                    var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, bornPoints[i]);
                     DebugManager.Instance.Log(levelRoleData.HP + "_" + levelRoleData.GetAttribute(Enum.AttrType.HP));
                     var role = RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     role.GoIntoBattle();
                     _levelData.heros.Add(levelRoleData);
-
-                    index++;
                 }
 
                 _levelData.enemys = RoleManager.Instance.InitLevelRoles(_levelPlugin.enemys);
-
                 _levelData.Stage = Enum.LevelStage.Entered;
             }
             else
@@ -620,7 +629,8 @@ namespace WarGame
         private void OnSuccess()
         {
             _levelData.Stage = Enum.LevelStage.Passed;
-            if (_levelData.minPassRound > _levelData.Round)
+            DebugManager.Instance.Log("MinPassRound:" + _levelData.Round);
+            if (0 == _levelData.minPassRound || _levelData.minPassRound > _levelData.Round)
                 _levelData.minPassRound = _levelData.Round;
 
             foreach (var v in _levelData.itemsDic)

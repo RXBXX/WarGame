@@ -113,7 +113,7 @@ namespace WarGame.UI
 
         private void OnShowHeroGroup(params object[] args)
         {
-            _heroGroup.Show((Vector2)args[0], (int[])args[1]);
+            _heroGroup.Show((Vector2)args[0], (List<int>)args[1]);;
         }
 
         private void OnHideHeroGroup(params object[] args)

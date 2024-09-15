@@ -95,6 +95,21 @@ namespace WarGame
         protected virtual void TriggerSkill()
         { }
 
+        protected Vector3 GetArenaDeltaVec()
+        {
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
+            var pathCenter = initiator.GetPosition();
+            foreach (var v in _targets)
+            {
+                var target = RoleManager.Instance.GetRole(v);
+                pathCenter += target.GetPosition();
+            }
+            pathCenter /= _targets.Count + 1;
+
+            return arenaCenter - pathCenter;
+        }
+
         protected virtual IEnumerator OpenBattleArena()
         {
             var roles = RoleManager.Instance.GetAllRoles();
@@ -106,16 +121,8 @@ namespace WarGame
             CameraMgr.Instance.OpenBattleArena();
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            var arenaCenter = CameraMgr.Instance.GetMainCamPosition() + CameraMgr.Instance.GetMainCamForward() * 7;
-            var pathCenter = initiator.GetPosition();
-            foreach (var v in _targets)
-            {
-                var target = RoleManager.Instance.GetRole(v);
-                pathCenter += target.GetPosition();
-            }
-            pathCenter /= _targets.Count + 1;
 
-            var deltaVec = arenaCenter - pathCenter;
+            var deltaVec = GetArenaDeltaVec();
 
             var moveDuration = 0.2F;
             var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);

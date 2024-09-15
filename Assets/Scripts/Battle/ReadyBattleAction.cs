@@ -48,14 +48,13 @@ namespace WarGame
             screenPos.y = Screen.height - screenPos.y;
             var uiPos = GRoot.inst.GlobalToLocal(screenPos);
             var allHeros = DatasMgr.Instance.GetAllRoles();
-            var heros = new int[allHeros.Length - 1];
+            var heros = new List<int>();
             var index = 0;
             foreach (var v in allHeros)
             {
                 if (v != _selectedHero)
                 {
-                    heros[index] = v;
-                    index += 1;
+                    heros.Add(v);
                 }
             }
 
@@ -138,6 +137,13 @@ namespace WarGame
         private void OnReadyOver(params object[] args)
         {
             _levelData.Stage = Enum.LevelStage.Readyed;
+
+            //ª∫¥Ê…œ’Û ˝æ›
+            var selectedHeros = new List<int>();
+            foreach (var v in _levelData.heros)
+                selectedHeros.Add(v.UID);
+            DatasMgr.Instance.SetSelectedHeros(selectedHeros);
+
             OnActionOver(new object[] { 0 });
         }
     }

@@ -37,7 +37,7 @@ namespace WarGame.UI
             });
         }
 
-        public void Show(Vector2 centerPos, int[] heros)
+        public void Show(Vector2 centerPos, List<int> heros)
         {
             if (GCom.visible)
                 return;
@@ -84,15 +84,15 @@ namespace WarGame.UI
                         var config = roleData.GetConfig();
                         ui.icon = config.Icon;
                         _heroDic.Add(coor.x + "_" + coor.y, roleData.UID);
-                        if (openList.Count > heros.Length)
+                        if (openList.Count > heros.Count)
                             break;
                     }
 
-                    if (openList.Count > heros.Length)
+                    if (openList.Count > heros.Count)
                         break;
                 }
 
-                if (openList.Count > heros.Length)
+                if (openList.Count > heros.Count)
                     break;
 
                 startIndex = endIndex;

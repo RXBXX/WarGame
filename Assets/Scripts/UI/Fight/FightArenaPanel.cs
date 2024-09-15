@@ -30,7 +30,7 @@ namespace WarGame.UI
             var initiators = (List<int>)args[0];
             for (int i = 0; i < initiators.Count; i++)
             {
-                AddHPProgress(initiators[i], new Vector2(1200 - i * 50, 700), i);
+                AddHPProgress(initiators[i], new Vector2(1200 - i * 30, GCom.height));
             }
 
             if (args.Length > 1)
@@ -38,7 +38,7 @@ namespace WarGame.UI
                 var targets = (List<int>)args[1];
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    AddHPProgress(targets[i], new Vector2(134 + i * 50, 700), i);
+                    AddHPProgress(targets[i], new Vector2(134 + i * 30, GCom.height));
                 }
             }
 
@@ -47,7 +47,7 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
         }
 
-        private void AddHPProgress(int roleID, Vector2 pos, int index)
+        private void AddHPProgress(int roleID, Vector2 pos)
         {
             var role = RoleManager.Instance.GetRole(roleID);
 
@@ -55,14 +55,7 @@ namespace WarGame.UI
             hp.rotation = -90;
             hp.SetPivot(0, 0.5F, true);
             hp.xy = pos;
-            if (0 == index)
-            {
-                hp.width = 500;
-            }
-            else
-            {
-                hp.width = 400;
-            }
+            hp.size = new Vector2(520, 16);
             hp.max = role.GetAttribute(Enum.AttrType.HP);
             hp.value = role.GetHP();
             hp.scaleX = 0;
@@ -73,17 +66,9 @@ namespace WarGame.UI
             var rage = UIManager.Instance.CreateObject<GProgressBar>("Common", "HUDProgress");
             rage.rotation = -90;
             rage.SetPivot(0, 0.5F, true);
-            rage.scaleY = 0.4F;
-            pos.x += 15;
+            pos.x += 11;
             rage.xy = pos;
-            if (0 == index)
-            {
-                rage.width = 500;
-            }
-            else
-            {
-                rage.width = 400;
-            }
+            rage.size = new Vector2(520, 6);
             rage.max = role.GetAttribute(Enum.AttrType.Rage);
             rage.value = role.GetRage();
             rage.scaleX = 0;

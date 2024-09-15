@@ -129,6 +129,8 @@ namespace WarGame
 
             UpdateElementEffects();
 
+            InitBuffEffects();
+
             EventDispatcher.Instance.PostEvent(Enum.Event.Role_Create_Success, new object[] { ID });
         }
 
@@ -983,6 +985,14 @@ namespace WarGame
             }
 
             return true;
+        }
+
+        private void InitBuffEffects()
+        {
+            foreach (var v in _data.buffs)
+            {
+                OnUpdateBuffEffect((Enum.Buff)v.id, Enum.BuffUpdate.Add);
+            }
         }
 
         private void OnUpdateBuffEffect(Enum.Buff id, Enum.BuffUpdate update)

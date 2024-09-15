@@ -192,7 +192,14 @@ namespace WarGame
             });
 
             var skillName = GetConfig().GetTranslation("Name");
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName });
+            var targets = new List<int>();
+            foreach (var v in _chainTargetDic)
+            {
+                targets.Add(v.Key);
+                foreach (var v1 in v.Value)
+                    targets.Add(v1);
+            }
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, targets, skillName });
             yield return new WaitForSeconds(1.5F);
         }
 

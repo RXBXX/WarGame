@@ -324,7 +324,7 @@ namespace WarGame
             _skillID = (int)args[0];
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
-            initiator.SetState(Enum.RoleState.WatingTarget);
+            initiator.SetState(Enum.RoleState.WatingTarget); //这里会有initiator为null的报错
 
             CameraMgr.Instance.SetTarget(_initiatorID);
 

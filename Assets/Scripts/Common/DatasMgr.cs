@@ -92,14 +92,12 @@ namespace WarGame
             return equipments;
         }
 
-        public int[] GetAllRoles()
+        public List<int> GetAllRoles()
         {
-            var roles = new int[_data.GetUsingRecord().roleDataDic.Count];
-            var index = 0;
+            var roles = new List<int>();
             foreach (var v in _data.GetUsingRecord().roleDataDic)
             {
-                roles[index] = v.Value.UID;
-                index += 1;
+                roles.Add(v.Value.UID);
             }
             return roles;
         }
@@ -271,6 +269,16 @@ namespace WarGame
         public bool GetSkipBattle()
         {
             return _data.SkipBattle;
+        }
+
+        public void SetSelectedHeros(List<int> selectedHeros)
+        {
+            _data.GetUsingRecord().SelectedHeros = selectedHeros;
+        }
+
+        public List<int> GetSelectedHeros()
+        {
+            return _data.GetUsingRecord().SelectedHeros;
         }
 
         /// region 协议部分----------------------------------------------------------

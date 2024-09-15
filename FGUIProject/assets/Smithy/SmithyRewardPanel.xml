@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <graph id="n14_vqm0" name="n14" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n14_vqm0" name="mask" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n18_vqm0" name="n18" src="kawv2x" fileName="Components/CommonLineBG.xml" pkg="hx02grrp" xy="0,0">
+    <component id="n18_vqm0" name="n18" src="kawv2x" fileName="Components/CommonLineBG.xml" pkg="hx02grrp" xy="0,0" touchable="false">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <component id="n24_ku3y" name="n24" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="367,75" size="600,600">
+    <component id="n25_s5ay" name="n25" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,685" touchable="false">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </component>
+    <component id="n24_ku3y" name="n24" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="367,75" size="600,600" touchable="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n21_vqm0" name="n21" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="667,375" pivot="0.5,0.5" anchor="true" size="600,600" rotation="20">
+    <component id="n21_vqm0" name="n21" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="667,375" pivot="0.5,0.5" anchor="true" size="600,600" rotation="20" touchable="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n17_vqm0" name="equip" src="vqm023" fileName="SmithyReward.xml" xy="587,281">
+    <component id="n17_vqm0" name="equip" src="vqm023" fileName="SmithyReward.xml" xy="587,281" touchable="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="360,107">
+    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="360,107" touchable="false">
       <relation target="" sidePair="center-center,top-top"/>
     </component>
   </displayList>

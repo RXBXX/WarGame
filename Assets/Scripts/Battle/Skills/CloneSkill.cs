@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+using System.Collections;
 
 namespace WarGame
 {
     public class CloneSkill : Skill
     {
         private Hexagon _targetHexagon;
-        private Vector3 _cloneTargetPos;
         private int _lock = 0;
+        private Vector3 _targetDeltaVec;
 
         public CloneSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
@@ -113,14 +112,16 @@ namespace WarGame
 
         private void OnRoleCreate(object[] args)
         {
+            DebugManager.Instance.Log("OnRoleCreate");
             if ((int)args[0] != _targets[0])
                 return;
 
             var target = RoleManager.Instance.GetRole(_targets[0]);
             if (!DatasMgr.Instance.GetSkipBattle())
             {
+                DebugManager.Instance.Log("OnRoleCreate 1111");
                 target.SetHUDRoleVisible(false);
-                target.ChangeToArenaSpace(_cloneTargetPos, 0);
+                target.ChangeToArenaSpace(target.GetPosition() + _targetDeltaVec, 0);
                 _arenaObjects.Add(target);
             }
 
@@ -132,6 +133,52 @@ namespace WarGame
                 return;
 
             _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+        }
+
+        protected override IEnumerator OpenBattleArena()
+        {
+            var roles = RoleManager.Instance.GetAllRoles();
+            for (int i = 0; i < roles.Count; i++)
+            {
+                roles[i].SetHUDRoleVisible(false);
+            }
+            LockCamera();
+            CameraMgr.Instance.OpenBattleArena();
+
+            var initiator = RoleManager.Instance.GetRole(_initiatorID);
+
+            var deltaVec = GetArenaDeltaVec();
+            _targetDeltaVec = deltaVec;
+
+            var moveDuration = 0.2F;
+            var hexagon = MapManager.Instance.GetHexagon(initiator.Hexagon);
+            hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(hexagon);
+
+            initiator.ChangeToArenaSpace(initiator.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(initiator);
+
+            foreach (var v in _targets)
+            {
+                yield return new WaitForSeconds(moveDuration);
+                var target = RoleManager.Instance.GetRole(v);
+                hexagon = MapManager.Instance.GetHexagon(target.Hexagon);
+                hexagon.ChangeToArenaSpace(hexagon.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(hexagon);
+
+                target.ChangeToArenaSpace(target.GetPosition() + deltaVec, moveDuration);
+                _arenaObjects.Add(target);
+            }
+
+            yield return new WaitForSeconds(moveDuration);
+            _targetHexagon.ChangeToArenaSpace(_targetHexagon.GetPosition() + deltaVec, moveDuration);
+            _arenaObjects.Add(_targetHexagon);
+
+            yield return new WaitForSeconds(moveDuration);
+
+            var skillName = GetConfig().GetTranslation("Name");
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName });
+            yield return new WaitForSeconds(1.0f);
         }
     }
 }

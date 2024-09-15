@@ -454,7 +454,7 @@ namespace WarGame
         public void DoMassPhyShiled(int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-
+            initiator.ClearRage();
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
@@ -470,7 +470,7 @@ namespace WarGame
         public void DoMassMagShiled(int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-
+            initiator.ClearRage();
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);
@@ -486,6 +486,7 @@ namespace WarGame
         public void DoSinglePhyShiled(int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
             var target = RoleManager.Instance.GetRole(targetID);
             target.AddShield(new List<int> { (int)Enum.Buff.SinglePhyShield }, initiator.Type);
         }
@@ -498,6 +499,7 @@ namespace WarGame
         public void DoSingleMagShiled(int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
             var target = RoleManager.Instance.GetRole(targetID);
             target.AddShield(new List<int> { (int)Enum.Buff.SingleMagShield }, initiator.Type);
         }
@@ -541,6 +543,7 @@ namespace WarGame
         public void DoLefeDrain(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
             var target = RoleManager.Instance.GetRole(targetID);
 
             var hurt = GetAttackValue(levelElement, initiatorID, targetID, true);
@@ -560,6 +563,7 @@ namespace WarGame
         public void DoRageReduction(int initiatorID, List<int> targets, float ratio)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
 
             foreach (var v in targets)
             {

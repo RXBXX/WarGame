@@ -19,7 +19,7 @@ namespace WarGame
 
             if (null != Stage.inst.touchTarget)
             {
-                DebugManager.Instance.Log(Stage.inst.touchTarget.name);
+                //DebugManager.Instance.Log(Stage.inst.touchTarget.name);
                 SceneMgr.Instance.FocusIn(null);
                 if (Input.GetMouseButtonUp(0))
                 {
@@ -39,7 +39,7 @@ namespace WarGame
                 if (Input.GetMouseButtonUp(1))
                 {
                     SceneMgr.Instance.RightClickEnd();
-                    _rightMouseTime = 0;
+                    //_rightMouseTime = 0;
                 }
                 return;
             }

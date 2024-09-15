@@ -20,6 +20,7 @@ namespace WarGame.UI
 
             var levelData = DatasMgr.Instance.GetLevelData(_levelID);
             var desc = levelConfig.GetTranslation("TargetDesc");
+            //DebugManager.Instance.Log(levelData.minPassRound);
             if (0 != levelData.minPassRound)
             {
                 desc = "最快通关记录：" + levelData.minPassRound + "\n" + desc;

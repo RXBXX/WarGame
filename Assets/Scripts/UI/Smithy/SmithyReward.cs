@@ -17,17 +17,10 @@ namespace WarGame.UI
 
         public void UpdateComp(int equipID)
         {
-            DebugManager.Instance.Log(equipID);
             var equipData = DatasMgr.Instance.GetEquipmentData(equipID);
             var config = equipData.GetConfig();
             _equip.icon = config.Icon;
             _equip.title = config.GetTranslation("Name");
-        }
-
-        public override void Dispose(bool disposeGCom = false)
-        {
-            _equip.Dispose();
-            base.Dispose(disposeGCom);
         }
     }
 }

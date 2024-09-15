@@ -12,7 +12,7 @@ namespace WarGame.UI
         private Transform _heroRoot;
         private Vector2 _touchPos;
         private GGraph _touchArena;
-        private int[] _roles;
+        private List<int> _roles;
         private int _roleIndex = -1;
         private Dictionary<int, GameObject> _rolesGO = new Dictionary<int, GameObject>();
         private float _dragingPower = 0.0f;
@@ -58,7 +58,7 @@ namespace WarGame.UI
             _heroList.onClickItem.Add(ClickHeroItem);
 
             _roles = DatasMgr.Instance.GetAllRoles();
-            _heroList.numItems = _roles.Length;
+            _heroList.numItems = _roles.Count;
             _heroList.selectedIndex = 0;
 
             GetGObjectChild<GButton>("resetBtn").onClick.Add(OnClickReset);

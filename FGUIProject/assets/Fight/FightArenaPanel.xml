@@ -6,6 +6,5 @@
   <transition name="showHP"/>
   <transition name="t1" autoPlay="true">
     <item time="0" type="XY" target="n0_ru2x" tween="true" startValue="-350,74" endValue="0,-" duration="4"/>
-    <item time="4" type="XY" target="n0_ru2x" value="0,-"/>
   </transition>
 </component>
