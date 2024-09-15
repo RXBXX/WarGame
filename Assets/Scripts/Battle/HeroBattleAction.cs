@@ -172,6 +172,7 @@ namespace WarGame
             else if (state != Enum.RoleState.Over)
             {
                 _initiatorID = heroID;
+                DebugManager.Instance.Log("Initiator:" + ID +"_"+_initiatorID);
                 MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
             }
         }
@@ -324,6 +325,7 @@ namespace WarGame
             _skillID = (int)args[0];
 
             var initiator = RoleManager.Instance.GetRole(_initiatorID);
+            //DebugManager.Instance.Log("Initiator:" + ID +"_"+_initiatorID);
             initiator.SetState(Enum.RoleState.WatingTarget); //这里会有initiator为null的报错
 
             CameraMgr.Instance.SetTarget(_initiatorID);

@@ -100,7 +100,7 @@ namespace WarGame
                     }
 
                     var levelRoleData = Factory.Instance.GetLevelRoleData(Enum.RoleType.Hero, roleData.UID, bornPoints[i]);
-                    DebugManager.Instance.Log(levelRoleData.HP + "_" + levelRoleData.GetAttribute(Enum.AttrType.HP));
+                    //DebugManager.Instance.Log(levelRoleData.HP + "_" + levelRoleData.GetAttribute(Enum.AttrType.HP));
                     var role = RoleManager.Instance.CreateRole(Enum.RoleType.Hero, levelRoleData);
                     role.GoIntoBattle();
                     _levelData.heros.Add(levelRoleData);
@@ -405,7 +405,7 @@ namespace WarGame
 
         public void RightClickBegin(GameObject obj)
         {
-            DebugManager.Instance.Log("RIghtClickBegin");
+            //DebugManager.Instance.Log("RIghtClickBegin");
             if (_isLockingCamera)
                 return;
 
@@ -423,7 +423,7 @@ namespace WarGame
 
         public void RightClickEnd()
         {
-            DebugManager.Instance.Log("RightClickEnd");
+            //DebugManager.Instance.Log("RightClickEnd");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_RoleInfo);
             if (_isLockingCamera)
             {
@@ -434,7 +434,9 @@ namespace WarGame
 
         private int GetActionID()
         {
-            return ++_battleActionID;
+            var id = ++_battleActionID;
+            //DebugManager.Instance.Log("ActionID:"+id);
+            return id;
         }
 
         private void DisposeAction(int actionID, bool save = false)
@@ -495,7 +497,7 @@ namespace WarGame
 
                 BattleRoundFunc callback = () =>
                 {
-                    DebugManager.Instance.Log("BattleRoundFunc");
+                    //DebugManager.Instance.Log("BattleRoundFunc");
                     _levelData.actionType = Enum.ActionType.EnemyAction;
                     foreach (var v in enemys)
                     {
@@ -588,6 +590,11 @@ namespace WarGame
 
         private void OnSkipRound(params object[] args)
         {
+            //if (null != _action)
+            //{ 
+            //    DebugManager.Instance.Log("ActionID Skip:" + _action.ID);
+            //}
+
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             foreach (var v in heros)
                 v.SetState(Enum.RoleState.Over);

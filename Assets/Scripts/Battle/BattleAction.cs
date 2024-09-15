@@ -7,7 +7,14 @@ namespace WarGame
     public class BattleAction
     {
         public int ID;
-        protected int _initiatorID;
+        protected int _initiatorID
+        {
+            set {
+                DebugManager.Instance.Log(value);
+                _testInitiatorID = value; 
+            }
+            get { return _testInitiatorID; }
+        }
         protected int _targetID;
         protected int _skillID;
         protected List<int> _path; //Ó¢ÐÛÒÆ¶¯µÄÂ·¾¶
@@ -15,6 +22,8 @@ namespace WarGame
         protected Skill _skillAction;
         protected bool _isLockingCamera;
         protected int _levelID;
+
+        protected int _testInitiatorID;
 
         public BattleAction(int id, int levelID)
         {
@@ -67,6 +76,7 @@ namespace WarGame
 
         protected virtual void OnActionOver(params object[] args)
         {
+            DebugManager.Instance.Log("OnActionOver");
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);

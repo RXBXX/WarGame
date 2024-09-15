@@ -9,7 +9,7 @@
         "Duration": 2,
         "Name": "流血",
         "Icon": "UI/Icons/Buffs/Buff_Blood",
-        "Desc": "每回合减少10血量，剩余%s回合",
+        "Desc": "减少10血量，剩余{0}回合",
         "Effect": null
     },
     {
@@ -22,7 +22,7 @@
         "Duration": 3,
         "Name": "中毒",
         "Icon": "UI/Icons/Buffs/Buff_Poison",
-        "Desc": "每回合减少15血量，剩余%s回合",
+        "Desc": "减少15血量，剩余{0}回合",
         "Effect": null
     },
     {
@@ -35,7 +35,7 @@
         "Duration": 2,
         "Name": "减怒",
         "Icon": "UI/Icons/Buffs/Buff_Silence",
-        "Desc": "每回合较少怒气回复，剩余%s回合",
+        "Desc": "减少10怒气回复，剩余{0}回合",
         "Effect": null
     },
     {
@@ -48,7 +48,7 @@
         "Duration": 1,
         "Name": "隐身",
         "Icon": "UI/Icons/Buffs/Buff_Cloaking",
-        "Desc": "当前回合隐身",
+        "Desc": "隐身，剩余{0}回合",
         "Effect": null
     },
     {
@@ -61,7 +61,7 @@
         "Duration": 1,
         "Name": "晕眩",
         "Icon": "UI/Icons/Buffs/Buff_Dizzy",
-        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Desc": "晕眩，剩余{0}回合",
         "Effect": "Assets/Prefabs/Effects/DizzyEffect.prefab"
     },
     {
@@ -74,7 +74,7 @@
         "Duration": 2,
         "Name": "群体物理护盾",
         "Icon": "UI/Icons/Buffs/Buff_PhyShield",
-        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Desc": "提供10物理防御，剩余{0}回合",
         "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
     {
@@ -87,7 +87,7 @@
         "Duration": 2,
         "Name": "群体魔法护盾",
         "Icon": "UI/Icons/Buffs/Buff_MagicShield",
-        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Desc": "提供10魔法防御，剩余{0}回合",
         "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     },
     {
@@ -100,7 +100,7 @@
         "Duration": 2,
         "Name": "单体物理护盾",
         "Icon": "UI/Icons/Buffs/Buff_PhyShield",
-        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Desc": "提供20物理防御，剩余{0}回合",
         "Effect": "Assets/Prefabs/Effects/PhyShield.prefab"
     },
     {
@@ -113,7 +113,7 @@
         "Duration": 2,
         "Name": "单体魔法护盾",
         "Icon": "UI/Icons/Buffs/Buff_MagicShield",
-        "Desc": "使敌人当前回合晕眩，无法行动",
+        "Desc": "提供10魔法防御，剩余{0}回合",
         "Effect": "Assets/Prefabs/Effects/MagShield.prefab"
     }
 ]

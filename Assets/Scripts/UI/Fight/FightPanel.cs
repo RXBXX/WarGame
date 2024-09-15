@@ -47,6 +47,7 @@ namespace WarGame.UI
             _skipBtn.title = ConfigMgr.Instance.GetTranslation("FightPanel_Skip");
             _skipBtn.onClick.Add(() =>
             {
+                DebugManager.Instance.Log("SkipClick");
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 
@@ -91,8 +92,11 @@ namespace WarGame.UI
         {
             if ((Enum.FightTurn)args[0] == Enum.FightTurn.HeroTurn)
             {
-                _skipBtn.visible = true;
-                GetChild<FightTips>("tips").ShowTips(Enum.RoundType.OurTurn, (BattleRoundFunc)args[1]);
+                BattleRoundFunc func = () => {
+                    ((BattleRoundFunc)args[1]).Invoke();
+                    _skipBtn.visible = true;
+                };
+                GetChild<FightTips>("tips").ShowTips(Enum.RoundType.OurTurn, func);
             }
             else
             {
