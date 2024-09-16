@@ -89,9 +89,9 @@ namespace WarGame
             foreach (var v in _bulletGOs)
             {
                 GameObject.Destroy(v);
-                _bulletGOs = null;
             }
             _bulletGOs.Clear();
+
             AssetsMgr.Instance.ReleaseAsset(_bulletAssetID);
 
             return base.Dispose();

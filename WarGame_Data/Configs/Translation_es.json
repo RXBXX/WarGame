@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Apuesta por toda la salud restante del enemigo a costa de la mitad de la salud total"
+        "Str": "Apuesta toda la vida restante del enemigo a expensas de su propia vida restante. La probabilidad de ganar es hp restante/(hp restante de nosotros + hp restante del enemigo)"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Convierte el daño a un enemigo en su propia salud"
+        "Str": "Convierte el 20% del daño infligido a un enemigo en salud propia"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "10 hp menos por turno, %s restante por turno"
+        "Str": "10 hp menos, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "15 hp menos por turno, %s restante por turno"
+        "Str": "15 hp menos, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Menos regeneración de ira por turno, %s turnos restantes"
+        "Str": "Reducción de 10 de la regeneración de ira, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Sesión actual invisible"
+        "Str": "Invisible, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Aturde a un enemigo en su turno actual e inmovilizado"
+        "Str": "Mareo, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Aturde a un enemigo en su turno actual e inmovilizado"
+        "Str": "Proporciona 10 defensas físicas, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Aturde a un enemigo en su turno actual e inmovilizado"
+        "Str": "Proporciona 10 defensas mágicas, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Aturde a un enemigo en su turno actual e inmovilizado"
+        "Str": "Proporciona 20 defensas físicas, {0} turnos restantes"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Aturde a un enemigo en su turno actual e inmovilizado"
+        "Str": "Proporciona 10 defensas mágicas, {0} turnos restantes"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "cancelación"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Proporciona daño físico y tiene un 8% de probabilidad de envenenar a un enemigo durante dos rondas."
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de envenenar a un enemigo durante dos rondas."
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Proporciona defensa física"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Proporcionar daño físico"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Proporciona daño de hechizo y tiene un 12% de probabilidad de reducir la ira del enemigo por dos rondas."
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Proporciona daño de hechizo y tiene un 24% de probabilidad de reducir la ira del enemigo por dos rondas."
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Proporciona daño físico y tiene un 24% de probabilidad de envenenar a un enemigo durante dos rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de envenenar a un enemigo durante dos rondas."
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de envenenar a un enemigo durante dos rondas."
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Proporcionar daño físico"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Proporcionar daño físico"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Proporciona daño físico y tiene un 22% de probabilidad de que un enemigo caiga en un vértigo"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Proporcionar daño físico"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Proporciona daño físico y tiene un 4% de probabilidad de que los enemigos caigan en sangre"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Proporciona daño físico y tiene un 8% de probabilidad de que los enemigos caigan en sangre"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Proporciona daño físico y tiene un 12% de probabilidad de que los enemigos caigan en sangre"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que los enemigos caigan en sangre"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de que los enemigos caigan en sangre"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 4% de probabilidad"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 8% de probabilidad"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 12% de probabilidad"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 16% de probabilidad"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 20% de probabilidad"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(un poco de dolor en los ojos, murmurando) : espero que entiendan mi intención, pero si esa es su elección, entonces sólo puedo hacer un último esfuerzo por su seguridad."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Reconozco que son fuertes, pero con su fuerza actual no pueden luchar contra el Señor De la nada, y necesitan nuestra ayuda."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, ¿Estás segura? Los señores de la nada son tan poderosos que incluso con nosotros no son suficientes."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Tal vez sea posible."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(miren a los compañeros con cariño y se eleven) : entonces, trabajemos juntos para el desafío final. Por difícil que sea, no nos rendiremos. ¡Por el futuro de este mundo, estamos seguros de ganar!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "¡Seguimos siendo demasiado débiles!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "¿Seguro que quieres restablecer {0}? Esta acción desactiva talento activado, restablece el nivel a 1 y devuelve todos los recursos."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de que un enemigo caiga en un vértigo"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(respiro, miradas mezcladas) : confieso que sois más fuertes de lo que esperaba. Sin embargo, aun así, no tiene ninguna esperanza de victoria frente a los señores de la nada."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de que un enemigo caiga en un vértigo"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(borrar el sudor de la frente, tono de voz digno) mira, incluso con tu ayuda, nos será difícil luchar contra el Señor De la nada. También hemos visto antes que es poderoso y absolutamente no debe ser subestimado."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Proporciona daño físico y tiene un 8% de probabilidad de envenenar a un enemigo durante dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de envenenar a un enemigo durante dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Proporciona daño de hechizo y tiene un 12% de probabilidad de reducir la ira del enemigo por dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Proporciona daño de hechizo y tiene un 24% de probabilidad de reducir la ira del enemigo por dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Proporciona daño físico y tiene un 24% de probabilidad de envenenar a un enemigo durante dos rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Proporciona daño físico y tiene un 10% de probabilidad de envenenar a un enemigo durante dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de envenenar a un enemigo durante dos rondas."
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Proporciona daño físico y tiene un 22% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Proporciona daño físico y tiene un 4% de probabilidad de que los enemigos caigan en sangre"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Proporciona daño físico y tiene un 8% de probabilidad de que los enemigos caigan en sangre"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Proporciona daño físico y tiene un 12% de probabilidad de que los enemigos caigan en sangre"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que los enemigos caigan en sangre"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Proporciona daño físico y tiene un 20% de probabilidad de que los enemigos caigan en sangre"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Proporciona daño físico y tiene un 16% de probabilidad de que un enemigo caiga en un vértigo"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 4% de probabilidad"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 8% de probabilidad"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 12% de probabilidad"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 16% de probabilidad"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Proporciona daño de hechizo y reduce la ira del enemigo en un 20% de probabilidad"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(respiración rápida, dolor en la cara) : parece que mis preocupaciones anteriores eran correctas. Sus fuerzas están lejos de ser suficientes."
     }
 ]

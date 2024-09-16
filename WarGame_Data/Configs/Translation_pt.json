@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Aposto todo o hp restante do inimigo à custa de metade do hp total"
+        "Str": "Aposta toda a quantidade restante de hp do próprio inimigo à custa de sua própria quantidade restante de hp. A probabilidade de vitória é hp restante/(hp restante do nosso lado + hp restante do inimigo)"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Transforma dano infligido ao inimigo em pv próprio"
+        "Str": "Converte 20% do dano infligido ao inimigo em hp próprio"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "Redução de hp em 10 por turno, %s restante por turno"
+        "Str": "Redução de 10 hp, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "15 hp menos por turno, %s restante por turno"
+        "Str": "15 hp reduzido, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Menos regeneração de raiva por turno, %s rodadas restantes"
+        "Str": "Redução da regeneração de raiva em 10, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Sessão atual stealth"
+        "Str": "Invisível, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Atordoa e incapacita o inimigo na rodada atual"
+        "Str": "Tontura, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Atordoa e incapacita o inimigo na rodada atual"
+        "Str": "Fornece 10 defesa física, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Atordoa e incapacita o inimigo na rodada atual"
+        "Str": "Oferece 10 defesa mágica, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Atordoa e incapacita o inimigo na rodada atual"
+        "Str": "Fornece 20 defesa física, {0} rodadas restantes"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Atordoa e incapacita o inimigo na rodada atual"
+        "Str": "Oferece 10 defesa mágica, {0} rodadas restantes"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "cancelar"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Fornece dano físico e tem 10% de probabilidade de lançar um inimigo em atordoamento"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Fornece dano físico e tem 10% de probabilidade de lançar um inimigo em atordoamento"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Fornece dano físico e tem 8% de chance de envenenar inimigos por 2 rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Fornece dano físico e tem 20% de probabilidade de envenenar inimigos por 2 rodadas"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Fornece defesa física"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Fornece dano físico"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Fornece dano mágico e tem 12% de probabilidade de reduzir a ira do inimigo por 2 rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Fornece dano mágico e reduz a ira do inimigo com 24% de probabilidade por 2 rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Fornece dano físico e tem 24% de probabilidade de envenenar inimigos por 2 rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Fornece dano físico e tem 10% de chance de envenenar inimigos por 2 rodadas"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Fornece dano físico e tem 20% de probabilidade de envenenar inimigos por 2 rodadas"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Fornece dano físico"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Fornece dano físico"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Fornece dano físico e tem 20% de probabilidade de lançar um inimigo em atordoamento"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Fornece dano físico e tem 22% de probabilidade de atordoar inimigos"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Fornece dano físico"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Fornece dano físico e tem 4% de probabilidade de lançar um inimigo em sangramento"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em sangramento"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Fornece dano físico e tem 12% de probabilidade de lançar um inimigo em sangramento"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de lançar um inimigo em sangramento"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Fornece dano físico e tem 20% de probabilidade de lançar um inimigo em sangramento"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 4% de probabilidade"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 8% de probabilidade"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 12% de probabilidade"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 16% de probabilidade"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Fornece dano mágico e reduz a raiva do inimigo em 20% de probabilidade"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(um rasto de dor nos olhos, sussurro) : espero que compreendam a minha intenção, mas se é essa a vossa escolha, só posso fazer um último esforço pela vossa segurança."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Eu admito que você é forte, mas com sua força atual não pode lutar contra o senhor do nada. Você precisa da nossa ajuda."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, tens a certeza? Os senhores do nada são tão poderosos que, mesmo com nós, ainda não são suficientes."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Talvez seja possível."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(olhando com carinho para o companheiro, parecendo exaltado) : então, vamos dar as mãos e enfrentar o desafio final. Não vamos desistir, por mais difícil que seja. Para o futuro deste mundo, estamos certos de ganhar!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Ainda somos muito fracos!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "Tem certeza de que deseja redefinir {0}? Esta ação esvazia talentos ativos, redefine o nível para 1 e devolve todos os recursos."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Fornece dano físico e tem 10% de probabilidade de lançar um inimigo em atordoamento"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(respiração, olhos misturados) : admito que vocês são mais fortes do que eu esperava. No entanto, mesmo assim, você não tem nenhuma esperança de vitória contra o senhor do nada."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Fornece dano físico e tem 10% de probabilidade de lançar um inimigo em atordoamento"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(apanha o suor da testa, tom digno) : mira, mesmo com a tua ajuda, ainda teremos dificuldade em lutar contra o senhor do nada. Já vimos a sua força antes, e não pode ser subestimada."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Fornece dano físico e tem 8% de chance de envenenar inimigos por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Fornece dano físico e tem 20% de probabilidade de envenenar inimigos por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Fornece dano mágico e tem 12% de probabilidade de reduzir a ira do inimigo por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Fornece dano mágico e reduz a ira do inimigo com 24% de probabilidade por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Fornece dano físico e tem 24% de probabilidade de envenenar inimigos por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Fornece dano físico e tem 10% de chance de envenenar inimigos por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Fornece dano físico e tem 20% de probabilidade de envenenar inimigos por 2 rodadas"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Fornece dano físico e tem 20% de probabilidade de lançar um inimigo em atordoamento"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Fornece dano físico e tem 22% de probabilidade de atordoar inimigos"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Fornece dano físico e tem 4% de probabilidade de lançar um inimigo em sangramento"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Fornece dano físico e tem 8% de probabilidade de lançar um inimigo em sangramento"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Fornece dano físico e tem 12% de probabilidade de lançar um inimigo em sangramento"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de lançar um inimigo em sangramento"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Fornece dano físico e tem 20% de probabilidade de lançar um inimigo em sangramento"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Fornece dano físico e tem 16% de probabilidade de atordoar um inimigo"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 4% de probabilidade"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 8% de probabilidade"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 12% de probabilidade"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Fornece dano mágico e reduz a raiva do inimigo com 16% de probabilidade"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Fornece dano mágico e reduz a raiva do inimigo em 20% de probabilidade"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(falta de ar, dor no rosto) : parece que as minhas preocupações anteriores estavam certas. Vocês estão longe de ser fortes."
     }
 ]

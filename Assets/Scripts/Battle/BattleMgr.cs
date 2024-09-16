@@ -540,7 +540,7 @@ namespace WarGame
         /// </summary>
         /// <param name="initiatorID"></param>
         /// <param name="targetID"></param>
-        public void DoLefeDrain(Enum.Element levelElement, int initiatorID, int targetID)
+        public void DoLifeDrain(Enum.Element levelElement, int initiatorID, int targetID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
@@ -550,7 +550,7 @@ namespace WarGame
             target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
             target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
 
-            initiator.AddHP(hurt);
+            initiator.AddHP(Mathf.Floor(hurt * 0.20F));
 
             CameraMgr.Instance.ShakePosition();
         }

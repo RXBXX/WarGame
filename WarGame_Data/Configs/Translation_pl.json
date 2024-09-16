@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Kosztem połowy wszystkich PW postaw na pozostałe PW wroga"
+        "Str": "Kosztem własnego pozostałego HP postaw na własne pozostałe HP wroga, a prawdopodobieństwo zwycięstwa wynosi pozostałe HP / (nasze pozostałe HP + pozostałe HP wroga)"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Zamienia obrażenia zadawane wrogom na twoje własne zdrowie"
+        "Str": "Zamienia 20% obrażeń zadanych wrogom na własne HP"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "Zmniejsza PŻ o 10 na turę, pozostawiając %s tur"
+        "Str": "Zmniejsza PŻ o 10 na {0} tur"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "Zmniejsza PŻ o 15 na turę, pozostawiając %s tur"
+        "Str": "Zmniejsza PŻ o 15 na {0} pozostałych"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Mniejsza regeneracja wściekłości na turę, pozostały %s tur"
+        "Str": "Zmniejsza regenerację wściekłości o 10 pkt. na {0} tury"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Niewidzialność w bieżącej turze"
+        "Str": "Stealth, pozostało {0} naboi"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Ogłusza i sprawia, że wrogowie nie mogą się poruszać w bieżącej turze"
+        "Str": "Ogłuszenie, pozostało {0} rund"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Ogłusza i sprawia, że wrogowie nie mogą się poruszać w bieżącej turze"
+        "Str": "Zapewnia 10 pkt. obrony fizycznej, pozostałe {0} tury"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Ogłusza i sprawia, że wrogowie nie mogą się poruszać w bieżącej turze"
+        "Str": "Zapewnia 10 magicznych punktów obrony, które pozostały {0} turach"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Ogłusza i sprawia, że wrogowie nie mogą się poruszać w bieżącej turze"
+        "Str": "Zapewnia 20 pkt. obrony fizycznej, pozostałe {0} tury"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Ogłusza i sprawia, że wrogowie nie mogą się poruszać w bieżącej turze"
+        "Str": "Zapewnia 10 magicznych punktów obrony, które pozostały {0} turach"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "Anuluj"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 8% szans na zatrucie wrogów na dwie tury"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na zatrucie wrogów na dwie tury"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Zapewnia obronę fizyczną"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Zadaje obrażenia fizyczne"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 12% szans na zmniejszenie wściekłości wroga na 2 tury"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 24% szans na zmniejszenie wściekłości wroga na 2 tury"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 24% szans na zatrucie wrogów na dwie tury"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na zatrucie wrogów na dwie tury"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na zatrucie wrogów na dwie tury"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Zadaje obrażenia fizyczne"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Zadaje obrażenia fizyczne"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 22% szans na ogłuszenie wrogów"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Zadaje obrażenia fizyczne"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 4% szans na wykrwawienie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 8% szans na wykrwawienie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 12% szans na wykrwawienie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na wykrwawienie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na wykrwawienie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 4% szans na zmniejszenie wściekłości wroga"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 8% szans na zmniejszenie wściekłości wroga"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 12% szans na zmniejszenie wściekłości wroga"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Zapewnia obrażenia od zaklęć i ma 16% szans na zmniejszenie wściekłości wroga"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Zadaje obrażenia od zaklęć i ma 20% szans na zmniejszenie wściekłości wroga"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(z nutą bólu w oczach szepcze): Mam nadzieję, że rozumiesz mój niepokój, ale jeśli to jest twój wybór, to mogę tylko podjąć ostatni wysiłek dla twojego bezpieczeństwa."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Przyznaję, że jesteś silny, ale przy swojej obecnej sile nie jesteś w stanie walczyć z Władcą Pustki i potrzebujesz naszej pomocy."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, jesteś pewna, że Władca Pustki jest zbyt potężny, a nawet u nas to wciąż za mało."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Może to możliwe."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(spogląda czule na swojego towarzysza, wyglądając na podekscytowanego): A więc pracujmy razem, aby sprostać najwyższemu wyzwaniu. Bez względu na to, jak trudne to jest, nie poddamy się. Dla przyszłości tego świata zwyciężymy!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Wciąż jesteśmy za słabi!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "Czy na pewno chcesz zresetować {0}? Spowoduje to wyczyszczenie aktywowanych talentów, zresetowanie poziomu do 1 i zwrócenie wszystkich zasobów."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na ogłuszenie wrogów"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(wzdycha, oczy się mieszają): Przyznam, że jesteś naprawdę silniejszy, niż się spodziewałem. Jednak mimo to nie masz nadziei na zwycięstwo w obliczu Władcy Pustki."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na ogłuszenie wrogów"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(ocierając pot z czoła, jego ton jest poważny): Mira, nawet z twoją pomocą, wciąż mamy trudności z walką z Panem Nicości. Widzieliśmy to już wcześniej i nie należy tego lekceważyć."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 8% szans na zatrucie wrogów na dwie tury"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na zatrucie wrogów na dwie tury"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 12% szans na zmniejszenie wściekłości wroga na 2 tury"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 24% szans na zmniejszenie wściekłości wroga na 2 tury"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 24% szans na zatrucie wrogów na dwie tury"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 10% szans na zatrucie wrogów na dwie tury"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na zatrucie wrogów na dwie tury"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 22% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 4% szans na wykrwawienie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 8% szans na wykrwawienie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 12% szans na wykrwawienie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na wykrwawienie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 20% szans na wykrwawienie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Zadaje obrażenia fizyczne i ma 16% szans na ogłuszenie wrogów"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 4% szans na zmniejszenie wściekłości wroga"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 8% szans na zmniejszenie wściekłości wroga"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 12% szans na zmniejszenie wściekłości wroga"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Zapewnia obrażenia od zaklęć i ma 16% szans na zmniejszenie wściekłości wroga"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Zadaje obrażenia od zaklęć i ma 20% szans na zmniejszenie wściekłości wroga"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(duszność, bolesna twarz): Wygląda na to, że miałem prawo się martwić. Twoja siła jest dalece niewystarczająca."
     }
 ]

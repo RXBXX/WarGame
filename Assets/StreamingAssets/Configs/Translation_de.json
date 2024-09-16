@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Es setzt die hälfte des gesamten blutes auf den persönlichen gewinn des gegners"
+        "Str": "Auf kosten des restlichen blutes setzt die gefahr, dass der feind so viel blut verliert, dass die siegerwahrscheinlichkeit das verbleibende blut entspricht."
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Sie wandeln den schaden am feind in eigenes blut um"
+        "Str": "20 prozent aller verletzungen für den feind in eigenes blut umzuwandeln"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "In jedem kampf wird das blut um zehn prozent reduziert"
+        "Str": "Den blutfluss um zehn verringern, der rest in der nächsten runde"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "15 blutspritzer pro runde, der rest in der runde"
+        "Str": "15 blutwerte runter, der rest in der nächsten runde"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Runde um weniger ärger, rest in runde s"
+        "Str": "Spart eure wut und kommt wieder in die runden"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Runde ist unsichtbar"
+        "Str": "Komm, rein und lass dich in ruhe"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Der feind wurde in der aktuellen runde geblendet und handlungsunfähig"
+        "Str": "Schwindelgefühl, der rest der nächsten runde"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Der feind wurde in der aktuellen runde geblendet und handlungsunfähig"
+        "Str": "Der rest Von euch plant den rest der woche"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Der feind wurde in der aktuellen runde geblendet und handlungsunfähig"
+        "Str": "Der rest Von zehn magischen abwehrkräften findet eine runde"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Der feind wurde in der aktuellen runde geblendet und handlungsunfähig"
+        "Str": "Ihr bietet mir 20 punkte für physik, den rest der runde"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Der feind wurde in der aktuellen runde geblendet und handlungsunfähig"
+        "Str": "Der rest Von zehn magischen abwehrkräften findet eine runde"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "korrekt"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Es besteht eine zehn prozent chance, dass der feind blamiert wird"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Es besteht eine zehn prozent chance, dass der feind blamiert wird"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Physische verletzungen zu ermöglichen sowie eine 8-prozentige chance, den feind zu vergiftet, was über zwei runden andauern wird"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Physische schäden zu erzeugen sowie mit einer 20-prozentigen wahrscheinlichkeit einen feind zu vergiftet, der über zwei runden hinweg vergiftet wurde"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Sie bieten physischen schutz."
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Bietet physischen schaden."
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Es besteht eine 12% -chance den ärger des feindes über zwei runden zu reduzieren"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Magie bietet eine 24-prozentige chance, den zorn des gegnerischen zornausbruchs durch zwei runden zu reduzieren"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Physische schäden bringen eine 24 prozent -ige vergiftung des feindes mit zwei runden"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Physische schäden zu erzeugen sowie mit einem 10-prozentigen risiko eine vergiftung des feindes über zwei runden zu verursachen"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Physische schäden zu erzeugen sowie mit einer 20-prozentigen wahrscheinlichkeit einen feind zu vergiftet, der über zwei runden hinweg vergiftet wurde"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Bietet physischen schaden."
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Bietet physischen schaden."
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Es besteht eine 20%ige chance, dass der feind blaß wird"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Als physische belastung dienen und 22 prozent dazu beitragen, dass der feind gebannt wird"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Bietet physischen schaden."
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 4% -chance zu weiteres blutvergießen zu führen"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 8-prozentige chance zu haben, dass der feind blutet"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Physische schäden zu hinterlassen, mit einer unwahrscheinlichkeit Von 12%, den feind zum bluten zu bringen"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Physische schäden zu erbringen und eine 16% chance zu haben, den feind zu bluten"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Physische schäden zu erzeugen, hat eine 20%ige chance, dass der feind blutet"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Magie anzubieten und eine 4% wahrscheinlichkeit zu geringer wut bei gegnern zu haben"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Es ist eine magische verletzung und eine 8-prozentige chance, den ärger des feindes zu reduzieren"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Magie zu ermöglichen und eine 12% -chance zu haben, den ärger des feindes zu reduzieren"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Magie zu ermöglichen und die feindschaft zu reduzieren"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Magie anzuwenden und die feindselige wut zu reduzieren"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "Ein schimmer Von schmerz und dumpf: ich wünschte, ihr würdet meine bitterkeit verstehen, aber wenn ihr es so wollt, dann kann ich nur euer letztes tun."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Ich gebe zu, ihr seid stark, aber ihr seid noch nicht stark genug gegen die leeren lords, und ihr braucht unsere hilfe."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Ok, mira, bist du sicher, dass der ledige lord zu mächtig ist, um auch uns zur verfügung zu stehen?"
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Vielleicht ist es ja wirklich möglich."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(begeisternde blicke auf den partner: gemeinsam können wir die ultimative herausforderung angehen.) Egal, wie schwierig es wird, wir werden nicht aufgeben. Wir werden für die zukunft der welt gewinnen!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Wir sind immer noch zu schwach!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "Willst du wirklich zurück? Diese aktion wird die aktivierten begabungen leeren, alle vorhandenen talente nach einem plan zurücksetzen und alle ressourcen zurückgeben."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Es besteht eine zehn prozent chance, dass der feind blamiert wird"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(langsam, aber kompliziert) : ich gebe zu, sie haben mehr kraft, als ich dachte. Doch trotz all dessen habt ihr keine aussicht auf einen Sieg."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Es besteht eine zehn prozent chance, dass der feind blamiert wird"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "Reibt euch den schweiß aus der stirn, kommt vor den leeren lords nicht mit eurer hilfe. Wir haben es schon einmal gesehen, und es hat eine bedeutung, die nicht unterschätzt werden kann."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Physische verletzungen zu ermöglichen sowie eine 8-prozentige chance, den feind zu vergiftet, was über zwei runden andauern wird"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Physische schäden zu erzeugen sowie mit einer 20-prozentigen wahrscheinlichkeit einen feind zu vergiftet, der über zwei runden hinweg vergiftet wurde"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Es besteht eine 12% -chance den ärger des feindes über zwei runden zu reduzieren"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Magie bietet eine 24-prozentige chance, den zorn des gegnerischen zornausbruchs durch zwei runden zu reduzieren"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Physische schäden bringen eine 24 prozent -ige vergiftung des feindes mit zwei runden"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Physische schäden zu erzeugen sowie mit einem 10-prozentigen risiko eine vergiftung des feindes über zwei runden zu verursachen"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Physische schäden zu erzeugen sowie mit einer 20-prozentigen wahrscheinlichkeit einen feind zu vergiftet, der über zwei runden hinweg vergiftet wurde"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Es besteht eine 20%ige chance, dass der feind blaß wird"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Als physische belastung dienen und 22 prozent dazu beitragen, dass der feind gebannt wird"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 4% -chance zu weiteres blutvergießen zu führen"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 8-prozentige chance zu haben, dass der feind blutet"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Physische schäden zu hinterlassen, mit einer unwahrscheinlichkeit Von 12%, den feind zum bluten zu bringen"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Physische schäden zu erbringen und eine 16% chance zu haben, den feind zu bluten"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Physische schäden zu erzeugen, hat eine 20%ige chance, dass der feind blutet"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Physische schäden zu erzeugen und eine 16% chance zu haben, den feind blamieren zu lassen"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Magie anzubieten und eine 4% wahrscheinlichkeit zu geringer wut bei gegnern zu haben"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Es ist eine magische verletzung und eine 8-prozentige chance, den ärger des feindes zu reduzieren"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Magie zu ermöglichen und eine 12% -chance zu haben, den ärger des feindes zu reduzieren"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Magie zu ermöglichen und die feindschaft zu reduzieren"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Magie anzuwenden und die feindselige wut zu reduzieren"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "Schnelle atmung mit schmerzvoller gesichtsbehaarung: meine sorge schien richtig gewesen zu sein. Ihr seid einfach zu schwach."
     }
 ]

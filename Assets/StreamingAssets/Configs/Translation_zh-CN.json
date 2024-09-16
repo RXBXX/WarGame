@@ -616,12 +616,12 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "以全部血量的一半为代价，赌敌人自身剩余全部血量",
+        "Str": "以自身剩余血量为代价，赌敌人自身剩余全部血量，胜利概率为剩余血量/（我方剩余血量+敌人剩余血量）",
         "Translate": null
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "将对敌人的伤害转化为自身血量",
+        "Str": "将对敌人伤害的20%转化为自身血量",
         "Translate": null
     },
     {
@@ -1656,47 +1656,47 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "每回合减少10血量，剩余%s回合",
+        "Str": "减少10血量，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "每回合减少15血量，剩余%s回合",
+        "Str": "减少15血量，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "每回合较少怒气回复，剩余%s回合",
+        "Str": "减少10怒气回复，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "当前回合隐身",
+        "Str": "隐身，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "使敌人当前回合晕眩，无法行动",
+        "Str": "晕眩，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "使敌人当前回合晕眩，无法行动",
+        "Str": "提供10物理防御，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "使敌人当前回合晕眩，无法行动",
+        "Str": "提供10魔法防御，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "使敌人当前回合晕眩，无法行动",
+        "Str": "提供20物理防御，剩余{0}回合",
         "Translate": null
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "使敌人当前回合晕眩，无法行动",
+        "Str": "提供10魔法防御，剩余{0}回合",
         "Translate": null
     },
     {
@@ -2272,27 +2272,27 @@
     {
         "ID": "EquipmentConfig_10001_Desc",
         "Str": "提供物理伤害，并有10%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10002_Desc",
         "Str": "提供物理伤害，并有10%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10003_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10004_Desc",
         "Str": "提供物理伤害，并有8%的概率使敌人中毒，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10005_Desc",
         "Str": "提供物理伤害，并有20%的概率使敌人中毒，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10006_Desc",
@@ -2317,27 +2317,27 @@
     {
         "ID": "EquipmentConfig_10010_Desc",
         "Str": "提供法术伤害，并有12%的概率降低敌人怒气，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10011_Desc",
         "Str": "提供法术伤害，并有24%的概率降低敌人怒气，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10012_Desc",
         "Str": "提供物理伤害，并有24%的概率使敌人中毒，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10013_Desc",
         "Str": "提供物理伤害，并有10%的概率使敌人中毒，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10014_Desc",
         "Str": "提供物理伤害，并有20%的概率使敌人中毒，持续两回合",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -2377,7 +2377,7 @@
     {
         "ID": "EquipmentConfig_10022_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10023_Desc",
@@ -2387,12 +2387,12 @@
     {
         "ID": "EquipmentConfig_10024_Desc",
         "Str": "提供物理伤害，并有20%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10025_Desc",
         "Str": "提供物理伤害，并有22%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -2497,77 +2497,77 @@
     {
         "ID": "EquipmentConfig_10046_Desc",
         "Str": "提供物理伤害，并有4%的概率使敌人陷入流血",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10047_Desc",
         "Str": "提供物理伤害，并有8%的概率使敌人陷入流血",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10048_Desc",
         "Str": "提供物理伤害，并有12%的概率使敌人陷入流血",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10049_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入流血",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10050_Desc",
         "Str": "提供物理伤害，并有20%的概率使敌人陷入流血",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10051_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10052_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10053_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10054_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10055_Desc",
         "Str": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10056_Desc",
         "Str": "提供法术伤害，并有4%的概率降低敌人怒气",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10057_Desc",
         "Str": "提供法术伤害，并有8%的概率降低敌人怒气",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10058_Desc",
         "Str": "提供法术伤害，并有12%的概率降低敌人怒气",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10059_Desc",
         "Str": "提供法术伤害，并有16%的概率降低敌人怒气",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10060_Desc",
         "Str": "提供法术伤害，并有20%的概率降低敌人怒气",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -4286,13 +4286,13 @@
     },
     {
         "ID": "DialogConfig_100002001_Context",
-        "Str": "（喘息着，目光复杂）：我承认，你们的实力确实超出我的预期。不过，我之前的担忧是对的。面对虚无领主，你们确实需要我们的帮助。",
-        "Translate": null
+        "Str": "（喘息着，目光复杂）：我承认，你们的实力确实超出我的预期。不过，即使如此，面对虚无领主，你们根本没有任何胜利的希望。",
+        "Translate": true
     },
     {
         "ID": "DialogConfig_100002002_Context",
         "Str": "（抹去额头上的汗水，语气凝重）：米拉，即使有你们的帮助，我们依然难以对抗虚无领主。我们之前也见识过它的强大，完全不容小觑。",
-        "Translate": null
+        "Translate": true
     },
     {
         "ID": "DialogConfig_100002003_Context",
@@ -4341,8 +4341,8 @@
     },
     {
         "ID": "DialogConfig_100003001_Context",
-        "Str": "（呼吸急促，面带痛苦）：看来我之前的担忧是对的。即使有我们的帮助，你们依然无法战胜虚无领主。我们失败了。",
-        "Translate": null
+        "Str": "（呼吸急促，面带痛苦）：看来我之前的担忧是对的。你们的实力远远不够。",
+        "Translate": true
     },
     {
         "ID": "DialogConfig_100003002_Context",

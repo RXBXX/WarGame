@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Bet all of the enemy's remaining health at the cost of half of all health"
+        "Str": "Bet all the enemy's remaining health at the cost of their own remaining health, the probability of victory is remaining health/(our remaining health + enemy remaining health)"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Converts damage to enemies into health"
+        "Str": "Converts 20% of enemy damage to your own health"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "Reduces health by 10 per turn, leaving %s turns"
+        "Str": "Reduced by 10 Health, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "Reduces health by 15 per turn, leaving %s turns"
+        "Str": "Reduced by 15 Health, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Less anger recovery per turn, leaving %s turns"
+        "Str": "Reduced anger recovery by 10, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Current turn stealth"
+        "Str": "Stealth, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Stun the enemy for the current turn and render him incapacitated"
+        "Str": "Dizzy, {0} rounds remaining"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Stun the enemy for the current turn and render him incapacitated"
+        "Str": "Provides 10 physical defenses, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Stun the enemy for the current turn and render him incapacitated"
+        "Str": "Provides 10 magic defenses, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Stun the enemy for the current turn and render him incapacitated"
+        "Str": "Provides 20 physical defenses, remaining {0} turns"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Stun the enemy for the current turn and render him incapacitated"
+        "Str": "Provides 10 magic defenses, remaining {0} turns"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "Cancel"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Provides physical damage and has a 10% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Provides physical damage and has a 10% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Provides physical damage and has an 8% chance of poisoning enemies for two rounds"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Provides physical damage and has a 20% chance of poisoning enemies for two rounds"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Provide physical defense"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Provide physical damage"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Provides spell damage and has a 12% chance to reduce enemy anger for two turns"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Provides spell damage and has a 24% chance to reduce enemy anger for two turns"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Provides physical damage and has a 24% chance of poisoning enemies for two rounds"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Provides physical damage and has a 10% chance of poisoning enemies for two rounds"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Provides physical damage and has a 20% chance of poisoning enemies for two rounds"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Provide physical damage"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Provide physical damage"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Provides physical damage and has a 20% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Provides physical damage and has a 22% chance to stun enemies"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Provide physical damage"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Provides physical damage and has a 4% chance of causing enemies to bleed"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Provides physical damage and has an 8% chance of causing enemies to bleed"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Provides physical damage and has a 12% chance of causing enemies to bleed"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Provides physical damage and has a 16% chance of causing enemies to bleed"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Provides physical damage and has a 20% chance of causing enemies to bleed"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Provides physical damage and has a 16% chance to stun enemies"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Provides spell damage and has a 4% chance to reduce enemy anger"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Provides spell damage and has an 8% chance to reduce enemy anger"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Provides spell damage and has a 12% chance to reduce enemy anger"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Provides spell damage and has a 16% chance to reduce enemy anger"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Provides spell damage and has a 20% chance to reduce enemy anger"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(Eyes reveal a hint of pain, low voice) : I hope you can understand my difficulties, but if this is your choice, then I can only do my last effort for your safety."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "I admit you're strong, but you're not strong enough to take on the Nothingness Lords, and you need our help."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, are you sure? The Nothingness Lords are too powerful, and even with us, they're not enough."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Maybe it is."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(Looking affectionately at his companion, looking excited) : Then, let us join hands to meet the final challenge. No matter how hard it is, we won't give up. For the future of this world, we will win!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "We're still too weak!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "Are you sure you want to reset {0}? This will empty the activated talents, reset the level to 1, and return all resources."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Provides physical damage and has a 10% chance to stun enemies"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(gasping, eyes mixed) : I admit, your strength did exceed my expectations. But even so, against the Nothingness Lord, you have no hope of victory."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Provides physical damage and has a 10% chance to stun enemies"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(Wiping sweat from his forehead, his voice heavy) : Mira, even with your help, we will not be able to fight the Nothingness Lord. We've seen how powerful it is before. It's nothing to sneeze at."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Provides physical damage and has an 8% chance of poisoning enemies for two rounds"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Provides physical damage and has a 20% chance of poisoning enemies for two rounds"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Provides spell damage and has a 12% chance to reduce enemy anger for two turns"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Provides spell damage and has a 24% chance to reduce enemy anger for two turns"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Provides physical damage and has a 24% chance of poisoning enemies for two rounds"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Provides physical damage and has a 10% chance of poisoning enemies for two rounds"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Provides physical damage and has a 20% chance of poisoning enemies for two rounds"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Provides physical damage and has a 20% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Provides physical damage and has a 22% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Provides physical damage and has a 4% chance of causing enemies to bleed"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Provides physical damage and has an 8% chance of causing enemies to bleed"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Provides physical damage and has a 12% chance of causing enemies to bleed"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Provides physical damage and has a 16% chance of causing enemies to bleed"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Provides physical damage and has a 20% chance of causing enemies to bleed"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Provides physical damage and has a 16% chance to stun enemies"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Provides spell damage and has a 4% chance to reduce enemy anger"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Provides spell damage and has an 8% chance to reduce enemy anger"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Provides spell damage and has a 12% chance to reduce enemy anger"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Provides spell damage and has a 16% chance to reduce enemy anger"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Provides spell damage and has a 20% chance to reduce enemy anger"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(shortness of breath, pained face) : Looks like I was right to be worried. You are far from strong enough."
     }
 ]

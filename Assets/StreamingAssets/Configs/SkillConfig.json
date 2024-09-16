@@ -117,7 +117,7 @@
         "Icon": "UI/Icons/Skills/Skills_10013",
         "Name": "命运赌盘",
         "TargetType": 0,
-        "Desc": "以全部血量的一半为代价，赌敌人自身剩余全部血量",
+        "Desc": "以自身剩余血量为代价，赌敌人自身剩余全部血量，胜利概率为剩余血量/（我方剩余血量+敌人剩余血量）",
         "Params": null
     },
     {
@@ -126,7 +126,7 @@
         "Icon": "UI/Icons/Skills/Skills_10014",
         "Name": "生命汲取",
         "TargetType": 0,
-        "Desc": "将对敌人的伤害转化为自身血量",
+        "Desc": "将对敌人伤害的20%转化为自身血量",
         "Params": null
     },
     {

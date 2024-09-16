@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Parier sur les pv restants de l’ennemi au coût de la moitié du pv total"
+        "Str": "Parier tout le reste de la vie de l’ennemi au coût de ses propres pv restants. La probabilité de victoire est de pv restants/(pv restants de notre côté + pv restants de l’ennemi)"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Transforme les dégâts infligés à un ennemi en pv propre"
+        "Str": "Transforme 20% des dégâts infligés à un ennemi en pv propre"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "Réduction de 10 pv par tour, % S restant du tour"
+        "Str": "Réduit de 10 pv, restant {0} tours"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "Réduction de 15 pv par tour, % S restant du tour"
+        "Str": "Réduction de 15 pv, restant {0} tours"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Moins de régénération de rage par tour, % S tours restants"
+        "Str": "Réduction de la régénération de rage de 10, {0} tours restants"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Invisible pour la session actuelle"
+        "Str": "Invisible, {0} tours restants"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Étourdit un ennemi à son tour actuel et ne peut plus agir."
+        "Str": "Stun, {0} tours restants"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Étourdit un ennemi à son tour actuel et ne peut plus agir."
+        "Str": "Offre 10 défenses physiques, {0} tours restants"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Étourdit un ennemi à son tour actuel et ne peut plus agir."
+        "Str": "Offre 10 défenses magiques, {0} tours restants"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Étourdit un ennemi à son tour actuel et ne peut plus agir."
+        "Str": "Fournit 20 défenses physiques, {0} tours restants"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Étourdit un ennemi à son tour actuel et ne peut plus agir."
+        "Str": "Offre 10 défenses magiques, {0} tours restants"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "La suppression des"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Fournit des dégâts physiques et a 10% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Fournit des dégâts physiques et a 10% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Inflige des dégâts physiques et empoisonne un ennemi avec 8% de chance pendant 2 tours"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Fournit des dégâts physiques et a 20% de chance d’empoisonner un ennemi pendant 2 tours"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Assurer la défense physique"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Fournir des dommages physiques"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi de 12% pendant 2 tours"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Fournit des dégâts de sort et réduit la colère de l’ennemi de 24% pendant 2 tours"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Fournit des dégâts physiques et a 24% de chance d’empoisonner un ennemi pendant 2 tours"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Fournit des dégâts physiques et a 10% de chance d’empoisonner un ennemi pendant 2 tours"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Fournit des dégâts physiques et a 20% de chance d’empoisonner un ennemi pendant 2 tours"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Fournir des dommages physiques"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Fournir des dommages physiques"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Fournit des dégâts physiques et a 20% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Fournit des dégâts physiques et a 22% de chance de plonger un ennemi dans un stun"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Fournir des dommages physiques"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Fournit des dégâts physiques et a 4% de chance de plonger un ennemi dans le sang"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Fournit des dégâts physiques et a 8% de chance de mettre un ennemi dans le sang"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Fournit des dégâts physiques et a 12% de chance de plonger un ennemi dans le sang"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Inflige des dégâts physiques et a 16% de chance de plonger un ennemi dans le sang"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Fournit des dégâts physiques et a 20% de chance de plonger un ennemi dans le sang"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 4% de chance"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 8% de chance"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 12% de chance"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 16% de chance"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 20% de chance"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(un soupçon de douleur dans les yeux, murmure) : j’espère que vous comprendrez mon intention, mais si c’est votre choix, alors je ne peux faire qu’un dernier effort pour votre sécurité."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Je reconnais que vous êtes fort, mais avec votre force actuelle, vous ne pouvez pas combattre le seigneur du néant. Vous avez besoin de notre aide."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, tu es sûre? Les seigneurs du néant sont trop puissants et même avec nous, ils sont loin d’être suffisants."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Peut-être est-ce vraiment possible."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(regardons avec affection nos compagnons et semblons exaltés) : alors, travaillons main dans la main pour relever le défi ultime. Aussi difficile soit-il, nous n’abandonnerons pas. Pour l’avenir de ce monde, nous sommes sûrs de gagner!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Nous sommes encore trop faibles!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "Sûr de vouloir réinitialiser {0}? Cette action videra les talents activés, remettra le niveau à 1 et renverra toutes les ressources."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Fournit des dégâts physiques et a 10% de chance de plonger un ennemi dans un stun"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(haletant, yeux mitigés) : je vous avoue que vous êtes vraiment plus forts que ce que je m’attendais. Malgré cela, vous n’avez aucun espoir de victoire face aux seigneurs du néant."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Fournit des dégâts physiques et a 10% de chance de plonger un ennemi dans un stun"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(effacez la sueur du front, le ton est digne) : mira, même avec votre aide, nous aurions du mal à combattre le seigneur du néant. Nous avons aussi vu sa puissance avant et elle ne doit pas être sous-estimée."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Inflige des dégâts physiques et empoisonne un ennemi avec 8% de chance pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Fournit des dégâts physiques et a 20% de chance d’empoisonner un ennemi pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi de 12% pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Fournit des dégâts de sort et réduit la colère de l’ennemi de 24% pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Fournit des dégâts physiques et a 24% de chance d’empoisonner un ennemi pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Fournit des dégâts physiques et a 10% de chance d’empoisonner un ennemi pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Fournit des dégâts physiques et a 20% de chance d’empoisonner un ennemi pendant 2 tours"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Fournit des dégâts physiques et a 20% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Fournit des dégâts physiques et a 22% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Fournit des dégâts physiques et a 4% de chance de plonger un ennemi dans le sang"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Fournit des dégâts physiques et a 8% de chance de mettre un ennemi dans le sang"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Fournit des dégâts physiques et a 12% de chance de plonger un ennemi dans le sang"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Inflige des dégâts physiques et a 16% de chance de plonger un ennemi dans le sang"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Fournit des dégâts physiques et a 20% de chance de plonger un ennemi dans le sang"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Fournit des dégâts physiques et a 16% de chance de plonger un ennemi dans un stun"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 4% de chance"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 8% de chance"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 12% de chance"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 16% de chance"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Fournit des dégâts sorts et réduit la colère de l’ennemi avec 20% de chance"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(essoufflement, douleur au visage) : il semble que Mes Préoccupations précédentes étaient justes. Vos forces sont loin d’être suffisantes."
     }
 ]

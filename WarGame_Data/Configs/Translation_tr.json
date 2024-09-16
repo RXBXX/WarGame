@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "Tüm HP'nin yarısı pahasına, düşmanın kalan HP'sine bahis yapın"
+        "Str": "Kendi kalan HP'niz pahasına, düşmanın kendi kalan HP'sine bahis yapın ve zafer olasılığı kalan HP / (kalan HP'miz + düşmanın kalan HP'si) olur"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "Düşmanlara verilen hasarı kendi sağlığınıza dönüştürür"
+        "Str": "Düşmanlara verilen hasarın %20'sini kendi HP'sine dönüştürür"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "HP'yi her turda 10 azaltır ve %s tur bırakır"
+        "Str": "{0} tur için HP'yi 10 azaltır"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "HP'yi tur başına 15 azaltır ve %s dönüş bırakır"
+        "Str": "Kalan {0} için HP'yi 15 azaltır"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "Tur başına daha az öfke yenilenmesi, kalan %s dönüşler"
+        "Str": "{0} tur için öfke yenilenmesini 10 azaltır"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "Mevcut dönüşte pelerin"
+        "Str": "Gizlilik, {0} tur kaldı"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "Düşmanları sersemletir ve mevcut dönüş için hareket edemez hale getirir"
+        "Str": "Sersemletici, {0} tur kaldı"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "Düşmanları sersemletir ve mevcut dönüş için hareket edemez hale getirir"
+        "Str": "Kalan {0} tur olmak üzere 10 fiziksel savunma sağlar"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "Düşmanları sersemletir ve mevcut dönüş için hareket edemez hale getirir"
+        "Str": "Kalan {0} tur olmak üzere 10 büyülü savunma sağlar"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "Düşmanları sersemletir ve mevcut dönüş için hareket edemez hale getirir"
+        "Str": "Kalan {0} tur olmak üzere 20 fiziksel savunma sağlar"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "Düşmanları sersemletir ve mevcut dönüş için hareket edemez hale getirir"
+        "Str": "Kalan {0} tur olmak üzere 10 büyülü savunma sağlar"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "İptal"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %10'dur"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %10'dur"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 8'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 20'dir"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "Fiziksel savunma sağlar"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "Fiziksel hasar sağlar"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "Büyü hasarı verir ve 2 tur boyunca düşman öfkesini azaltma şansı %12'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "Büyü hasarı verir ve 2 tur boyunca düşman öfkesini azaltma şansı %24'tür."
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 24'tür."
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı %10'dur"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 20'dir"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "Fiziksel hasar sağlar"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "Fiziksel hasar sağlar"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %20'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %22'dir"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "Fiziksel hasar sağlar"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %4'tür."
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %8'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %12'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %20'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %4'tür."
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %8'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %12'dir"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "Büyü hasarı sağlar ve düşman öfkesini azaltma şansı %16'dır"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %20'dir"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "(gözlerinde bir miktar acıyla fısıldıyor): Umarım sıkıntımı anlayabilirsin, ama eğer bu senin seçiminse, o zaman güvenliğin için sadece son bir çaba gösterebilirim."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "Güçlü olduğunuzu kabul ediyorum, ancak şu anki gücünüzle Hiçlik Lordu ile savaşamazsınız ve yardımımıza ihtiyacınız var."
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Mira, emin misin, Hiçlik Lordu çok güçlü ve bizimle bile hala yeterli olmaktan çok uzak."
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Belki de mümkündür."
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(arkadaşına sevgiyle bakarak, heyecanlı görünüyordu): Öyleyse, nihai zorluğun üstesinden gelmek için birlikte çalışalım. Ne kadar zor olursa olsun, pes etmeyeceğiz. Bu dünyanın geleceği için kazanacağız!"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Hala çok zayıfız!"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "{0} sıfırlamak istediğinizden emin misiniz? Bu, etkinleştirilen yetenekleri temizleyecek, seviyeyi 1'e sıfırlayacak ve tüm kaynakları iade edecektir."
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %10'dur"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(nefesi kesilmiş, gözleri karışık): Beklediğimden çok daha güçlü olduğunu kabul edeceğim. Ancak, öyle olsa bile, Hiçlik Lordu karşısında zafer umudunuz yok."
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %10'dur"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(alnındaki teri silerek, ses tonu ciddi): Mira, senin yardımınla bile, Hiçliğin Efendisi ile savaşmakta hala zorlanıyoruz. Bunu daha önce gördük ve hafife alınmaması gerekiyor."
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 8'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 20'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "Büyü hasarı verir ve 2 tur boyunca düşman öfkesini azaltma şansı %12'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "Büyü hasarı verir ve 2 tur boyunca düşman öfkesini azaltma şansı %24'tür."
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 24'tür."
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı %10'dur"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları iki tur boyunca zehirleme şansı% 20'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %20'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %22'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %4'tür."
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %8'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %12'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları kana bulama şansı %20'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "Fiziksel hasar sağlar ve düşmanları sersemletme şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %4'tür."
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %8'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %12'dir"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "Büyü hasarı sağlar ve düşman öfkesini azaltma şansı %16'dır"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "Büyü hasarı verir ve düşman öfkesini azaltma şansı %20'dir"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(nefes darlığı, ağrılı yüz): Endişelenmekte haklıymışım gibi görünüyor. Gücünüz yeterli olmaktan çok uzak."
     }
 ]

@@ -493,11 +493,11 @@
     },
     {
         "ID": "SkillConfig_10013_Desc",
-        "Str": "以全部血量的一半為代價，賭敵人自身剩餘全部血量"
+        "Str": "以自身剩余血量為代價，賭敵人自身剩余全部血量，勝利概率為剩余血量/（我方剩余血量+敵人剩余血量）"
     },
     {
         "ID": "SkillConfig_10014_Desc",
-        "Str": "將對敵人嘅傷害轉化為自身血量"
+        "Str": "將對敵人傷害嘅20%轉化為自身血量"
     },
     {
         "ID": "SkillConfig_10015_Desc",
@@ -1325,39 +1325,39 @@
     },
     {
         "ID": "BufferConfig_1_Desc",
-        "Str": "每回合減少10血量，剩餘%s回合"
+        "Str": "減少10血量，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_2_Desc",
-        "Str": "每回合減少15血量，剩餘%s回合"
+        "Str": "減少15血量，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_3_Desc",
-        "Str": "每回合較少怒氣回復，剩餘%s回合"
+        "Str": "減少10怒氣回復，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_4_Desc",
-        "Str": "當前回合隱身"
+        "Str": "隱身，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_5_Desc",
-        "Str": "使敵人當前回合暈眩，無法行動"
+        "Str": "暈眩，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_6_Desc",
-        "Str": "使敵人當前回合暈眩，無法行動"
+        "Str": "提供10物理防禦，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_7_Desc",
-        "Str": "使敵人當前回合暈眩，無法行動"
+        "Str": "提供10魔法防禦，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_8_Desc",
-        "Str": "使敵人當前回合暈眩，無法行動"
+        "Str": "提供20物理防禦，剩餘{0}回合"
     },
     {
         "ID": "BufferConfig_9_Desc",
-        "Str": "使敵人當前回合暈眩，無法行動"
+        "Str": "提供10魔法防禦，剩餘{0}回合"
     },
     {
         "ID": "AttrConfig_1_Name",
@@ -1816,6 +1816,26 @@
         "Str": "取消"
     },
     {
+        "ID": "EquipmentConfig_10001_Desc",
+        "Str": "提供物理傷害，並有10%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10002_Desc",
+        "Str": "提供物理傷害，並有10%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10003_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10004_Desc",
+        "Str": "提供物理傷害，並有8%的概率使敵人中毒，持續兩回合"
+    },
+    {
+        "ID": "EquipmentConfig_10005_Desc",
+        "Str": "提供物理傷害，並有20%的概率令敵人中毒，持續兩回合"
+    },
+    {
         "ID": "EquipmentConfig_10006_Desc",
         "Str": "提供物理防禦"
     },
@@ -1830,6 +1850,26 @@
     {
         "ID": "EquipmentConfig_10009_Desc",
         "Str": "提供物理傷害"
+    },
+    {
+        "ID": "EquipmentConfig_10010_Desc",
+        "Str": "提供法術傷害，並有12%的概率降低敵人怒氣，持續兩回合"
+    },
+    {
+        "ID": "EquipmentConfig_10011_Desc",
+        "Str": "提供法術傷害，並有24%的概率降低敵人怒氣，持續兩回合"
+    },
+    {
+        "ID": "EquipmentConfig_10012_Desc",
+        "Str": "提供物理傷害，並有24%的概率使敵人中毒，持續兩回合"
+    },
+    {
+        "ID": "EquipmentConfig_10013_Desc",
+        "Str": "提供物理傷害，並有10%的概率令敵人中毒，持續兩回合"
+    },
+    {
+        "ID": "EquipmentConfig_10014_Desc",
+        "Str": "提供物理傷害，並有20%的概率令敵人中毒，持續兩回合"
     },
     {
         "ID": "EquipmentConfig_10015_Desc",
@@ -1860,8 +1900,20 @@
         "Str": "提供物理傷害"
     },
     {
+        "ID": "EquipmentConfig_10022_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
         "ID": "EquipmentConfig_10023_Desc",
         "Str": "提供物理傷害"
+    },
+    {
+        "ID": "EquipmentConfig_10024_Desc",
+        "Str": "提供物理傷害，並有20%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10025_Desc",
+        "Str": "提供物理傷害，並有22%的概率使敵人陷入眩暈"
     },
     {
         "ID": "EquipmentConfig_10026_Desc",
@@ -1942,6 +1994,66 @@
     {
         "ID": "EquipmentConfig_10045_Desc",
         "Str": "提供物理傷害"
+    },
+    {
+        "ID": "EquipmentConfig_10046_Desc",
+        "Str": "提供物理傷害，並有4%的概率使敵人陷入流血"
+    },
+    {
+        "ID": "EquipmentConfig_10047_Desc",
+        "Str": "提供物理傷害，並有8%的概率使敵人陷入流血"
+    },
+    {
+        "ID": "EquipmentConfig_10048_Desc",
+        "Str": "提供物理傷害，並有12%的概率使敵人陷入流血"
+    },
+    {
+        "ID": "EquipmentConfig_10049_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入流血"
+    },
+    {
+        "ID": "EquipmentConfig_10050_Desc",
+        "Str": "提供物理傷害，並有20%的概率使敵人陷入流血"
+    },
+    {
+        "ID": "EquipmentConfig_10051_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10052_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10053_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10054_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10055_Desc",
+        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
+    },
+    {
+        "ID": "EquipmentConfig_10056_Desc",
+        "Str": "提供法術傷害，並有4%的概率降低敵人怒氣"
+    },
+    {
+        "ID": "EquipmentConfig_10057_Desc",
+        "Str": "提供法術傷害，並有8%的概率降低敵人怒氣"
+    },
+    {
+        "ID": "EquipmentConfig_10058_Desc",
+        "Str": "提供法術傷害，並有12%的概率降低敵人怒氣"
+    },
+    {
+        "ID": "EquipmentConfig_10059_Desc",
+        "Str": "提供法術傷害，並有16%的概率降低敵人怒氣"
+    },
+    {
+        "ID": "EquipmentConfig_10060_Desc",
+        "Str": "提供法術傷害，並有20%的概率降低敵人怒氣"
     },
     {
         "ID": "EquipmentConfig_10061_Desc",
@@ -3316,14 +3428,6 @@
         "Str": "（眼神中透露出一絲痛苦，低聲）：希望你們能理解我的苦衷，但如果這就是你們的選擇，那我只能為你們的安全盡最後的努力。"
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "我承認你哋好強，不過凭你哋而家嘅力量還是無法對抗虛無領主，你哋需要我哋嘅幫助。"
-    },
-    {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "米拉，你確定嗎，虛無領主太強大了，即使有我哋，都仲係遠遠不夠。"
-    },
-    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "或許真的有可能。"
     },
@@ -3358,10 +3462,6 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "（深情地看著同伴，顯得振奮）：那麼，就讓我們攜手共進，迎接最終的挑戰。 無論多麼艱難，我哋都唔會放棄。 為咗呢個世界嘅未來，我哋必定會贏得勝利！"
-    },
-    {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "我哋重係太弱咗！"
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -3988,115 +4088,15 @@
         "Str": "確定要重置{0}啊？ 此操作將清空已激活嘅天賦，把等級重置為1，並返還所有資源。"
     },
     {
-        "ID": "EquipmentConfig_10001_Desc",
-        "Str": "提供物理傷害，並有10%的概率使敵人陷入眩暈"
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "（喘息著，目光複雜）：我承認，你們的實力確實超出我的預期。 之，即使如此，面對虛無領主，你哋根本冇任何勝利嘅希望。"
     },
     {
-        "ID": "EquipmentConfig_10002_Desc",
-        "Str": "提供物理傷害，並有10%的概率使敵人陷入眩暈"
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "（抹去額頭上的汗水，語氣凝重）：米拉，即使有你們的幫助，我們依然難以對抗虛無領主。 我哋之前都見識過它的強大，完全不容小覷。"
     },
     {
-        "ID": "EquipmentConfig_10003_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10004_Desc",
-        "Str": "提供物理傷害，並有8%的概率使敵人中毒，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10005_Desc",
-        "Str": "提供物理傷害，並有20%的概率令敵人中毒，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10010_Desc",
-        "Str": "提供法術傷害，並有12%的概率降低敵人怒氣，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10011_Desc",
-        "Str": "提供法術傷害，並有24%的概率降低敵人怒氣，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10012_Desc",
-        "Str": "提供物理傷害，並有24%的概率使敵人中毒，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10013_Desc",
-        "Str": "提供物理傷害，並有10%的概率令敵人中毒，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10014_Desc",
-        "Str": "提供物理傷害，並有20%的概率令敵人中毒，持續兩回合"
-    },
-    {
-        "ID": "EquipmentConfig_10022_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10024_Desc",
-        "Str": "提供物理傷害，並有20%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10025_Desc",
-        "Str": "提供物理傷害，並有22%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10046_Desc",
-        "Str": "提供物理傷害，並有4%的概率使敵人陷入流血"
-    },
-    {
-        "ID": "EquipmentConfig_10047_Desc",
-        "Str": "提供物理傷害，並有8%的概率使敵人陷入流血"
-    },
-    {
-        "ID": "EquipmentConfig_10048_Desc",
-        "Str": "提供物理傷害，並有12%的概率使敵人陷入流血"
-    },
-    {
-        "ID": "EquipmentConfig_10049_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入流血"
-    },
-    {
-        "ID": "EquipmentConfig_10050_Desc",
-        "Str": "提供物理傷害，並有20%的概率使敵人陷入流血"
-    },
-    {
-        "ID": "EquipmentConfig_10051_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10052_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10053_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10054_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10055_Desc",
-        "Str": "提供物理傷害，並有16%的概率使敵人陷入眩暈"
-    },
-    {
-        "ID": "EquipmentConfig_10056_Desc",
-        "Str": "提供法術傷害，並有4%的概率降低敵人怒氣"
-    },
-    {
-        "ID": "EquipmentConfig_10057_Desc",
-        "Str": "提供法術傷害，並有8%的概率降低敵人怒氣"
-    },
-    {
-        "ID": "EquipmentConfig_10058_Desc",
-        "Str": "提供法術傷害，並有12%的概率降低敵人怒氣"
-    },
-    {
-        "ID": "EquipmentConfig_10059_Desc",
-        "Str": "提供法術傷害，並有16%的概率降低敵人怒氣"
-    },
-    {
-        "ID": "EquipmentConfig_10060_Desc",
-        "Str": "提供法術傷害，並有20%的概率降低敵人怒氣"
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "（呼吸急促，面帶痛苦）：睇嚟我之前嘅擔憂係對嘅。 你哋嘅實力遠遠不夠。"
     }
 ]

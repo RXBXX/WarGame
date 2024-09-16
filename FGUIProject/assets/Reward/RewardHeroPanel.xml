@@ -4,12 +4,15 @@
     <graph id="n5_czz8" name="bg" xy="0,0" size="1334,750" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n11_mj42" name="hero" src="mj421t" fileName="RewardMask.xml" xy="45,0" touchable="false">
+    <component id="n11_mj42" name="hero" src="mj421t" fileName="RewardMask.xml" xy="45,0" group="n20_crdu" touchable="false">
       <Button icon="ui://ubnp7phxmj421r"/>
     </component>
-    <text id="n13_mj42" name="name" xy="802,96" size="124,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" letterSpacing="2" text="Peter"/>
-    <text id="n14_mj42" name="desc" xy="805,281" size="469,243" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" autoClearText="true" text="PeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssss"/>
-    <component id="n18_ozrt" name="skill" src="gy0sg" fileName="Components/CommonSkillItem.xml" pkg="hx02grrp" xy="805,185"/>
-    <component id="n19_ozrt" name="n19" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="1027,680"/>
+    <text id="n13_mj42" name="name" xy="802,96" size="124,79" group="n20_crdu" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" letterSpacing="2" text="Peter"/>
+    <text id="n14_mj42" name="desc" xy="805,281" size="469,243" group="n20_crdu" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" leading="0" letterSpacing="2" autoSize="none" autoClearText="true" text="PeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssssPeterxxxxxxxxxxxxxxxxxxxxxxxxxxsssssssssssssssssss"/>
+    <component id="n18_ozrt" name="skill" src="gy0sg" fileName="Components/CommonSkillItem.xml" pkg="hx02grrp" xy="805,185" group="n20_crdu"/>
+    <component id="n19_ozrt" name="n19" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="1027,680" group="n20_crdu"/>
+    <group id="n20_crdu" name="n20" xy="45,0" size="1229,750" advanced="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </group>
   </displayList>
 </component>
