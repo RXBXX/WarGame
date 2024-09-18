@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "Avec l’aide de ses compagnons, vaincre enfin le seigneur du néant et le monde retourne au calme."
+        "Str": "Après la victoire, une nouvelle aube s’ouvrit sur le continent d’emoti. L’armée des ténèbres des seigneurs du néant a été complètement vaincue et les ténèbres se sont progressivement dissipées, laissant à la terre un nouvel espoir. Les villages jadis détruits ont commencé à se reconstruire avec ténacité et solidarité. Les forêts et les rivières, jadis polluées, ont redonné vie grâce aux merveilles de la nature. Les blessures de la terre sont profondes, mais grâce aux efforts conjugués de toutes les forces, les graines de paix et de prospérité ont été replantées."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "Les gens ont une confiance sans précédent dans l’avenir. Les progrès de la culture et de la technologie ont non seulement accéléré le rythme de la récupération, mais aussi ouvert une nouvelle ère. Les anciens héros sont devenus légendes, inspirant des générations à la recherche de la bravoure et de l’intelligence. Dans cette terre de renouveau, les habitants du continent d’emoti avancent avec plus de fermeté vers un avenir plus glorieux et harmonieux."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "L’histoire se souviendra de ce moment, enregistrera comment la lumière est arrivée devant les ténèbres et racontera cette saga qui va du chaos à la renaissance. Dans les jours à venir, le continent d’emoti continuera à écrire un chapitre glorieux qui lui est propre. Les souffrances passées seront des étapes de croissance et l’aube de la paix illuminera toujours cette terre magique."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "(un soupçon de douleur dans les yeux, murmure) : j’espère que vous comprendrez mon intention, mais si c’est votre choix, alors je ne peux faire qu’un dernier effort pour votre sécurité."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(haletant, yeux mitigés) : je vous avoue que vous êtes vraiment plus forts que ce que je m’attendais. Malgré cela, vous n’avez aucun espoir de victoire face aux seigneurs du néant."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(effacez la sueur du front, le ton est digne) : mira, même avec votre aide, nous aurions du mal à combattre le seigneur du néant. Nous avons aussi vu sa puissance avant et elle ne doit pas être sous-estimée."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Peut-être est-ce vraiment possible."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(regardons avec affection nos compagnons et semblons exaltés) : alors, travaillons main dans la main pour relever le défi ultime. Aussi difficile soit-il, nous n’abandonnerons pas. Pour l’avenir de ce monde, nous sommes sûrs de gagner!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(essoufflement, douleur au visage) : il semble que Mes Préoccupations précédentes étaient justes. Vos forces sont loin d’être suffisantes."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "Sûr de vouloir réinitialiser {0}? Cette action videra les talents activés, remettra le niveau à 1 et renverra toutes les ressources."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(haletant, yeux mitigés) : je vous avoue que vous êtes vraiment plus forts que ce que je m’attendais. Malgré cela, vous n’avez aucun espoir de victoire face aux seigneurs du néant."
+        "ID": "FightPanel_SkipTips",
+        "Str": "S’il vous plaît terminer l’opération du héros actuel!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "(effacez la sueur du front, le ton est digne) : mira, même avec votre aide, nous aurions du mal à combattre le seigneur du néant. Nous avons aussi vu sa puissance avant et elle ne doit pas être sous-estimée."
+        "ID": "CommonTips",
+        "Str": "Cliquez sur un champ vide pour continuer"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "(essoufflement, douleur au visage) : il semble que Mes Préoccupations précédentes étaient justes. Vos forces sont loin d’être suffisantes."
+        "ID": "FastedPassPrefix",
+        "Str": "Record des victoires les plus rapides:"
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Nombre de participants requis:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Conditions de victoire:"
     }
 ]

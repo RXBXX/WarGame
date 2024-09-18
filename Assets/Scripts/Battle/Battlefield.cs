@@ -590,10 +590,17 @@ namespace WarGame
 
         private void OnSkipRound(params object[] args)
         {
-            //if (null != _action)
-            //{ 
-            //    DebugManager.Instance.Log("ActionID Skip:" + _action.ID);
-            //}
+            if (null == _action)
+                return;
+
+            if (_action.Type != Enum.ActionType.HeroAction)
+                return;
+
+            if (!_action.CanSkip())
+            {
+                TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("FightPanel_SkipTips"));
+                return;
+            }
 
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             foreach (var v in heros)

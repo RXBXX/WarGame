@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "Arkadaşlarının yardımıyla sonunda Hiçliğin Efendisi'ni yendi ve dünya barışa döndü."
+        "Str": "Zaferden sonra, Emotti kıtasında yeni bir şafak başladı. Hiçlik Lordu'nun karanlık ordusu tamamen yenildi ve karanlığın gölgeleri yavaş yavaş geri çekildi ve topraklara yeni bir umut bıraktı. Bir zamanlar yıkılan köyler dayanıklılık ve birlik içinde yeniden inşa ediliyor ve bir zamanlar kirlenmiş ormanlar ve nehirler yeniden canlandırılıyor. Yeryüzünde her ne kadar derin yaralar açmış olsa da tüm tarafların ortak çabaları sayesinde barış ve refah tohumları yeniden ekilmiştir."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "İnsanlar geleceğe eşi benzeri görülmemiş bir güvenle doludur ve kültür ve teknolojinin ilerlemesi sadece toparlanma hızını hızlandırmakla kalmadı, aynı zamanda yeni bir çağ açtı. Kahramanlar efsaneler haline geldi ve nesillere cesaret ve bilgelik peşinde koşmaları için ilham verdi. Yeniden canlanan bu topraklarda Emotti kıtasının sakinleri daha kararlı adımlarla daha parlak ve uyumlu bir geleceğe doğru ilerliyor."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "Tarih bu anı, karanlığın karşısında ışığın nasıl aydınlandığını hatırlayacak ve kaostan yeniden doğuşa uzanan bu yolculuğun hikayesini anlatacaktır. Önümüzdeki günlerde, Emotti Kıtası kendi görkemli bölümünü yazmaya devam edecek, geçmişin acıları bir büyüme merdiveni haline gelecek ve barışın şafağı bu büyülü toprakları her zaman aydınlatacak."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "(gözlerinde bir miktar acıyla fısıldıyor): Umarım sıkıntımı anlayabilirsin, ama eğer bu senin seçiminse, o zaman güvenliğin için sadece son bir çaba gösterebilirim."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(nefesi kesilmiş, gözleri karışık): Beklediğimden çok daha güçlü olduğunu kabul edeceğim. Ancak, öyle olsa bile, Hiçlik Lordu karşısında zafer umudunuz yok."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(alnındaki teri silerek, ses tonu ciddi): Mira, senin yardımınla bile, Hiçliğin Efendisi ile savaşmakta hala zorlanıyoruz. Bunu daha önce gördük ve hafife alınmaması gerekiyor."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Belki de mümkündür."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(arkadaşına sevgiyle bakarak, heyecanlı görünüyordu): Öyleyse, nihai zorluğun üstesinden gelmek için birlikte çalışalım. Ne kadar zor olursa olsun, pes etmeyeceğiz. Bu dünyanın geleceği için kazanacağız!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(nefes darlığı, ağrılı yüz): Endişelenmekte haklıymışım gibi görünüyor. Gücünüz yeterli olmaktan çok uzak."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "{0} sıfırlamak istediğinizden emin misiniz? Bu, etkinleştirilen yetenekleri temizleyecek, seviyeyi 1'e sıfırlayacak ve tüm kaynakları iade edecektir."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(nefesi kesilmiş, gözleri karışık): Beklediğimden çok daha güçlü olduğunu kabul edeceğim. Ancak, öyle olsa bile, Hiçlik Lordu karşısında zafer umudunuz yok."
+        "ID": "FightPanel_SkipTips",
+        "Str": "Lütfen mevcut kahramanın operasyonunu sonlandırın!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "(alnındaki teri silerek, ses tonu ciddi): Mira, senin yardımınla bile, Hiçliğin Efendisi ile savaşmakta hala zorlanıyoruz. Bunu daha önce gördük ve hafife alınmaması gerekiyor."
+        "ID": "CommonTips",
+        "Str": "Devam etmek için boş alana tıklayın"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "(nefes darlığı, ağrılı yüz): Endişelenmekte haklıymışım gibi görünüyor. Gücünüz yeterli olmaktan çok uzak."
+        "ID": "FastedPassPrefix",
+        "Str": "En Hızlı Kazanma Rekoru:"
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Gerekli kişi sayısı:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Zafer Koşulları:"
     }
 ]

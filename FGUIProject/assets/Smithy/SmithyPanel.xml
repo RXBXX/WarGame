@@ -4,7 +4,7 @@
     <loader id="n4_ou4w" name="BG" xy="-146,-136" size="1600,900" url="ui://t8m39wbjou4w1" vAlign="middle" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
-    <list id="n0_ou4w" name="equips" xy="12,133" size="942,500" layout="row" overflow="scroll" scroll="horizontal" lineGap="20" colGap="-70" defaultItem="ui://t8m39wbjou4w1y" autoClearItems="true">
+    <list id="n0_ou4w" name="equips" xy="12,133" size="1008,500" layout="row" overflow="scroll" scroll="horizontal" lineGap="20" colGap="-70" defaultItem="ui://t8m39wbjou4w1y" autoClearItems="true">
       <relation target="" sidePair="middle-middle,rightext-right"/>
       <item/>
       <item/>
@@ -20,7 +20,7 @@
       <item/>
       <item/>
     </list>
-    <list id="n3_ou4w" name="attrs" xy="985,225" size="342,273" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+    <list id="n3_ou4w" name="attrs" xy="1041,225" size="286,273" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
       <relation target="n14_ku3y" sidePair="top-bottom"/>
       <relation target="" sidePair="right-right"/>
       <item/>
@@ -39,18 +39,19 @@
     <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
-    <graph id="n10_kky8" name="n10" xy="975,133" size="423,41" group="n12_oykc" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n9_kwvb" name="name" xy="986,134" size="110,39" group="n12_oykc" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
-    <group id="n12_oykc" name="n12" xy="975,133" size="423,41" advanced="true">
+    <graph id="n10_kky8" name="n10" xy="1031,133" size="367,41" group="n12_oykc" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n9_kwvb" name="name" xy="1042,134" size="54,39" group="n12_oykc" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
+    <group id="n12_oykc" name="n12" xy="1031,133" size="367,41" advanced="true">
       <relation target="" sidePair="middle-middle,right-right"/>
     </group>
-    <graph id="n11_kky8" name="n11" xy="985,598" size="85,28" group="n13_oykc" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n6_ou4w" name="costTxt" xy="990,599" size="42,26" group="n13_oykc" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
-    <group id="n13_oykc" name="n13" xy="985,598" size="85,28" advanced="true">
+    <graph id="n11_kky8" name="n11" xy="1044,598" size="85,28" group="n13_oykc" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n6_ou4w" name="costTxt" xy="1049,599" size="42,26" group="n13_oykc" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
+    <group id="n13_oykc" name="n13" xy="1044,598" size="85,28" advanced="true">
       <relation target="" sidePair="middle-middle,right-right"/>
     </group>
-    <text id="n14_ku3y" name="desc" xy="985,189" size="342,26" font="ui://hd0z4dz5omu90" fontSize="18" autoSize="height" autoClearText="true" text="Attadd">
-      <relation target="" sidePair="middle-middle,right-right"/>
+    <text id="n14_ku3y" name="desc" xy="1041,189" size="286,26" font="ui://hd0z4dz5omu90" fontSize="18" autoSize="height" autoClearText="true" text="Attadd">
+      <relation target="" sidePair="right-right"/>
+      <relation target="n12_oykc" sidePair="top-bottom"/>
     </text>
   </displayList>
 </component>

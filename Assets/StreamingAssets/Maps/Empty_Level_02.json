@@ -721,26 +721,6 @@
       }
     },
     {
-      "ID": 131076,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 4.0
-      }
-    },
-    {
-      "ID": 131077,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 2.0,
-        "y": 0.0,
-        "z": 5.0
-      }
-    },
-    {
       "ID": 131078,
       "configId": 26,
       "isReachable": true,
@@ -1071,13 +1051,43 @@
       }
     },
     {
-      "ID": 196612,
+      "ID": 196610,
       "configId": 26,
       "isReachable": true,
       "coor": {
         "x": 3.0,
         "y": 0.0,
-        "z": 4.0
+        "z": 2.0
+      }
+    },
+    {
+      "ID": 131074,
+      "configId": 26,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "ID": 131075,
+      "configId": 26,
+      "isReachable": true,
+      "coor": {
+        "x": 2.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "ID": 65539,
+      "configId": 26,
+      "isReachable": true,
+      "coor": {
+        "x": 1.0,
+        "y": 0.0,
+        "z": 3.0
       }
     },
     {
@@ -1698,16 +1708,6 @@
         "x": 5.0,
         "y": 0.0,
         "z": 1.0
-      }
-    },
-    {
-      "ID": 327682,
-      "configId": 26,
-      "isReachable": true,
-      "coor": {
-        "x": 5.0,
-        "y": 0.0,
-        "z": 2.0
       }
     },
     {
@@ -17451,33 +17451,33 @@
       }
     },
     {
-      "ID": 65539,
+      "ID": 327682,
       "configId": 22,
       "isReachable": true,
       "coor": {
-        "x": 1.0,
+        "x": 5.0,
         "y": 0.0,
-        "z": 3.0
+        "z": 2.0
       }
     },
     {
-      "ID": 131075,
+      "ID": 131077,
       "configId": 22,
       "isReachable": true,
       "coor": {
         "x": 2.0,
         "y": 0.0,
-        "z": 3.0
+        "z": 5.0
       }
     },
     {
-      "ID": 196611,
+      "ID": 196612,
       "configId": 22,
       "isReachable": true,
       "coor": {
         "x": 3.0,
         "y": 0.0,
-        "z": 3.0
+        "z": 4.0
       }
     },
     {
@@ -17501,23 +17501,23 @@
       }
     },
     {
-      "ID": 196610,
+      "ID": 196611,
       "configId": 22,
       "isReachable": true,
       "coor": {
         "x": 3.0,
         "y": 0.0,
-        "z": 2.0
+        "z": 3.0
       }
     },
     {
-      "ID": 131074,
+      "ID": 131076,
       "configId": 22,
       "isReachable": true,
       "coor": {
         "x": 2.0,
         "y": 0.0,
-        "z": 2.0
+        "z": 4.0
       }
     }
   ],
@@ -17655,7 +17655,7 @@
       "ID": 2228260,
       "configID": 29,
       "hexagonID": 2228260,
-      "scale": 3.00000024,
+      "scale": 3.00000048,
       "rotation": {
         "x": 0.0,
         "y": 90.0,

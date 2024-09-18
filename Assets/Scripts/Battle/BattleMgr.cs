@@ -294,6 +294,7 @@ namespace WarGame
         public void DoRelocateAttack(Enum.Element levelElement, int initiatorID, List<int> targets)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
+            initiator.ClearRage();
             foreach (var v in targets)
             {
                 var target = RoleManager.Instance.GetRole(v);

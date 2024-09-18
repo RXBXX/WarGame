@@ -19,12 +19,14 @@ namespace WarGame.UI
             GetGObjectChild<GTextField>("title").text = levelConfig.GetTranslation("Name");
 
             var levelData = DatasMgr.Instance.GetLevelData(_levelID);
-            var desc = levelConfig.GetTranslation("TargetDesc");
+            var desc = "";
             //DebugManager.Instance.Log(levelData.minPassRound);
             if (0 != levelData.minPassRound)
             {
-                desc = "最快通关记录：" + levelData.minPassRound + "\n" + desc;
+                desc = desc + ConfigMgr.Instance.GetTranslation("FastedPassPrefix") + "[color=#ce4a35]" + levelData.minPassRound + "[/color]\n";
             }
+            desc = desc + ConfigMgr.Instance.GetTranslation("HeroCountPrefix") + "[color=#ce4a35]" + levelConfig.HeroCount + "[/color]\n";
+            desc =  desc + ConfigMgr.Instance.GetTranslation("FightTarget") + "[color=#ce4a35]" + levelConfig.GetTranslation("TargetDesc") + "[/color]";
             GetGObjectChild<GTextField>("desc").text = desc;
 
             GetGObjectChild<GTextField>("tips").text = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Tips");

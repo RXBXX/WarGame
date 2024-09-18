@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "With the help of his companions, he finally defeated the Void Lord and the world returned to peace."
+        "Str": "After the victory, a new dawn dawned on the Hermoti continent. The dark army of the Nothingness Lord is completely defeated, and the dark shadow gradually fades away, leaving the earth with a new hope. Through resilience and solidarity, villages that had been destroyed were rebuilt, and forests and rivers that had been polluted were brought back to life by the wonders of nature. The wounds on the ground are deep, but the seeds of peace and prosperity are being replanted through the concerted efforts of all parties."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "People had unprecedented confidence in the future, and cultural and technological advances not only accelerated the pace of recovery, but also opened up a new era. Former heroes have become legends, inspiring generation after generation to pursue courage and wisdom. In this revitalized land, the inhabitants of the Hermoti continent are moving with greater determination towards a more glorious and harmonious future."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "History will remember this moment, record how light came into the face of darkness, and tell the story of this saga from chaos to rebirth. In the coming days, the Ermoti continent will continue to write its own glorious chapter, the suffering will become the ladder of growth, and the dawn of peace will always illuminate this magical land."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "(Eyes reveal a hint of pain, low voice) : I hope you can understand my difficulties, but if this is your choice, then I can only do my last effort for your safety."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(gasping, eyes mixed) : I admit, your strength did exceed my expectations. But even so, against the Nothingness Lord, you have no hope of victory."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(Wiping sweat from his forehead, his voice heavy) : Mira, even with your help, we will not be able to fight the Nothingness Lord. We've seen how powerful it is before. It's nothing to sneeze at."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Maybe it is."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(Looking affectionately at his companion, looking excited) : Then, let us join hands to meet the final challenge. No matter how hard it is, we won't give up. For the future of this world, we will win!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(shortness of breath, pained face) : Looks like I was right to be worried. You are far from strong enough."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "Are you sure you want to reset {0}? This will empty the activated talents, reset the level to 1, and return all resources."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(gasping, eyes mixed) : I admit, your strength did exceed my expectations. But even so, against the Nothingness Lord, you have no hope of victory."
+        "ID": "FightPanel_SkipTips",
+        "Str": "Please end the operation of the current hero!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "(Wiping sweat from his forehead, his voice heavy) : Mira, even with your help, we will not be able to fight the Nothingness Lord. We've seen how powerful it is before. It's nothing to sneeze at."
+        "ID": "CommonTips",
+        "Str": "Click on the blank area to continue"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "(shortness of breath, pained face) : Looks like I was right to be worried. You are far from strong enough."
+        "ID": "FastedPassPrefix",
+        "Str": "Fastest victory record:"
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Number of participants required:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Victory condition:"
     }
 ]

@@ -62,7 +62,7 @@ namespace WarGame
 
                 var hexagon = MapManager.Instance.GetHexagon(_hexagonID);
                 hexagon.PlaySound("Assets/Audios/Explosion.mp3", false, 100);
-                CameraMgr.Instance.ShakePosition();
+                //CameraMgr.Instance.ShakePosition();
                 ResetDrop();
             }
 

@@ -326,7 +326,17 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "在同伴的帮助下，终于打败了虚无领主，世界重归于平静。",
+        "Str": "胜利之后，埃莫堤大陆迎来了新的黎明。虚无领主的黑暗大军被彻底击败，黑暗的阴影逐渐退散，留给大地的是一片崭新的希望。曾经被毁坏的村庄在坚韧与团结中开始重建，曾被污染的森林和河流也在自然的奇迹下恢复了生机。大地的伤痕虽深，但在各方力量的共同努力下，和平与繁荣的种子重新播撒。",
+        "Translate": null
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "人们对未来充满了前所未有的信心，文化与科技的进步不仅加速了恢复的步伐，也开辟了新的时代。曾经的英雄们成为了传奇，激励着一代又一代人追求勇敢与智慧。在这片恢复生机的土地上，埃莫堤大陆的居民们以更加坚定的步伐，迈向一个更加辉煌与和谐的未来。",
+        "Translate": null
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "历史将铭记这一刻，记录下在黑暗面前如何迎来光明，讲述这段从混乱到重生的传奇。未来的日子里，埃莫堤大陆将继续书写着属于自己的光辉篇章，曾经的苦难将成为成长的阶梯，而和平的曙光，将永远照亮这片神奇的土地。",
         "Translate": null
     },
     {
@@ -4287,12 +4297,12 @@
     {
         "ID": "DialogConfig_100002001_Context",
         "Str": "（喘息着，目光复杂）：我承认，你们的实力确实超出我的预期。不过，即使如此，面对虚无领主，你们根本没有任何胜利的希望。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "DialogConfig_100002002_Context",
         "Str": "（抹去额头上的汗水，语气凝重）：米拉，即使有你们的帮助，我们依然难以对抗虚无领主。我们之前也见识过它的强大，完全不容小觑。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "DialogConfig_100002003_Context",
@@ -4342,7 +4352,7 @@
     {
         "ID": "DialogConfig_100003001_Context",
         "Str": "（呼吸急促，面带痛苦）：看来我之前的担忧是对的。你们的实力远远不够。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -5122,6 +5132,31 @@
     {
         "ID": "HeroPanel_Reset",
         "Str": "确定要重置{0}吗？此操作将清空已激活的天赋，将等级重置为1，并返还所有资源。",
+        "Translate": null
+    },
+    {
+        "ID": "FightPanel_SkipTips",
+        "Str": "请结束当前英雄的操作！",
+        "Translate": null
+    },
+    {
+        "ID": "CommonTips",
+        "Str": "点击空白区域继续",
+        "Translate": null
+    },
+    {
+        "ID": "FastedPassPrefix",
+        "Str": "最快胜利记录：",
+        "Translate": null
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "需要上阵人数：",
+        "Translate": null
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "胜利条件：",
         "Translate": null
     }
 ]

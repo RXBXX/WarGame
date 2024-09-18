@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "Mit der hilfe Von gleichgesinnten besiegte man schließlich die leeren lords und die welt kehrte wieder zum frieden zurück."
+        "Str": "Nach dem Sieg erlebte der emotonische kontinent eine neue morgendämmerung. Die heere der finsternis, die leeren lords, wurden besiegt, und die dunklen schatten der finsternis schwärmten nach und hinterließen der erde eine neue hoffnung. Die ehemaligen verfallenen dörfer haben durch ein wunder der natur mit dem wiederaufbau begonnen, ebenso wie verfaulte wälder und flüsse. Obschon tiefe wunden auf der erde wachsen, säen frieden und wohlstand dank der kraft aller."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "Ein nie da gewesener glaube an die zukunft wurde durch den kulturellen und technologischen fortschritt nicht nur beschleunigt, sondern auch ein neues zeitalter geläutet. Die eingeborenen helden wurden zur legende und inspirierten eine ganze generation, nach mut und weisheit zu suchen. Die einwohner des wiederhergestellten kontinents everest schreiten diesmal in einem stetigen tempo zu einer glorreichen und harmonischen zukunft."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "Die geschichte wird sich an diesen moment erinnern und dokumentieren, wie man im dunkeln ins licht kommt und Von dieser legende erzählt, die vom chaos bis zur wiedergeburt reicht. In den kommenden tagen wird der kontinent emotun weiterhin seine eigenen glorreichen annalen schreiben, das leid der vergangenheit wird sich als leiter des wachstums erweisen und ein licht des friedens wird dieses magische land für immer erhellen."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "Ein schimmer Von schmerz und dumpf: ich wünschte, ihr würdet meine bitterkeit verstehen, aber wenn ihr es so wollt, dann kann ich nur euer letztes tun."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(langsam, aber kompliziert) : ich gebe zu, sie haben mehr kraft, als ich dachte. Doch trotz all dessen habt ihr keine aussicht auf einen Sieg."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "Reibt euch den schweiß aus der stirn, kommt vor den leeren lords nicht mit eurer hilfe. Wir haben es schon einmal gesehen, und es hat eine bedeutung, die nicht unterschätzt werden kann."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Vielleicht ist es ja wirklich möglich."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(begeisternde blicke auf den partner: gemeinsam können wir die ultimative herausforderung angehen.) Egal, wie schwierig es wird, wir werden nicht aufgeben. Wir werden für die zukunft der welt gewinnen!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "Schnelle atmung mit schmerzvoller gesichtsbehaarung: meine sorge schien richtig gewesen zu sein. Ihr seid einfach zu schwach."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "Willst du wirklich zurück? Diese aktion wird die aktivierten begabungen leeren, alle vorhandenen talente nach einem plan zurücksetzen und alle ressourcen zurückgeben."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(langsam, aber kompliziert) : ich gebe zu, sie haben mehr kraft, als ich dachte. Doch trotz all dessen habt ihr keine aussicht auf einen Sieg."
+        "ID": "FightPanel_SkipTips",
+        "Str": "Beendet die operation des helden!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "Reibt euch den schweiß aus der stirn, kommt vor den leeren lords nicht mit eurer hilfe. Wir haben es schon einmal gesehen, und es hat eine bedeutung, die nicht unterschätzt werden kann."
+        "ID": "CommonTips",
+        "Str": "Klicken sie auf den leeren bereich weiter"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "Schnelle atmung mit schmerzvoller gesichtsbehaarung: meine sorge schien richtig gewesen zu sein. Ihr seid einfach zu schwach."
+        "ID": "FastedPassPrefix",
+        "Str": "Pat burton, pat burton."
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Vermisst wird die nummer eins:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Dies ist die siegesbedingung."
     }
 ]

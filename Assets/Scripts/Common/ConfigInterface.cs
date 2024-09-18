@@ -190,6 +190,7 @@ namespace WarGame
         public Enum.Element Element;
         public string TargetDesc;
         public string Icon;
+        public int HeroCount;
     }
 
     //µ–»À±Ì

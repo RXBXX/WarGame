@@ -7,6 +7,7 @@ namespace WarGame
     {
         public EnemyBattleAction(int id, int levelID) : base(id, levelID)
         {
+            Type = Enum.ActionType.EnemyAction;
         }
 
         public override void Dispose(bool save = false)

@@ -6,6 +6,8 @@ namespace WarGame
 {
     public class BattleAction
     {
+        public Enum.ActionType Type;
+
         public int ID;
         protected int _initiatorID
         {
@@ -134,6 +136,11 @@ namespace WarGame
                 return;
             CameraMgr.Instance.Unlock();
             _isLockingCamera = false;
+        }
+
+        public virtual bool CanSkip()
+        {
+            return false;
         }
     }
 }

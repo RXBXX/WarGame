@@ -65,7 +65,8 @@ namespace WarGame
             AudioMgr.Instance.Update(deltaTime);
 
             if (Input.GetKeyDown(KeyCode.A))
-                DialogMgr.Instance.OpenDialog(20003);
+                EventMgr.Instance.TriggerEvent(50);
+                //DialogMgr.Instance.OpenDialog(20003);
         }
 
         public override void LateUpdate()

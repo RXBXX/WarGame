@@ -14,7 +14,7 @@ namespace WarGame
         public ReadyBattleAction(int id, int levelID, LevelData data) : base(id, levelID)
         {
             _levelData = data;
-
+            Type = Enum.ActionType.ReadyAction;
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_ShowReady);
         }
 

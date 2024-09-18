@@ -11,6 +11,7 @@ namespace WarGame
 
         public HeroBattleAction(int id, int levelID) : base(id, levelID)
         {
+            Type = Enum.ActionType.HeroAction;
         }
 
         public override void Dispose(bool save = false)
@@ -376,6 +377,19 @@ namespace WarGame
 
         private void OnClickAttack(object[] args)
         {
+        }
+
+        public override bool CanSkip()
+        {
+            if (0 == _initiatorID)
+                return true;
+            else
+            {
+                var initiator = RoleManager.Instance.GetRole(_initiatorID);
+                if (initiator.GetState() == Enum.RoleState.Waiting)
+                    return true;
+            }
+            return false;
         }
     }
 }

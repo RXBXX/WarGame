@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "Z pomocą swoich towarzyszy w końcu pokonał Władcę Nicości, a świat powrócił do pokoju."
+        "Str": "Po zwycięstwie na kontynencie Emotti nastał nowy świt. Mroczna armia Władcy Pustki została całkowicie pokonana, a cienie ciemności stopniowo się cofnęły, pozostawiając krainę z nową nadzieją. Niegdyś zniszczone wioski są odbudowywane z wytrwałością i jednością, a niegdyś zanieczyszczone lasy i rzeki są odradzane. Chociaż blizny na ziemi są głębokie, nasiona pokoju i dobrobytu zostały ponownie zasiane dzięki wspólnym wysiłkom wszystkich stron."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "Ludzie są pełni bezprecedensowej ufności w przyszłość, a postęp kultury i technologii nie tylko przyspieszył tempo odbudowy, ale także otworzył nową erę. Bohaterowie stali się legendami, inspirując pokolenia do dążenia do odwagi i mądrości. W tej zrewitalizowanej krainie mieszkańcy kontynentu Emotti zmierzają w kierunku bardziej błyskotliwej i harmonijnej przyszłości, podejmując bardziej zdecydowane kroki."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "Historia zapamięta ten moment, jak światło wyszło na jaw w obliczu ciemności i opowie historię tej podróży od chaosu do odrodzenia. W nadchodzących dniach kontynent Emotti będzie nadal pisał swój własny chwalebny rozdział, przeszłe cierpienia staną się drabiną wzrostu, a świt pokoju zawsze będzie rozświetlał tę magiczną krainę."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "(z nutą bólu w oczach szepcze): Mam nadzieję, że rozumiesz mój niepokój, ale jeśli to jest twój wybór, to mogę tylko podjąć ostatni wysiłek dla twojego bezpieczeństwa."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(wzdycha, oczy się mieszają): Przyznam, że jesteś naprawdę silniejszy, niż się spodziewałem. Jednak mimo to nie masz nadziei na zwycięstwo w obliczu Władcy Pustki."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(ocierając pot z czoła, jego ton jest poważny): Mira, nawet z twoją pomocą, wciąż mamy trudności z walką z Panem Nicości. Widzieliśmy to już wcześniej i nie należy tego lekceważyć."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Może to możliwe."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(spogląda czule na swojego towarzysza, wyglądając na podekscytowanego): A więc pracujmy razem, aby sprostać najwyższemu wyzwaniu. Bez względu na to, jak trudne to jest, nie poddamy się. Dla przyszłości tego świata zwyciężymy!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(duszność, bolesna twarz): Wygląda na to, że miałem prawo się martwić. Twoja siła jest dalece niewystarczająca."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "Czy na pewno chcesz zresetować {0}? Spowoduje to wyczyszczenie aktywowanych talentów, zresetowanie poziomu do 1 i zwrócenie wszystkich zasobów."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(wzdycha, oczy się mieszają): Przyznam, że jesteś naprawdę silniejszy, niż się spodziewałem. Jednak mimo to nie masz nadziei na zwycięstwo w obliczu Władcy Pustki."
+        "ID": "FightPanel_SkipTips",
+        "Str": "Proszę, zakończ operację obecnego bohatera!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "(ocierając pot z czoła, jego ton jest poważny): Mira, nawet z twoją pomocą, wciąż mamy trudności z walką z Panem Nicości. Widzieliśmy to już wcześniej i nie należy tego lekceważyć."
+        "ID": "CommonTips",
+        "Str": "Kliknij pusty obszar, aby kontynuować"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "(duszność, bolesna twarz): Wygląda na to, że miałem prawo się martwić. Twoja siła jest dalece niewystarczająca."
+        "ID": "FastedPassPrefix",
+        "Str": "Najszybszy rekord wygranych:"
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Wymagana liczba osób:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Warunki zwycięstwa:"
     }
 ]

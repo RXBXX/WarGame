@@ -680,7 +680,8 @@ namespace WarGame
             if (type != Type)
                 return;
 
-            UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
+            if (!IsSilence())
+                UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
 
             if (!_isAttacking)
             {
@@ -714,7 +715,7 @@ namespace WarGame
 
         public void SetHUDRoleVisible(bool visible)
         {
-            DebugManager.Instance.Log("HUDRoleVisible:"+visible);
+            DebugManager.Instance.Log("HUDRoleVisible:" + visible);
             GetHUDRole().SetVisible(visible);
         }
 
@@ -1061,6 +1062,16 @@ namespace WarGame
         {
             //AudioMgr.Instance.PlaySound(GetConfig().IntoBattleSound);
             EnterState("Cured");
+        }
+
+        private bool IsSilence()
+        {
+            for (int i = 0; i < _data.buffs.Count; i++)
+            {
+                if ((Enum.Buff)_data.buffs[i].id == Enum.Buff.ReduceRage)
+                    return true;
+            }
+            return false;
         }
 
         public override bool Dispose()

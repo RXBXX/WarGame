@@ -261,7 +261,15 @@
     },
     {
         "ID": "StoryConfig_10002001_Context",
-        "Str": "Con la ayuda de sus compañeros, finalmente derrota a los señores de la nada y el mundo vuelve a La Paz."
+        "Str": "Después de la victoria, un nuevo amanecer llegó al continente de emoti. El ejército oscuro de los señores de la nada fue derrotado por completo, y las sombras oscuras se disiparon, dejando a la tierra con una nueva esperanza. Los pueblos en ruinas han comenzado a reconstruirse con tenacidad y solidaridad, y los bosques y ríos que antes habían sido contaminados han vuelto a la vida gracias a la maravilla de la naturaleza. Las heridas de la tierra son profundas, pero gracias a los esfuerzos concertados de todas las fuerzas, las semillas de paz y prosperidad se han vuelto a sembrar."
+    },
+    {
+        "ID": "StoryConfig_10002002_Context",
+        "Str": "Hay una confianza sin precedentes en el futuro. Los avances culturales y tecnológicos no solo aceleraron el ritmo de recuperación, sino que también abrieron nuevos tiempos. Los antiguos héroes se han convertido en leyendas, inspirando a las generaciones a buscar la valentía y la sabiduría. En esta tierra renovada, los habitantes del continente de emoti avanzan con pasos cada vez más firmes hacia un futuro más glorioso y armonioso."
+    },
+    {
+        "ID": "StoryConfig_10002003_Context",
+        "Str": "La historia recordará este momento, grabando cómo la luz llegó en presencia de la oscuridad, y contando esta saga del caos al renacimiento. En los días venideros, el continente de emoti seguirá escribiendo un glorioso capítulo de sí mismo. El sufrimiento de una vez se convertirá en una escala de crecimiento, y el amanecer de La Paz siempre iluminará esta maravillosa tierra."
     },
     {
         "ID": "LevelConfig_10001_Name",
@@ -3428,6 +3436,14 @@
         "Str": "(un poco de dolor en los ojos, murmurando) : espero que entiendan mi intención, pero si esa es su elección, entonces sólo puedo hacer un último esfuerzo por su seguridad."
     },
     {
+        "ID": "DialogConfig_100002001_Context",
+        "Str": "(respiro, miradas mezcladas) : confieso que sois más fuertes de lo que esperaba. Sin embargo, aun así, no tiene ninguna esperanza de victoria frente a los señores de la nada."
+    },
+    {
+        "ID": "DialogConfig_100002002_Context",
+        "Str": "(borrar el sudor de la frente, tono de voz digno) mira, incluso con tu ayuda, nos será difícil luchar contra el Señor De la nada. También hemos visto antes que es poderoso y absolutamente no debe ser subestimado."
+    },
+    {
         "ID": "DialogConfig_100002003_Context",
         "Str": "Tal vez sea posible."
     },
@@ -3462,6 +3478,10 @@
     {
         "ID": "DialogConfig_100002011_Context",
         "Str": "(miren a los compañeros con cariño y se eleven) : entonces, trabajemos juntos para el desafío final. Por difícil que sea, no nos rendiremos. ¡Por el futuro de este mundo, estamos seguros de ganar!"
+    },
+    {
+        "ID": "DialogConfig_100003001_Context",
+        "Str": "(respiración rápida, dolor en la cara) : parece que mis preocupaciones anteriores eran correctas. Sus fuerzas están lejos de ser suficientes."
     },
     {
         "ID": "DialogConfig_100003002_Context",
@@ -4088,15 +4108,23 @@
         "Str": "¿Seguro que quieres restablecer {0}? Esta acción desactiva talento activado, restablece el nivel a 1 y devuelve todos los recursos."
     },
     {
-        "ID": "DialogConfig_100002001_Context",
-        "Str": "(respiro, miradas mezcladas) : confieso que sois más fuertes de lo que esperaba. Sin embargo, aun así, no tiene ninguna esperanza de victoria frente a los señores de la nada."
+        "ID": "FightPanel_SkipTips",
+        "Str": "¡Por favor, termina la operación del héroe actual!"
     },
     {
-        "ID": "DialogConfig_100002002_Context",
-        "Str": "(borrar el sudor de la frente, tono de voz digno) mira, incluso con tu ayuda, nos será difícil luchar contra el Señor De la nada. También hemos visto antes que es poderoso y absolutamente no debe ser subestimado."
+        "ID": "CommonTips",
+        "Str": "Haga clic en un área en blanco para continuar"
     },
     {
-        "ID": "DialogConfig_100003001_Context",
-        "Str": "(respiración rápida, dolor en la cara) : parece que mis preocupaciones anteriores eran correctas. Sus fuerzas están lejos de ser suficientes."
+        "ID": "FastedPassPrefix",
+        "Str": "Récord de victorias más rápidas:"
+    },
+    {
+        "ID": "HeroCountPrefix",
+        "Str": "Número de personas requeridas:"
+    },
+    {
+        "ID": "FightTarget",
+        "Str": "Condiciones para la victoria:"
     }
 ]

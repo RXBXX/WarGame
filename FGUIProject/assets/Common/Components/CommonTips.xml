@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="141,24" pivot="0.5,0.5" anchor="true">
   <displayList>
-    <text id="n0_li0q" name="n0" xy="0,0" size="141,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="Click Empty Continue"/>
+    <text id="n0_li0q" name="txt" xy="0,0" size="141,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" letterSpacing="1" strokeColor="#000000" text="Click Empty Continue"/>
   </displayList>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
     <item time="0" type="Alpha" target="n0_li0q" tween="true" startValue="0" endValue="1" duration="36"/>
