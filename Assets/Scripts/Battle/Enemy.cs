@@ -27,6 +27,8 @@ namespace WarGame
             if (GetEnemyConfig().IsBoss)
                 _gameObject.transform.localScale = _gameObject.transform.localScale * 1.1F;
             _gameObject.tag = Enum.Tag.Enemy.ToString();
+
+            _gameObject.transform.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
         }
 
         protected override int GetHPType()
