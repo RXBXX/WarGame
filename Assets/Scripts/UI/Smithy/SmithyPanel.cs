@@ -19,6 +19,10 @@ namespace WarGame.UI
         private GTextField _name;
         private GTextField _cost;
         private GTextField _desc;
+        private GList _typeList;
+        private List<int> _typesData = new List<int>();
+        private Dictionary<int, bool> _selectedTypes = new Dictionary<int, bool>();
+        private GTextField _ownTxt;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -41,21 +45,27 @@ namespace WarGame.UI
             var forgeBtn = GetGObjectChild<GButton>("buyBtn");
             forgeBtn.title = ConfigMgr.Instance.GetTranslation("SmithyPanel_Forge");
             forgeBtn.onClick.Add(OnClickBuy);
-                
+
             _name = GetGObjectChild<GTextField>("name");
             _cost = GetGObjectChild<GTextField>("costTxt");
             _desc = GetGObjectChild<GTextField>("desc");
+            _typeList = GetGObjectChild<GList>("typeList");
+            _typeList.itemRenderer = OnTypeRenderer;
+            _typeList.onClickItem.Add(OnTypeClick);
+
+            ConfigMgr.Instance.ForeachConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (config) =>
+            {
+                _typesData.Add(config.ID);
+                _selectedTypes.Add(config.ID, true);
+            });
+            _typeList.numItems = _typesData.Count;
+            _typeList.ResizeToFit();
+
+            _ownTxt = GetGObjectChild<GTextField>("ownTxt");
+
+            OnTypesChange();
 
             EventDispatcher.Instance.AddListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
-
-            ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
-            {
-                _equipsData.Add(config.ID);
-            });
-            _equipList.numItems = _equipsData.Count;
-
-            _equipList.selectedIndex = 0;
-            SelectEquip(_equipsData[0]);
         }
 
         public override void Update(float deltaTime)
@@ -95,6 +105,7 @@ namespace WarGame.UI
                 _cost.text = "[color=#CE4A35]" + ownNum + "/" + equipConfig.Cost + "[/color]";
             }
             _desc.text = equipConfig.GetTranslation("Desc");
+            _ownTxt.text = ConfigMgr.Instance.GetTranslation("OwnedPrefix") + DatasMgr.Instance.GetEquipCount(_selectEquip);
         }
 
         private void OnEquipRenderer(int index, GObject item)
@@ -139,12 +150,69 @@ namespace WarGame.UI
             _resComp.UpdateComp(new List<TwoIntPair> {
                 new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
             });
-            UIManager.Instance.OpenPanel("Smithy", "SmithyRewardPanel", new object[] { args[1]});
+            UIManager.Instance.OpenPanel("Smithy", "SmithyRewardPanel", new object[] { args[1] });
         }
 
         private void OnClickClose()
         {
             UIManager.Instance.ClosePanel(name);
+        }
+
+        private void OnTypeRenderer(int index, GObject item)
+        {
+            var btn = ((GButton)item);
+            btn.icon = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", _typesData[index]).Icon;
+            btn.selected = true;
+        }
+
+        private void OnTypeClick(EventContext context)
+        {
+            var item = (GButton)context.data;
+            var index = _typeList.GetChildIndex(item);
+
+            if (item.selected)
+            {
+                _selectedTypes.Add(_typesData[index], true);
+            }
+            else
+            {
+                if (_selectedTypes.Count <= 1)
+                {
+                    item.selected = true;
+                    return;
+                }
+                _selectedTypes.Remove(_typesData[index]);
+            }
+
+            OnTypesChange();
+        }
+
+        private void OnTypesChange()
+        {
+            _equipsData.Clear();
+            ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
+            {
+                if (_selectedTypes.ContainsKey((int)config.Type))
+                    _equipsData.Add(config.ID);
+            });
+            _equipList.numItems = _equipsData.Count;
+
+            if (_equipsData.Contains(_selectEquip))
+            {
+                for (int i = 0; i < _equipsData.Count; i++)
+                {
+                    if (_equipsData[i] == _selectEquip)
+                    {
+                        _equipList.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                _equipList.selectedIndex = 0;
+                SelectEquip(_equipsData[0]);
+            }
         }
 
         public override void Dispose(bool disposeGCom = false)

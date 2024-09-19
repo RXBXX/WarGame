@@ -5,10 +5,20 @@
     <component id="ou4w1y" name="SmithyEquipItem.xml" path="/" exported="true"/>
     <image id="ou4w1" name="HeroPanelBG.png" path="/Previews/"/>
     <image id="kky81z" name="Wand_07.png" path="/Previews/"/>
-    <image id="kky820" name="SmithyItemBG.png" path="/Images/"/>
+    <image id="kky820" name="SmithyItemBG.png" path="/Images/" exported="true"/>
     <component id="kky821" name="SmithyEquipMask.xml" path="/" exported="true"/>
     <component id="vqm022" name="SmithyRewardPanel.xml" path="/" exported="true"/>
     <component id="vqm023" name="SmithyReward.xml" path="/" exported="true"/>
+    <image id="qv0w24" name="Equip_Wand.png" path="/Images/" exported="true"/>
+    <image id="qv0w25" name="Equip_Sword.png" path="/Images/" exported="true"/>
+    <image id="qv0w26" name="Equip_Spear.png" path="/Images/" exported="true"/>
+    <image id="qv0w27" name="Equip_Bow.png" path="/Images/" exported="true"/>
+    <image id="qv0w28" name="Equip_Shield.png" path="/Images/" exported="true"/>
+    <image id="qv0w29" name="Equip_Hammer.png" path="/Images/" exported="true"/>
+    <image id="qv0w2a" name="Equip_Cloak.png" path="/Images/" exported="true"/>
+    <image id="qv0w2b" name="Equip_BigSword.png" path="/Images/" exported="true"/>
+    <image id="qv0w2c" name="Equip_Axe.png" path="/Images/" exported="true"/>
+    <component id="qv0w2d" name="SmithyEquipType.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

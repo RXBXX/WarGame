@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="264,500" pivot="0.5,0.5" extention="Button">
-  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="2"/>
   <displayList>
-    <component id="n29_kky8" name="icon" src="kky821" fileName="SmithyEquipMask.xml" xy="132,250" pivot="0.5,0.5" anchor="true" scale="0.96,0.96">
-      <gearSize controller="button" pages="0,2" values="264,500,0.96,0.96|264,500,0.96,0.96" default="264,500,1,1"/>
+    <component id="n29_kky8" name="icon" src="kky821" fileName="SmithyEquipMask.xml" xy="132,250" pivot="0.5,0.5" anchor="true">
+      <gearSize controller="button" pages="0,2" values="264,500,0.96,0.96|264,500,1,1" default="264,500,1,1"/>
     </component>
     <loader id="n32_t2gc" name="res" xy="80,430" size="22,22" group="n33_t2gc" vAlign="middle" fill="scale" shrinkOnly="true"/>
     <text id="n30_t2gc" name="cost" xy="121,441" pivot="0.5,0.5" anchor="true" size="37,26" group="n33_t2gc" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="Name"/>

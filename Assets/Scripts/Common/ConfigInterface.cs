@@ -100,6 +100,7 @@ namespace WarGame
         public Vector3 Pos;
         public Vector3 Rotation;
         public Vector3 ViceRotation;
+        public string Icon;
     }
 
     // Ù–‘±Ì

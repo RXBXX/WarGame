@@ -110,6 +110,16 @@ namespace WarGame
             return data.itemsDic[itemId];
         }
 
+        public int GetEquipCount(int configID)
+        {
+            var count = 0;
+            foreach (var v in _data.GetUsingRecord().equipDataDic)
+            {
+                if (v.Value.GetConfigID() == configID)
+                    count++;
+            }
+            return count;
+        }
 
         public bool IsLevelOpen(int levelID)
         {
