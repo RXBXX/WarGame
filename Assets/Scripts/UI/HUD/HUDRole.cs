@@ -161,6 +161,11 @@ namespace WarGame.UI
             _hp.value = _hpValue;
         }
 
+        public void SetBoss()
+        {
+            GetGObjectChild<GImage>("boss").visible = true;
+        }
+
         public override void Dispose(bool disposeGComp = false)
         {
             GTween.Kill(_hp);

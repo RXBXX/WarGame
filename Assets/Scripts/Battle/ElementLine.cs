@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace WarGame
 {
@@ -13,9 +14,10 @@ namespace WarGame
         private GameObject _go;
         //private Material _elementMat;
 
-        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.2f)
+        public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.3f)
         {
             _go = new GameObject();
+            _go.AddComponent<SortingGroup>().sortingOrder = 1;
             _lr = _go.AddComponent<LineRenderer>();
             _startPos = startPos;
             _endPos = endPos;
@@ -28,8 +30,9 @@ namespace WarGame
                 _lr.positionCount = segment + 1;
                 _lr.material = mat;
                 _lr.textureMode = LineTextureMode.Tile;
-                _lr.startWidth = 0.2f;
-                _lr.endWidth = 0.2f;
+                _lr.widthCurve = new AnimationCurve(new Keyframe[4] { new Keyframe(0, 0), new Keyframe(0.1f, 0.1F), new Keyframe(0.9F, 0.1f), new Keyframe(1, 0) });
+                //_lr.startWidth = 0.1f;
+                //_lr.endWidth = 0.1f;
                 _lr.material.SetColor("_Color", color);
                 //_lr.textureScale = new Vector2(8, 1);
 

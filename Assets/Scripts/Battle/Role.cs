@@ -3,6 +3,7 @@ using UnityEngine;
 using WarGame.UI;
 using DG.Tweening;
 using FairyGUI;
+using UnityEngine.Rendering;
 
 namespace WarGame
 {
@@ -34,15 +35,13 @@ namespace WarGame
 
         protected Dictionary<Enum.EquipPlace, Equip> _equipDic = new Dictionary<Enum.EquipPlace, Equip>();
 
-        private Vector3 _position;
+        protected Vector3 _position;
 
         public bool DeadFlag = false;
 
         private Dictionary<int, ElementLine> _elementEffectDic = new Dictionary<int, ElementLine>();
 
         private Dictionary<Enum.Buff, List<AssetPair<GameObject>>> _buffEffectDic = new Dictionary<Enum.Buff, List<AssetPair<GameObject>>>();
-
-        private bool _isAttacking = false;
 
         public int ID
         {
@@ -105,9 +104,12 @@ namespace WarGame
             _assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(GetConfig().Prefab, OnCreate);
         }
 
-        protected override void OnCreate(GameObject go)
+        protected override void OnCreate(GameObject prefab)
         {
-            base.OnCreate(go);
+            _gameObject = GameObject.Instantiate(prefab);
+            _gameObject.transform.SetParent(_parent);
+            SmoothNormal();
+
             _gameObject.transform.position = _position;
             _gameObject.transform.localScale = Vector3.one * 0.4F;
             _animator = _gameObject.GetComponent<Animator>();
@@ -205,6 +207,7 @@ namespace WarGame
             var args = new object[] { ID, GetHPType(), GetHP(), GetAttribute(Enum.AttrType.HP), GetRage(), GetAttribute(Enum.AttrType.Rage), GetElement(), _data.buffs };
             var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
             hud.SetHPVisible(true);
+            _hudPoint.AddComponent<SortingGroup>().sortingOrder = 0;
         }
 
         protected virtual int GetHPType()
@@ -285,7 +288,7 @@ namespace WarGame
             _curAnimState = stateName;
         }
 
-        private void EnterState(string stateName)
+        protected void EnterState(string stateName)
         {
             if (!IsCreated())
             {
@@ -323,8 +326,6 @@ namespace WarGame
 
         public virtual void Attack(List<Vector3> hitPoss)
         {
-            _isAttacking = true;
-
             EnterState("Attack");
 
             foreach (var e in _equipDic)
@@ -335,11 +336,8 @@ namespace WarGame
 
         public virtual void Hit(float deltaHP, string hitEffect, int attacker)
         {
-            _isAttacking = true;
-
             if (null != hitEffect)
             {
-                //var prefabPath = "Assets/Prefabs/Effects/CFX_Hit_A Red+RandomText.prefab";
                 AssetsMgr.Instance.LoadAssetAsync<GameObject>(hitEffect, (GameObject prefab) =>
                 {
                     var hitPrefab = GameObject.Instantiate(prefab);
@@ -351,8 +349,6 @@ namespace WarGame
             EnterState("Attacked");
 
             UpdateAttr(Enum.AttrType.HP, -deltaHP);
-
-            //AudioMgr.Instance.PlaySound("Assets/Audios/Hit.mp3");
         }
 
         public virtual void Cure()
@@ -681,14 +677,9 @@ namespace WarGame
             if (!IsSilence())
                 UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
 
-            if (!_isAttacking)
-            {
-                UpdateAttr(Enum.AttrType.HP, GetAttribute(Enum.AttrType.HPRecover));
-            }
+            UpdateAttr(Enum.AttrType.HP, GetAttribute(Enum.AttrType.HPRecover));
 
             ResetState();
-
-            _isAttacking = false;
         }
 
         public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
@@ -850,7 +841,7 @@ namespace WarGame
         /// <summary>
         ///检查是否有元素加成
         /// </summary>
-        private void UpdateElementEffects()
+        protected void UpdateElementEffects()
         {
             var hexagon = MapManager.Instance.GetHexagon(Hexagon);
             foreach (var v in MapManager.Instance.Dicections)
@@ -986,7 +977,7 @@ namespace WarGame
             return true;
         }
 
-        private void InitBuffEffects()
+        protected void InitBuffEffects()
         {
             foreach (var v in _data.buffs)
             {
@@ -1062,7 +1053,7 @@ namespace WarGame
             EnterState("Cured");
         }
 
-        private bool IsSilence()
+        protected bool IsSilence()
         {
             for (int i = 0; i < _data.buffs.Count; i++)
             {

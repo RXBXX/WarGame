@@ -23,28 +23,34 @@ namespace WarGame.UI
             }
         }
 
+        private object[] _args;
         private Dictionary<int, AttrProgressGroup> _roleDic = new Dictionary<int, AttrProgressGroup>();
 
         public FightArenaPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
-            var initiators = (List<int>)args[0];
+            this._args = args;
+
+            EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
+        }
+
+        public override void OnEnable()
+        {
+            var initiators = (List<int>)_args[0];
             for (int i = 0; i < initiators.Count; i++)
             {
                 AddHPProgress(initiators[i], new Vector2(1200 - i * 30, GCom.height));
             }
 
-            if (args.Length > 1)
+            if (_args.Length > 1)
             {
-                var targets = (List<int>)args[1];
+                var targets = (List<int>)_args[1];
                 for (int i = 0; i < targets.Count; i++)
                 {
                     AddHPProgress(targets[i], new Vector2(134 + i * 30, GCom.height));
                 }
             }
 
-            GetGObjectChild<GButton>("tag").title = (string)args[2];
-
-            EventDispatcher.Instance.AddListener(Enum.Event.Role_Attr_Change, OnAttrChange);
+            GetGObjectChild<GButton>("tag").title = (string)_args[2];
         }
 
         private void AddHPProgress(int roleID, Vector2 pos)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="0"/>
-  <controller name="hpVisible" pages="0,,1," selected="1"/>
+  <controller name="hpVisible" pages="0,,1," selected="0"/>
   <controller name="following" pages="0,,1," selected="0"/>
   <displayList>
-    <loader id="n14_yiew" name="element" xy="-35,-6" size="32,32" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
+    <loader id="n14_yiew" name="element" xy="-37,-6" size="32,32" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
     <text id="n3_p3n5" name="id" xy="-3,10" pivot="1,0.5" anchor="true" size="27,39" visible="false" font="ui://hd0z4dz5omu90" fontSize="28" color="#ffffff" align="right" vAlign="middle" strokeColor="#000000" strokeSize="3" text="ID:"/>
     <loader id="n12_h53u" name="state" xy="168,-9" size="30,30" touchable="false" url="ui://hx02grrpnuya27" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
       <gearIcon controller="state" pages="0,1,2,3" values="ui://hx02grrpnuya27|ui://hx02grrpnuya25|ui://hx02grrpnuya26|"/>
@@ -26,6 +26,7 @@
       <ProgressBar value="39" max="100"/>
     </component>
     <component id="n20_ou4w" name="warning" src="1336z1" fileName="HUDWarning.xml" xy="76,-19" pivot="0.369,1" anchor="true" scale="0,0"/>
+    <image id="n21_qv0w" name="boss" src="qv0wzd" fileName="Images/BossIcon.png" xy="-91,-14" size="48,48" visible="false" color="#cf1c00"/>
   </displayList>
   <transition name="warning">
     <item time="0" type="Scale" target="n20_ou4w" tween="true" startValue="0,0" endValue="1,1" duration="6"/>

@@ -99,7 +99,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 40
+                "value": 20
             },
             {
                 "id": 9,
@@ -115,7 +115,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
-        "Cost": 28,
+        "Cost": 18,
         "Desc": "提供物理伤害，并有8%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
@@ -341,7 +341,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 60
+                "value": 30
             },
             {
                 "id": 9,
@@ -357,7 +357,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
-        "Cost": 40,
+        "Cost": 23,
         "Desc": "提供物理伤害，并有10%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
@@ -1125,7 +1125,7 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
-        "Cost": 28,
+        "Cost": 30,
         "Desc": "提供物理伤害，并有8%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
@@ -1159,7 +1159,7 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
-        "Cost": 42,
+        "Cost": 60,
         "Desc": "提供物理伤害，并有12%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
@@ -1193,7 +1193,7 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
-        "Cost": 56,
+        "Cost": 75,
         "Desc": "提供物理伤害，并有16%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
@@ -1227,7 +1227,7 @@
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
-        "Cost": 70,
+        "Cost": 90,
         "Desc": "提供物理伤害，并有20%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
@@ -1241,7 +1241,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 80
+                "value": 100
             },
             {
                 "id": 8,
@@ -1251,14 +1251,14 @@
         "Buffs": [
             {
                 "id": 5,
-                "value": 16
+                "value": 18
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
-        "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
+        "Cost": 66,
+        "Desc": "提供物理伤害，并有18%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1271,7 +1271,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 80
+                "value": 120
             },
             {
                 "id": 8,
@@ -1281,14 +1281,14 @@
         "Buffs": [
             {
                 "id": 5,
-                "value": 16
+                "value": 20
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
-        "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
+        "Cost": 78,
+        "Desc": "提供物理伤害，并有20%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1301,7 +1301,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 80
+                "value": 140
             },
             {
                 "id": 8,
@@ -1311,14 +1311,14 @@
         "Buffs": [
             {
                 "id": 5,
-                "value": 16
+                "value": 22
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
-        "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
+        "Cost": 90,
+        "Desc": "提供物理伤害，并有22%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1331,7 +1331,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 80
+                "value": 160
             },
             {
                 "id": 8,
@@ -1341,14 +1341,14 @@
         "Buffs": [
             {
                 "id": 5,
-                "value": 16
+                "value": 24
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
-        "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
+        "Cost": 110,
+        "Desc": "提供物理伤害，并有24%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1361,7 +1361,7 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 80
+                "value": 180
             },
             {
                 "id": 8,
@@ -1371,14 +1371,14 @@
         "Buffs": [
             {
                 "id": 5,
-                "value": 16
+                "value": 26
             }
         ],
         "Effect": null,
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
-        "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
+        "Cost": 130,
+        "Desc": "提供物理伤害，并有26%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {

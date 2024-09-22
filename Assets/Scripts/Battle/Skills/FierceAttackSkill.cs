@@ -154,7 +154,9 @@ namespace WarGame
                     role.SetLayer(Enum.Layer.Gray);
                     role.SetHUDRoleVisible(true);
                 }
-                role.Preview(- BattleMgr.Instance.GetAttackValue(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, v));
+                var hurt = BattleMgr.Instance.GetAttackValue(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, v);
+                //DebugManager.Instance.Log("Preview:"+ v + "_"+hurt);
+                role.Preview(- hurt);
             }
         }
 

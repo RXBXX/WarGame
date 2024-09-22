@@ -241,6 +241,7 @@ namespace WarGame
             var physicalHurt = Mathf.Max(0, phyAttack - physicalDefense);
             var magicHurt = Mathf.Max(0, magAttack - magicDefense);
 
+            //DebugManager.Instance.Log(targetID + " ŒÔ¿Ì…À∫¶£∫" + physicalHurt + " ƒß∑®…À∫¶£∫" + magicHurt + " Multiply:" + multiply);
             physicalHurt *= multiply;
             magicHurt *= multiply;
 
@@ -254,7 +255,7 @@ namespace WarGame
                 AddReport(initiatorID, Enum.AttrType.PhysicalAttack, phyAttack);
                 AddReport(initiatorID, Enum.AttrType.MagicAttack, magAttack);
             }
-
+            //DebugManager.Instance.Log(physicalHurt + magicHurt);
             return physicalHurt + magicHurt;
         }
 

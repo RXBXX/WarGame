@@ -14,6 +14,7 @@ namespace WarGame
         private List<int> _attackers = new List<int>();
         private List<int> _findedEnemys = new List<int>();
         private Coroutine _coroutine;
+        private bool _isAttacking = false;
 
         public Enemy(LevelRoleData data) : base(data)
         {
@@ -21,14 +22,50 @@ namespace WarGame
             _layer = Enum.Layer.Enemy;
         }
 
-        protected override void OnCreate(GameObject go)
+        protected override void OnCreate(GameObject prefab)
         {
-            base.OnCreate(go);
-            if (GetEnemyConfig().IsBoss)
-                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.1F;
-            _gameObject.tag = Enum.Tag.Enemy.ToString();
+            _gameObject = GameObject.Instantiate(prefab);
+            _gameObject.transform.SetParent(_parent);
+            SmoothNormal();
 
+            _gameObject.transform.position = _position;
+            _gameObject.transform.localScale = Vector3.one * 0.44F;
             _gameObject.transform.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+
+            _animator = _gameObject.GetComponent<Animator>();
+
+            _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
+
+            UpdateRotation(Quaternion.Euler(Vector3.zero));
+            _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
+
+            InitEquips();
+            InitAnimator();
+
+            if (!Application.isPlaying)
+                return;
+
+            CreateHUD();
+
+            OnStateChanged();
+
+            UpdateElementEffects();
+
+            InitBuffEffects();
+
+            EventDispatcher.Instance.PostEvent(Enum.Event.Role_Create_Success, new object[] { ID });
+        }
+
+        protected override void CreateHUD()
+        {
+            base.CreateHUD();
+            if (GetEnemyConfig().IsBoss)
+            {
+                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.2F;
+                var hud = GetHUDRole();
+                hud.SetBoss();
+            }
+            _gameObject.tag = Enum.Tag.Enemy.ToString();
         }
 
         protected override int GetHPType()
@@ -45,11 +82,38 @@ namespace WarGame
             }
         }
 
+
+        public override void Attack(List<Vector3> hitPoss)
+        {
+            _isAttacking = true;
+
+            EnterState("Attack");
+
+            foreach (var e in _equipDic)
+            {
+                e.Value.Attack(hitPoss);
+            }
+        }
+
         public override void Hit(float deltaHP, string hitEffect, int attacker)
         {
             if (0 != attacker)
                 _attackers.Add(attacker);
-            base.Hit(deltaHP, hitEffect, attacker);
+
+            _isAttacking = true;
+            if (null != hitEffect)
+            {
+                AssetsMgr.Instance.LoadAssetAsync<GameObject>(hitEffect, (GameObject prefab) =>
+                {
+                    var hitPrefab = GameObject.Instantiate(prefab);
+                    hitPrefab.transform.position = _gameObject.transform.position + new Vector3(0, 0.8f, 0);
+                });
+            }
+
+            PlaySound("Assets/Audios/Hit.mp3");
+            EnterState("Attacked");
+
+            UpdateAttr(Enum.AttrType.HP, -deltaHP);
         }
 
         /// <summary>
@@ -308,12 +372,29 @@ namespace WarGame
 
         public override void UpdateRound(Enum.RoleType type)
         {
-            base.UpdateRound(type);
+            UpdateBuffs(type);
+
+            if (type != Type)
+                return;
+
+            if (!IsSilence() && _isAttacking)
+                UpdateAttr(Enum.AttrType.Rage, GetAttribute(Enum.AttrType.RageRecover));
+
+            if (!_isAttacking)
+            {
+                UpdateAttr(Enum.AttrType.HP, GetAttribute(Enum.AttrType.HPRecover));
+            }
+
+            ResetState();
+
+
             if (type != Type)
                 return;
 
             _attackers.Clear();
             _findedEnemys.Clear();
+
+            _isAttacking = false;
         }
 
         protected override int GetNextStage()

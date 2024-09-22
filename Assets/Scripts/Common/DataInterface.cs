@@ -692,7 +692,7 @@ namespace WarGame
             rd.AddHero(10001);
             rd.AddHero(10002);
 
-            rd.AddEquip(10015);
+            rd.AddEquip(10016);
             rd.AddEquip(10056);
 
             //rd.AddItem((int)Enum.ItemType.EquipRes, 10000);

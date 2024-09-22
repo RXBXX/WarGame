@@ -366,7 +366,7 @@
         "Equips": [
             10006
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 3,
@@ -437,7 +437,7 @@
         "RoleID": 20003,
         "Level": 3,
         "Equips": null,
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 5,
@@ -622,7 +622,7 @@
         "Equips": [
             10057
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 6,
@@ -652,7 +652,7 @@
         "Equips": [
             10061
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 7,
@@ -842,7 +842,7 @@
             10057,
             10061
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 8,
@@ -1006,7 +1006,7 @@
         "Equips": [
             10029
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 9,
@@ -1077,7 +1077,7 @@
         "RoleID": 20006,
         "Level": 6,
         "Equips": null,
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 11,
@@ -1243,7 +1243,7 @@
         "Equips": [
             10030
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 11,
@@ -1258,7 +1258,7 @@
         "Equips": [
             10022
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 12,
@@ -1286,7 +1286,7 @@
         "RoleID": 20007,
         "Level": 7,
         "Equips": null,
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 13,
@@ -1465,9 +1465,10 @@
         "RoleID": 30011,
         "Level": 1,
         "Equips": [
-            10045
+            10030,
+            10023
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 14,
@@ -1495,7 +1496,7 @@
         "RoleID": 20008,
         "Level": 8,
         "Equips": null,
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 15,
@@ -1674,9 +1675,10 @@
         "RoleID": 30013,
         "Level": 1,
         "Equips": [
-            10046
+            10032,
+            10024
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 16,
@@ -1848,7 +1850,7 @@
         "Equips": [
             10031
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 17,
@@ -1876,7 +1878,7 @@
         "Equips": [
             10031
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 18,
@@ -2063,7 +2065,7 @@
         "Equips": [
             10031
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 19,
@@ -2091,7 +2093,7 @@
         "Equips": [
             10031
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 20,
@@ -2136,7 +2138,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 21,
@@ -2316,7 +2318,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 22,
@@ -2331,7 +2333,7 @@
         "Equips": [
             10004
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 22,
@@ -2361,7 +2363,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 23,
@@ -2556,7 +2558,7 @@
         "Equips": [
             10004
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 24,
@@ -2586,7 +2588,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": true,
+        "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 25,
@@ -2751,7 +2753,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 25,
@@ -2766,7 +2768,7 @@
         "Equips": [
             10015
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 25,
@@ -2781,7 +2783,7 @@
         "Equips": [
             10004
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 26,

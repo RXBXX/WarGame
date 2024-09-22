@@ -24,7 +24,7 @@ namespace WarGame
             lr.textureMode = LineTextureMode.Tile;
             lr.startWidth = 0.04f;
             lr.endWidth = 0.04f;
-            lr.textureScale = new Vector2(4, 1);
+            lr.textureScale = new Vector2(6, 1);
 
             UpdateLine(0);
         }
