@@ -19,6 +19,10 @@
     <loader id="n11_ku3y" name="n11" xy="78,-10" size="22,22" url="ui://hx02grrpkawv2a" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="isPass" pages="1"/>
     </loader>
+    <component id="n13_qv0w" name="n13" src="qv0wk" fileName="MapFight.xml" xy="76,-15">
+      <gearDisplay controller="isPass" pages="0"/>
+      <relation target="" sidePair="center-center"/>
+    </component>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

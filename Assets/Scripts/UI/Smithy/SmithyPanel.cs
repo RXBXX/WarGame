@@ -19,9 +19,6 @@ namespace WarGame.UI
         private GTextField _name;
         private GTextField _cost;
         private GTextField _desc;
-        private GList _typeList;
-        private List<int> _typesData = new List<int>();
-        private Dictionary<int, bool> _selectedTypes = new Dictionary<int, bool>();
         private GTextField _ownTxt;
 
         public SmithyPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
@@ -49,23 +46,12 @@ namespace WarGame.UI
             _name = GetGObjectChild<GTextField>("name");
             _cost = GetGObjectChild<GTextField>("costTxt");
             _desc = GetGObjectChild<GTextField>("desc");
-            _typeList = GetGObjectChild<GList>("typeList");
-            _typeList.itemRenderer = OnTypeRenderer;
-            _typeList.onClickItem.Add(OnTypeClick);
-
-            ConfigMgr.Instance.ForeachConfig<EquipmentTypeConfig>("EquipmentTypeConfig", (config) =>
-            {
-                _typesData.Add(config.ID);
-                _selectedTypes.Add(config.ID, true);
-            });
-            _typeList.numItems = _typesData.Count;
-            _typeList.ResizeToFit();
-
+       
             _ownTxt = GetGObjectChild<GTextField>("ownTxt");
 
-            OnTypesChange();
-
+            OnTypeChange(new object[] { Enum.EquipType.All });
             EventDispatcher.Instance.AddListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
+            EventDispatcher.Instance.AddListener(Enum.Event.EquipTypeChange, OnTypeChange);
         }
 
         public override void Update(float deltaTime)
@@ -158,41 +144,13 @@ namespace WarGame.UI
             UIManager.Instance.ClosePanel(name);
         }
 
-        private void OnTypeRenderer(int index, GObject item)
+        private void OnTypeChange(params object[] args)
         {
-            var btn = ((GButton)item);
-            btn.icon = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", _typesData[index]).Icon;
-            btn.selected = true;
-        }
-
-        private void OnTypeClick(EventContext context)
-        {
-            var item = (GButton)context.data;
-            var index = _typeList.GetChildIndex(item);
-
-            if (item.selected)
-            {
-                _selectedTypes.Add(_typesData[index], true);
-            }
-            else
-            {
-                if (_selectedTypes.Count <= 1)
-                {
-                    item.selected = true;
-                    return;
-                }
-                _selectedTypes.Remove(_typesData[index]);
-            }
-
-            OnTypesChange();
-        }
-
-        private void OnTypesChange()
-        {
+            var equipType = (Enum.EquipType)args[0];
             _equipsData.Clear();
             ConfigMgr.Instance.ForeachConfig<EquipmentConfig>("EquipmentConfig", (config) =>
             {
-                if (_selectedTypes.ContainsKey((int)config.Type))
+                if (equipType == Enum.EquipType.All || equipType == config.Type)
                     _equipsData.Add(config.ID);
             });
             _equipList.numItems = _equipsData.Count;
@@ -218,6 +176,7 @@ namespace WarGame.UI
         public override void Dispose(bool disposeGCom = false)
         {
             EventDispatcher.Instance.RemoveListener(Enum.Event.BuyEquipS2C, OnBuyEquipS2C);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.EquipTypeChange, OnTypeChange);
 
             base.Dispose(disposeGCom);
             foreach (var v in _attrsMap)

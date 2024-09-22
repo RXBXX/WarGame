@@ -123,6 +123,7 @@ namespace WarGame
         [Serializable]
         public enum EquipType
         {
+            All = 0,
             Wand = 1, //∑®’»
             Shield = 2, //∂‹≈∆
             Sword = 3, //Ω£°¢µ∂
@@ -447,6 +448,7 @@ namespace WarGame
             Fight_Drops = 50,
             Language_Changed = 51,
             Fight_ShowReady = 52,
+            EquipTypeChange = 53,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,
