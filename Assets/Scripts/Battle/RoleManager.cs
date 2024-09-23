@@ -13,7 +13,7 @@ namespace WarGame
         {
             for (int i = _roleList.Count - 1; i >= 0; i--)
             {
-                _roleList[i].Update();
+                _roleList[i].Update(deltaTime);
             }
         }
 

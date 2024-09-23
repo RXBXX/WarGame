@@ -183,10 +183,10 @@ namespace WarGame
             {
                 foreach (var v in _chainTargetDic)
                 {
-                    var origon = RoleManager.Instance.GetRole(v.Key).GetEffectPoint();
+                    var origon = RoleManager.Instance.GetRole(v.Key).GetChainPoint();
                     foreach (var v1 in v.Value)
                     {
-                        _chainsDic.Add(v1, new Chain(origon, RoleManager.Instance.GetRole(v1).GetEffectPoint(), mat));
+                        _chainsDic.Add(v1, new Chain(origon, RoleManager.Instance.GetRole(v1).GetChainPoint(), mat));
                     }
                 }
             });

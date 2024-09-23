@@ -243,27 +243,28 @@ namespace WarGame
         }
 
 
-        public virtual void Update()
+        public virtual void Update(float deltaTime)
         {
-            if (null == _gameObject)
-                return;
-
-            if (null == _path || _path.Count <= 0)
-                return;
-
-            var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
-            var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
-
-            if (startHexagon.coor.y != endHexagon.coor.y)
+            if (null != _gameObject && null != _path && _path.Count > 0)
             {
-                EnterState("Jump");
-            }
-            else
-            {
-                EnterState("Move");
+                var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
+                var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
+
+                if (startHexagon.coor.y != endHexagon.coor.y)
+                {
+                    EnterState("Jump");
+                }
+                else
+                {
+                    EnterState("Move");
+                }
+
+                _stateDic[_curAnimState].Update();
             }
 
-            _stateDic[_curAnimState].Update();
+
+            foreach (var v in _elementEffectDic)
+                v.Value.Update(deltaTime);
         }
 
         public virtual bool IsDead()
@@ -818,9 +819,9 @@ namespace WarGame
             return _gameObject.transform.Find("hitPoint").position;
         }
 
-        public GameObject GetEffectPoint()
+        public GameObject GetChainPoint()
         {
-            return _gameObject.transform.Find("hitPoint").gameObject;
+            return _gameObject.transform.Find("root/pelvis/spine_01/spine_02/spine_03/BackpackBone/ChainPoint").gameObject;
         }
 
         public void AddEffects(List<IntFloatPair> effects)
