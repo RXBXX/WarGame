@@ -17,7 +17,7 @@ namespace WarGame
         //private Material _elementMat;
         private bool _started = false;
         private int _step = 0;
-        private float _interval = 0.02F;
+        private float _interval = 0.03F;
         private float _time = 0;
 
         public ElementLine(Vector3 startPos, Vector3 endPos, Color color, int segment = 6, float droop = 0.3f)

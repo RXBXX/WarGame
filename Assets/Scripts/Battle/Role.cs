@@ -916,7 +916,7 @@ namespace WarGame
             if (!linkRole.IsCreated())
                 return;
 
-            var el = new ElementLine(GetEffectPos(), linkRole.GetEffectPos(), CommonParams.GetElementColor(element));
+            var el = new ElementLine(linkRole.GetEffectPos(), GetEffectPos(), CommonParams.GetElementColor(element));
             _elementEffectDic.Add(roleUID, el);
         }
 
