@@ -684,21 +684,59 @@ namespace WarGame
 
         public override Tweener ChangeToArenaSpace(Vector3 pos, float duration)
         {
-            var tweener = base.ChangeToArenaSpace(pos, duration);
+            foreach (var v in _buffEffectDic)
+            {
+                foreach (var v1 in v.Value)
+                    v1.Obj.SetActive(false);
+            }
+
+            SetLayer(Enum.Layer.Gray);
+            var tweener = _gameObject.transform.DOMove(pos, duration);
             tweener.onUpdate = () =>
             {
                 _position = GameObject.transform.position;
             };
+            tweener.onComplete = (()=> {
+                foreach (var v in _buffEffectDic)
+                {
+                    foreach (var v1 in v.Value)
+                    {
+                        var trs = v1.Obj.GetComponentsInChildren<TrailRenderer>();
+                        foreach (var tr in trs)
+                            tr.Clear();
+
+                        v1.Obj.SetActive(true);
+                    }
+                }
+            });
             return tweener;
         }
 
         public override void ChangeToMapSpace()
         {
-            base.ChangeToMapSpace();
+            foreach (var v in _buffEffectDic)
+            {
+                foreach (var v1 in v.Value)
+                    v1.Obj.SetActive(false);
+            }
+
+            RecoverLayer();
 
             var hexagon = MapManager.Instance.GetHexagon(Hexagon);
             var pos = MapTool.Instance.GetPosFromCoor(hexagon.coor) + CommonParams.RoleOffset;
             UpdatePosition(pos);
+
+            foreach (var v in _buffEffectDic)
+            {
+                foreach (var v1 in v.Value)
+                {
+                    var trs = v1.Obj.GetComponentsInChildren<TrailRenderer>();
+                    foreach (var tr in trs)
+                        tr.Clear();
+
+                    v1.Obj.SetActive(true);
+                }
+            }
             //_gameObject.transform.position = pos;
         }
 

@@ -26,6 +26,7 @@ namespace WarGame.UI
         private List<Sequence> _seqList = new List<Sequence>();
         private CommonResComp _resComp;
         private Dictionary<int, float> _attrsDicCache = new Dictionary<int, float>();
+        private GLoader _element;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -60,6 +61,8 @@ namespace WarGame.UI
             _roles = DatasMgr.Instance.GetAllRoles();
             _heroList.numItems = _roles.Count;
             _heroList.selectedIndex = 0;
+
+            _element = GetGObjectChild<GLoader>("element");
 
             GetGObjectChild<GButton>("resetBtn").onClick.Add(OnClickReset);
             SelectHero(0);
@@ -333,7 +336,9 @@ namespace WarGame.UI
             LoadHero(_roles[_roleIndex]);
 
             var role = DatasMgr.Instance.GetRoleData(_roles[_roleIndex]);
-            _name.text = role.GetConfig().GetTranslation("Name");
+            var roleConfig = role.GetConfig();
+            _name.text = roleConfig.GetTranslation("Name");
+            _element.url = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)roleConfig.Element).Icon;
             _proComp.UpdateComp(_roles[_roleIndex]);
         }
 

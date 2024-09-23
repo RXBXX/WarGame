@@ -33,6 +33,7 @@ namespace WarGame.UI
             });
             _typeList.numItems = _typesData.Count;
             _typeList.ResizeToFit();
+            _typeList.selectedIndex = 0;
 
             _fadeIn = GetTransition("fadeIn");
 
@@ -58,6 +59,8 @@ namespace WarGame.UI
 
         private void SelectType(int type)
         {
+            if (_selectedType == type)
+                return;
             _selectedType = type;
             OnTypesChange();
         }

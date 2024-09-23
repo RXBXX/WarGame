@@ -10,8 +10,6 @@ namespace WarGame.UI
         {
             UILayer = Enum.UILayer.PopLayer;
 
-            GetGObjectChild<GGraph>("bg").onClick.Add(OnClickBG);
-
             var heroId = (int)args[0];
             var heroConfig = ConfigMgr.Instance.GetConfig<HeroConfig>("HeroConfig", heroId);
             var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", heroConfig.RoleID);
@@ -22,6 +20,11 @@ namespace WarGame.UI
             GetGObjectChild<GTextField>("desc").text = roleConfig.GetTranslation("Desc");
 
             _callback = (WGArgsCallback)args[1];
+
+            GetTransition("fadeIn").Play(() =>
+            {
+                GetGObjectChild<GGraph>("bg").onClick.Add(OnClickBG);
+            });
         }
 
         private void OnClickBG()
