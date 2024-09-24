@@ -96,8 +96,11 @@ def excel_to_json(excel_file, json_file):
         row = worksheet.row(row_index)
         item = {}
         for col_index, cell in enumerate(row):
-            # 将单元格的值根据类型解析为对应的数据类型
-            item[worksheet.cell_value(0, col_index)] = parse_cell_value(cell)
+            cellValue = worksheet.cell_value(0, col_index)
+            if '*' not in cellValue:
+               key = cellValue.replace('*', '')
+               # 将单元格的值根据类型解析为对应的数据类型
+               item[key] = parse_cell_value(cell)
         data.append(item)
 
     # 将数据写入 JSON 文件

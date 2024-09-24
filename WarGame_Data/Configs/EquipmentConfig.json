@@ -5,7 +5,6 @@
         "Icon": "UI/Icons/Equips/OHS10_Axe",
         "Prefab": "Assets/Prefabs/Equipments/OHS10_Axe.prefab",
         "VicePrefab": null,
-        "Name": "裂空斧",
         "Attrs": [
             {
                 "id": 3,
@@ -26,7 +25,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 35,
-        "Desc": "提供物理伤害，并有10%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -35,7 +33,6 @@
         "Icon": "UI/Icons/Equips/THS01_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS01_Sword.prefab",
         "VicePrefab": null,
-        "Name": "裂天巨剑",
         "Attrs": [
             {
                 "id": 3,
@@ -56,7 +53,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_Blood.prefab",
         "Cost": 35,
-        "Desc": "提供物理伤害，并有10%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -65,7 +61,6 @@
         "Icon": "UI/Icons/Equips/THS02_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS02_Sword.prefab",
         "VicePrefab": null,
-        "Name": "战神巨刃",
         "Attrs": [
             {
                 "id": 3,
@@ -86,7 +81,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_EnemyDeathSkull.prefab",
         "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -95,7 +89,6 @@
         "Icon": "UI/Icons/Equips/Bow_01",
         "Prefab": "Assets/Prefabs/Equipments/Bow_01.prefab",
         "VicePrefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
-        "Name": "风影之弓",
         "Attrs": [
             {
                 "id": 3,
@@ -116,7 +109,6 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
         "Cost": 18,
-        "Desc": "提供物理伤害，并有8%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -125,7 +117,6 @@
         "Icon": "UI/Icons/Equips/Bow_02",
         "Prefab": "Assets/Prefabs/Equipments/Bow_02.prefab",
         "VicePrefab": "Assets/Prefabs/Equipments/Arrow_01.prefab",
-        "Name": "猎鹰之弦",
         "Attrs": [
             {
                 "id": 3,
@@ -146,7 +137,6 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab",
         "Cost": 80,
-        "Desc": "提供物理伤害，并有20%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -155,7 +145,6 @@
         "Icon": "UI/Icons/Equips/Shield15",
         "Prefab": "Assets/Prefabs/Equipments/Shield15.prefab",
         "VicePrefab": null,
-        "Name": "钢铁壁垒",
         "Attrs": [
             {
                 "id": 6,
@@ -167,7 +156,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 30,
-        "Desc": "提供物理防御",
         "Sound": null
     },
     {
@@ -176,7 +164,6 @@
         "Icon": "UI/Icons/Equips/Shield14",
         "Prefab": "Assets/Prefabs/Equipments/Shield14.prefab",
         "VicePrefab": null,
-        "Name": "圣光之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -188,7 +175,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 30,
-        "Desc": "提供物理防御",
         "Sound": null
     },
     {
@@ -197,7 +183,6 @@
         "Icon": "UI/Icons/Equips/OHS04_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS04_Sword.prefab",
         "VicePrefab": null,
-        "Name": "光辉之刃",
         "Attrs": [
             {
                 "id": 3,
@@ -209,7 +194,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX2_WWExplosion_C.prefab",
         "Cost": 30,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -218,7 +202,6 @@
         "Icon": "UI/Icons/Equips/OHS03_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS03_Sword.prefab",
         "VicePrefab": null,
-        "Name": "影袭剑",
         "Attrs": [
             {
                 "id": 3,
@@ -230,7 +213,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Fire_Explosion.prefab",
         "Cost": 30,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -239,7 +221,6 @@
         "Icon": "UI/Icons/Equips/Wand_02",
         "Prefab": "Assets/Prefabs/Equipments/Wand02.prefab",
         "VicePrefab": null,
-        "Name": "冰霜权杖",
         "Attrs": [
             {
                 "id": 4,
@@ -264,7 +245,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_A_Ground.prefab",
         "Cost": 42,
-        "Desc": "提供法术伤害，并有12%的概率降低敌人怒气，持续两回合",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -273,7 +253,6 @@
         "Icon": "UI/Icons/Equips/Wand_01",
         "Prefab": "Assets/Prefabs/Equipments/Wand01.prefab",
         "VicePrefab": null,
-        "Name": "永恒法杖",
         "Attrs": [
             {
                 "id": 4,
@@ -298,7 +277,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Electric_C_Air.prefab",
         "Cost": 34,
-        "Desc": "提供法术伤害，并有24%的概率降低敌人怒气，持续两回合",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -307,7 +285,6 @@
         "Icon": "UI/Icons/Equips/Bow_03",
         "Prefab": "Assets/Prefabs/Equipments/Bow_03.prefab",
         "VicePrefab": "Assets/Prefabs/Equipments/Arrow_03.prefab",
-        "Name": "暗夜追魂",
         "Attrs": [
             {
                 "id": 3,
@@ -328,7 +305,6 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab",
         "Cost": 64,
-        "Desc": "提供物理伤害，并有24%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -337,7 +313,6 @@
         "Icon": "UI/Icons/Equips/Bow_04",
         "Prefab": "Assets/Prefabs/Equipments/Bow_04.prefab",
         "VicePrefab": "Assets/Prefabs/Equipments/Arrow_04.prefab",
-        "Name": "星辰之弓",
         "Attrs": [
             {
                 "id": 3,
@@ -358,7 +333,6 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
         "Cost": 23,
-        "Desc": "提供物理伤害，并有10%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -367,7 +341,6 @@
         "Icon": "UI/Icons/Equips/Bow_05",
         "Prefab": "Assets/Prefabs/Equipments/Bow_05.prefab",
         "VicePrefab": "Assets/Prefabs/Equipments/Arrow_05.prefab",
-        "Name": "月光猎手",
         "Attrs": [
             {
                 "id": 3,
@@ -388,7 +361,6 @@
         "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab",
         "Cost": 70,
-        "Desc": "提供物理伤害，并有20%的概率使敌人中毒，持续两回合",
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -397,7 +369,6 @@
         "Icon": "UI/Icons/Equips/OHS01_Stick",
         "Prefab": "Assets/Prefabs/Equipments/OHS01_Stick.prefab",
         "VicePrefab": null,
-        "Name": "树枝",
         "Attrs": [
             {
                 "id": 3,
@@ -409,7 +380,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
         "Cost": 5,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Stick.mp3"
     },
     {
@@ -418,7 +388,6 @@
         "Icon": "UI/Icons/Equips/OHS02_Niddle",
         "Prefab": "Assets/Prefabs/Equipments/OHS02_Niddle.prefab",
         "VicePrefab": null,
-        "Name": "圣洁之锋",
         "Attrs": [
             {
                 "id": 3,
@@ -430,7 +399,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
         "Cost": 10,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -439,7 +407,6 @@
         "Icon": "UI/Icons/Equips/OHS05_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS05_Sword.prefab",
         "VicePrefab": null,
-        "Name": "夜幕之刃",
         "Attrs": [
             {
                 "id": 3,
@@ -451,7 +418,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
         "Cost": 15,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -460,7 +426,6 @@
         "Icon": "UI/Icons/Equips/OHS06_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS06_Sword.prefab",
         "VicePrefab": null,
-        "Name": "雷霆剑",
         "Attrs": [
             {
                 "id": 3,
@@ -472,7 +437,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
         "Cost": 20,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -481,7 +445,6 @@
         "Icon": "UI/Icons/Equips/OHS07_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS07_Sword.prefab",
         "VicePrefab": null,
-        "Name": "炽焰剑",
         "Attrs": [
             {
                 "id": 3,
@@ -493,7 +456,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
         "Cost": 25,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -502,7 +464,6 @@
         "Icon": "UI/Icons/Equips/OHS08_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS08_Sword.prefab",
         "VicePrefab": null,
-        "Name": "寒冰剑",
         "Attrs": [
             {
                 "id": 3,
@@ -514,7 +475,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
         "Cost": 30,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -523,7 +483,6 @@
         "Icon": "UI/Icons/Equips/OHS09_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS09_Sword.prefab",
         "VicePrefab": null,
-        "Name": "龙牙之剑",
         "Attrs": [
             {
                 "id": 3,
@@ -535,7 +494,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
         "Cost": 35,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -544,7 +502,6 @@
         "Icon": "UI/Icons/Equips/OHS11_Hammer",
         "Prefab": "Assets/Prefabs/Equipments/OHS11_Hammer.prefab",
         "VicePrefab": null,
-        "Name": "雷霆重锤",
         "Attrs": [
             {
                 "id": 3,
@@ -561,7 +518,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
         "Cost": 56,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -570,7 +526,6 @@
         "Icon": "UI/Icons/Equips/OHS12_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS12_Sword.prefab",
         "VicePrefab": null,
-        "Name": "破空剑",
         "Attrs": [
             {
                 "id": 3,
@@ -582,7 +537,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
         "Cost": 45,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -591,7 +545,6 @@
         "Icon": "UI/Icons/Equips/OHS13_Axe",
         "Prefab": "Assets/Prefabs/Equipments/OHS13_Axe.prefab",
         "VicePrefab": null,
-        "Name": "巨神斧",
         "Attrs": [
             {
                 "id": 3,
@@ -612,7 +565,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 70,
-        "Desc": "提供物理伤害，并有20%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -621,7 +573,6 @@
         "Icon": "UI/Icons/Equips/OHS14_Hammer",
         "Prefab": "Assets/Prefabs/Equipments/OHS14_Hammer.prefab",
         "VicePrefab": null,
-        "Name": "山岳之锤",
         "Attrs": [
             {
                 "id": 3,
@@ -638,7 +589,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 77,
-        "Desc": "提供物理伤害，并有22%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -647,7 +597,6 @@
         "Icon": "UI/Icons/Equips/OHS15_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS15_Sword.prefab",
         "VicePrefab": null,
-        "Name": "星耀剑",
         "Attrs": [
             {
                 "id": 3,
@@ -659,7 +608,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
         "Cost": 60,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -668,7 +616,6 @@
         "Icon": "UI/Icons/Equips/OHS16_Sword",
         "Prefab": "Assets/Prefabs/Equipments/OHS16_Sword.prefab",
         "VicePrefab": null,
-        "Name": "烈焰之剑",
         "Attrs": [
             {
                 "id": 3,
@@ -680,7 +627,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
         "Cost": 65,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -689,7 +635,6 @@
         "Icon": "UI/Icons/Equips/Shield01",
         "Prefab": "Assets/Prefabs/Equipments/Shield01.prefab",
         "VicePrefab": null,
-        "Name": "木桩",
         "Attrs": [
             {
                 "id": 6,
@@ -701,7 +646,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 5,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -710,7 +654,6 @@
         "Icon": "UI/Icons/Equips/Shield02",
         "Prefab": "Assets/Prefabs/Equipments/Shield02.prefab",
         "VicePrefab": null,
-        "Name": "不动如山",
         "Attrs": [
             {
                 "id": 6,
@@ -722,7 +665,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 15,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -731,7 +673,6 @@
         "Icon": "UI/Icons/Equips/Shield03",
         "Prefab": "Assets/Prefabs/Equipments/Shield03.prefab",
         "VicePrefab": null,
-        "Name": "光辉护卫",
         "Attrs": [
             {
                 "id": 6,
@@ -743,7 +684,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 20,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -752,7 +692,6 @@
         "Icon": "UI/Icons/Equips/Shield04",
         "Prefab": "Assets/Prefabs/Equipments/Shield04.prefab",
         "VicePrefab": null,
-        "Name": "战神之壁",
         "Attrs": [
             {
                 "id": 6,
@@ -764,7 +703,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 25,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -773,7 +711,6 @@
         "Icon": "UI/Icons/Equips/Shield05",
         "Prefab": "Assets/Prefabs/Equipments/Shield05.prefab",
         "VicePrefab": null,
-        "Name": "苍穹之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -785,7 +722,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 30,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -794,7 +730,6 @@
         "Icon": "UI/Icons/Equips/Shield06",
         "Prefab": "Assets/Prefabs/Equipments/Shield06.prefab",
         "VicePrefab": null,
-        "Name": "荣耀护盾",
         "Attrs": [
             {
                 "id": 6,
@@ -806,7 +741,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 35,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -815,7 +749,6 @@
         "Icon": "UI/Icons/Equips/Shield07",
         "Prefab": "Assets/Prefabs/Equipments/Shield07.prefab",
         "VicePrefab": null,
-        "Name": "铁血防御",
         "Attrs": [
             {
                 "id": 6,
@@ -827,7 +760,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 40,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -836,7 +768,6 @@
         "Icon": "UI/Icons/Equips/Shield08",
         "Prefab": "Assets/Prefabs/Equipments/Shield08.prefab",
         "VicePrefab": null,
-        "Name": "暗影屏障",
         "Attrs": [
             {
                 "id": 6,
@@ -848,7 +779,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 45,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -857,7 +787,6 @@
         "Icon": "UI/Icons/Equips/Shield09",
         "Prefab": "Assets/Prefabs/Equipments/Shield09.prefab",
         "VicePrefab": null,
-        "Name": "王者守护",
         "Attrs": [
             {
                 "id": 6,
@@ -869,7 +798,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -878,7 +806,6 @@
         "Icon": "UI/Icons/Equips/Shield10",
         "Prefab": "Assets/Prefabs/Equipments/Shield10.prefab",
         "VicePrefab": null,
-        "Name": "神圣壁垒",
         "Attrs": [
             {
                 "id": 6,
@@ -890,7 +817,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 65,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -899,7 +825,6 @@
         "Icon": "UI/Icons/Equips/Shield11",
         "Prefab": "Assets/Prefabs/Equipments/Shield11.prefab",
         "VicePrefab": null,
-        "Name": "坚毅之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -911,7 +836,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 60,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -920,7 +844,6 @@
         "Icon": "UI/Icons/Equips/Shield12",
         "Prefab": "Assets/Prefabs/Equipments/Shield12.prefab",
         "VicePrefab": null,
-        "Name": "守护者之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -932,7 +855,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 65,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -941,7 +863,6 @@
         "Icon": "UI/Icons/Equips/Shield13",
         "Prefab": "Assets/Prefabs/Equipments/Shield13.prefab",
         "VicePrefab": null,
-        "Name": "不屈之壁",
         "Attrs": [
             {
                 "id": 6,
@@ -953,7 +874,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 70,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -962,7 +882,6 @@
         "Icon": "UI/Icons/Equips/Shield16",
         "Prefab": "Assets/Prefabs/Equipments/Shield16.prefab",
         "VicePrefab": null,
-        "Name": "雷霆护盾",
         "Attrs": [
             {
                 "id": 6,
@@ -974,7 +893,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 75,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -983,7 +901,6 @@
         "Icon": "UI/Icons/Equips/Shield17",
         "Prefab": "Assets/Prefabs/Equipments/Shield17.prefab",
         "VicePrefab": null,
-        "Name": "烈焰屏障",
         "Attrs": [
             {
                 "id": 6,
@@ -995,7 +912,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 80,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -1004,7 +920,6 @@
         "Icon": "UI/Icons/Equips/Shield18",
         "Prefab": "Assets/Prefabs/Equipments/Shield18.prefab",
         "VicePrefab": null,
-        "Name": "永恒之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -1016,7 +931,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 85,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -1025,7 +939,6 @@
         "Icon": "UI/Icons/Equips/Shield19",
         "Prefab": "Assets/Prefabs/Equipments/Shield19.prefab",
         "VicePrefab": null,
-        "Name": "天命守卫",
         "Attrs": [
             {
                 "id": 6,
@@ -1037,7 +950,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 90,
-        "Desc": "提供物理伤害",
         "Sound": null
     },
     {
@@ -1046,7 +958,6 @@
         "Icon": "UI/Icons/Equips/Shield20",
         "Prefab": "Assets/Prefabs/Equipments/Shield20.prefab",
         "VicePrefab": null,
-        "Name": "破晓之盾",
         "Attrs": [
             {
                 "id": 6,
@@ -1058,7 +969,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 95,
-        "Desc": "提供物理伤害",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1067,7 +977,6 @@
         "Icon": "UI/Icons/Equips/Spear01",
         "Prefab": "Assets/Prefabs/Equipments/Spear01.prefab",
         "VicePrefab": null,
-        "Name": "龙脊长枪",
         "Attrs": [
             {
                 "id": 3,
@@ -1092,7 +1001,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Skull_Explosion.prefab",
         "Cost": 14,
-        "Desc": "提供物理伤害，并有4%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1101,7 +1009,6 @@
         "Icon": "UI/Icons/Equips/Spear02",
         "Prefab": "Assets/Prefabs/Equipments/Spear02.prefab",
         "VicePrefab": null,
-        "Name": "狂战长矛",
         "Attrs": [
             {
                 "id": 3,
@@ -1126,7 +1033,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Drill Air Hit (NO COLLISION).prefab",
         "Cost": 30,
-        "Desc": "提供物理伤害，并有8%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1135,7 +1041,6 @@
         "Icon": "UI/Icons/Equips/Spear03",
         "Prefab": "Assets/Prefabs/Equipments/Spear03.prefab",
         "VicePrefab": null,
-        "Name": "星辰长枪",
         "Attrs": [
             {
                 "id": 3,
@@ -1160,7 +1065,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit B (Orange).prefab",
         "Cost": 60,
-        "Desc": "提供物理伤害，并有12%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1169,7 +1073,6 @@
         "Icon": "UI/Icons/Equips/Spear04",
         "Prefab": "Assets/Prefabs/Equipments/Spear04.prefab",
         "VicePrefab": null,
-        "Name": "烈焰长矛",
         "Attrs": [
             {
                 "id": 3,
@@ -1194,7 +1097,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Paint C (Cyan).prefab",
         "Cost": 75,
-        "Desc": "提供物理伤害，并有16%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1203,7 +1105,6 @@
         "Icon": "UI/Icons/Equips/Spear05",
         "Prefab": "Assets/Prefabs/Equipments/Spear05.prefab",
         "VicePrefab": null,
-        "Name": "冰霜长枪",
         "Attrs": [
             {
                 "id": 3,
@@ -1228,7 +1129,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Hit Pow.prefab",
         "Cost": 90,
-        "Desc": "提供物理伤害，并有20%的概率使敌人陷入流血",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1237,7 +1137,6 @@
         "Icon": "UI/Icons/Equips/THS03_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS03_Sword.prefab",
         "VicePrefab": null,
-        "Name": "震世锋芒",
         "Attrs": [
             {
                 "id": 3,
@@ -1258,7 +1157,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Magic Hit.prefab",
         "Cost": 66,
-        "Desc": "提供物理伤害，并有18%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1267,7 +1165,6 @@
         "Icon": "UI/Icons/Equips/THS04_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS04_Sword.prefab",
         "VicePrefab": null,
-        "Name": "狂怒屠龙剑",
         "Attrs": [
             {
                 "id": 3,
@@ -1288,7 +1185,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX4 Sparks Explosion B.prefab",
         "Cost": 78,
-        "Desc": "提供物理伤害，并有20%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1297,7 +1193,6 @@
         "Icon": "UI/Icons/Equips/THS05_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS05_Sword.prefab",
         "VicePrefab": null,
-        "Name": "无畏战锋",
         "Attrs": [
             {
                 "id": 3,
@@ -1318,7 +1213,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Firework_Trails_Gravity.prefab",
         "Cost": 90,
-        "Desc": "提供物理伤害，并有22%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1327,7 +1221,6 @@
         "Icon": "UI/Icons/Equips/THS06_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS06_Sword.prefab",
         "VicePrefab": null,
-        "Name": "破晓之刃",
         "Attrs": [
             {
                 "id": 3,
@@ -1348,7 +1241,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/CFX_Hit_A Red+RandomText.prefab",
         "Cost": 110,
-        "Desc": "提供物理伤害，并有24%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1357,7 +1249,6 @@
         "Icon": "UI/Icons/Equips/THS07_Sword",
         "Prefab": "Assets/Prefabs/Equipments/THS07_Sword.prefab",
         "VicePrefab": null,
-        "Name": "绝影重剑",
         "Attrs": [
             {
                 "id": 3,
@@ -1378,7 +1269,6 @@
         "Bullet": null,
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 130,
-        "Desc": "提供物理伤害，并有26%的概率使敌人陷入眩晕",
         "Sound": "Assets/Audios/Sword.mp3"
     },
     {
@@ -1387,7 +1277,6 @@
         "Icon": "UI/Icons/Equips/Wand_03",
         "Prefab": "Assets/Prefabs/Equipments/Wand03.prefab",
         "VicePrefab": null,
-        "Name": "星辰法杖",
         "Attrs": [
             {
                 "id": 4,
@@ -1412,7 +1301,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Hit_C White.prefab",
         "Cost": 14,
-        "Desc": "提供法术伤害，并有4%的概率降低敌人怒气",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -1421,7 +1309,6 @@
         "Icon": "UI/Icons/Equips/Wand_04",
         "Prefab": "Assets/Prefabs/Equipments/Wand04.prefab",
         "VicePrefab": null,
-        "Name": "秘法之杖",
         "Attrs": [
             {
                 "id": 4,
@@ -1446,7 +1333,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_MagicPoof.prefab",
         "Cost": 28,
-        "Desc": "提供法术伤害，并有8%的概率降低敌人怒气",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -1455,7 +1341,6 @@
         "Icon": "UI/Icons/Equips/Wand_05",
         "Prefab": "Assets/Prefabs/Equipments/Wand05.prefab",
         "VicePrefab": null,
-        "Name": "远古智慧",
         "Attrs": [
             {
                 "id": 4,
@@ -1480,7 +1365,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Poof.prefab",
         "Cost": 42,
-        "Desc": "提供法术伤害，并有12%的概率降低敌人怒气",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -1489,7 +1373,6 @@
         "Icon": "UI/Icons/Equips/Wand_06",
         "Prefab": "Assets/Prefabs/Equipments/Wand06.prefab",
         "VicePrefab": null,
-        "Name": "幻灵之杖",
         "Attrs": [
             {
                 "id": 4,
@@ -1514,7 +1397,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 56,
-        "Desc": "提供法术伤害，并有16%的概率降低敌人怒气",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -1523,7 +1405,6 @@
         "Icon": "UI/Icons/Equips/Wand_07",
         "Prefab": "Assets/Prefabs/Equipments/Wand07.prefab",
         "VicePrefab": null,
-        "Name": "烈焰法杖",
         "Attrs": [
             {
                 "id": 4,
@@ -1548,7 +1429,6 @@
         "Bullet": "Assets/Prefabs/Effects/CFXR_Electrified_3.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX_Explosion_B_Smoke+Text.prefab",
         "Cost": 70,
-        "Desc": "提供法术伤害，并有20%的概率降低敌人怒气",
         "Sound": "Assets/Audios/Wand.mp3"
     },
     {
@@ -1557,7 +1437,6 @@
         "Icon": "UI/Icons/Equips/Cloak01",
         "Prefab": "Assets/Prefabs/Equipments/Cloak01.prefab",
         "VicePrefab": null,
-        "Name": "星辰披风",
         "Attrs": [
             {
                 "id": 7,
@@ -1569,7 +1448,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 10,
-        "Desc": "提供法术防御",
         "Sound": null
     },
     {
@@ -1578,7 +1456,6 @@
         "Icon": "UI/Icons/Equips/Cloak02",
         "Prefab": "Assets/Prefabs/Equipments/Cloak02.prefab",
         "VicePrefab": null,
-        "Name": "幻影斗篷",
         "Attrs": [
             {
                 "id": 7,
@@ -1590,7 +1467,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 30,
-        "Desc": "提供法术防御",
         "Sound": null
     },
     {
@@ -1599,7 +1475,6 @@
         "Icon": "UI/Icons/Equips/Cloak03",
         "Prefab": "Assets/Prefabs/Equipments/Cloak03.prefab",
         "VicePrefab": null,
-        "Name": "灼热披风",
         "Attrs": [
             {
                 "id": 7,
@@ -1611,7 +1486,6 @@
         "Bullet": null,
         "HitEffect": null,
         "Cost": 50,
-        "Desc": "提供法术防御",
         "Sound": null
     }
 ]

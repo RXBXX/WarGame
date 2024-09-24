@@ -3,8 +3,7 @@
         "ID": 1,
         "Type": 1,
         "Value": 10001,
-        "NextEvents": null,
-        "Desc": "关卡10001开始对话"
+        "NextEvents": null
     },
     {
         "ID": 2,
@@ -14,29 +13,25 @@
             69,
             73,
             71
-        ],
-        "Desc": "关卡10001成功对话"
+        ]
     },
     {
         "ID": 3,
         "Type": 1,
         "Value": 10003,
-        "NextEvents": null,
-        "Desc": "关卡10001失败对话"
+        "NextEvents": null
     },
     {
         "ID": 4,
         "Type": 2,
         "Value": 10002,
-        "NextEvents": null,
-        "Desc": "激活关卡10002"
+        "NextEvents": null
     },
     {
         "ID": 5,
         "Type": 1,
         "Value": 20001,
-        "NextEvents": null,
-        "Desc": "关卡10002开始对话"
+        "NextEvents": null
     },
     {
         "ID": 6,
@@ -45,29 +40,25 @@
         "NextEvents": [
             53,
             8
-        ],
-        "Desc": "关卡10002成功对话"
+        ]
     },
     {
         "ID": 7,
         "Type": 1,
         "Value": 20003,
-        "NextEvents": null,
-        "Desc": "关卡10002失败对话"
+        "NextEvents": null
     },
     {
         "ID": 8,
         "Type": 2,
         "Value": 10003,
-        "NextEvents": null,
-        "Desc": "激活关卡10003"
+        "NextEvents": null
     },
     {
         "ID": 9,
         "Type": 1,
         "Value": 30001,
-        "NextEvents": null,
-        "Desc": "关卡10003开始对话"
+        "NextEvents": null
     },
     {
         "ID": 10,
@@ -76,29 +67,25 @@
         "NextEvents": [
             54,
             12
-        ],
-        "Desc": "关卡10003成功对话"
+        ]
     },
     {
         "ID": 11,
         "Type": 1,
         "Value": 30003,
-        "NextEvents": null,
-        "Desc": "关卡10003失败对话"
+        "NextEvents": null
     },
     {
         "ID": 12,
         "Type": 2,
         "Value": 10004,
-        "NextEvents": null,
-        "Desc": "激活关卡10004"
+        "NextEvents": null
     },
     {
         "ID": 13,
         "Type": 1,
         "Value": 40001,
-        "NextEvents": null,
-        "Desc": "关卡10004开始对话"
+        "NextEvents": null
     },
     {
         "ID": 14,
@@ -107,29 +94,25 @@
         "NextEvents": [
             55,
             16
-        ],
-        "Desc": "关卡10004成功对话"
+        ]
     },
     {
         "ID": 15,
         "Type": 1,
         "Value": 40003,
-        "NextEvents": null,
-        "Desc": "关卡10004失败对话"
+        "NextEvents": null
     },
     {
         "ID": 16,
         "Type": 2,
         "Value": 10005,
-        "NextEvents": null,
-        "Desc": "激活关卡石城-磐土区"
+        "NextEvents": null
     },
     {
         "ID": 17,
         "Type": 1,
         "Value": 50001,
-        "NextEvents": null,
-        "Desc": "关卡10005开始对话"
+        "NextEvents": null
     },
     {
         "ID": 18,
@@ -138,29 +121,25 @@
         "NextEvents": [
             56,
             20
-        ],
-        "Desc": "关卡10005成功对话"
+        ]
     },
     {
         "ID": 19,
         "Type": 1,
         "Value": 50003,
-        "NextEvents": null,
-        "Desc": "关卡10005失败对话"
+        "NextEvents": null
     },
     {
         "ID": 20,
         "Type": 2,
         "Value": 10006,
-        "NextEvents": null,
-        "Desc": "激活关卡石城-厚土区"
+        "NextEvents": null
     },
     {
         "ID": 21,
         "Type": 1,
         "Value": 60001,
-        "NextEvents": null,
-        "Desc": "关卡10006开始对话"
+        "NextEvents": null
     },
     {
         "ID": 22,
@@ -170,29 +149,25 @@
             57,
             58,
             24
-        ],
-        "Desc": "关卡10006成功对话"
+        ]
     },
     {
         "ID": 23,
         "Type": 1,
         "Value": 60003,
-        "NextEvents": null,
-        "Desc": "关卡10006失败对话"
+        "NextEvents": null
     },
     {
         "ID": 24,
         "Type": 2,
         "Value": 10007,
-        "NextEvents": null,
-        "Desc": "激活关卡焱都-烈焰区"
+        "NextEvents": null
     },
     {
         "ID": 25,
         "Type": 1,
         "Value": 70001,
-        "NextEvents": null,
-        "Desc": "关卡10007开始对话"
+        "NextEvents": null
     },
     {
         "ID": 26,
@@ -201,29 +176,25 @@
         "NextEvents": [
             59,
             28
-        ],
-        "Desc": "关卡10007成功对话"
+        ]
     },
     {
         "ID": 27,
         "Type": 1,
         "Value": 70003,
-        "NextEvents": null,
-        "Desc": "关卡10007失败对话"
+        "NextEvents": null
     },
     {
         "ID": 28,
         "Type": 2,
         "Value": 10008,
-        "NextEvents": null,
-        "Desc": "激活关卡焱都-赤光区"
+        "NextEvents": null
     },
     {
         "ID": 29,
         "Type": 1,
         "Value": 80001,
-        "NextEvents": null,
-        "Desc": "关卡10008开始对话"
+        "NextEvents": null
     },
     {
         "ID": 30,
@@ -233,29 +204,25 @@
             60,
             61,
             32
-        ],
-        "Desc": "关卡10008成功对话"
+        ]
     },
     {
         "ID": 31,
         "Type": 1,
         "Value": 80003,
-        "NextEvents": null,
-        "Desc": "关卡10008失败对话"
+        "NextEvents": null
     },
     {
         "ID": 32,
         "Type": 2,
         "Value": 10009,
-        "NextEvents": null,
-        "Desc": "激活关卡耀都-辉煌区"
+        "NextEvents": null
     },
     {
         "ID": 33,
         "Type": 1,
         "Value": 90001,
-        "NextEvents": null,
-        "Desc": "关卡10009开始对话"
+        "NextEvents": null
     },
     {
         "ID": 34,
@@ -265,29 +232,25 @@
             62,
             63,
             36
-        ],
-        "Desc": "关卡10009成功对话"
+        ]
     },
     {
         "ID": 35,
         "Type": 1,
         "Value": 90003,
-        "NextEvents": null,
-        "Desc": "关卡10009失败对话"
+        "NextEvents": null
     },
     {
         "ID": 36,
         "Type": 2,
         "Value": 10010,
-        "NextEvents": null,
-        "Desc": "激活关卡耀都-铸造区"
+        "NextEvents": null
     },
     {
         "ID": 37,
         "Type": 1,
         "Value": 100001,
-        "NextEvents": null,
-        "Desc": "关卡10010开始对话"
+        "NextEvents": null
     },
     {
         "ID": 38,
@@ -297,29 +260,25 @@
             64,
             65,
             40
-        ],
-        "Desc": "关卡10010成功对话"
+        ]
     },
     {
         "ID": 39,
         "Type": 1,
         "Value": 100003,
-        "NextEvents": null,
-        "Desc": "关卡10010失败对话"
+        "NextEvents": null
     },
     {
         "ID": 40,
         "Type": 2,
         "Value": 10011,
-        "NextEvents": null,
-        "Desc": "激活关卡寂渊-暗影区"
+        "NextEvents": null
     },
     {
         "ID": 41,
         "Type": 1,
         "Value": 110001,
-        "NextEvents": null,
-        "Desc": "关卡10011开始对话"
+        "NextEvents": null
     },
     {
         "ID": 42,
@@ -329,29 +288,25 @@
             74,
             75,
             44
-        ],
-        "Desc": "关卡10011成功对话"
+        ]
     },
     {
         "ID": 43,
         "Type": 1,
         "Value": 110003,
-        "NextEvents": null,
-        "Desc": "关卡10011失败对话"
+        "NextEvents": null
     },
     {
         "ID": 44,
         "Type": 2,
         "Value": 10012,
-        "NextEvents": null,
-        "Desc": "激活关卡寂渊-幽谷区"
+        "NextEvents": null
     },
     {
         "ID": 45,
         "Type": 1,
         "Value": 120001,
-        "NextEvents": null,
-        "Desc": "关卡10012开始对话"
+        "NextEvents": null
     },
     {
         "ID": 46,
@@ -360,29 +315,25 @@
         "NextEvents": [
             76,
             48
-        ],
-        "Desc": "关卡10012成功对话"
+        ]
     },
     {
         "ID": 47,
         "Type": 1,
         "Value": 120003,
-        "NextEvents": null,
-        "Desc": "关卡10012失败对话"
+        "NextEvents": null
     },
     {
         "ID": 48,
         "Type": 2,
         "Value": 10013,
-        "NextEvents": null,
-        "Desc": "激活关卡寂渊-深渊区"
+        "NextEvents": null
     },
     {
         "ID": 49,
         "Type": 1,
         "Value": 130001,
-        "NextEvents": null,
-        "Desc": "关卡10013开始对话"
+        "NextEvents": null
     },
     {
         "ID": 50,
@@ -390,120 +341,103 @@
         "Value": 130002,
         "NextEvents": [
             77
-        ],
-        "Desc": "关卡10013成功对话"
+        ]
     },
     {
         "ID": 51,
         "Type": 1,
         "Value": 130003,
-        "NextEvents": null,
-        "Desc": "关卡10013失败对话"
+        "NextEvents": null
     },
     {
         "ID": 52,
         "Type": 1,
         "Value": 0,
-        "NextEvents": null,
-        "Desc": "通关对话"
+        "NextEvents": null
     },
     {
         "ID": 53,
         "Type": 3,
         "Value": 10005,
-        "NextEvents": null,
-        "Desc": "激活英雄伊森"
+        "NextEvents": null
     },
     {
         "ID": 54,
         "Type": 3,
         "Value": 10006,
-        "NextEvents": null,
-        "Desc": "激活英雄艾登"
+        "NextEvents": null
     },
     {
         "ID": 55,
         "Type": 3,
         "Value": 10007,
-        "NextEvents": null,
-        "Desc": "激活英雄费恩"
+        "NextEvents": null
     },
     {
         "ID": 56,
         "Type": 3,
         "Value": 10008,
-        "NextEvents": null,
-        "Desc": "激活英雄霍克"
+        "NextEvents": null
     },
     {
         "ID": 57,
         "Type": 3,
         "Value": 10009,
-        "NextEvents": null,
-        "Desc": "激活英雄加雷斯"
+        "NextEvents": null
     },
     {
         "ID": 58,
         "Type": 3,
         "Value": 10010,
-        "NextEvents": null,
-        "Desc": "激活英雄贾斯汀"
+        "NextEvents": null
     },
     {
         "ID": 59,
         "Type": 3,
         "Value": 10011,
-        "NextEvents": null,
-        "Desc": "激活英雄凯恩"
+        "NextEvents": null
     },
     {
         "ID": 60,
         "Type": 3,
         "Value": 10012,
-        "NextEvents": null,
-        "Desc": "激活英雄利安"
+        "NextEvents": null
     },
     {
         "ID": 61,
         "Type": 3,
         "Value": 10013,
-        "NextEvents": null,
-        "Desc": "激活英雄马库斯"
+        "NextEvents": null
     },
     {
         "ID": 62,
         "Type": 3,
         "Value": 10014,
-        "NextEvents": null,
-        "Desc": "激活英雄奥利弗"
+        "NextEvents": null
     },
     {
         "ID": 63,
         "Type": 3,
         "Value": 10015,
-        "NextEvents": null,
-        "Desc": "激活英雄薇拉"
+        "NextEvents": null
     },
     {
         "ID": 64,
         "Type": 3,
         "Value": 10016,
-        "NextEvents": null,
-        "Desc": "激活英雄米拉"
+        "NextEvents": null
     },
     {
         "ID": 65,
         "Type": 3,
         "Value": 10017,
-        "NextEvents": null,
-        "Desc": "激活英雄莉娜"
+        "NextEvents": null
     },
     {
         "ID": 66,
         "Type": 5,
         "Value": 67,
-        "NextEvents": null,
-        "Desc": "设置地图事件"
+        "NextEvents": null
     },
     {
         "ID": 67,
@@ -511,36 +445,31 @@
         "Value": 200001,
         "NextEvents": [
             68
-        ],
-        "Desc": "智者对话"
+        ]
     },
     {
         "ID": 68,
         "Type": 2,
         "Value": 10001,
-        "NextEvents": null,
-        "Desc": "激活关卡10001"
+        "NextEvents": null
     },
     {
         "ID": 69,
         "Type": 3,
         "Value": 10003,
-        "NextEvents": null,
-        "Desc": "激活英雄卡尔文"
+        "NextEvents": null
     },
     {
         "ID": 70,
         "Type": 3,
         "Value": 10021,
-        "NextEvents": null,
-        "Desc": "激活英雄西蒙"
+        "NextEvents": null
     },
     {
         "ID": 71,
         "Type": 5,
         "Value": 72,
-        "NextEvents": null,
-        "Desc": "设置地图事件"
+        "NextEvents": null
     },
     {
         "ID": 72,
@@ -549,49 +478,42 @@
         "NextEvents": [
             70,
             4
-        ],
-        "Desc": "带回达尔文后和智者对话"
+        ]
     },
     {
         "ID": 73,
         "Type": 3,
         "Value": 10003,
-        "NextEvents": null,
-        "Desc": "激活英雄德里克"
+        "NextEvents": null
     },
     {
         "ID": 74,
         "Type": 3,
         "Value": 10018,
-        "NextEvents": null,
-        "Desc": "激活英雄菲力克斯"
+        "NextEvents": null
     },
     {
         "ID": 75,
         "Type": 3,
         "Value": 10020,
-        "NextEvents": null,
-        "Desc": "激活英雄瑞安"
+        "NextEvents": null
     },
     {
         "ID": 76,
         "Type": 3,
         "Value": 10022,
-        "NextEvents": null,
-        "Desc": "激活英雄托马斯"
+        "NextEvents": null
     },
     {
         "ID": 77,
         "Type": 4,
         "Value": 10002,
-        "NextEvents": null,
-        "Desc": "通关故事"
+        "NextEvents": null
     },
     {
         "ID": 78,
         "Type": 7,
         "Value": 1,
-        "NextEvents": null,
-        "Desc": "击杀敌人获得奖励"
+        "NextEvents": null
     }
 ]
