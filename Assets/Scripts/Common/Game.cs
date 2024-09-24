@@ -12,6 +12,7 @@ namespace WarGame
             //DebugManager.Instance.Log("Game.Init");
             base.Init();
 
+            AssetsMgr.Instance.Init();
             TimeMgr.Instance.Init();
             DebugManager.Instance.Init();
             EventDispatcher.Instance.Init();
@@ -124,6 +125,7 @@ namespace WarGame
             DebugManager.Instance.Dispose();
             TimeMgr.Instance.Dispose();
             AudioMgr.Instance.Dispose();
+            AssetsMgr.Instance.Dispose();
 
             System.GC.Collect();
             return base.Dispose();

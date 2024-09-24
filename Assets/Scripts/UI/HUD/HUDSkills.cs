@@ -20,10 +20,10 @@ namespace WarGame.UI
             _skill2.onClick.Add(() => { ClickSkill(_specialSkill); });
         }
 
-        public void UpdateComp(object[] args)
+        public void UpdateComp(int commonSkill, int specialSkill, bool rageFilled)
         {
-            _commonSkill = (int)args[0];
-            _specialSkill = (int)args[1];
+            _commonSkill = commonSkill;
+            _specialSkill = specialSkill;
 
             _skill1.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _commonSkill).GetTranslation("Name");
             if (0 == _specialSkill)
@@ -36,7 +36,6 @@ namespace WarGame.UI
                 _skill2.title = ConfigMgr.Instance.GetConfig<SkillConfig>("SkillConfig", _specialSkill).GetTranslation("Name");
             }
 
-            var rageFilled = (bool)args[2];
             _skill2.grayed = !rageFilled;
             _skill2.touchable = rageFilled;
         }

@@ -33,6 +33,9 @@ namespace WarGame.UI
         
         protected virtual void UpdatePosition()
         {
+            if (null == _gameObject)
+                return;
+
             var pos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(_gameObject.transform.position);
             pos.y = Screen.height - pos.y;
             pos = GRoot.inst.GlobalToLocal(pos) + _offset;// new Vector2(pos.x / Screen.width * GRoot.inst.width, (Screen.height - pos.y) / Screen.height * GRoot.inst.height) + _offset;

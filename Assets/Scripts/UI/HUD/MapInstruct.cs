@@ -6,6 +6,8 @@ namespace WarGame.UI
     public class HUDInstruct : HUD
     {
         private Controller _stateC;
+        private HUDSkills _skills;
+
         public HUDInstruct(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
             var idleBtn = _gCom.GetChild("idleBtn");
@@ -17,8 +19,24 @@ namespace WarGame.UI
             cancelBtn.onClick.Add(Cancel);
             attackBtn.onClick.Add(Attack);
 
-            GetChild<HUDSkills>("skills").UpdateComp(args);
+            _skills = GetChild<HUDSkills>("skills");
             EventDispatcher.Instance.AddListener(Enum.Event.HUDInstruct_Click_Skill, OnAttackEvent);
+        }
+
+
+        public void OpenInstruct(GameObject go, int commonSkill, int specialSkill, bool rageFilled)
+        {
+            if (null != go)
+                _gameObject = go;
+
+            _skills.UpdateComp(commonSkill, specialSkill, rageFilled);
+            SetVisible(true);
+        }
+
+        public void CloseInstruct()
+        {
+            _gameObject = null;
+            SetVisible(false);
         }
 
 
@@ -55,8 +73,11 @@ namespace WarGame.UI
             _stateC.SetSelectedIndex(2);
         }
 
-        protected override void UpdatePosition()
+        protected override void UpdatePosition() 
         {
+            if (null == _gameObject)
+                return;
+
             var pos = CameraMgr.Instance.MainCamera.WorldToScreenPoint(_gameObject.transform.position);
             pos.y = Screen.height - pos.y;
             pos = GRoot.inst.GlobalToLocal(pos) + _offset;// new Vector2(pos.x / Screen.width * GRoot.inst.width, (Screen.height - pos.y) / Screen.height * GRoot.inst.height) + _offset;

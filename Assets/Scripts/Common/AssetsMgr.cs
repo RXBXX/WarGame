@@ -55,6 +55,8 @@ namespace WarGame
 
         private Dictionary<int, LoadHandle> _operationDic = new Dictionary<int, LoadHandle>();
 
+        private GameObject _assetsPoolRoot;
+
 
         //        /// <summary>
         //        /// 加载资源
@@ -87,6 +89,14 @@ namespace WarGame
 
         //            return 0;
         //        }
+
+        public override bool Init()
+        {
+            _assetsPoolRoot = new GameObject();
+            _assetsPoolRoot.name = "AssetsPool";
+            GameObject.DontDestroyOnLoad(_assetsPoolRoot);
+            return true;
+        }
 
         /// <summary>
         /// 加载资源
@@ -172,8 +182,13 @@ namespace WarGame
 
         public void Destroy<T>(T go) where T : Object
         {
-            GameObject.DontDestroyOnLoad(go);
+            //GameObject.DontDestroyOnLoad(go);
             GameObject.Destroy(go);
+            //var tempGO = go as GameObject;
+            //tempGO.transform.parent = _assetsPoolRoot.transform;
+            //tempGO.SetActive(false);
+            //DebugManager.Instance.Log(typeof(T));
+            //DebugManager.Instance.Log(typeof(GameObject));
         }
 
         public void UnloadUnusedAssets()

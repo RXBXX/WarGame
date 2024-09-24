@@ -449,6 +449,8 @@ namespace WarGame
             Language_Changed = 51,
             Fight_ShowReady = 52,
             EquipTypeChange = 53,
+            Fight_OpenInstruct = 54,
+            Fight_CloseInstruct = 55,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

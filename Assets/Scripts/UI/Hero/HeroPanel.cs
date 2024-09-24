@@ -490,7 +490,7 @@ namespace WarGame.UI
 
             foreach (var v in _rolesGO)
             {
-                GameObject.Destroy(v.Value);
+                AssetsMgr.Instance.Destroy(v.Value);
             }
             _rolesGO.Clear();
             _roles = null;

@@ -6,16 +6,15 @@ namespace WarGame.UI
 {
     public class HeroTalentComp : UIBase
     {
-        private List<HeroTalentItem> _talents = new List<HeroTalentItem>();
+        private Dictionary<int, HeroTalentItem> _talentsDic = new Dictionary<int, HeroTalentItem>();
 
         public HeroTalentComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
+            Init();
         }
 
-        public void UpdateComp(int heroUID, List<int> talents = null)
+        private void Init()
         {
-            ClearTalents();
-
             Dictionary<int, int> talentColumns = new Dictionary<int, int>();
             ConfigMgr.Instance.ForeachConfig<TalentConfig>("TalentConfig", (config) =>
             {
@@ -41,8 +40,16 @@ namespace WarGame.UI
                 ui.SetParent(GCom);
 
                 ui.SetPosition(new Vector2(70 + line * 100, 50 + column * 110));
-                ui.UpdateItem(heroUID, config.ID);
-                _talents.Add(ui);
+                //ui.UpdateItem(heroUID, config.ID);
+                _talentsDic.Add(config.ID, ui);
+            });
+        }
+
+        public void UpdateComp(int heroUID)
+        {
+            ConfigMgr.Instance.ForeachConfig<TalentConfig>("TalentConfig", (config) =>
+            {
+                _talentsDic[config.ID].UpdateItem(heroUID, config.ID);
             });
 
             _gCom.EnsureBoundsCorrect();
@@ -50,23 +57,18 @@ namespace WarGame.UI
 
         public void ActiveTalent(int talentID)
         {
-            foreach (var v in _talents)
-            {
-                if (v.GetID() == talentID)
-                {
-                    v.Active();
-                    break;
-                }
-            }
+            if (!_talentsDic.ContainsKey(talentID))
+                return;
+            _talentsDic[talentID].Active();
         }
 
         private void ClearTalents()
         {
-            foreach (var v in _talents)
+            foreach (var v in _talentsDic)
             {
-                v.Dispose();
+                v.Value.Dispose();
             }
-            _talents.Clear();
+            _talentsDic.Clear();
         }
 
         public override void Dispose(bool disposeGCom = false)

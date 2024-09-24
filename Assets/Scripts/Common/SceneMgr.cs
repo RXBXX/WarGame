@@ -38,7 +38,7 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            GameObject.Destroy(_heroScene);
+            AssetsMgr.Instance.Destroy(_heroScene);
             AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
 
             DestroyBattleFiled();
@@ -168,10 +168,12 @@ namespace WarGame
 
         public void CloseHeroScene()
         {
-            GameObject.Destroy(_heroScene);
+            //UnityEngine.Profiling.Profiler.BeginSample("Hero");
+            AssetsMgr.Instance.Destroy(_heroScene);
             AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
             UIManager.Instance.ClosePanel("HeroPanel");
             HUDManager.Instance.SetVisible(true);
+            //UnityEngine.Profiling.Profiler.EndSample();
         }
 
         public Transform GetHeroRoot()

@@ -24,7 +24,7 @@ namespace WarGame.UI
             }
         }
 
-        public T AddHUD<T>(string packageName, string compName, string customName, GameObject go, object[] args = null) where T:HUD
+        public T AddHUD<T>(string packageName, string compName, string customName, GameObject go = null, object[] args = null) where T:HUD
         {
             var ui = UIManager.Instance.CreateUI<T>(packageName, compName, args);
             ui.name = customName;

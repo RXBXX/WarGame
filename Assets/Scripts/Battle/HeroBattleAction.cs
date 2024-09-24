@@ -222,11 +222,13 @@ namespace WarGame
         {
             var role = RoleManager.Instance.GetRole(_initiatorID);
             var specialSkill = role.GetConfig().SpecialSkill;
-            HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
-            role.GetConfig().CommonSkill,
-            specialSkill,
-            BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill)
-            });
+            //HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom", role.HUDPoint, new object[] {
+            //role.GetConfig().CommonSkill,
+            //specialSkill,
+            //BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill)
+            //});
+            var rageFilled = BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_OpenInstruct, new object[] {role.HUDPoint, role.GetConfig().CommonSkill, specialSkill, rageFilled});
         }
 
         /// <summary>
@@ -234,7 +236,8 @@ namespace WarGame
         /// </summary>
         private void CloseInstruct()
         {
-            HUDManager.Instance.RemoveHUD("HUDInstruct_Custom");
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_CloseInstruct);
+            //HUDManager.Instance.RemoveHUD("HUDInstruct_Custom");
         }
 
         /// <summary>

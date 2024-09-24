@@ -28,6 +28,7 @@ namespace WarGame
         private List<Sequence> _sequences = new List<Sequence>();
         private List<GameObject> _gos = new List<GameObject>();
         private LevelMapPlugin _levelPlugin;
+        private string _instructKey = "HUDInstruct_Custom";
         //public long startTime;
 
         public BattleField(int levelID, bool restart)
@@ -39,6 +40,8 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_OpenInstruct, OnOpenInstruct);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_CloseInstruct, OnCloseInstruct);
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
@@ -187,6 +190,8 @@ namespace WarGame
 
             CameraMgr.Instance.StopFloatPoint();
 
+            HUDManager.Instance.RemoveHUD(_instructKey);
+
             if (null != weather)
             {
                 weather.Dispose();
@@ -230,6 +235,8 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HP, OnShowHP);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Close_HP, OnCloseHP);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_OpenInstruct, OnOpenInstruct);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_CloseInstruct, OnCloseInstruct);
         }
 
         private IEnumerator OnLoad()
@@ -816,6 +823,22 @@ namespace WarGame
                 });
                 _assets.Add(assetID);
             }
+        }
+
+        private void OnOpenInstruct(params object[] args)
+        {
+            var instruct = HUDManager.Instance.GetHUD<HUDInstruct>(_instructKey);
+            if(null == instruct)
+                instruct = HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom");
+            instruct.OpenInstruct((GameObject)args[0], (int)args[1], (int)args[2], (bool)args[3]);
+        }
+
+        private void OnCloseInstruct(params object[] args)
+        {
+            var instruct = HUDManager.Instance.GetHUD<HUDInstruct>(_instructKey);
+            if (null == instruct)
+                return;
+            instruct.CloseInstruct();
         }
     }
 }
