@@ -40,7 +40,7 @@ namespace WarGame.UI
                 var ui = UIManager.Instance.CreateUI<HeroTalentItem>("Hero", "HeroTalentItem");
                 ui.SetParent(GCom);
 
-                ui.SetPosition(new Vector2(70 + line * 150, 40 + column * 60));
+                ui.SetPosition(new Vector2(70 + line * 100, 50 + column * 110));
                 ui.UpdateItem(heroUID, config.ID);
                 _talents.Add(ui);
             });

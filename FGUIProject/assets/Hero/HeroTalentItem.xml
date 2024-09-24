@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="120,46" pivot="0.5,0.5" anchor="true">
+<component size="64,84" pivot="0.5,0.5" anchor="true" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
-    <image id="n12_o71h" name="n12" src="o71h21" fileName="Images/Talent.png" xy="0,0" size="120,46">
-      <relation target="" sidePair="width-width,height-height"/>
-    </image>
-    <text id="n6_li0q" name="title" xy="59,13" pivot="0.5,0.5" anchor="true" size="107,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffb500" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" autoClearText="true" text="1111111111111111"/>
-    <text id="n7_o71h" name="level" xy="59,34" pivot="0.5,0.5" anchor="true" size="21,21" font="ui://hd0z4dz5omu90" fontSize="14" color="#ffb500" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="Lv.1">
-      <relation target="" sidePair="center-center,middle-middle"/>
-    </text>
-    <graph id="n10_o71h" name="n10" xy="120,22" size="40,2" type="rect" lineSize="0" fillColor="#ffffb500">
+    <graph id="n10_o71h" name="line" xy="62,30" size="40,4" type="rect" fillColor="#ffffa200">
       <relation target="" sidePair="left-right"/>
     </graph>
-    <graph id="n11_o71h" name="n11" xy="10,25" size="99,1" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="width-width,middle-middle"/>
-    </graph>
+    <graph id="n16_anzf" name="n16" xy="31,32" pivot="0.5,0.5" anchor="true" size="62,63" type="eclipse" lineSize="0" fillColor="#ff666666"/>
+    <loader id="n14_anzf" name="icon" xy="32,33" pivot="0.5,0.5" anchor="true" size="48,48" url="ui://ubnp7phxanzf22" align="center" vAlign="middle" fill="scale"/>
+    <image id="n15_anzf" name="n15" src="t2gc2t" fileName="Images/Skills_Frame.png" pkg="hx02grrp" xy="32,33" pivot="0.5,0.5" anchor="true" size="64,64"/>
+    <text id="n6_li0q" name="title" xy="32,73" pivot="0.5,0.5" anchor="true" size="107,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" strokeColor="#000000" autoClearText="true" text="1111111111111111"/>
+    <text id="n18_anzf" name="level" xy="32,32" pivot="0.5,0.5" anchor="true" size="31,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="1111111"/>
   </displayList>
-  <transition name="active"/>
+  <Button downEffect="scale" downEffectValue=".95"/>
+  <transition name="active">
+    <item time="0" type="Scale" target="n14_anzf" tween="true" startValue="1,1" endValue="2,2" duration="3" ease="Quart.Out"/>
+    <item time="0" type="Scale" target="n15_anzf" tween="true" startValue="1,1" endValue="2,2" duration="3" ease="Quart.Out"/>
+    <item time="0" type="Scale" target="n16_anzf" tween="true" startValue="1,1" endValue="2,2" duration="3" ease="Quart.Out"/>
+    <item time="3" type="Scale" target="n14_anzf" tween="true" startValue="2,2" endValue="1,1" duration="4" ease="Quart.In"/>
+    <item time="3" type="Scale" target="n15_anzf" tween="true" startValue="2,2" endValue="1,1" duration="4" ease="Quart.In"/>
+    <item time="3" type="Scale" target="n16_anzf" tween="true" startValue="2,2" endValue="1,1" duration="4" ease="Quart.In"/>
+    <item time="9" type="Scale" target="n10_o71h" tween="true" startValue="0,1" endValue="1,1" duration="7" ease="Quart.Out"/>
+  </transition>
 </component>

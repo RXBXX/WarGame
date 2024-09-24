@@ -227,6 +227,7 @@ namespace WarGame
         public int LastTalent;
         public int Cost;
         public int Level;
+        public string Icon;
     }
 
     //στ»π±ν
