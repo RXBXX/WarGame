@@ -916,6 +916,7 @@ namespace WarGame
             if (!linkRole.IsCreated())
                 return;
 
+            PlaySound("Assets/Audios/PowerLine.mp3");
             var el = new ElementLine(linkRole.GetEffectPos(), GetEffectPos(), CommonParams.GetElementColor(element));
             _elementEffectDic.Add(roleUID, el);
         }
