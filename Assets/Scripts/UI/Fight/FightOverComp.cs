@@ -71,7 +71,7 @@ namespace WarGame.UI
                 _heroReportsDic[item.id] = UIManager.Instance.CreateUI<FightHeroReportItem>("FightHeroReportItem", item);
             }
             var role = DatasMgr.Instance.GetRoleData(_heros[index]);
-            _heroReportsDic[item.id].UpdateItem(role.GetConfig().Icon, _reportDic[Enum.RoleType.Hero][_heros[index]]);
+            _heroReportsDic[item.id].UpdateItem(role.configId, _reportDic[Enum.RoleType.Hero][_heros[index]]);
             _heroReportsDic[item.id].PlayInLeft(index * 0.1F);
         }
 
@@ -82,8 +82,7 @@ namespace WarGame.UI
                 _enemyReportsDic[item.id] = UIManager.Instance.CreateUI<FightEnemyReportItem>("FightEnemyReportItem", item);
             }
             var enemyConfig = ConfigMgr.Instance.GetConfig<EnemyConfig>("EnemyConfig", _enemys[index]);
-            var roleConfig = ConfigMgr.Instance.GetConfig<RoleConfig>("RoleConfig", enemyConfig.RoleID);
-            _enemyReportsDic[item.id].UpdateItem(roleConfig.Icon, _reportDic[Enum.RoleType.Enemy][_enemys[index]]);
+            _enemyReportsDic[item.id].UpdateItem(enemyConfig.RoleID, _reportDic[Enum.RoleType.Enemy][_enemys[index]]);
             _enemyReportsDic[item.id].PlayInRight(index * 0.1F);
         }
 

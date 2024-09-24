@@ -20,7 +20,7 @@ namespace WarGame.UI
         private float _radian = 30.0f / 360.0f * 2.0f * Mathf.PI;
 
         private Dictionary<string, int> _heroDic = new Dictionary<string, int>();
-        private Dictionary<string, GButton> _heroUIDic = new Dictionary<string, GButton>();
+        private Dictionary<string, CommonHero> _heroUIDic = new Dictionary<string, CommonHero>();
 
         public FightHeroGroup(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -28,7 +28,7 @@ namespace WarGame.UI
             {
                 foreach (var v in _heroUIDic)
                 {
-                    if (v.Value.displayObject == Stage.inst.touchTarget)
+                    if (v.Value.GCom.displayObject == Stage.inst.touchTarget)
                     {
                         EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Change_Hero, new object[] {_heroDic[v.Key]});
                         break;
@@ -62,27 +62,25 @@ namespace WarGame.UI
                             continue;
                         openList.Add(coor);
 
-                        GButton ui = null;
+                        CommonHero ui = null;
                         if (_heroUIDic.ContainsKey(coor.x + "_" + coor.y))
                         {
                             ui = _heroUIDic[coor.x + "_" + coor.y];
                         }
                         else
                         {
-                            ui = UIManager.Instance.CreateObject<GButton>("Common", "CommonHero");
-                            GCom.AddChild(ui);
-                            ui.asButton.title = coor.x + "_" + coor.y;
+                            ui = UIManager.Instance.CreateUI<CommonHero>("Common", "CommonHero");
+                            GCom.AddChild(ui.GCom);
 
                             _heroUIDic.Add(coor.x + "_" + coor.y, ui);
                         }
                         var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) - _outsideDiameter / 2;
                         var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) - _outsideDiameter / 2;
-                        ui.xy = - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
-                        ui.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
+                        ui.GCom.xy = - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
+                        ui.GCom.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
 
                         var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
-                        var config = roleData.GetConfig();
-                        ui.icon = config.Icon;
+                        ui.UpdateHero(roleData.configId);
                         _heroDic.Add(coor.x + "_" + coor.y, roleData.UID);
                         if (openList.Count > heros.Count)
                             break;
@@ -106,6 +104,15 @@ namespace WarGame.UI
         public void Hide()
         {
             SetVisible(false);
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            foreach (var v in _heroUIDic)
+                v.Value.Dispose();
+            _heroUIDic.Clear();
+
+            base.Dispose(disposeGCom);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace WarGame.UI
     {
         private Transition _in;
         private GTextField _name;
-        private GButton _hero;
+        private CommonHero _hero;
         //private List<int> _enemys = new List<int>();
         //private List<GComponent> _queue = new List<GComponent>();
 
@@ -21,7 +21,7 @@ namespace WarGame.UI
 
             _in = GetTransition("in");
             _name = GetGObjectChild<GTextField>("name");
-            _hero = GetGObjectChild<GButton>("hero");
+            _hero = GetChild<CommonHero>("hero");
             //Init();
         }
 
@@ -33,7 +33,7 @@ namespace WarGame.UI
             //    v.Dispose();
             //}
             //_queue.Clear();
-
+            _hero.Dispose();
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Start, OnEnemyStart);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_AIAction_Over, OnEnemyOver);
             //EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Role_Dispose, OnEnemyDispose);
@@ -81,7 +81,7 @@ namespace WarGame.UI
         {
             var role = RoleManager.Instance.GetRole((int)args[0]);
             _name.text = role.GetName();
-            _hero.icon = role.GetConfig().Icon;
+            _hero.UpdateHero(role.GetConfig().ID);
             _in.Play();
         }
 

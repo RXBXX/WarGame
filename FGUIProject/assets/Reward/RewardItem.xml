@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="100,100" mask="n0_anzf">
+  <displayList>
+    <image id="n0_anzf" name="n0" src="cwzy1c" fileName="Images/HeroBG.png" pkg="hx02grrp" xy="50,50" pivot="0.5,0.5" anchor="true" size="100,100" group="n5_anzf">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n1_anzf" name="icon" xy="9,9" pivot="0.5,0.5" size="82,82" group="n5_anzf" touchable="false" url="ui://5kkzoj7lanzf1v" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <image id="n3_anzf" name="n3" src="cwzy1d" fileName="Images/HeroFrame.png" pkg="hx02grrp" xy="50,50" pivot="0.5,0.5" anchor="true" size="100,100" group="n5_anzf"/>
+    <text id="n4_anzf" name="title" xy="50,85" pivot="0.5,0.5" anchor="true" size="22,24" group="n5_anzf" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="11"/>
+    <group id="n5_anzf" name="n5" xy="0,0" size="100,100" visible="false" advanced="true"/>
+  </displayList>
+  <transition name="fadeIn">
+    <item time="0" type="Alpha" target="n5_anzf" tween="true" startValue="0" endValue="1" duration="5"/>
+    <item time="0" type="Scale" target="n0_anzf" tween="true" startValue="5,5" endValue="1,1" duration="9" ease="Quart.InOut"/>
+    <item time="0" type="Scale" target="n1_anzf" tween="true" startValue="5,5" endValue="1,1" duration="9" ease="Quart.InOut"/>
+    <item time="0" type="Scale" target="n3_anzf" tween="true" startValue="5,5" endValue="1,1" duration="9" ease="Quart.InOut"/>
+    <item time="0" type="Scale" target="n4_anzf" tween="true" startValue="5,5" endValue="1,1" duration="9"/>
+    <item time="0" type="Visible" target="n5_anzf" value="true"/>
+  </transition>
+</component>

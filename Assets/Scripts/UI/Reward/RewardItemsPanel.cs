@@ -1,36 +1,46 @@
 using FairyGUI;
+using System.Collections.Generic;
 
 namespace WarGame.UI
 {
     public class RewardItemsPanel : UIBase
     {
         private int _blurID;
-        private WGArgsCallback _callback;
+        private WGCallback _callback;
         private GList _rewardList;
-        private ItemPair[] _items;
+        private List<TwoIntPair> _itemsData = new List<TwoIntPair>();
+        private Dictionary<string, RewardItem> _itemsDic = new Dictionary<string, RewardItem>();
 
         public RewardItemsPanel(GComponent gCom, string customName, params object[] args) : base(gCom, customName, args)
         {
             UILayer = Enum.UILayer.PopLayer;
 
-            GetGObjectChild<GGraph>("mask").onClick.Add(OnClickBG);
             _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("bg"));
-
+            GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetTranslation("RewardItemsPanel_Title");
             _rewardList = GetGObjectChild<GList>("rewards");
             _rewardList.itemRenderer = OnItemRenderer;
 
-            var rewardID = (int)args[0];
-            _items = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", rewardID).Rewards;
-            _rewardList.numItems = _items.Length;
+            _itemsData = (List<TwoIntPair>)args[0];
+            _rewardList.numItems = _itemsData.Count;
 
-            _callback = (WGArgsCallback)args[1];
+            _callback = (WGCallback)args[1];
         }
 
         private void OnItemRenderer(int index, GObject item)
         {
-            var gb = (GButton)item;
-            gb.icon = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", _items[index].id).Icon;
-            gb.title = _items[index].value.ToString();
+            if (!_itemsDic.ContainsKey(item.id))
+                _itemsDic.Add(item.id, UIManager.Instance.CreateUI<RewardItem>("RewardItem", item));
+
+            var icon = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", _itemsData[index].id).Icon;
+            var title = _itemsData[index].value.ToString();
+            _itemsDic[item.id].UpdateItem(icon, title, index * 0.2F, () =>
+            {
+                if (index >= _itemsData.Count - 1)
+                {
+                    GetGObjectChild<GGraph>("mask").onClick.Add(OnClickBG);
+                    GetGObjectChild<GComponent>("tips").visible = true;
+                }
+            });
         }
 
         private void OnClickBG()
@@ -38,6 +48,21 @@ namespace WarGame.UI
             UIManager.Instance.ClosePanel(name);
             if (null != _callback)
                 _callback();
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            foreach (var v in _itemsDic)
+                v.Value.Dispose();
+            _itemsDic.Clear();
+
+            if (0 != _blurID)
+            {
+                RenderMgr.Instance.ReleaseBlurBG(_blurID);
+                _blurID = 0;
+            }
+
+            base.Dispose(disposeGCom);
         }
     }
 }

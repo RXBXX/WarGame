@@ -648,7 +648,10 @@ namespace WarGame
                 _levelData.minPassRound = _levelData.Round;
 
             foreach (var v in _levelData.itemsDic)
+            {
                 DatasMgr.Instance.AddItem(v.Key, v.Value);
+            }
+            _levelData.itemsDic.Clear();
 
             OnSave();
             var reportDic = BattleMgr.Instance.GetReports();
@@ -663,7 +666,7 @@ namespace WarGame
 
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic });
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic});
         }
 
         //回合结束，清理死亡的角色
@@ -722,7 +725,11 @@ namespace WarGame
             {
                 EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
                 {
-                    OnSuccess();
+                    var itemsDic = new List<TwoIntPair>();
+                    foreach (var v in _levelData.itemsDic)
+                        itemsDic.Add(new TwoIntPair(v.Key, v.Value));
+                    WGCallback cb = ()=>{ OnSuccess(); };
+                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {itemsDic, cb });
                 });
                 return true;
             }

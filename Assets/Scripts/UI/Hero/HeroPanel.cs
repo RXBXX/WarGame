@@ -349,8 +349,7 @@ namespace WarGame.UI
                 _herosDic.Add(item.id, new HeroItem((GComponent)item));
             }
 
-            var roleConfig = DatasMgr.Instance.GetRoleData(_roles[index]).GetConfig();
-            _herosDic[item.id].Update(roleConfig.Icon, roleConfig.GetTranslation("Name"));
+            _herosDic[item.id].UpdateHero(_roles[index]);
         }
 
         private void ClickHeroItem(EventContext context)

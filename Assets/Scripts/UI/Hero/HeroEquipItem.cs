@@ -7,7 +7,7 @@ namespace WarGame.UI
     public class HeroEquipItem : UIBase
     {
         private int _UID;
-        private GButton _ownerIcon;
+        private CommonHero _ownerIcon;
         private GButton _icon;
         private int _selectedRoleUID;
         private int _owner;
@@ -15,7 +15,7 @@ namespace WarGame.UI
         public HeroEquipItem(GComponent gCom, string customName = null, object[] args = null) : base(gCom, customName, args)
         {
             _icon = GetGObjectChild<GButton>("icon");
-            _ownerIcon = GetGObjectChild<GButton>("owner");
+            _ownerIcon = GetChild<CommonHero>("owner");
 
             gCom.onClick.Add(OnClick);
         }
@@ -28,28 +28,17 @@ namespace WarGame.UI
 
             var equipData = DatasMgr.Instance.GetEquipmentData(UID);
             var title = equipData.GetConfig().GetTranslation("Name");
-            //if (adept)
-            //    title += "×¨¾«";
             _icon.title = title;
 
             if (0 != owner)
             {
-                _ownerIcon.visible = true;
-                _ownerIcon.icon = DatasMgr.Instance.GetRoleData(owner).GetConfig().Icon;
+                _ownerIcon.SetVisible(true);
+                _ownerIcon.UpdateHero(DatasMgr.Instance.GetRoleData(owner).configId);
             }
             else
             {
-                _ownerIcon.visible = false;
+                _ownerIcon.SetVisible(false);
             }
-
-            //if (owner == selectedRoleUID)
-            //{
-            //    _wearBtn.title = "Ð¶ÏÂ";
-            //}
-            //else
-            //{
-            //    _wearBtn.title = "´©´÷";
-            //}
 
             _icon.icon = DatasMgr.Instance.GetEquipmentData(UID).GetConfig().Icon;
         }
@@ -100,6 +89,12 @@ namespace WarGame.UI
                 DatasMgr.Instance.UnwearEquipC2S(_selectedRoleUID, _UID);
             else
                 DatasMgr.Instance.WearEquipC2S(_selectedRoleUID, _UID);
+        }
+
+        public override void Dispose(bool disposeGCom = false)
+        {
+            _ownerIcon.Dispose();
+            base.Dispose(disposeGCom);
         }
     }
 }

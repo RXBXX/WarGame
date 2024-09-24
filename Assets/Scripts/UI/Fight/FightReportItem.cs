@@ -8,14 +8,14 @@ namespace WarGame.UI
     public class FightReportItem : UIBase
     {
         private GTextField _PA, _MA, _Cure, _PD, _MD;
-        private GButton _hero;
+        private CommonHero _hero;
         private Transition _inLeft;
         private Transition _inRight;
         private Sequence _seq;
 
         public FightReportItem(GComponent gCom, string customName = null, params object[] args) : base(gCom, customName, args)
         {
-            _hero = GetGObjectChild<GButton>("hero");
+            _hero = GetChild<CommonHero>("hero");
             _PA = GetGObjectChild<GTextField>("PA");
             _MA = GetGObjectChild<GTextField>("MA");
             _Cure = GetGObjectChild<GTextField>("Cure");
@@ -26,9 +26,9 @@ namespace WarGame.UI
             _inRight = GetTransition("inRight");
         }
 
-        public void UpdateItem(string icon, Dictionary<Enum.AttrType, float> attrsDic)
+        public void UpdateItem(int configId, Dictionary<Enum.AttrType, float> attrsDic)
         {
-            _hero.icon = icon;
+            _hero.UpdateHero(configId);
 
             _PA.text = attrsDic.ContainsKey(Enum.AttrType.PhysicalAttack) ? Mathf.Floor(attrsDic[Enum.AttrType.PhysicalAttack]).ToString() : "0";
             _MA.text = attrsDic.ContainsKey(Enum.AttrType.MagicAttack) ? Mathf.Floor(attrsDic[Enum.AttrType.MagicAttack]).ToString() : "0";
@@ -72,6 +72,7 @@ namespace WarGame.UI
 
         public override void Dispose(bool disposeGCom = false)
         {
+            _hero.Dispose();
             RemoveSeq();
 
             base.Dispose(disposeGCom);

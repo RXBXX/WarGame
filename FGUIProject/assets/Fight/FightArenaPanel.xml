@@ -3,8 +3,7 @@
   <displayList>
     <component id="n0_ru2x" name="tag" src="ru2x1p" fileName="FightArenaTag.xml" xy="0,60"/>
   </displayList>
-  <transition name="showHP"/>
   <transition name="t1" autoPlay="true">
-    <item time="0" type="XY" target="n0_ru2x" tween="true" startValue="-350,74" endValue="0,-" duration="4"/>
+    <item time="0" type="XY" target="n0_ru2x" tween="true" startValue="-350,74" endValue="0,-" duration="7" ease="Quart.In"/>
   </transition>
 </component>

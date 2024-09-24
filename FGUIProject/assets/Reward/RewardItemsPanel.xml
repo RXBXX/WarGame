@@ -2,30 +2,29 @@
 <component size="1334,750">
   <displayList>
     <loader id="n7_ozrt" name="bg" xy="0,0" size="1334,750"/>
+    <component id="n10_anzf" name="n10" src="kawv2x" fileName="Components/CommonLineBG.xml" pkg="hx02grrp" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
     <graph id="n0_e7yf" name="mask" xy="0,0" size="1334,750" alpha="0.3" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <graph id="n6_ozrt" name="titleBg" xy="509,81" size="316,77" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <graph id="n5_ozrt" name="listBg" xy="158,176" size="1018,224" alpha="0.3" touchable="false" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <text id="n2_ozrt" name="title" xy="667,119" pivot="0.5,0.5" anchor="true" size="204,79" font="ui://hd0z4dz5omu90" fontSize="60" color="#ffffff" align="center" letterSpacing="2" strokeColor="#000000" autoClearText="true" text="Rewards"/>
-    <list id="n3_ozrt" name="rewards" xy="666,200" pivot="0.5,0" anchor="true" size="936,170" layout="flow_hz" overflow="scroll" colGap="10" defaultItem="ui://hx02grrppfj84" align="center" autoClearItems="true">
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
+    <component id="n4_ozrt" name="tips" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,671" visible="false">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </component>
+    <image id="n12_anzf" name="n12" src="vqm030" fileName="Images/TitleBG_2.png" pkg="hx02grrp" xy="667,129" pivot="0.5,0.5" anchor="true" size="424,65">
+      <relation target="" sidePair="center-center,top-top"/>
+      <relation target="n2_ozrt" sidePair="width-width,height-height"/>
+    </image>
+    <text id="n2_ozrt" name="title" xy="667,123" pivot="0.5,0.5" anchor="true" size="238,44" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" align="center" strokeColor="#000000" autoClearText="true" text="Congratqqqqqqqq">
+      <relation target="" sidePair="center-center,top-top"/>
+    </text>
+    <list id="n3_ozrt" name="rewards" xy="667,353" pivot="0.5,0.5" anchor="true" size="936,170" touchable="false" layout="row" colGap="30" defaultItem="ui://5kkzoj7lanzf1u" autoItemSize="false" align="center" vAlign="middle" autoClearItems="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n4_ozrt" name="n4" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,671"/>
   </displayList>
 </component>

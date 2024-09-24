@@ -1,6 +1,7 @@
 using DG.Tweening;
 using WarGame.UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -64,9 +65,21 @@ namespace WarGame
             RenderMgr.Instance.Update(deltaTime);
             AudioMgr.Instance.Update(deltaTime);
 
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.A))
-                EventMgr.Instance.TriggerEvent(50);
-                //DialogMgr.Instance.OpenDialog(20003);
+            {
+                var itemsDic = new List<TwoIntPair>();
+                for (int i = 1; i < 4; i++)
+                { 
+                    itemsDic.Add(new TwoIntPair(i, 100));
+                }
+
+                WGCallback cb = () => { DebugManager.Instance.Log("OnSuccess"); };
+                UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] { itemsDic, cb });
+            }
+#endif
+            //EventMgr.Instance.TriggerEvent(50);
+            //DialogMgr.Instance.OpenDialog(20003);
         }
 
         public override void LateUpdate()

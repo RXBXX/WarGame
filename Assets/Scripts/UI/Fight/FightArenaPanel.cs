@@ -38,7 +38,7 @@ namespace WarGame.UI
             var initiators = (List<int>)_args[0];
             for (int i = 0; i < initiators.Count; i++)
             {
-                AddHPProgress(initiators[i], new Vector2(1200 - i * 30, GCom.height));
+                AddHPProgress(initiators[i], new Vector2(1200 - i * 30, GCom.height - 60));
             }
 
             if (_args.Length > 1)
@@ -46,7 +46,7 @@ namespace WarGame.UI
                 var targets = (List<int>)_args[1];
                 for (int i = 0; i < targets.Count; i++)
                 {
-                    AddHPProgress(targets[i], new Vector2(134 + i * 30, GCom.height));
+                    AddHPProgress(targets[i], new Vector2(134 + i * 30, GCom.height - 60));
                 }
             }
 
