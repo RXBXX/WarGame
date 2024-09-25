@@ -41,8 +41,7 @@ namespace WarGame.UI
                 _line.scaleX = 0;
             }
             var talentConfig = ConfigMgr.Instance.GetConfig<TalentConfig>("TalentConfig", id);
-            _title.text = talentConfig.GetTranslation("Name");
-            _level.text = "Lv." + talentConfig.Level;
+            _title.text = "Lv." + talentConfig.Level;
             _icon.url = talentConfig.Icon;
         }
 

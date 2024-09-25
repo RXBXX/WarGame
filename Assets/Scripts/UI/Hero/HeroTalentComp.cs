@@ -6,14 +6,14 @@ namespace WarGame.UI
 {
     public class HeroTalentComp : UIBase
     {
+        private bool _inited = false;
         private Dictionary<int, HeroTalentItem> _talentsDic = new Dictionary<int, HeroTalentItem>();
 
         public HeroTalentComp(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
-            Init();
         }
 
-        private void Init()
+        private void Init(int heroUID)
         {
             Dictionary<int, int> talentColumns = new Dictionary<int, int>();
             ConfigMgr.Instance.ForeachConfig<TalentConfig>("TalentConfig", (config) =>
@@ -40,13 +40,20 @@ namespace WarGame.UI
                 ui.SetParent(GCom);
 
                 ui.SetPosition(new Vector2(70 + line * 100, 50 + column * 110));
-                //ui.UpdateItem(heroUID, config.ID);
+                ui.UpdateItem(heroUID, config.ID);
                 _talentsDic.Add(config.ID, ui);
             });
+            _inited = true;
         }
 
         public void UpdateComp(int heroUID)
         {
+            if (!_inited)
+            {
+                Init(heroUID);
+                return;
+            }
+
             ConfigMgr.Instance.ForeachConfig<TalentConfig>("TalentConfig", (config) =>
             {
                 _talentsDic[config.ID].UpdateItem(heroUID, config.ID);
