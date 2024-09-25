@@ -10,6 +10,7 @@ namespace WarGame.UI
         private int _commonSkill, _specialSkill;
         private GButton _skill1;
         private GButton _skill2;
+        private Transition _show;
 
         public HUDSkills(GComponent gCom, string customName, object[] args = null) : base(gCom, customName, args)
         {
@@ -18,6 +19,8 @@ namespace WarGame.UI
 
             _skill2 = GetGObjectChild<GButton>("skill 2");
             _skill2.onClick.Add(() => { ClickSkill(_specialSkill); });
+
+            _show = GetTransition("show");
         }
 
         public void UpdateComp(int commonSkill, int specialSkill, bool rageFilled)
@@ -38,6 +41,11 @@ namespace WarGame.UI
 
             _skill2.grayed = !rageFilled;
             _skill2.touchable = rageFilled;
+        }
+
+        public void Show()
+        {
+            _show.Play();
         }
 
         private void ClickSkill(int skillId)

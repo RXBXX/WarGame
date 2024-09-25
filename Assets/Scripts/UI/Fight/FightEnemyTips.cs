@@ -10,6 +10,7 @@ namespace WarGame.UI
         private Transition _in;
         private GTextField _name;
         private CommonHero _hero;
+        private bool _moved = false;
         //private List<int> _enemys = new List<int>();
         //private List<GComponent> _queue = new List<GComponent>();
 
@@ -79,15 +80,23 @@ namespace WarGame.UI
 
         private void OnEnemyStart(params object[] args)
         {
+            if (0 == (int)args[2] || !(bool)args[3])
+                return;
+
             var role = RoleManager.Instance.GetRole((int)args[0]);
             _name.text = role.GetName();
             _hero.UpdateHero(role.GetConfig().ID);
             _in.Play();
+            _moved = true;
         }
 
         private void OnEnemyOver(params object[] args)
         {
+            if (!_moved)
+                return;
+
             _in.PlayReverse();
+            _moved = false;
             //_queue[0].TweenMoveY((GCom.height - _queue[0].height) / 2, 0.2F);
         }
 

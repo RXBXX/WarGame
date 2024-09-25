@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="181,64" extention="Button">
+<component size="181,64" opaque="false" extention="Button">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
     <graph id="n4_omu9" name="n4" xy="0,-19" size="181,83" type="polygon" fillColor="#ffff8700" points="0,20,162,42,181,83,13,83">

@@ -337,15 +337,16 @@ namespace WarGame
             }
 
             var skillID = SelectSkill();
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID });
+            var move = null != path && path.Count > 1;
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move});
             //yield return new WaitForSeconds(1.0F);
             //yield return null;
 
             //DebugManager.Instance.Log(path.Count);
-            if (null != path && path.Count > 1)
+            if (move)
             {
                 Move(path);
-                DebugManager.Instance.Log("Move:" + ID);
+                //DebugManager.Instance.Log("Move:" + ID);
             }
             else if (null != target)
             {

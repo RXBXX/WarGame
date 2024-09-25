@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="100,100" pivot="1,1" anchor="true">
   <displayList>
-    <component id="n2_omu9" name="skill 1" src="omu99" fileName="HUDSkillBtn.xml" xy="-81,36" pivot="1,1" rotation="-22">
-      <Button title="Skill 2"/>
-    </component>
-    <component id="n3_omu9" name="skill 2" src="omu99" fileName="HUDSkillBtn.xml" xy="100,100" pivot="1,1" anchor="true" rotation="14">
+    <component id="n3_omu9" name="skill 1" src="omu99" fileName="HUDSkillBtn.xml" xy="100,100" pivot="1,1" anchor="true" rotation="14">
       <Button title="Skill 1"/>
     </component>
+    <component id="n2_omu9" name="skill 2" src="omu99" fileName="HUDSkillBtn.xml" xy="-81,36" pivot="1,1" rotation="-22">
+      <Button title="Skill 2"/>
+    </component>
   </displayList>
+  <transition name="show">
+    <item time="0" type="Rotation" target="n2_omu9" tween="true" startValue="14" endValue="-22" duration="3" ease="Quart.In"/>
+  </transition>
 </component>

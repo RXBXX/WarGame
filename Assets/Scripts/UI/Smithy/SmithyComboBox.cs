@@ -37,7 +37,7 @@ namespace WarGame.UI
 
             _fadeIn = GetTransition("fadeIn");
 
-            _icon.url = "ui://Smithy/Equip_All";
+            _icon.url = "ui://Smithy/EquipType_All";
         }
 
         private void OnTypeRenderer(int index, GObject item)
@@ -47,7 +47,7 @@ namespace WarGame.UI
             if (typeID > 0)
                 btn.icon = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", _typesData[index]).Icon;
             else
-                btn.icon = "ui://Smithy/Equip_All";
+                btn.icon = "ui://Smithy/EquipType_All";
         }
 
         private void OnTypeClick(EventContext context)
@@ -70,7 +70,7 @@ namespace WarGame.UI
             if (_selectedType > 0)
                 _icon.url = ConfigMgr.Instance.GetConfig<EquipmentTypeConfig>("EquipmentTypeConfig", _selectedType).Icon;
             else
-                _icon.url = "ui://Smithy/Equip_All";
+                _icon.url = "ui://Smithy/EquipType_All";
 
             _opened = false;
             _fadeIn.PlayReverse();

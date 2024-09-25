@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="213,215" pivot="0,1" anchor="true" opaque="false">
-  <controller name="state" pages="0,,1,,2," selected="0"/>
+  <controller name="state" pages="0,,1,,2," selected="1">
+    <action type="play_transition" fromPage="0" toPage="1" transition="showSkills"/>
+  </controller>
   <displayList>
     <component id="n2_kugj" name="cancelBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,215" pivot="0,1" anchor="true" rotation="17">
-      <gearLook controller="state" pages="1" values="1,17,0,1" default="1,17,0,1"/>
+      <gearLook controller="state" pages="0,1" values="1,17,0,1|1,17,0,1" default="1,17,0,1"/>
       <Button title="Cancel"/>
     </component>
-    <component id="n3_kugj" name="idleBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,215" pivot="0,1" anchor="true" rotation="-21">
+    <component id="n3_kugj" name="idleBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,215" pivot="0,1" anchor="true" rotation="-21" touchable="false" grayed="true">
       <gearDisplay controller="state" pages="0,1"/>
-      <gearLook controller="state" pages="0" values="1,-21,0,1" default="1,-21,1,0"/>
+      <gearLook controller="state" pages="0,1" values="1,-21,0,1|1,-21,1,0" default="1,-21,1,0"/>
       <Button title="Idle"/>
     </component>
-    <component id="n1_nr69" name="attackBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,215" pivot="0,1" anchor="true" rotation="-62">
+    <component id="n1_nr69" name="attackBtn" src="nr694" fileName="HUDInstructBtn.xml" xy="0,215" pivot="0,1" anchor="true" rotation="-62" touchable="false" grayed="true">
       <gearDisplay controller="state" pages="0,1"/>
-      <gearLook controller="state" pages="1,2" values="1,-62,1,0|1,-62,1,0" default="1,-62,0,1"/>
+      <gearLook controller="state" pages="0,1,2" values="1,-62,0,1|1,-62,1,0|1,-62,1,0"/>
       <Button title="Skills"/>
     </component>
     <component id="n5_omu9" name="skills" src="omu98" fileName="HUDSkills.xml" xy="0,215">
       <gearDisplay controller="state" pages="1"/>
     </component>
   </displayList>
-  <transition name="showInstruct" autoPlay="true">
-    <item time="0" type="Rotation" target="n1_nr69" tween="true" startValue="0" endValue="-62" duration="2"/>
-    <item time="0" type="Rotation" target="n2_kugj" tween="true" startValue="0" endValue="17" duration="2"/>
-    <item time="0" type="Rotation" target="n3_kugj" tween="true" startValue="0" endValue="-21" duration="2"/>
+  <transition name="showInstruct">
+    <item time="0" type="Rotation" target="n1_nr69" tween="true" startValue="0" endValue="-62" duration="4" ease="Quart.In"/>
+    <item time="0" type="Rotation" target="n2_kugj" tween="true" startValue="0" endValue="17" duration="4" ease="Quart.In"/>
+    <item time="0" type="Rotation" target="n3_kugj" tween="true" startValue="0" endValue="-21" duration="4" ease="Quart.In"/>
   </transition>
-  <transition name="showSkills"/>
 </component>

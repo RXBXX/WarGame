@@ -7,6 +7,7 @@ namespace WarGame.UI
     {
         private Controller _stateC;
         private HUDSkills _skills;
+        private Transition _show;
 
         public HUDInstruct(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -14,6 +15,7 @@ namespace WarGame.UI
             var attackBtn = _gCom.GetChild("attackBtn");
             var cancelBtn = _gCom.GetChild("cancelBtn");
             _stateC = _gCom.GetController("state");
+            _show = GetTransition("showInstruct");
 
             idleBtn.onClick.Add(Idle);
             cancelBtn.onClick.Add(Cancel);
@@ -31,6 +33,8 @@ namespace WarGame.UI
 
             _skills.UpdateComp(commonSkill, specialSkill, rageFilled);
             SetVisible(true);
+            UpdatePosition();
+            _show.Play();
         }
 
         public void CloseInstruct()
@@ -65,6 +69,7 @@ namespace WarGame.UI
         private void Attack()
         {
             _stateC.SetSelectedIndex(1);
+            _skills.Show();
             EventDispatcher.Instance.PostEvent(Enum.Event.HUDInstruct_Attack);
         }
 
