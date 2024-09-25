@@ -169,7 +169,7 @@ namespace WarGame
         public void CloseHeroScene()
         {
             //UnityEngine.Profiling.Profiler.BeginSample("Hero");
-            AssetsMgr.Instance.Destroy(_heroScene);
+            AssetsMgr.Instance.Destroy(_heroScene); 
             AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
             UIManager.Instance.ClosePanel("HeroPanel");
             HUDManager.Instance.SetVisible(true);

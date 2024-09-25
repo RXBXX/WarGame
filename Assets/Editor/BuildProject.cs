@@ -17,7 +17,7 @@ namespace WarGame
                 scenes = new[] { "Assets/Scenes/Main.unity" }, // 指定要打包的场景
                 locationPathName = "APP/WarGame.exe",             // 指定输出路径
                 target = BuildTarget.StandaloneWindows,             // 指定打包平台
-                options = BuildOptions.Development                         // 指定打包选项
+                options = BuildOptions.None                     // 指定打包选项
             };
 
             // 执行打包

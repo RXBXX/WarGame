@@ -27,6 +27,8 @@ namespace WarGame.UI
         private CommonResComp _resComp;
         private Dictionary<int, float> _attrsDicCache = new Dictionary<int, float>();
         private GLoader _element;
+        private GLoader _heroLoader;
+        private NTexture _heroTexture;
 
         public HeroPanel(GComponent gCom, string customName, object[] args) : base(gCom, customName, args)
         {
@@ -44,7 +46,10 @@ namespace WarGame.UI
                 new TwoIntPair((int)Enum.ItemType.LevelRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes))
             });
 
-            GetGObjectChild<GLoader>("heroLoader").texture = new NTexture((RenderTexture)args[0]);
+            _heroLoader = GetGObjectChild<GLoader>("heroLoader");
+            _heroTexture = new NTexture((RenderTexture)args[0]);
+            _heroTexture.destroyMethod = DestroyMethod.None;
+            _heroLoader.texture = _heroTexture;
 
             EventDispatcher.Instance.AddListener(Enum.Event.WearEquipS2C, OnWearEquip);
             EventDispatcher.Instance.AddListener(Enum.Event.UnwearEquipS2C, OnUnwearEquip);
@@ -498,6 +503,10 @@ namespace WarGame.UI
             foreach (var v in _herosDic)
                 v.Value.Dispose();
             _herosDic.Clear();
+
+            _heroLoader.texture = null;
+            _heroTexture.Unload(true);
+            _heroTexture.Dispose();
 
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Equip, OnOpenEquip);
             //EventDispatcher.Instance.RemoveListener(Enum.EventType.Hero_Open_Skill, OnOpenSkill);
