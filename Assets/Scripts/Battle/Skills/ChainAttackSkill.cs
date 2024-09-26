@@ -183,10 +183,11 @@ namespace WarGame
             {
                 foreach (var v in _chainTargetDic)
                 {
-                    var origon = RoleManager.Instance.GetRole(v.Key).GetChainPoint();
+                    var role = RoleManager.Instance.GetRole(v.Key);
                     foreach (var v1 in v.Value)
                     {
-                        _chainsDic.Add(v1, new Chain(origon, RoleManager.Instance.GetRole(v1).GetChainPoint(), mat));
+                        role.PlaySound("Assets/Audios/Chain.mp3");
+                        _chainsDic.Add(v1, new Chain(role.GetChainPoint(), RoleManager.Instance.GetRole(v1).GetChainPoint(), mat));
                     }
                 }
             });

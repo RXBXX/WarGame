@@ -11,7 +11,7 @@ namespace WarGame
         private float droop = 1F;
         private float _time = 0;
 
-        public Chain(GameObject startGO, GameObject endGO, Material mat, int segment = 5, float droop = 0.08f)
+        public Chain(GameObject startGO, GameObject endGO, Material mat, int segment = 5, float droop = 0.06f)
         {
             this.startGO = startGO;
             this.endGO = endGO;
@@ -32,7 +32,11 @@ namespace WarGame
         public void Update(float deltaTime)
         {
             if (_time < 1)
-                _time += deltaTime * 5;
+            {
+                _time += deltaTime * 2;
+                if (_time > 1)
+                    _time = 1;
+            }
 
             UpdateLine(_time * _time);
         }

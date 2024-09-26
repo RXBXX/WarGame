@@ -70,6 +70,11 @@
     <image id="ku3y33" name="Elements.png" path="/Images/" exported="true"/>
     <image id="ku3y1z" name="Reset.png" path="/Images/" exported="true"/>
     <image id="ku3y9" name="TipsBG.png" path="/Images/" exported="true" scale="9grid" scale9grid="43,6,11,12"/>
+    <image id="d5u134" name="Moon.png" path="/Images/"/>
+    <image id="d5u135" name="Sun.png" path="/Images/"/>
+    <component id="d5u136" name="CommonTime.xml" path="/Components/" exported="true"/>
+    <component id="d5u137" name="TimePanel.xml" path="/Components/" exported="true"/>
+    <image id="d5u138" name="Scale.png" path="/Images/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

@@ -49,7 +49,6 @@ namespace WarGame
             var uiPos = GRoot.inst.GlobalToLocal(screenPos);
             var allHeros = DatasMgr.Instance.GetAllRoles();
             var heros = new List<int>();
-            var index = 0;
             foreach (var v in allHeros)
             {
                 if (v != _selectedHero)

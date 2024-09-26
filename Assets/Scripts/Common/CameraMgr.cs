@@ -45,7 +45,9 @@ namespace WarGame
 
         public Camera MainCamera
         {
-            get { return Camera.main; }
+            get {
+                return Camera.main; 
+            }
         }
 
         public Camera UICamera

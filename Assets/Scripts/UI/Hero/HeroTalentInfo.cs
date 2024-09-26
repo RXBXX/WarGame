@@ -6,15 +6,12 @@ namespace WarGame.UI
 {
     public class HeroTalentInfo : UIBase
     {
-        private int _heroUID = 0;
-        private int _talentID = 0;
         private GTextField _title;
         private GTextField _desc;
         private GList _attrList;
         private Dictionary<string, CommonAttrItem> _attrItemsDic = new Dictionary<string, CommonAttrItem>();
         private List<AttrStruct> _attrsData = new List<AttrStruct>();
         private GButton _activeBtn;
-        private Controller _type;
         private GTextField _costTxt;
         private WGCallback _callback;
 
@@ -31,7 +28,6 @@ namespace WarGame.UI
             _activeBtn = GetGObjectChild<GButton>("btn");
             _activeBtn.onClick.Add(OnClick);
 
-            _type = GetController("type");
             _costTxt = GetGObjectChild<GTextField>("cost");
         }
 

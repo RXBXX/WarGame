@@ -519,12 +519,14 @@ namespace WarGame
         public Dictionary<int, int> itemsDic = new Dictionary<int, int>();
         //ª∫¥Ê…œ’Ûµƒ”¢–€
         public List<int> SelectedHeros;
+        public float Time;
 
         public RecordData(string ID, string title)
         {
             this.ID = ID;
             this.title = title;
             this.createTime = TimeMgr.Instance.GetUnixTimestamp();
+            Time = 450F;
         }
 
         public void AddHero(int heroID)
@@ -717,6 +719,13 @@ namespace WarGame
         public void Start(string id)
         {
             _usingDataID = id;
+        }
+
+        public void Update(float deltaTime)
+        {
+            if (null == _usingDataID)
+                return;
+            GetUsingRecord().Time += deltaTime;
         }
 
         public void SaveRecord(string id = null)

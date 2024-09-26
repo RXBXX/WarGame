@@ -52,6 +52,7 @@ namespace WarGame
 
         public override void Update(float deltaTime)
         {
+            DatasMgr.Instance.Update(deltaTime);
             DebugManager.Instance.Update(deltaTime);
             EventDispatcher.Instance.Update(deltaTime);
             UIManager.Instance.Update(deltaTime);

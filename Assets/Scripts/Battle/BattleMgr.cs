@@ -79,6 +79,16 @@ namespace WarGame
             return add;
         }
 
+        public float GetDayAdd(Enum.RoleType type)
+        {
+            var dayType = TimeMgr.Instance.GetDayType();
+            var config = ConfigMgr.Instance.GetConfig<DayConfig>("DayConfig", (int)dayType);
+            if (type == Enum.RoleType.Enemy)
+                return config.ReinforceEnemy;
+            else
+                return config.ReinforceHero;
+        }
+
         //public float GetAttackPower(int initiatorID, int targetID)
         //{
         //    var initiator = RoleManager.Instance.GetRole(initiatorID);
@@ -110,7 +120,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
 
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var initiatorPhysicalAttack = initiator.GetAttribute(Enum.AttrType.PhysicalAttack) * (1 + add);
             var initiatorPhysicalAttackRatio = initiator.GetAttribute(Enum.AttrType.PhysicalAttackRatio) * (1 + add);
 
@@ -127,7 +137,7 @@ namespace WarGame
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
 
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var initiatorMagicAttack = initiator.GetAttribute(Enum.AttrType.MagicAttack) * (1 + add);
             var initiatorMagicAttackRatio = initiator.GetAttribute(Enum.AttrType.MagicAttackRatio) * (1 + add);
 
@@ -145,7 +155,7 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var initiatorPhysicalPenetrateRatio = initiator.GetAttribute(Enum.AttrType.PhysicalPenetrateRatio) * (1 + add);
 
             var targetPhysicalDefense = target.GetAttribute(Enum.AttrType.PhysicalDefense);
@@ -164,7 +174,7 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             var target = RoleManager.Instance.GetRole(targetID);
 
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var initiatorMagicPenetrateRatio = initiator.GetAttribute(Enum.AttrType.MagicPenetrateRatio) * (1 + add);
 
             var targetMagicDefense = target.GetAttribute(Enum.AttrType.MagicDefense);
@@ -181,7 +191,7 @@ namespace WarGame
         public float GetCurePower(Enum.Element levelElement, int initiatorID, int targetID, bool addReport = false)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var curePower = initiator.GetAttribute(Enum.AttrType.Cure) * (1 + add);
 
             curePower = Mathf.Floor(curePower);
@@ -200,7 +210,7 @@ namespace WarGame
         public float GetInspirePower(Enum.Element levelElement, int initiatorID, int targetID, bool addReport = false)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
-            var add = GetElementAdd(levelElement, initiatorID, targetID);
+            var add = GetElementAdd(levelElement, initiatorID, targetID) + GetDayAdd(initiator.Type);
             var ragePower = initiator.GetAttribute(Enum.AttrType.Inspire) * (1 + add);
 
             ragePower = Mathf.Floor(ragePower);

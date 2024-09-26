@@ -12,6 +12,7 @@ namespace WarGame.UI
     {
         private MapScroll _map;
         private Vector2 _lastMousePos;
+        private CommonTime _time;
 
         public MapPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -21,6 +22,8 @@ namespace WarGame.UI
             _gCom.GetChild("closeBtn").onClick.Add(OnClickClose);
 
             _map = GetChild<MapScroll>("mapScroll");
+
+            _time = GetChild<CommonTime>("time");
 
             EventDispatcher.Instance.AddListener(Enum.Event.Map_Open_Event, OnMapOpen);
             EventDispatcher.Instance.AddListener(Enum.Event.ActiveLevelS2C, OnActiveLevelS2C);
@@ -78,6 +81,8 @@ namespace WarGame.UI
 
         public override void Update(float deltaTime)
         {
+            _time.Update(deltaTime);
+
             if (!_map.IsHit(Stage.inst.touchTarget))
                 return;
 

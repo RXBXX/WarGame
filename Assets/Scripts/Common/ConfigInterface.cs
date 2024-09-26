@@ -328,4 +328,12 @@ namespace WarGame
     {
         public string Desc;
     }
+
+    [Serializable]
+    public class DayConfig : Config
+    {
+        public string Desc;
+        public float ReinforceHero;
+        public float ReinforceEnemy;
+    }
 }

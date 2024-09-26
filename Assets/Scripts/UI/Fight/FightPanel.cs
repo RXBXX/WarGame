@@ -16,6 +16,7 @@ namespace WarGame.UI
         private CommonResComp _resComp;
         private GButton _readyBtn;
         private GTextField _tips;
+        private CommonTime _time;
 
         public FightPanel(GComponent gCom, string name, object[] args = null) : base(gCom, name, args)
         {
@@ -25,6 +26,7 @@ namespace WarGame.UI
             _enemyQueue = GetChild<FightEnemyQueue>("enemyQueue");
             _roleInfo = GetChild<FightRoleInfo>("roleInfo");
             _resComp = GetChild<CommonResComp>("resComp");
+            _time = GetChild<CommonTime>("time");
 
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_RoundOver_Event, OnUpdateRound);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_RoundChange_Event, OnStartEnemyTurn);
@@ -81,6 +83,7 @@ namespace WarGame.UI
         public override void Update(float deltaTime)
         {
             _resComp.Update(deltaTime);
+            _time.Update(deltaTime);
         }
 
         private void OnUpdateRound(object[] args)

@@ -275,6 +275,7 @@
     <Compile Include="Assets\FairyGUI\Scripts\Core\StageEngine.cs" />
     <Compile Include="Assets\Scripts\Map\EventBehaviour.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\Stage.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\CommonTime.cs" />
     <Compile Include="Assets\Scripts\Map\MagmaHexagon.cs" />
     <Compile Include="Assets\Scripts\Common\StoryMgr.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Core\NAudioClip.cs" />
@@ -325,6 +326,7 @@
     <Compile Include="Assets\Scripts\UI\Map\MapScroll.cs" />
     <Compile Include="Assets\Scripts\Common\MapObject.cs" />
     <Compile Include="Assets\Scripts\Map\MapFloatPoint.cs" />
+    <Compile Include="Assets\Scripts\UI\Common\TimePanel.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\UI\PackageItem.cs" />
     <Compile Include="Assets\FairyGUI\Scripts\Utils\ByteBuffer.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\ChainAttackSkill.cs" />

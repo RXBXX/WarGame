@@ -8,7 +8,7 @@ namespace WarGame
     {
         private GameData _data = null;
         private string _path = Application.streamingAssetsPath + "/Datas/GameData.json";
-        private float _autoSaveInterval = 600.0f;
+        private float _autoSaveInterval = 300.0f;
         private float _autoTime = 0;
 
         public override bool Init()
@@ -30,6 +30,7 @@ namespace WarGame
                 Save();
                 _autoTime = 0;
             }
+            _data.Update(deltaTime);
         }
 
 
@@ -43,6 +44,7 @@ namespace WarGame
         {
             _data.Save();
             Tool.Instance.WriteJson<GameData>(_path, _data);
+            TipsMgr.Instance.Add("进度已保存！");
         }
 
         public void StartNewGame()
@@ -289,6 +291,11 @@ namespace WarGame
         public List<int> GetSelectedHeros()
         {
             return _data.GetUsingRecord().SelectedHeros;
+        }
+
+        public float GetGameTime()
+        {
+            return _data.GetUsingRecord().Time;
         }
 
         /// region 协议部分----------------------------------------------------------

@@ -394,6 +394,12 @@ namespace WarGame
             ThreeD = 1,
         }
 
+        public enum DayType
+        {
+            Day = 1,
+            Night = 2,
+        }
+
         public enum Event
         {
             HUDInstruct_Idle_Event = 0,
