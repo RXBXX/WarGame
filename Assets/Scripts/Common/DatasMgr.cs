@@ -44,7 +44,7 @@ namespace WarGame
         {
             _data.Save();
             Tool.Instance.WriteJson<GameData>(_path, _data);
-            TipsMgr.Instance.Add("进度已保存！");
+            TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("Data_Saved"));
         }
 
         public void StartNewGame()
