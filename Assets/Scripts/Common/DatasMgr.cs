@@ -34,12 +34,6 @@ namespace WarGame
         }
 
 
-        public override bool Dispose()
-        {
-            Save();
-            return base.Dispose();
-        }
-
         public void Save()
         {
             _data.Save();

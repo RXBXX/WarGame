@@ -33,6 +33,7 @@ namespace WarGame.UI
 
             _skills.UpdateComp(commonSkill, specialSkill, rageFilled);
             SetVisible(true);
+            _stateC.SetSelectedIndex(0);
             UpdatePosition();
             _show.Play();
         }

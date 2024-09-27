@@ -13,6 +13,8 @@ namespace WarGame
         private Dictionary<int, Ornament> _ornamentsDic = new Dictionary<int, Ornament>();
         private Stack<Cell> _cellPool = new Stack<Cell>();
         private Dictionary<int, int> _hexagonToRole = new Dictionary<int, int>();
+        private Dictionary<int, Cell> _openDic;
+        private Dictionary<int, Cell> _closeDic;
 
         private int _roleHeight = 5;
 
@@ -900,10 +902,12 @@ namespace WarGame
             return closeDic;
         }
 
+
+
         public Dictionary<int, Cell> FindingViewRegion(int hexagonID, float viewDis)
         {
-            var openDic = new Dictionary<int, Cell>();
-            var closeDic = new Dictionary<int, Cell>();
+            var openDic = GetOpenDic();
+            var closeDic = GetCloseDic();
 
             for (int q = 0; q < _directions.Length; q++)
             {
@@ -912,10 +916,11 @@ namespace WarGame
             }
 
             //DebugManager.Instance.Log(openDic.Count);
-
+            var allKeys = new List<int>();
             while (openDic.Count > 0)
             {
-                var allKeys = new List<int>();
+                allKeys.Clear();
+
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -947,6 +952,24 @@ namespace WarGame
         private void ClearHexagonToRole()
         {
             _hexagonToRole.Clear();
+        }
+
+        private Dictionary<int, Cell> GetOpenDic()
+        {
+            if (null == _openDic)
+                _openDic = new Dictionary<int, Cell>();
+            else
+                _openDic.Clear();
+            return _openDic;
+        }
+
+        private Dictionary<int, Cell> GetCloseDic()
+        {
+            if (null == _closeDic)
+                _closeDic = new Dictionary<int, Cell>();
+            else
+                _closeDic.Clear();
+            return _closeDic;
         }
     }
 }

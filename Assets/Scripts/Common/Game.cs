@@ -134,6 +134,7 @@ namespace WarGame
 
         public void Quit()
         {
+            DatasMgr.Instance.Save();
             Dispose();
             Application.Quit();
         }

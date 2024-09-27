@@ -6,6 +6,7 @@ namespace WarGame
     {
         public void Log(object message)
         {
+            return;
             Debug.Log(message);
         }
 

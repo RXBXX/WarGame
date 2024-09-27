@@ -127,7 +127,7 @@ namespace WarGame
 
         protected virtual IEnumerator StartAI()
         {
-            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
             //查找所有视野目标
             var targets = FindingHeros();
 
@@ -146,9 +146,9 @@ namespace WarGame
                     targets.Add(v);
                 }
             }
-            //UnityEngine.Profiling.Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
 
             var hexagonToRole = new Dictionary<int, int>();
@@ -177,9 +177,9 @@ namespace WarGame
                     }
                 }
             }
-            //UnityEngine.Profiling.Profiler.EndSample();
+            UnityEngine.Profiling.Profiler.EndSample();
 
-            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
+            UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
 
             bool showWarning = false;
             List<int> path = null;
@@ -326,6 +326,8 @@ namespace WarGame
             //{
             //    SetHPVisible(false);
             //}
+
+            UnityEngine.Profiling.Profiler.EndSample();
 
             foreach (var v in moveRegion)
                 v.Value.Recycle();

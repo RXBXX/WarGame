@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 429b48b669064bf458e8c0f4298cba18
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 784299a19a52105479f74a7e09f7f56a
+    m_Address: Assets/Audios/Clock.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91ab5984349a85a46a0b1140c3f3b12d
+    m_Address: Assets/Audios/Chain.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8a98b1b38538b9a4a956e890e5d31280, type: 2}
   m_SchemaSet:
