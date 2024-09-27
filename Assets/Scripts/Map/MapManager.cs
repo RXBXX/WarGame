@@ -2,10 +2,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using WarGame.UI;
 using FairyGUI;
+using System.Linq;
+using System.Collections;
 
 //管理游戏中地图数据
 namespace WarGame
 {
+    public class MapDictionary : Dictionary<int, Cell>
+    {
+        public void Recycle()
+        {
+            foreach (var v in this)
+                v.Value.Recycle();
+            Clear();
+            MapManager.Instance.PushDicStack(this);
+        }
+    }
+
+    public class MapList : List<int>
+    {
+        public void Recycle()
+        {
+            Clear();
+            MapManager.Instance.PushLisStack(this);
+        }
+    }
+
+
+    /// <summary>
+    /// 寻路专用
+    /// </summary>
+    public class Cell
+    {
+        public int id;
+        public float g; //移动代价
+        public float h; //曼哈顿距离
+        public WGVector3 coor;
+        public Cell parent;
+        public Enum.MarkType type;
+
+        public float f
+        {
+            get { return g + h; }
+        }
+
+        public Cell(float g, float h, WGVector3 pos, Cell parent, int id)
+        {
+            this.g = g;
+            this.h = h;
+            this.coor = pos;
+            this.id = id;
+            this.parent = parent;
+        }
+
+        public void Recycle()
+        {
+            id = -1;
+            g = 0;
+            h = 0;
+            coor = new WGVector3(0, 0, 0);
+            parent = null;
+            type = Enum.MarkType.None;
+
+            MapManager.Instance.RecycleCell(this);
+        }
+    };
+
     public class MapManager : Singeton<MapManager>
     {
         private Dictionary<int, Hexagon> _map = new Dictionary<int, Hexagon>();
@@ -15,6 +77,8 @@ namespace WarGame
         private Dictionary<int, int> _hexagonToRole = new Dictionary<int, int>();
         private Dictionary<int, Cell> _openDic;
         private Dictionary<int, Cell> _closeDic;
+        private Stack<MapDictionary> _mapDicStack = new Stack<MapDictionary>();
+        private Stack<MapList> _mapLisStack = new Stack<MapList>();
 
         private int _roleHeight = 5;
 
@@ -54,7 +118,6 @@ namespace WarGame
         public override bool Init()
         {
             base.Init();
-
             return true;
         }
 
@@ -77,6 +140,14 @@ namespace WarGame
 
             ClearMap();
 
+            foreach (var v in _mapDicStack)
+                v.Clear();
+            _mapDicStack.Clear();
+
+            foreach (var v in _mapLisStack)
+                v.Clear();
+            _mapLisStack.Clear();
+
             return true;
         }
 
@@ -94,7 +165,7 @@ namespace WarGame
                     AssetsMgr.Instance.LoadAssetAsync<Material>("Assets/Materials/Skyboxs/" + lightingPlugin.Sky + ".mat", (mat) =>
                     {
                         GameObject.Find("Main Camera").GetComponent<Skybox>().material = mat;
-                     });
+                    });
                 }
             }
         }
@@ -185,7 +256,7 @@ namespace WarGame
         {
             ClearMarkedRegion();
 
-            var closeDic = new Dictionary<int, Cell>();
+            var closeDic = PopDicStack();
             FindingMoveRegion(hexagonID, moveDis, roleType, closeDic);
 
             var moveRegion = new List<int>();
@@ -218,9 +289,7 @@ namespace WarGame
                 }
             }
 
-            foreach (var v in closeDic)
-                v.Value.Recycle();
-            closeDic.Clear();
+            closeDic.Recycle();
         }
 
         public void ClearMarkedRegion()
@@ -265,46 +334,6 @@ namespace WarGame
         {
             LineMgr.Instance.ClearLine();
         }
-
-
-        /// <summary>
-        /// 寻路专用
-        /// </summary>
-        public class Cell
-        {
-            public int id;
-            public float g; //移动代价
-            public float h; //曼哈顿距离
-            public WGVector3 coor;
-            public Cell parent;
-            public Enum.MarkType type;
-
-            public float f
-            {
-                get { return g + h; }
-            }
-
-            public Cell(float g, float h, WGVector3 pos, Cell parent, int id)
-            {
-                this.g = g;
-                this.h = h;
-                this.coor = pos;
-                this.id = id;
-                this.parent = parent;
-            }
-
-            public void Recycle()
-            {
-                id = -1;
-                g = 0;
-                h = 0;
-                coor = new WGVector3(0,0,0);
-                parent = null;
-                type = Enum.MarkType.None;
-
-                MapManager.Instance.RecycleCell(this);
-            }
-        };
 
         public Cell CreateCell(float g, float h, WGVector3 coor, Cell parent, int id)
         {
@@ -438,8 +467,8 @@ namespace WarGame
             }
 
             List<Cell> path = new List<Cell>();
-            Dictionary<int, Cell> openDic = new Dictionary<int, Cell>();
-            Dictionary<int, Cell> closeDic = new Dictionary<int, Cell>();
+            var openDic = PopDicStack();
+            var closeDic = PopDicStack();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -491,13 +520,8 @@ namespace WarGame
             }
             path.Reverse();
 
-            foreach (var v in openDic)
-                v.Value.Recycle();
-            openDic.Clear();
-
-            foreach (var v in closeDic)
-                v.Value.Recycle();
-            closeDic.Clear();
+            openDic.Recycle();
+            closeDic.Recycle();
 
             ClearHexagonToRole();
 
@@ -603,8 +627,8 @@ namespace WarGame
         public List<Cell> FindingAttackPath(int startHexagonID, int endHexagonID, float dis)
         {
             List<Cell> path = new List<Cell>();
-            var openDic = new Dictionary<int, Cell>();
-            var closeDic = new Dictionary<int, Cell>();
+            var openDic = PopDicStack();
+            var closeDic = PopDicStack();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -653,13 +677,8 @@ namespace WarGame
             }
             path.Reverse();
 
-            foreach (var v in openDic)
-                v.Value.Recycle();
-            openDic.Clear();
-
-            foreach (var v in closeDic)
-                v.Value.Recycle();
-            closeDic.Clear();
+            openDic.Recycle();
+            closeDic.Recycle();
 
             return path;
         }
@@ -818,23 +837,23 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public Dictionary<int, Cell> FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, Dictionary<int, Cell> closeDic = null)
+        public MapDictionary FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, MapDictionary closeDic = null)
         {
             PrepareHexagonToRole();
 
-            var openDic = new Dictionary<int, Cell>();
+            var openDic = PopDicStack();
 
             if (null == closeDic)
-                closeDic = new Dictionary<int, Cell>();
+                closeDic = PopDicStack();
 
             var startPos = GetHexagon(hexagonID).coor;
             var cell = HandleMoveRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType);
             if (null == cell)
                 return closeDic;
 
+            var allKeys = PopLisStack();
             while (openDic.Count > 0)
             {
-                var allKeys = new List<int>();
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -850,9 +869,12 @@ namespace WarGame
                     openDic.Remove(key);
                     closeDic.Add(key, cell2);
                 }
+                allKeys.Clear();
             }
+            allKeys.Recycle();
 
             ClearHexagonToRole();
+            openDic.Recycle();
             return closeDic;
         }
 
@@ -861,12 +883,12 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public Dictionary<int, Cell> FindingAttackRegion(List<int> hexagonIDs, float attackDis, Dictionary<int, Cell> closeDic = null)
+        public MapDictionary FindingAttackRegion(List<int> hexagonIDs, float attackDis, MapDictionary closeDic = null)
         {
-            var openDic = new Dictionary<int, Cell>();
+            var openDic = PopDicStack();
 
             if (null == closeDic)
-                closeDic = new Dictionary<int, Cell>();
+                closeDic = PopDicStack();
 
             foreach (var v in hexagonIDs)
             {
@@ -876,9 +898,9 @@ namespace WarGame
                 }
             }
 
+            var allKeys = PopLisStack();
             while (openDic.Count > 0)
             {
-                var allKeys = new List<int>();
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -897,17 +919,20 @@ namespace WarGame
                     closeDic.Add(v, openDic[v]);
                     openDic.Remove(v);
                 }
+                allKeys.Clear();
             }
+            allKeys.Recycle();
 
+            openDic.Recycle();
             return closeDic;
         }
 
 
 
-        public Dictionary<int, Cell> FindingViewRegion(int hexagonID, float viewDis)
+        public MapDictionary FindingViewRegion(int hexagonID, float viewDis)
         {
-            var openDic = GetOpenDic();
-            var closeDic = GetCloseDic();
+            var openDic = PopDicStack();
+            var closeDic = PopDicStack();
 
             for (int q = 0; q < _directions.Length; q++)
             {
@@ -916,11 +941,9 @@ namespace WarGame
             }
 
             //DebugManager.Instance.Log(openDic.Count);
-            var allKeys = new List<int>();
+            var allKeys = PopLisStack();
             while (openDic.Count > 0)
             {
-                allKeys.Clear();
-
                 foreach (var pair in openDic)
                 {
                     allKeys.Add(pair.Key);
@@ -936,8 +959,10 @@ namespace WarGame
                     openDic.Remove(key);
                     closeDic.Add(key, cell2);
                 }
+                allKeys.Clear();
             }
-
+            allKeys.Recycle();
+            openDic.Recycle();
             return closeDic;
         }
 
@@ -954,22 +979,30 @@ namespace WarGame
             _hexagonToRole.Clear();
         }
 
-        private Dictionary<int, Cell> GetOpenDic()
+        public void PushDicStack(MapDictionary md)
         {
-            if (null == _openDic)
-                _openDic = new Dictionary<int, Cell>();
-            else
-                _openDic.Clear();
-            return _openDic;
+            _mapDicStack.Push(md);
         }
 
-        private Dictionary<int, Cell> GetCloseDic()
+        public MapDictionary PopDicStack()
         {
-            if (null == _closeDic)
-                _closeDic = new Dictionary<int, Cell>();
+            if (_mapDicStack.Count > 0)
+                return _mapDicStack.Pop();
             else
-                _closeDic.Clear();
-            return _closeDic;
+                return new MapDictionary();
+        }
+
+        public void PushLisStack(MapList ml)
+        {
+            _mapLisStack.Push(ml);
+        }
+
+        public MapList PopLisStack()
+        {
+            if (_mapLisStack.Count > 0)
+                return _mapLisStack.Pop();
+            else
+                return new MapList();
         }
     }
 }

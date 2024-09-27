@@ -61,7 +61,7 @@ namespace WarGame.UI
             _start = true;
             _time = 0;
 
-            DebugManager.Instance.Log("PlaySound:" + _soundID);
+            //DebugManager.Instance.Log("PlaySound:" + _soundID);
             _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Print.mp3", true);
         }
 

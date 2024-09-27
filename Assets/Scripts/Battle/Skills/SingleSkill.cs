@@ -93,9 +93,7 @@ namespace WarGame
                 }
             }
 
-            foreach (var v in regionDic)
-                v.Value.Recycle();
-            regionDic.Clear();
+            regionDic.Recycle();
 
             initiator.SetState(Enum.RoleState.WatingTarget);
             CameraMgr.Instance.OpenGray();
@@ -141,11 +139,11 @@ namespace WarGame
                     var role = RoleManager.Instance.GetRole(roleID);
                     if (!IsTarget(role.Type))
                         continue;
+
                     targets.Add(roleID);
                 }
 
-                foreach (var v in attackRegion)
-                    v.Value.Recycle();
+                attackRegion.Recycle();
             }
             return targets;
         }

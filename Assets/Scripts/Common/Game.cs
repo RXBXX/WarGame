@@ -36,17 +36,16 @@ namespace WarGame
 
             DOTween.Init(true, false);
             DOTween.debugMode = true;
-
             
-
             return true;
         }
 
         public bool Start()
         {
             UIManager.Instance.OpenPanel("Login", "LoginPanel");
-
             AudioMgr.Instance.PlayMusic("Assets/Audios/BG_Music.mp3");
+
+            DebugManager.Instance.Log("WarGame Start!");
             return true;
         }
 

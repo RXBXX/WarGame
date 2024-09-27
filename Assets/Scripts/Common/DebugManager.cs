@@ -6,7 +6,8 @@ namespace WarGame
     {
         public void Log(object message)
         {
-            return;
+            if (Debug.isDebugBuild)
+                return;
             Debug.Log(message);
         }
 

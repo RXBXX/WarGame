@@ -30,8 +30,6 @@ namespace WarGame
 
         private static void OnBuildCompleted(BuildResult result)
         {
-            DebugManager.Instance.Log(result);
-
             if (result != BuildResult.Succeeded)
             {
                 return;

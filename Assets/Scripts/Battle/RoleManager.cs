@@ -185,14 +185,15 @@ namespace WarGame
 
         public List<Role> GetAllRoles()
         {
-            List<Role> roles = new List<Role>();
-            for (int i = _roleList.Count - 1; i >= 0; i--)
-            {
-                if (i >= _roleList.Count)
-                    continue;
-                roles.Add(_roleList[i]);
-            }
-            return roles;
+            return _roleList;
+            //List<Role> roles = new List<Role>();
+            //for (int i = _roleList.Count - 1; i >= 0; i--)
+            //{
+            //    if (i >= _roleList.Count)
+            //        continue;
+            //    roles.Add(_roleList[i]);
+            //}
+            //return roles;
         }
 
     }

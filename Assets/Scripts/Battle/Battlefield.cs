@@ -272,7 +272,7 @@ namespace WarGame
             }
             else
             {
-                NextAction();
+                CoroutineMgr.Instance.StartCoroutine(NextAction());
             }
 
             AudioMgr.Instance.PlayMusic(levelConfig.Music);
@@ -474,12 +474,19 @@ namespace WarGame
                 if (IsOver())
                     return;
 
-                NextAction();
+                CoroutineMgr.Instance.StartCoroutine(NextAction());
             });
         }
 
-        private void NextAction(params object[] args)
+        private IEnumerator NextAction()
         {
+            yield return null;
+            DoNextAction();
+        }
+
+        private void DoNextAction(params object[] args)
+        {
+            //DebugManager.Instance.Log("ActionType:" + _levelData.actionType);
             var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
             var enemys = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Enemy);
 
@@ -518,7 +525,7 @@ namespace WarGame
                     //查找到下一个应该行动的敌人
                     for (int i = enemys.Count - 1; i >= 0; i--)
                     {
-                        //if (enemys[i].GetState() == Enum.RoleState.Locked)
+                        //DebugManager.Instance.Log("CanAction:" + enemys[i].CanAction());
                         if (enemys[i].CanAction())
                         {
                             _action = new EnemyBattleAction(GetActionID(), _levelID);
@@ -526,9 +533,6 @@ namespace WarGame
                             break;
                         }
                     }
-
-                    if (null == _action)
-                        NextAction();
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
@@ -639,6 +643,7 @@ namespace WarGame
 
         private void OnShowHP(params object[] args)
         {
+            //DebugManager.Instance.Log("OpenFightArenaPanel");
             UIManager.Instance.OpenPanel("Fight", "FightArenaPanel", args);
         }
 
@@ -650,7 +655,7 @@ namespace WarGame
         private void OnSuccess()
         {
             _levelData.Stage = Enum.LevelStage.Passed;
-            DebugManager.Instance.Log("MinPassRound:" + _levelData.Round);
+            //DebugManager.Instance.Log("MinPassRound:" + _levelData.Round);
             if (0 == _levelData.minPassRound || _levelData.minPassRound > _levelData.Round)
                 _levelData.minPassRound = _levelData.Round;
 
@@ -777,8 +782,9 @@ namespace WarGame
                         break;
                     }
                 }
+
                 if (null == _action)
-                    NextAction();
+                    CoroutineMgr.Instance.StartCoroutine(NextAction());
             });
         }
 

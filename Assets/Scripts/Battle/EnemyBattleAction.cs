@@ -102,7 +102,7 @@ namespace WarGame
 
         protected override void OnActionOver(params object[] args)
         {
-            DebugManager.Instance.Log("ActionOver:" + _initiatorID);
+            //DebugManager.Instance.Log("ActionOver:" + _initiatorID);
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AIAction_Over);
             base.OnActionOver(args);
         }

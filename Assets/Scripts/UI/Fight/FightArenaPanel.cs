@@ -35,9 +35,12 @@ namespace WarGame.UI
 
         public override void OnEnable()
         {
+            DebugManager.Instance.Log("FightArenaPanel");
+
             var initiators = (List<int>)_args[0];
             for (int i = 0; i < initiators.Count; i++)
             {
+                DebugManager.Instance.Log("ArenaPanel:" + initiators[i]);
                 AddHPProgress(initiators[i], new Vector2(1200 - i * 30, GCom.height - 60));
             }
 
@@ -46,6 +49,7 @@ namespace WarGame.UI
                 var targets = (List<int>)_args[1];
                 for (int i = 0; i < targets.Count; i++)
                 {
+                    DebugManager.Instance.Log("ArenaPanel:" + initiators[i]);
                     AddHPProgress(targets[i], new Vector2(134 + i * 30, GCom.height - 60));
                 }
             }

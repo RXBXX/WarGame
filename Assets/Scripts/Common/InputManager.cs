@@ -84,7 +84,7 @@ namespace WarGame
             {
                 if (Input.GetMouseButtonDown(1))
                 {
-                    DebugManager.Instance.Log("MouseButtonDown");
+                    //DebugManager.Instance.Log("MouseButtonDown");
                     _ray = CameraMgr.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(_ray, out _hitInfo))
                     {

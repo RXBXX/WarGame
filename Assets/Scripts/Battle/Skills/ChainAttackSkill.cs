@@ -108,8 +108,7 @@ namespace WarGame
                     _chainTargetDic[v].Add(roleID);
                 }
 
-                foreach (var v1 in attackRegion)
-                    v1.Value.Recycle();
+                attackRegion.Recycle();
             }
         }
 

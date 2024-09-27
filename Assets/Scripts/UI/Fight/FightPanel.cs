@@ -49,7 +49,7 @@ namespace WarGame.UI
             _skipBtn.title = ConfigMgr.Instance.GetTranslation("FightPanel_Skip");
             _skipBtn.onClick.Add(() =>
             {
-                DebugManager.Instance.Log("SkipClick");
+                //DebugManager.Instance.Log("SkipClick");
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Skip_Rount);
             });
 

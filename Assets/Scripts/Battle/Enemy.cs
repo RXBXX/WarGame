@@ -127,7 +127,7 @@ namespace WarGame
 
         protected virtual IEnumerator StartAI()
         {
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 1111");
             //查找所有视野目标
             var targets = FindingHeros();
 
@@ -146,9 +146,9 @@ namespace WarGame
                     targets.Add(v);
                 }
             }
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
 
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 2222");
             var moveRegion = MapManager.Instance.FindingMoveRegion(Hexagon, GetMoveDis(), Type);
 
             var hexagonToRole = new Dictionary<int, int>();
@@ -177,16 +177,16 @@ namespace WarGame
                     }
                 }
             }
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
 
-            UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
+            //UnityEngine.Profiling.Profiler.BeginSample("StartAI 3333");
 
             bool showWarning = false;
             List<int> path = null;
             if (null != target)
             {
                 //计算处移动代价最小的路径选择
-                MapManager.Cell destCell = null;
+                Cell destCell = null;
                 foreach (var v in moveRegion)
                 {
                     if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
@@ -226,7 +226,7 @@ namespace WarGame
                 }
 
                 var targetHexagon = MapManager.Instance.GetHexagon(hero.Hexagon);
-                MapManager.Cell destCell = null;
+                Cell destCell = null;
                 foreach (var v in moveRegion)
                 {
                     if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
@@ -327,11 +327,9 @@ namespace WarGame
             //    SetHPVisible(false);
             //}
 
-            UnityEngine.Profiling.Profiler.EndSample();
+            //UnityEngine.Profiling.Profiler.EndSample();
 
-            foreach (var v in moveRegion)
-                v.Value.Recycle();
-            moveRegion.Clear();
+            moveRegion.Recycle();
 
             if (showWarning)
             {
@@ -340,6 +338,7 @@ namespace WarGame
 
             var skillID = SelectSkill();
             var move = null != path && path.Count > 1;
+            //DebugManager.Instance.Log("StartAI:" + ID + "_" +( null == target ? 0 : target.ID));
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move});
             //yield return new WaitForSeconds(1.0F);
             //yield return null;
@@ -461,9 +460,7 @@ namespace WarGame
                     _findedEnemys.Add(v.ID);
                 }
 
-                foreach (var v in viewRegionDic)
-                    v.Value.Recycle();
-                viewRegionDic.Clear();
+                viewRegionDic.Recycle();
             }
 
             var targets = new List<Role>() { };

@@ -32,8 +32,6 @@ namespace WarGame
 
         public override void OnClickBegin(GameObject obj)
         {
-            DebugManager.Instance.Log("OnClickBegin");
-
             var tag = obj.tag;
             if (tag != Enum.Tag.Hero.ToString())
                 return;
@@ -63,7 +61,6 @@ namespace WarGame
 
         public override void OnClickEnd()
         {
-            DebugManager.Instance.Log("OnClickEnd");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Hide_HeroGroup);
             UnlockCamera();
         }

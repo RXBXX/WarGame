@@ -381,7 +381,7 @@ namespace WarGame
 
         public void FloatPoints(List<WGVector3> points, WGArgsCallback callback)
         {
-            DebugManager.Instance.Log("FloatPoints");
+            //DebugManager.Instance.Log("FloatPoints");
             if (null == points)
             {
                 callback();

@@ -69,7 +69,6 @@ namespace WarGame
 
         protected virtual void OnActionOver(params object[] args)
         {
-            DebugManager.Instance.Log("OnActionOver");
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
@@ -79,16 +78,6 @@ namespace WarGame
             }
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Action_Over, new object[] { ID });
         }
-
-        //protected virtual IEnumerator PlayActionOver(float delay)
-        //{
-        //    yield return new WaitForSeconds(delay);
-        //    var initiator = RoleManager.Instance.GetRole(_initiatorID);
-        //    _initiatorID = 0;
-        //    _targetID = 0;
-        //    initiator.SetState(Enum.RoleState.Over);
-        //    EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Action_Over, new object[] { ID });
-        //}
 
         public virtual void FocusIn(GameObject obj)
         {
