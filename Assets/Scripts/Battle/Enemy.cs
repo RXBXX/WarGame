@@ -30,13 +30,12 @@ namespace WarGame
 
             _gameObject.transform.position = _position;
             _gameObject.transform.localScale = Vector3.one * 0.44F;
-            _gameObject.transform.eulerAngles = new Vector3(0, Random.Range(0, 360), 0);
+            UpdateRotation(Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
 
             _animator = _gameObject.GetComponent<Animator>();
 
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
 
-            UpdateRotation(Quaternion.Euler(Vector3.zero));
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
             InitEquips();

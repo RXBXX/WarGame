@@ -49,7 +49,7 @@ namespace WarGame.UI
 
             var openList = new List<Vector2> { Vector2.zero};
             var startIndex = 0;
-            var endIndex = 6;
+            var endIndex = 1;
             var circle = 0;
             while(true)
             {
@@ -77,7 +77,7 @@ namespace WarGame.UI
                         var uiPosX = coor.x * (_outsideDiameter / 2 + Mathf.Sin(_radian) * _outsideDiameter / 2) - _outsideDiameter / 2;
                         var uiPosY = Mathf.Cos(_radian) * _outsideDiameter * coor.y + coor.x * Mathf.Cos(_radian) * _outsideDiameter * Mathf.Sin(_radian) - _outsideDiameter / 2;
                         ui.GCom.xy = - new Vector2(_outsideDiameter / 2, _outsideDiameter / 2);
-                        ui.GCom.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f).SetDelay(circle * 0.1F);
+                        ui.GCom.TweenMove(new Vector2(uiPosX, uiPosY), 0.1f * (circle + 1));
 
                         var roleData = DatasMgr.Instance.GetRoleData(heros[openList.Count - 2]);
                         ui.UpdateHero(roleData.configId);

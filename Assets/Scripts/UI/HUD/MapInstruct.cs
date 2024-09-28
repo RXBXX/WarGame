@@ -31,6 +31,8 @@ namespace WarGame.UI
             if (null != go)
                 _gameObject = go;
 
+            AudioMgr.Instance.PlaySound("Assets/Audios/OpenInstruct.wav");
+
             _skills.UpdateComp(commonSkill, specialSkill, rageFilled);
             SetVisible(true);
             _stateC.SetSelectedIndex(0);

@@ -45,6 +45,7 @@ namespace WarGame.UI
 
         public void Show()
         {
+            AudioMgr.Instance.PlaySound("Assets/Audios/OpenInstruct.wav");
             _show.Play();
         }
 
