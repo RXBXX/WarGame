@@ -5102,7 +5102,7 @@
     {
         "ID": "DialogConfig_200001005_Context",
         "Str": "我需要你去星月森林去寻找一个叫做卡尔文的人，他具有预知未来的力量，或许可以帮我们查清这件事情的真相。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "DialogConfig_200001006_Context",
@@ -5291,13 +5291,13 @@
     },
     {
         "ID": "DayConfig_1_Desc",
-        "Str": "战场内敌人属性提升5%，英雄属性降低5%",
-        "Translate": null
+        "Str": "战场内英雄属性提升5%，敌人属性降低5%",
+        "Translate": true
     },
     {
         "ID": "DayConfig_2_Desc",
-        "Str": "战场内英雄属性提升5%，敌人属性降低5%",
-        "Translate": null
+        "Str": "战场内英雄属性降低5%，敌人属性提升5%",
+        "Translate": true
     },
     {
         "ID": "Data_Saved",

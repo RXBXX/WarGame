@@ -92,9 +92,7 @@ namespace WarGame
         public Role(LevelRoleData data)
         {
             this._data = data;
-            //DebugManager.Instance.Log(ID  );
             _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
-
             CreateGO();
         }
 
@@ -697,7 +695,8 @@ namespace WarGame
             {
                 _position = GameObject.transform.position;
             };
-            tweener.onComplete = (()=> {
+            tweener.onComplete = (() =>
+            {
                 foreach (var v in _buffEffectDic)
                 {
                     foreach (var v1 in v.Value)

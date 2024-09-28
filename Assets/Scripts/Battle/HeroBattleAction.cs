@@ -16,30 +16,33 @@ namespace WarGame
 
         public override void Dispose(bool save = false)
         {
-            CloseInstruct();
-            MapManager.Instance.ClearMarkedRegion();
-
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() > Enum.RoleState.Locked && initiator.GetState() < Enum.RoleState.Over)
+                switch (initiator.GetState())
                 {
-                    initiator.SetState(Enum.RoleState.Waiting, true);
-                    switch (initiator.GetState())
-                    {
-                        case Enum.RoleState.Moving:
-                        case Enum.RoleState.WaitingOrder:
-                        case Enum.RoleState.WatingTarget:
-                        case Enum.RoleState.Attacking:
-                            initiator.UpdateHexagonID(_path[0]);
-                            break;
-                        case Enum.RoleState.ReturnMoving:
-                            initiator.UpdateHexagonID(_path[_path.Count - 1]);
-                            break;
-                    }
+                    case Enum.RoleState.Locked:
+                        break;
+                    case Enum.RoleState.Waiting:
+                        break;
+                    case Enum.RoleState.Moving:
+                    case Enum.RoleState.WaitingOrder:
+                    case Enum.RoleState.WatingTarget:
+                    case Enum.RoleState.Attacking:
+                        initiator.SetState(Enum.RoleState.Waiting, true);
+                        initiator.UpdateHexagonID(_path[0]);
+                        break;
+                    case Enum.RoleState.ReturnMoving:
+                        initiator.SetState(Enum.RoleState.Waiting, true);
+                        initiator.UpdateHexagonID(_path[_path.Count - 1]);
+                        break;
+                    case Enum.RoleState.Over:
+                        break;
                 }
             }
 
+            CloseInstruct();
+            MapManager.Instance.ClearMarkedRegion();
             base.Dispose(save);
         }
 
@@ -148,7 +151,7 @@ namespace WarGame
             var state = hero.GetState();
             if (state != Enum.RoleState.Waiting && state != Enum.RoleState.Over)
                 return;
-            
+
             if (null != _skillAction)
             {
                 _skillAction.ClickHero(heroID);
@@ -156,24 +159,15 @@ namespace WarGame
             }
 
             var hexagonID = RoleManager.Instance.GetHexagonIDByRoleID(heroID);
-            if (_initiatorID > 0)
+            if (_initiatorID > 0 && _initiatorID == heroID)
             {
-                if (_initiatorID == heroID)
-                {
-                    MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
-                    hero.SetState(Enum.RoleState.WaitingOrder);
-                    OpenInstruct();
-                }
-                else if (state != Enum.RoleState.Over)
-                {
-                    _initiatorID = heroID;
-                    MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
-                }
+                MapManager.Instance.MarkingRegion(hexagonID, 0, hero.GetAttackDis(), Enum.RoleType.Hero);
+                hero.SetState(Enum.RoleState.WaitingOrder);
+                OpenInstruct();
             }
-            else if (state != Enum.RoleState.Over)
+            else if (hero.CanAction())
             {
                 _initiatorID = heroID;
-                DebugManager.Instance.Log("Initiator:" + ID +"_"+_initiatorID);
                 MapManager.Instance.MarkingRegion(hexagonID, hero.GetMoveDis(), hero.GetAttackDis(), Enum.RoleType.Hero);
             }
         }
@@ -181,7 +175,7 @@ namespace WarGame
         private void ClickEnemy(int enemyId)
         {
             var enemy = RoleManager.Instance.GetRole(enemyId);
-            if (enemy.GetState() != Enum.RoleState.Locked && enemy.GetState()!= Enum.RoleState.Over)
+            if (enemy.GetState() != Enum.RoleState.Locked && enemy.GetState() != Enum.RoleState.Over)
                 return;
 
             if (null != _skillAction)
@@ -228,7 +222,7 @@ namespace WarGame
             //BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill)
             //});
             var rageFilled = BattleMgr.Instance.IsReadySpecialSkill(_initiatorID, (Enum.Skill)specialSkill);
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_OpenInstruct, new object[] {role.HUDPoint, role.GetConfig().CommonSkill, specialSkill, rageFilled});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_OpenInstruct, new object[] { role.HUDPoint, role.GetConfig().CommonSkill, specialSkill, rageFilled });
         }
 
         /// <summary>

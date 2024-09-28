@@ -38,6 +38,11 @@ namespace WarGame
                     length = (long)(clip.length * 1000) + 1000;
                     audioClip = clip;
                     audioSource.volume = DatasMgr.Instance.GetSoundVolume(Enum.SoundType.Audio);
+//                MissingReferenceException: The object of type 'AudioSource' has been destroyed but you are still trying to access it.
+//Your script should either check if it is null or you should not destroy the object.
+//WarGame.AudioMgr + AudioPair.< LoadClip > b__10_0(UnityEngine.AudioClip clip)(at Assets / Scripts / Common / AudioMgr.cs:40)
+//WarGame.AssetsMgr +< Load > d__7`1[T].MoveNext()(at Assets / Scripts / Common / AssetsMgr.cs:148)
+//UnityEngine.SetupCoroutine.InvokeMoveNext(System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress)(at < 26a395a3682048b6b60924a5f0435897 >:0)
                     audioSource.clip = clip;
                     audioSource.Play();
                 });

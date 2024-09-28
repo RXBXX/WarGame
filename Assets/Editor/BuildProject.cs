@@ -18,6 +18,7 @@ namespace WarGame
                 locationPathName = "APP/WarGame.exe",             // 指定输出路径
                 target = BuildTarget.StandaloneWindows,             // 指定打包平台
                 options = BuildOptions.Development                 // 指定打包选项
+                
             };
 
             // 执行打包
@@ -36,8 +37,10 @@ namespace WarGame
             }
 
             //DebugManager.Instance.Log("AESEncrypt");
+
+            //File.Delete("E://WarGame/APP/WarGame_Data/StreamingAssets/Datas/GameData.json");
+
             //加密配置表
-            File.Delete("E://WarGame/APP/WarGame_Data/StreamingAssets/Datas/GameData.json");
             var dirs = Directory.GetFiles("E://WarGame/APP/WarGame_Data/StreamingAssets/Configs/");
             foreach (var v in dirs)
             {

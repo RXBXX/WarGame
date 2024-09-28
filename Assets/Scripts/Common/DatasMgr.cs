@@ -7,14 +7,13 @@ namespace WarGame
     public class DatasMgr : Singeton<DatasMgr>
     {
         private GameData _data = null;
-        private string _path = Application.streamingAssetsPath + "/Datas/GameData.json";
+        private string _path = Application.temporaryCachePath + "/GameData.json";
         private float _autoSaveInterval = 300.0f;
         private float _autoTime = 0;
 
         public override bool Init()
         {
             base.Init();
-
             _data = Tool.Instance.ReadJson<GameData>(_path);
             if (null == _data)
                 _data = new GameData();

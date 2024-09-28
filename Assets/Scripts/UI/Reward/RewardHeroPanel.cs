@@ -25,6 +25,8 @@ namespace WarGame.UI
             {
                 GetGObjectChild<GGraph>("bg").onClick.Add(OnClickBG);
             });
+
+            AudioMgr.Instance.PlaySound("Assets/Audios/Equip_Buy.wav");
         }
 
         private void OnClickBG()

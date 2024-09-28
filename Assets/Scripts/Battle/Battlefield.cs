@@ -448,10 +448,13 @@ namespace WarGame
 
         private void DisposeAction(int actionID, bool save = false)
         {
+            DebugManager.Instance.Log("Dispose Action");
             if (null == _action)
                 return;
+            DebugManager.Instance.Log("Dispose Action111");
             if (_action.ID != actionID)
                 return;
+            DebugManager.Instance.Log("Dispose Action2222");
             _action.Dispose(save);
             _action = null;
         }
@@ -523,16 +526,22 @@ namespace WarGame
                     }
 
                     //查找到下一个应该行动的敌人
+                    var findedActor = false;
                     for (int i = enemys.Count - 1; i >= 0; i--)
                     {
                         //DebugManager.Instance.Log("CanAction:" + enemys[i].CanAction());
                         if (enemys[i].CanAction())
                         {
+                            findedActor = true;
                             _action = new EnemyBattleAction(GetActionID(), _levelID);
                             enemys[i].SetState(Enum.RoleState.Waiting);
                             break;
                         }
                     }
+
+                    //如果全体敌人都无法行动则进入下一回合
+                    if (!findedActor)
+                        CoroutineMgr.Instance.StartCoroutine(NextAction());
                 };
 
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
@@ -773,17 +782,20 @@ namespace WarGame
 
                 _levelData.actionType = Enum.ActionType.HeroAction;
 
+                var findedActor = false;
                 var heros = RoleManager.Instance.GetAllRolesByType(Enum.RoleType.Hero);
                 foreach (var v in heros)
                 {
                     if (v.CanAction())
                     {
+                        findedActor = true;
                         _action = new HeroBattleAction(GetActionID(), _levelID);
                         break;
                     }
                 }
 
-                if (null == _action)
+                //如果全体英雄都无法行动，则进入到下一回合
+                if (!findedActor)
                     CoroutineMgr.Instance.StartCoroutine(NextAction());
             });
         }

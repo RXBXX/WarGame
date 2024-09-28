@@ -15,21 +15,27 @@ namespace WarGame
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                if (initiator.GetState() > Enum.RoleState.Locked && initiator.GetState() < Enum.RoleState.Over)
+                initiator.SetState(Enum.RoleState.Locked, true);
+                switch (initiator.GetState())
                 {
-                    initiator.SetState(Enum.RoleState.Locked, true);
-                    switch (initiator.GetState())
-                    {
-                        case Enum.RoleState.Moving:
-                        case Enum.RoleState.WaitingOrder:
-                        case Enum.RoleState.WatingTarget:
-                        case Enum.RoleState.Attacking:
-                            initiator.UpdateHexagonID(_path[0]);
-                            break;
-                        case Enum.RoleState.ReturnMoving:
-                            initiator.UpdateHexagonID(_path[_path.Count - 1]);
-                            break;
-                    }
+                    case Enum.RoleState.Locked:
+                        break;
+                    case Enum.RoleState.Waiting:
+                        initiator.SetState(Enum.RoleState.Locked, true);
+                        break;
+                    case Enum.RoleState.Moving:
+                    case Enum.RoleState.WaitingOrder:
+                    case Enum.RoleState.WatingTarget:
+                    case Enum.RoleState.Attacking:
+                        initiator.SetState(Enum.RoleState.Locked, true);
+                        initiator.UpdateHexagonID(_path[0]);
+                        break;
+                    case Enum.RoleState.ReturnMoving:
+                        initiator.SetState(Enum.RoleState.Locked, true);
+                        initiator.UpdateHexagonID(_path[_path.Count - 1]);
+                        break;
+                    case Enum.RoleState.Over:
+                        break;
                 }
             }
 

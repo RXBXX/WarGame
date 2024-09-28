@@ -42,7 +42,7 @@ namespace WarGame.UI
             var buffConfig = ConfigMgr.Instance.GetConfig<BufferConfig>("BufferConfig", id);
             _icon.url = buffConfig.Icon;
             _title.text = leftDuration.ToString();
-            _desc.text = string.Format(buffConfig.Desc, leftDuration);
+            _desc.text = string.Format(buffConfig.GetTranslation("Desc"), leftDuration);
         }
     }
 }

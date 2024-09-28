@@ -45,7 +45,9 @@ namespace WarGame
             UIManager.Instance.OpenPanel("Login", "LoginPanel");
             AudioMgr.Instance.PlayMusic("Assets/Audios/BG_Music.mp3");
 
-            DebugManager.Instance.Log("WarGame Start!");
+            //DebugManager.Instance.Log(Application.temporaryCachePath);
+            //DebugManager.Instance.Log("WarGame Start!");
+            //DebugManager.Instance.LogError("WarGame Start Error!");
             return true;
         }
 

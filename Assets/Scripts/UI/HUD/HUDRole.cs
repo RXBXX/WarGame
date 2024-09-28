@@ -110,6 +110,7 @@ namespace WarGame.UI
         public void UpdateBuffs(List<BuffPair> buffs)
         {
             _buffs = buffs;
+            //_buffs.Add(new BuffPair(1,10, Enum.RoleType.Enemy));
             _buffList.numItems = buffs.Count;
             _buffList.ResizeToFit();
         }

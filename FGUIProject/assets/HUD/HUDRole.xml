@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="160,20" pivot="0.5,1" anchor="true" opaque="false">
   <controller name="state" pages="0,locked,1,waiting,2,over,3,other" selected="0"/>
-  <controller name="hpVisible" pages="0,,1," selected="0"/>
+  <controller name="hpVisible" pages="0,,1," selected="1"/>
   <controller name="following" pages="0,,1," selected="0"/>
   <displayList>
     <loader id="n14_yiew" name="element" xy="-37,-6" size="32,32" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale"/>
@@ -14,6 +14,9 @@
     </component>
     <list id="n2_kugj" name="buffList" xy="80,0" pivot="0.5,1" anchor="true" size="160,40" layout="flow_hz" lineItemCount="4" defaultItem="ui://dvt5l4zvkugj1" autoClearItems="true">
       <gearDisplay controller="hpVisible" pages="1"/>
+      <item/>
+      <item/>
+      <item/>
       <item/>
       <item/>
     </list>

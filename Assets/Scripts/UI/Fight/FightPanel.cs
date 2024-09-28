@@ -41,8 +41,8 @@ namespace WarGame.UI
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
             {
-                DatasMgr.Instance.Save();
                 SceneMgr.Instance.DestroyBattleFiled();
+                DatasMgr.Instance.Save();
             });
 
             _skipBtn = GetGObjectChild<GButton>("skipBtn");

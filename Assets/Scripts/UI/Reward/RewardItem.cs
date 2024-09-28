@@ -19,6 +19,7 @@ namespace WarGame.UI
             _seq = DOTween.Sequence();
             _seq.AppendInterval(delay);
             _seq.AppendCallback(()=> {
+                AudioMgr.Instance.PlaySound("Assets/Audios/Reward.wav");
                 GetTransition("fadeIn").Play(()=> { callback(); });
             });
             _seq.onComplete = () =>

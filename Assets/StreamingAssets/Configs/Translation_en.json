@@ -4080,6 +4080,10 @@
         "Str": "So what can I do?"
     },
     {
+        "ID": "DialogConfig_200001005_Context",
+        "Str": "I need you to go to Starmoon Forest and find a man named Calvin, who has the power to see the future, who may be able to help us figure out what really happened."
+    },
+    {
         "ID": "DialogConfig_200001006_Context",
         "Str": "What are you talking about? If there's anything I can do for you."
     },
@@ -4228,19 +4232,15 @@
         "Str": "Congratulations on getting resources"
     },
     {
-        "ID": "DayConfig_1_Desc",
-        "Str": "Enemy stats are increased by 5%, Hero stats are reduced by 5%"
-    },
-    {
-        "ID": "DayConfig_2_Desc",
-        "Str": "Battlefield Hero stats are increased by 5%, enemy stats are reduced by 5%"
-    },
-    {
         "ID": "Data_Saved",
         "Str": "Latest progress saved!"
     },
     {
-        "ID": "DialogConfig_200001005_Context",
-        "Str": "I need you to go to Starmoon Forest and find a man named Calvin, who has the power to see the future, who may be able to help us figure out what really happened."
+        "ID": "DayConfig_1_Desc",
+        "Str": "Battlefield Hero stats are increased by 5%, enemy stats are reduced by 5%"
+    },
+    {
+        "ID": "DayConfig_2_Desc",
+        "Str": "Battlefield hero stats are reduced by 5%, enemy stats are increased by 5%"
     }
 ]
