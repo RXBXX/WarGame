@@ -8,7 +8,10 @@
       <relation target="" sidePair="width-width,height-height"/>
     </component>
     <image id="n8_kky8" name="n8" src="upau1r" fileName="Images/FightBG.png" xy="666,339" pivot="0.5,0.5" anchor="true" size="639,461" group="n14_gry6"/>
-    <text id="n3_dsuy" name="title" xy="667,139" pivot="0.5,0.5" anchor="true" size="45,36" group="n14_gry6" font="ui://hd0z4dz5omu90" fontSize="26" color="#ffffff" letterSpacing="2" strokeColor="#000000" text="TIPS"/>
+    <loader id="n18_os75" name="element" xy="624,140" pivot="0.5,0.5" anchor="true" size="30,30" group="n14_gry6" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <relation target="n3_dsuy" sidePair="right-left"/>
+    </loader>
+    <text id="n3_dsuy" name="title" xy="667,139" pivot="0.5,0.5" anchor="true" size="43,34" group="n14_gry6" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="TIPS"/>
     <text id="n13_upau" name="desc" xy="390,200" size="540,24" group="n14_gry6" font="ui://hd0z4dz5omu90" fontSize="16" color="#cccccc" ubb="true" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
     <text id="n2_dsuy" name="tips" xy="663,518" pivot="0.5,0.5" anchor="true" size="557,19" group="n14_gry6" fontSize="12" color="#999999" align="center" autoSize="height" strokeColor="#000000" text="请确保进入前，已做好万全准备."/>
     <component id="n5_dsuy" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="388,451" size="240,46" group="n14_gry6" scale="0.6,0.6" controller="style,1">

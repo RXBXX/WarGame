@@ -74,7 +74,7 @@ namespace WarGame.UI
             }
         }
 
-        private void OnClick(EventContext context)
+        private void OnClick(EventContext context = null)
         {
             if (null != _optionsData && _optionsData.Count > 0)
                 return;

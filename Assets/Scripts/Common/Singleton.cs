@@ -26,6 +26,10 @@ public class Singeton<T> where T : new()
     {
     }
 
+    public virtual void FixedUpdate(float deltaTime)
+    { }
+
+
     public virtual void LateUpdate()
     {
     }

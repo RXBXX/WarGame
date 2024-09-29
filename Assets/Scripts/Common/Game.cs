@@ -42,6 +42,7 @@ namespace WarGame
 
         public bool Start()
         {
+            //Time.timeScale = 10;
             UIManager.Instance.OpenPanel("Login", "LoginPanel");
             AudioMgr.Instance.PlayMusic("Assets/Audios/BG_Music.mp3");
 
@@ -53,6 +54,7 @@ namespace WarGame
 
         public override void Update(float deltaTime)
         {
+            //DebugManager.Instance.Log("Update");
             DatasMgr.Instance.Update(deltaTime);
             DebugManager.Instance.Update(deltaTime);
             EventDispatcher.Instance.Update(deltaTime);
@@ -83,6 +85,11 @@ namespace WarGame
 #endif
             //EventMgr.Instance.TriggerEvent(50);
             //DialogMgr.Instance.OpenDialog(20003);
+        }
+
+        public override void FixedUpdate(float deltaTime)
+        {
+            //DebugManager.Instance.Log("FixedUpdate");
         }
 
         public override void LateUpdate()

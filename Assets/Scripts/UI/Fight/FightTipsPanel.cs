@@ -16,6 +16,8 @@ namespace WarGame.UI
 
             _levelID = (int)args[0];
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID);
+            if (Enum.Element.None != levelConfig.Element)
+                GetGObjectChild<GLoader>("element").url = ConfigMgr.Instance.GetConfig<ElementConfig>("ElementConfig", (int)levelConfig.Element).Icon;
             GetGObjectChild<GTextField>("title").text = levelConfig.GetTranslation("Name");
 
             var levelData = DatasMgr.Instance.GetLevelData(_levelID);
@@ -26,7 +28,7 @@ namespace WarGame.UI
                 desc = desc + ConfigMgr.Instance.GetTranslation("FastedPassPrefix") + "[color=#ce4a35]" + levelData.minPassRound + "[/color]\n";
             }
             desc = desc + ConfigMgr.Instance.GetTranslation("HeroCountPrefix") + "[color=#ce4a35]" + levelConfig.HeroCount + "[/color]\n";
-            desc =  desc + ConfigMgr.Instance.GetTranslation("FightTarget") + "[color=#ce4a35]" + levelConfig.GetTranslation("TargetDesc") + "[/color]";
+            desc = desc + ConfigMgr.Instance.GetTranslation("FightTarget") + "[color=#ce4a35]" + levelConfig.GetTranslation("TargetDesc") + "[/color]";
             GetGObjectChild<GTextField>("desc").text = desc;
 
             GetGObjectChild<GTextField>("tips").text = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Tips");
@@ -35,7 +37,7 @@ namespace WarGame.UI
             cancelBtn.title = ConfigMgr.Instance.GetTranslation("FightTipsPanel_Cancel");
             cancelBtn.onClick.Add(OnCancel);
 
-            
+
             if (DatasMgr.Instance.IsLevelEntered(_levelID))
             {
                 var startBtn = GetGObjectChild<GButton>("startBtn");

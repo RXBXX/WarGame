@@ -261,6 +261,11 @@ namespace WarGame
 
             if (_targets.Contains(sender))
             {
+                if (_chainTargetDic.ContainsKey(sender))
+                {
+                    BattleMgr.Instance.DoChainAttack(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).Element, _initiatorID, _chainTargetDic[sender]);
+                }
+
                 _targets.Remove(sender);
             }
             else

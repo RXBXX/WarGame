@@ -24,6 +24,11 @@ namespace WarGame
             Game.Instance.Update(Time.deltaTime);
         }
 
+        private void FixedUpdate()
+        {
+            Game.Instance.FixedUpdate(Time.deltaTime);
+        }
+
         private void LateUpdate()
         {
             Game.Instance.LateUpdate();
