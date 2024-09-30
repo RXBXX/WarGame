@@ -36,13 +36,15 @@ namespace WarGame
 
         protected override void OnCreate(GameObject prefab)
         {
-            base.OnCreate(prefab);
-
+            _gameObject = GameObject.Instantiate(prefab);
             var equipPlaceConfig = GetPlaceConfig();
             var spinePoint = _spineRoot.transform.Find(equipPlaceConfig.SpinePoint);
             _gameObject.transform.SetParent(spinePoint, false);
             _gameObject.transform.localPosition = GetTypeConfig().Pos;
             _gameObject.transform.localEulerAngles = GetTypeConfig().Rotation;
+            _gameObject.layer = spinePoint.gameObject.layer;
+
+            SmoothNormal();
 
             var trails = _gameObject.GetComponentsInChildren<TrailRenderer>();
             foreach (var v in trails)
@@ -60,6 +62,8 @@ namespace WarGame
             _viceGO.transform.SetParent(spinePoint, false);
             _viceGO.transform.localPosition = Vector3.zero;
             _viceGO.transform.localEulerAngles = GetTypeConfig().ViceRotation;
+            _viceGO.layer = spinePoint.gameObject.layer;
+
             Tool.Instance.ApplyProcessingFotOutLine(_viceGO);
 
             var trails = _viceGO.GetComponentsInChildren<TrailRenderer>();

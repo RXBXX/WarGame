@@ -146,7 +146,6 @@ namespace WarGame
 
             foreach (var v in _data.equipDataDic)
             {
-                var equipPlaceConfig = ConfigMgr.Instance.GetConfig<EquipPlaceConfig>("EquipPlaceConfig", (int)v.Key);
                 var equipData = _data.equipDataDic[v.Key];
                 var equip = Factory.Instance.GetEquip(equipData, _gameObject.transform);
                 _equipDic[equip.GetPlace()] = equip;

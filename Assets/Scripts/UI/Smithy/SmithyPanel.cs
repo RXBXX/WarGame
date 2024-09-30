@@ -136,6 +136,18 @@ namespace WarGame.UI
             _resComp.UpdateComp(new List<TwoIntPair> {
                 new TwoIntPair((int)Enum.ItemType.EquipRes, DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes)),
             });
+
+            var equipConfig = ConfigMgr.Instance.GetConfig<EquipmentConfig>("EquipmentConfig", _selectEquip);
+            var ownNum = DatasMgr.Instance.GetItem((int)Enum.ItemType.EquipRes);
+            if (ownNum >= equipConfig.Cost)
+            {
+                _cost.text = "[color=#5C8799]" + ownNum + "/" + equipConfig.Cost + "[/color]";
+            }
+            else
+            {
+                _cost.text = "[color=#CE4A35]" + ownNum + "/" + equipConfig.Cost + "[/color]";
+            }
+
             UIManager.Instance.OpenPanel("Smithy", "SmithyRewardPanel", new object[] { args[1] });
         }
 

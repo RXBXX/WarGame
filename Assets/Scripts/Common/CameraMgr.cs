@@ -128,7 +128,7 @@ namespace WarGame
                 float yAxis = Input.GetAxis("Mouse Y") * _rotateSpeed;
 
                 var target = RoleManager.Instance.GetRole(_targetID);
-                var targetPos = target.GetFollowPos();
+                var targetPos = target.GetFollowPos();  //Error: Object reference not set to an instance of an object
                 if (0 != xAxis)
                 {
                     MainCamera.transform.RotateAround(targetPos, Vector3.up, xAxis);
