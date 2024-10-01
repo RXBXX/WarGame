@@ -75,7 +75,7 @@ namespace WarGame
                 return time + length < TimeMgr.Instance.GetUnixTimestamp();
             }
 
-            public void Dispose()
+            public void Dispose(bool recycle = true)
             {
                 SetActive(false);
                 audioClip = null;
@@ -84,6 +84,9 @@ namespace WarGame
 
                 AssetsMgr.Instance.ReleaseAsset(assetID);
                 assetID = 0;
+
+                if (!recycle)
+                    AssetsMgr.Instance.Destroy<AudioSource>(audioSource);
             }
         }
 
@@ -119,7 +122,9 @@ namespace WarGame
         public int PlaySound(string sound, bool isLoop = false, GameObject go = null, float blend = 0, float minDistance = 0)
         {
             if (null == go)
+            {
                 go = _GO;
+            }
 
             var audioSource = CreateAudioSource(go);
             audioSource.SetBlend(blend);
@@ -222,14 +227,20 @@ namespace WarGame
         {
             for (int i = _soundASs.Count - 1; i >= 0; i--)
             {
-                if (_soundASs[i].GO = go)
+                if (go == _soundASs[i].GO)
+                {
+                    _soundASs[i].Dispose(false);
                     _soundASs.RemoveAt(i);
+                }
             }
 
             for (int i = _audioPool.Count - 1; i >= 0; i--)
             {
-                if (_audioPool[i].GO = go)
+                if (go == _audioPool[i].GO)
+                {
+                    _audioPool[i].Dispose(false);
                     _audioPool.RemoveAt(i);
+                }
             }
         }
 

@@ -825,15 +825,13 @@ namespace WarGame
                         seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
                         seq.AppendInterval(Random.Range(0.1F, 0.4F));
                         seq.Append(go.transform.DOMove(pos + new Vector3(0, 2, 0), 0.2F));
-                        seq.AppendCallback(() =>
-                        {
+                        seq.onComplete = () => {
                             _gos.Remove(go);
-                            //_sequences.Remove(seq);
                             _assets.Remove(assetID);
                             AudioMgr.Instance.ClearSound(go);
                             AssetsMgr.Instance.Destroy(go);
-                        });
-                        seq.onComplete = () => { _sequences.Remove(seq); };
+                            _sequences.Remove(seq); 
+                        };
 
                         _gos.Add(go);
                         _sequences.Add(seq);

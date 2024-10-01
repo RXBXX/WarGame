@@ -73,18 +73,46 @@ namespace WarGame
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.A))
             {
-                var itemsDic = new List<TwoIntPair>();
-                for (int i = 1; i < 4; i++)
-                { 
-                    itemsDic.Add(new TwoIntPair(i, 100));
-                }
+                //var itemsDic = new List<TwoIntPair>();
+                //for (int i = 1; i < 4; i++)
+                //{
+                //    itemsDic.Add(new TwoIntPair(i, 100));
+                //}
 
-                WGCallback cb = () => { DebugManager.Instance.Log("OnSuccess"); };
-                UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] { itemsDic, cb });
+                //WGCallback cb = () => { DebugManager.Instance.Log("OnSuccess"); };
+                //UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] { itemsDic, cb });
+                var _sequences = new List<Sequence>();
+                var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", 1);
+                int assetID = 0;
+                var pos = Vector3.zero;
+                assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
+                {
+                    var count = 5;
+                    for (int i = 0; i < count; i++)
+                    {
+                        var go = GameObject.Instantiate(prefab);
+                        AudioMgr.Instance.PlaySound("Assets/Audios/Drop.mp3", false, go, 1, 6);
+                        go.transform.position = Vector3.zero;
+                        Sequence seq = DOTween.Sequence();
+                        seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
+                        seq.AppendInterval(Random.Range(0.1F, 0.4F));
+                        seq.Append(go.transform.DOMove(pos + new Vector3(0, 2, 0), 0.2F));
+                        seq.AppendCallback(() =>
+                        {
+                            AudioMgr.Instance.ClearSound(go);
+                            AssetsMgr.Instance.Destroy(go);
+                        });
+                        seq.onComplete = () => { _sequences.Remove(seq); };
+                    }
+                });
+
+                DialogMgr.Instance.OpenDialog(20003);
             }
-#endif
+
             //EventMgr.Instance.TriggerEvent(50);
             //DialogMgr.Instance.OpenDialog(20003);
+#endif
+
         }
 
         public override void FixedUpdate(float deltaTime)
