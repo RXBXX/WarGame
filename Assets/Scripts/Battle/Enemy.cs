@@ -26,11 +26,15 @@ namespace WarGame
         {
             _gameObject = GameObject.Instantiate(prefab);
             _gameObject.transform.SetParent(_parent);
+            _gameObject.tag = Enum.Tag.Enemy.ToString();
+
             SmoothNormal();
 
             _gameObject.transform.position = _position;
             _gameObject.transform.localScale = Vector3.one * 0.44F;
-            UpdateRotation(Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+
+            if (Application.isPlaying)
+                UpdateRotation(Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
 
             _animator = _gameObject.GetComponent<Animator>();
 
@@ -338,7 +342,7 @@ namespace WarGame
             var skillID = SelectSkill();
             var move = null != path && path.Count > 1;
             //DebugManager.Instance.Log("StartAI:" + ID + "_" +( null == target ? 0 : target.ID));
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move });
             //yield return new WaitForSeconds(1.0F);
             //yield return null;
 

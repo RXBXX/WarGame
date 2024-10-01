@@ -260,6 +260,16 @@ namespace WarGame
             tran.gameObject.layer = (int)layer;
         }
 
+        public static void SetLayer(Transform tran, int layer)
+        {
+            var childCount = tran.childCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                SetLayer(tran.GetChild(i), layer);
+            }
+            tran.gameObject.layer = layer;
+        }
+
         /// <summary>
         /// 获取点到支线的距离
         /// </summary>

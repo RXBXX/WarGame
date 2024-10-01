@@ -42,7 +42,7 @@ namespace WarGame
             _gameObject.transform.SetParent(spinePoint, false);
             _gameObject.transform.localPosition = GetTypeConfig().Pos;
             _gameObject.transform.localEulerAngles = GetTypeConfig().Rotation;
-            _gameObject.layer = spinePoint.gameObject.layer;
+            Tool.SetLayer(_gameObject.transform, spinePoint.gameObject.layer);
 
             SmoothNormal();
 
@@ -62,7 +62,7 @@ namespace WarGame
             _viceGO.transform.SetParent(spinePoint, false);
             _viceGO.transform.localPosition = Vector3.zero;
             _viceGO.transform.localEulerAngles = GetTypeConfig().ViceRotation;
-            _viceGO.layer = spinePoint.gameObject.layer;
+            Tool.SetLayer(_viceGO.transform, spinePoint.gameObject.layer);
 
             Tool.Instance.ApplyProcessingFotOutLine(_viceGO);
 
