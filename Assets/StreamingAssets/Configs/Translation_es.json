@@ -2244,34 +2244,6 @@
         "Str": "Por favor, asegúrese de que antes de entrar, esté listo para todo."
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Preste atención a los cinco elementos de contención y fortalecimiento. /n cuando se encuentra en una relación restringida, los atributos de la parte restringida se reducen. Cuando se encuentra en una relación fortalecida, los atributos de la parte fortalecida se elevan. /n"
-    },
-    {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "Los propios atributos del héroe se incrementan cuando una rejilla cercana al héroe tiene una presencia de héroe propia que puede fortalecerse y cuando el objetivo de la habilidad es el lado contenido. /n cuando el objetivo de la habilidad es contener al héroe a sí mismo, los atributos del héroe se reducen."
-    },
-    {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "El oro retiene madera, madera retiene tierra, tierra retiene agua, agua retiene fuego, fuego retiene oro."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "El oro fortalece el agua, el agua fortalece la madera, la madera fortalece el fuego, el fuego fortalece la tierra y la tierra fortalece el oro."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Selección de héroes según la alineación enemiga."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Antes de la guerra, ten cuidado de prepararte en el campamento de héroes."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "Puede elegir el equipo adecuado para el héroe en la herrería."
-    },
-    {
         "ID": "RecordItem_Time",
         "Str": "Último tiempo guardado:"
     },
@@ -4232,15 +4204,47 @@
         "Str": "Felicitaciones por obtener recursos"
     },
     {
-        "ID": "Data_Saved",
-        "Str": "¡Se ha guardado el último progreso!"
-    },
-    {
         "ID": "DayConfig_1_Desc",
         "Str": "5% de mejora en los atributos de los héroes y 5% de reducción en los enemigos en el campo de batalla"
     },
     {
         "ID": "DayConfig_2_Desc",
         "Str": "Los atributos de los héroes en el campo de batalla disminuyen en un 5% y los atributos de los enemigos aumentan en un 5%."
+    },
+    {
+        "ID": "Data_Saved",
+        "Str": "¡Se ha guardado el último progreso!"
+    },
+    {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Atención a la moderación y fortalecimiento de las relaciones entre los elementos. Cuando se encuentra en una relación restringida, los atributos de la parte restringida se reducen. Cuando se encuentra en una relación fortalecida, los atributos de la parte fortalecida se elevan."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "Los propios atributos del héroe se incrementan cuando una rejilla cercana al héroe tiene una presencia de héroe propia que puede fortalecerse y cuando el objetivo de la habilidad es el lado contenido. Cuando el objetivo de la habilidad es contener al héroe a sí mismo, los atributos de héroe se reducen."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "El oro retiene madera, madera retiene tierra, tierra retiene agua, agua retiene fuego, fuego retiene oro."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "El oro fortalece el agua, el agua fortalece la madera, la madera fortalece el fuego, el fuego fortalece la tierra y la tierra fortalece el oro."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Antes de ir a la guerra, selecciona a tu héroe para entrar en combate según el tipo de elemento del nivel, así como la alineación enemiga. Asegúrate de estar listo en el campamento de héroes."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Observe el cambio de día y de noche. Durante el día, los atributos del héroe se fortalecen y los de los enemigos se debilitan. Los atributos del héroe de la noche se debilitan y los atributos del enemigo se fortalecen."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "Cada vez que la batalla termina, se obtiene el total de los recursos adquiridos en el campo de batalla. Puede elegir el equipo adecuado para el héroe en la herrería y desarrollar héroes favoritos en el campamento de héroes."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "La hoguera restaura la salud del héroe cada turno. Solo es necesario permanecer en el área adyacente a la hoguera."
     }
 ]

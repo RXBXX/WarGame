@@ -248,8 +248,9 @@ namespace WarGame
             CameraMgr.Instance.SetTarget(heros[0].ID, false);
             yield return new WaitForSeconds(0.2F);
             UIManager.Instance.ClosePanel("LoadPanel");
+            DebugManager.Instance.LogError("4");
             UIManager.Instance.OpenPanel("Fight", "FightPanel", new object[] { _levelID, _levelData.Stage >= Enum.LevelStage.Readyed, _levelData.Round });
-
+            DebugManager.Instance.LogError("5");
             var levelConfig = ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelData.configId);
             if (_levelData.Stage < Enum.LevelStage.Talked)
             {

@@ -79,7 +79,7 @@ namespace WarGame
             if (null != _viceGO)
             {
                 GameObject.Destroy(_viceGO);
-                _gameObject = null;
+                _viceGO = null;
             }
             AssetsMgr.Instance.ReleaseAsset(_viceAssetID);
 

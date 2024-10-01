@@ -225,6 +225,9 @@ namespace WarGame
 
         public void ClearSound(GameObject go)
         {
+            if (null == go)
+                return;
+
             for (int i = _soundASs.Count - 1; i >= 0; i--)
             {
                 if (go == _soundASs[i].GO)
@@ -240,6 +243,7 @@ namespace WarGame
                 {
                     _audioPool[i].Dispose(false);
                     _audioPool.RemoveAt(i);
+
                 }
             }
         }

@@ -60,7 +60,7 @@ namespace WarGame.UI
                 restartBtn.visible = false;
             }
 
-            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Warning.mp3", true);
+            _soundID = AudioMgr.Instance.PlaySound("Assets/Audios/Warning.wav", true);
         }
 
         public override void Dispose(bool disposeGCom = false)

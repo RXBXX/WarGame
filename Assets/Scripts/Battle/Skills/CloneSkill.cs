@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 namespace WarGame
 {
@@ -9,6 +10,8 @@ namespace WarGame
         private Hexagon _targetHexagon;
         private int _lock = 0;
         private Vector3 _targetDeltaVec;
+        private Tweener _moveTweener;
+        private Tweener _rotateTweener;
 
         public CloneSkill(int id, int initiatorID, int levelID) : base(id, initiatorID, levelID)
         {
@@ -112,27 +115,32 @@ namespace WarGame
 
         private void OnRoleCreate(object[] args)
         {
-            DebugManager.Instance.Log("OnRoleCreate");
+            //DebugManager.Instance.Log("OnRoleCreate");
             if ((int)args[0] != _targets[0])
                 return;
 
             var target = RoleManager.Instance.GetRole(_targets[0]);
             if (!DatasMgr.Instance.GetSkipBattle())
             {
-                DebugManager.Instance.Log("OnRoleCreate 1111");
                 target.SetHUDRoleVisible(false);
                 target.ChangeToArenaSpace(target.GetPosition() + _targetDeltaVec, 0);
                 _arenaObjects.Add(target);
             }
 
-            _lock--;
-            if (_lock > 0)
-                return;
+            AudioMgr.Instance.PlaySound("Assets/Audios/Clone.wav");
+            var tran = target.GameObject.transform;
+            tran.localScale = Vector3.zero;
+            _moveTweener = tran.DOScale(target.GetScale(), 1.0f).SetEase(Ease.InOutQuart);
+            _moveTweener.onComplete = () =>
+            {
+                _moveTweener = null;
+                OnCloned();
+            };
 
-            if (null != _attackCoroutine)
-                return;
-
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _rotateTweener = tran.DOLocalRotate(new Vector3(0, 3600, 0), 1.0f, RotateMode.FastBeyond360).SetEase(Ease.InOutQuart);
+            _rotateTweener.onComplete = () => {
+                _rotateTweener = null;
+            };
         }
 
         protected override IEnumerator OpenBattleArena()
@@ -179,6 +187,35 @@ namespace WarGame
             var skillName = GetConfig().GetTranslation("Name");
             EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Show_HP, new object[] { new List<int> { _initiatorID }, _targets, skillName });
             yield return new WaitForSeconds(1.0f);
+        }
+
+        private void OnCloned()
+        {
+            _lock--;
+            if (_lock > 0)
+                return;
+
+            if (null != _attackCoroutine)
+                return;
+
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+        }
+
+        public override void Dispose()
+        {
+            if (null != _moveTweener)
+            {
+                _moveTweener.Kill();
+                _moveTweener = null;
+            }
+
+            if (null != _rotateTweener)
+            {
+                _rotateTweener.Kill();
+                _rotateTweener = null;
+            }
+
+            base.Dispose();
         }
     }
 }

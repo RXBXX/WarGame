@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using WarGame;
 using System.Text;
+using DG.Tweening;
 
 public class Test : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Test : MonoBehaviour
     private float _time;
     private float _Intervale = 0.1F;
     public  Animator animator;
+    public Transform tran;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,11 @@ public class Test : MonoBehaviour
             //Debug.Log("MouseUp");
             animator.SetBool("Idle", false);
             animator.SetBool("Attack", true);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            tran.eulerAngles = Vector3.one;
+            tran.DOLocalRotate(new Vector3(0, 1080, 0), 1.0f, RotateMode.FastBeyond360).SetEase(Ease.InOutQuart);
         }
     }
 

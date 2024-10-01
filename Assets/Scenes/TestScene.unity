@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 101789222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 13af0c30b62cf534f97f2e69d7e0f94c, type: 2}
   animator: {fileID: 1851681664}
+  tran: {fileID: 1851681668}
 --- !u!1001 &237510469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5349,6 +5350,11 @@ PrefabInstance:
 --- !u!95 &1851681664 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6720734622368417269, guid: 9de242014b3cc604b954a73e238d23f4, type: 3}
+  m_PrefabInstance: {fileID: 237510469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1851681668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1569773465667801019, guid: 9de242014b3cc604b954a73e238d23f4, type: 3}
   m_PrefabInstance: {fileID: 237510469}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

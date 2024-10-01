@@ -43,6 +43,10 @@ namespace WarGame
 
         private Dictionary<Enum.Buff, List<AssetPair<GameObject>>> _buffEffectDic = new Dictionary<Enum.Buff, List<AssetPair<GameObject>>>();
 
+        private bool _following = false;
+
+        protected Vector3 _scale;
+
         public int ID
         {
             get { return _data.UID; }
@@ -92,7 +96,10 @@ namespace WarGame
         public Role(LevelRoleData data)
         {
             this._data = data;
-            _position = MapTool.Instance.GetPosFromCoor(MapManager.Instance.GetHexagon(Hexagon).coor) + CommonParams.Offset;
+            var hexagon = MapManager.Instance.GetHexagon(Hexagon);
+            if (null != hexagon)
+                _position = MapTool.Instance.GetPosFromCoor(hexagon.coor) + CommonParams.Offset;
+            _scale = Vector3.one * 0.4F;
             CreateGO();
         }
 
@@ -109,7 +116,7 @@ namespace WarGame
             SmoothNormal();
 
             _gameObject.transform.position = _position;
-            _gameObject.transform.localScale = Vector3.one * 0.4F;
+            _gameObject.transform.localScale = _scale;
             _animator = _gameObject.GetComponent<Animator>();
 
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
@@ -205,6 +212,7 @@ namespace WarGame
             var hud = HUDManager.Instance.AddHUD<HUDRole>("HUDRole", _hpHUDKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
             hud.SetHPVisible(true);
             _hudPoint.AddComponent<SortingGroup>().sortingOrder = 0;
+            hud.SetFollowing(_following);
         }
 
         protected virtual int GetHPType()
@@ -802,6 +810,8 @@ namespace WarGame
 
         public void SetFollowing(bool following)
         {
+            _following = following;
+
             var hud = HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
             if (null != hud)
                 hud.SetFollowing(following);
@@ -1099,6 +1109,16 @@ namespace WarGame
                     return true;
             }
             return false;
+        }
+
+        public Vector3 GetScale()
+        {
+            return _scale;
+        }
+
+        public Vector3 GetRotation()
+        {
+            return _rotation.eulerAngles;
         }
 
         public override bool Dispose()

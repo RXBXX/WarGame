@@ -20,6 +20,10 @@ namespace WarGame
         {
             _type = Enum.RoleType.Enemy;
             _layer = Enum.Layer.Enemy;
+            if (GetEnemyConfig().IsBoss)
+            {
+                _scale = Vector3.one * 0.45f;
+            }
         }
 
         protected override void OnCreate(GameObject prefab)
@@ -31,7 +35,7 @@ namespace WarGame
             SmoothNormal();
 
             _gameObject.transform.position = _position;
-            _gameObject.transform.localScale = Vector3.one * 0.44F;
+            _gameObject.transform.localScale = _scale;
 
             if (Application.isPlaying)
                 UpdateRotation(Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
@@ -64,9 +68,7 @@ namespace WarGame
             base.CreateHUD();
             if (GetEnemyConfig().IsBoss)
             {
-                _gameObject.transform.localScale = _gameObject.transform.localScale * 1.2F;
-                var hud = GetHUDRole();
-                hud.SetBoss();
+                GetHUDRole().SetBoss();
             }
             _gameObject.tag = Enum.Tag.Enemy.ToString();
         }

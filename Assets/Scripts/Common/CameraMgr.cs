@@ -18,6 +18,7 @@ namespace WarGame
         private int _lockCount = 0;
         private bool _dragging = false;
         private Sequence _floatSeq;
+        private Camera _mainCamera;
 
         private bool _isLocking
         {
@@ -46,7 +47,7 @@ namespace WarGame
         public Camera MainCamera
         {
             get {
-                return Camera.main; 
+                return _mainCamera; 
             }
         }
 
@@ -58,6 +59,10 @@ namespace WarGame
         public override bool Init()
         {
             base.Init();
+
+            _mainCamera = Camera.main;
+
+            SetEnabled(false);
 
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Role_Dispose, OnRoleDispose);
 
@@ -242,6 +247,7 @@ namespace WarGame
 
         public void SetTarget(int targetID, bool ani = true)
         {
+            DebugManager.Instance.Log("SetTarget:" + targetID);
             if (targetID == _targetID)
                 return;
 
@@ -280,9 +286,10 @@ namespace WarGame
 
         private void OnRoleDispose(params object[] args)
         {
-            //DebugManager.Instance.Log(args[0]);
+            DebugManager.Instance.Log("OnRoleDispose:" + args[0]);
             if ((int)args[0] != _targetID)
                 return;
+
             ClearTarget();
 
             FindingTarget(true);
@@ -412,6 +419,11 @@ namespace WarGame
                 _floatSeq.Kill();
                 _floatSeq = null;
             }
+        }
+
+        public void SetEnabled(bool enabled)
+        {
+            _mainCamera.enabled = enabled;
         }
 
         public override bool Dispose()

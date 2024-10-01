@@ -1,6 +1,6 @@
 using UnityEngine;
 using WarGame.UI;
-using UnityEngine.AddressableAssets;
+using System;
 
 namespace WarGame
 {
@@ -98,17 +98,28 @@ namespace WarGame
         private void OpenScene(string scene, System.Action<string> callback)
         {
             //DebugManager.Instance.Log("OpenScene");
-
-            System.GC.Collect();
-            AssetsMgr.Instance.UnloadUnusedAssets();
-
-            UIManager.Instance.OpenPanel("Load", "LoadPanel");
-            AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
+            try
             {
-                //DebugManager.Instance.Log("OpenScene 1111");
-                UIManager.Instance.ClosePanel("LoadPanel");
-                callback(name);
-            });
+                System.GC.Collect();
+                AssetsMgr.Instance.UnloadUnusedAssets();
+
+                UIManager.Instance.OpenPanel("Load", "LoadPanel");
+                DebugManager.Instance.LogError(1);
+                AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
+                {
+                    if (scene.Equals("Assets/Scenes/MapScene.unity"))
+                        CameraMgr.Instance.SetEnabled(true);
+                    else
+                        CameraMgr.Instance.SetEnabled(false);
+
+                    DebugManager.Instance.LogError(2);
+                    UIManager.Instance.ClosePanel("LoadPanel");
+                    callback(name);
+                });
+            }
+            catch(Exception e) {
+                DebugManager.Instance.LogError(e);
+            }
         }
 
         public void StartGame(string id = null)
@@ -160,8 +171,11 @@ namespace WarGame
                 _heroScene = GameObject.Instantiate<GameObject>(prefab);
                 _heroScene.transform.position = Vector3.one * 10000;
                 var heroCamera = _heroScene.transform.Find("Camera").GetComponent<Camera>();
-                CameraMgr.Instance.SetMainCamera(heroCamera);
-                UIManager.Instance.OpenPanel("Hero", "HeroPanel", new object[] { heroCamera.targetTexture });
+                //CameraMgr.Instance.SetMainCamera(heroCamera);
+                //UIManager.Instance.OpenPanel("Hero", "HeroPanel", new object[] { heroCamera.targetTexture });
+                var rt = RenderTexture.GetTemporary(2000, 1500);
+                heroCamera.targetTexture = rt;
+                UIManager.Instance.OpenPanel("Hero", "HeroPanel", new object[] {rt });
                 HUDManager.Instance.SetVisible(false);
             });
         }
@@ -169,9 +183,19 @@ namespace WarGame
         public void CloseHeroScene()
         {
             //UnityEngine.Profiling.Profiler.BeginSample("Hero");
-            AssetsMgr.Instance.Destroy(_heroScene); 
-            AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
+            var heroCamera = _heroScene.transform.Find("Camera").GetComponent<Camera>();
+            var rt = heroCamera.targetTexture;
+            heroCamera.targetTexture = null;
+            //var cams = GameObject.FindObjectsOfType<Camera>();
+            //foreach (var v in cams)
+            //    v.targetTexture = null;
+            //RenderTexture.active = null;
+            RenderTexture.ReleaseTemporary(rt);
+            //heroCamera.enabled = false;
+
             UIManager.Instance.ClosePanel("HeroPanel");
+            AssetsMgr.Instance.Destroy(_heroScene);
+            AssetsMgr.Instance.ReleaseAsset(_heroSceneID);
             HUDManager.Instance.SetVisible(true);
             //UnityEngine.Profiling.Profiler.EndSample();
         }

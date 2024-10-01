@@ -129,11 +129,13 @@ namespace WarGame
         public virtual bool Dispose()
         {
             AudioMgr.Instance.ClearSound(_gameObject);
+
             if (null != _gameObject)
             {
                 GameObject.Destroy(_gameObject);
                 _gameObject = null;
             }
+
             AssetsMgr.Instance.ReleaseAsset(_assetID);
             return true;
         }
