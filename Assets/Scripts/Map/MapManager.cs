@@ -281,12 +281,15 @@ namespace WarGame
 
             foreach (var v in closeDic)
             {
-                if (ContainHexagon(v.Key))
-                {
-                    var hexagon = GetHexagon(v.Key);
-                    var blockParam = v.Value.type == Enum.MarkType.Walkable ? 1 : 0;
-                    RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(-0.3F, 0.4F, 0.2F), Vector3.one / 3.0F, "_TexIndex", blockParam);
-                }
+                if (!ContainHexagon(v.Key))
+                    continue;
+
+                if (ContainHexagon(MapTool.Instance.GetHexagonKey(v.Value.coor + new WGVector3(0, 1, 0))))
+                    continue;
+
+                var hexagon = GetHexagon(v.Key);
+                var blockParam = v.Value.type == Enum.MarkType.Walkable ? 1 : 0;
+                RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(-0.3F, 0.4F, 0.2F), Vector3.one / 3.0F, "_TexIndex", blockParam);
             }
 
             closeDic.Recycle();

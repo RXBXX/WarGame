@@ -224,6 +224,7 @@ namespace WarGame.UI
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
+            //DebugManager.Instance.Log(animatorConfig.Controller);
             AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
@@ -295,7 +296,6 @@ namespace WarGame.UI
 
         private void OnUnwearEquip(params object[] args)
         {
-            var roleUID = _roles[_roleIndex];
             var ndpu = (UnwearEquipNDPU)args[0];
             if (0 != ndpu.ret)
             {
@@ -303,6 +303,7 @@ namespace WarGame.UI
                 return;
             }
 
+            var roleUID = ndpu.roleUID;
             foreach (var v in ndpu.unwearEquips)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);
@@ -318,10 +319,10 @@ namespace WarGame.UI
                 }
             }
 
+            UpdateAnimator(roleUID);
+
             if (!ndpu.fromWear)
             {
-                UpdateAnimator(roleUID);
-
                 if (_roles[_roleIndex] == ndpu.roleUID)
                     _proComp.UpdateComp(ndpu.roleUID);
             }
