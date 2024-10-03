@@ -262,7 +262,9 @@ namespace WarGame
     public class StoryConfig : Config
     {
         public string Context;
-        public string Pic;
+        public string Pic1;
+        public string Pic2;
+        public string Pic3;
     }
 
     //µÀ¾ß

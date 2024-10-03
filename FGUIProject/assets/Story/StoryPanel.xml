@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <graph id="n2_dd4m" name="n2" xy="0,0" size="1334,750" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n2_dd4m" name="n2" xy="0,0" size="1334,750" type="rect" lineSize="0" fillColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <loader id="n1_dd4m" name="pic" xy="-81,95" size="1496,450" url="ui://sj7ohizdovai1" align="center" vAlign="middle" fill="scale">
-      <relation target="" sidePair="center-center,middle-middle"/>
-    </loader>
-    <text id="n0_dd4m" name="context" xy="111,555" size="1111,129" font="ui://hd0z4dz5omu90" fontSize="24" color="#cccccc" letterSpacing="1" autoSize="height" autoClearText="true" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+    <text id="n0_dd4m" name="context" xy="111,581" size="1111,120" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" leading="0" letterSpacing="1" autoSize="height" strokeColor="#000000" autoClearText="true" text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">
       <relation target="" sidePair="center-center,top-bottom"/>
     </text>
-    <graph id="n3_ovai" name="n3" xy="0,2" size="1334,750" alpha="0" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
+    <component id="n4_heae" name="item" src="upau2" fileName="StoryItem.xml" xy="-33,119">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
   </displayList>
-  <transition name="fadeOut">
-    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="1" endValue="0" duration="12"/>
-  </transition>
-  <transition name="fadeIn">
-    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="0" endValue="1" duration="12"/>
-  </transition>
   <transition name="over">
-    <item time="0" type="Alpha" target="n3_ovai" tween="true" startValue="0" endValue="1" duration="72"/>
+    <item time="0" type="Alpha" target="n0_dd4m" tween="true" startValue="1" endValue="0" duration="36"/>
+    <item time="0" type="Alpha" target="n4_heae" tween="true" startValue="1" endValue="0" duration="36"/>
+    <item time="0" type="Color" target="n2_dd4m" tween="true" startValue="#333333" endValue="#000000" duration="36"/>
+    <item time="60" type="Alpha" target="n0_dd4m" value="0"/>
+    <item time="60" type="Alpha" target="n4_heae" value="0"/>
+    <item time="60" type="Color" target="n2_dd4m" value="#000000"/>
   </transition>
 </component>

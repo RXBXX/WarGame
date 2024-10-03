@@ -174,6 +174,7 @@ namespace WarGame
 
         private void ClickEnemy(int enemyId)
         {
+            DebugManager.Instance.Log("ClickEnemy");
             var enemy = RoleManager.Instance.GetRole(enemyId);
             if (enemy.GetState() != Enum.RoleState.Locked && enemy.GetState() != Enum.RoleState.Over)
                 return;

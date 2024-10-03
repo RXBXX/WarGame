@@ -289,7 +289,7 @@ namespace WarGame
 
                 var hexagon = GetHexagon(v.Key);
                 var blockParam = v.Value.type == Enum.MarkType.Walkable ? 1 : 0;
-                RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(-0.3F, 0.4F, 0.2F), Vector3.one / 3.0F, "_TexIndex", blockParam);
+                RenderMgr.Instance.AddMeshInstanced("Assets/Prefabs/Mark.prefab", hexagon.GetPosition() + new Vector3(0, 0.4F, 0), Vector3.one / 5.0F, "_TexIndex", blockParam);
             }
 
             closeDic.Recycle();

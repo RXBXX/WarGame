@@ -528,7 +528,7 @@ namespace WarGame
             this.ID = ID;
             this.title = title;
             this.createTime = TimeMgr.Instance.GetUnixTimestamp();
-            Time = 450F;
+            Time = 250F;
         }
 
         public void AddHero(int heroID)

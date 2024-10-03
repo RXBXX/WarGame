@@ -1146,6 +1146,32 @@
     },
     {
         "ID": 20518,
+        "RoleID": 20005,
+        "Level": 5,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 9,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20519,
+        "RoleID": 20005,
+        "Level": 5,
+        "Equips": [
+            10029
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 9,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20520,
         "RoleID": 30008,
         "Level": 1,
         "Equips": [
@@ -1366,6 +1392,32 @@
     },
     {
         "ID": 20617,
+        "RoleID": 20006,
+        "Level": 6,
+        "Equips": [
+            10022
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 11,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20618,
+        "RoleID": 20006,
+        "Level": 6,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 11,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20619,
         "RoleID": 30009,
         "Level": 1,
         "Equips": [
@@ -1379,7 +1431,7 @@
         "Group": "ML01_6"
     },
     {
-        "ID": 20618,
+        "ID": 20620,
         "RoleID": 30010,
         "Level": 1,
         "Equips": [
@@ -1612,6 +1664,32 @@
     },
     {
         "ID": 20718,
+        "RoleID": 20007,
+        "Level": 7,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 13,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20719,
+        "RoleID": 20007,
+        "Level": 7,
+        "Equips": [
+            10030
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 13,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20720,
         "RoleID": 30011,
         "Level": 1,
         "Equips": [
@@ -1831,6 +1909,32 @@
     },
     {
         "ID": 20817,
+        "RoleID": 20008,
+        "Level": 8,
+        "Equips": [
+            10031
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 15,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20818,
+        "RoleID": 20008,
+        "Level": 8,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 15,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20819,
         "RoleID": 30012,
         "Level": 1,
         "Equips": [
@@ -1844,7 +1948,7 @@
         "Group": "ML01_6"
     },
     {
-        "ID": 20818,
+        "ID": 20820,
         "RoleID": 30013,
         "Level": 1,
         "Equips": [
@@ -2032,6 +2136,44 @@
     },
     {
         "ID": 20914,
+        "RoleID": 20009,
+        "Level": 9,
+        "Equips": [
+            10031
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 17,
+        "ViewDis": 7,
+        "Group": "ML01_3"
+    },
+    {
+        "ID": 20915,
+        "RoleID": 20009,
+        "Level": 9,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 17,
+        "ViewDis": 7,
+        "Group": "ML01_4"
+    },
+    {
+        "ID": 20916,
+        "RoleID": 20009,
+        "Level": 9,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 17,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 20917,
         "RoleID": 30014,
         "Level": 1,
         "Equips": [
@@ -2042,10 +2184,10 @@
         "DefeatEvent": 0,
         "Reward": 18,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_6"
     },
     {
-        "ID": 20915,
+        "ID": 20918,
         "RoleID": 30015,
         "Level": 1,
         "Equips": [
@@ -2056,7 +2198,7 @@
         "DefeatEvent": 0,
         "Reward": 18,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_6"
     },
     {
         "ID": 21001,
@@ -2150,7 +2292,7 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_3"
+        "Group": "ML01_2"
     },
     {
         "ID": 21008,
@@ -2162,7 +2304,7 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_3"
+        "Group": "ML01_2"
     },
     {
         "ID": 21009,
@@ -2188,7 +2330,7 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_4"
+        "Group": "ML01_3"
     },
     {
         "ID": 21011,
@@ -2202,7 +2344,7 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_4"
+        "Group": "ML01_3"
     },
     {
         "ID": 21012,
@@ -2216,7 +2358,7 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_4"
+        "Group": "ML01_3"
     },
     {
         "ID": 21013,
@@ -2228,10 +2370,48 @@
         "DefeatEvent": 0,
         "Reward": 19,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_3"
     },
     {
         "ID": 21014,
+        "RoleID": 20010,
+        "Level": 10,
+        "Equips": [
+            10031
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 19,
+        "ViewDis": 7,
+        "Group": "ML01_3"
+    },
+    {
+        "ID": 21015,
+        "RoleID": 20010,
+        "Level": 10,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 19,
+        "ViewDis": 7,
+        "Group": "ML01_4"
+    },
+    {
+        "ID": 21016,
+        "RoleID": 20010,
+        "Level": 10,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 19,
+        "ViewDis": 7,
+        "Group": "ML01_4"
+    },
+    {
+        "ID": 21017,
         "RoleID": 30016,
         "Level": 1,
         "Equips": [
@@ -2242,10 +2422,10 @@
         "DefeatEvent": 0,
         "Reward": 20,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_4"
     },
     {
-        "ID": 21015,
+        "ID": 21018,
         "RoleID": 30017,
         "Level": 1,
         "Equips": [
@@ -2256,7 +2436,7 @@
         "DefeatEvent": 0,
         "Reward": 20,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_4"
     },
     {
         "ID": 21101,
@@ -2442,6 +2622,34 @@
     },
     {
         "ID": 21114,
+        "RoleID": 20011,
+        "Level": 10,
+        "Equips": [
+            10032
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 21,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21115,
+        "RoleID": 20011,
+        "Level": 10,
+        "Equips": [
+            10057
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 21,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21116,
         "RoleID": 30018,
         "Level": 1,
         "Equips": [
@@ -2455,7 +2663,7 @@
         "Group": "ML01_5"
     },
     {
-        "ID": 21115,
+        "ID": 21117,
         "RoleID": 30020,
         "Level": 1,
         "Equips": [
@@ -2606,7 +2814,7 @@
         "DefeatEvent": 0,
         "Reward": 23,
         "ViewDis": 7,
-        "Group": "ML01_4"
+        "Group": "ML01_3"
     },
     {
         "ID": 21211,
@@ -2620,7 +2828,7 @@
         "DefeatEvent": 0,
         "Reward": 23,
         "ViewDis": 7,
-        "Group": "ML01_4"
+        "Group": "ML01_3"
     },
     {
         "ID": 21212,
@@ -2648,7 +2856,7 @@
         "DefeatEvent": 0,
         "Reward": 23,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_4"
     },
     {
         "ID": 21214,
@@ -2662,10 +2870,66 @@
         "DefeatEvent": 0,
         "Reward": 23,
         "ViewDis": 7,
-        "Group": "ML01_5"
+        "Group": "ML01_4"
     },
     {
         "ID": 21215,
+        "RoleID": 20012,
+        "Level": 10,
+        "Equips": [
+            10047
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 23,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21216,
+        "RoleID": 20012,
+        "Level": 10,
+        "Equips": [
+            10058
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 23,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21217,
+        "RoleID": 20012,
+        "Level": 10,
+        "Equips": [
+            10047
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 23,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21218,
+        "RoleID": 20012,
+        "Level": 10,
+        "Equips": [
+            10016
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 23,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 21219,
         "RoleID": 30022,
         "Level": 1,
         "Equips": [
@@ -2890,6 +3154,62 @@
     },
     {
         "ID": 21316,
+        "RoleID": 20013,
+        "Level": 10,
+        "Equips": [
+            10033
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 25,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 21317,
+        "RoleID": 20013,
+        "Level": 10,
+        "Equips": [
+            10058
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 25,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 21318,
+        "RoleID": 20013,
+        "Level": 10,
+        "Equips": [
+            10018
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 25,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 21319,
+        "RoleID": 20013,
+        "Level": 10,
+        "Equips": [
+            10049
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 25,
+        "ViewDis": 7,
+        "Group": "ML01_6"
+    },
+    {
+        "ID": 21320,
         "RoleID": 30024,
         "Level": 1,
         "Equips": [
@@ -2903,7 +3223,7 @@
         "Group": "ML01_6"
     },
     {
-        "ID": 21317,
+        "ID": 21321,
         "RoleID": 30023,
         "Level": 1,
         "Equips": [
@@ -2917,7 +3237,7 @@
         "Group": "ML01_6"
     },
     {
-        "ID": 21318,
+        "ID": 21322,
         "RoleID": 30019,
         "Level": 1,
         "Equips": [

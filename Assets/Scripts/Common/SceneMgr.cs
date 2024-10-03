@@ -104,7 +104,6 @@ namespace WarGame
                 AssetsMgr.Instance.UnloadUnusedAssets();
 
                 UIManager.Instance.OpenPanel("Load", "LoadPanel");
-                DebugManager.Instance.LogError(1);
                 AssetsMgr.Instance.LoadSceneAsync(scene, (string name) =>
                 {
                     if (scene.Equals("Assets/Scenes/MapScene.unity"))
@@ -112,7 +111,6 @@ namespace WarGame
                     else
                         CameraMgr.Instance.SetEnabled(false);
 
-                    DebugManager.Instance.LogError(2);
                     UIManager.Instance.ClosePanel("LoadPanel");
                     callback(name);
                 });

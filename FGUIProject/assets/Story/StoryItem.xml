@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1334,450" overflow="hidden" mask="n2_dd4m">
-  <controller name="type" exported="true" pages="0,,1," selected="1"/>
+<component size="1400,454" overflow="hidden">
+  <controller name="type" exported="true" pages="0,,1," selected="0"/>
   <displayList>
-    <graph id="n2_dd4m" name="n2" xy="667,225" pivot="0.5,0.5" anchor="true" size="1334,450" scale="-1,-1" type="polygon" lineSize="0" fillColor="#ff000000" points="0,0,1334,0,1334,337,0,450">
-      <gearSize controller="type" pages="1" values="1334,450,-1,-1" default="1334,450,1,1"/>
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <loader id="n1_dd4m" name="pic" xy="-81,0" size="1496,450" url="ui://sj7ohizdovai1" align="center" vAlign="middle" fill="scale"/>
+    <component id="n9_heae" name="pic1" src="heae7" fileName="StoryMask1.xml" xy="0,0" size="778,454"/>
+    <component id="n7_heae" name="pic2" src="heae8" fileName="StoryMask2.xml" xy="724,0" size="683,261"/>
+    <component id="n8_heae" name="pic3" src="heae9" fileName="StoryMask3.xml" xy="643,4" size="763,450"/>
   </displayList>
-  <transition name="fadeOut">
-    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="1" endValue="0" duration="12"/>
-  </transition>
   <transition name="fadeIn">
-    <item time="0" type="Alpha" target="n1_dd4m" tween="true" startValue="0" endValue="1" duration="12"/>
+    <item time="0" type="XY" target="n7_heae" value="1434,-"/>
+    <item time="0" type="XY" target="n8_heae" value="1422,-"/>
+    <item time="0" type="XY" target="n9_heae" label="Pic1" tween="true" startValue="-800,-" endValue="0,-" duration="6" ease="Quart.In"/>
+    <item time="12" type="XY" target="n7_heae" label="Pic2" tween="true" startValue="1434,-" endValue="724,-" duration="6" ease="Quart.In"/>
+    <item time="24" type="XY" target="n8_heae" label="Pic3" tween="true" startValue="1422,-" endValue="642,-" duration="6" ease="Quart.In"/>
   </transition>
-  <transition name="over"/>
 </component>

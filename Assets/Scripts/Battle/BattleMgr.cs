@@ -326,10 +326,10 @@ namespace WarGame
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
 
-            foreach (var v in targets)
+            for (int i = targets.Count - 1; i >= 0; i--)
             {
-                var target = RoleManager.Instance.GetRole(v);
-                var hurt = GetAttackValue(levelElement, initiatorID, v, true);
+                var target = RoleManager.Instance.GetRole(targets[i]);
+                var hurt = GetAttackValue(levelElement, initiatorID, targets[i], true);
                 target.Hit(hurt, initiator.GetAttackEffect(), initiator.ID);
                 target.AddBuffs(initiator.GetAttackBuffs(), initiator.Type);
             }

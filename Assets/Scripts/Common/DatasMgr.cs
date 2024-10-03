@@ -37,7 +37,7 @@ namespace WarGame
         {
             _data.Save();
             Tool.Instance.WriteJson<GameData>(_path, _data);
-            TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("Data_Saved"));
+            //TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("Data_Saved"));
         }
 
         public void StartNewGame()

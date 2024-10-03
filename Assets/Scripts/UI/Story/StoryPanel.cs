@@ -12,20 +12,16 @@ namespace WarGame.UI
         private float _wordInterval = 0.05f;
         private float _paragraphInterval = 1.0f;
         private float _time = 0.0f;
-        private GLoader _pic;
-        private Transition _fadeIn;
-        private Transition _fadeOut;
         private Transition _over;
         private bool _stop = true;
         private int _soundID = 0;
+        private StoryItem _item;
 
         public StoryPanel(GComponent gCom, string name, object[] args) : base(gCom, name)
         {
-            _pic = GetGObjectChild<GLoader>("pic");
             _context = GetGObjectChild<GTextField>("context");
-            _fadeIn = GetTransition("fadeIn");
-            _fadeOut = GetTransition("fadeOut");
             _over = GetTransition("over");
+            _item = GetChild<StoryItem>("item");
             _te = new TypingEffect(_context);
             _groupID = (int)args[0];
             _callback = (WGArgsCallback)args[1];
@@ -63,37 +59,11 @@ namespace WarGame.UI
             _index++;
             if (_index > ConfigMgr.Instance.GetConfig<StoryGroupConfig>("StoryGroupConfig", _groupID).Count)
             {
-                _over.Play(()=> { _callback(); });
+                _over.Play(() => { _callback(); });
                 return;
             }
 
-            var storyConfig = ConfigMgr.Instance.GetConfig<StoryConfig>("StoryConfig", _groupID * 1000 + _index);
-            if (_index <= 1)
-            {
-                _pic.url = storyConfig.Pic;
-                _fadeIn.Play(() =>
-                {
-                    OnPlayString();
-                });
-            }
-            else
-            {
-                if (null != storyConfig.Pic)
-                {
-                    _fadeOut.Play(() =>
-                    {
-                        _pic.url = storyConfig.Pic;
-                        _fadeIn.Play(() =>
-                        {
-                            OnPlayString();
-                        });
-                    });
-                }
-                else
-                {
-                    OnPlayString();
-                }
-            }
+            _item.Play(_groupID * 1000 + _index, OnPlayString);
         }
 
         private void OnPlayString()

@@ -109,6 +109,16 @@ namespace WarGame
                 DialogMgr.Instance.OpenDialog(20003);
             }
 
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                DebugManager.Instance.Log(RenderSettings.ambientIntensity);
+                RenderSettings.ambientIntensity = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                RenderSettings.ambientIntensity = 0;
+            }
+
             //EventMgr.Instance.TriggerEvent(50);
             //DialogMgr.Instance.OpenDialog(20003);
 #endif
