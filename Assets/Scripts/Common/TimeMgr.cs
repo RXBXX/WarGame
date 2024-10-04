@@ -8,7 +8,7 @@ namespace WarGame
     public class TimeMgr : Singeton<TimeMgr>
     {
         private long _startTime;
-        private float day = 1800f;
+        private float day = 2400f;
 
         public override bool Init()
         {

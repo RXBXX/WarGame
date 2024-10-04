@@ -2244,6 +2244,38 @@
         "Str": "Sorg dafür, dass alles bereit ist, bevor du eingehst."
     },
     {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Zurückhaltung und stärkung der beziehungen zwischen den elementen achten. Wenn die stellung in einer beziehung unter kontrolle ist, werden die defensiven eigenschaften geschwächt. Die stärkung der beziehung nimmt zu, wenn das verhältnis gestärkt wird."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "Das profil eines helden erhöht sich, wenn es andere in der nähe Von helden gibt die seine eigene präsenz verstärken und die fähigkeit, die kontrolle zu Erlangen. Wenn die fähigkeit die zurückhaltung des helden erfordert, verliert das heroische profil."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "Es geschah im eifer des/der natur und im Wissen Von natur aus beides."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "Gold stärkt das wasser und das wasser das holz und das holz das feuer."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Vor einem krieg sucht man helden aus, die den rang Von giants und der aufstellung des feindes einnehmen, und sorgt dafür, dass im camp der helden bereitsteht."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Wenn wir die veränderungen Von tag und nacht beobachten, werden unsere heldentaten verstärkt und feindliche identitäten geschwächt. Die identität der nacht-helden wird geschwächt und feindliche identitäten gestärkt."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "Jedes mal, wenn ein kampf beendet ist, erhalten sie die ressourcen, die sie auf dem schlachtfeld erhalten, indem sie die richtige ausrüstung für ihre helden aus der schmiede auswählen und dort freundliche helden aufbauen."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "Das feuer kann in jeder runde sein heldenblut wiederherstellen und darf am lagerfeuer direkt neben dem lagerfeuer stehen."
+    },
+    {
         "ID": "RecordItem_Time",
         "Str": "Letzte einstellung:"
     },
@@ -2258,10 +2290,6 @@
     {
         "ID": "Record_Title",
         "Str": "Abspeichern."
-    },
-    {
-        "ID": "LoginPanel_Play",
-        "Str": "Und action!"
     },
     {
         "ID": "FightPanel_Start",
@@ -4216,35 +4244,15 @@
         "Str": "Die bestzeit ist gespeichert!"
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Zurückhaltung und stärkung der beziehungen zwischen den elementen achten. Wenn die stellung in einer beziehung unter kontrolle ist, werden die defensiven eigenschaften geschwächt. Die stärkung der beziehung nimmt zu, wenn das verhältnis gestärkt wird."
+        "ID": "Fight_HeroTurn",
+        "Str": "Die runde geht an mich."
     },
     {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "Das profil eines helden erhöht sich, wenn es andere in der nähe Von helden gibt die seine eigene präsenz verstärken und die fähigkeit, die kontrolle zu Erlangen. Wenn die fähigkeit die zurückhaltung des helden erfordert, verliert das heroische profil."
+        "ID": "Fight_EnemyTurn",
+        "Str": "Runde."
     },
     {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "Es geschah im eifer des/der natur und im Wissen Von natur aus beides."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "Gold stärkt das wasser und das wasser das holz und das holz das feuer."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Vor einem krieg sucht man helden aus, die den rang Von giants und der aufstellung des feindes einnehmen, und sorgt dafür, dass im camp der helden bereitsteht."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Wenn wir die veränderungen Von tag und nacht beobachten, werden unsere heldentaten verstärkt und feindliche identitäten geschwächt. Die identität der nacht-helden wird geschwächt und feindliche identitäten gestärkt."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "Jedes mal, wenn ein kampf beendet ist, erhalten sie die ressourcen, die sie auf dem schlachtfeld erhalten, indem sie die richtige ausrüstung für ihre helden aus der schmiede auswählen und dort freundliche helden aufbauen."
-    },
-    {
-        "ID": "PlayGameConfig_8_Desc",
-        "Str": "Das feuer kann in jeder runde sein heldenblut wiederherstellen und darf am lagerfeuer direkt neben dem lagerfeuer stehen."
+        "ID": "LoginPanel_Play",
+        "Str": "Zeit zu spielen!"
     }
 ]

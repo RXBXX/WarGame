@@ -2244,6 +2244,38 @@
         "Str": "Avant d’entrer, assurez-vous d’être prêt pour tout."
     },
     {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Faites attention à la retenue et au renforcement des relations entre les éléments. Lorsque vous êtes dans une relation retenue, les attributs de la partie retenue seront réduits. Lorsque la relation est renforcée, les attributs de la partie renforcée seront élevés."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "Les attributs du héros sont boostés lorsque la grille proche du héros a une présence de son propre héros qui peut se renforcer et que la cible de la compétence est retenue. Lorsque le but de la compétence est de contenir le héros lui-même, les attributs du héros sont réduits."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "L’or retient le bois, le bois retient la terre, la terre retient l’eau, l’eau retient le feu, le feu retient l’or."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "L’or renforce l’eau, l’eau renforce le bois, le bois renforce le feu, le feu renforce la terre et la terre renforce l’or."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Avant de commencer la guerre, choisissez le héros qui va entrer en combat en fonction du type d’élément de niveau ainsi que de la formation ennemie. Assurez-vous d’être prêt dans le camp des héros."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Notez le changement jour/nuit. Pendant la journée, les attributs des héros sont renforcés et les attributs des ennemis affaiblis. Les attributs du héros de nuit sont affaiblis et les attributs des ennemis renforcés."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "Chaque fois que le combat se termine, les ressources gagnées dans le champ de bataille sont entièrement acquises. Vous pouvez choisir l’équipement approprié pour le héros dans la forge et développer des héros préférés dans le camp des héros."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "Le feu de camp redonne des points de vie héros à chaque tour. Il suffit de se tenir dans la zone adjacente au feu de camp."
+    },
+    {
         "ID": "RecordItem_Time",
         "Str": "Dernière heure sauvegardée:"
     },
@@ -2258,10 +2290,6 @@
     {
         "ID": "Record_Title",
         "Str": "archivage"
-    },
-    {
-        "ID": "LoginPanel_Play",
-        "Str": "début"
     },
     {
         "ID": "FightPanel_Start",
@@ -4216,35 +4244,15 @@
         "Str": "Dernière progression enregistrée!"
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Faites attention à la retenue et au renforcement des relations entre les éléments. Lorsque vous êtes dans une relation retenue, les attributs de la partie retenue seront réduits. Lorsque la relation est renforcée, les attributs de la partie renforcée seront élevés."
+        "ID": "Fight_HeroTurn",
+        "Str": "Notre tour de"
     },
     {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "Les attributs du héros sont boostés lorsque la grille proche du héros a une présence de son propre héros qui peut se renforcer et que la cible de la compétence est retenue. Lorsque le but de la compétence est de contenir le héros lui-même, les attributs du héros sont réduits."
+        "ID": "Fight_EnemyTurn",
+        "Str": "Le round ennemi"
     },
     {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "L’or retient le bois, le bois retient la terre, la terre retient l’eau, l’eau retient le feu, le feu retient l’or."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "L’or renforce l’eau, l’eau renforce le bois, le bois renforce le feu, le feu renforce la terre et la terre renforce l’or."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Avant de commencer la guerre, choisissez le héros qui va entrer en combat en fonction du type d’élément de niveau ainsi que de la formation ennemie. Assurez-vous d’être prêt dans le camp des héros."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Notez le changement jour/nuit. Pendant la journée, les attributs des héros sont renforcés et les attributs des ennemis affaiblis. Les attributs du héros de nuit sont affaiblis et les attributs des ennemis renforcés."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "Chaque fois que le combat se termine, les ressources gagnées dans le champ de bataille sont entièrement acquises. Vous pouvez choisir l’équipement approprié pour le héros dans la forge et développer des héros préférés dans le camp des héros."
-    },
-    {
-        "ID": "PlayGameConfig_8_Desc",
-        "Str": "Le feu de camp redonne des points de vie héros à chaque tour. Il suffit de se tenir dans la zone adjacente au feu de camp."
+        "ID": "LoginPanel_Play",
+        "Str": "Commencer le jeu"
     }
 ]

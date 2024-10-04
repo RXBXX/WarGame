@@ -2244,6 +2244,38 @@
         "Str": "Girmeden önce iyi hazırlandığınızdan emin olun."
     },
     {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Elementler arasındaki kısıtlama ve güçlendirme ilişkisine dikkat edin. Kısıtlanmış bir ilişki içindeyken, kısıtlanan tarafın nitelikleri azalacaktır. Güçlendirilmiş bir ilişki içindeyken, güçlenen tarafın istatistikleri artacaktır."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "Kahramanın yanındaki meydanda kahramanı güçlendiren kendi kendine dost bir kahraman varlığı olduğunda ve beceri hedefi kısıtlanan taraf olduğunda, kahramanın kendi istatistikleri artacaktır. Yeteneğin amacı kahramanın kendisini dizginlemek olduğunda, kahramanın istatistikleri azalacaktır."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "Altın ahşabı kısıtlar, odun toprağı kısıtlar, toprak suyu kısıtlar, su ateşi kısıtlar ve ateş altını kısıtlar."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "Altın suyu güçlendirir, su ahşabı güçlendirir, odun ateşi güçlendirir, ateş toprağı güçlendirir ve toprak altını güçlendirir."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Savaşa gitmeden önce, seviyedeki öğelerin türüne ve düşman dizilişine göre kahramanlarınızı seçin ve Kahraman Kampı için hazır olduğunuzdan emin olun."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Gündüz/gece değişimine dikkat edin, gün boyunca kahraman özellikleri güçlenecek ve düşman özellikleri zayıflayacaktır. Geceleri, kahraman istatistikleri zayıflayacak ve düşman istatistikleri güçlendirilecektir."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "Her savaşın sonunda, savaş alanında elde edilen kaynakların tamamını alacaksınız ve demirci dükkanında kahramanlarınız için doğru ekipmanı seçebilir ve en sevdiğiniz kahramanları kahraman kampında eğitebilirsiniz."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "Kamp ateşleri, kamp ateşinin yakınında durarak her fırsatta kahramanın sağlığını yenileyebilir."
+    },
+    {
         "ID": "RecordItem_Time",
         "Str": "Son Kaydedilen:"
     },
@@ -2258,10 +2290,6 @@
     {
         "ID": "Record_Title",
         "Str": "arşiv"
-    },
-    {
-        "ID": "LoginPanel_Play",
-        "Str": "Başlamak"
     },
     {
         "ID": "FightPanel_Start",
@@ -4216,35 +4244,15 @@
         "Str": "En son ilerleme kaydedildi!"
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Elementler arasındaki kısıtlama ve güçlendirme ilişkisine dikkat edin. Kısıtlanmış bir ilişki içindeyken, kısıtlanan tarafın nitelikleri azalacaktır. Güçlendirilmiş bir ilişki içindeyken, güçlenen tarafın istatistikleri artacaktır."
+        "ID": "Fight_HeroTurn",
+        "Str": "Sıra bizde"
     },
     {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "Kahramanın yanındaki meydanda kahramanı güçlendiren kendi kendine dost bir kahraman varlığı olduğunda ve beceri hedefi kısıtlanan taraf olduğunda, kahramanın kendi istatistikleri artacaktır. Yeteneğin amacı kahramanın kendisini dizginlemek olduğunda, kahramanın istatistikleri azalacaktır."
+        "ID": "Fight_EnemyTurn",
+        "Str": "Düşman dönüşü"
     },
     {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "Altın ahşabı kısıtlar, odun toprağı kısıtlar, toprak suyu kısıtlar, su ateşi kısıtlar ve ateş altını kısıtlar."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "Altın suyu güçlendirir, su ahşabı güçlendirir, odun ateşi güçlendirir, ateş toprağı güçlendirir ve toprak altını güçlendirir."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Savaşa gitmeden önce, seviyedeki öğelerin türüne ve düşman dizilişine göre kahramanlarınızı seçin ve Kahraman Kampı için hazır olduğunuzdan emin olun."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Gündüz/gece değişimine dikkat edin, gün boyunca kahraman özellikleri güçlenecek ve düşman özellikleri zayıflayacaktır. Geceleri, kahraman istatistikleri zayıflayacak ve düşman istatistikleri güçlendirilecektir."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "Her savaşın sonunda, savaş alanında elde edilen kaynakların tamamını alacaksınız ve demirci dükkanında kahramanlarınız için doğru ekipmanı seçebilir ve en sevdiğiniz kahramanları kahraman kampında eğitebilirsiniz."
-    },
-    {
-        "ID": "PlayGameConfig_8_Desc",
-        "Str": "Kamp ateşleri, kamp ateşinin yakınında durarak her fırsatta kahramanın sağlığını yenileyebilir."
+        "ID": "LoginPanel_Play",
+        "Str": "Oyunu oyna"
     }
 ]

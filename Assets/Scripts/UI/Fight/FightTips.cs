@@ -20,9 +20,19 @@ namespace WarGame.UI
         public void ShowTips(Enum.RoundType roundType, BattleRoundFunc callback)
         {
             _gCom.visible = true;
-            _type.SetSelectedIndex((int)roundType);
+            if (roundType == Enum.RoundType.OurTurn)
+            {
+                _type.SetSelectedIndex(0);
+                _title.text = ConfigMgr.Instance.GetTranslation("Fight_HeroTurn");
+            }
+            else
+            {
+                _type.SetSelectedIndex(1);
+                _title.text = ConfigMgr.Instance.GetTranslation("Fight_EnemyTurn");
+            }
 
-            _tipsT.Play(() => {
+            _tipsT.Play(() =>
+            {
                 _tipsT.PlayReverse(() =>
                 {
                     _gCom.visible = false;

@@ -374,7 +374,7 @@ namespace WarGame
                 if (buffConfig.EffectType == Enum.BuffAttrEffectType.Overlay)
                 {
                     attrUpdateValue = buffConfig.Attr.value;
-                    UpdateAttr(attrType, attrUpdateValue);
+                    attrUpdateValue = UpdateAttr(attrType, attrUpdateValue);
                 }
 
                 var buffUpdateType = Enum.BuffUpdate.None;
@@ -389,24 +389,31 @@ namespace WarGame
             }
         }
 
-        public void UpdateAttr(Enum.AttrType type, float deltaValue)
+        public float UpdateAttr(Enum.AttrType type, float deltaValue)
         {
             if (0 == deltaValue)
-                return;
+                return 0;
 
+            float oldValue = 0.0f, newValue = 0.0f;
             switch (type)
             {
                 case Enum.AttrType.HP:
+                    oldValue = HP;
                     HP += deltaValue;
                     HP = MathF.Min(MathF.Max(0, HP), GetAttribute(type));
+                    newValue = HP;
                     break;
                 case Enum.AttrType.Rage:
+                    oldValue = Rage;
                     Rage += deltaValue;
                     Rage = MathF.Min(MathF.Max(0, Rage), GetAttribute(type));
+                    newValue = Rage;
                     break;
             }
 
+            deltaValue = newValue - oldValue;
             EventDispatcher.Instance.PostEvent(Enum.Event.Role_Attr_Change, new object[] { UID, type, deltaValue });
+            return deltaValue;
         }
 
         public new LevelRoleData Clone()

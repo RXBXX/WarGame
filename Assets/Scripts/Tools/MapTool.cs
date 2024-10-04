@@ -230,14 +230,14 @@ namespace WarGame
             if (!IsActiveMapEditor())
                 return;
 
-            ClearEditorMapScene();
-
             var dir = EditorUtility.OpenFilePanel("´ò¿ªµØÍ¼", Application.streamingAssetsPath + "/Maps", "json");
             if (null == dir || "" == dir)
                 return;
 
             if (!File.Exists(dir))
                 return;
+
+            ClearEditorMapScene();
 
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 

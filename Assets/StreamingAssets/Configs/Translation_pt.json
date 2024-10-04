@@ -2244,6 +2244,38 @@
         "Str": "Por favor, certifique-se de que você está pronto para tudo antes de entrar."
     },
     {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Observe a contenção e o fortalecimento das relações entre os elementos. Quando em um relacionamento contido, os atributos do lado contido serão reduzidos. Os atributos do lado fortalecido serão promovidos quando estiverem na relação fortalecida."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "As estatísticas do próprio herói são aumentadas quando uma grade próxima ao herói tem uma presença de herói próprio que pode se fortalecer e quando o alvo da habilidade é o lado contido. Quando o objetivo da habilidade é conter o herói, os atributos do herói serão reduzidos."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "Ouro contenha madeira, madeira contenha terra, terra contenha água, água contenha fogo, fogo contenha ouro."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "O ouro fortalece a água, a água fortalece a madeira, a madeira fortalece o fogo, o fogo fortalece a terra e a terra fortalece o ouro."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Antes de entrar na guerra, selecione o herói para entrar na batalha de acordo com o tipo de elemento do nível, bem como a formação do inimigo. Certifique-se de estar pronto no acampamento de heróis."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Observe a mudança de dia e noite. Durante o dia, os atributos dos heróis são fortalecidos e os inimigos são enfraquecidos. As estatísticas do herói da noite são enfraquecidas e as estatísticas do inimigo são reforçadas."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "Cada vez que a batalha termina, os recursos obtidos no campo de batalha são totalmente recebidos. Você pode escolher o equipamento certo para o herói na forja e criar heróis favoritos no acampamento de heróis."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "Fogueira restaura o hp do herói a cada turno. Basta ficar na área adjacente à fogueira."
+    },
+    {
         "ID": "RecordItem_Time",
         "Str": "Último tempo guardado:"
     },
@@ -2258,10 +2290,6 @@
     {
         "ID": "Record_Title",
         "Str": "arquivos"
-    },
-    {
-        "ID": "LoginPanel_Play",
-        "Str": "início"
     },
     {
         "ID": "FightPanel_Start",
@@ -4216,35 +4244,15 @@
         "Str": "O progresso mais recente foi salvo!"
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Observe a contenção e o fortalecimento das relações entre os elementos. Quando em um relacionamento contido, os atributos do lado contido serão reduzidos. Os atributos do lado fortalecido serão promovidos quando estiverem na relação fortalecida."
+        "ID": "Fight_HeroTurn",
+        "Str": "Nosso turno de"
     },
     {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "As estatísticas do próprio herói são aumentadas quando uma grade próxima ao herói tem uma presença de herói próprio que pode se fortalecer e quando o alvo da habilidade é o lado contido. Quando o objetivo da habilidade é conter o herói, os atributos do herói serão reduzidos."
+        "ID": "Fight_EnemyTurn",
+        "Str": "Rodadas inimigas"
     },
     {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "Ouro contenha madeira, madeira contenha terra, terra contenha água, água contenha fogo, fogo contenha ouro."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "O ouro fortalece a água, a água fortalece a madeira, a madeira fortalece o fogo, o fogo fortalece a terra e a terra fortalece o ouro."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Antes de entrar na guerra, selecione o herói para entrar na batalha de acordo com o tipo de elemento do nível, bem como a formação do inimigo. Certifique-se de estar pronto no acampamento de heróis."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Observe a mudança de dia e noite. Durante o dia, os atributos dos heróis são fortalecidos e os inimigos são enfraquecidos. As estatísticas do herói da noite são enfraquecidas e as estatísticas do inimigo são reforçadas."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "Cada vez que a batalha termina, os recursos obtidos no campo de batalha são totalmente recebidos. Você pode escolher o equipamento certo para o herói na forja e criar heróis favoritos no acampamento de heróis."
-    },
-    {
-        "ID": "PlayGameConfig_8_Desc",
-        "Str": "Fogueira restaura o hp do herói a cada turno. Basta ficar na área adjacente à fogueira."
+        "ID": "LoginPanel_Play",
+        "Str": "Iniciar o jogo"
     }
 ]

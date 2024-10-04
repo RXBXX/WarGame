@@ -473,7 +473,7 @@ namespace WarGame
             if (0 == delta)
                 return;
 
-            _data.UpdateAttr(type, delta);
+            delta = _data.UpdateAttr(type, delta);
             OnUpdateAttr(type, delta);
         }
 
@@ -497,11 +497,7 @@ namespace WarGame
                 hud.UpdateRage(GetRage());
             }
 
-            var format = "";
-            if (delta > 0)
-                format = "[color={0}]{1}[/color]";
-            else
-                format = "[color={0}]{1}[/color]";
+            var format = delta > 0 ? "[color={0}]{1}[/color]" : "[color={0}]{1}[/color]";
             AddFloatHUD(string.Format(format, CommonParams.GetAttrColor(type), delta));
         }
 

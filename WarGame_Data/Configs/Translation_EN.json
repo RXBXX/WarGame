@@ -2244,6 +2244,38 @@
         "Str": "Please make sure you are fully prepared before entering."
     },
     {
+        "ID": "PlayGameConfig_1_Desc",
+        "Str": "Pay attention to restraint and strengthening relationships between elements. When in a restrained relationship, the restrained party's attributes will be reduced. When in the relationship being reinforced, the attributes of the strengthened party will increase."
+    },
+    {
+        "ID": "PlayGameConfig_2_Desc",
+        "Str": "The hero's stats are boosted when there is a hero near the hero's grid that can strengthen him or her, and when the skill target is the restrained one. Hero stats are reduced when the goal of the skill is to restrain the hero himself."
+    },
+    {
+        "ID": "PlayGameConfig_3_Desc",
+        "Str": "Gold restrains wood, wood restrains earth, earth restrains water, water restrains fire, fire restrains gold."
+    },
+    {
+        "ID": "PlayGameConfig_4_Desc",
+        "Str": "Gold strengthens water, water strengthens wood, wood strengthens fire, fire strengthens earth, earth strengthens gold."
+    },
+    {
+        "ID": "PlayGameConfig_5_Desc",
+        "Str": "Before the battle, choose your hero based on the level element type and enemy lineup, and make sure you are ready at the hero camp."
+    },
+    {
+        "ID": "PlayGameConfig_6_Desc",
+        "Str": "Pay attention to day and night changes, during the day hero attributes will be enhanced, enemy attributes will be weakened. Night Hero stats will be weakened, while enemy stats will be enhanced."
+    },
+    {
+        "ID": "PlayGameConfig_7_Desc",
+        "Str": "At the end of each battle, you will receive the full amount of resources obtained in the battlefield, and you can choose the right equipment for the hero at the forge and cultivate the favorite hero at the hero camp."
+    },
+    {
+        "ID": "PlayGameConfig_8_Desc",
+        "Str": "Bonfire restores Hero health per turn by simply standing near the bonfire."
+    },
+    {
         "ID": "RecordItem_Time",
         "Str": "Last save time:"
     },
@@ -2258,10 +2290,6 @@
     {
         "ID": "Record_Title",
         "Str": "On file"
-    },
-    {
-        "ID": "LoginPanel_Play",
-        "Str": "initiate"
     },
     {
         "ID": "FightPanel_Start",
@@ -2321,7 +2349,7 @@
     },
     {
         "ID": "Game_Name",
-        "Str": "Elemental Warriors"
+        "Str": "Element Warriors"
     },
     {
         "ID": "StoryConfig_10001006_Context",
@@ -4216,35 +4244,15 @@
         "Str": "Latest progress saved!"
     },
     {
-        "ID": "PlayGameConfig_1_Desc",
-        "Str": "Pay attention to restraint and strengthening relationships between elements. When in a restrained relationship, the restrained party's attributes will be reduced. When in the relationship being reinforced, the attributes of the strengthened party will increase."
+        "ID": "Fight_HeroTurn",
+        "Str": "Our round"
     },
     {
-        "ID": "PlayGameConfig_2_Desc",
-        "Str": "The hero's stats are boosted when there is a hero near the hero's grid that can strengthen him or her, and when the skill target is the restrained one. Hero stats are reduced when the goal of the skill is to restrain the hero himself."
+        "ID": "Fight_EnemyTurn",
+        "Str": "Enemy turn"
     },
     {
-        "ID": "PlayGameConfig_3_Desc",
-        "Str": "Gold restrains wood, wood restrains earth, earth restrains water, water restrains fire, fire restrains gold."
-    },
-    {
-        "ID": "PlayGameConfig_4_Desc",
-        "Str": "Gold strengthens water, water strengthens wood, wood strengthens fire, fire strengthens earth, earth strengthens gold."
-    },
-    {
-        "ID": "PlayGameConfig_5_Desc",
-        "Str": "Before the battle, choose your hero based on the level element type and enemy lineup, and make sure you are ready at the hero camp."
-    },
-    {
-        "ID": "PlayGameConfig_6_Desc",
-        "Str": "Pay attention to day and night changes, during the day hero attributes will be enhanced, enemy attributes will be weakened. Night Hero stats will be weakened, while enemy stats will be enhanced."
-    },
-    {
-        "ID": "PlayGameConfig_7_Desc",
-        "Str": "At the end of each battle, you will receive the full amount of resources obtained in the battlefield, and you can choose the right equipment for the hero at the forge and cultivate the favorite hero at the hero camp."
-    },
-    {
-        "ID": "PlayGameConfig_8_Desc",
-        "Str": "Bonfire restores Hero health per turn by simply standing near the bonfire."
+        "ID": "LoginPanel_Play",
+        "Str": "Start game"
     }
 ]

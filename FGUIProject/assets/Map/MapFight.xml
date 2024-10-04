@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="28,28">
   <displayList>
-    <image id="n0_qv0w" name="n0" src="qv0wi" fileName="Images/Fight.png" xy="3,26" pivot="0.5,1" anchor="true" size="10,32" aspect="true" rotation="45" color="#ce4a35"/>
-    <image id="n1_qv0w" name="n1" src="qv0wi" fileName="Images/Fight.png" xy="25,26" pivot="0.5,1" anchor="true" size="10,33" aspect="true" rotation="-45" color="#ce4a35"/>
+    <image id="n0_qv0w" name="n0" src="qv0wi" fileName="Images/Fight.png" xy="3,26" pivot="0.5,1" anchor="true" size="12,27" aspect="true" rotation="45" color="#ff0000"/>
+    <image id="n1_qv0w" name="n1" src="qv0wi" fileName="Images/Fight.png" xy="25,26" pivot="0.5,1" anchor="true" size="12,27" aspect="true" rotation="-45" color="#ff0000"/>
   </displayList>
   <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
     <item time="0" type="Rotation" target="n0_qv0w" tween="true" startValue="-15" endValue="45" duration="12" ease="Quart.In"/>

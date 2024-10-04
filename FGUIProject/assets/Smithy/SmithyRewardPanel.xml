@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1334,750" overflow="hidden">
   <displayList>
-    <graph id="n14_vqm0" name="mask" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
+    <graph id="n14_vqm0" name="mask" xy="0,0" size="1334,750" alpha="0.9" type="rect" lineSize="0" fillColor="#ff000000">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <component id="n18_vqm0" name="n18" src="kawv2x" fileName="Components/CommonLineBG.xml" pkg="hx02grrp" xy="0,0" touchable="false">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <component id="n25_s5ay" name="n25" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,685" touchable="false">
+    <component id="n25_s5ay" name="n25" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,685" visible="false" touchable="false">
       <relation target="" sidePair="center-center,bottom-bottom"/>
     </component>
-    <component id="n24_ku3y" name="n24" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="367,75" size="600,600" touchable="false">
+    <image id="n26_esp7" name="n26" src="esp72x" fileName="Images/Hammer_1.png" xy="523,407" size="287,141" group="n29_esp7" color="#000000"/>
+    <image id="n27_esp7" name="n27" src="esp72w" fileName="Images/Hammer_2.png" xy="826,309" pivot="1,0" anchor="true" size="169,97" group="n29_esp7" color="#ffb500"/>
+    <component id="n24_ku3y" name="n24" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="667,379" pivot="0.5,0.5" anchor="true" size="480,480" group="n29_esp7" scale="0,0" touchable="false"/>
+    <component id="n21_vqm0" name="n21" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="667,379" pivot="0.5,0.5" anchor="true" size="480,480" group="n29_esp7" scale="0,0" rotation="20" touchable="false"/>
+    <component id="n28_esp7" name="equip" src="c2cw12" fileName="Components/CommonEquip.xml" pkg="hx02grrp" xy="667,369" pivot="0.5,0.5" anchor="true" size="120,120" group="n29_esp7" scale="1,0"/>
+    <group id="n29_esp7" name="n29" xy="427,139" size="480,480" advanced="true">
       <relation target="" sidePair="center-center,middle-middle"/>
-    </component>
-    <component id="n21_vqm0" name="n21" src="vqm02z" fileName="Components/Light.xml" pkg="hx02grrp" xy="667,375" pivot="0.5,0.5" anchor="true" size="600,600" rotation="20" touchable="false">
-      <relation target="" sidePair="center-center,middle-middle"/>
-    </component>
-    <component id="n17_vqm0" name="equip" src="vqm023" fileName="SmithyReward.xml" xy="587,281" touchable="false">
-      <relation target="" sidePair="center-center,middle-middle"/>
-    </component>
-    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="360,107" touchable="false">
+    </group>
+    <component id="n23_vqm0" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="426,77" size="481,63" touchable="false">
       <relation target="" sidePair="center-center,top-top"/>
+      <Label title="sssssssssssssssssssss"/>
     </component>
   </displayList>
+  <transition name="forge">
+    <item time="0" type="Rotation" target="n27_esp7" tween="true" startValue="0" endValue="80" duration="12" ease="Quart.Out"/>
+    <item time="12" type="Rotation" target="n27_esp7" tween="true" startValue="80" endValue="0" duration="6" label2="Forge" ease="Quart.In"/>
+    <item time="18" type="Rotation" target="n27_esp7" label="Forge" tween="true" startValue="0" endValue="20" duration="6" ease="Quart.Out"/>
+    <item time="19" type="Scale" target="n21_vqm0" tween="true" startValue="0,0" endValue="1,1" duration="6" ease="Quart.In"/>
+    <item time="19" type="Scale" target="n24_ku3y" tween="true" startValue="0,0" endValue="1,1" duration="6" ease="Quart.In"/>
+    <item time="30" type="Scale" target="n28_esp7" label="Success" tween="true" startValue="1,0" endValue="1,1" duration="7" ease="Quart.In"/>
+    <item time="30" type="Visible" target="n26_esp7" value="false"/>
+    <item time="30" type="Visible" target="n27_esp7" value="false"/>
+    <item time="37" type="Visible" target="n25_s5ay" value="true"/>
+  </transition>
 </component>

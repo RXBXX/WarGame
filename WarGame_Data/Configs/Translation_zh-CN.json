@@ -2807,42 +2807,42 @@
     {
         "ID": "PlayGameConfig_1_Desc",
         "Str": "注意元素之间的克制和加强关系。当处于被克制关系时，被克制方属性将会降低。当处于被加强关系时，被加强方属性将会提升。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_2_Desc",
         "Str": "当英雄附近格子有可以加强自身的己方英雄存在以及技能目标是被克制方时，英雄自身属性会被提升。当技能目标是克制英雄自身时，英雄属性将会降低。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_3_Desc",
         "Str": "金克制木、木克制土、土克制水、水克制火、火克制金。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_4_Desc",
         "Str": "金加强水、水加强木、木加强火、火加强土、土加强金。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_5_Desc",
         "Str": "开战前，请根据关卡元素类型以及敌人阵容选择上阵英雄，并确保已在英雄营地做好准备。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_6_Desc",
         "Str": "注意昼夜变化，白天英雄属性会得到加强，敌人属性会被削弱。夜晚英雄属性会被削弱，敌人属性会得到加强。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_7_Desc",
         "Str": "每次战斗结束，会全额获得战场内获得的资源，可以在铁匠铺为英雄选择合适的装备并在英雄营地培养喜欢的英雄。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "PlayGameConfig_8_Desc",
         "Str": "篝火可以每回合恢复英雄血量，只需要站在篝火邻近区域。",
-        "Translate": true
+        "Translate": null
     },
     {
         "ID": "RecordItem_Time",
@@ -2866,7 +2866,7 @@
     },
     {
         "ID": "LoginPanel_Play",
-        "Str": "开始",
+        "Str": "开始游戏",
         "Translate": null
     },
     {
@@ -5307,6 +5307,16 @@
     {
         "ID": "Data_Saved",
         "Str": "最新进度已保存！",
+        "Translate": null
+    },
+    {
+        "ID": "Fight_HeroTurn",
+        "Str": "我方回合",
+        "Translate": null
+    },
+    {
+        "ID": "Fight_EnemyTurn",
+        "Str": "敌方回合",
         "Translate": null
     }
 ]
