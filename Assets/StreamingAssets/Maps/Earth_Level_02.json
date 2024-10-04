@@ -22441,12 +22441,12 @@
       }
     },
     {
-      "ID": 3080455,
+      "ID": 3080199,
       "configId": 7,
       "isReachable": false,
       "coor": {
         "x": 47.0,
-        "y": 1.0,
+        "y": 0.0,
         "z": 7.0
       }
     },
@@ -22461,12 +22461,12 @@
       }
     },
     {
-      "ID": 3080201,
+      "ID": 3080457,
       "configId": 7,
       "isReachable": true,
       "coor": {
         "x": 47.0,
-        "y": 0.0,
+        "y": 1.0,
         "z": 9.0
       }
     },
@@ -22753,7 +22753,7 @@
     {
       "ID": 3145992,
       "configId": 7,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 48.0,
         "y": 1.0,
@@ -22771,12 +22771,12 @@
       }
     },
     {
-      "ID": 3145994,
+      "ID": 3145738,
       "configId": 7,
       "isReachable": true,
       "coor": {
         "x": 48.0,
-        "y": 1.0,
+        "y": 0.0,
         "z": 10.0
       }
     },
@@ -23061,32 +23061,32 @@
       }
     },
     {
-      "ID": 3211529,
+      "ID": 3211273,
       "configId": 7,
       "isReachable": true,
       "coor": {
         "x": 49.0,
-        "y": 1.0,
+        "y": 0.0,
         "z": 9.0
       }
     },
     {
-      "ID": 3211530,
+      "ID": 3211274,
       "configId": 7,
       "isReachable": true,
       "coor": {
         "x": 49.0,
-        "y": 1.0,
+        "y": 0.0,
         "z": 10.0
       }
     },
     {
-      "ID": 3211531,
+      "ID": 3211275,
       "configId": 7,
       "isReachable": true,
       "coor": {
         "x": 49.0,
-        "y": 1.0,
+        "y": 0.0,
         "z": 11.0
       }
     },
@@ -24203,7 +24203,13 @@
       "hexagonID": 656910
     }
   ],
-  "bonfires": [],
+  "bonfires": [
+    {
+      "ID": 3145992,
+      "configId": 3,
+      "hexagonID": 3145992
+    }
+  ],
   "ornaments": [
     {
       "ID": 524331,
@@ -24495,7 +24501,7 @@
       "ID": 1769510,
       "configID": 20,
       "hexagonID": 1769510,
-      "scale": 6.00000858,
+      "scale": 6.000009,
       "rotation": {
         "x": 0.0,
         "y": 260.0,
@@ -24506,7 +24512,7 @@
       "ID": 1179686,
       "configID": 20,
       "hexagonID": 1179686,
-      "scale": 6.00001431,
+      "scale": 6.00001526,
       "rotation": {
         "x": 0.0,
         "y": 258.5,

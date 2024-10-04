@@ -12721,6 +12721,136 @@
       }
     },
     {
+      "ID": 1841705,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 28.0,
+        "y": 26.0,
+        "z": 41.0
+      }
+    },
+    {
+      "ID": 1841962,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 28.0,
+        "y": 27.0,
+        "z": 42.0
+      }
+    },
+    {
+      "ID": 1776683,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 28.0,
+        "z": 43.0
+      }
+    },
+    {
+      "ID": 1776940,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 29.0,
+        "z": 44.0
+      }
+    },
+    {
+      "ID": 1777197,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 30.0,
+        "z": 45.0
+      }
+    },
+    {
+      "ID": 1842989,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 28.0,
+        "y": 31.0,
+        "z": 45.0
+      }
+    },
+    {
+      "ID": 1843246,
+      "configId": 2,
+      "isReachable": false,
+      "coor": {
+        "x": 28.0,
+        "y": 32.0,
+        "z": 46.0
+      }
+    },
+    {
+      "ID": 1777710,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 32.0,
+        "z": 46.0
+      }
+    },
+    {
+      "ID": 1777454,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 31.0,
+        "z": 46.0
+      }
+    },
+    {
+      "ID": 1777711,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 27.0,
+        "y": 32.0,
+        "z": 47.0
+      }
+    },
+    {
+      "ID": 1843247,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 28.0,
+        "y": 32.0,
+        "z": 47.0
+      }
+    },
+    {
+      "ID": 1908781,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 29.0,
+        "y": 32.0,
+        "z": 45.0
+      }
+    },
+    {
+      "ID": 1908782,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 29.0,
+        "y": 32.0,
+        "z": 46.0
+      }
+    },
+    {
       "ID": 1841446,
       "configId": 2,
       "isReachable": true,
@@ -53503,7 +53633,13 @@
       "hexagonID": 789008
     }
   ],
-  "bonfires": [],
+  "bonfires": [
+    {
+      "ID": 1843246,
+      "configId": 4,
+      "hexagonID": 1843246
+    }
+  ],
   "ornaments": [],
   "lightingPlugin": {
     "Sky": "LapuSky_Fire",

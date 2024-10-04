@@ -14241,13 +14241,223 @@
       }
     },
     {
-      "ID": 1710366,
+      "ID": 1710877,
       "configId": 2,
       "isReachable": true,
       "coor": {
         "x": 26.0,
-        "y": 25.0,
+        "y": 27.0,
+        "z": 29.0
+      }
+    },
+    {
+      "ID": 1710622,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 26.0,
+        "y": 26.0,
         "z": 30.0
+      }
+    },
+    {
+      "ID": 1645597,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 28.0,
+        "z": 29.0
+      }
+    },
+    {
+      "ID": 1645852,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 29.0,
+        "z": 28.0
+      }
+    },
+    {
+      "ID": 1580316,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 29.0,
+        "z": 28.0
+      }
+    },
+    {
+      "ID": 1580571,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 30.0,
+        "z": 27.0
+      }
+    },
+    {
+      "ID": 1646107,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 30.0,
+        "z": 27.0
+      }
+    },
+    {
+      "ID": 1711898,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 26.0,
+        "y": 31.0,
+        "z": 26.0
+      }
+    },
+    {
+      "ID": 1646618,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 32.0,
+        "z": 26.0
+      }
+    },
+    {
+      "ID": 1646362,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 31.0,
+        "z": 26.0
+      }
+    },
+    {
+      "ID": 1580826,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 31.0,
+        "z": 26.0
+      }
+    },
+    {
+      "ID": 1647128,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 34.0,
+        "z": 24.0
+      }
+    },
+    {
+      "ID": 1647127,
+      "configId": 2,
+      "isReachable": false,
+      "coor": {
+        "x": 25.0,
+        "y": 34.0,
+        "z": 23.0
+      }
+    },
+    {
+      "ID": 1712663,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 26.0,
+        "y": 34.0,
+        "z": 23.0
+      }
+    },
+    {
+      "ID": 1712662,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 26.0,
+        "y": 34.0,
+        "z": 22.0
+      }
+    },
+    {
+      "ID": 1647126,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 34.0,
+        "z": 22.0
+      }
+    },
+    {
+      "ID": 1581591,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 34.0,
+        "z": 23.0
+      }
+    },
+    {
+      "ID": 1581592,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 34.0,
+        "z": 24.0
+      }
+    },
+    {
+      "ID": 1646873,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 33.0,
+        "z": 25.0
+      }
+    },
+    {
+      "ID": 1646617,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 25.0,
+        "y": 32.0,
+        "z": 25.0
+      }
+    },
+    {
+      "ID": 1581081,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 32.0,
+        "z": 25.0
+      }
+    },
+    {
+      "ID": 1581337,
+      "configId": 2,
+      "isReachable": true,
+      "coor": {
+        "x": 24.0,
+        "y": 33.0,
+        "z": 25.0
       }
     },
     {
@@ -51353,7 +51563,13 @@
       "hexagonID": 1246471
     }
   ],
-  "bonfires": [],
+  "bonfires": [
+    {
+      "ID": 1647127,
+      "configId": 4,
+      "hexagonID": 1647127
+    }
+  ],
   "ornaments": [],
   "lightingPlugin": {
     "Sky": "LapuSky_Fire",

@@ -11563,7 +11563,7 @@
     {
       "ID": 1509909,
       "configId": 25,
-      "isReachable": false,
+      "isReachable": true,
       "coor": {
         "x": 23.0,
         "y": 10.0,
@@ -31151,16 +31151,6 @@
       }
     },
     {
-      "ID": 3150896,
-      "configId": 25,
-      "isReachable": false,
-      "coor": {
-        "x": 48.0,
-        "y": 20.0,
-        "z": 48.0
-      }
-    },
-    {
       "ID": 3150897,
       "configId": 25,
       "isReachable": true,
@@ -31168,6 +31158,16 @@
         "x": 48.0,
         "y": 20.0,
         "z": 49.0
+      }
+    },
+    {
+      "ID": 3150896,
+      "configId": 25,
+      "isReachable": false,
+      "coor": {
+        "x": 48.0,
+        "y": 20.0,
+        "z": 48.0
       }
     },
     {
@@ -32343,7 +32343,7 @@
     {
       "ID": 394543,
       "configId": 4,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 6.0,
         "y": 5.0,
@@ -32611,16 +32611,6 @@
       }
     },
     {
-      "ID": 458757,
-      "configId": 22,
-      "isReachable": true,
-      "coor": {
-        "x": 7.0,
-        "y": 0.0,
-        "z": 5.0
-      }
-    },
-    {
       "ID": 524292,
       "configId": 22,
       "isReachable": true,
@@ -32628,6 +32618,16 @@
         "x": 8.0,
         "y": 0.0,
         "z": 4.0
+      }
+    },
+    {
+      "ID": 458757,
+      "configId": 22,
+      "isReachable": true,
+      "coor": {
+        "x": 7.0,
+        "y": 0.0,
+        "z": 5.0
       }
     }
   ],
@@ -32707,9 +32707,9 @@
   ],
   "bonfires": [
     {
-      "ID": 1444374,
-      "configId": 4,
-      "hexagonID": 1444374
+      "ID": 394543,
+      "configId": 5,
+      "hexagonID": 394543
     }
   ],
   "ornaments": [

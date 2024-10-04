@@ -3283,7 +3283,7 @@
     {
       "ID": 588566,
       "configId": 26,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 9.0,
         "y": -5.0,
@@ -17599,7 +17599,13 @@
       "hexagonID": 1509145
     }
   ],
-  "bonfires": [],
+  "bonfires": [
+    {
+      "ID": 588566,
+      "configId": 5,
+      "hexagonID": 588566
+    }
+  ],
   "ornaments": [
     {
       "ID": -256,
@@ -17671,7 +17677,7 @@
       "ID": 2228260,
       "configID": 29,
       "hexagonID": 2228260,
-      "scale": 3.000001,
+      "scale": 3.00000119,
       "rotation": {
         "x": 0.0,
         "y": 90.0,

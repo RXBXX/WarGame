@@ -239,7 +239,7 @@
         "DefeatEvent": 0,
         "Reward": 3,
         "ViewDis": 7,
-        "Group": "ML01_2"
+        "Group": "ML01_1"
     },
     {
         "ID": 20205,
@@ -251,7 +251,7 @@
         "DefeatEvent": 0,
         "Reward": 3,
         "ViewDis": 7,
-        "Group": "ML01_2"
+        "Group": "ML01_1"
     },
     {
         "ID": 20206,
@@ -279,7 +279,7 @@
         "DefeatEvent": 0,
         "Reward": 3,
         "ViewDis": 7,
-        "Group": "ML01_3"
+        "Group": "ML01_2"
     },
     {
         "ID": 20208,
@@ -291,7 +291,7 @@
         "DefeatEvent": 0,
         "Reward": 3,
         "ViewDis": 7,
-        "Group": "ML01_3"
+        "Group": "ML01_2"
     },
     {
         "ID": 20209,
@@ -375,6 +375,72 @@
     },
     {
         "ID": 20215,
+        "RoleID": 30005,
+        "Level": 1,
+        "Equips": [
+            10013
+        ],
+        "IsBoss": true,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 4,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 20216,
+        "RoleID": 20002,
+        "Level": 2,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 3,
+        "ViewDis": 7,
+        "Group": "ML01_4"
+    },
+    {
+        "ID": 20217,
+        "RoleID": 20002,
+        "Level": 2,
+        "Equips": [
+            10006
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 3,
+        "ViewDis": 7,
+        "Group": "ML01_4"
+    },
+    {
+        "ID": 20218,
+        "RoleID": 20002,
+        "Level": 2,
+        "Equips": [
+            10015
+        ],
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 3,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 20219,
+        "RoleID": 20002,
+        "Level": 2,
+        "Equips": null,
+        "IsBoss": false,
+        "NextStage": 0,
+        "DefeatEvent": 0,
+        "Reward": 3,
+        "ViewDis": 7,
+        "Group": "ML01_5"
+    },
+    {
+        "ID": 20220,
         "RoleID": 30005,
         "Level": 1,
         "Equips": [
