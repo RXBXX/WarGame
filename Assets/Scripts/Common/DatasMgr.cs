@@ -319,7 +319,7 @@ namespace WarGame
             }
             catch (Exception e)
             {
-                DebugManager.Instance.Log(e);
+                DebugManager.Instance.LogError(e);
                 EventDispatcher.Instance.PostEvent(Enum.Event.UnwearEquipS2C, new object[] { new UnwearEquipNDPU(Enum.ErrorCode.Error, 0, null, fromWear) });
             }
         }

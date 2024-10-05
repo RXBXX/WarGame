@@ -16,7 +16,7 @@ namespace WarGame.UI
             UILayer = Enum.UILayer.PopLayer;
 
             _blurID = RenderMgr.Instance.SetBlurBG(GetGObjectChild<GLoader>("bg"));
-            GetGObjectChild<GTextField>("title").text = ConfigMgr.Instance.GetTranslation("RewardItemsPanel_Title");
+            GetGObjectChild<GLabel>("title").title = ConfigMgr.Instance.GetTranslation("RewardItemsPanel_Title");
             _rewardList = GetGObjectChild<GList>("rewards");
             _rewardList.itemRenderer = OnItemRenderer;
 

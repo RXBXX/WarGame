@@ -172,10 +172,13 @@ namespace WarGame
             UnlockCamera();
         }
 
-        protected virtual IEnumerator Over(float waitingTime = 0, bool isKill = false)
+        protected virtual IEnumerator Over()
         {
-            //DebugManager.Instance.Log("Over");
-            yield return new WaitForSeconds(waitingTime);
+            if (DatasMgr.Instance.GetSkipBattle())
+                yield return null;
+            else
+                yield return new WaitForSeconds(1.5F);
+
             if (!DatasMgr.Instance.GetSkipBattle())
             {
                 CloseBattleArena();

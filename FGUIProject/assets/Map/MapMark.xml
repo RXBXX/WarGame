@@ -8,14 +8,6 @@
     </image>
     <text id="n0_hctw" name="title" xy="89,21" pivot="0.5,0.5" anchor="true" size="51,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" align="center" vAlign="middle" leading="0" strokeColor="#000000" autoClearText="true" text="Mark111"/>
     <text id="n1_b0z0" name="desc" xy="83,-1" pivot="0.5,1" anchor="true" size="400,35" visible="false" font="ui://hd0z4dz5omu90" fontSize="14" color="#f6f6f6" align="center" leading="-2" autoSize="height" strokeColor="#000000" autoClearText="true" text="11111111111111111111111&#xA;1111111111111111"/>
-    <component id="n7_gy0s" name="goOnBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="-13,24" pivot="1,0.5" anchor="true" scale="0.3,0.3">
-      <gearDisplay controller="showBtn" pages="1"/>
-      <Button title="GO ON"/>
-    </component>
-    <component id="n9_gy0s" name="restartBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="101,24" pivot="0,0.5" anchor="true" scale="0.3,0.3">
-      <gearDisplay controller="showBtn" pages="1"/>
-      <Button title="Restart"/>
-    </component>
     <loader id="n11_ku3y" name="n11" xy="78,-10" size="22,22" url="ui://hx02grrpkawv2a" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="isPass" pages="1"/>
     </loader>

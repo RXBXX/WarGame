@@ -132,6 +132,7 @@ namespace WarGame
 
         private void OnReadyOver(params object[] args)
         {
+            AudioMgr.Instance.PlaySound("Assets/Audios/RoundStart.wav");
             _levelData.Stage = Enum.LevelStage.Readyed;
 
             //ª∫¥Ê…œ’Û ˝æ›

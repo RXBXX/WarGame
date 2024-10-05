@@ -51,7 +51,7 @@ namespace WarGame
                 return;
 
             AudioMgr.Instance.PlaySound("Assets/Audios/Hide.wav");
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
     }
 }

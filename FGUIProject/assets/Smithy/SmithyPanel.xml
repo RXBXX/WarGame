@@ -20,7 +20,7 @@
       <item/>
       <item/>
     </list>
-    <list id="n3_ou4w" name="attrs" xy="1041,215" size="286,273" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
+    <list id="n3_ou4w" name="attrs" xy="1041,214" size="286,273" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpgy0sr" autoClearItems="true">
       <relation target="n14_ku3y" sidePair="top-bottom"/>
       <relation target="" sidePair="right-right"/>
       <item/>
@@ -31,27 +31,26 @@
       <item/>
       <item/>
     </list>
-    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1120,601" size="295,69" scale="0.4,0.4">
+    <component id="n5_ou4w" name="buyBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1169,608" size="200,54" scale="0.6,0.6">
       <relation target="" sidePair="middle-middle,right-right"/>
-      <Button titleFontSize="42"/>
     </component>
     <component id="n7_ou4w" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
     <component id="n8_ou4w" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
-    <graph id="n10_kky8" name="n10" xy="1031,123" size="367,41" group="n12_oykc" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
-    <text id="n9_kwvb" name="name" xy="1042,124" size="110,39" group="n12_oykc" font="ui://hd0z4dz5omu90" fontSize="28" color="#f7f7f7" vAlign="middle" letterSpacing="2" strokeColor="#000000" text="xxxxxxxx"/>
-    <group id="n12_oykc" name="n12" xy="1031,123" size="367,41" advanced="true">
+    <graph id="n10_kky8" name="n10" xy="1031,121" size="367,41" group="n12_oykc" alpha="0.7" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000"/>
+    <text id="n9_kwvb" name="name" xy="1042,118" size="144,44" group="n12_oykc" font="ui://hd0z4dz5esp76" fontSize="32" color="#f7f7f7" vAlign="middle" strokeColor="#000000" text="xxxxxxxx"/>
+    <group id="n12_oykc" name="n12" xy="1031,118" size="367,44" advanced="true">
       <relation target="" sidePair="middle-middle,right-right"/>
     </group>
-    <graph id="n11_kky8" name="n11" xy="1044,620" size="85,28" group="n13_oykc" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000">
+    <graph id="n11_kky8" name="n11" xy="1044,619" size="86,28" group="n13_oykc" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000">
       <relation target="n6_ou4w" sidePair="rightext-right"/>
     </graph>
-    <text id="n6_ou4w" name="costTxt" xy="1049,618" size="47,29" group="n13_oykc" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
-    <group id="n13_oykc" name="n13" xy="1044,618" size="85,29" advanced="true">
+    <text id="n6_ou4w" name="costTxt" xy="1049,617" size="48,29" group="n13_oykc" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="10/12"/>
+    <group id="n13_oykc" name="n13" xy="1044,617" size="86,30" advanced="true">
       <relation target="" sidePair="middle-middle,left-right"/>
     </group>
-    <text id="n14_ku3y" name="desc" xy="1041,179" size="286,26" font="ui://hd0z4dz5omu90" fontSize="18" autoSize="height" autoClearText="true" text="Attadd">
+    <text id="n14_ku3y" name="desc" xy="1041,172" size="286,32" font="ui://hd0z4dz5esp76" fontSize="22" autoSize="height" autoClearText="true" text="Attadd">
       <relation target="" sidePair="right-right"/>
       <relation target="n12_oykc" sidePair="top-bottom"/>
     </text>
@@ -65,11 +64,11 @@
       <item/>
       <item/>
     </list>
-    <graph id="n18_qv0w" name="n18" xy="1044,587" size="69,28" group="n20_qv0w" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000">
+    <graph id="n18_qv0w" name="n18" xy="1044,587" size="70,28" group="n20_qv0w" alpha="0.3" type="rect" lineSize="0" lineColor="#ff090909" fillColor="#ff000000">
       <relation target="n19_qv0w" sidePair="rightext-right"/>
     </graph>
-    <text id="n19_qv0w" name="ownTxt" xy="1049,588" size="47,29" group="n20_qv0w" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
-    <group id="n20_qv0w" name="n20" xy="1044,587" size="69,30" advanced="true">
+    <text id="n19_qv0w" name="ownTxt" xy="1049,588" size="48,29" group="n20_qv0w" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" ubb="true" strokeColor="#000000" text="10/12"/>
+    <group id="n20_qv0w" name="n20" xy="1044,587" size="70,30" advanced="true">
       <relation target="" sidePair="middle-middle,left-right"/>
     </group>
     <component id="n22_qv0w" name="comboBox" src="qv0w2l" fileName="SmithyComboBox.xml" xy="24,115">

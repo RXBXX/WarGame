@@ -11,13 +11,9 @@
     <component id="n4_ozrt" name="tips" src="li0q1o" fileName="Components/CommonTips.xml" pkg="hx02grrp" xy="666,671" visible="false">
       <relation target="" sidePair="center-center,bottom-bottom"/>
     </component>
-    <image id="n12_anzf" name="n12" src="vqm030" fileName="Images/TitleBG_2.png" pkg="hx02grrp" xy="667,129" pivot="0.5,0.5" anchor="true" size="424,65">
+    <component id="n13_esp7" name="title" src="vqm031" fileName="Components/CommonTitle.xml" pkg="hx02grrp" xy="666,127" pivot="0.5,0.5" anchor="true">
       <relation target="" sidePair="center-center,top-top"/>
-      <relation target="n2_ozrt" sidePair="width-width,height-height"/>
-    </image>
-    <text id="n2_ozrt" name="title" xy="667,123" pivot="0.5,0.5" anchor="true" size="238,44" font="ui://hd0z4dz5omu90" fontSize="32" color="#ffffff" align="center" strokeColor="#000000" autoClearText="true" text="Congratqqqqqqqq">
-      <relation target="" sidePair="center-center,top-top"/>
-    </text>
+    </component>
     <list id="n3_ozrt" name="rewards" xy="667,353" pivot="0.5,0.5" anchor="true" size="936,170" touchable="false" layout="row" colGap="30" defaultItem="ui://5kkzoj7lanzf1u" autoItemSize="false" align="center" vAlign="middle" autoClearItems="true">
       <relation target="" sidePair="center-center,middle-middle"/>
       <item/>

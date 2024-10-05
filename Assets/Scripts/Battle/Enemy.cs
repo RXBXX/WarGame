@@ -24,6 +24,8 @@ namespace WarGame
             {
                 _scale = Vector3.one * 0.45f;
             }
+
+            DebugManager.Instance.Log("Enemy State:" + data.state);
         }
 
         protected override void OnCreate(GameObject prefab)
@@ -336,17 +338,18 @@ namespace WarGame
 
             moveRegion.Recycle();
 
-            if (showWarning)
-            {
-                yield return new WaitForSeconds(GetHUDRole().Warning());
-            }
 
             var skillID = SelectSkill();
             var move = null != path && path.Count > 1;
             //DebugManager.Instance.Log("StartAI:" + ID + "_" +( null == target ? 0 : target.ID));
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move });
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move});
             //yield return new WaitForSeconds(1.0F);
             //yield return null;
+
+            if (showWarning)
+            {
+                yield return new WaitForSeconds(GetHUDRole().Warning());
+            }
 
             //DebugManager.Instance.Log(path.Count);
             if (move)

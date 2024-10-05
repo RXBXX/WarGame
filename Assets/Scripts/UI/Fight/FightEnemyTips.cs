@@ -10,6 +10,7 @@ namespace WarGame.UI
         private Transition _in;
         private GTextField _name;
         private CommonHero _hero;
+        private GTextField _id;
         private bool _moved = false;
         //private List<int> _enemys = new List<int>();
         //private List<GComponent> _queue = new List<GComponent>();
@@ -23,6 +24,7 @@ namespace WarGame.UI
             _in = GetTransition("in");
             _name = GetGObjectChild<GTextField>("name");
             _hero = GetChild<CommonHero>("hero");
+            _id = GetGObjectChild<GTextField>("id");
             //Init();
         }
 
@@ -80,10 +82,11 @@ namespace WarGame.UI
 
         private void OnEnemyStart(params object[] args)
         {
-            if (0 == (int)args[2] || !(bool)args[3])
+            if (0 == (int)args[1] && !(bool) args[3])
                 return;
 
             var role = RoleManager.Instance.GetRole((int)args[0]);
+            _id.text = role.Data.UID.ToString();
             _name.text = role.GetName();
             _hero.UpdateHero(role.GetConfig().ID);
             _in.Play();

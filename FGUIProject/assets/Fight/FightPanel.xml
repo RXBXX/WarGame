@@ -8,11 +8,11 @@
     <component id="n7_o8z3" name="tips" src="o8z31" fileName="FightTips.xml" xy="667,363" pivot="0.5,0.5" anchor="true" visible="false">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
-    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,650" size="200,40" visible="false">
+    <component id="n15_h53u" name="skipBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,636" size="200,54" scale="0.8,0.8" visible="false">
       <relation target="" sidePair="right-right,bottom-bottom"/>
       <Button title="SKIP"/>
     </component>
-    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,650" size="200,40" visible="false">
+    <component id="n23_pfj8" name="startBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="1057,637" size="200,54" scale="0.8,0.8" visible="false">
       <relation target="" sidePair="right-right,bottom-bottom"/>
       <Button title="START"/>
     </component>
@@ -29,12 +29,12 @@
     <component id="n36_nuya" name="n36" src="nuya1q" fileName="FightEnemyTips.xml" xy="0,599">
       <relation target="" sidePair="left-left,bottom-bottom"/>
     </component>
-    <text id="n39_upau" name="readyTips" xy="1150,708" pivot="0.5,0.5" anchor="true" size="164,24" visible="false" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵">
-      <relation target="" sidePair="right-right,bottom-bottom"/>
+    <text id="n39_upau" name="readyTips" xy="1158,709" pivot="0.5,0.5" anchor="true" size="10,24" visible="false" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵">
+      <relation target="n23_pfj8" sidePair="center-center,top-bottom"/>
     </text>
-    <text id="n4_p3n5" name="round" xy="667,70" pivot="0.5,0.5" anchor="true" size="10,26" group="n41_oykc" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" strokeColor="#000000" text="1"/>
-    <text id="n38_nuya" name="title" xy="666,44" pivot="0.5,0.5" anchor="true" size="37,29" group="n41_oykc" font="ui://hd0z4dz5omu90" fontSize="20" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
-    <group id="n41_oykc" name="n41" xy="647,29" size="37,53" advanced="true">
+    <text id="n4_p3n5" name="round" xy="659,70" pivot="0.5,0.5" anchor="true" size="12,26" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="18" color="#ffffff" strokeColor="#000000" text="1"/>
+    <text id="n38_nuya" name="title" xy="658,44" pivot="0.5,0.5" anchor="true" size="52,29" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
+    <group id="n41_oykc" name="n41" xy="632,29" size="52,53" advanced="true">
       <relation target="" sidePair="center-center,top-top"/>
     </group>
     <component id="n42_d5u1" name="time" src="d5u136" fileName="Components/CommonTime.xml" pkg="hx02grrp" xy="667,0" pivot="0.5,0" anchor="true"/>

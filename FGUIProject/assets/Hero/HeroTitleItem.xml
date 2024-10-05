@@ -3,7 +3,7 @@
   <controller name="state" pages="0,close,1,open" selected="0"/>
   <displayList>
     <image id="n8_cwzy" name="n8" src="cwzy1e" fileName="Images/TitleBG.png" pkg="hx02grrp" xy="0,0"/>
-    <text id="n2_gy0s" name="title" xy="17,5" size="67,39" font="ui://hd0z4dz5omu90" fontSize="28" color="#f4f4f4" strokeColor="#000000" strokeSize="0" text="Talent"/>
+    <text id="n2_gy0s" name="title" xy="17,5" size="105,39" font="ui://hd0z4dz5esp76" fontSize="28" color="#f4f4f4" strokeColor="#000000" strokeSize="0" text="Talent"/>
     <component id="n4_gy0s" name="btn" src="nw176" fileName="Components/CommonArrow.xml" pkg="hx02grrp" xy="379,-23" scale="0.3,0.3" rotation="-90">
       <gearLook controller="state" pages="0,1" values="1,-90,0,1|1,90,0,1"/>
     </component>

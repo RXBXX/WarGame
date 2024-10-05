@@ -132,7 +132,7 @@ namespace WarGame
 
         public override void OnMoveEnd()
         {
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
 
         private IEnumerator OnStageOver(float waitingTime = 0)

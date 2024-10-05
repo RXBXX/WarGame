@@ -12,8 +12,8 @@
     <image id="n7_m8jm" name="n7" src="czz8f" fileName="Images/FightTips1.png" xy="1,0" group="n4_czz8"/>
     <group id="n4_czz8" name="n4" xy="1,0" size="1500,200" advanced="true"/>
     <group id="n5_czz8" name="n5" xy="-1,0" size="1500,200" advanced="true"/>
-    <text id="n3_czz8" name="title" xy="750,100" pivot="0.5,0.5" anchor="true" size="255,84" font="ui://hd0z4dz5omu90" fontSize="64" color="#ffffff" align="center" vAlign="middle" letterSpacing="2" bold="true" strokeColor="#000000" autoClearText="true" text="Hero Turn">
-      <gearText controller="type" pages="0" values="Hero Turn" default="ENEMY"/>
+    <text id="n3_czz8" name="title" xy="750,100" pivot="0.5,0.5" anchor="true" size="795,154" font="ui://hd0z4dz5esp76" fontSize="120" color="#ffffff" align="center" vAlign="middle" bold="true" strokeColor="#000000" autoClearText="true" text="Enemy Turn">
+      <gearText controller="type" pages="0" values="Enemy Turn" default="ENEMY"/>
     </text>
   </displayList>
   <transition name="tips">
@@ -23,5 +23,8 @@
     <item time="6" type="Alpha" target="n3_czz8" tween="true" startValue="0" endValue="1" duration="4" ease="Quart.In"/>
     <item time="6" type="XY" target="n4_czz8" tween="true" startValue="1,0" endValue="1,0" duration="6" ease="Cubic.Out"/>
     <item time="6" type="XY" target="n5_czz8" tween="true" startValue="-1,0" endValue="-1,0" duration="6" ease="Bounce.InOut"/>
+    <item time="18" type="Alpha" target="n3_czz8" value="1"/>
+    <item time="18" type="XY" target="n4_czz8" value="1,0"/>
+    <item time="18" type="XY" target="n5_czz8" value="-1,0"/>
   </transition>
 </component>

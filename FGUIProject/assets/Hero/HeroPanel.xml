@@ -26,13 +26,13 @@
       <relation target="" sidePair="right-right,top-top,bottomext-bottom"/>
     </component>
     <component id="n0_vvm6" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
-    <image id="n44_ku3y" name="n44" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="339,598" size="235,68" alpha="0.7" color="#000000">
+    <image id="n44_ku3y" name="n44" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="309,598" size="294,68" alpha="0.7" color="#000000">
       <relation target="n32_gy0s" sidePair="rightext-right,leftext-left"/>
     </image>
-    <loader id="n45_qv0w" name="element" xy="361,607" size="50,50" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale">
+    <loader id="n45_qv0w" name="element" xy="331,607" size="50,50" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scale">
       <relation target="n32_gy0s" sidePair="right-left"/>
     </loader>
-    <text id="n32_gy0s" name="name" xy="478,631" pivot="0.5,0.5" anchor="true" size="128,74" font="ui://hd0z4dz5omu90" fontSize="56" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="ddddd"/>
+    <text id="n32_gy0s" name="name" xy="478,631" pivot="0.5,0.5" anchor="true" size="187,74" font="ui://hd0z4dz5esp76" fontSize="56" color="#ffffff" align="center" vAlign="middle" strokeColor="#000000" autoClearText="true" text="ddddd"/>
     <component id="n43_ku3y" name="resetBtn" src="ku3y20" fileName="HeroResetBtn.xml" xy="434,670"/>
     <component id="n39_gy0s" name="talentInfo" src="gy0sm" fileName="HeroTalentInfo.xml" xy="827,112" visible="false"/>
     <component id="n41_nmz4" name="resComp" src="nmz41v" fileName="Components/CommonResComp.xml" pkg="hx02grrp" xy="1334,0" pivot="1,0" anchor="true">

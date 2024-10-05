@@ -211,6 +211,9 @@ namespace WarGame.UI
 
         private void UpdateAnimator(int uid, WGCallback callback = null)
         {
+            if (!_rolesGO.ContainsKey(uid))
+                return;
+
             var roleData = DatasMgr.Instance.GetRoleData(uid);
             int animatorID = 1;
             foreach (var v in roleData.equipmentDic)
@@ -304,6 +307,9 @@ namespace WarGame.UI
             }
 
             var roleUID = ndpu.roleUID;
+            if (!_rolesGO.ContainsKey(roleUID))
+                return;
+
             foreach (var v in ndpu.unwearEquips)
             {
                 var equipData = DatasMgr.Instance.GetEquipmentData(v);

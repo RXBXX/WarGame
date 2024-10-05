@@ -53,7 +53,7 @@ namespace WarGame
             if (null != _attackCoroutine)
                 return;
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
 
         private void OnCureEnd(object[] args)
@@ -68,7 +68,7 @@ namespace WarGame
             if (null != _attackCoroutine)
                 return;
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
     }
 }

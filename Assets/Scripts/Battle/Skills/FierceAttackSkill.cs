@@ -65,7 +65,7 @@ namespace WarGame
             if (null != _attackCoroutine)
                 return;
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
 
         private void OnDeadEnd(object[] args)
@@ -82,7 +82,7 @@ namespace WarGame
             if (null != _attackCoroutine)
                 return;
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F, true));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
 
         private void OnDodgeEnd(object[] args)
@@ -99,7 +99,7 @@ namespace WarGame
             if (null != _attackCoroutine)
                 return;
 
-            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over(1.5F));
+            _attackCoroutine = CoroutineMgr.Instance.StartCoroutine(Over());
         }
 
         public override void ClickHero(int id)

@@ -3,7 +3,8 @@
   <displayList>
     <graph id="n9_nuya" name="n9" xy="-250,0" size="240,64" group="n12_nuya" alpha="0.6" type="rect" lineSize="0" fillColor="#ff000000"/>
     <component id="n10_nuya" name="hero" src="pfj84" fileName="Components/CommonHero.xml" pkg="hx02grrp" xy="-54,32" pivot="0.5,0.5" anchor="true" group="n12_nuya" scale="0.8,0.8" touchable="false"/>
-    <text id="n11_nuya" name="name" xy="-90,15" pivot="1,0" anchor="true" size="141,34" group="n12_nuya" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" align="right" vAlign="middle" letterSpacing="1" autoSize="shrink" strokeColor="#000000" text="NOUYA"/>
+    <text id="n11_nuya" name="name" xy="-90,6" pivot="1,0" anchor="true" size="141,34" group="n12_nuya" font="ui://hd0z4dz5esp76" fontSize="24" color="#ffffff" align="right" vAlign="middle" autoSize="shrink" strokeColor="#000000" text="NOUYA"/>
+    <text id="n13_esp7" name="id" xy="-90,33" pivot="1,0" anchor="true" size="141,26" group="n12_nuya" font="ui://hd0z4dz5esp76" fontSize="18" color="#ffffff" align="right" vAlign="middle" autoSize="shrink" strokeColor="#000000" text="NOUYA"/>
     <group id="n12_nuya" name="n12" xy="-250,-8" size="240,80" advanced="true"/>
   </displayList>
   <transition name="in">

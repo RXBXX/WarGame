@@ -447,13 +447,15 @@ namespace WarGame
 
         private void DisposeAction(int actionID, bool save = false)
         {
-            DebugManager.Instance.Log("Dispose Action");
+            //DebugManager.Instance.Log("Dispose Action");
             if (null == _action)
                 return;
-            DebugManager.Instance.Log("Dispose Action111");
+            //DebugManager.Instance.Log("Dispose Action111");
+
             if (_action.ID != actionID)
                 return;
-            DebugManager.Instance.Log("Dispose Action2222");
+
+            //DebugManager.Instance.Log("Dispose Action2222");
             _action.Dispose(save);
             _action = null;
         }
@@ -543,6 +545,7 @@ namespace WarGame
                         CoroutineMgr.Instance.StartCoroutine(NextAction());
                 };
 
+                AudioMgr.Instance.PlaySound("Assets/Audios/RoundChange.wav");
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.EnemyTurn, callback });
             }
 
@@ -578,6 +581,7 @@ namespace WarGame
                     CoroutineMgr.Instance.StartCoroutine(OnUpdateRound());
                 };
 
+                AudioMgr.Instance.PlaySound("Assets/Audios/RoundChange.wav");
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundChange_Event, new object[] { Enum.FightTurn.HeroTurn, callback });
                 EventDispatcher.Instance.PostEvent(Enum.Event.Fight_RoundOver_Event, new object[] { _levelData.Round });
             }

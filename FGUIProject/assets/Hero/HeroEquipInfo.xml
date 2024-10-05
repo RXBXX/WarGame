@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="320,277" pivot="1,0" anchor="true">
   <displayList>
-    <image id="n36_gy0s" name="n36" src="et4720" fileName="Images/InfoBG.png" xy="0,0" size="320,277" pkg="hx02grrp">
+    <image id="n36_gy0s" name="n36" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="320,277">
       <relation target="" sidePair="bottomext-bottom"/>
     </image>
     <list id="n29_gy0s" name="attrList" xy="44,89" size="220,154" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpet472v" autoClearItems="true">
@@ -13,13 +13,13 @@
       <item/>
       <item/>
     </list>
-    <text id="n32_gy0s" name="title" xy="33,9" size="63,34" font="ui://hd0z4dz5omu90" fontSize="24" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attack"/>
-    <text id="n33_gy0s" name="desc" xy="44,47" size="220,37" font="ui://hd0z4dz5omu90" fontSize="14" color="#ffffff" leading="0" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
+    <text id="n32_gy0s" name="title" xy="33,9" size="91,34" font="ui://hd0z4dz5esp76" fontSize="24" color="#ffffff" leading="0" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n33_gy0s" name="desc" xy="44,47" size="220,37" font="ui://hd0z4dz5esp76" fontSize="14" color="#ffffff" leading="-4" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
     <image id="n34_gy0s" name="n34" src="kky822" fileName="Images/Line.png" pkg="hx02grrp" xy="33,44" size="220,1" alpha="0.7"/>
     <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="217,231" scale="0.6,0.6">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </component>
-    <text id="n38_kky8" name="owner" xy="102,15" size="48,26" font="ui://hd0z4dz5omu90" fontSize="18" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n38_kky8" name="owner" xy="132,15" size="68,26" font="ui://hd0z4dz5esp76" fontSize="18" color="#ffffff" leading="0" strokeColor="#000000" autoClearText="true" text="Attack"/>
   </displayList>
   <relation target="n35_gy0s" sidePair="bottomext-bottom"/>
 </component>

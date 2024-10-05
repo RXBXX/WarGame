@@ -3,18 +3,18 @@
   <controller name="type" pages="0,win,1,failed" selected="0"/>
   <displayList>
     <graph id="n30_li0q" name="n30" xy="1938,179" size="587,40" group="n28_li0q" rotation="180" type="polygon" lineSize="0" fillColor="#ffce4a35" points="0,0,587,0,564,40,0,40"/>
-    <text id="n23_li0q" name="enemyPhyAttack" xy="1511,160" pivot="0.5,0.5" anchor="true" size="17,24" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PA"/>
-    <text id="n24_li0q" name="enemyMagAttack" xy="1594,160" pivot="0.5,0.5" anchor="true" size="21,24" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MA"/>
-    <text id="n25_li0q" name="enemyCure" xy="1676,160" pivot="0.5,0.5" anchor="true" size="30,24" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Cure"/>
-    <text id="n26_li0q" name="enemyPhyDefense" xy="1759,160" pivot="0.5,0.5" anchor="true" size="17,24" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PD"/>
-    <text id="n27_li0q" name="enemyMagDefense" xy="1842,160" pivot="0.5,0.5" anchor="true" size="21,24" group="n28_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MD"/>
-    <group id="n28_li0q" name="n28" xy="1502,148" size="1022,71" advanced="true"/>
+    <text id="n23_li0q" name="enemyPhyAttack" xy="1511,160" pivot="0.5,0.5" anchor="true" size="24,24" group="n28_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PA"/>
+    <text id="n24_li0q" name="enemyMagAttack" xy="1594,160" pivot="0.5,0.5" anchor="true" size="29,24" group="n28_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MA"/>
+    <text id="n25_li0q" name="enemyCure" xy="1676,160" pivot="0.5,0.5" anchor="true" size="45,24" group="n28_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Cure"/>
+    <text id="n26_li0q" name="enemyPhyDefense" xy="1759,160" pivot="0.5,0.5" anchor="true" size="25,24" group="n28_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PD"/>
+    <text id="n27_li0q" name="enemyMagDefense" xy="1842,160" pivot="0.5,0.5" anchor="true" size="30,24" group="n28_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MD"/>
+    <group id="n28_li0q" name="n28" xy="1499,148" size="1026,71" advanced="true"/>
     <graph id="n10_li0q" name="n10" xy="-603,139" size="587,40" group="n29_li0q" type="polygon" lineSize="0" fillColor="#ff5c8799" points="0,0,587,0,564,40,0,40"/>
-    <text id="n14_li0q" name="heroPhyAttack" xy="-182,160" pivot="0.5,0.5" anchor="true" size="17,24" group="n29_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PA"/>
-    <text id="n15_li0q" name="heroMagAttack" xy="-261,160" pivot="0.5,0.5" anchor="true" size="21,24" group="n29_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MA"/>
-    <text id="n16_li0q" name="heroCure" xy="-342,160" pivot="0.5,0.5" anchor="true" size="30,24" group="n29_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="CURE"/>
-    <text id="n21_li0q" name="heroPhyDefense" xy="-425,161" pivot="0.5,0.5" anchor="true" size="17,24" group="n29_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PD"/>
-    <text id="n22_li0q" name="heroMagDefense" xy="-507,161" pivot="0.5,0.5" anchor="true" size="21,24" group="n29_li0q" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MD"/>
+    <text id="n14_li0q" name="heroPhyAttack" xy="-182,160" pivot="0.5,0.5" anchor="true" size="24,24" group="n29_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PA"/>
+    <text id="n15_li0q" name="heroMagAttack" xy="-261,160" pivot="0.5,0.5" anchor="true" size="29,24" group="n29_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MA"/>
+    <text id="n16_li0q" name="heroCure" xy="-342,160" pivot="0.5,0.5" anchor="true" size="47,24" group="n29_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="CURE"/>
+    <text id="n21_li0q" name="heroPhyDefense" xy="-425,161" pivot="0.5,0.5" anchor="true" size="25,24" group="n29_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="PD"/>
+    <text id="n22_li0q" name="heroMagDefense" xy="-507,161" pivot="0.5,0.5" anchor="true" size="30,24" group="n29_li0q" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="MD"/>
     <group id="n29_li0q" name="n29" xy="-603,139" size="587,40" advanced="true"/>
     <list id="n6_li0q" name="heros" xy="-579,188" size="540,450" overflow="scroll" lineGap="8" defaultItem="ui://kbw86fxtkawv2c" autoClearItems="true">
       <item/>

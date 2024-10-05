@@ -15,7 +15,6 @@ namespace WarGame
             if (_initiatorID > 0)
             {
                 var initiator = RoleManager.Instance.GetRole(_initiatorID);
-                initiator.SetState(Enum.RoleState.Locked, true);
                 switch (initiator.GetState())
                 {
                     case Enum.RoleState.Locked:
@@ -85,7 +84,7 @@ namespace WarGame
 
         protected override void OnMoveEnd(params object[] args)
         {
-            //DebugManager.Instance.Log("OnMoveEnd:" + _targetID);
+            DebugManager.Instance.Log("OnMoveEnd:" + _targetID);
             if (_targetID > 0)
             {
                 OnAIAttack();
