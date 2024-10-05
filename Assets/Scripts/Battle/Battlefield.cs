@@ -666,18 +666,30 @@ namespace WarGame
 
         private void OnSuccess()
         {
-            _levelData.Stage = Enum.LevelStage.Passed;
-            //DebugManager.Instance.Log("MinPassRound:" + _levelData.Round);
-            if (0 == _levelData.minPassRound || _levelData.minPassRound > _levelData.Round)
+            if (_levelData.Stage == Enum.LevelStage.Passed)
+            {
+                if (_levelData.minPassRound > _levelData.Round)
+                    _levelData.minPassRound = _levelData.Round;
+
+                _levelData.itemsDic.Clear();
+
+                OnSave();
+            }
+            else
+            {
+                _levelData.Stage = Enum.LevelStage.Passed;
                 _levelData.minPassRound = _levelData.Round;
 
-            foreach (var v in _levelData.itemsDic)
-            {
-                DatasMgr.Instance.AddItem(v.Key, v.Value);
-            }
-            _levelData.itemsDic.Clear();
+                foreach (var v in _levelData.itemsDic)
+                {
+                    DatasMgr.Instance.AddItem(v.Key, v.Value);
+                }
+                _levelData.itemsDic.Clear();
 
-            OnSave();
+                OnSave();
+
+            }
+
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
             UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID, reportDic });
