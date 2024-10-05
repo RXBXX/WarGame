@@ -54,7 +54,6 @@ namespace WarGame.UI
 
         private void OnClickItem(EventContext context)
         {
-
             var index = _optionList.GetChildIndex((GObject)context.data);
             _tabDatas[index].callback();
         }

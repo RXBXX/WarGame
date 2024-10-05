@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1334,750">
+  <displayList>
+    <graph id="n3_esp7" name="n3" xy="0,0" size="1334,750" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n0_esp7" name="levelList" xy="144,35" size="500,669" overflow="scroll" lineGap="6" defaultItem="ui://8g4x72hxesp70" autoClearItems="true">
+      <relation target="" sidePair="left-left,topext-top,bottomext-bottom"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n1_esp7" name="complete" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="946,639" size="230,54">
+      <relation target="" sidePair="right-right,bottom-bottom"/>
+      <Button title="Complete"/>
+    </component>
+    <component id="n2_esp7" name="closeBtn" src="omu94" fileName="Components/CommonCloseBtn.xml" pkg="hx02grrp" xy="20,10"/>
+  </displayList>
+</component>

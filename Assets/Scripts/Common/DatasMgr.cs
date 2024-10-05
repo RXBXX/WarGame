@@ -204,7 +204,7 @@ namespace WarGame
             _data.GetUsingRecord().AddItem(id, value);
         }
 
-        public void AddItems(ItemPair[] sources)
+        public void AddItems(List<TwoIntPair> sources)
         {
             foreach (var v in sources)
                 _data.GetUsingRecord().AddItem(v.id, v.value);

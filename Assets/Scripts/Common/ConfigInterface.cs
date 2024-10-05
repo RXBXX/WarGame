@@ -267,15 +267,6 @@ namespace WarGame
         public string Pic3;
     }
 
-    //道具
-    [Serializable]
-    public class ItemPair
-    {
-        //public Enum.SourceType Type;
-        public int id;
-        public int value;
-    }
-
     //事件表
     [Serializable]
     public class EventConfig : Config
@@ -307,7 +298,7 @@ namespace WarGame
     [Serializable]
     public class RewardConfig : Config
     {
-        public ItemPair[] Rewards;
+        public TwoIntPair[] Rewards;
     }
 
     //装饰物表
