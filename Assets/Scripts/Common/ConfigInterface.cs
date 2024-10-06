@@ -207,6 +207,7 @@ namespace WarGame
         public string Group;
         public bool IsBoss;
         public int Reward;
+        public int ActPreference;
     }
 
     //敌人表
@@ -236,6 +237,7 @@ namespace WarGame
     {
         public string Prefab;
         public List<IntFloatPair> Effects;
+        public float Duration;
     }
 
     //元素表

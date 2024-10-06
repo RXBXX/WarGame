@@ -8,23 +8,32 @@ using System.Collections;
 //管理游戏中地图数据
 namespace WarGame
 {
-    public class MapDictionary : Dictionary<int, Cell>
+    public class MapCellDictionary : Dictionary<int, Cell>
     {
         public void Recycle()
         {
             foreach (var v in this)
                 v.Value.Recycle();
             Clear();
-            MapManager.Instance.PushDicStack(this);
+            MapManager.Instance.PushCellDicStack(this);
         }
     }
 
-    public class MapList : List<int>
+    public class MapCellList : List<Cell>
     {
         public void Recycle()
         {
             Clear();
-            MapManager.Instance.PushLisStack(this);
+            MapManager.Instance.PushCellListStack(this);
+        }
+    }
+
+    public class MapIntList : List<int>
+    {
+        public void Recycle()
+        {
+            Clear();
+            MapManager.Instance.PushIntListStack(this);
         }
     }
 
@@ -75,10 +84,9 @@ namespace WarGame
         private Dictionary<int, Ornament> _ornamentsDic = new Dictionary<int, Ornament>();
         private Stack<Cell> _cellPool = new Stack<Cell>();
         private Dictionary<int, int> _hexagonToRole = new Dictionary<int, int>();
-        private Dictionary<int, Cell> _openDic;
-        private Dictionary<int, Cell> _closeDic;
-        private Stack<MapDictionary> _mapDicStack = new Stack<MapDictionary>();
-        private Stack<MapList> _mapLisStack = new Stack<MapList>();
+        private Stack<MapCellDictionary> _mapCellDicStack = new Stack<MapCellDictionary>();
+        private Stack<MapCellList> _mapCellLisStack = new Stack<MapCellList>();
+        private Stack<MapIntList> _mapIntLisStack = new Stack<MapIntList>();
 
         private int _roleHeight = 5;
 
@@ -140,13 +148,13 @@ namespace WarGame
 
             ClearMap();
 
-            foreach (var v in _mapDicStack)
+            foreach (var v in _mapCellDicStack)
                 v.Clear();
-            _mapDicStack.Clear();
+            _mapCellDicStack.Clear();
 
-            foreach (var v in _mapLisStack)
+            foreach (var v in _mapIntLisStack)
                 v.Clear();
-            _mapLisStack.Clear();
+            _mapIntLisStack.Clear();
 
             return true;
         }
@@ -154,7 +162,6 @@ namespace WarGame
         public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin)
         {
             _map = MapTool.Instance.CreateMap(hexagons, GameObject.Find("Root"));
-            _bonfiresDic = MapTool.Instance.CreateBonfire(bonfires, GameObject.Find("BonfireRoot"));
             _ornamentsDic = MapTool.Instance.CreateOrnament(ornaments, GameObject.Find("OrnamentRoot"));
 
             if (null != lightingPlugin)
@@ -170,6 +177,28 @@ namespace WarGame
             }
         }
 
+        //初始化篝火
+        public List<BonfireData> InitBonfires(BonfireMapPlugin[] bonfirePlugins)
+        {
+            var bonfireDatas = new List<BonfireData>();
+            foreach (var v in bonfirePlugins)
+            {
+                var bd = Factory.Instance.GetBonfireData(v);
+                bonfireDatas.Add(bd);
+                CreateBonfire(bd);
+            }
+            return bonfireDatas;
+        }
+
+        public Bonfire CreateBonfire(BonfireData bd)
+        {
+            var parent = GameObject.Find("BonfireRoot").transform;
+            var bonfire = Factory.Instance.GetBonfire(bd);
+            bonfire.SetParent(parent);
+            _bonfiresDic.Add(bd.UID, bonfire);
+            return bonfire;
+        }
+
         public void UpdateRound(int round)
         {
             foreach (var v in _bonfiresDic)
@@ -182,6 +211,13 @@ namespace WarGame
             foreach (var v in _map)
                 progress += v.Value.GetLoadingProgress();
             return progress / _map.Count;
+        }
+
+        public void Fire(int id)
+        {
+            if (!_bonfiresDic.ContainsKey(id))
+                return;
+            _bonfiresDic[id].Fire();
         }
 
         public void ClearMap()
@@ -238,6 +274,11 @@ namespace WarGame
             return hexagons;
         }
 
+        public Bonfire GetBonfire(int id)
+        {
+            return _bonfiresDic[id];
+        }
+
         //public void UpdateHexagon(float intensity)
         //{
         //    Hexagon hexagon = null;
@@ -256,7 +297,7 @@ namespace WarGame
         {
             ClearMarkedRegion();
 
-            var closeDic = PopDicStack();
+            var closeDic = PopCellDicStack();
             FindingMoveRegion(hexagonID, moveDis, roleType, closeDic);
 
             var moveRegion = new List<int>();
@@ -328,9 +369,7 @@ namespace WarGame
             }
             LineMgr.Instance.SetLine(points);
 
-            foreach (var v in cells)
-                v.Recycle();
-            cells.Clear();
+            cells.Recycle();
         }
 
         public void ClearMarkedPath()
@@ -459,7 +498,7 @@ namespace WarGame
         /// <param name="startHexagonID"></param>
         /// <param name="endHexagonID"></param>
         /// <returns></returns>
-        public List<Cell> FindingPath(int startHexagonID, int endHexagonID, Enum.RoleType roleType)
+        public MapCellList FindingPath(int startHexagonID, int endHexagonID, Enum.RoleType roleType)
         {
             PrepareHexagonToRole();
 
@@ -469,9 +508,9 @@ namespace WarGame
                 return null;
             }
 
-            List<Cell> path = new List<Cell>();
-            var openDic = PopDicStack();
-            var closeDic = PopDicStack();
+            var path = PopCellListStack();
+            var openDic = PopCellDicStack();
+            var closeDic = PopCellDicStack();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -550,9 +589,7 @@ namespace WarGame
                 hexagons.Add(path[i].id);
             }
 
-            foreach (var v in path)
-                v.Recycle();
-            path.Clear();
+            path.Recycle();
 
             return hexagons;
         }
@@ -630,8 +667,8 @@ namespace WarGame
         public List<Cell> FindingAttackPath(int startHexagonID, int endHexagonID, float dis)
         {
             List<Cell> path = new List<Cell>();
-            var openDic = PopDicStack();
-            var closeDic = PopDicStack();
+            var openDic = PopCellDicStack();
+            var closeDic = PopCellDicStack();
 
             var startPos = GetHexagon(startHexagonID).coor;
             var endPos = GetHexagon(endHexagonID).coor;
@@ -840,21 +877,21 @@ namespace WarGame
         /// <param name="moveDis">可移动距离</param>
         /// /// <param name="moveDis">可攻击距离</param>
         /// <returns></returns>
-        public MapDictionary FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, MapDictionary closeDic = null)
+        public MapCellDictionary FindingMoveRegion(int hexagonID, float moveDis, Enum.RoleType roleType, MapCellDictionary closeDic = null)
         {
             PrepareHexagonToRole();
 
-            var openDic = PopDicStack();
+            var openDic = PopCellDicStack();
 
             if (null == closeDic)
-                closeDic = PopDicStack();
+                closeDic = PopCellDicStack();
 
             var startPos = GetHexagon(hexagonID).coor;
             var cell = HandleMoveRegionCell(startPos, null, moveDis, openDic, closeDic, null, roleType);
             if (null == cell)
                 return closeDic;
 
-            var allKeys = PopLisStack();
+            var allKeys = PopIntListStack();
             while (openDic.Count > 0)
             {
                 foreach (var pair in openDic)
@@ -886,12 +923,12 @@ namespace WarGame
         /// 广度优先
         /// </summary>
         /// <returns></returns>
-        public MapDictionary FindingAttackRegion(List<int> hexagonIDs, float attackDis, MapDictionary closeDic = null)
+        public MapCellDictionary FindingAttackRegion(List<int> hexagonIDs, float attackDis, MapCellDictionary closeDic = null)
         {
-            var openDic = PopDicStack();
+            var openDic = PopCellDicStack();
 
             if (null == closeDic)
-                closeDic = PopDicStack();
+                closeDic = PopCellDicStack();
 
             foreach (var v in hexagonIDs)
             {
@@ -901,7 +938,7 @@ namespace WarGame
                 }
             }
 
-            var allKeys = PopLisStack();
+            var allKeys = PopIntListStack();
             while (openDic.Count > 0)
             {
                 foreach (var pair in openDic)
@@ -932,10 +969,10 @@ namespace WarGame
 
 
 
-        public MapDictionary FindingViewRegion(int hexagonID, float viewDis)
+        public MapCellDictionary FindingViewRegion(int hexagonID, float viewDis)
         {
-            var openDic = PopDicStack();
-            var closeDic = PopDicStack();
+            var openDic = PopCellDicStack();
+            var closeDic = PopCellDicStack();
 
             for (int q = 0; q < _directions.Length; q++)
             {
@@ -944,7 +981,7 @@ namespace WarGame
             }
 
             //DebugManager.Instance.Log(openDic.Count);
-            var allKeys = PopLisStack();
+            var allKeys = PopIntListStack();
             while (openDic.Count > 0)
             {
                 foreach (var pair in openDic)
@@ -982,30 +1019,43 @@ namespace WarGame
             _hexagonToRole.Clear();
         }
 
-        public void PushDicStack(MapDictionary md)
+        public void PushCellDicStack(MapCellDictionary md)
         {
-            _mapDicStack.Push(md);
+            _mapCellDicStack.Push(md);
         }
 
-        public MapDictionary PopDicStack()
+        public MapCellDictionary PopCellDicStack()
         {
-            if (_mapDicStack.Count > 0)
-                return _mapDicStack.Pop();
+            if (_mapCellDicStack.Count > 0)
+                return _mapCellDicStack.Pop();
             else
-                return new MapDictionary();
+                return new MapCellDictionary();
         }
 
-        public void PushLisStack(MapList ml)
+        public void PushCellListStack(MapCellList ml)
         {
-            _mapLisStack.Push(ml);
+            _mapCellLisStack.Push(ml);
         }
 
-        public MapList PopLisStack()
+        public MapCellList PopCellListStack()
         {
-            if (_mapLisStack.Count > 0)
-                return _mapLisStack.Pop();
+            if (_mapCellLisStack.Count > 0)
+                return _mapCellLisStack.Pop();
             else
-                return new MapList();
+                return new MapCellList();
+        }
+
+        public void PushIntListStack(MapIntList ml)
+        {
+            _mapIntLisStack.Push(ml);
+        }
+
+        public MapIntList PopIntListStack()
+        {
+            if (_mapIntLisStack.Count > 0)
+                return _mapIntLisStack.Pop();
+            else
+                return new MapIntList();
         }
     }
 }

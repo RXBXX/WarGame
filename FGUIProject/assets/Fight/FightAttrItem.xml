@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="210,53">
+<component size="240,31">
   <displayList>
-    <graph id="n17_gy0s" name="n17" xy="0,0" size="210,53" alpha="0.3" type="rect" lineSize="0" lineColor="#ff1b1a1a" fillColor="#ff333333">
+    <graph id="n17_gy0s" name="n17" xy="0,0" size="240,31" alpha="0.3" type="rect" lineSize="0" lineColor="#ff1b1a1a" fillColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <text id="n13_gy0s" name="name" xy="6,0" size="86,53" font="ui://hd0z4dz5esp76" fontSize="14" color="#f8f8f8" leading="0" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssss"/>
-    <text id="n19_czz8" name="baseValue" xy="114,25" pivot="0.5,0.5" anchor="true" size="19,22" font="ui://hd0z4dz5esp76" fontSize="14" color="#f8f8f8" align="center" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
+    <text id="n13_gy0s" name="name" xy="4,0" size="126,31" font="ui://hd0z4dz5esp76" fontSize="12" color="#f8f8f8" leading="-2" letterSpacing="-1" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssss"/>
+    <text id="n19_czz8" name="baseValue" xy="154,15" pivot="0.5,0.5" anchor="true" size="16,19" font="ui://hd0z4dz5esp76" fontSize="12" color="#f8f8f8" align="center" leading="0" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="+10">
       <relation target="" sidePair="middle-middle"/>
     </text>
-    <text id="n14_gy0s" name="elementValue" xy="174,25" pivot="0.5,0.5" anchor="true" size="19,22" font="ui://hd0z4dz5esp76" fontSize="14" color="#f8f8f8" align="center" leading="0" strokeColor="#000000" autoClearText="true" text="+10">
+    <text id="n14_gy0s" name="elementValue" xy="204,15" pivot="0.5,0.5" anchor="true" size="16,19" font="ui://hd0z4dz5esp76" fontSize="12" color="#f8f8f8" align="center" leading="0" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="+10">
       <relation target="" sidePair="middle-middle"/>
     </text>
   </displayList>

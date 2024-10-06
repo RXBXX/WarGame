@@ -4,7 +4,7 @@
   <displayList>
     <loader id="n11_dsuy" name="icon" xy="32,32" pivot="0.5,0.5" anchor="true" size="64,64" url="ui://p7jlxbp3dsuyb" align="center" vAlign="middle" fill="scale"/>
     <image id="n14_nuya" name="n14" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="-34,59" size="128,32"/>
-    <text id="n12_dsuy" name="title" xy="30,74" pivot="0.5,0.5" anchor="true" size="63,29" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Camp"/>
+    <text id="n12_dsuy" name="title" xy="30,74" pivot="0.5,0.5" anchor="true" size="60,29" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="Camp"/>
   </displayList>
   <Button downEffect="scale" downEffectValue=".8"/>
 </component>

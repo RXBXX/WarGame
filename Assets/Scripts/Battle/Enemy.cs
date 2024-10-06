@@ -25,7 +25,7 @@ namespace WarGame
                 _scale = Vector3.one * 0.45f;
             }
 
-            DebugManager.Instance.Log("Enemy State:" + data.state);
+            //DebugManager.Instance.Log("Enemy State:" + data.state);
         }
 
         protected override void OnCreate(GameObject prefab)
@@ -68,7 +68,7 @@ namespace WarGame
         protected override void CreateHUD()
         {
             base.CreateHUD();
-            if (GetEnemyConfig().IsBoss)
+            if (IsBoss())
             {
                 GetHUDRole().SetBoss();
             }
@@ -261,78 +261,54 @@ namespace WarGame
             else if (Hexagon != _data.bornHexagonID)
             {
                 var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
-                if (null != movePath && movePath.Count > 0)
+                if (null != movePath)
                 {
-                    for (int i = movePath.Count - 1; i > 0; i--)
+                    if (movePath.Count > 0)
                     {
-                        if (movePath[i].g > GetMoveDis())
+                        for (int i = movePath.Count - 1; i > 0; i--)
                         {
-                            movePath.RemoveAt(i);
-                            continue;
+                            if (movePath[i].g > GetMoveDis())
+                            {
+                                movePath.RemoveAt(i);
+                                continue;
+                            }
+                            break;
                         }
-                        break;
-                    }
 
-                    path = new List<int>();
-                    for (int i = 0; i < movePath.Count; i++)
-                        path.Add(movePath[i].id);
+                        path = new List<int>();
+                        for (int i = 0; i < movePath.Count; i++)
+                            path.Add(movePath[i].id);
+                    }
+                    movePath.Recycle();
                 }
             }
-            //else if (InScreen())
-            //{
-            //    //在出生点和随机点之间移动
-            //    if (Hexagon == _data.bornHexagonID)
-            //    {
-            //        var emptyMoveRegions = new List<MapManager.Cell>();
-            //        foreach (var v in moveRegion)
-            //        {
-            //            if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
-            //                continue;
+            else if (WillAct())
+            {
+                //在出生点和随机点之间移动
+                var emptyMoveRegions = MapManager.Instance.PopCellListStack();
+                foreach (var v in moveRegion)
+                {
+                    if (hexagonToRole.ContainsKey(v.Key) && ID != hexagonToRole[v.Key])
+                        continue;
 
-            //            emptyMoveRegions.Add(v.Value);
-            //        }
-            //        if (emptyMoveRegions.Count > 0)
-            //        {
-            //            var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
-            //            var rdHexagon = emptyMoveRegions[randomHexagonIndex];
-            //            if (rdHexagon.id != Hexagon)
-            //            {
-            //                path = new List<int>();
-            //                while (null != rdHexagon)
-            //                {
-            //                    path.Insert(0, rdHexagon.id);
-            //                    rdHexagon = rdHexagon.parent;
-            //                }
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        var movePath = MapManager.Instance.FindingPath(Hexagon, _data.bornHexagonID, Type);
-            //        if (null != movePath && movePath.Count > 0)
-            //        {
-            //            for (int i = movePath.Count - 1; i > 0; i--)
-            //            {
-            //                if (movePath[i].g > GetMoveDis())
-            //                {
-            //                    movePath.RemoveAt(i);
-            //                    continue;
-            //                }
-            //                break;
-            //            }
-
-            //            path = new List<int>();
-            //            for (int i = 0; i < movePath.Count; i++)
-            //                path.Add(movePath[i].id);
-            //        }
-            //    }
-
-            //    //SetHPVisible(false);
-            //}
-            //else
-            //{
-            //    SetHPVisible(false);
-            //}
+                    emptyMoveRegions.Add(v.Value);
+                }
+                if (emptyMoveRegions.Count > 0)
+                {
+                    var randomHexagonIndex = Random.Range(0, emptyMoveRegions.Count);
+                    var rdHexagon = emptyMoveRegions[randomHexagonIndex];
+                    if (rdHexagon.id != Hexagon)
+                    {
+                        path = new List<int>();
+                        while (null != rdHexagon)
+                        {
+                            path.Insert(0, rdHexagon.id);
+                            rdHexagon = rdHexagon.parent;
+                        }
+                    }
+                }
+                emptyMoveRegions.Recycle();
+            }
 
             //UnityEngine.Profiling.Profiler.EndSample();
 
@@ -342,7 +318,7 @@ namespace WarGame
             var skillID = SelectSkill();
             var move = null != path && path.Count > 1;
             //DebugManager.Instance.Log("StartAI:" + ID + "_" +( null == target ? 0 : target.ID));
-            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move});
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_AI_Start, new object[] { ID, null == target ? 0 : target.ID, skillID, move });
             //yield return new WaitForSeconds(1.0F);
             //yield return null;
 
@@ -527,6 +503,16 @@ namespace WarGame
                     return GetConfig().SpecialSkill;
             }
             return GetConfig().CommonSkill;
+        }
+
+        private bool IsBoss()
+        {
+            return GetEnemyConfig().IsBoss;
+        }
+
+        private bool WillAct()
+        {
+            return Random.Range(0, 10) < GetEnemyConfig().ActPreference;
         }
 
         public override bool Dispose()

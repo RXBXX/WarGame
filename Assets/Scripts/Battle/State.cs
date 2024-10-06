@@ -29,12 +29,10 @@ namespace WarGame
 
             if (null != lastState)
             {
-                //DebugManager.Instance.Log(lastState._name);
                 _last = lastState;
                 lastState.End(false);
             }
 
-            DebugManager.Instance.Log(_name + "_Start_" + _role.ID);
             _role.SetAnimState(_name);
             _state = Enum.RoleAnimState.Start;
             _role.Animator.SetBool(_name, true);
@@ -151,7 +149,7 @@ namespace WarGame
 
     public class MoveState : State
     {
-        private float _speed = 3.0f;
+        private float _speed = 4.0f;
         private int _runSound = 0;
 
         public MoveState(string name, Role role) : base(name, role)

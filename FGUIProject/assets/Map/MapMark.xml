@@ -3,10 +3,10 @@
   <controller name="showBtn" pages="0,,1," selected="0"/>
   <controller name="isPass" pages="0,,1," selected="0"/>
   <displayList>
-    <image id="n6_b0z0" name="n6" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="39,6" pivot="0.5,0.5" size="103,32">
+    <image id="n6_b0z0" name="n6" src="nuya28" fileName="Images/MarkBG.png" pkg="hx02grrp" xy="31,6" pivot="0.5,0.5" size="118,32">
       <relation target="n0_hctw" sidePair="width-width"/>
     </image>
-    <text id="n0_hctw" name="title" xy="89,21" pivot="0.5,0.5" anchor="true" size="51,24" font="ui://hd0z4dz5omu90" fontSize="16" color="#ffffff" align="center" vAlign="middle" leading="0" strokeColor="#000000" autoClearText="true" text="Mark111"/>
+    <text id="n0_hctw" name="title" xy="89,21" pivot="0.5,0.5" anchor="true" size="66,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" align="center" vAlign="middle" leading="0" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="Mark111"/>
     <text id="n1_b0z0" name="desc" xy="83,-1" pivot="0.5,1" anchor="true" size="400,35" visible="false" font="ui://hd0z4dz5omu90" fontSize="14" color="#f6f6f6" align="center" leading="-2" autoSize="height" strokeColor="#000000" autoClearText="true" text="11111111111111111111111&#xA;1111111111111111"/>
     <loader id="n11_ku3y" name="n11" xy="78,-10" size="22,22" url="ui://hx02grrpkawv2a" align="center" vAlign="middle" fill="scale">
       <gearDisplay controller="isPass" pages="1"/>

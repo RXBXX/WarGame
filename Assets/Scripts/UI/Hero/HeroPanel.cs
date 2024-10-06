@@ -227,7 +227,7 @@ namespace WarGame.UI
             }
 
             var animatorConfig = ConfigMgr.Instance.GetConfig<AnimatorConfig>("AnimatorConfig", animatorID);
-            //DebugManager.Instance.Log(animatorConfig.Controller);
+            DebugManager.Instance.Log(animatorConfig.Controller);
             AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _rolesGO[uid].GetComponent<Animator>().runtimeAnimatorController = controller;
@@ -245,21 +245,6 @@ namespace WarGame.UI
                 TipsMgr.Instance.Add("装备穿戴失败！");
                 return;
             }
-
-            ////销毁英雄身上已经穿戴的装备GO
-            //foreach (var v in ndpu.unwearEquips)
-            //{
-            //    var unwearEquipData = DatasMgr.Instance.GetEquipmentData(v);
-            //    var placeConfig = unwearEquipData.GetPlaceConfig();
-            //    var unwearSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.SpinePoint);
-            //    GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
-
-            //    if (null != placeConfig.ViceSpinePoint)
-            //    {
-            //        unwearSpinePoint = _rolesGO[roleUID].transform.Find(placeConfig.ViceSpinePoint);
-            //        GameObject.Destroy(unwearSpinePoint.GetChild(0).gameObject);
-            //    }
-            //}
 
             //创建装备GO
             foreach (var v in ndpu.wearEquips)
@@ -325,7 +310,8 @@ namespace WarGame.UI
                 }
             }
 
-            UpdateAnimator(roleUID);
+            if (!ndpu.fromWear || roleUID != _roles[_roleIndex])
+                UpdateAnimator(roleUID);
 
             if (!ndpu.fromWear)
             {
@@ -389,29 +375,40 @@ namespace WarGame.UI
             var eventDic = Tool.Instance.GetEventTimeForAnimClip(animator, animatorConfig.Jump);
             animator.SetBool("Jump", true);
             animator.SetBool("Idle", false);
-            Sequence seq = DOTween.Sequence();
-            var tweener = hero.transform.DOLocalMoveX(posX, eventDic["Jump_Loss"] - eventDic["Jump_Take"]);
-            tweener.onUpdate = () =>
-            {
-                hero.transform.localScale = (1 - Mathf.Abs(hero.transform.localPosition.x / 2)) * Vector3.one;
-            };
 
-            seq.AppendInterval(eventDic["Jump_Take"] - eventDic["Jump_Start"]);
-            seq.Append(tweener);
-            seq.AppendInterval(eventDic["Jump_End"] - eventDic["Jump_Loss"]);
-            seq.AppendCallback(() =>
+            if (eventDic.ContainsKey("Jump_Loss") && eventDic.ContainsKey("Jump_Take"))
             {
-                animator.SetBool("Jump", false);
-                animator.SetBool("Idle", true);
-                //DebugManager.Instance.Log("Remove Seq");
-                //DebugManager.Instance.Log("Seq Count:" + _seqList.Count);
-            });
-            seq.onComplete = () =>
-            {
-                _seqList.Remove(seq);
-            };
+                Sequence seq = DOTween.Sequence();
+                var tweener = hero.transform.DOLocalMoveX(posX, eventDic["Jump_Loss"] - eventDic["Jump_Take"]);
+                tweener.onUpdate = () =>
+                {
+                    hero.transform.localScale = (1 - Mathf.Abs(hero.transform.localPosition.x / 2)) * Vector3.one;
+                };
 
-            _seqList.Add(seq);
+                seq.AppendInterval(eventDic["Jump_Take"] - eventDic["Jump_Start"]);
+                seq.Append(tweener);
+                seq.AppendInterval(eventDic["Jump_End"] - eventDic["Jump_Loss"]);
+                seq.AppendCallback(() =>
+                {
+                    animator.SetBool("Jump", false);
+                    animator.SetBool("Idle", true);
+                    //DebugManager.Instance.Log("Remove Seq");
+                    //DebugManager.Instance.Log("Seq Count:" + _seqList.Count);
+                });
+                seq.onComplete = () =>
+                {
+                    _seqList.Remove(seq);
+                };
+
+                _seqList.Add(seq);
+            }
+            else
+            {
+                var pos = hero.transform.localPosition;
+                pos.x = posX;
+                hero.transform.localPosition = pos;
+                hero.transform.localScale = (1 - Mathf.Abs(posX / 2)) * Vector3.one;
+            }
         }
 
         private void OnHeroLevelUpS2C(params object[] args)

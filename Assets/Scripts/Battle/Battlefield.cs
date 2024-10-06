@@ -58,14 +58,9 @@ namespace WarGame
             UIManager.Instance.OpenPanel("Load", "LoadPanel");
             BattleMgr.Instance.InitReports(_levelData.reportDic);
 
-            if (_levelData.Stage == Enum.LevelStage.Passed)
+            if (_levelData.Stage == Enum.LevelStage.Passed || _levelData.Stage == Enum.LevelStage.Failed)
             {
-                OnSuccess();
-                return;
-            }
-            else if (_levelData.Stage == Enum.LevelStage.Failed)
-            {
-                OnFailed();
+                ShowReport();
                 return;
             }
 
@@ -110,6 +105,9 @@ namespace WarGame
                 }
 
                 _levelData.enemys = RoleManager.Instance.InitLevelRoles(_levelPlugin.enemys);
+
+                _levelData.bonfires = MapManager.Instance.InitBonfires(_levelPlugin.bonfires) ;
+
                 _levelData.Stage = Enum.LevelStage.Entered;
             }
             else
@@ -140,7 +138,19 @@ namespace WarGame
                     if (v.HP > 0)
                         RoleManager.Instance.CreateRole(Enum.RoleType.Enemy, v);
                 }
+
+                if (null == _levelData.bonfires)
+                {
+                    _levelData.bonfires = MapManager.Instance.InitBonfires(_levelPlugin.bonfires);
+                }
+                else
+                {
+                    foreach (var v in _levelData.bonfires)
+                        MapManager.Instance.CreateBonfire(v);
+                }
+
             }
+
 
             weather = new Weather();
             _arrow = new LocatingArrow();
@@ -673,26 +683,27 @@ namespace WarGame
 
                 _levelData.itemsDic.Clear();
 
-                OnSave();
+                ShowReport();
             }
             else
             {
                 _levelData.Stage = Enum.LevelStage.Passed;
                 _levelData.minPassRound = _levelData.Round;
 
+                WGCallback cb = () => { ShowReport(); };
+
+                var itemsDic = new List<TwoIntPair>();
                 foreach (var v in _levelData.itemsDic)
                 {
+                    itemsDic.Add(new TwoIntPair(v.Key, v.Value));
                     DatasMgr.Instance.AddItem(v.Key, v.Value);
                 }
                 _levelData.itemsDic.Clear();
 
-                OnSave();
-
+                UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] { itemsDic, cb });
             }
 
-            var reportDic = BattleMgr.Instance.GetReports();
-            BattleMgr.Instance.ClearReports();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { true, _levelID, reportDic });
+            OnSave();
         }
 
         private void OnFailed()
@@ -700,9 +711,14 @@ namespace WarGame
             _levelData.Stage = Enum.LevelStage.Failed;
             OnSave();
 
+            ShowReport();
+        }
+
+        private void ShowReport()
+        {
             var reportDic = BattleMgr.Instance.GetReports();
             BattleMgr.Instance.ClearReports();
-            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic});
+            UIManager.Instance.OpenPanel("Fight", "FightOverPanel", new object[] { false, _levelID, reportDic });
         }
 
         //回合结束，清理死亡的角色
@@ -761,11 +777,7 @@ namespace WarGame
             {
                 EventMgr.Instance.TriggerEvent(ConfigMgr.Instance.GetConfig<LevelConfig>("LevelConfig", _levelID).WinEvent, (args) =>
                 {
-                    var itemsDic = new List<TwoIntPair>();
-                    foreach (var v in _levelData.itemsDic)
-                        itemsDic.Add(new TwoIntPair(v.Key, v.Value));
-                    WGCallback cb = ()=>{ OnSuccess(); };
-                    UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] {itemsDic, cb });
+                    OnSuccess();
                 });
                 return true;
             }

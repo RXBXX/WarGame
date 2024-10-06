@@ -94,20 +94,20 @@ namespace WarGame
             return hexagonDic;
         }
 
-        public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
-        {
-            Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
-            if (null != bonfires)
-            {
-                for (int i = 0; i < bonfires.Length; i++)
-                {
-                    var bonfire = new Bonfire(bonfires[i].ID, bonfires[i].configId, bonfires[i].hexagonID);
-                    bonfire.SetParent(root.transform);
-                    bonfireDic[bonfires[i].ID] = bonfire;
-                }
-            }
-            return bonfireDic;
-        }
+        //public Dictionary<int, Bonfire> CreateBonfire(BonfireMapPlugin[] bonfires, GameObject root)
+        //{
+        //    Dictionary<int, Bonfire> bonfireDic = new Dictionary<int, Bonfire>();
+        //    if (null != bonfires)
+        //    {
+        //        for (int i = 0; i < bonfires.Length; i++)
+        //        {
+        //            var bonfire = new Bonfire(bonfires[i].ID, bonfires[i].configId, bonfires[i].hexagonID);
+        //            bonfire.SetParent(root.transform);
+        //            bonfireDic[bonfires[i].ID] = bonfire;
+        //        }
+        //    }
+        //    return bonfireDic;
+        //}
 
         public Dictionary<int, Ornament> CreateOrnament(OrnamentMapPlugin[] ornaments, GameObject root)
         {
@@ -242,6 +242,8 @@ namespace WarGame
             LevelMapPlugin levelPlugin = Tool.Instance.ReadJson<LevelMapPlugin>(dir);
 
             MapManager.Instance.CreateMap(levelPlugin.hexagons, levelPlugin.bonfires, levelPlugin.ornaments, levelPlugin.lightingPlugin);
+
+            MapManager.Instance.InitBonfires(levelPlugin.bonfires);
 
             RoleManager.Instance.InitLevelRoles(levelPlugin.enemys);
 

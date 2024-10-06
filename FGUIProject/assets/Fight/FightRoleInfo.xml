@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="249,242" opaque="false">
+<component size="280,227" opaque="false">
   <displayList>
-    <image id="n10_et47" name="n10" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="249,242">
+    <image id="n10_et47" name="n10" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="280,227">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n1_dd4m" name="name" xy="19,11" size="51,32" font="ui://hd0z4dz5esp76" fontSize="22" color="#ffffff" strokeColor="#000000" text="11111"/>
-    <list id="n0_dd4m" name="attrList" xy="19,94" size="210,116" touchable="false" overflow="scroll" lineGap="2" defaultItem="ui://kbw86fxtczz81l">
+    <text id="n1_dd4m" name="name" xy="19,6" size="47,32" font="ui://hd0z4dz5esp76" fontSize="22" color="#ffffff" letterSpacing="-1" strokeColor="#000000" text="11111"/>
+    <loader id="n9_clt4" name="element" xy="250,29" pivot="0.5,0.5" anchor="true" size="18,18" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true"/>
+    <list id="n0_dd4m" name="attrList" xy="19,91" size="240,116" touchable="false" overflow="scroll" lineGap="2" defaultItem="ui://kbw86fxtczz81l">
       <item/>
       <item/>
       <item/>
       <item/>
       <item/>
     </list>
-    <component id="n2_cwzy" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="19,47" size="209,7" touchable="false" controller="showTitle,1">
+    <component id="n2_cwzy" name="hp" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="19,44" size="240,7" touchable="false" controller="showTitle,1">
       <ProgressBar value="50" max="100"/>
     </component>
-    <component id="n3_cwzy" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="19,60" size="209,5" touchable="false" controller="style,2,showTitle,1">
+    <component id="n3_cwzy" name="rage" src="kugj0" fileName="Components/HUDProgress.xml" pkg="hx02grrp" xy="19,57" size="240,5" touchable="false" controller="style,2,showTitle,1">
       <ProgressBar value="50" max="100"/>
     </component>
-    <graph id="n4_czz8" name="n4" xy="19,72" size="210,20" alpha="0.5" touchable="false" type="rect" lineSize="0" fillColor="#ff000000"/>
-    <text id="n5_czz8" name="attrTitle" xy="25,70" size="41,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attr"/>
-    <text id="n6_czz8" name="baseTitle" xy="132,82" pivot="0.5,0.5" anchor="true" size="44,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Base"/>
-    <text id="n7_czz8" name="elementTitle" xy="194,82" pivot="0.5,0.5" anchor="true" size="75,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Element"/>
-    <loader id="n9_clt4" name="element" xy="214,30" pivot="0.5,0.5" anchor="true" size="18,18" touchable="false" url="ui://hx02grrpyiew18" align="center" vAlign="middle" fill="scaleFree" clearOnPublish="true"/>
+    <graph id="n4_czz8" name="n4" xy="19,69" size="240,20" alpha="0.5" touchable="false" type="rect" lineSize="0" fillColor="#ff333333"/>
+    <text id="n5_czz8" name="attrTitle" xy="25,67" size="41,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attr"/>
+    <text id="n6_czz8" name="baseTitle" xy="170,79" pivot="0.5,0.5" anchor="true" size="36,22" font="ui://hd0z4dz5esp76" fontSize="14" color="#ffffff" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="Base"/>
+    <text id="n7_czz8" name="elementTitle" xy="223,79" pivot="0.5,0.5" anchor="true" size="59,22" font="ui://hd0z4dz5esp76" fontSize="14" color="#ffffff" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="Element"/>
   </displayList>
   <relation target="n0_dd4m" sidePair="bottomext-bottom"/>
 </component>

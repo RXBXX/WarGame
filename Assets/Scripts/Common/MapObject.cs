@@ -114,6 +114,8 @@ namespace WarGame
 
         public void StopSound(int soundID)
         {
+            if (0 == soundID)
+                return;
             AudioMgr.Instance.StopSound(soundID);
             //if (0 != _soundAssetID)
             //{

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="118,22" pivot="0.5,0.5" anchor="true" mask="n4_ihk8">
+<component size="135,22" pivot="0.5,0.5" anchor="true" mask="n6_mmzw">
   <displayList>
-    <graph id="n4_ihk8" name="n4" xy="58,11" pivot="0.5,0.5" anchor="true" size="118,22" alpha="0.7" type="rect" lineSize="0" fillColor="#ff000000">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <image id="n5_ku3y" name="n5" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="0,0" size="118,22" alpha="0.7" color="#000000">
+    <image id="n5_ku3y" name="n5" src="ku3y9" fileName="Images/TipsBG.png" pkg="hx02grrp" xy="0,0" size="135,22" alpha="0.7" color="#000000">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n1_b0z0" name="desc" xy="25,-1" size="68,24" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="11111122"/>
+    <text id="n1_b0z0" name="desc" xy="25,1" size="85,19" font="ui://hd0z4dz5esp76" fontSize="12" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="11111122sssss"/>
+    <graph id="n6_mmzw" name="mask" xy="67,11" pivot="0.5,0.5" anchor="true" size="135,22" type="rect" lineSize="0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
   </displayList>
   <relation target="n1_b0z0" sidePair="width-width"/>
   <transition name="show">
-    <item time="0" type="Scale" target="n4_ihk8" tween="true" startValue="0,1" endValue="1,1" duration="6" ease="Quart.In"/>
-    <item time="30" type="Scale" target="n4_ihk8" tween="true" startValue="1,1" endValue="0,1" duration="6" ease="Quart.Out"/>
+    <item time="0" type="Scale" target="n6_mmzw" tween="true" startValue="0,1" endValue="1,1" duration="6" ease="Quart.In"/>
+    <item time="30" type="Scale" target="n6_mmzw" tween="true" startValue="1,1" endValue="0,1" duration="6" ease="Quart.Out"/>
   </transition>
 </component>

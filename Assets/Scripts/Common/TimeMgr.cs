@@ -73,10 +73,10 @@ namespace WarGame
 
         public string GetFormatLeftTime(long leftTime)
         {
-            var hours = Mathf.Floor(leftTime / 3600000);
-            var minus = Mathf.Floor((leftTime - hours * 3600000) / 60000);
-            var seconds = MathF.Floor((leftTime - hours * 3600000 - minus * 60000) / 1000);
-            return string.Format("{0}:{1}:{2}", hours, minus, seconds);
+            int hours = Mathf.FloorToInt(leftTime / 3600000);
+            int minus = Mathf.FloorToInt((leftTime - hours * 3600000) / 60000);
+            int seconds = Mathf.FloorToInt((leftTime - hours * 3600000 - minus * 60000) / 1000);
+            return string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minus, seconds);
         }
 
         //游戏开始时间
@@ -91,7 +91,7 @@ namespace WarGame
             return Time.timeSinceLevelLoad;
         }
 
-        //获取游戏时刻
+        //获取游戏内当前时刻
         public float GetGameTime()
         {
             return DatasMgr.Instance.GetGameTime();

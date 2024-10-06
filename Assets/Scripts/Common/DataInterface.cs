@@ -452,6 +452,45 @@ namespace WarGame
         }
     }
 
+    [Serializable]
+    public class BonfireData
+    {
+        public int UID;
+        public int ConfigID;
+        public int Hexagon;
+        public float FiredTime;
+
+        public BonfireData(int UID, int configID, int hexagon)
+        {
+            this.UID = UID;
+            this.ConfigID = configID;
+            this.Hexagon = hexagon;
+        }
+
+        public bool IsFired()
+        {
+            if (0 == FiredTime)
+                return false;
+
+            return TimeMgr.Instance.GetGameTime() - FiredTime <= GetConfig().Duration;
+        }
+
+        public void OutFire()
+        {
+            //FiredTime = TimeMgr.Instance.GetGameTime();
+        }
+
+        public void Fire()
+        {
+            FiredTime = TimeMgr.Instance.GetGameTime();
+        }
+
+        public BonfireConfig GetConfig()
+        {
+            return ConfigMgr.Instance.GetConfig<BonfireConfig>("BonfireConfig", ConfigID);
+        }
+    }
+
     /// <summary>
     /// ¹Ø¿¨Êý¾Ý
     /// </summary>
@@ -464,6 +503,7 @@ namespace WarGame
         public Enum.ActionType actionType;
         public List<LevelRoleData> heros;
         public List<LevelRoleData> enemys;
+        public List<BonfireData> bonfires;
         public Dictionary<int, int> itemsDic;
         public Dictionary<Enum.RoleType, Dictionary<int, Dictionary<Enum.AttrType, float>>> reportDic;
         public int minPassRound = 0;

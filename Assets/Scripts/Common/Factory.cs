@@ -147,5 +147,15 @@ namespace WarGame
                     return new Ornament(ornamentData.ID, ornamentData.configID, ornamentData.hexagonID, ornamentData.scale, ornamentData.rotation);
             }
         }
+
+        public Bonfire GetBonfire(BonfireData bonfire)
+        {
+            return new Bonfire(bonfire);
+        }
+
+        public BonfireData GetBonfireData(BonfireMapPlugin bonfirePlugin)
+        {
+            return new BonfireData(bonfirePlugin.ID, bonfirePlugin.configId, bonfirePlugin.hexagonID);
+        }
     }
 }

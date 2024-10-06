@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="460,34">
-  <controller name="type" pages="0,已激活,1,可激活,2,资源不足不可激活,3,不可激活" selected="1"/>
+  <controller name="type" pages="0,已激活,1,可激活,2,资源不足不可激活,3,不可激活" selected="0"/>
   <displayList>
-    <graph id="n17_gy0s" name="n17" xy="0,0" size="460,34" alpha="0.3" type="rect" lineSize="0" lineColor="#ff1b1a1a" fillColor="#ffffa600">
+    <graph id="n17_gy0s" name="n17" xy="0,0" size="460,34" alpha="0.3" type="rect" lineSize="0" lineColor="#ff1b1a1a">
       <gearColor controller="type" pages="0,1" values="#ffffff|#ffa600" default="#333333"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <text id="n13_gy0s" name="name" xy="30,0" size="91,34" font="ui://hd0z4dz5esp76" fontSize="24" color="#f8f8f8" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <text id="n13_gy0s" name="name" xy="30,0" size="86,34" font="ui://hd0z4dz5esp76" fontSize="24" color="#f8f8f8" letterSpacing="-1" strokeColor="#000000" autoClearText="true" text="Attack"/>
     <component id="n18_ovai" name="levelUpBtn" src="omu92" fileName="Components/CommonBtn.xml" pkg="hx02grrp" xy="299,-9" size="200,54" scale="0.4,0.4">
       <gearDisplay controller="type" pages="1,2"/>
       <Button title="LEVEL UP"/>

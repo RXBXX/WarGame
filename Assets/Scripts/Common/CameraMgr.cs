@@ -247,7 +247,7 @@ namespace WarGame
 
         public void SetTarget(int targetID, bool ani = true)
         {
-            DebugManager.Instance.Log("SetTarget:" + targetID);
+            //DebugManager.Instance.Log("SetTarget:" + targetID);
             if (targetID == _targetID)
                 return;
 
@@ -286,7 +286,7 @@ namespace WarGame
 
         private void OnRoleDispose(params object[] args)
         {
-            DebugManager.Instance.Log("OnRoleDispose:" + args[0]);
+            //DebugManager.Instance.Log("OnRoleDispose:" + args[0]);
             if ((int)args[0] != _targetID)
                 return;
 

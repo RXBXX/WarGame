@@ -302,17 +302,14 @@ namespace WarGame
                 return;
             }
 
-            DebugManager.Instance.Log("EnterState:" + stateName);
             if (stateName == _curAnimState)
                 return;
 
-            DebugManager.Instance.Log("EnterState:" + stateName);
             _stateDic[stateName].Start(_stateDic[_curAnimState]);
         }
 
         public virtual void MoveEnd()
         {
-            DebugManager.Instance.Log("MoveEnd");
             EnterState("Idle");
 
             UpdateElementEffects();

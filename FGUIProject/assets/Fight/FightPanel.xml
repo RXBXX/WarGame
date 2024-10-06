@@ -29,12 +29,12 @@
     <component id="n36_nuya" name="n36" src="nuya1q" fileName="FightEnemyTips.xml" xy="0,599">
       <relation target="" sidePair="left-left,bottom-bottom"/>
     </component>
-    <text id="n39_upau" name="readyTips" xy="1158,709" pivot="0.5,0.5" anchor="true" size="10,24" visible="false" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵">
+    <text id="n39_upau" name="readyTips" xy="1158,709" pivot="0.5,0.5" anchor="true" size="0,20" visible="false" font="ui://hd0z4dz5esp76" fontSize="16" color="#ffffff" strokeColor="#000000" autoClearText="true" text="长按英雄替换英雄上阵">
       <relation target="n23_pfj8" sidePair="center-center,top-bottom"/>
     </text>
-    <text id="n4_p3n5" name="round" xy="659,70" pivot="0.5,0.5" anchor="true" size="12,26" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="18" color="#ffffff" strokeColor="#000000" text="1"/>
-    <text id="n38_nuya" name="title" xy="658,44" pivot="0.5,0.5" anchor="true" size="52,29" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" strokeColor="#000000" text="关卡XXXX"/>
-    <group id="n41_oykc" name="n41" xy="632,29" size="52,53" advanced="true">
+    <text id="n4_p3n5" name="round" xy="660,76" pivot="0.5,0.5" anchor="true" size="12,26" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="18" color="#ffffff" letterSpacing="-1" strokeColor="#000000" text="1"/>
+    <text id="n38_nuya" name="title" xy="659,50" pivot="0.5,0.5" anchor="true" size="49,29" group="n41_oykc" font="ui://hd0z4dz5esp76" fontSize="20" color="#ffffff" align="center" vAlign="middle" letterSpacing="-1" strokeColor="#000000" text="关卡XXXX"/>
+    <group id="n41_oykc" name="n41" xy="635,35" size="49,53" advanced="true">
       <relation target="" sidePair="center-center,top-top"/>
     </group>
     <component id="n42_d5u1" name="time" src="d5u136" fileName="Components/CommonTime.xml" pkg="hx02grrp" xy="667,0" pivot="0.5,0" anchor="true"/>
