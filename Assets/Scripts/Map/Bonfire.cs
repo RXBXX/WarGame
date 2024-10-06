@@ -68,9 +68,11 @@ namespace WarGame
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
             _fireGO = _gameObject.transform.Find("Fire").gameObject;
 
-            CreateHUD();
-
-            UpdateFire();
+            if (Application.isPlaying)
+            {
+                CreateHUD();
+                UpdateFire();
+            }
         }
 
         protected virtual void CreateHUD()

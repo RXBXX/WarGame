@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="249,300" pivot="1,0" anchor="true">
+<component size="280,281" pivot="1,0" anchor="true">
   <displayList>
-    <image id="n42_et47" name="n42" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="249,300">
+    <image id="n42_et47" name="n42" src="et4720" fileName="Images/InfoBG.png" pkg="hx02grrp" xy="0,0" size="280,281">
       <relation target="" sidePair="width-width,height-height"/>
     </image>
-    <text id="n32_gy0s" name="title" xy="19,12" size="91,34" font="ui://hd0z4dz5esp76" fontSize="24" color="#ffffff" strokeColor="#000000" autoClearText="true" text="Attack"/>
-    <graph id="n34_gy0s" name="n34" xy="19,49" size="210,1" alpha="0.7" type="rect" lineSize="0"/>
-    <text id="n33_gy0s" name="desc" xy="19,48" size="210,49" font="ui://hd0z4dz5esp76" fontSize="15" color="#ffffff" leading="-4" autoSize="height" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
-    <list id="n29_gy0s" name="attrList" xy="19,102" size="210,131" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpet472v" autoClearItems="true">
+    <text id="n32_gy0s" name="title" xy="19,8" size="234,34" font="ui://hd0z4dz5esp76" fontSize="22" color="#ffffff" letterSpacing="-1" autoSize="shrink" strokeColor="#000000" autoClearText="true" text="Attack"/>
+    <graph id="n34_gy0s" name="n34" xy="20,43" size="240,1" alpha="0.7" type="rect" lineSize="0"/>
+    <text id="n33_gy0s" name="desc" xy="20,44" size="240,33" font="ui://hd0z4dz5esp76" fontSize="12" color="#cccccc" leading="0" letterSpacing="-1" autoSize="none" strokeColor="#000000" autoClearText="true" text="Attacksssssssssssssssssssssssssssssssssssssssssssssssss"/>
+    <list id="n29_gy0s" name="attrList" xy="19,83" size="240,141" overflow="scroll" lineGap="2" defaultItem="ui://hx02grrpet472v" autoClearItems="true">
       <relation target="n33_gy0s" sidePair="top-bottom"/>
       <item/>
       <item/>
@@ -16,10 +16,10 @@
       <item/>
       <item/>
     </list>
-    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="149,247" scale="0.6,0.6">
+    <component id="n35_gy0s" name="btn" src="vvm61" fileName="HeroBtn.xml" xy="179,228" scale="0.6,0.6">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </component>
-    <text id="n37_sqcv" name="cost" xy="157,253" pivot="1,0" anchor="true" size="31,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="12/20">
+    <text id="n37_sqcv" name="cost" xy="195,237" pivot="1,0" anchor="true" size="31,19" font="ui://hd0z4dz5omu90" fontSize="12" color="#ffffff" ubb="true" strokeColor="#000000" autoClearText="true" text="12/20">
       <relation target="n29_gy0s" sidePair="bottom-bottom"/>
     </text>
   </displayList>

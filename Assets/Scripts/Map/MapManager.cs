@@ -192,6 +192,9 @@ namespace WarGame
 
         public Bonfire CreateBonfire(BonfireData bd)
         {
+            //if (_bonfiresDic.ContainsKey(bd.UID))
+            //    return null;
+
             var parent = GameObject.Find("BonfireRoot").transform;
             var bonfire = Factory.Instance.GetBonfire(bd);
             bonfire.SetParent(parent);

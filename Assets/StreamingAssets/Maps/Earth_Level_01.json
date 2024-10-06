@@ -23233,7 +23233,7 @@
     {
       "ID": 3014678,
       "configId": 7,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -23243,7 +23243,7 @@
     {
       "ID": 3014679,
       "configId": 7,
-      "isReachable": false,
+      "isReachable": true,
       "coor": {
         "x": 46.0,
         "y": 0.0,
@@ -23733,7 +23733,7 @@
     {
       "ID": 3080213,
       "configId": 7,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -23743,7 +23743,7 @@
     {
       "ID": 3080214,
       "configId": 7,
-      "isReachable": true,
+      "isReachable": false,
       "coor": {
         "x": 47.0,
         "y": 0.0,
@@ -24001,16 +24001,6 @@
       }
     },
     {
-      "ID": 3081775,
-      "configId": 7,
-      "isReachable": true,
-      "coor": {
-        "x": 47.0,
-        "y": 6.0,
-        "z": 47.0
-      }
-    },
-    {
       "ID": 3081520,
       "configId": 7,
       "isReachable": true,
@@ -24018,6 +24008,16 @@
         "x": 47.0,
         "y": 5.0,
         "z": 48.0
+      }
+    },
+    {
+      "ID": 3081775,
+      "configId": 7,
+      "isReachable": true,
+      "coor": {
+        "x": 47.0,
+        "y": 6.0,
+        "z": 47.0
       }
     },
     {
@@ -25169,7 +25169,7 @@
       "ID": 1769510,
       "configID": 20,
       "hexagonID": 1769510,
-      "scale": 6.00000954,
+      "scale": 6.00001,
       "rotation": {
         "x": 0.0,
         "y": 260.0,
