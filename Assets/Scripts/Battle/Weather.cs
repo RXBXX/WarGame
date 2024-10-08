@@ -19,6 +19,7 @@ namespace WarGame
             //RenderSettings.skybox.SetFloat("_Rotation", dayTime * 360);
 
             SceneMgr.Instance.BattleField.mainLight.transform.rotation = Quaternion.Euler(new Vector3(-dayTime * 360, 45, 0));
+            SceneMgr.Instance.BattleField.nightLight.transform.rotation = Quaternion.Euler(new Vector3 (-dayTime * 360 + 180, 45, 0));
             //if (dayTime < 180 && dayTime > 0)
             //{
             //    if (SceneMgr.Instance.BattleField.mainLight.intensity != 1.2F)
