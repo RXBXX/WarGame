@@ -526,11 +526,44 @@ namespace WarGame
             itemsDic.Clear();
         }
 
-        public void AddItem(int id, int value)
+        private void AddItem(int id, int value)
         {
             if (!itemsDic.ContainsKey(id))
                 itemsDic.Add(id, 0);
             itemsDic[id] += value;
+        }
+
+        private void RemoveItem(int id, int value)
+        {
+            if (!itemsDic.ContainsKey(id))
+                return;
+            itemsDic[id] = Mathf.Max(0, itemsDic[id] - value);
+        }
+
+        public Dictionary<int, int> GetItems()
+        {
+            return itemsDic;
+        }
+
+
+        public void AddItems(List<TwoIntPair> items)
+        {
+            foreach (var v in items)
+                AddItem(v.id, v.value);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Item_Update);
+        }
+
+        public void RemoveItems(List<TwoIntPair> items)
+        {
+            foreach (var v in items)
+                RemoveItem(v.id, v.value);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Item_Update);
+        }
+
+        public void ClearItems()
+        {
+            itemsDic.Clear();
+            EventDispatcher.Instance.PostEvent(Enum.Event.Item_Update);
         }
 
         public LevelData Clone()

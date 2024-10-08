@@ -282,7 +282,7 @@ namespace WarGame
                     movePath.Recycle();
                 }
             }
-            else if (WillAct())
+            else if (InScreen() && WillAct())
             {
                 //在出生点和随机点之间移动
                 var emptyMoveRegions = MapManager.Instance.PopCellListStack();

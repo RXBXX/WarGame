@@ -457,6 +457,8 @@ namespace WarGame
             EquipTypeChange = 53,
             Fight_OpenInstruct = 54,
             Fight_CloseInstruct = 55,
+            Fight_Fire = 56,
+            Item_Update = 57,
             HeroTalentActiveS2C = 10001,
             HeroLevelUpS2C = 10002,
             ActiveLevelS2C = 10003,

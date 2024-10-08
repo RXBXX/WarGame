@@ -238,6 +238,7 @@ namespace WarGame
         public string Prefab;
         public List<IntFloatPair> Effects;
         public float Duration;
+        public List<TwoIntPair> Cost;
     }
 
     //元素表
@@ -300,7 +301,7 @@ namespace WarGame
     [Serializable]
     public class RewardConfig : Config
     {
-        public TwoIntPair[] Rewards;
+        public List<TwoIntPair> Rewards;
     }
 
     //装饰物表

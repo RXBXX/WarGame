@@ -13,9 +13,7 @@ namespace WarGame
 
         protected Transform _parent;
 
-        private AudioSource _audioSource;
-
-        private int _soundAssetID;
+        protected bool _started = false;
 
         protected virtual void CreateGO()
         {
@@ -36,6 +34,11 @@ namespace WarGame
         protected virtual void SmoothNormal()
         {
             Tool.Instance.ApplyProcessingFotOutLine(_gameObject);
+        }
+
+        public virtual void Start()
+        {
+            _started = true;
         }
 
         public virtual Tweener ChangeToArenaSpace(Vector3 pos, float duration)

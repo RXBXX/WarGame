@@ -417,13 +417,12 @@ namespace WarGame
         /// ·ÖÉí
         /// </summary>
         /// <returns></returns>
-        public int DoClone(int initiatorID, int hexagon, int cloneUID)
+        public Role DoClone(int initiatorID, int hexagon, int cloneUID)
         {
             var initiator = RoleManager.Instance.GetRole(initiatorID);
             initiator.ClearRage();
             var data = initiator.Clone(hexagon, cloneUID);
-            RoleManager.Instance.CreateRole(initiator.Type, data);
-            return data.UID;
+            return RoleManager.Instance.CreateRole(initiator.Type, data);
         }
 
         /// <summary>

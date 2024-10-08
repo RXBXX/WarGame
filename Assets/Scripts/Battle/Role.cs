@@ -47,6 +47,8 @@ namespace WarGame
 
         protected Vector3 _scale;
 
+        protected bool _hpVisible = false;
+
         public int ID
         {
             get { return _data.UID; }
@@ -122,7 +124,9 @@ namespace WarGame
             _gameObject.GetComponent<RoleBehaviour>().ID = ID; ;
 
             UpdateRotation(Quaternion.Euler(Vector3.zero));
+
             _hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
+            //_hudPoint = _gameObject.transform.Find("hudPoint").gameObject;
 
             InitEquips();
             InitAnimator();
@@ -171,13 +175,12 @@ namespace WarGame
 
         private void InitStates()
         {
-            _stateDic.Add("Jump", new JumpState("Jump", this));
+            WGCallback endCallback = NextPath;
             var clip = GetAnimatorConfig().Jump;
             var timeDic = Tool.Instance.GetEventTimeForAnimClip(_animator, clip);
-            ((JumpState)_stateDic["Jump"]).duration = timeDic["Jump_Loss"] - timeDic["Jump_Take"];
-
+            _stateDic.Add("Jump", new JumpState("Jump", this, NextPath, timeDic["Jump_Loss"] - timeDic["Jump_Take"]));
             _stateDic.Add("Idle", new State("Idle", this));
-            _stateDic.Add("Move", new MoveState("Move", this));
+            _stateDic.Add("Move", new MoveState("Move", this, NextPath));
             _stateDic.Add("Attack", new AttackState("Attack", this));
             _stateDic.Add("Attacked", new AttackedState("Attacked", this));
             _stateDic.Add("Dead", new DeadState("Dead", this));
@@ -192,7 +195,8 @@ namespace WarGame
             }
             else
             {
-                _curAnimState = "Idle";
+                SetAnimState("Idle");
+                //_curAnimState = "Idle";
                 _stateDic[_curAnimState].Start();
             }
         }
@@ -213,6 +217,13 @@ namespace WarGame
             hud.SetHPVisible(true);
             _hudPoint.AddComponent<SortingGroup>().sortingOrder = 0;
             hud.SetFollowing(_following);
+            hud.SetVisible(_hpVisible && _started);
+        }
+
+        public override void Start()
+        {
+            base.Start();
+            SetHUDRoleVisible(true);
         }
 
         protected virtual int GetHPType()
@@ -250,22 +261,30 @@ namespace WarGame
 
         public virtual void Update(float deltaTime)
         {
-            if (null != _gameObject && null != _path && _path.Count > 0)
-            {
-                var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
-                var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
+            //if (null != _gameObject && null != _path && _path.Count > 0)
+            //{
+            //    var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
+            //    var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
 
-                if (startHexagon.coor.y != endHexagon.coor.y)
-                {
-                    EnterState("Jump");
-                }
-                else
-                {
-                    EnterState("Move");
-                }
+            //    if (startHexagon.coor.y != endHexagon.coor.y)
+            //    {
+            //        EnterState("Jump");
+            //    }
+            //    else
+            //    {
+            //        EnterState("Move");
+            //    }
 
-                _stateDic[_curAnimState].Update();
-            }
+            //    _stateDic[_curAnimState].Update(deltaTime);
+            //}
+            //if (null != _willAnimState)
+            //{
+            //    _stateDic[_willAnimState].Start(_stateDic[_curAnimState]);
+            //    _willAnimState = null;
+            //}
+
+            if (null != _curAnimState && _stateDic.ContainsKey(_curAnimState))
+                _stateDic[_curAnimState].Update(deltaTime);
 
 
             foreach (var v in _elementEffectDic)
@@ -293,6 +312,8 @@ namespace WarGame
         {
             _curAnimState = stateName;
         }
+
+        private string _willAnimState = null;
 
         protected void EnterState(string stateName)
         {
@@ -328,6 +349,9 @@ namespace WarGame
             ClearElementEffects();
 
             EnterState("Move");
+
+            PathIndex = -1;
+            NextPath();
         }
 
         public virtual void Attack(List<Vector3> hitPoss)
@@ -540,7 +564,7 @@ namespace WarGame
                     }
                     else if (secondStateName == "Start")
                     {
-                        method.Invoke(state, new object[] { null });
+                        //method.Invoke(state, new object[] { null });
                     }
                     else
                     {
@@ -555,7 +579,7 @@ namespace WarGame
             }
         }
 
-        public void NextPath()
+        private void NextPath()
         {
             PathIndex++;
             UpdateHexagonID(_path[PathIndex]);
@@ -564,6 +588,20 @@ namespace WarGame
                 _path = null;
                 PathIndex = 0;
                 MoveEnd();
+            }
+            else
+            {
+                var startHexagon = MapManager.Instance.GetHexagon(_path[PathIndex]);
+                var endHexagon = MapManager.Instance.GetHexagon(_path[PathIndex + 1]);
+
+                if (startHexagon.coor.y != endHexagon.coor.y)
+                {
+                    EnterState("Jump");
+                }
+                else
+                {
+                    EnterState("Move");
+                }
             }
         }
 
@@ -745,12 +783,18 @@ namespace WarGame
 
         public void SetHUDRoleVisible(bool visible)
         {
-            //DebugManager.Instance.Log("HUDRoleVisible:" + visible);
-            GetHUDRole().SetVisible(visible);
+            _hpVisible = visible;
+            var hud = GetHUDRole();
+            if (null == hud)
+                return;
+            GetHUDRole().SetVisible(_hpVisible && _started);
         }
 
         public HUDRole GetHUDRole()
         {
+            if (null == _hpHUDKey)
+                return null;
+
             return HUDManager.Instance.GetHUD<HUDRole>(_hpHUDKey);
         }
 

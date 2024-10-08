@@ -42,6 +42,7 @@ namespace WarGame
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Drops, OnFightDrops);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_OpenInstruct, OnOpenInstruct);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_CloseInstruct, OnCloseInstruct);
+            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Fire, OnFire);
 
             _levelID = levelID;
             _levelData = DatasMgr.Instance.GetLevelData(_levelID);
@@ -106,7 +107,7 @@ namespace WarGame
 
                 _levelData.enemys = RoleManager.Instance.InitLevelRoles(_levelPlugin.enemys);
 
-                _levelData.bonfires = MapManager.Instance.InitBonfires(_levelPlugin.bonfires) ;
+                _levelData.bonfires = MapManager.Instance.InitBonfires(_levelPlugin.bonfires);
 
                 _levelData.Stage = Enum.LevelStage.Entered;
             }
@@ -137,6 +138,9 @@ namespace WarGame
                 {
                     if (v.HP > 0)
                         RoleManager.Instance.CreateRole(Enum.RoleType.Enemy, v);
+                    if (v.UID == 20918)
+                        v.state = Enum.RoleState.Locked;
+                        //DebugManager.Instance.Log(v.state);
                 }
 
                 if (null == _levelData.bonfires)
@@ -247,6 +251,7 @@ namespace WarGame
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Drops, OnFightDrops);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_OpenInstruct, OnOpenInstruct);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_CloseInstruct, OnCloseInstruct);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Fire, OnFire);
         }
 
         private IEnumerator OnLoad()
@@ -266,6 +271,12 @@ namespace WarGame
                 {
                     EventMgr.Instance.TriggerEvent(levelConfig.StartEvent, (args) =>
                     {
+                        foreach (var v in MapManager.Instance.GetAllBonfires())
+                            v.Start();
+
+                        foreach (var v in RoleManager.Instance.GetAllRoles())
+                            v.Start();
+
                         _levelData.Stage = Enum.LevelStage.Talked;
                         _levelData.actionType = Enum.ActionType.ReadyAction;
                         _action = new ReadyBattleAction(GetActionID(), _levelID, _levelData);
@@ -276,11 +287,23 @@ namespace WarGame
             }
             else if (_levelData.Stage < Enum.LevelStage.Readyed)
             {
+                foreach (var v in MapManager.Instance.GetAllBonfires())
+                    v.Start();
+
+                foreach (var v in RoleManager.Instance.GetAllRoles())
+                    v.Start();
+
                 _levelData.actionType = Enum.ActionType.ReadyAction;
                 _action = new ReadyBattleAction(GetActionID(), _levelID, _levelData);
             }
             else
             {
+                foreach (var v in MapManager.Instance.GetAllBonfires())
+                    v.Start();
+
+                foreach (var v in RoleManager.Instance.GetAllRoles())
+                    v.Start();
+
                 CoroutineMgr.Instance.StartCoroutine(NextAction());
             }
 
@@ -681,7 +704,7 @@ namespace WarGame
                 if (_levelData.minPassRound > _levelData.Round)
                     _levelData.minPassRound = _levelData.Round;
 
-                _levelData.itemsDic.Clear();
+                _levelData.ClearItems();
 
                 ShowReport();
             }
@@ -693,12 +716,12 @@ namespace WarGame
                 WGCallback cb = () => { ShowReport(); };
 
                 var itemsDic = new List<TwoIntPair>();
-                foreach (var v in _levelData.itemsDic)
+                foreach (var v in _levelData.GetItems())
                 {
                     itemsDic.Add(new TwoIntPair(v.Key, v.Value));
                     DatasMgr.Instance.AddItem(v.Key, v.Value);
                 }
-                _levelData.itemsDic.Clear();
+                _levelData.ClearItems();
 
                 UIManager.Instance.OpenPanel("Reward", "RewardItemsPanel", new object[] { itemsDic, cb });
             }
@@ -833,8 +856,7 @@ namespace WarGame
             var pos = (Vector3)args[1];
             var rewardConfig = ConfigMgr.Instance.GetConfig<RewardConfig>("RewardConfig", reward);
 
-            foreach (var v in rewardConfig.Rewards)
-                _levelData.AddItem(v.id, v.value);
+            _levelData.AddItems(rewardConfig.Rewards);
 
             foreach (var v in rewardConfig.Rewards)
             {
@@ -852,12 +874,13 @@ namespace WarGame
                         seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), Random.Range(0F, 0.5F), Random.Range(-0.5F, 0.5F)), 0.1f));
                         seq.AppendInterval(Random.Range(0.1F, 0.4F));
                         seq.Append(go.transform.DOMove(pos + new Vector3(0, 2, 0), 0.2F));
-                        seq.onComplete = () => {
+                        seq.onComplete = () =>
+                        {
                             _gos.Remove(go);
                             _assets.Remove(assetID);
                             AudioMgr.Instance.ClearSound(go);
                             AssetsMgr.Instance.Destroy(go);
-                            _sequences.Remove(seq); 
+                            _sequences.Remove(seq);
                         };
 
                         _gos.Add(go);
@@ -871,7 +894,7 @@ namespace WarGame
         private void OnOpenInstruct(params object[] args)
         {
             var instruct = HUDManager.Instance.GetHUD<HUDInstruct>(_instructKey);
-            if(null == instruct)
+            if (null == instruct)
                 instruct = HUDManager.Instance.AddHUD<HUDInstruct>("HUD", "HUDInstruct", "HUDInstruct_Custom");
             instruct.OpenInstruct((GameObject)args[0], (int)args[1], (int)args[2], (bool)args[3]);
         }
@@ -882,6 +905,49 @@ namespace WarGame
             if (null == instruct)
                 return;
             instruct.CloseInstruct();
+        }
+
+        public void OnFire(params object[] args)
+        {
+            DebugManager.Instance.Log("OnFire");
+            var id = (int)args[0];
+            var bonfire = MapManager.Instance.GetBonfire(id);
+
+            if (!bonfire.CanFire())
+            {
+                TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("Fight_BonfireTips"));
+                return;
+            }
+
+            var fireConfig = bonfire.GetConfig();
+            var desc = ConfigMgr.Instance.GetTranslation("Fight_OfferUp");
+            foreach (var v in fireConfig.Cost)
+                desc += string.Format("<img src='{0}' width='20' height='20'/>:{1}  ", ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id).Icon, v.value);
+
+            WGCallback cb = () =>
+            {
+                var resEnough = true;
+                foreach (var v in fireConfig.Cost)
+                {
+                    var itemDic = _levelData.GetItems();
+                    if (!itemDic.ContainsKey(v.id) || itemDic[v.id] < v.value)
+                    {
+                        resEnough = false;
+                        break;
+                    }
+                }
+
+                if (!resEnough)
+                {
+                    TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("ItemInadequate"));
+                    return;
+                }
+
+                _levelData.RemoveItems(fireConfig.Cost);
+
+                bonfire.Fire();
+            };
+            UIManager.Instance.OpenPanel("Common", "CommonTipsPanel", new object[] { desc, cb });
         }
     }
 }

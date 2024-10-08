@@ -89,7 +89,7 @@ namespace WarGame.UI
             var resCount = DatasMgr.Instance.GetItem((int)Enum.ItemType.LevelRes);
             if (resCount < starConfig.Cost)
             {
-                TipsMgr.Instance.Add("µÀ¾ß²»×ã£¡");
+                TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("ItemInadequate"));
                 return;
             }
 

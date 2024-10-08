@@ -1329,7 +1329,6 @@
         "RoleID": 20005,
         "Level": 5,
         "Equips": [
-            10029,
             10018
         ],
         "IsBoss": false,
@@ -1619,8 +1618,7 @@
         "RoleID": 30009,
         "Level": 1,
         "Equips": [
-            10030,
-            10018
+            10022
         ],
         "IsBoss": true,
         "NextStage": 0,
@@ -1635,7 +1633,8 @@
         "RoleID": 30010,
         "Level": 1,
         "Equips": [
-            10022
+            10030,
+            10018
         ],
         "IsBoss": true,
         "NextStage": 0,
@@ -1913,7 +1912,7 @@
         "RoleID": 30011,
         "Level": 1,
         "Equips": [
-            10030,
+            10029,
             10023
         ],
         "IsBoss": true,
@@ -2179,7 +2178,7 @@
         "Equips": [
             10031
         ],
-        "IsBoss": false,
+        "IsBoss": true,
         "NextStage": 0,
         "DefeatEvent": 0,
         "Reward": 16,
@@ -2237,7 +2236,9 @@
         "ID": 20903,
         "RoleID": 20009,
         "Level": 9,
-        "Equips": null,
+        "Equips": [
+            10056
+        ],
         "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
@@ -2295,7 +2296,9 @@
         "ID": 20907,
         "RoleID": 20009,
         "Level": 9,
-        "Equips": null,
+        "Equips": [
+            10056
+        ],
         "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
@@ -2351,7 +2354,9 @@
         "ID": 20911,
         "RoleID": 20009,
         "Level": 9,
-        "Equips": null,
+        "Equips": [
+            10056
+        ],
         "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
@@ -2407,7 +2412,9 @@
         "ID": 20915,
         "RoleID": 20009,
         "Level": 9,
-        "Equips": null,
+        "Equips": [
+            10056
+        ],
         "IsBoss": false,
         "NextStage": 0,
         "DefeatEvent": 0,
@@ -2434,7 +2441,8 @@
         "RoleID": 30014,
         "Level": 1,
         "Equips": [
-            10031
+            10031,
+            10017
         ],
         "IsBoss": true,
         "NextStage": 0,
@@ -2449,7 +2457,8 @@
         "RoleID": 30015,
         "Level": 1,
         "Equips": [
-            10017
+            10061,
+            10057
         ],
         "IsBoss": true,
         "NextStage": 0,
@@ -2690,7 +2699,8 @@
         "RoleID": 30016,
         "Level": 1,
         "Equips": [
-            10031
+            10031,
+            10017
         ],
         "IsBoss": true,
         "NextStage": 0,
@@ -2705,7 +2715,8 @@
         "RoleID": 30017,
         "Level": 1,
         "Equips": [
-            10018
+            10061,
+            10057
         ],
         "IsBoss": true,
         "NextStage": 0,

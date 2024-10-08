@@ -510,6 +510,7 @@ namespace WarGame
 
             EventDispatcher.Instance.PostEvent(Enum.Event.HeroChange_After);
         }
+
         /// endregion -----------------------------------------------------------------------------------------------------
     }
 }

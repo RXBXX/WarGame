@@ -125,8 +125,7 @@ namespace WarGame
 
         public override bool Init()
         {
-            base.Init();
-            return true;
+            return base.Init();
         }
 
         public override void Update(float deltaTime)
@@ -144,8 +143,6 @@ namespace WarGame
 
         public override bool Dispose()
         {
-            base.Dispose();
-
             ClearMap();
 
             foreach (var v in _mapCellDicStack)
@@ -156,7 +153,7 @@ namespace WarGame
                 v.Clear();
             _mapIntLisStack.Clear();
 
-            return true;
+            return base.Dispose();
         }
 
         public void CreateMap(HexagonMapPlugin[] hexagons, BonfireMapPlugin[] bonfires, OrnamentMapPlugin[] ornaments, LightingPlugin lightingPlugin)
@@ -216,13 +213,6 @@ namespace WarGame
             return progress / _map.Count;
         }
 
-        public void Fire(int id)
-        {
-            if (!_bonfiresDic.ContainsKey(id))
-                return;
-            _bonfiresDic[id].Fire();
-        }
-
         public void ClearMap()
         {
             ClearMarkedPath();
@@ -275,6 +265,14 @@ namespace WarGame
                 }
             }
             return hexagons;
+        }
+
+        public List<Bonfire> GetAllBonfires()
+        {
+            var bs = new List<Bonfire>();
+            foreach (var v in _bonfiresDic)
+                bs.Add(v.Value);
+            return bs;
         }
 
         public Bonfire GetBonfire(int id)

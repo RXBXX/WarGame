@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using FairyGUI;
 using WarGame.UI;
+using System.Collections.Generic;
 
 namespace WarGame
 {
@@ -25,6 +26,10 @@ namespace WarGame
 
         private int _soundID;
 
+        private List<int> _assets = new List<int>();
+        private List<Sequence> _sequences = new List<Sequence>();
+        private List<GameObject> _gos = new List<GameObject>();
+
         public Bonfire(BonfireData data)
         {
             _data = data;
@@ -36,6 +41,21 @@ namespace WarGame
 
         public override bool Dispose()
         {
+            foreach (var v in _gos)
+            {
+                AudioMgr.Instance.ClearSound(v);
+                AssetsMgr.Instance.Destroy(v);
+            }
+            _gos.Clear();
+
+            foreach (var v in _assets)
+                AssetsMgr.Instance.ReleaseAsset(v);
+            _assets.Clear();
+
+            foreach (var v in _sequences)
+                v.Kill();
+            _sequences.Clear();
+
             DOTween.Kill(_pointLight.transform);
 
             if (null != _hudKey)
@@ -88,21 +108,21 @@ namespace WarGame
             var id = GetID();
             _hudKey = id + "_Fire";
             var args = new object[] { id, GetConfig().Duration};
-            HUDManager.Instance.AddHUD<HUDFire>("HUDFire", _hudKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
+            var hud = HUDManager.Instance.AddHUD<HUDFire>("HUDFire", _hudKey, _hudPoint.GetComponent<UIPanel>().ui, _hudPoint, args);
+            hud.SetVisible(_started);
+        }
+
+        public override void Start()
+        {
+            base.Start();
+            if (null == _hudKey)
+                return;
+            var hud = HUDManager.Instance.GetHUD<HUDFire>(_hudKey);
+            hud.SetVisible(true);
         }
 
         public void Update(float deltaTime)
         {
-            //if (null == SceneMgr.Instance.BattleField)
-            //    return;
-
-            //if (null == SceneMgr.Instance.BattleField.weather)
-            //    return;
-
-            //var lightIntensity = SceneMgr.Instance.BattleField.weather.GetLightIntensity();
-            //_pointLight.intensity = 2 - lightIntensity;
-            //_pointLight.range = 4 - lightIntensity;
-
             if (null != _pointLight)
             {
                 if (_pointShakeInterval <= 0)
@@ -156,7 +176,46 @@ namespace WarGame
 
             _isFired = true;
             _data.Fire();
-            UpdateFire();
+
+            var pos = _gameObject.transform.position;
+            foreach (var v in GetConfig().Cost)
+            {
+                var itemConfig = ConfigMgr.Instance.GetConfig<ItemConfig>("ItemConfig", v.id);
+                int assetID = 0;
+                assetID = AssetsMgr.Instance.LoadAssetAsync<GameObject>(itemConfig.Prefab, (prefab) =>
+                {
+                    var count = Mathf.Min(v.value, 2);
+                    for (int i = 0; i < count; i++)
+                    {
+                        var go = GameObject.Instantiate(prefab);
+                        AudioMgr.Instance.PlaySound("Assets/Audios/Drop.mp3", false, go, 1, 6);
+                        go.transform.position = pos + new Vector3(0, 1.6F, 0);
+                        Sequence seq = DOTween.Sequence();
+                        seq.Append(go.transform.DOMove(pos + new Vector3(Random.Range(-0.5F, 0.5F), 1.6F, Random.Range(-0.5F, 0.5F)), 0.1f));
+                        seq.AppendInterval(Random.Range(0.1F, 0.4F));
+                        seq.Append(go.transform.DOMove(pos + new Vector3(0, 0.4F, 0), 0.2F));
+                        seq.onComplete = () =>
+                        {
+                            _gos.Remove(go);
+                            _assets.Remove(assetID);
+                            AudioMgr.Instance.ClearSound(go);
+                            AssetsMgr.Instance.Destroy(go);
+                            _sequences.Remove(seq);
+                        };
+
+                        _gos.Add(go);
+                        _sequences.Add(seq);
+                    }
+                });
+                _assets.Add(assetID);
+            }
+
+            Sequence seq = DOTween.Sequence();
+            seq.AppendInterval(0.8F);
+            seq.onComplete = () => { 
+                UpdateFire();
+                _sequences.Remove(seq);
+            };
         }
 
         private void OutFire()
@@ -201,6 +260,9 @@ namespace WarGame
 
         public bool CanFire()
         {
+            if (_isFired)
+                return false;
+
             var hexagon = MapManager.Instance.GetHexagon(_data.UID);
             foreach (var v in MapManager.Instance.Dicections)
             {

@@ -42,7 +42,9 @@ namespace WarGame
             if ("Cure" == stateName && "Take" == secondStateName)
             {
                 _lock = 2;
-                _targets.Add(BattleMgr.Instance.DoClone(_initiatorID, _targetHexagon.ID, (int)GetConfig().Params[0]));
+                var role = BattleMgr.Instance.DoClone(_initiatorID, _targetHexagon.ID, (int)GetConfig().Params[0]);
+                role.Start();
+                _targets.Add(role.ID);
             }
         }
 
@@ -78,6 +80,10 @@ namespace WarGame
                             continue;
 
                         if (!hexagon.IsReachable())
+                            continue;
+
+                        var upHexagonKey = MapTool.Instance.GetHexagonKey(hexCoor + new WGVector3(0, 1, 0));
+                        if (MapManager.Instance.ContainHexagon(upHexagonKey))
                             continue;
 
                         _targetHexagon = hexagon;

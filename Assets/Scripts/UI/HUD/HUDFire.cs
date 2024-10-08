@@ -20,7 +20,7 @@ namespace WarGame.UI
             _timeTxt = GetGObjectChild<GTextField>("time");
             _firedC = GetController("isFired");
 
-            _gCom.onClick.Add(OnClick);
+            GetGObjectChild<GLoader>("icon").onClick.Add(OnClick);
         }
 
         public override void Update(float deltaTime)
@@ -63,15 +63,7 @@ namespace WarGame.UI
 
         private void OnClick()
         {
-            var bonfire = MapManager.Instance.GetBonfire(_id);
-
-            if (!bonfire.CanFire())
-            {
-                TipsMgr.Instance.Add(ConfigMgr.Instance.GetTranslation("Fight_BonfireTips"));
-                return;
-            }
-
-            MapManager.Instance.Fire(_id);
+            EventDispatcher.Instance.PostEvent(Enum.Event.Fight_Fire, new object[] { _id });
         }
 
         public void OutFire()

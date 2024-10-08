@@ -36,7 +36,8 @@ namespace WarGame.UI
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Hide_HeroGroup, OnHideHeroGroup);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Show_RoleInfo, OnShowRoleInfo);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_Hide_RoleInfo, OnHideRoleInfo);
-            EventDispatcher.Instance.AddListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.AddListener(Enum.Event.Item_Update, OnItemUpdate);
+            EventDispatcher.Instance.AddListener(Enum.Event.Item_Update, OnItemUpdate);
             EventDispatcher.Instance.AddListener(Enum.Event.Fight_ShowReady, OnFightReady);
 
             _gCom.GetChild("closeBtn").onClick.Add(() =>
@@ -138,20 +139,24 @@ namespace WarGame.UI
             _roleInfo.Hide();
         }
 
-        private void OnFightDrops(params object[] args)
+        private void OnItemUpdate(params object[] args)
         {
+            DebugManager.Instance.Log("OnFightDrops");
             UpdateRess(false);
         }
 
         private void UpdateRess(bool init = true)
         {
-            var itemsDic = DatasMgr.Instance.GetLevelData(_levelID).itemsDic;
+            var itemsDic = DatasMgr.Instance.GetLevelData(_levelID).GetItems();
             var ress = new List<TwoIntPair>();
             var itemID = (int)Enum.ItemType.LevelRes;
+            //DebugManager.Instance.Log(itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0);
             ress.Add(new TwoIntPair(itemID, itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0));
             itemID = (int)Enum.ItemType.TalentRes;
+            //DebugManager.Instance.Log(itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0);
             ress.Add(new TwoIntPair(itemID, itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0));
             itemID = (int)Enum.ItemType.EquipRes;
+            //DebugManager.Instance.Log(itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0);
             ress.Add(new TwoIntPair(itemID, itemsDic.ContainsKey(itemID) ? itemsDic[itemID] : 0));
             if (init)
                 _resComp.InitComp(ress);
@@ -175,8 +180,9 @@ namespace WarGame.UI
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Infor_Hide, OnVSHide);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Show_HeroGroup, OnShowHeroGroup);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Hide_HeroGroup, OnHideHeroGroup);
-            EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_Drops, OnFightDrops);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Item_Update, OnItemUpdate);
             EventDispatcher.Instance.RemoveListener(Enum.Event.Fight_ShowReady, OnFightReady);
+            EventDispatcher.Instance.RemoveListener(Enum.Event.Item_Update, OnItemUpdate);
 
             base.Dispose(disposeGCom);
         }

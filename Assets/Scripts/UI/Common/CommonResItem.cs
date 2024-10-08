@@ -28,7 +28,7 @@ namespace WarGame.UI
         public void UpdateItem(int value)
         {
             _deltaValue = value - _value;
-            _frameDeltaValue = _deltaValue / 25;
+            _frameDeltaValue = Mathf.Max(1, _deltaValue / 25);
         }
 
         public override void Update(float deltaTime)
