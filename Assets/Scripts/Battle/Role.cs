@@ -49,6 +49,8 @@ namespace WarGame
 
         protected bool _hpVisible = false;
 
+        protected int _animatorAssetsID = 0;
+
         public int ID
         {
             get { return _data.UID; }
@@ -166,7 +168,7 @@ namespace WarGame
         protected virtual void InitAnimator()
         {
             var animatorConfig = GetAnimatorConfig();
-            AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
+            _animatorAssetsID = AssetsMgr.Instance.LoadAssetAsync<RuntimeAnimatorController>(animatorConfig.Controller, (RuntimeAnimatorController controller) =>
             {
                 _gameObject.GetComponent<Animator>().runtimeAnimatorController = controller;
                 InitStates();
@@ -312,8 +314,6 @@ namespace WarGame
         {
             _curAnimState = stateName;
         }
-
-        private string _willAnimState = null;
 
         protected void EnterState(string stateName)
         {
@@ -845,7 +845,12 @@ namespace WarGame
                     }
                 }
             }
-            return percent / (1 + _data.equipDataDic.Count);
+
+            //需要计算加载动画状态机的进度
+            if (0 != _animatorAssetsID)
+                percent += AssetsMgr.Instance.GetLoadingProgress(_animatorAssetsID);
+
+            return percent / (2 + _data.equipDataDic.Count);
         }
 
         public void SetFollowing(bool following)

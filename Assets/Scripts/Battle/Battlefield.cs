@@ -24,6 +24,7 @@ namespace WarGame
         public Weather weather;
         private bool _isLockingCamera;
         public Light mainLight;
+        public Light nightLight;
         private List<int> _assets = new List<int>();
         private List<Sequence> _sequences = new List<Sequence>();
         private List<GameObject> _gos = new List<GameObject>();
@@ -138,9 +139,6 @@ namespace WarGame
                 {
                     if (v.HP > 0)
                         RoleManager.Instance.CreateRole(Enum.RoleType.Enemy, v);
-                    if (v.UID == 20918)
-                        v.state = Enum.RoleState.Locked;
-                        //DebugManager.Instance.Log(v.state);
                 }
 
                 if (null == _levelData.bonfires)
@@ -159,6 +157,7 @@ namespace WarGame
             weather = new Weather();
             _arrow = new LocatingArrow();
             mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+            nightLight = GameObject.Find("Night Light").GetComponent<Light>();
 
             _loading = true;
             //startTime = TimeMgr.Instance.GetUnixTimestamp();

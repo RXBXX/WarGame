@@ -89,6 +89,10 @@
             {
                 "id": 9,
                 "value": 2
+            },
+            {
+                "id": 11,
+                "value": 10
             }
         ],
         "Buffs": [
@@ -100,7 +104,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_RockHit.prefab",
-        "Cost": 18,
+        "Cost": 28,
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -117,6 +121,10 @@
             {
                 "id": 9,
                 "value": 2
+            },
+            {
+                "id": 11,
+                "value": 40
             }
         ],
         "Buffs": [
@@ -128,7 +136,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_01.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX2_SparksHit_B Sphere.prefab",
-        "Cost": 80,
+        "Cost": 128,
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -285,6 +293,10 @@
             {
                 "id": 9,
                 "value": 2
+            },
+            {
+                "id": 11,
+                "value": 28
             }
         ],
         "Buffs": [
@@ -296,7 +308,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_03.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_B_Gravity.prefab",
-        "Cost": 64,
+        "Cost": 92,
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -308,11 +320,15 @@
         "Attrs": [
             {
                 "id": 3,
-                "value": 40
+                "value": 60
             },
             {
                 "id": 9,
                 "value": 2
+            },
+            {
+                "id": 11,
+                "value": 20
             }
         ],
         "Buffs": [
@@ -324,7 +340,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_04.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_Misc_D.prefab",
-        "Cost": 23,
+        "Cost": 60,
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
@@ -341,6 +357,10 @@
             {
                 "id": 9,
                 "value": 2
+            },
+            {
+                "id": 11,
+                "value": 32
             }
         ],
         "Buffs": [
@@ -352,7 +372,7 @@
         "Effect": null,
         "Bullet": "Assets/Prefabs/Equipments/Arrow_05.prefab",
         "HitEffect": "Assets/Prefabs/Effects/CFX3_Hit_SmokePuff.prefab",
-        "Cost": 70,
+        "Cost": 102,
         "Sound": "Assets/Audios/Bow.mp3"
     },
     {
